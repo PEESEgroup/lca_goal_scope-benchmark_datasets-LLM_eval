@@ -1,0 +1,74 @@
+{
+    "siteDescription": "White clover/high sugar perennial ryegrass mix fields, North Wyke Farm Platform",
+    "siteName": "Permanent pasture - Rothamsted Research - Devon (Administrative County), England, United Kingdom - White clover/high sugar perenn...",
+    "siteType": "permanent pasture",
+    "siteLocation": "United Kingdom - Devon (Administrative County), England, United Kingdom",
+    "cycleDescription": "White clover/high sugar perennial ryegrass mix fields",
+    "functionalUnit": "relative",
+    "systemBoundaryCompleteness": {
+        "electricityFuel": true,
+        "transport": false,
+        "material": false,
+        "fertiliser": true,
+        "ingredient": true,
+        "otherChemical": true,
+        "seed": true,
+        "pesticideVeterinaryDrug": true,
+        "soilAmendment": true,
+        "water": false,
+        "product": true,
+        "cropResidue": true,
+        "excreta": false,
+        "animalFeed": true,
+        "freshForage": true,
+        "liveAnimalInput": true,
+        "animalPopulation": true,
+        "waste": false,
+        "operation": true,
+        "@type": "Completeness",
+        "updated": [
+            "freshForage"
+        ],
+        "updatedVersion": [
+            "0.70.0"
+        ]
+    },
+    "bibliography": {
+        "documentDOI": "10.1016/j.jclepro.2017.10.113",
+        "title": "Distributions of emissions intensity for individual beef cattle reared on pasture-based production systems",
+        "year": 2018,
+        "name": "McAuliffe et al (2018)",
+        "authors": [
+            {
+                "@id": "kelqal_jkfl4",
+                "@type": "Actor"
+            },
+            {
+                "@id": "k67scah9ckn6",
+                "@type": "Actor"
+            },
+            {
+                "@id": "1sasfatkiglw",
+                "@type": "Actor"
+            },
+            {
+                "@id": "mt4ozjuns3w2",
+                "@type": "Actor"
+            },
+            {
+                "@id": "tn_5fi3fomum",
+                "@type": "Actor"
+            }
+        ],
+        "outlet": "Journal of Cleaner Production",
+        "mendeleyID": "ab2c7d52-4fd1-3e9d-bf38-441e4dbdd6f4",
+        "scopus": "2-s2.0-85034619437",
+        "@type": "Bibliography"
+    },
+    "notes": "The study mentions that 'sheep also occupy grassland as part of rotational grazing systems, although they do not share the same pasture with cattle at any given time' and therefore their manure also contributes to pasture growth. However, no other information about the length of time the sheep graze, or the number of sheep. Therefore, these have been left out of the upload for now. In addition, the study mentions that animals also feed on ryegrass silage for part of the year. However, no information was given on the quantity. It was removed from the upload to enable animalFeed = TRUE, and allow the grass consumption model to run. The missing energy requirements from ryegrass silage will be substituted as a proxy with extra grass consumption estimated by the model.",
+    "name": "Beef cattle, heifer and steer - United Kingdom - 2015-12-01",
+    "allocationMethod": "economic",
+    "functionalUnitQuantity": 1,
+    "product0properties": "Liveweight per head - kg liveweight / head",
+    "product_primary": true
+}

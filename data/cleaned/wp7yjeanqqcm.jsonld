@@ -1,0 +1,60 @@
+{
+    "cycleDescription": "Control merit cows, in high forage system (conventional regime; cows housed in winter, graze rest of year)",
+    "functionalUnit": "relative",
+    "systemBoundaryCompleteness": {
+        "electricityFuel": true,
+        "transport": false,
+        "material": false,
+        "fertiliser": true,
+        "ingredient": true,
+        "otherChemical": true,
+        "seed": true,
+        "pesticideVeterinaryDrug": false,
+        "soilAmendment": false,
+        "water": false,
+        "product": false,
+        "cropResidue": true,
+        "excreta": false,
+        "animalFeed": true,
+        "freshForage": false,
+        "liveAnimalInput": true,
+        "animalPopulation": true,
+        "waste": false,
+        "operation": false,
+        "@type": "Completeness"
+    },
+    "bibliography": {
+        "documentDOI": "10.3389/fsufs.2021.588158",
+        "title": "Effect of Nutritional Variation and LCA Methodology on the Carbon Footprint of Milk Production From Holstein Friesian Dairy Cows",
+        "year": 2021,
+        "outlet": "Frontiers in Sustainable Food Systems",
+        "authors": [
+            {
+                "@id": "bizmk_etutyc",
+                "@type": "Actor"
+            },
+            {
+                "@id": "zxmjuawzwrz6",
+                "@type": "Actor"
+            },
+            {
+                "@id": "ixh9mabg0ib-",
+                "@type": "Actor"
+            },
+            {
+                "@id": "sgg9lcuawr3m",
+                "@type": "Actor"
+            }
+        ],
+        "name": "March et al (2021)",
+        "articlePdf": "https://www.frontiersin.org/articles/10.3389/fsufs.2021.588158/pdf",
+        "@type": "Bibliography"
+    },
+    "notes": "Suspect that the diesel, electricity and petrol use recorded is for the full system (i.e. including for growing fodder crops on farm), as opposed to simply the animal rearing cycle (pasture and housing) under which it is currently recorded. Author has been emailed to ask for disaggregated data (incl.  more specific data on crop cultivation), but cannot supply this at this time. Quantity of meat/live animals sold as co-products is also missing. The study states that \"a whole farm approach is taken and emissions are allocated between milk and meat using no allocation to meat and 100% to milk\".",
+    "name": "Milk, cow, raw - United Kingdom - 2010-12-01",
+    "allocationMethod": "economic",
+    "functionalUnitQuantity": 1,
+    "product0properties": "Fat content - %",
+    "product1properties": "Crude protein content - %",
+    "product_primary": true
+}

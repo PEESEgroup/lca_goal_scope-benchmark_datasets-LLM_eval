@@ -1,0 +1,66 @@
+{
+    "siteName": "Animal housing - United Kingdom",
+    "siteType": "animal housing",
+    "siteLocation": "United Kingdom",
+    "cycleDescription": "Cycle represents all inputs associated with the rearing of all chicks, pullets and layer hens in order to produce 1000kg of eggs in organic free range systems.",
+    "functionalUnit": "relative",
+    "systemBoundaryCompleteness": {
+        "electricityFuel": true,
+        "transport": false,
+        "material": false,
+        "fertiliser": true,
+        "ingredient": true,
+        "otherChemical": true,
+        "seed": true,
+        "pesticideVeterinaryDrug": false,
+        "soilAmendment": true,
+        "water": true,
+        "product": true,
+        "cropResidue": true,
+        "excreta": false,
+        "animalFeed": true,
+        "freshForage": true,
+        "liveAnimalInput": true,
+        "animalPopulation": true,
+        "waste": false,
+        "operation": false,
+        "@type": "Completeness"
+    },
+    "bibliography": {
+        "documentDOI": "10.3382/ps.2011-01635",
+        "title": "Predicting the environmental impacts of chicken systems in the united kingdom through a life cycle assessment: Egg production systems",
+        "name": "Leinonen et al (2012)",
+        "authors": [
+            {
+                "@id": "xipvvl5bwwyv",
+                "@type": "Actor"
+            },
+            {
+                "@id": "kabdtrpt6_sl",
+                "@type": "Actor"
+            },
+            {
+                "@id": "kx_qecczpxtw",
+                "@type": "Actor"
+            },
+            {
+                "@id": "xx18hbd8nd6m",
+                "@type": "Actor"
+            },
+            {
+                "@id": "yxetw5230da7",
+                "@type": "Actor"
+            }
+        ],
+        "outlet": "Poultry Science",
+        "year": 2012,
+        "mendeleyID": "b4dba9e2-c58b-3efa-813a-b1914b988bdb",
+        "scopus": "2-s2.0-83755183296",
+        "@type": "Bibliography"
+    },
+    "notes": "Assuming Eutrophication potential is calculated with CML2001 Baseline method (although this is not clearly specified in the study).",
+    "name": "Layer chicken, hen - United Kingdom - 2010",
+    "allocationMethod": "economic",
+    "functionalUnitQuantity": 1,
+    "product0properties": "Liveweight per head - kg liveweight / head"
+}

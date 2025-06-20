@@ -101,4 +101,4 @@ for entry_name in os.listdir(directory_path):
 
     # write out data
     with open("data/cleaned/{}".format(entry_name), "w+") as w:
-        json.dump(lca_data, w)
+        json.dump(lca_data, w, indent=4)

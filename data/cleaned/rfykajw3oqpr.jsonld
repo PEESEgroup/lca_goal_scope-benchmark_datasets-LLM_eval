@@ -1,0 +1,57 @@
+{
+    "siteName": "Animal housing - Nordrhein-Westfalen, Germany",
+    "siteType": "animal housing",
+    "siteLocation": "Germany - Nordrhein-Westfalen",
+    "cycleDescription": "Fattening-FARM",
+    "functionalUnit": "relative",
+    "systemBoundaryCompleteness": {
+        "electricityFuel": false,
+        "operation": false,
+        "material": false,
+        "fertiliser": true,
+        "seed": true,
+        "pesticideVeterinaryDrug": false,
+        "soilAmendment": true,
+        "water": false,
+        "product": true,
+        "cropResidue": true,
+        "excreta": true,
+        "animalFeed": true,
+        "waste": false,
+        "liveAnimalInput": true,
+        "transport": false,
+        "otherChemical": true,
+        "ingredient": true,
+        "freshForage": true,
+        "animalPopulation": true,
+        "@type": "Completeness"
+    },
+    "bibliography": {
+        "title": "European Grain Legumes - Environment-Friendly Animal Feed? Life Cycle Assessment of Pork, Chicken, Meat, Egg, and Milk Production",
+        "outlet": "FDEA",
+        "year": 2008,
+        "authors": [
+            {
+                "@id": "t-xulccqdagu",
+                "@type": "Actor"
+            },
+            {
+                "@id": "rvq-nkjzequt",
+                "@type": "Actor"
+            },
+            {
+                "@id": "humuze1zsggm",
+                "@type": "Actor"
+            }
+        ],
+        "name": "Baumgartner et al (2008)",
+        "@type": "Bibliography"
+    },
+    "name": "Pig - Germany - 2005",
+    "allocationMethod": "economic",
+    "functionalUnitQuantity": 1,
+    "product0properties": "Liveweight per head - kg liveweight / head",
+    "product1properties": "Age - days",
+    "product2properties": "Weight at slaughter - kg liveweight / head",
+    "product_primary": true
+}

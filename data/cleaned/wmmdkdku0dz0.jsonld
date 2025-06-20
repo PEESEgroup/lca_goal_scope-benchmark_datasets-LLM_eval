@@ -1,0 +1,32 @@
+{
+    "cycleDescription": "Aggregate cycle representing all 75 dairy farms sampled",
+    "functionalUnit": "relative",
+    "systemBoundaryCompleteness": {
+        "electricityFuel": true,
+        "transport": false,
+        "material": false,
+        "fertiliser": false,
+        "otherChemical": true,
+        "seed": false,
+        "pesticideVeterinaryDrug": false,
+        "soilAmendment": true,
+        "ingredient": true,
+        "water": false,
+        "product": true,
+        "cropResidue": true,
+        "excreta": false,
+        "animalFeed": true,
+        "freshForage": true,
+        "liveAnimalInput": true,
+        "animalPopulation": true,
+        "waste": false,
+        "operation": false,
+        "@type": "Completeness"
+    },
+    "name": "Milk, cow, raw (FPCM) - Southern Europe - 2019",
+    "allocationMethod": "economic",
+    "functionalUnitQuantity": 1,
+    "product0properties": "Fat content - %",
+    "product1properties": "Crude protein content - %",
+    "product_primary": true
+}

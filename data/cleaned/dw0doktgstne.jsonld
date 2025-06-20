@@ -1,0 +1,58 @@
+{
+    "siteName": "Permanent pasture - Ireland",
+    "siteType": "permanent pasture",
+    "siteLocation": "Ireland",
+    "cycleDescription": "A representative sample of Irish dairy farms.",
+    "functionalUnit": "relative",
+    "systemBoundaryCompleteness": {
+        "electricityFuel": false,
+        "transport": false,
+        "material": false,
+        "fertiliser": true,
+        "seed": true,
+        "pesticideVeterinaryDrug": false,
+        "soilAmendment": true,
+        "water": false,
+        "product": true,
+        "cropResidue": true,
+        "excreta": false,
+        "animalFeed": false,
+        "animalPopulation": false,
+        "waste": false,
+        "operation": false,
+        "freshForage": true,
+        "ingredient": true,
+        "liveAnimalInput": true,
+        "otherChemical": true,
+        "@type": "Completeness"
+    },
+    "bibliography": {
+        "documentDOI": "10.1016/j.resenv.2023.100126",
+        "title": "Environmental impact of grass-based cattle farms: A life cycle assessment of nature-based diversification scenarios",
+        "name": "O'Brien et al (2023)",
+        "authors": [
+            {
+                "@id": "hkkvu2i2dyjx",
+                "@type": "Actor"
+            },
+            {
+                "@id": "kdamr8v1wubt",
+                "@type": "Actor"
+            },
+            {
+                "@id": "urifoun16r8c",
+                "@type": "Actor"
+            }
+        ],
+        "outlet": "Resources, Environment and Sustainability",
+        "year": 2023,
+        "mendeleyID": "7c25abb8-dc3a-3866-834f-231659813397",
+        "scopus": "2-s2.0-85162150412",
+        "@type": "Bibliography"
+    },
+    "notes": "The authors reported GWP100 values both including and excluding carbon sequestration. We recorded the lower values, which include carbon sequestration.",
+    "name": "Milk, cow, raw (FPCM) - Ireland - 2019",
+    "allocationMethod": "economic",
+    "functionalUnitQuantity": 1,
+    "product_primary": true
+}

@@ -1,0 +1,66 @@
+{
+    "siteDescription": "Milk production",
+    "siteName": "Animal housing - Galicia (Comunidad Aut\u00c3\u00b3noma), Spain - Milk production",
+    "siteType": "animal housing",
+    "siteLocation": "Spain - Galicia (Comunidad Aut\u00c3\u00b3noma), Spain",
+    "functionalUnit": "relative",
+    "systemBoundaryCompleteness": {
+        "electricityFuel": true,
+        "transport": false,
+        "material": false,
+        "fertiliser": true,
+        "seed": true,
+        "pesticideVeterinaryDrug": true,
+        "soilAmendment": false,
+        "water": true,
+        "product": true,
+        "cropResidue": false,
+        "excreta": true,
+        "animalFeed": true,
+        "animalPopulation": false,
+        "waste": true,
+        "operation": true,
+        "freshForage": true,
+        "ingredient": true,
+        "liveAnimalInput": true,
+        "otherChemical": true,
+        "@type": "Completeness",
+        "updated": [
+            "electricityFuel"
+        ],
+        "updatedVersion": [
+            "0.70.0"
+        ]
+    },
+    "bibliography": {
+        "title": "Pursuing the route to eco-efficiency in dairy production: The case of Galician area",
+        "year": 2021,
+        "documentDOI": "10.1016/j.jclepro.2020.124861",
+        "outlet": "Journal of Cleaner Production",
+        "authors": [
+            {
+                "@id": "lsyoptk6eoqc",
+                "@type": "Actor"
+            },
+            {
+                "@id": "e2yzhygxen2r",
+                "@type": "Actor"
+            },
+            {
+                "@id": "qzz0mqhyew_f",
+                "@type": "Actor"
+            },
+            {
+                "@id": "2pw5h818xvis",
+                "@type": "Actor"
+            }
+        ],
+        "name": "Cortes et al (2021)",
+        "articlePdf": "https://minerva.usc.es/xmlui/bitstream/10347/23563/2/2021_jclepro_cortes_pursuing.pdf",
+        "@type": "Bibliography"
+    },
+    "notes": "The study needs to be updated once the transport module is available.",
+    "name": "Wastewater (kg mass) - Spain - 2019-03",
+    "allocationMethod": "economic",
+    "functionalUnitQuantity": 1
+}

@@ -1,0 +1,50 @@
+{
+    "siteDescription": "Slaughterhouse",
+    "siteName": "Agri-food processor - Denmark - Slaughterhouse",
+    "siteType": "agri-food processor",
+    "siteLocation": "Denmark",
+    "cycleDescription": "Slaughter-2015",
+    "functionalUnit": "relative",
+    "systemBoundaryCompleteness": {
+        "electricityFuel": false,
+        "operation": false,
+        "material": false,
+        "fertiliser": true,
+        "seed": true,
+        "pesticideVeterinaryDrug": true,
+        "soilAmendment": true,
+        "water": false,
+        "product": true,
+        "cropResidue": true,
+        "excreta": false,
+        "animalFeed": true,
+        "waste": false,
+        "liveAnimalInput": true,
+        "transport": false,
+        "otherChemical": true,
+        "ingredient": true,
+        "freshForage": true,
+        "animalPopulation": true,
+        "@type": "Completeness"
+    },
+    "bibliography": {
+        "title": "LANDSGENNEMSNIT FOR PRODUKTIVITET SVINEPRODUKTIONEN 2016",
+        "outlet": "SEGES",
+        "websites": [
+            "https://svineproduktion.dk/publikationer/kilder/notater/2017/1716"
+        ],
+        "year": 2017,
+        "authors": [
+            {
+                "@id": "82pvetuybukc",
+                "@type": "Actor"
+            }
+        ],
+        "name": "Helverskov (2017)",
+        "@type": "Bibliography"
+    },
+    "name": "Meat, pig (cold dressed carcass weight) - Denmark - 2015",
+    "allocationMethod": "economic",
+    "functionalUnitQuantity": 1,
+    "product_primary": true
+}

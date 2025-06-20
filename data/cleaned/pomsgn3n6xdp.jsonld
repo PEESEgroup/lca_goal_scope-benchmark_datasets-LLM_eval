@@ -1,0 +1,60 @@
+{
+    "siteName": "Animal housing - Germany",
+    "siteType": "animal housing",
+    "siteLocation": "Germany",
+    "cycleDescription": "Fattening Germany Conventional",
+    "functionalUnit": "relative",
+    "systemBoundaryCompleteness": {
+        "electricityFuel": false,
+        "operation": false,
+        "material": false,
+        "fertiliser": true,
+        "seed": true,
+        "pesticideVeterinaryDrug": false,
+        "soilAmendment": true,
+        "water": false,
+        "product": true,
+        "cropResidue": true,
+        "excreta": false,
+        "animalFeed": true,
+        "waste": false,
+        "liveAnimalInput": true,
+        "transport": false,
+        "otherChemical": false,
+        "ingredient": true,
+        "freshForage": true,
+        "animalPopulation": true,
+        "@type": "Completeness"
+    },
+    "bibliography": {
+        "title": "Carbon footprints of conventional and organic pork",
+        "outlet": "Wageningen University and Research Centre",
+        "websites": [
+            "https://www.researchgate.net/publication/41104476_Carbon_footprints_of_conventional_and_organic_pork_assessments_of_typical_production_systems_in_the_Netherlands_Denmark_England_and_GermanyCarbon_footprints_of_conventional_and_organic_pork_assessment"
+        ],
+        "year": 2009,
+        "authors": [
+            {
+                "@id": "rfvwahnlnd2g",
+                "@type": "Actor"
+            },
+            {
+                "@id": "g7qbdtbfrzio",
+                "@type": "Actor"
+            },
+            {
+                "@id": "aoyobz0p0cce",
+                "@type": "Actor"
+            }
+        ],
+        "name": "Kool et al (2009)",
+        "@type": "Bibliography"
+    },
+    "notes": "They have included information from lots of different sources, for this reason I have not inlcuded the information regarding crop production (only feed composition) because some of these products we already have the sources.",
+    "name": "Pig - Germany - 2007",
+    "allocationMethod": "economic",
+    "functionalUnitQuantity": 1,
+    "product0properties": "Weight at slaughter - kg liveweight / head",
+    "product1properties": "Liveweight per head - kg liveweight / head",
+    "product_primary": true
+}
