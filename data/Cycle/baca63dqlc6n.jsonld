@@ -1,0 +1,807 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2023-06-02",
+  "updatedAt": "2024-12-06",
+  "@id": "baca63dqlc6n",
+  "@type": "Cycle",
+  "site": {
+    "@id": "sjdithvxxk3o",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "_mtpo6ilytlr",
+    "@type": "Source"
+  },
+  "functionalUnit": "relative",
+  "startDate": "2007",
+  "startDateDefinition": "start of year",
+  "endDate": "2008",
+  "cycleDuration": 21,
+  "description": "This cycle represents the inventory for 3 weeks of breeder unit production in the southern supply chain.",
+  "defaultMethodClassification": "verified survey data",
+  "defaultMethodClassificationDescription": "Data collected from piggery, including site visits.",
+  "completeness": {
+    "electricityFuel": true,
+    "material": true,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "otherChemical": false,
+    "soilAmendment": true,
+    "water": true,
+    "product": true,
+    "cropResidue": true,
+    "excreta": true,
+    "animalFeed": true,
+    "transport": false,
+    "waste": false,
+    "liveAnimalInput": true,
+    "operation": false,
+    "ingredient": true,
+    "freshForage": true,
+    "animalPopulation": false,
+    "@type": "Completeness"
+  },
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed blend",
+        "termType": "processedFood",
+        "@id": "concentrateFeedBlend",
+        "units": "kg"
+      },
+      "value": [
+        56.3
+      ],
+      "impactAssessment": {
+        "@id": "hrejr2nzjkcm",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "isAnimalFeed": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Nitrogen content",
+            "termType": "property",
+            "@id": "nitrogenContent",
+            "units": "%"
+          },
+          "value": 2.1314387211367674,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "material",
+        "name": "Concrete, depreciated amount per Cycle",
+        "units": "kg/functional unit/Cycle",
+        "@id": "concreteDepreciatedAmountPerCycle"
+      },
+      "value": [
+        4.8
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Steel, depreciated amount per Cycle",
+        "termType": "material",
+        "@id": "steelDepreciatedAmountPerCycle",
+        "units": "kg/functional unit/Cycle"
+      },
+      "value": [
+        0.251
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        16
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Liquefied petroleum gases (LPG)",
+        "units": "kg",
+        "@id": "liquefiedPetroleumGasesLpg"
+      },
+      "value": [
+        1.066
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Petrol",
+        "units": "kg",
+        "@id": "petrol"
+      },
+      "value": [
+        0.029920000000000002
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        0.083
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Indoor animal system",
+        "termType": "system",
+        "@id": "indoorAnimalSystem",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "animalId": "1",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig, piglet",
+        "units": "number",
+        "@id": "pigPiglet"
+      },
+      "referencePeriod": "average",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Mortality rate",
+            "termType": "property",
+            "@id": "mortalityRate",
+            "units": "%"
+          },
+          "value": 12,
+          "min": 12,
+          "max": 15,
+          "statsDefinition": "other observations",
+          "description": "other observations",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "animalId": "2",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig, sow",
+        "units": "number",
+        "@id": "pigSow"
+      },
+      "referencePeriod": "average",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Percentage of served animals delivering",
+            "termType": "property",
+            "@id": "percentageOfServedAnimalsDelivering",
+            "units": "%"
+          },
+          "value": 80,
+          "min": 80,
+          "max": 88,
+          "statsDefinition": "other observations",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "property",
+            "name": "Live animals per birth",
+            "units": "number",
+            "@id": "liveAnimalsPerBirth"
+          },
+          "value": 10.11,
+          "min": 9,
+          "max": 11,
+          "statsDefinition": "other observations",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Deliveries per Cycle",
+            "termType": "property",
+            "@id": "deliveriesPerCycle",
+            "units": "number / head / Cycle"
+          },
+          "value": 2.25,
+          "min": 2,
+          "max": 2.45,
+          "statsDefinition": "other observations",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Weaned animals per Cycle",
+            "termType": "property",
+            "@id": "weanedAnimalsPerCycle",
+            "units": "number / head / Cycle"
+          },
+          "value": 20,
+          "min": 17,
+          "max": 24,
+          "statsDefinition": "other observations",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Mortality rate",
+            "termType": "property",
+            "@id": "mortalityRate",
+            "units": "%"
+          },
+          "value": 5,
+          "min": 5,
+          "max": 14,
+          "statsDefinition": "other observations",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Culling rate",
+            "termType": "property",
+            "@id": "cullingRate",
+            "units": "%"
+          },
+          "value": 46,
+          "min": 35,
+          "max": 60,
+          "statsDefinition": "other observations",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig, piglet",
+        "units": "number",
+        "@id": "pigPiglet"
+      },
+      "value": [
+        1
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 6.1,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig, sow",
+        "units": "number",
+        "@id": "pigSow"
+      },
+      "value": [
+        5.1
+      ],
+      "description": "5.1 kg of \"backfatters\" produced per weaner; interpreted here to be sows sent for slaugher and liveweight of 95 kg per sow assumed based on fattened pig final weight.",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 95,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, pigs (kg VS)",
+        "units": "kg VS",
+        "@id": "excretaPigsKgVs"
+      },
+      "value": [
+        9.3
+      ],
+      "economicValueShare": 0,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Phosphorus content (as P)",
+            "termType": "property",
+            "@id": "phosphorusContentAsP",
+            "units": "%"
+          },
+          "value": 3.225806451612903,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Potassium content (as K)",
+            "termType": "property",
+            "@id": "potassiumContentAsK",
+            "units": "%"
+          },
+          "value": 2.150537634408602,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Total solids content",
+            "termType": "property",
+            "@id": "totalSolidsContent",
+            "units": "%"
+          },
+          "value": 123.65591397849462,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, pigs (kg N)",
+        "units": "kg N",
+        "@id": "excretaPigsKgN"
+      },
+      "value": [
+        0.97
+      ],
+      "description": "Excreted N calculated as N inputs in feed less N retained in pigs.",
+      "economicValueShare": 0,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Total ammoniacal nitrogen content (as N)",
+            "termType": "property",
+            "@id": "totalAmmoniacalNitrogenContentAsN",
+            "units": "%"
+          },
+          "value": 50,
+          "description": "Data from p. 104 and reported as NH3-N content, which here is assumed to be TAN (NH3-N + NH4-N) content.",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    }
+  ],
+  "emissions": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CH4, to air, enteric fermentation",
+        "termType": "emission",
+        "@id": "ch4ToAirEntericFermentation",
+        "units": "kg CH4"
+      },
+      "methodModel": {
+        "@type": "Term",
+        "name": "Other model",
+        "termType": "model",
+        "@id": "otherModel"
+      },
+      "methodModelDescription": "DCC 2007 (DCC = Department of Climate Change)",
+      "methodTier": "tier 2",
+      "value": [
+        0.12
+      ],
+      "@type": "Emission"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pit storage below animal confinements",
+        "termType": "excretaManagement",
+        "@id": "pitStorageBelowAnimalConfinements"
+      },
+      "transformationId": "1",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, pigs (kg VS)",
+            "units": "kg VS",
+            "@id": "excretaPigsKgVs"
+          },
+          "value": [
+            9.3
+          ],
+          "fromCycle": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, pigs (kg N)",
+            "units": "kg N",
+            "@id": "excretaPigsKgN"
+          },
+          "value": [
+            0.97
+          ],
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "emissions": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "NH3, to air, excreta",
+            "termType": "emission",
+            "@id": "nh3ToAirExcreta",
+            "units": "kg NH3"
+          },
+          "methodModel": {
+            "@type": "Term",
+            "name": "Other model",
+            "termType": "model",
+            "@id": "otherModel"
+          },
+          "methodTier": "tier 2",
+          "value": [
+            0.11535714285714285
+          ],
+          "min": [
+            0.08014285714285715
+          ],
+          "max": [
+            0.10928571428571429
+          ],
+          "statsDefinition": "other observations",
+          "@type": "Emission"
+        }
+      ],
+      "products": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, pigs (kg VS)",
+            "units": "kg VS",
+            "@id": "excretaPigsKgVs"
+          },
+          "value": [
+            9.3
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Phosphorus content (as P)",
+                "termType": "property",
+                "@id": "phosphorusContentAsP",
+                "units": "%"
+              },
+              "value": 3.225806451612903,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Potassium content (as K)",
+                "termType": "property",
+                "@id": "potassiumContentAsK",
+                "units": "%"
+              },
+              "value": 2.150537634408602,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Total solids content",
+                "termType": "property",
+                "@id": "totalSolidsContent",
+                "units": "%"
+              },
+              "value": 123.65591397849462,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "@type": "Product"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, pigs (kg N)",
+            "units": "kg N",
+            "@id": "excretaPigsKgN"
+          },
+          "value": [
+            0.875
+          ],
+          "min": [
+            0.874
+          ],
+          "max": [
+            0.9039999999999999
+          ],
+          "statsDefinition": "other observations",
+          "@type": "Product"
+        }
+      ],
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Uncovered anaerobic lagoon",
+        "termType": "excretaManagement",
+        "@id": "uncoveredAnaerobicLagoon"
+      },
+      "transformationId": "2",
+      "previousTransformationId": "1",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, pigs (kg VS)",
+            "units": "kg VS",
+            "@id": "excretaPigsKgVs"
+          },
+          "value": [
+            9.3
+          ],
+          "fromCycle": false,
+          "description": "Mass balance (calculated using PIGBAL)",
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, pigs (kg N)",
+            "units": "kg N",
+            "@id": "excretaPigsKgN"
+          },
+          "value": [
+            0.875
+          ],
+          "min": [
+            0.874
+          ],
+          "max": [
+            0.9039999999999999
+          ],
+          "statsDefinition": "other observations",
+          "fromCycle": false,
+          "@type": "Input"
+        }
+      ],
+      "emissions": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "NH3, to air, excreta",
+            "termType": "emission",
+            "@id": "nh3ToAirExcreta",
+            "units": "kg NH3"
+          },
+          "methodModel": {
+            "@type": "Term",
+            "name": "Other model",
+            "termType": "model",
+            "@id": "otherModel"
+          },
+          "methodTier": "tier 1",
+          "value": [
+            0.4923928571428572
+          ],
+          "min": [
+            0.21857142857142858
+          ],
+          "max": [
+            0.5585714285714286
+          ],
+          "statsDefinition": "other observations",
+          "@type": "Emission"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "N2O, to air, excreta, direct",
+            "termType": "emission",
+            "@id": "n2OToAirExcretaDirect",
+            "units": "kg N2O"
+          },
+          "methodModel": {
+            "@type": "Term",
+            "name": "IPCC (1996)",
+            "termType": "model",
+            "@id": "ipcc1996"
+          },
+          "methodTier": "tier 1",
+          "value": [
+            0.009857142857142858
+          ],
+          "min": [
+            0.0032857142857142855
+          ],
+          "max": [
+            0.05914285714285714
+          ],
+          "statsDefinition": "other observations",
+          "@type": "Emission"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "N2O, to air, excreta, indirect",
+            "termType": "emission",
+            "@id": "n2OToAirExcretaIndirect",
+            "units": "kg N2O"
+          },
+          "methodModel": {
+            "@type": "Term",
+            "name": "IPCC (1996)",
+            "termType": "model",
+            "@id": "ipcc1996"
+          },
+          "methodTier": "tier 1",
+          "value": [
+            0.03614285714285714
+          ],
+          "min": [
+            0.016428571428571428
+          ],
+          "max": [
+            0.03614285714285714
+          ],
+          "statsDefinition": "other observations",
+          "description": "Indirect N2O emissions related to NH3 only.",
+          "@type": "Emission"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "CH4, to air, excreta",
+            "termType": "emission",
+            "@id": "ch4ToAirExcreta",
+            "units": "kg CH4"
+          },
+          "methodModel": {
+            "@type": "Term",
+            "name": "IPCC (1996)",
+            "termType": "model",
+            "@id": "ipcc1996"
+          },
+          "methodTier": "tier 2",
+          "value": [
+            2.4934230000000004
+          ],
+          "@type": "Emission"
+        }
+      ],
+      "products": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Processed excreta (kg VS)",
+            "termType": "excreta",
+            "@id": "processedExcretaKgVs",
+            "units": "kg VS"
+          },
+          "economicValueShare": 0,
+          "@type": "Product"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Processed excreta (kg N)",
+            "termType": "excreta",
+            "@id": "processedExcretaKgN",
+            "units": "kg N"
+          },
+          "value": [
+            0.29500000000000004
+          ],
+          "min": [
+            0.136
+          ],
+          "max": [
+            0.398
+          ],
+          "statsDefinition": "other observations",
+          "economicValueShare": 0,
+          "@type": "Product"
+        }
+      ],
+      "@type": "Transformation"
+    }
+  ],
+  "dataPrivate": false,
+  "name": "Pig, piglet - New South Wales, Australia - 2008 - This cycle represents the inve...",
+  "schemaVersion": "30.4.0",
+  "originalId": "piglet_S"
+}

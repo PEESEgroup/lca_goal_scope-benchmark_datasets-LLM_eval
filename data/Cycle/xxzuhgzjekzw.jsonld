@@ -1,0 +1,347 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2023-11-06",
+  "updatedAt": "2025-01-22",
+  "@id": "xxzuhgzjekzw",
+  "@type": "Cycle",
+  "description": "Free range production system for egg production from laying hens",
+  "endDate": "2020",
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "izfygl0agpki",
+    "@type": "Site"
+  },
+  "otherSites": [
+    {
+      "@id": "u-rs0_onlzza",
+      "@type": "Site"
+    }
+  ],
+  "defaultSource": {
+    "@id": "s1krqknyo6_b",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "consistent external sources",
+  "defaultMethodClassificationDescription": "Hatchery and rearing (in battery and barn systems), as well as battery, barn, free-range laying hen house data, and feed composition for these three laying systems were taken from the Czech Environmental Information Agency (CENIA) portal, which indexes farms emitting more than five tons of ammonia annually.",
+  "dataPrivate": false,
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, source unspecified",
+        "units": "m3",
+        "@id": "waterSourceUnspecified"
+      },
+      "value": [
+        5803
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed blend",
+        "termType": "processedFood",
+        "@id": "concentrateFeedBlend",
+        "units": "kg"
+      },
+      "value": [
+        2351000
+      ],
+      "isAnimalFeed": true,
+      "impactAssessment": {
+        "@id": "uw-dkxkpbkb-",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        137715
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Layer chicken",
+        "units": "number",
+        "@id": "layerChicken"
+      },
+      "value": [
+        56000
+      ],
+      "impactAssessment": {
+        "@id": "x_kav3lva-yg",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Transport, unspecified",
+            "termType": "transport",
+            "@id": "transportUnspecified",
+            "units": "tkm"
+          },
+          "distance": 50,
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "isAnimalFeed": false,
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Free range system",
+        "termType": "system",
+        "@id": "freeRangeSystem",
+        "units": "%"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Layer chicken",
+        "units": "number",
+        "@id": "layerChicken"
+      },
+      "animalId": "1",
+      "value": 56000,
+      "referencePeriod": "average",
+      "practices": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Feed conversion ratio (fed weight)",
+            "termType": "animalManagement",
+            "@id": "feedConversionRatioFedWeight",
+            "units": "kg feed (fed weight) / kg liveweight"
+          },
+          "value": [
+            1.923
+          ],
+          "@type": "Practice"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "animalManagement",
+            "name": "Stocking density, animal housing (initial)",
+            "units": "animals / m2",
+            "@id": "stockingDensityAnimalHousingInitial"
+          },
+          "value": [
+            12.89134438
+          ],
+          "@type": "Practice"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "animalManagement",
+            "name": "Stocking density, permanent pasture (initial)",
+            "units": "animals / m2",
+            "@id": "stockingDensityPermanentPastureInitial"
+          },
+          "value": [
+            0.25
+          ],
+          "@type": "Practice"
+        }
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Mortality rate",
+            "termType": "property",
+            "@id": "mortalityRate",
+            "units": "%"
+          },
+          "value": 4,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "value": 119,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture/Range/Paddock (excreta management)",
+        "termType": "excretaManagement",
+        "@id": "pastureRangePaddockExcretaManagement"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, poultry (kg mass)",
+            "units": "kg",
+            "@id": "excretaPoultryKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 50,
+      "transformationId": "1",
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Poultry manure without litter",
+        "termType": "excretaManagement",
+        "@id": "poultryManureWithoutLitter"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, poultry (kg mass)",
+            "units": "kg",
+            "@id": "excretaPoultryKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 50,
+      "transformationId": "2",
+      "@type": "Transformation"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Eggs, hen, in shell (number)",
+        "units": "number",
+        "@id": "eggsHenInShellNumber"
+      },
+      "value": [
+        18200000
+      ],
+      "primary": true,
+      "price": 1.31,
+      "currency": "CZK",
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Layer chicken",
+        "units": "number",
+        "@id": "layerChicken"
+      },
+      "value": [
+        53760
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "organicFertiliser",
+        "name": "Wastewater (kg mass)",
+        "units": "kg",
+        "@id": "wastewaterKgMass"
+      },
+      "value": [
+        80
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, poultry (kg mass)",
+        "units": "kg",
+        "@id": "excretaPoultryKgMass"
+      },
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Layer chicken",
+        "units": "number",
+        "@id": "layerChicken"
+      },
+      "value": [
+        2240
+      ],
+      "fate": "processing",
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": true,
+    "product": false,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "freshForage": true,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "name": "Eggs, hen, in shell (number) - Czech Republic - 2020 - Free range production system f...",
+  "schemaVersion": "30.5.0",
+  "originalId": "Free Range 2"
+}

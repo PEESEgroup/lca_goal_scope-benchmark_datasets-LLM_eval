@@ -1,0 +1,139 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-02-05",
+  "updatedAt": "2025-01-23",
+  "@id": "zh_zcekhuipk",
+  "@type": "Cycle",
+  "endDate": "2015",
+  "numberOfCycles": 1,
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "ynqi0jwpqj9b",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "nke6buknxiap",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "physical measurement",
+  "defaultMethodClassificationDescription": "Experiment, where animals are slaughtered and measurements taken",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, bull",
+        "units": "number",
+        "@id": "beefCattleBull"
+      },
+      "value": [
+        20
+      ],
+      "impactAssessment": {
+        "@id": "oq05hb7mc-ov",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Transport, unspecified",
+            "termType": "transport",
+            "@id": "transportUnspecified",
+            "units": "tkm"
+          },
+          "distance": 25,
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "isAnimalFeed": false,
+      "@type": "Input"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, beef cattle (cold dressed carcass weight)",
+        "units": "kg cold dressed carcass weight",
+        "@id": "meatBeefCattleColdDressedCarcassWeight"
+      },
+      "value": [
+        7340
+      ],
+      "price": 4.534,
+      "currency": "EUR",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "property",
+            "name": "True protein content",
+            "units": "%",
+            "@id": "trueProteinContent"
+          },
+          "value": 22.9,
+          "description": "Measured on  M. longissimus",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Processing conversion, hot carcass weight to cold carcass weight",
+            "termType": "property",
+            "@id": "processingConversionHotCarcassWeightToColdCarcassWeight",
+            "units": "%"
+          },
+          "value": 98,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Ash content",
+            "termType": "property",
+            "@id": "ashContent",
+            "units": "%"
+          },
+          "value": 1.1,
+          "description": "Measured on  M. longissimus",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "primary": true,
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "transport": true,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": true,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": true,
+    "animalFeed": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "freshForage": true,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": false,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Meat, beef cattle (cold dressed carcass weight) - Meath, Ireland - 2015",
+  "schemaVersion": "30.5.0",
+  "originalId": "G25 meat conversion"
+}

@@ -1,0 +1,35 @@
+{
+  "@context": "https://contribute.hestia.earth/schema/Site.jsonld",
+  "createdAt": "2024-02-09",
+  "updatedAt": "2025-03-10",
+  "@id": "cvh6c5ejfzxd",
+  "@type": "Site",
+  "description": "Generic site representing farms in this area where cattle are frequently fed beet pulp and dehydrated lucerne",
+  "defaultSource": {
+    "@id": "2uaxgmjzmtai",
+    "@type": "Source"
+  },
+  "siteType": "animal housing",
+  "country": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "France",
+    "@id": "GADM-FRA"
+  },
+  "region": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Grand Est",
+    "@id": "GADM-FRA.6_1"
+  },
+  "organisation": {
+    "@id": "qpebl2f4kz_0",
+    "@type": "Organisation"
+  },
+  "defaultMethodClassification": "modelled",
+  "defaultMethodClassificationDescription": "This phase was modelled based on “Typical Case: Young bull-fattening in Pays de la Loire” of the farm networks of the French Livestock Institute (Sarzeaud et al., 2009). However, a portion of the wheat in the animal feed was replaced with extruded linseed",
+  "dataPrivate": false,
+  "name": "Animal housing - Standard Cow-Calf Production System - Grand Est, France - Generic site representing farm...",
+  "schemaVersion": "30.4.0",
+  "originalId": "FC Herd_Site"
+}

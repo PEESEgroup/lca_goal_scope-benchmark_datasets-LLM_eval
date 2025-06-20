@@ -1,0 +1,338 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2023-10-12",
+  "updatedAt": "2024-12-04",
+  "@id": "e4_qce9udzot",
+  "@type": "Cycle",
+  "description": "Conventional broiler",
+  "startDateDefinition": "stocking date",
+  "endDate": "2017",
+  "cycleDuration": 49.32432432432432,
+  "numberOfCycles": 9,
+  "site": {
+    "@id": "4umc1x9fiqdb",
+    "@type": "Site"
+  },
+  "functionalUnit": "relative",
+  "defaultMethodClassification": "consistent external sources",
+  "defaultMethodClassificationDescription": "Data of on-farm results were collected by consulting literature and visiting farms.",
+  "defaultSource": {
+    "@id": "j9vcbxofbrwg",
+    "@type": "Source"
+  },
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Broiler chicken, chick",
+        "units": "number",
+        "@id": "broilerChickenChick"
+      },
+      "value": [
+        1.035
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "value": 1,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Mortality rate",
+            "termType": "property",
+            "@id": "mortalityRate",
+            "units": "%"
+          },
+          "value": 3.5,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "description": "One day old broiler chick, fast growing",
+      "price": 0.31,
+      "currency": "EUR",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Natural gas",
+        "units": "m3",
+        "@id": "naturalGas"
+      },
+      "value": [
+        0.07
+      ],
+      "operation": {
+        "@type": "Term",
+        "name": "Regulating air temperature, machine unspecified",
+        "termType": "operation",
+        "@id": "regulatingAirTemperatureMachineUnspecified",
+        "units": "hour"
+      },
+      "price": 0.55,
+      "currency": "EUR",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        0.1275
+      ],
+      "operation": {
+        "@type": "Term",
+        "name": "Ventilating, machine unspecified",
+        "termType": "operation",
+        "@id": "ventilatingMachineUnspecified",
+        "units": "hour"
+      },
+      "description": "Electricity is used for ventilation (75%), lighting, and automatic feeding (together 25%)",
+      "price": 0.13,
+      "currency": "EUR",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        0.0425
+      ],
+      "description": "Electricity is used for ventilation (75%), lighting, and automatic feeding (together 25%)",
+      "price": 0.13,
+      "currency": "EUR",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed, unspecified",
+        "termType": "processedFood",
+        "@id": "concentrateFeedUnspecified",
+        "units": "kg"
+      },
+      "value": [
+        3.8496000000000006
+      ],
+      "description": "Organic. Minimum 70% grain, with vegetables",
+      "price": 0.31,
+      "currency": "EUR",
+      "isAnimalFeed": true,
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Stocking density, animal housing (average)",
+        "termType": "animalManagement",
+        "@id": "stockingDensityAnimalHousingAverage",
+        "units": "animals / m2"
+      },
+      "value": [
+        21
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Feed conversion ratio (fed weight)",
+        "termType": "animalManagement",
+        "@id": "feedConversionRatioFedWeight",
+        "units": "kg feed (fed weight) / kg liveweight"
+      },
+      "value": [
+        1.6
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Empty animal housing period",
+        "termType": "animalManagement",
+        "@id": "emptyAnimalHousingPeriod",
+        "units": "days"
+      },
+      "value": [
+        8
+      ],
+      "description": "The number of days between broilers living in the housing.",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Regulating air temperature, machine unspecified",
+        "termType": "operation",
+        "@id": "regulatingAirTemperatureMachineUnspecified",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Ventilating, machine unspecified",
+        "termType": "operation",
+        "@id": "ventilatingMachineUnspecified",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "system",
+        "name": "Barn system",
+        "units": "% area",
+        "@id": "barnSystem"
+      },
+      "@type": "Practice"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Broiler chicken",
+        "units": "number",
+        "@id": "broilerChicken"
+      },
+      "value": [
+        1
+      ],
+      "variety": "fast-growing broiler",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 2.406,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "value": 41,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "price": 0.83,
+      "currency": "EUR",
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, poultry (kg mass)",
+        "units": "kg",
+        "@id": "excretaPoultryKgMass"
+      },
+      "primary": false,
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Poultry manure with litter",
+        "termType": "excretaManagement",
+        "@id": "poultryManureWithLitter"
+      },
+      "transformationId": "van-horne-transformation-1",
+      "description": "Excreta management",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, poultry (kg mass)",
+            "units": "kg",
+            "@id": "excretaPoultryKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "products": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Processed excreta (kg mass)",
+            "termType": "excreta",
+            "@id": "processedExcretaKgMass",
+            "units": "kg"
+          },
+          "@type": "Product"
+        }
+      ],
+      "@type": "Transformation"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "operation": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "waste": false,
+    "liveAnimalInput": true,
+    "transport": false,
+    "ingredient": true,
+    "otherChemical": true,
+    "animalPopulation": true,
+    "freshForage": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Broiler chicken - Netherlands - 2017 - Conventional broiler",
+  "schemaVersion": "30.3.2",
+  "originalId": "1-Conventional broiler"
+}

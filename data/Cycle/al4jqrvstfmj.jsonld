@@ -1,0 +1,1060 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-03-19",
+  "updatedAt": "2024-11-26",
+  "@id": "al4jqrvstfmj",
+  "@type": "Cycle",
+  "site": {
+    "@id": "uispwoomut3u",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "xjw-lobrpjl_",
+    "@type": "Source"
+  },
+  "description": "Production of Nelore beef (Bos indicus) bulls for slaughter",
+  "endDate": "2012-12-31",
+  "startDateDefinition": "start of year",
+  "cycleDuration": 365,
+  "siteDuration": 365,
+  "functionalUnit": "relative",
+  "functionalUnitDetails": "1 kg liveweight",
+  "defaultMethodClassification": "expert opinion",
+  "defaultMethodClassificationDescription": "To characterize the typical beef farm, members of CEPEA (Center for Advanced Studies on Applied Economics located in the Luiz de Queiroz College of Agriculture at the University of S~ao Paulo in Piracicaba-Brazil), in collaboration with technical staff of local farmers' unions, prepared a Microsoft Excel® worksheet to collect typical farm data. In 2012, a team from CEPEA characterized the typical farm through a focus group of local farmers and technical staff from the local farmers' unions. Economic and technical features of the typical beef farming system in the region were discussed with focus group participants (e.g. livestock flows, animal life cycle, livestock weights, technical indices, farm inputs and outputs). Through consensus of focus-group participants, data for the typical farm were considered representative of beef farms in the region.",
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Herd replacement rate",
+        "termType": "animalManagement",
+        "@id": "herdReplacementRate",
+        "units": "%"
+      },
+      "value": [
+        26
+      ],
+      "description": "Replacement rate (%) for reproducing females",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalManagement",
+        "name": "Overall culling rate, female",
+        "units": "%",
+        "@id": "overallCullingRateFemale"
+      },
+      "value": [
+        25
+      ],
+      "description": "Number of culled reproducing females (100 cows)",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Overall mortality rate",
+        "termType": "animalManagement",
+        "@id": "overallMortalityRate",
+        "units": "%"
+      },
+      "value": [
+        1.8624641833810889
+      ],
+      "description": "Total number of cattle lost during cycle (9) over total cattle (698)",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalManagement",
+        "name": "Overall mortality rate, female",
+        "units": "%",
+        "@id": "overallMortalityRateFemale"
+      },
+      "value": [
+        0.7285974499089253
+      ],
+      "description": "4 female cattle (2 calves, 2 heifers) lost out of total female cattle",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalManagement",
+        "name": "Overall mortality rate, male",
+        "units": "%",
+        "@id": "overallMortalityRateMale"
+      },
+      "value": [
+        3.3557046979865772
+      ],
+      "description": "5 male cattle (2 calves, 3 bulls) lost over 149 male cattle total",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Stocking density, permanent pasture (average)",
+        "termType": "animalManagement",
+        "@id": "stockingDensityPermanentPastureAverage",
+        "units": "animals / m2"
+      },
+      "value": [
+        0.00006979999999999999
+      ],
+      "description": "Study lists 0.83 animal units (AU) per hectare using average animal weight of 450 kg. We use the time corrected number of animals.",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Total animal population",
+        "termType": "animalManagement",
+        "@id": "totalAnimalPopulation",
+        "units": "number"
+      },
+      "value": [
+        698
+      ],
+      "description": "See 'Animal Calculations' sheet in excel upload to see how herd size was calculated.",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture grass",
+        "termType": "landUseManagement",
+        "@id": "pastureGrass",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "description": "Brachiaria decumbens grasswas seeded without addition of fertilizer.",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Continuous grazing",
+        "termType": "landUseManagement",
+        "@id": "continuousGrazing",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "description": "The farm has no rotational grazing system. The animals are moved to new paddocks only when forage availability is too low. The pasture is kept under semi-continuous grazing during the entire period (cycle)",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Open range system",
+        "termType": "system",
+        "@id": "openRangeSystem",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "animalId": "0",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, cow",
+        "units": "number",
+        "@id": "beefCattleCow"
+      },
+      "value": 400,
+      "referencePeriod": "average",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Weight at slaughter",
+            "termType": "property",
+            "@id": "weightAtSlaughter",
+            "units": "kg liveweight / head"
+          },
+          "value": 360,
+          "description": "Every year, 100 cows are culled and sold at a weight of 360 kg to the slaughterhouse.",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "property",
+            "name": "Age at first delivery",
+            "units": "days",
+            "@id": "ageAtFirstDelivery"
+          },
+          "value": 1093,
+          "description": "36 months of age (1093 days according to paper) on average at first calving",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Live birth rate",
+            "termType": "property",
+            "@id": "liveBirthRate",
+            "units": "%"
+          },
+          "value": 74.5,
+          "description": "Produce 149 female calves and 149 male calves (298 calves /400 cows)",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Culling rate",
+            "termType": "property",
+            "@id": "cullingRate",
+            "units": "%"
+          },
+          "value": 25,
+          "description": "100 cows culled",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Mortality rate",
+            "termType": "property",
+            "@id": "mortalityRate",
+            "units": "%"
+          },
+          "value": 1,
+          "description": "4 cows lost",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 349.972602739726,
+          "description": "See 'Animal Calculations' sheet",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight gain",
+            "termType": "property",
+            "@id": "liveweightGain",
+            "units": "kg liveweight / head / day"
+          },
+          "value": 0.0547945205479452,
+          "description": "See 'Animal Calculations' sheet",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "animalId": "1",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, calf (female, unweaned)",
+        "units": "number",
+        "@id": "beefCattleCalfFemaleUnweaned"
+      },
+      "value": 74.70410958904111,
+      "referencePeriod": "average",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Mortality rate",
+            "termType": "property",
+            "@id": "mortalityRate",
+            "units": "%"
+          },
+          "value": 1.342281879194631,
+          "description": "2 calves lost per 149",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Weight at birth",
+            "termType": "property",
+            "@id": "weightAtBirth",
+            "units": "kg liveweight / head"
+          },
+          "value": 30,
+          "description": "30 kg at birth",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight gain",
+            "termType": "property",
+            "@id": "liveweightGain",
+            "units": "kg liveweight / head / day"
+          },
+          "value": 0.3983516483516483,
+          "description": "See 'Animal Calculations' sheet",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Weaning time",
+            "termType": "property",
+            "@id": "weaningTime",
+            "units": "days"
+          },
+          "value": 183,
+          "description": "Weaned after 183 days (6 months)",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Weight at weaning",
+            "termType": "property",
+            "@id": "weightAtWeaning",
+            "units": "kg liveweight / head"
+          },
+          "value": 102.89835164835165,
+          "description": "See 'Animal Calculations' sheet",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 66.25,
+          "description": "See 'Animal Calculations' sheet",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "animalId": "2",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, calf (male, unweaned)",
+        "units": "number",
+        "@id": "beefCattleCalfMaleUnweaned"
+      },
+      "value": 74.70410958904111,
+      "referencePeriod": "average",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Mortality rate",
+            "termType": "property",
+            "@id": "mortalityRate",
+            "units": "%"
+          },
+          "value": 1.342281879194631,
+          "description": "2 calves lost per 149",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Weight at birth",
+            "termType": "property",
+            "@id": "weightAtBirth",
+            "units": "kg liveweight / head"
+          },
+          "value": 30,
+          "description": "30 kg at birth",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight gain",
+            "termType": "property",
+            "@id": "liveweightGain",
+            "units": "kg liveweight / head / day"
+          },
+          "value": 0.4722792607802875,
+          "description": "See 'Animal Calculations' sheet",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Weaning time",
+            "termType": "property",
+            "@id": "weaningTime",
+            "units": "days"
+          },
+          "value": 183,
+          "description": "Weaned after 183 days (6 months)",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Weight at weaning",
+            "termType": "property",
+            "@id": "weightAtWeaning",
+            "units": "kg liveweight / head"
+          },
+          "value": 116.4271047227926,
+          "description": "With daily weight gain of 0.47 kg/head/day after birthweight of 30 kg",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 72.77,
+          "description": "See 'Animal Calculations' sheet",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "animalId": "3",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, calf (female, weaned)",
+        "units": "number",
+        "@id": "beefCattleCalfFemaleWeaned"
+      },
+      "value": 73.47945205479452,
+      "referencePeriod": "average",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight gain",
+            "termType": "property",
+            "@id": "liveweightGain",
+            "units": "kg liveweight / head / day"
+          },
+          "value": 0.3983516483516483,
+          "description": "See 'Animal Calculations' sheet",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Mortality rate",
+            "termType": "property",
+            "@id": "mortalityRate",
+            "units": "%"
+          },
+          "value": 1.3605442176870748,
+          "description": "2 weaned female calves lost per 147",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 138.55082417582418,
+          "description": "See 'Animal Calculations' sheet",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "animalId": "4",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, heifer",
+        "units": "number",
+        "@id": "beefCattleHeifer"
+      },
+      "value": 149,
+      "referencePeriod": "average",
+      "description": "These are young heifers, as defined in the paper as age 1-2 years.",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 247.10164835164835,
+          "description": "See 'Animal Calculations' sheet",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight gain",
+            "termType": "property",
+            "@id": "liveweightGain",
+            "units": "kg liveweight / head / day"
+          },
+          "value": 0.3983516483516483,
+          "description": "See 'Animal Calculations' sheet",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "animalId": "5",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, heifer",
+        "units": "number",
+        "@id": "beefCattleHeifer"
+      },
+      "value": 149,
+      "referencePeriod": "average",
+      "description": "These are old heifers, as defined in the paper as age >2 years",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 329.972602739726,
+          "description": "See 'Animal Calculations' sheet",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight gain",
+            "termType": "property",
+            "@id": "liveweightGain",
+            "units": "kg liveweight / head / day"
+          },
+          "value": 0.0547945205479452,
+          "description": "See 'Animal Calculations' sheet",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "animalId": "6",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, calf (male, weaned)",
+        "units": "number",
+        "@id": "beefCattleCalfMaleWeaned"
+      },
+      "value": 74.2958904109589,
+      "referencePeriod": "average",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight gain",
+            "termType": "property",
+            "@id": "liveweightGain",
+            "units": "kg liveweight / head / day"
+          },
+          "value": 0.4722792607802875,
+          "description": "See 'Animal Calculations' sheet",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 158.9621047227926,
+          "description": "See 'Animal Calculations' sheet",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Mortality rate",
+            "termType": "property",
+            "@id": "mortalityRate",
+            "units": "%"
+          },
+          "value": 0.6802721088435374,
+          "description": "1 weaned bull lost for every 147 weaned bulls",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "animalId": "7",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, bull",
+        "units": "number",
+        "@id": "beefCattleBull"
+      },
+      "value": 149,
+      "referencePeriod": "average",
+      "description": "Young bulls ages 1-2 years",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight gain",
+            "termType": "property",
+            "@id": "liveweightGain",
+            "units": "kg liveweight / head / day"
+          },
+          "value": 0.4722792607802875,
+          "description": "See 'Animal Calculations' sheet",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 287.921930184805,
+          "description": "See 'Animal Calculations' sheet",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Mortality rate",
+            "termType": "property",
+            "@id": "mortalityRate",
+            "units": "%"
+          },
+          "value": 1.36986301369863,
+          "description": "2 bulls lost per 146 young bulls",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "animalId": "8",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, bull",
+        "units": "number",
+        "@id": "beefCattleBull"
+      },
+      "value": 99.6054794520548,
+      "referencePeriod": "average",
+      "description": "Old bulls >2 years of age",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight gain",
+            "termType": "property",
+            "@id": "liveweightGain",
+            "units": "kg liveweight / head / day"
+          },
+          "value": 0.4722792607802875,
+          "description": "See 'Animal Calculations' sheet",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 431.8688603696099,
+          "description": "See 'Animal Calculations' sheet",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Slaughter age",
+            "termType": "property",
+            "@id": "slaughterAge",
+            "units": "days"
+          },
+          "value": 974,
+          "description": "Bulls are slaughtered at an average age of 974 days",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    }
+  ],
+  "transformations": [
+    {
+      "transformationId": "1",
+      "term": {
+        "@type": "Term",
+        "name": "Pasture/Range/Paddock (excreta management)",
+        "termType": "excretaManagement",
+        "@id": "pastureRangePaddockExcretaManagement"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, beef cattle, except feedlot fed (kg mass)",
+            "units": "kg",
+            "@id": "excretaBeefCattleExceptFeedlotFedKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "@type": "Transformation"
+    }
+  ],
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        6213.6
+      ],
+      "description": "Average 7200 liters of diesel per year converted to kg per year",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Petrol",
+        "units": "kg",
+        "@id": "petrol"
+      },
+      "value": [
+        897.6
+      ],
+      "description": "Average 1200 liters of gasoline per year converted to kg per year",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Dolomitic lime",
+        "termType": "soilAmendment",
+        "@id": "dolomiticLime",
+        "units": "kg CaMg(CO3)2"
+      },
+      "value": [
+        37037.03703703704
+      ],
+      "description": "Application rate of 1 Mg (tonne) per hectare. Converted to kg per hectare and multiplied by permanent pasture area (1000 ha) to get kg/cycle (per year)",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "forage",
+        "name": "Suriname grass, fresh forage",
+        "units": "kg",
+        "@id": "surinameGrassFreshForage"
+      },
+      "value": [
+        13000000
+      ],
+      "description": "9321 tonnes of grass for cows/calves plus 3679 tonnes of grass for fattening animals per year",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Energy digestibility, ruminants",
+            "termType": "property",
+            "@id": "energyDigestibilityRuminants",
+            "units": "%"
+          },
+          "value": 57.9,
+          "description": "Total digestible nutrients of the grass for fattening animals",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Energy digestibility, ruminants",
+            "termType": "property",
+            "@id": "energyDigestibilityRuminants",
+            "units": "%"
+          },
+          "value": 61.5,
+          "description": "Total digestible nutrients of the grass for cows, calves, and heifers. Since heifers eventually become cows, we assume the same digestibility for heifers.",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Energy digestibility, ruminants",
+            "termType": "property",
+            "@id": "energyDigestibilityRuminants",
+            "units": "%"
+          },
+          "value": 59.106593406593404,
+          "description": "Here, we assume a time-weighted average of digestibility, since weaned male calves spend 61 days in the cow-calf operation and 121 days in fattening",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Crude protein content",
+            "termType": "property",
+            "@id": "crudeProteinContent",
+            "units": "%"
+          },
+          "value": 7,
+          "description": "The animals average diet is 7% crude protein",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    }
+  ],
+  "emissions": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CH4, to air, enteric fermentation",
+        "termType": "emission",
+        "@id": "ch4ToAirEntericFermentation",
+        "units": "kg CH4"
+      },
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2006)",
+        "termType": "model",
+        "@id": "ipcc2006"
+      },
+      "value": [
+        59925.99999999999
+      ],
+      "description": "Using a characterization factor of 25 kg Co2e per kg CH4 per study specifications. 83% of total emissions (1805 tonnes CO2e) converted to kg CO2e and then to kg CH4 using characterization factor of 25 kgCO2e/kgCH4",
+      "methodTier": "tier 2",
+      "@type": "Emission"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, bull",
+        "units": "number",
+        "@id": "beefCattleBull"
+      },
+      "value": [
+        144
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 490,
+          "description": "144 bulls are fattened to 490 kg and sold to a slaughterhouse each year",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Slaughter age",
+            "termType": "property",
+            "@id": "slaughterAge",
+            "units": "days"
+          },
+          "value": 974,
+          "description": "Bulls are slaughtered at an average age of 974 days",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, heifer",
+        "units": "number",
+        "@id": "beefCattleHeifer"
+      },
+      "value": [
+        41
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 320,
+          "description": "41 heifers of average weight 320 kg sold annually for breeding",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, cow",
+        "units": "number",
+        "@id": "beefCattleCow"
+      },
+      "value": [
+        100
+      ],
+      "description": "100 cows 360 kg sold to slaughter each year",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 360,
+          "description": "100 cows 360 kg sold to slaughter each year",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, beef cattle, except feedlot fed (kg mass)",
+        "units": "kg",
+        "@id": "excretaBeefCattleExceptFeedlotFedKgMass"
+      },
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "animalFeed": true,
+    "animalPopulation": true,
+    "cropResidue": true,
+    "electricityFuel": false,
+    "excreta": false,
+    "fertiliser": true,
+    "freshForage": false,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "material": false,
+    "operation": false,
+    "otherChemical": true,
+    "pesticideVeterinaryDrug": false,
+    "product": true,
+    "seed": false,
+    "soilAmendment": true,
+    "transport": false,
+    "waste": false,
+    "water": false,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Beef cattle, bull - Cáceres (Município), Mato Grosso, Brazil - 2012-12-31 - Production of Nelore beef (Bos...",
+  "schemaVersion": "30.3.2",
+  "originalId": "1"
+}

@@ -1,0 +1,427 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-01-05",
+  "updatedAt": "2024-12-03",
+  "@id": "upme4sttxx_c",
+  "@type": "Cycle",
+  "description": "Organic dairy",
+  "startDateDefinition": "one year prior",
+  "endDate": "2003",
+  "cycleDuration": 365,
+  "numberOfCycles": 64,
+  "site": {
+    "@id": "els7zydjxcyq",
+    "@type": "Site"
+  },
+  "functionalUnit": "relative",
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Farm-gate turnover",
+  "defaultSource": {
+    "@id": "5g13r1d87r8v",
+    "@type": "Source"
+  },
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow (lactating)",
+        "units": "number",
+        "@id": "dairyCattleCowLactating"
+      },
+      "animalId": "2",
+      "referencePeriod": "average",
+      "value": 115,
+      "min": 69,
+      "max": 171,
+      "statsDefinition": "cycles",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Generic leguminous grass, silage",
+            "units": "kg",
+            "@id": "genericLeguminousGrassSilage"
+          },
+          "description": "Roughage",
+          "isAnimalFeed": true,
+          "value": [
+            3639.9
+          ],
+          "min": [
+            3246.65
+          ],
+          "max": [
+            4109.6
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "statsDefinition": "cycles",
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, fresh forage",
+            "termType": "forage",
+            "@id": "genericGrassFreshForage",
+            "units": "kg"
+          },
+          "value": [
+            1257.42
+          ],
+          "isAnimalFeed": true,
+          "min": [
+            1121.57
+          ],
+          "max": [
+            1419.68
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "statsDefinition": "cycles",
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Concentrate feed blend",
+            "termType": "processedFood",
+            "@id": "concentrateFeedBlend",
+            "units": "kg"
+          },
+          "description": "Value provided in dry matter.",
+          "value": [
+            5823.84
+          ],
+          "min": [
+            5194.64
+          ],
+          "isAnimalFeed": true,
+          "max": [
+            6575.36
+          ],
+          "statsDefinition": "cycles",
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, heifer and steer",
+        "units": "number",
+        "@id": "dairyCattleHeiferAndSteer"
+      },
+      "animalId": "4",
+      "referencePeriod": "average",
+      "value": 142.6,
+      "min": 89.7,
+      "max": 347.12999999999994,
+      "statsDefinition": "cycles",
+      "@type": "Animal"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalManagement",
+        "name": "Milk yield per cow (FPCM)",
+        "units": "kg / day",
+        "@id": "milkYieldPerCowFpcm"
+      },
+      "value": [
+        19.65753424657534
+      ],
+      "min": [
+        16.802739726027397
+      ],
+      "max": [
+        23.583561643835615
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Holstein Friesian (cattle breed)",
+        "termType": "animalBreed",
+        "@id": "holsteinFriesianCattleBreed",
+        "units": "%"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Milk, cow, raw (FPCM)",
+        "units": "kg FPCM",
+        "@id": "milkCowRawFpcm"
+      },
+      "value": [
+        825125
+      ],
+      "min": [
+        705295
+      ],
+      "max": [
+        989920
+      ],
+      "statsDefinition": "cycles",
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow (lactating)",
+        "units": "number",
+        "@id": "dairyCattleCowLactating"
+      },
+      "primary": false,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Processing conversion, liveweight to cold carcass weight",
+            "termType": "property",
+            "@id": "processingConversionLiveweightToColdCarcassWeight",
+            "units": "%"
+          },
+          "value": 50,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, dairy cattle (kg mass)",
+        "units": "kg",
+        "@id": "excretaDairyCattleKgMass"
+      },
+      "primary": false,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, heifer and steer",
+        "units": "number",
+        "@id": "dairyCattleHeiferAndSteer"
+      },
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Processing conversion, liveweight to cold carcass weight",
+            "termType": "property",
+            "@id": "processingConversionLiveweightToColdCarcassWeight",
+            "units": "%"
+          },
+          "value": 50,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "primary": false,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, dairy cattle (liveweight)",
+        "units": "kg liveweight",
+        "@id": "meatDairyCattleLiveweight"
+      },
+      "primary": false,
+      "value": [
+        14916.50846726351
+      ],
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Deep bedding",
+        "termType": "excretaManagement",
+        "@id": "deepBedding"
+      },
+      "transformationId": "org-deep-bedding",
+      "transformedShare": 47,
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "products": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Processed excreta (kg mass)",
+            "termType": "excreta",
+            "@id": "processedExcretaKgMass",
+            "units": "kg"
+          },
+          "@type": "Product"
+        }
+      ],
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Liquid/Slurry",
+        "termType": "excretaManagement",
+        "@id": "liquidSlurry"
+      },
+      "transformationId": "org-slurry",
+      "transformedShare": 53,
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "products": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Processed excreta (kg mass)",
+            "termType": "excreta",
+            "@id": "processedExcretaKgMass",
+            "units": "kg"
+          },
+          "@type": "Product"
+        }
+      ],
+      "@type": "Transformation"
+    }
+  ],
+  "emissions": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CH4, to air, enteric fermentation",
+        "termType": "emission",
+        "@id": "ch4ToAirEntericFermentation",
+        "units": "kg CH4"
+      },
+      "value": [
+        20313.6
+      ],
+      "methodTier": "tier 1",
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2006)",
+        "termType": "model",
+        "@id": "ipcc2006"
+      },
+      "@type": "Emission"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CH4, to air, excreta",
+        "termType": "emission",
+        "@id": "ch4ToAirExcreta",
+        "units": "kg CH4"
+      },
+      "value": [
+        24679
+      ],
+      "methodTier": "tier 1",
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2006)",
+        "termType": "model",
+        "@id": "ipcc2006"
+      },
+      "@type": "Emission"
+    }
+  ],
+  "completeness": {
+    "animalFeed": true,
+    "animalPopulation": true,
+    "cropResidue": true,
+    "electricityFuel": false,
+    "excreta": false,
+    "fertiliser": true,
+    "freshForage": true,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "material": false,
+    "operation": false,
+    "otherChemical": true,
+    "pesticideVeterinaryDrug": true,
+    "product": true,
+    "seed": true,
+    "soilAmendment": true,
+    "transport": false,
+    "waste": false,
+    "water": false,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Milk, cow, raw (FPCM) - Denmark - 2003 - Organic dairy",
+  "schemaVersion": "30.3.2",
+  "originalId": "kristensen-org-milk"
+}

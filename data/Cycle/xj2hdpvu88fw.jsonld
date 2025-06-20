@@ -1,0 +1,1557 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2023-09-26",
+  "updatedAt": "2025-01-22",
+  "@id": "xj2hdpvu88fw",
+  "@type": "Cycle",
+  "description": "Milk production cycle - average production cycle over 288 farms",
+  "endDate": "2016",
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "ghhkvkxt4hgp",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "wfdwsdifxc2e",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "A structured questionnaire was developed for dairy farms with questions about herd composition and performance, cow fertility and health, land use, feed ration and feeding practices, manure management and crop nutrient management practices, other farming practices, and farmers' perceptions and motivations. Survey administered between Nov and Dec 2016.",
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Herd replacement rate",
+        "termType": "animalManagement",
+        "@id": "herdReplacementRate",
+        "units": "%"
+      },
+      "value": [
+        15
+      ],
+      "methodClassification": "inconsistent external sources",
+      "methodClassificationDescription": "De Vries and Wouters, 2017; expert opinion",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Indoor animal system",
+        "termType": "system",
+        "@id": "indoorAnimalSystem",
+        "units": "%"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Excreta management, unspecified",
+        "termType": "excretaManagement",
+        "@id": "excretaManagementUnspecified"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 55.5,
+      "description": "Discharged",
+      "transformationId": "1",
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Solid storage",
+        "termType": "excretaManagement",
+        "@id": "solidStorage"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 4,
+      "transformationId": "2",
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Periodic spread",
+        "termType": "excretaManagement",
+        "@id": "periodicSpread"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 13.7,
+      "transformationId": "3",
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Anaerobic digester, unspecified",
+        "termType": "excretaManagement",
+        "@id": "anaerobicDigesterUnspecified"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 10.4,
+      "transformationId": "4",
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Excreta management, unspecified",
+        "termType": "excretaManagement",
+        "@id": "excretaManagementUnspecified"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 15.2,
+      "transformationId": "5",
+      "@type": "Transformation"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow (lactating)",
+        "units": "number",
+        "@id": "dairyCattleCowLactating"
+      },
+      "animalId": "1",
+      "referencePeriod": "average",
+      "value": 3.4,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 503.3,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Mortality rate",
+            "termType": "property",
+            "@id": "mortalityRate",
+            "units": "%"
+          },
+          "value": 4.2,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Conception rate",
+            "termType": "property",
+            "@id": "conceptionRate",
+            "units": "%"
+          },
+          "value": 75,
+          "methodClassification": "inconsistent external sources",
+          "methodClassificationDescription": "Opio et al., 2013",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "forage",
+            "name": "Elephant grass, fresh forage",
+            "units": "kg",
+            "@id": "elephantGrassFreshForage"
+          },
+          "value": [
+            12852
+          ],
+          "impactAssessment": {
+            "@id": "9ruib1poztug",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "forage",
+            "name": "Elephant grass, fresh forage",
+            "units": "kg",
+            "@id": "elephantGrassFreshForage"
+          },
+          "value": [
+            21681.8
+          ],
+          "isAnimalFeed": true,
+          "impactAssessment": {
+            "@id": "ab7dyiai1nr7",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Rice, straw",
+            "units": "kg",
+            "@id": "riceStraw"
+          },
+          "value": [
+            9768.2
+          ],
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 28.6,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Crude protein content",
+                "termType": "property",
+                "@id": "crudeProteinContent",
+                "units": "%"
+              },
+              "value": 1.144,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Organic matter content",
+                "termType": "property",
+                "@id": "organicMatterContent",
+                "units": "%"
+              },
+              "value": 22.8514,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Digestible energy, ruminants",
+                "termType": "property",
+                "@id": "digestibleEnergyRuminants",
+                "units": "MJ / kg"
+              },
+              "value": 10.868,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Energy digestibility, ruminants",
+                "termType": "property",
+                "@id": "energyDigestibilityRuminants",
+                "units": "%"
+              },
+              "value": 15.5,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Soybean, pulp",
+            "termType": "processedFood",
+            "@id": "soybeanPulp",
+            "units": "kg"
+          },
+          "value": [
+            12137.66
+          ],
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 12.5,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Crude protein content",
+                "termType": "property",
+                "@id": "crudeProteinContent",
+                "units": "%"
+              },
+              "value": 2.5875,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Organic matter content",
+                "termType": "property",
+                "@id": "organicMatterContent",
+                "units": "%"
+              },
+              "value": 12.1125,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Digestible energy, ruminants",
+                "termType": "property",
+                "@id": "digestibleEnergyRuminants",
+                "units": "MJ / kg"
+              },
+              "value": 9.95,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Energy digestibility, ruminants",
+                "termType": "property",
+                "@id": "energyDigestibilityRuminants",
+                "units": "%"
+              },
+              "value": 19.7,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Cassava, peel (fresh)",
+            "units": "kg",
+            "@id": "cassavaPeelFresh"
+          },
+          "value": [
+            14104.9
+          ],
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 13.1,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Crude protein content",
+                "termType": "property",
+                "@id": "crudeProteinContent",
+                "units": "%"
+              },
+              "value": 0.2227,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Organic matter content",
+                "termType": "property",
+                "@id": "organicMatterContent",
+                "units": "%"
+              },
+              "value": 12.6153,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Digestible energy, ruminants",
+                "termType": "property",
+                "@id": "digestibleEnergyRuminants",
+                "units": "MJ / kg"
+              },
+              "value": 10.4276,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Energy digestibility, ruminants",
+                "termType": "property",
+                "@id": "energyDigestibilityRuminants",
+                "units": "%"
+              },
+              "value": 17.7,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Brewers' spent grain, dry",
+            "units": "kg",
+            "@id": "brewersSpentGrainDry"
+          },
+          "value": [
+            372.3
+          ],
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 23.5,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Crude protein content",
+                "termType": "property",
+                "@id": "crudeProteinContent",
+                "units": "%"
+              },
+              "value": 6.8855,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Organic matter content",
+                "termType": "property",
+                "@id": "organicMatterContent",
+                "units": "%"
+              },
+              "value": 22.795,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Digestible energy, ruminants",
+                "termType": "property",
+                "@id": "digestibleEnergyRuminants",
+                "units": "MJ / kg"
+              },
+              "value": 15.9095,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Energy digestibility, ruminants",
+                "termType": "property",
+                "@id": "energyDigestibilityRuminants",
+                "units": "%"
+              },
+              "value": 19.7,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Rice, bran",
+            "units": "kg",
+            "@id": "riceBran"
+          },
+          "value": [
+            248.2
+          ],
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Concentrate feed blend",
+            "termType": "processedFood",
+            "@id": "concentrateFeedBlend",
+            "units": "kg"
+          },
+          "value": [
+            8229.7
+          ],
+          "isAnimalFeed": true,
+          "impactAssessment": {
+            "@id": "lnwcxq2nhx6s",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": true,
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow (dry)",
+        "units": "number",
+        "@id": "dairyCattleCowDry"
+      },
+      "animalId": "2",
+      "referencePeriod": "average",
+      "value": 0.5,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 503.3,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Mortality rate",
+            "termType": "property",
+            "@id": "mortalityRate",
+            "units": "%"
+          },
+          "value": 4.2,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "forage",
+            "name": "Elephant grass, fresh forage",
+            "units": "kg",
+            "@id": "elephantGrassFreshForage"
+          },
+          "value": [
+            2079
+          ],
+          "isAnimalFeed": true,
+          "impactAssessment": {
+            "@id": "9ruib1poztug",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "forage",
+            "name": "Elephant grass, fresh forage",
+            "units": "kg",
+            "@id": "elephantGrassFreshForage"
+          },
+          "value": [
+            3511.75
+          ],
+          "isAnimalFeed": true,
+          "impactAssessment": {
+            "@id": "ab7dyiai1nr7",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Rice, straw",
+            "units": "kg",
+            "@id": "riceStraw"
+          },
+          "value": [
+            1576
+          ],
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 28.6,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Crude protein content",
+                "termType": "property",
+                "@id": "crudeProteinContent",
+                "units": "%"
+              },
+              "value": 1.144,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Organic matter content",
+                "termType": "property",
+                "@id": "organicMatterContent",
+                "units": "%"
+              },
+              "value": 22.8514,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Digestible energy, ruminants",
+                "termType": "property",
+                "@id": "digestibleEnergyRuminants",
+                "units": "MJ / kg"
+              },
+              "value": 10.868,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Energy digestibility, ruminants",
+                "termType": "property",
+                "@id": "energyDigestibilityRuminants",
+                "units": "%"
+              },
+              "value": 15.5,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Soybean, pulp",
+            "termType": "processedFood",
+            "@id": "soybeanPulp",
+            "units": "kg"
+          },
+          "value": [
+            1388.5
+          ],
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 12.5,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Crude protein content",
+                "termType": "property",
+                "@id": "crudeProteinContent",
+                "units": "%"
+              },
+              "value": 2.5875,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Organic matter content",
+                "termType": "property",
+                "@id": "organicMatterContent",
+                "units": "%"
+              },
+              "value": 12.1125,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Digestible energy, ruminants",
+                "termType": "property",
+                "@id": "digestibleEnergyRuminants",
+                "units": "MJ / kg"
+              },
+              "value": 9.95,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Energy digestibility, ruminants",
+                "termType": "property",
+                "@id": "energyDigestibilityRuminants",
+                "units": "%"
+              },
+              "value": 19.7,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Cassava, peel (fresh)",
+            "units": "kg",
+            "@id": "cassavaPeelFresh"
+          },
+          "value": [
+            1144.75
+          ],
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 13.1,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Crude protein content",
+                "termType": "property",
+                "@id": "crudeProteinContent",
+                "units": "%"
+              },
+              "value": 0.2227,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Organic matter content",
+                "termType": "property",
+                "@id": "organicMatterContent",
+                "units": "%"
+              },
+              "value": 12.6153,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Digestible energy, ruminants",
+                "termType": "property",
+                "@id": "digestibleEnergyRuminants",
+                "units": "MJ / kg"
+              },
+              "value": 10.4276,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Energy digestibility, ruminants",
+                "termType": "property",
+                "@id": "energyDigestibilityRuminants",
+                "units": "%"
+              },
+              "value": 17.7,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Brewers' spent grain, dry",
+            "units": "kg",
+            "@id": "brewersSpentGrainDry"
+          },
+          "value": [
+            36.5
+          ],
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 23.5,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Crude protein content",
+                "termType": "property",
+                "@id": "crudeProteinContent",
+                "units": "%"
+              },
+              "value": 6.8855,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Organic matter content",
+                "termType": "property",
+                "@id": "organicMatterContent",
+                "units": "%"
+              },
+              "value": 22.795,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Digestible energy, ruminants",
+                "termType": "property",
+                "@id": "digestibleEnergyRuminants",
+                "units": "MJ / kg"
+              },
+              "value": 15.9095,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Energy digestibility, ruminants",
+                "termType": "property",
+                "@id": "energyDigestibilityRuminants",
+                "units": "%"
+              },
+              "value": 19.7,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Rice, bran",
+            "units": "kg",
+            "@id": "riceBran"
+          },
+          "value": [
+            18.25
+          ],
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Concentrate feed blend",
+            "termType": "processedFood",
+            "@id": "concentrateFeedBlend",
+            "units": "kg"
+          },
+          "value": [
+            912.5
+          ],
+          "isAnimalFeed": true,
+          "impactAssessment": {
+            "@id": "lnwcxq2nhx6s",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": true,
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, calf",
+        "units": "number",
+        "@id": "dairyCattleCalf"
+      },
+      "animalId": "3",
+      "referencePeriod": "average",
+      "value": 2,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Live birth rate",
+            "termType": "property",
+            "@id": "liveBirthRate",
+            "units": "%"
+          },
+          "value": 78,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Mortality rate",
+            "termType": "property",
+            "@id": "mortalityRate",
+            "units": "%"
+          },
+          "value": 4.2,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "forage",
+            "name": "Elephant grass, fresh forage",
+            "units": "kg",
+            "@id": "elephantGrassFreshForage"
+          },
+          "value": [
+            4243
+          ],
+          "isAnimalFeed": true,
+          "impactAssessment": {
+            "@id": "9ruib1poztug",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "forage",
+            "name": "Elephant grass, fresh forage",
+            "units": "kg",
+            "@id": "elephantGrassFreshForage"
+          },
+          "value": [
+            7169
+          ],
+          "isAnimalFeed": true,
+          "impactAssessment": {
+            "@id": "ab7dyiai1nr7",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Rice, straw",
+            "units": "kg",
+            "@id": "riceStraw"
+          },
+          "value": [
+            3224
+          ],
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 28.6,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Crude protein content",
+                "termType": "property",
+                "@id": "crudeProteinContent",
+                "units": "%"
+              },
+              "value": 1.144,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Organic matter content",
+                "termType": "property",
+                "@id": "organicMatterContent",
+                "units": "%"
+              },
+              "value": 22.8514,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Digestible energy, ruminants",
+                "termType": "property",
+                "@id": "digestibleEnergyRuminants",
+                "units": "MJ / kg"
+              },
+              "value": 10.868,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Energy digestibility, ruminants",
+                "termType": "property",
+                "@id": "energyDigestibilityRuminants",
+                "units": "%"
+              },
+              "value": 15.5,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Soybean, pulp",
+            "termType": "processedFood",
+            "@id": "soybeanPulp",
+            "units": "kg"
+          },
+          "value": [
+            3654
+          ],
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 12.5,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Crude protein content",
+                "termType": "property",
+                "@id": "crudeProteinContent",
+                "units": "%"
+              },
+              "value": 2.5875,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Organic matter content",
+                "termType": "property",
+                "@id": "organicMatterContent",
+                "units": "%"
+              },
+              "value": 12.1125,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Digestible energy, ruminants",
+                "termType": "property",
+                "@id": "digestibleEnergyRuminants",
+                "units": "MJ / kg"
+              },
+              "value": 9.95,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Energy digestibility, ruminants",
+                "termType": "property",
+                "@id": "energyDigestibilityRuminants",
+                "units": "%"
+              },
+              "value": 19.7,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Cassava, peel (fresh)",
+            "units": "kg",
+            "@id": "cassavaPeelFresh"
+          },
+          "value": [
+            2996
+          ],
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 13.1,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Crude protein content",
+                "termType": "property",
+                "@id": "crudeProteinContent",
+                "units": "%"
+              },
+              "value": 0.2227,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Organic matter content",
+                "termType": "property",
+                "@id": "organicMatterContent",
+                "units": "%"
+              },
+              "value": 12.6153,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Digestible energy, ruminants",
+                "termType": "property",
+                "@id": "digestibleEnergyRuminants",
+                "units": "MJ / kg"
+              },
+              "value": 10.4276,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Energy digestibility, ruminants",
+                "termType": "property",
+                "@id": "energyDigestibilityRuminants",
+                "units": "%"
+              },
+              "value": 17.7,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Brewers' spent grain, dry",
+            "units": "kg",
+            "@id": "brewersSpentGrainDry"
+          },
+          "value": [
+            73
+          ],
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 23.5,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Crude protein content",
+                "termType": "property",
+                "@id": "crudeProteinContent",
+                "units": "%"
+              },
+              "value": 6.8855,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Organic matter content",
+                "termType": "property",
+                "@id": "organicMatterContent",
+                "units": "%"
+              },
+              "value": 22.795,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Digestible energy, ruminants",
+                "termType": "property",
+                "@id": "digestibleEnergyRuminants",
+                "units": "MJ / kg"
+              },
+              "value": 15.9095,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Energy digestibility, ruminants",
+                "termType": "property",
+                "@id": "energyDigestibilityRuminants",
+                "units": "%"
+              },
+              "value": 19.7,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Rice, bran",
+            "units": "kg",
+            "@id": "riceBran"
+          },
+          "value": [
+            73
+          ],
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Concentrate feed blend",
+            "termType": "processedFood",
+            "@id": "concentrateFeedBlend",
+            "units": "kg"
+          },
+          "value": [
+            1679
+          ],
+          "isAnimalFeed": true,
+          "impactAssessment": {
+            "@id": "lnwcxq2nhx6s",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": true,
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, bull",
+        "units": "number",
+        "@id": "dairyCattleBull"
+      },
+      "animalId": "4",
+      "referencePeriod": "average",
+      "value": 0.2,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Mortality rate",
+            "termType": "property",
+            "@id": "mortalityRate",
+            "units": "%"
+          },
+          "value": 4.2,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Milk, cow, raw",
+        "units": "kg",
+        "@id": "milkCowRaw"
+      },
+      "value": [
+        15011
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "property",
+            "name": "Fat content",
+            "units": "%",
+            "@id": "fatContent"
+          },
+          "value": 4,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "property",
+            "name": "True protein content",
+            "units": "%",
+            "@id": "trueProteinContent"
+          },
+          "value": 2.9,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, dairy cattle (kg mass)",
+        "units": "kg",
+        "@id": "excretaDairyCattleKgMass"
+      },
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, dairy cattle (liveweight)",
+        "units": "kg liveweight",
+        "@id": "meatDairyCattleLiveweight"
+      },
+      "value": [
+        1192.927152
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Have used Thoma et al. 2013 with an AR of 88%, as estimated from the IDF (https://www.fil-idf.org/wp-content/uploads/2016/09/Bulletin479-2015_A-common-carbon-footprint-approach-for-the-dairy-sector.CAT.pdf)",
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": true,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "freshForage": true,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Milk, cow, raw - Lembang (Desa), Lembang, Bandung Barat, Jawa Barat, Indonesia - 2016 - Milk production cycle - averag...",
+  "schemaVersion": "30.5.0",
+  "originalId": "milk_production"
+}

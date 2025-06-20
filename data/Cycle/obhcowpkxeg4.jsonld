@@ -1,0 +1,296 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-02-09",
+  "updatedAt": "2024-12-03",
+  "@id": "obhcowpkxeg4",
+  "@type": "Cycle",
+  "description": "Sows",
+  "startDateDefinition": "start of year",
+  "endDate": "2010",
+  "cycleDuration": 365,
+  "site": {
+    "@id": "8eopxo6tdmht",
+    "@type": "Site"
+  },
+  "functionalUnit": "relative",
+  "defaultMethodClassification": "consistent external sources",
+  "defaultMethodClassificationDescription": "Data representing the typical Danish pork production in 2010 on the one hand, and on the other using data from the 25% of Danish pig herds with highest technical efficiency in terms of piglets per sow and feed use per kg pork produced. The higher efficiency groups are thought to be standard in a couple of years time. Data from Danish crown.",
+  "defaultSource": {
+    "@id": "hmohcfms011t",
+    "@type": "Source"
+  },
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed blend",
+        "termType": "processedFood",
+        "@id": "concentrateFeedBlend",
+        "units": "kg"
+      },
+      "isAnimalFeed": true,
+      "value": [
+        1428.6852
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "I have assumed the ratio of the feed matches the ratio at the end of page 31.",
+      "impactAssessment": {
+        "@id": "6wkk4oq-u9mh",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Heating oil",
+        "units": "kg",
+        "@id": "heatingOil"
+      },
+      "value": [
+        13.012048192771084
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, natural gas",
+        "termType": "electricity",
+        "@id": "electricityGridNaturalGas",
+        "units": "kWh"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Overall mortality rate",
+        "termType": "animalManagement",
+        "@id": "overallMortalityRate",
+        "units": "%"
+      },
+      "value": [
+        10
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Heating buildings, machine unspecified",
+        "termType": "operation",
+        "@id": "heatingBuildingsMachineUnspecified",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Indoor animal system",
+        "termType": "system",
+        "@id": "indoorAnimalSystem",
+        "units": "% area"
+      },
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig, sow",
+        "units": "number",
+        "@id": "pigSow"
+      },
+      "animalId": "sow-nguyen-Pig, sow",
+      "referencePeriod": "average",
+      "value": 0.95,
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig, piglet",
+        "units": "number",
+        "@id": "pigPiglet"
+      },
+      "animalId": "sow-nguyen-Pig, piglet",
+      "referencePeriod": "average",
+      "value": 1.8257534246575342,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Weight at weaning",
+            "termType": "property",
+            "@id": "weightAtWeaning",
+            "units": "kg liveweight / head"
+          },
+          "value": 7.4,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig, sow",
+        "units": "number",
+        "@id": "pigSow"
+      },
+      "value": [
+        0.9
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig, piglet",
+        "units": "number",
+        "@id": "pigPiglet"
+      },
+      "value": [
+        27.2
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 7.4,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, pigs (kg mass)",
+        "units": "kg",
+        "@id": "excretaPigsKgMass"
+      },
+      "primary": false,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Dead animal waste (number of animals)",
+        "termType": "waste",
+        "@id": "deadAnimalWasteNumberOfAnimals",
+        "units": "number"
+      },
+      "value": [
+        0.1
+      ],
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Liquid/Slurry, with cover",
+        "termType": "excretaManagement",
+        "@id": "liquidSlurryWithCover"
+      },
+      "transformationId": "nguyen-denmark-conventional-sow-slurry",
+      "description": "Outside covered silo",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, pigs (kg mass)",
+            "units": "kg",
+            "@id": "excretaPigsKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 75,
+      "transformationDuration": 180,
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pit storage below animal confinements",
+        "termType": "excretaManagement",
+        "@id": "pitStorageBelowAnimalConfinements"
+      },
+      "transformationId": "nguyen-denmark-conventional-sow-pit",
+      "description": "Pit below pig house",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, pigs (kg mass)",
+            "units": "kg",
+            "@id": "excretaPigsKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 25,
+      "transformationDuration": 180,
+      "previousTransformationId": "nguyen-denmark-conventional-sow-slurry",
+      "@type": "Transformation"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "operation": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "waste": true,
+    "liveAnimalInput": true,
+    "transport": false,
+    "otherChemical": false,
+    "ingredient": true,
+    "freshForage": true,
+    "animalPopulation": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Pig, sow - Denmark - 2010 - Sows",
+  "schemaVersion": "30.3.2",
+  "originalId": "sow-nguyen"
+}

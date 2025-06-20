@@ -1,0 +1,95 @@
+{
+  "@context": "https://contribute.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-02-22",
+  "updatedAt": "2025-03-11",
+  "@id": "exfcyntziswj",
+  "@type": "Cycle",
+  "endDate": "2016",
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "vqphweggy2nt",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "qprqdskyqqgi",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "physical measurement",
+  "defaultMethodClassificationDescription": "Data collected from Teagasc Grange Research Centre.",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, steer",
+        "units": "number",
+        "@id": "beefCattleSteer"
+      },
+      "value": [
+        15
+      ],
+      "impactAssessment": {
+        "@id": "j3yfczvt9r4w",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, lorry",
+            "units": "tkm",
+            "@id": "freightLorry"
+          },
+          "distance": 25,
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, beef cattle (cold carcass weight)",
+        "units": "kg cold carcass weight",
+        "@id": "meatBeefCattleColdCarcassWeight"
+      },
+      "value": [
+        5685
+      ],
+      "primary": true,
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "transport": true,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": true,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": true,
+    "animalFeed": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "freshForage": true,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": false,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Meat, beef cattle (cold carcass weight) - Meath, Ireland - 2016",
+  "schemaVersion": "30.7.0",
+  "originalId": "GC-Steer_kill"
+}

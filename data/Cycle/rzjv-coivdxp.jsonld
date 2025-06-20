@@ -1,0 +1,920 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2023-06-15",
+  "updatedAt": "2025-02-26",
+  "@id": "rzjv-coivdxp",
+  "@type": "Cycle",
+  "description": "Select merit cows (sired by bulls with high predicted transmitting abilities for fat + protein yield), in high forage system (conventional regime; cows housed in winter, graze rest of year)",
+  "endDate": "2010-12-01",
+  "startDateDefinition": "one year prior",
+  "cycleDuration": 365,
+  "numberOfCycles": 5,
+  "functionalUnit": "relative",
+  "functionalUnitDetails": "One year of production",
+  "site": {
+    "@id": "3vmjyyqbhtk5",
+    "@type": "Site"
+  },
+  "siteDuration": 255.49999999999997,
+  "siteUnusedDuration": 109.50000000000003,
+  "otherSites": [
+    {
+      "@id": "xkj_v4wyxeze",
+      "@type": "Site"
+    }
+  ],
+  "otherSitesDuration": [
+    109.5
+  ],
+  "otherSitesUnusedDuration": [
+    255.5
+  ],
+  "defaultSource": {
+    "@id": "bnflkfcuuetx",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "physical measurement",
+  "defaultMethodClassificationDescription": "Experimental data from SRUC's Crichton Royal Farm, Scotland",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        6689.976
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        20086
+      ],
+      "methodClassification": "modelled",
+      "methodClassificationDescription": "Electricity use was estimated from average milk yield per cow using the method of Sheane et al. (2010), which applies 0.051 kWh/kg milk for yields of 6500-8500 litres per cow and 0.045 kWh/kg for yields > 8500 litres.",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Petrol",
+        "units": "kg",
+        "@id": "petrol"
+      },
+      "value": [
+        99.484
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture grass",
+        "termType": "landUseManagement",
+        "@id": "pastureGrass",
+        "units": "% area"
+      },
+      "key": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Ryegrass plant",
+        "units": "% area",
+        "@id": "ryegrassPlant"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Holstein Friesian (cattle breed)",
+        "termType": "animalBreed",
+        "@id": "holsteinFriesianCattleBreed",
+        "units": "%"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalManagement",
+        "name": "Milk yield per cow (raw)",
+        "units": "kg / day",
+        "@id": "milkYieldPerCowRaw"
+      },
+      "value": [
+        26.8
+      ],
+      "sd": [
+        0.82
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Indoor animal system",
+        "termType": "system",
+        "@id": "indoorAnimalSystem",
+        "units": "%"
+      },
+      "value": [
+        70
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "system",
+        "name": "Confined pasture system",
+        "units": "%",
+        "@id": "confinedPastureSystem"
+      },
+      "value": [
+        30
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "animalId": "LactatingCows",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow (lactating)",
+        "units": "number",
+        "@id": "dairyCattleCowLactating"
+      },
+      "value": 43.175342465753424,
+      "sd": 3.8,
+      "description": "Value calculated as the total dairy cow herd size multiplied by the proportion of days in the cycle that cows are lactating.",
+      "statsDefinition": "cycles",
+      "referencePeriod": "average",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 626,
+          "sd": 8.6,
+          "statsDefinition": "cycles",
+          "methodModelDescription": "Liveweights were recorded three times a day after milking",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Concentrate feed blend",
+            "termType": "processedFood",
+            "@id": "concentrateFeedBlend",
+            "units": "kg"
+          },
+          "value": [
+            6314.5
+          ],
+          "sd": [
+            1357.8000000000002
+          ],
+          "statsDefinition": "other observations",
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "jml8iamt9an4",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Concentrate feed blend",
+            "termType": "processedFood",
+            "@id": "concentrateFeedBlend",
+            "units": "kg"
+          },
+          "description": "LF and HF cows were fed a standard  16% CP complementary parlour concentrate whilst milking.This consisted of the following materials in descending order by weight: wheat-feed, palm kernel exp, distillers dark grains, breakfast bran, molasses, sunflower exp., citrus pulp, calcium carbonate, oats salt, vegetable oils, vitamins and minerals.",
+          "value": [
+            273.75
+          ],
+          "impactAssessment": {
+            "@id": "ou0szalgwphr",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": true,
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Crude protein content",
+                "termType": "property",
+                "@id": "crudeProteinContent",
+                "units": "%"
+              },
+              "value": 16,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "Crude fibre content",
+                "units": "%",
+                "@id": "crudeFibreContent"
+              },
+              "value": 13.5,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Ash content",
+                "termType": "property",
+                "@id": "ashContent",
+                "units": "%"
+              },
+              "value": 8,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Calcium content",
+                "termType": "property",
+                "@id": "calciumContent",
+                "units": "%"
+              },
+              "value": 1.2,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Magnesium content",
+                "termType": "property",
+                "@id": "magnesiumContent",
+                "units": "%"
+              },
+              "value": 0.25,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Phosphorus content (as P)",
+                "termType": "property",
+                "@id": "phosphorusContentAsP",
+                "units": "%"
+              },
+              "value": 0.53,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 86.2,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Sodium content",
+                "termType": "property",
+                "@id": "sodiumContent",
+                "units": "%"
+              },
+              "value": 0.46,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Selenium content",
+                "termType": "property",
+                "@id": "seleniumContent",
+                "units": "%"
+              },
+              "value": 8.5e-7,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Vitamin A content",
+                "termType": "property",
+                "@id": "vitaminAContent",
+                "units": "%"
+              },
+              "value": 0.000024,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Vitamin D3 content",
+                "termType": "property",
+                "@id": "vitaminD3Content",
+                "units": "%"
+              },
+              "value": 6.25e-8,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Vitamin E content",
+                "termType": "property",
+                "@id": "vitaminEContent",
+                "units": "%"
+              },
+              "value": 0.000033560000000000004,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow (dry)",
+        "units": "number",
+        "@id": "dairyCattleCowDry"
+      },
+      "animalId": "DryCows",
+      "value": 7.824657534246576,
+      "sd": 3.8,
+      "description": "Value calculated as the total dairy cow herd size multiplied by the proportion of days in the cycle that cows are dry",
+      "statsDefinition": "cycles",
+      "referencePeriod": "average",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 626,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Assumed dry cow liveweight same as lactating cow, due to lack of data.",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Concentrate feed blend",
+            "termType": "processedFood",
+            "@id": "concentrateFeedBlend",
+            "units": "kg"
+          },
+          "value": [
+            119.88900000000001
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "jml8iamt9an4",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Barley, straw",
+            "units": "kg",
+            "@id": "barleyStraw"
+          },
+          "value": [
+            280
+          ],
+          "impactAssessment": {
+            "@id": "n2y3pr1yhz6i",
+            "@type": "ImpactAssessment"
+          },
+          "methodClassification": "estimated with assumptions",
+          "methodClassificationDescription": "Straw assumed to be barley, straw. Dry period is 8 weeks. We know that for the last 3 weeks, the cows get 5kg straw a day, but for the first 5 weeks, the study just says 'straw-based diet' with no value. We have assumed that the 5kg a day is given for the full 8 weeks, until we get the data from the author.",
+          "isAnimalFeed": true,
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, calf",
+        "units": "number",
+        "@id": "dairyCattleCalf"
+      },
+      "animalId": "3",
+      "value": 21,
+      "referencePeriod": "average",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, silage",
+            "termType": "crop",
+            "@id": "genericGrassSilage",
+            "units": "kg"
+          },
+          "value": [
+            2062.25
+          ],
+          "impactAssessment": {
+            "@id": "qawjgirhi9kd",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": true,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Sugarcane, molasses",
+            "units": "kg",
+            "@id": "sugarcaneMolasses"
+          },
+          "value": [
+            419.74999999999994
+          ],
+          "impactAssessment": {
+            "@id": "zj2gatvvcmlx",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": true,
+          "isAnimalFeed": true,
+          "methodClassification": "estimated with assumptions",
+          "methodClassificationDescription": "Molasses assumed to be sugarcane, molasses",
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Wheat, grain",
+            "units": "kg",
+            "@id": "wheatGrain"
+          },
+          "value": [
+            365
+          ],
+          "impactAssessment": {
+            "@id": "qlnqjgpnyjib",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": true,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "processedFood",
+            "name": "Wheat, distillers grain",
+            "units": "kg",
+            "@id": "wheatDistillersGrain"
+          },
+          "value": [
+            365
+          ],
+          "description": "Vitagold",
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "processedFood",
+            "name": "Sugar beet, pulp (silage)",
+            "units": "kg",
+            "@id": "sugarBeetPulpSilage"
+          },
+          "value": [
+            182.5
+          ],
+          "impactAssessment": {
+            "@id": "vvnitnkfpgml",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": true,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Barley, straw",
+            "units": "kg",
+            "@id": "barleyStraw"
+          },
+          "value": [
+            91.25
+          ],
+          "impactAssessment": {
+            "@id": "n2y3pr1yhz6i",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": true,
+          "isAnimalFeed": true,
+          "methodClassification": "estimated with assumptions",
+          "methodClassificationDescription": "Straw assumed to be barley, straw",
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Calf milk replacer, powder (unspecified)",
+            "termType": "processedFood",
+            "@id": "calfMilkReplacerPowderUnspecified",
+            "units": "kg"
+          },
+          "isAnimalFeed": true,
+          "value": [
+            266
+          ],
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, heifer",
+        "units": "number",
+        "@id": "dairyCattleHeifer"
+      },
+      "animalId": "4",
+      "value": 24,
+      "referencePeriod": "average",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, silage",
+            "termType": "crop",
+            "@id": "genericGrassSilage",
+            "units": "kg"
+          },
+          "value": [
+            6387.5
+          ],
+          "impactAssessment": {
+            "@id": "qawjgirhi9kd",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": true,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Sugarcane, molasses",
+            "units": "kg",
+            "@id": "sugarcaneMolasses"
+          },
+          "value": [
+            657
+          ],
+          "impactAssessment": {
+            "@id": "zj2gatvvcmlx",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": true,
+          "isAnimalFeed": true,
+          "methodClassification": "estimated with assumptions",
+          "methodClassificationDescription": "Molasses assumed to be sugarcane, molasses",
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Wheat, grain",
+            "units": "kg",
+            "@id": "wheatGrain"
+          },
+          "value": [
+            730
+          ],
+          "isAnimalFeed": true,
+          "impactAssessment": {
+            "@id": "qlnqjgpnyjib",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "processedFood",
+            "name": "Wheat, distillers grain",
+            "units": "kg",
+            "@id": "wheatDistillersGrain"
+          },
+          "value": [
+            1460
+          ],
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "processedFood",
+            "name": "Sugar beet, pulp (silage)",
+            "units": "kg",
+            "@id": "sugarBeetPulpSilage"
+          },
+          "value": [
+            365
+          ],
+          "impactAssessment": {
+            "@id": "vvnitnkfpgml",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": true,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Barley, straw",
+            "units": "kg",
+            "@id": "barleyStraw"
+          },
+          "value": [
+            365
+          ],
+          "impactAssessment": {
+            "@id": "n2y3pr1yhz6i",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": true,
+          "isAnimalFeed": true,
+          "methodClassification": "estimated with assumptions",
+          "methodClassificationDescription": "Straw assumed to be barley, straw",
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    }
+  ],
+  "transformations": [
+    {
+      "transformationId": "1",
+      "term": {
+        "@type": "Term",
+        "name": "Pasture/Range/Paddock (excreta management)",
+        "termType": "excretaManagement",
+        "@id": "pastureRangePaddockExcretaManagement"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 0.3,
+      "@type": "Transformation"
+    },
+    {
+      "transformationId": "2",
+      "term": {
+        "@type": "Term",
+        "name": "Liquid/Slurry",
+        "termType": "excretaManagement",
+        "@id": "liquidSlurry"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 0.53,
+      "@type": "Transformation"
+    },
+    {
+      "transformationId": "3",
+      "term": {
+        "@type": "Term",
+        "name": "Solid storage",
+        "termType": "excretaManagement",
+        "@id": "solidStorage"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 0.17,
+      "@type": "Transformation"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Milk, cow, raw",
+        "units": "kg",
+        "@id": "milkCowRaw"
+      },
+      "value": [
+        422341.2
+      ],
+      "sd": [
+        0.82
+      ],
+      "statsDefinition": "cycles",
+      "primary": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "property",
+            "name": "Fat content",
+            "units": "%",
+            "@id": "fatContent"
+          },
+          "value": 4,
+          "sd": 0.06,
+          "statsDefinition": "cycles",
+          "methodModelDescription": "Milk samples taken once a week and analysed for fat and protein content using a Milkoscan minor spectrophotometer and calibrated by methods of AOAC (2000).",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Crude protein content",
+            "termType": "property",
+            "@id": "crudeProteinContent",
+            "units": "%"
+          },
+          "value": 3.3,
+          "sd": 0.05,
+          "statsDefinition": "cycles",
+          "methodModelDescription": "Milk samples taken once a week and analysed for fat and protein content using a Milkoscan minor spectrophotometer and calibrated by methods of AOAC (2000).",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, dairy cattle (kg mass)",
+        "units": "kg",
+        "@id": "excretaDairyCattleKgMass"
+      },
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "ingredient": true,
+    "otherChemical": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": false,
+    "water": false,
+    "product": false,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "freshForage": false,
+    "liveAnimalInput": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Milk, cow, raw - Dumfries and Galloway (Unitary District), Scotland, United Kingdom - 2010-12-01 - Select merit cows (sired by bu...",
+  "schemaVersion": "30.7.0",
+  "originalId": "HFS"
+}

@@ -1,0 +1,79 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@base": "https://www-dev.hestia.earth/source/",
+    "@vocab": "https://www-dev.hestia.earth/schema/Source#",
+    "Term": {
+      "@id": "https://www-dev.hestia.earth/schema/Term",
+      "@context": {
+        "@propagate": false,
+        "@vocab": "https://www-dev.hestia.earth/schema/Term#",
+        "ecoinventReferenceProductId": {
+          "@id": "https://www-dev.hestia.earth/schema/Term#ecoinventReferenceProductId",
+          "@type": "@id"
+        },
+        "website": {
+          "@id": "https://www-dev.hestia.earth/schema/Term#website",
+          "@type": "@id"
+        },
+        "agrovoc": {
+          "@id": "https://www-dev.hestia.earth/schema/Term#agrovoc",
+          "@type": "@id"
+        },
+        "aquastatSpeciesFactSheet": {
+          "@id": "https://www-dev.hestia.earth/schema/Term#aquastatSpeciesFactSheet",
+          "@type": "@id"
+        },
+        "cornellBiologicalControl": {
+          "@id": "https://www-dev.hestia.earth/schema/Term#cornellBiologicalControl",
+          "@type": "@id"
+        },
+        "ecolabelIndex": {
+          "@id": "https://www-dev.hestia.earth/schema/Term#ecolabelIndex",
+          "@type": "@id"
+        },
+        "feedipedia": {
+          "@id": "https://www-dev.hestia.earth/schema/Term#feedipedia",
+          "@type": "@id"
+        },
+        "fishbase": {
+          "@id": "https://www-dev.hestia.earth/schema/Term#fishbase",
+          "@type": "@id"
+        },
+        "pubchem": {
+          "@id": "https://www-dev.hestia.earth/schema/Term#pubchem",
+          "@type": "@id"
+        },
+        "wikipedia": {
+          "@id": "https://www-dev.hestia.earth/schema/Term#wikipedia",
+          "@type": "@id"
+        }
+      }
+    },
+    "Actor": {
+      "@id": "https://www-dev.hestia.earth/schema/Actor",
+      "@context": {
+        "@propagate": false,
+        "@vocab": "https://www-dev.hestia.earth/schema/Actor#",
+        "website": {
+          "@id": "https://www-dev.hestia.earth/schema/Actor#website",
+          "@type": "@id"
+        }
+      }
+    },
+    "Bibliography": {
+      "@id": "https://www-dev.hestia.earth/schema/Bibliography",
+      "@context": {
+        "@propagate": false,
+        "@vocab": "https://www-dev.hestia.earth/schema/Bibliography#"
+      }
+    },
+    "Property": {
+      "@id": "https://www-dev.hestia.earth/schema/Property",
+      "@context": {
+        "@propagate": false,
+        "@vocab": "https://www-dev.hestia.earth/schema/Property#"
+      }
+    }
+  }
+}

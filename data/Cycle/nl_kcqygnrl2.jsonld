@@ -1,0 +1,691 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-01-17",
+  "updatedAt": "2025-01-22",
+  "@id": "nl_kcqygnrl2",
+  "@type": "Cycle",
+  "defaultSource": {
+    "@id": "nutoovue5vtx",
+    "@type": "Source"
+  },
+  "endDate": "2019-03",
+  "numberOfCycles": 1,
+  "site": {
+    "@id": "tvr_nyh_g8dr",
+    "@type": "Site"
+  },
+  "functionalUnit": "relative",
+  "defaultMethodClassification": "modelled",
+  "defaultMethodClassificationDescription": "The study considers impacts of the life cycle of a simulated farm.",
+  "completeness": {
+    "electricityFuel": false,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": true,
+    "soilAmendment": false,
+    "water": true,
+    "product": true,
+    "cropResidue": false,
+    "excreta": true,
+    "animalFeed": true,
+    "animalPopulation": false,
+    "waste": true,
+    "operation": true,
+    "freshForage": true,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "startDate": "2018-04",
+  "startDateDefinition": "start of year",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Generic crop, straw",
+        "units": "kg",
+        "@id": "genericCropStraw"
+      },
+      "value": [
+        62279
+      ],
+      "isAnimalFeed": true,
+      "producedInCycle": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Maize, silage",
+        "units": "kg",
+        "@id": "maizeSilage"
+      },
+      "value": [
+        540884.375
+      ],
+      "isAnimalFeed": true,
+      "producedInCycle": true,
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Transport, unspecified",
+            "termType": "transport",
+            "@id": "transportUnspecified",
+            "units": "tkm"
+          },
+          "value": 2704.421875,
+          "returnLegIncluded": true,
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, silage",
+        "termType": "crop",
+        "@id": "genericGrassSilage",
+        "units": "kg"
+      },
+      "value": [
+        473723.6771
+      ],
+      "isAnimalFeed": true,
+      "producedInCycle": true,
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Transport, unspecified",
+            "termType": "transport",
+            "@id": "transportUnspecified",
+            "units": "tkm"
+          },
+          "value": 2368.618385,
+          "returnLegIncluded": true,
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Seed",
+        "termType": "seed",
+        "@id": "seed",
+        "units": "kg"
+      },
+      "value": [
+        1541
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Plastic, type unspecified",
+        "termType": "material",
+        "@id": "plasticTypeUnspecified",
+        "units": "kg"
+      },
+      "value": [
+        944
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Lubricant",
+        "units": "kg",
+        "@id": "lubricant"
+      },
+      "value": [
+        49.5
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        2678
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        27645
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Butane",
+        "units": "m3",
+        "@id": "butane"
+      },
+      "value": [
+        10.61831251
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Detergent unspecified (AI)",
+        "termType": "otherOrganicChemical",
+        "@id": "detergentUnspecifiedAi",
+        "units": "kg active ingredient"
+      },
+      "value": [
+        2571
+      ],
+      "description": "Have included \"Sealer\" here too - unclear exactly what this is.",
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Assumed density to be 1g/ml",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Disinfectant unspecified (AI)",
+        "termType": "otherOrganicChemical",
+        "@id": "disinfectantUnspecifiedAi",
+        "units": "kg active ingredient"
+      },
+      "value": [
+        112
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Assumed density to be 1g/ml",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "processingAid",
+        "name": "Phosphoric acid (processing aid)",
+        "units": "kg",
+        "@id": "phosphoricAcidProcessingAid"
+      },
+      "value": [
+        98
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Assumed acid solution is Phosphoric acid",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Paper",
+        "termType": "material",
+        "@id": "paper",
+        "units": "kg"
+      },
+      "value": [
+        122
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pesticide unspecified (AI)",
+        "termType": "pesticideAI",
+        "@id": "pesticideUnspecifiedAi",
+        "units": "kg active ingredient"
+      },
+      "value": [
+        68
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Calcium carbonate",
+        "termType": "pesticideAI",
+        "@id": "CAS-471-34-1",
+        "units": "kg active ingredient"
+      },
+      "value": [
+        26763
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, source unspecified",
+        "units": "m3",
+        "@id": "waterSourceUnspecified"
+      },
+      "value": [
+        3110141
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Indoor animal system",
+        "termType": "system",
+        "@id": "indoorAnimalSystem",
+        "units": "%"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow",
+        "units": "number",
+        "@id": "dairyCattleCow"
+      },
+      "animalId": "1",
+      "referencePeriod": "average",
+      "value": 56.16666667,
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Concentrate feed blend",
+            "termType": "processedFood",
+            "@id": "concentrateFeedBlend",
+            "units": "kg"
+          },
+          "impactAssessment": {
+            "@id": "afqa8c60k5rj",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": true,
+          "value": [
+            249363
+          ],
+          "isAnimalFeed": true,
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow (dry)",
+        "units": "number",
+        "@id": "dairyCattleCowDry"
+      },
+      "animalId": "2",
+      "referencePeriod": "average",
+      "value": 7.885416667,
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Concentrate feed blend",
+            "termType": "processedFood",
+            "@id": "concentrateFeedBlend",
+            "units": "kg"
+          },
+          "impactAssessment": {
+            "@id": "afqa8c60k5rj",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": true,
+          "value": [
+            6507
+          ],
+          "isAnimalFeed": true,
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, heifer",
+        "units": "number",
+        "@id": "dairyCattleHeifer"
+      },
+      "animalId": "3",
+      "referencePeriod": "average",
+      "value": 35.875,
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Concentrate feed blend",
+            "termType": "processedFood",
+            "@id": "concentrateFeedBlend",
+            "units": "kg"
+          },
+          "value": [
+            6507
+          ],
+          "isAnimalFeed": true,
+          "impactAssessment": {
+            "@id": "afqa8c60k5rj",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": true,
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pit storage below animal confinements",
+        "termType": "excretaManagement",
+        "@id": "pitStorageBelowAnimalConfinements"
+      },
+      "transformationId": "1",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "value": [
+            1074400
+          ],
+          "methodClassification": "estimated with assumptions",
+          "methodClassificationDescription": "Assumed 400kg/m3 manure",
+          "@type": "Input"
+        }
+      ],
+      "products": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "@type": "Product"
+        }
+      ],
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Periodic spread",
+        "termType": "excretaManagement",
+        "@id": "periodicSpread"
+      },
+      "transformationId": "2",
+      "previousTransformationId": "1",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Recycled (waste management)",
+        "termType": "wasteManagement",
+        "@id": "recycledWasteManagement"
+      },
+      "transformationId": "3",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Plastic, type unspecified",
+            "termType": "material",
+            "@id": "plasticTypeUnspecified",
+            "units": "kg"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Recycled (waste management)",
+        "termType": "wasteManagement",
+        "@id": "recycledWasteManagement"
+      },
+      "transformationId": "4",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Paper",
+            "termType": "material",
+            "@id": "paper",
+            "units": "kg"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "@type": "Transformation"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Milk, cow, raw (FPCM)",
+        "units": "kg FPCM",
+        "@id": "milkCowRawFpcm"
+      },
+      "value": [
+        654441
+      ],
+      "primary": true,
+      "economicValueShare": 93.86458333,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, dairy cattle (liveweight)",
+        "units": "kg liveweight",
+        "@id": "meatDairyCattleLiveweight"
+      },
+      "value": [
+        3514.3
+      ],
+      "economicValueShare": 6.135416667,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, dairy cattle (kg mass)",
+        "units": "kg",
+        "@id": "excretaDairyCattleKgMass"
+      },
+      "value": [
+        1074400
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "organicFertiliser",
+        "name": "Wastewater (kg mass)",
+        "units": "kg",
+        "@id": "wastewaterKgMass"
+      },
+      "value": [
+        759000
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Municipal solid waste",
+        "termType": "waste",
+        "@id": "municipalSolidWaste",
+        "units": "kg"
+      },
+      "value": [
+        201
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Plastic, type unspecified",
+        "termType": "material",
+        "@id": "plasticTypeUnspecified",
+        "units": "kg"
+      },
+      "value": [
+        944
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Paper",
+        "termType": "material",
+        "@id": "paper",
+        "units": "kg"
+      },
+      "value": [
+        124
+      ],
+      "@type": "Product"
+    }
+  ],
+  "emissions": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CH4, to air, enteric fermentation",
+        "termType": "emission",
+        "@id": "ch4ToAirEntericFermentation",
+        "units": "kg CH4"
+      },
+      "value": [
+        10000
+      ],
+      "methodTier": "tier 1",
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2006)",
+        "termType": "model",
+        "@id": "ipcc2006"
+      },
+      "@type": "Emission"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CH4, to air, excreta",
+        "termType": "emission",
+        "@id": "ch4ToAirExcreta",
+        "units": "kg CH4"
+      },
+      "value": [
+        2100
+      ],
+      "methodTier": "tier 1",
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2006)",
+        "termType": "model",
+        "@id": "ipcc2006"
+      },
+      "@type": "Emission"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "NH3, to air, excreta",
+        "termType": "emission",
+        "@id": "nh3ToAirExcreta",
+        "units": "kg NH3"
+      },
+      "value": [
+        1006
+      ],
+      "methodTier": "tier 1",
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2006)",
+        "termType": "model",
+        "@id": "ipcc2006"
+      },
+      "@type": "Emission"
+    }
+  ],
+  "name": "Milk, cow, raw (FPCM) - Galicia (Comunidad Autónoma), Spain - 2019-03",
+  "schemaVersion": "30.5.0",
+  "originalId": "milk_production_spain_average"
+}

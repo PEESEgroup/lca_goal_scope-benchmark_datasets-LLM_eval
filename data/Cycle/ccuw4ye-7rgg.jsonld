@@ -1,0 +1,410 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2023-11-09",
+  "updatedAt": "2025-01-23",
+  "@id": "ccuw4ye-7rgg",
+  "@type": "Cycle",
+  "description": "Cows housed in a stall and fed with fodder concentrate, alfalfa, hay, maize silage and meadow grass silage. When the weather was warm, they were allowed to graze freely on grass fields for 4 hours a day.",
+  "endDate": "2018",
+  "numberOfCycles": 1,
+  "cycleDuration": 365,
+  "startDateDefinition": "one year prior",
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "f6zhjedbycsb",
+    "@type": "Site"
+  },
+  "otherSites": [
+    {
+      "@id": "tsmtjx83-wo9",
+      "@type": "Site"
+    }
+  ],
+  "otherSitesDuration": [
+    30.416666666666664
+  ],
+  "defaultSource": {
+    "@id": "4kzcp4zzxe6a",
+    "@type": "Source"
+  },
+  "otherSitesArea": [
+    0.79
+  ],
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Data were mainly collected through personal interviews with farmers.",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed blend",
+        "termType": "processedFood",
+        "@id": "concentrateFeedBlend",
+        "units": "kg"
+      },
+      "isAnimalFeed": true,
+      "impactAssessment": {
+        "@id": "tltun5zrmoqc",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": true,
+      "value": [
+        243615.6
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, municipal tap",
+        "units": "m3",
+        "@id": "waterMunicipalTap"
+      },
+      "value": [
+        2037649
+      ],
+      "description": "Waste water",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        21654.72
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        3248.208
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "pesticideAI",
+        "name": "Sorbitol",
+        "units": "kg active ingredient",
+        "@id": "CAS-50-70-4"
+      },
+      "value": [
+        215.840414
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "pesticideBrandName",
+        "name": "Detergent Disinfectant Pump Spray",
+        "units": "kg",
+        "@id": "detergentDisinfectantPumpSpray"
+      },
+      "value": [
+        59.182049000000006
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Sodium hydroxide (pesticide AI)",
+        "termType": "pesticideAI",
+        "@id": "CAS-1310-73-2",
+        "units": "kg active ingredient"
+      },
+      "value": [
+        45.256861
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Phosphoric acid (pesticide AI)",
+        "termType": "pesticideAI",
+        "@id": "CAS-7664-38-2",
+        "units": "kg active ingredient"
+      },
+      "value": [
+        27.850376
+      ],
+      "isAnimalFeed": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "soilAmendment",
+        "name": "Sawdust",
+        "units": "kg",
+        "@id": "sawdust"
+      },
+      "value": [
+        4218.159
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Generic crop, straw",
+        "units": "kg",
+        "@id": "genericCropStraw"
+      },
+      "value": [
+        744.3809999999999
+      ],
+      "isAnimalFeed": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "veterinaryDrug",
+        "name": "Propylene glycol (veterinary drug)",
+        "units": "kg active ingredient",
+        "@id": "CAS-57-55-4"
+      },
+      "value": [
+        77.06975
+      ],
+      "isAnimalFeed": false,
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Indoor animal system",
+        "termType": "system",
+        "@id": "indoorAnimalSystem",
+        "units": "%"
+      },
+      "value": [
+        91.66666666666666
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "system",
+        "name": "Confined pasture system",
+        "units": "%",
+        "@id": "confinedPastureSystem"
+      },
+      "value": [
+        8.333333333333332
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow",
+        "units": "number",
+        "@id": "dairyCattleCow"
+      },
+      "animalId": "1",
+      "referencePeriod": "average",
+      "value": 48,
+      "practices": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Holstein Friesian (cattle breed)",
+            "termType": "animalBreed",
+            "@id": "holsteinFriesianCattleBreed",
+            "units": "%"
+          },
+          "value": [
+            100
+          ],
+          "@type": "Practice"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, calf",
+        "units": "number",
+        "@id": "dairyCattleCalf"
+      },
+      "animalId": "2",
+      "referencePeriod": "average",
+      "value": 12,
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Have assumed an even split between the value stated for calves and heifers",
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, heifer",
+        "units": "number",
+        "@id": "dairyCattleHeifer"
+      },
+      "animalId": "3",
+      "referencePeriod": "average",
+      "value": 12,
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Have assumed an even split between the value stated for calves and heifers",
+      "@type": "Animal"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Milk, cow, raw (FPCM)",
+        "units": "kg FPCM",
+        "@id": "milkCowRawFpcm"
+      },
+      "value": [
+        375950
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, dairy cattle (liveweight)",
+        "units": "kg liveweight",
+        "@id": "meatDairyCattleLiveweight"
+      },
+      "value": [
+        5355
+      ],
+      "description": "21 male calves, 7 cull cows",
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, dairy cattle (kg mass)",
+        "units": "kg",
+        "@id": "excretaDairyCattleKgMass"
+      },
+      "value": [
+        1555200
+      ],
+      "@type": "Product"
+    }
+  ],
+  "emissions": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CH4, to air, enteric fermentation",
+        "termType": "emission",
+        "@id": "ch4ToAirEntericFermentation",
+        "units": "kg CH4"
+      },
+      "value": [
+        3153.6000000000004
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "Other model",
+        "termType": "model",
+        "@id": "otherModel"
+      },
+      "methodTier": "tier 2",
+      "methodModelDescription": "Taken from the Technological Institute of Renewable Energies of Spain (ITER, 2008)",
+      "@type": "Emission"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Periodic spread",
+        "termType": "excretaManagement",
+        "@id": "periodicSpread"
+      },
+      "transformationId": "1",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "value": [
+            1555200
+          ],
+          "@type": "Input"
+        }
+      ],
+      "products": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "organicFertiliser",
+            "name": "Cattle, solid manure, dry (kg mass)",
+            "units": "kg",
+            "@id": "cattleSolidManureDryKgMass"
+          },
+          "@type": "Product"
+        }
+      ],
+      "@type": "Transformation"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": true,
+    "product": true,
+    "cropResidue": true,
+    "excreta": true,
+    "animalFeed": false,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "freshForage": false,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Milk, cow, raw (FPCM) - Principado de Asturias, Spain - 2018 - Cows housed in a stall and fed...",
+  "schemaVersion": "30.5.0",
+  "originalId": "Semi-confinement milk cyle"
+}

@@ -1,0 +1,188 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2023-10-16",
+  "updatedAt": "2024-12-06",
+  "@id": "97cf82xhyn4z",
+  "@type": "Cycle",
+  "description": "Processing and packaging cycle to transform milk into various dairy products.",
+  "endDate": "2019",
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "cbr-dxi4drki",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "3tmw64utoxmb",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Each dairy factory was visited once for filling in the life cycle inventory questionnaire. Inputs were recorded from official registers and invoices and included the amount of milk supplied by each farm as well as the energy sources (fuel, methane gas, electricity), cleaning agents and packaging materials (tetrapak, glass, food wrapping paper, plastic) used. Since all the dairies except one had small size in terms of milk processed per day, data about the production input were not available specifically for each product. Thus data collection was performed at the dairy scale, assuming that the production input were homogenously used in the production of the different dairy products",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Milk, cow, raw (FPCM)",
+        "units": "kg FPCM",
+        "@id": "milkCowRawFpcm"
+      },
+      "value": [
+        100
+      ],
+      "impactAssessment": {
+        "@id": "wmmdkdku0dz0",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Detergent unspecified (AI)",
+        "termType": "otherOrganicChemical",
+        "@id": "detergentUnspecifiedAi",
+        "units": "kg active ingredient"
+      },
+      "value": [
+        0.116
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        2821
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Assumed 'fuel' to be diesel",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Paper",
+        "termType": "material",
+        "@id": "paper",
+        "units": "kg"
+      },
+      "isAnimalFeed": false,
+      "value": [
+        0.073
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        3.888888888888889
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Packaging, machine unspecified",
+        "termType": "operation",
+        "@id": "packagingMachineUnspecified",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Fresh cheese",
+        "termType": "processedFood",
+        "@id": "freshCheese",
+        "units": "kg"
+      },
+      "value": [
+        8.6
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Soft-ripened cheese",
+        "termType": "processedFood",
+        "@id": "softRipenedCheese",
+        "units": "kg"
+      },
+      "value": [
+        7.8
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Ripened cheese",
+        "termType": "processedFood",
+        "@id": "ripenedCheese",
+        "units": "kg"
+      },
+      "value": [
+        7.1
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Butter",
+        "termType": "processedFood",
+        "@id": "butter",
+        "units": "kg"
+      },
+      "value": [
+        4
+      ],
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "otherChemical": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": true,
+    "soilAmendment": true,
+    "ingredient": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": true,
+    "animalFeed": true,
+    "freshForage": true,
+    "liveAnimalInput": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Fresh cheese - Southern Europe - 2019 - Processing and packaging cycle...",
+  "schemaVersion": "30.4.0",
+  "originalId": "Dairy processing 1"
+}

@@ -1,0 +1,113 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-11-20",
+  "updatedAt": "2024-12-04",
+  "@id": "af2lo-uvpih4",
+  "@type": "Cycle",
+  "description": "Meat, beef (carcass-weight) - Scenario 4",
+  "site": {
+    "@id": "mlvkno-8x4sd",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "si5hdtbv8hly",
+    "@type": "Source"
+  },
+  "functionalUnit": "relative",
+  "endDate": "2013",
+  "defaultMethodClassification": "inconsistent external sources",
+  "defaultMethodClassificationDescription": "Scenarios modelled combining various sources (mostly from Brasil).",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, cow",
+        "units": "number",
+        "@id": "beefCattleCow"
+      },
+      "value": [
+        0.15656909462219196
+      ],
+      "impactAssessment": {
+        "@id": "df3tuurt3iev",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, heifer",
+        "units": "number",
+        "@id": "beefCattleHeifer"
+      },
+      "impactAssessment": {
+        "@id": "ngzdvaoa3rtu",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, steer",
+        "units": "number",
+        "@id": "beefCattleSteer"
+      },
+      "impactAssessment": {
+        "@id": "siev-2yqmo67",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "@type": "Input"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, beef cattle (cold carcass weight)",
+        "units": "kg cold carcass weight",
+        "@id": "meatBeefCattleColdCarcassWeight"
+      },
+      "value": [
+        33.61777498324144
+      ],
+      "primary": true,
+      "variety": "Nellore or Nellore crosses - Best Nellore crosses",
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": true,
+    "soilAmendment": true,
+    "water": false,
+    "product": false,
+    "cropResidue": true,
+    "excreta": true,
+    "animalFeed": true,
+    "transport": false,
+    "liveAnimalInput": true,
+    "waste": false,
+    "operation": false,
+    "freshForage": true,
+    "animalPopulation": true,
+    "ingredient": true,
+    "otherChemical": false,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Meat, beef cattle (cold carcass weight) - Brazil - 2013 - Meat, beef (carcass-weight) - ...",
+  "schemaVersion": "30.3.2",
+  "originalId": "4.processing"
+}

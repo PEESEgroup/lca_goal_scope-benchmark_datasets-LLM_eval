@@ -1,0 +1,219 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-02-09",
+  "updatedAt": "2024-12-03",
+  "@id": "u7joxs5u8itd",
+  "@type": "Cycle",
+  "description": "Slaughtering",
+  "endDate": "2010",
+  "site": {
+    "@id": "6tw3oci91zak",
+    "@type": "Site"
+  },
+  "functionalUnit": "relative",
+  "defaultMethodClassification": "consistent external sources",
+  "defaultMethodClassificationDescription": "Data representing the typical Danish pork production in 2010 on the one hand, and on the other using data from the 25% of Danish pig herds with highest technical efficiency in terms of piglets per sow and feed use per kg pork produced. The higher efficiency groups are thought to be standard in a couple of years time. Data from Danish crown.",
+  "defaultSource": {
+    "@id": "hmohcfms011t",
+    "@type": "Source"
+  },
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig",
+        "units": "number",
+        "@id": "pig"
+      },
+      "isAnimalFeed": false,
+      "value": [
+        1
+      ],
+      "impactAssessment": {
+        "@id": "7eufl2lb-jr9",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Weight at slaughter",
+            "termType": "property",
+            "@id": "weightAtSlaughter",
+            "units": "kg liveweight / head"
+          },
+          "value": 107,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, lorry, light commercial vehicle",
+            "units": "tkm",
+            "@id": "freightLorryLightCommercialVehicle"
+          },
+          "value": 8.56,
+          "distance": 80,
+          "description": "16 tonne lorry",
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, natural gas",
+        "termType": "electricity",
+        "@id": "electricityGridNaturalGas",
+        "units": "kWh"
+      },
+      "description": "The sum of the electricity used and heat (in kWh) per pig.",
+      "value": [
+        26
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Heating buildings, machine unspecified",
+        "termType": "operation",
+        "@id": "heatingBuildingsMachineUnspecified",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Slaughtering",
+        "termType": "operation",
+        "@id": "slaughtering",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, pig (cold dressed carcass weight)",
+        "units": "kg cold dressed carcass weight",
+        "@id": "meatPigColdDressedCarcassWeight"
+      },
+      "value": [
+        81
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Dead animal waste (kg mass)",
+        "termType": "waste",
+        "@id": "deadAnimalWasteKgMass",
+        "units": "kg"
+      },
+      "description": "Blood, bone and meat meal",
+      "primary": false,
+      "value": [
+        15.6
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, pigs (kg mass)",
+        "units": "kg",
+        "@id": "excretaPigsKgMass"
+      },
+      "primary": false,
+      "value": [
+        5.6
+      ],
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Anaerobic digester, unspecified",
+        "termType": "excretaManagement",
+        "@id": "anaerobicDigesterUnspecified"
+      },
+      "transformationId": "biogas-production",
+      "description": "Biogas production",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, pigs (kg mass)",
+            "units": "kg",
+            "@id": "excretaPigsKgMass"
+          },
+          "fromCycle": true,
+          "value": [
+            5.6
+          ],
+          "@type": "Input"
+        }
+      ],
+      "products": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Electricity, produced on-site, biogas",
+            "termType": "electricity",
+            "@id": "electricityProducedOnSiteBiogas",
+            "units": "kWh"
+          },
+          "@type": "Product"
+        }
+      ],
+      "@type": "Transformation"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "operation": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": true,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": true,
+    "animalFeed": true,
+    "waste": true,
+    "liveAnimalInput": true,
+    "transport": false,
+    "otherChemical": true,
+    "ingredient": true,
+    "freshForage": true,
+    "animalPopulation": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Meat, pig (cold dressed carcass weight) - Denmark - 2010 - Slaughtering",
+  "schemaVersion": "30.3.2",
+  "originalId": "slaughtering-nguyen"
+}

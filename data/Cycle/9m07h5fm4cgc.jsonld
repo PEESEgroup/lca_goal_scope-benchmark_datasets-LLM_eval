@@ -1,0 +1,688 @@
+{
+  "@context": "https://contribute.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2023-11-13",
+  "updatedAt": "2025-03-10",
+  "@id": "9m07h5fm4cgc",
+  "@type": "Cycle",
+  "description": "Production of calves that are weaned after 6 months with one part of the heifers for slaughter and the other part for replacing mature breeding cows.",
+  "startDateDefinition": "stocking date",
+  "endDate": "2013-01-01",
+  "cycleDuration": 182.39999999999998,
+  "functionalUnit": "relative",
+  "functionalUnitDetails": "1 male bull calf sold at the farm gate (to be taken to Farm 2 for fattening).",
+  "site": {
+    "@id": "cvy333cq_fut",
+    "@type": "Site"
+  },
+  "siteArea": 2.6790000000000003,
+  "siteDuration": 182.39999999999998,
+  "defaultSource": {
+    "@id": "xv1onxezajtm",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Data collected from interviews and questionnaires with the owner and managers of the farms as well as data from accounting documents from the farms.",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Single Super Phosphate (kg P2O5)",
+        "termType": "inorganicFertiliser",
+        "@id": "singleSuperPhosphateKgP2O5",
+        "units": "kg P2O5"
+      },
+      "value": [
+        0.072
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Potassium Nitrate (kg N)",
+        "termType": "inorganicFertiliser",
+        "@id": "potassiumNitrateKgN",
+        "units": "kg N"
+      },
+      "value": [
+        0.024
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "feedFoodAdditive",
+        "name": "Minerals, unspecified",
+        "units": "kg",
+        "@id": "mineralsUnspecified"
+      },
+      "isAnimalFeed": true,
+      "description": "Pasture supplemented with salt to increase animal weight gain when pasture availability is reduced.",
+      "value": [
+        25.919999999999998
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Calcium content",
+            "termType": "property",
+            "@id": "calciumContent",
+            "units": "%"
+          },
+          "value": 24.445450430058848,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Sulphur content",
+            "termType": "property",
+            "@id": "sulphurContent",
+            "units": "%"
+          },
+          "value": 2.6256224535989134,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Phosphorus content (as P)",
+            "termType": "property",
+            "@id": "phosphorusContentAsP",
+            "units": "%"
+          },
+          "value": 12.041647804436394,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Magnesium content",
+            "termType": "property",
+            "@id": "magnesiumContent",
+            "units": "%"
+          },
+          "value": 1.9284744228157533,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Sodium content",
+            "termType": "property",
+            "@id": "sodiumContent",
+            "units": "%"
+          },
+          "value": 54.929832503395204,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Copper content",
+            "termType": "property",
+            "@id": "copperContent",
+            "units": "%"
+          },
+          "value": 0.1810774105930285,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Iron content",
+            "termType": "property",
+            "@id": "ironContent",
+            "units": "%"
+          },
+          "value": 0.2082390221819828,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Manganese content",
+            "termType": "property",
+            "@id": "manganeseContent",
+            "units": "%"
+          },
+          "value": 0.1720235400633771,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Selenium content",
+            "termType": "property",
+            "@id": "seleniumContent",
+            "units": "%"
+          },
+          "value": 0.0724309642372114,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Zinc content",
+            "termType": "property",
+            "@id": "zincContent",
+            "units": "%"
+          },
+          "value": 0.7876867360796741,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Potassium content (as K)",
+            "termType": "property",
+            "@id": "potassiumContentAsK",
+            "units": "%"
+          },
+          "value": 2.444545043005885,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Cobalt content",
+            "termType": "property",
+            "@id": "cobaltContent",
+            "units": "%"
+          },
+          "value": 0.009053870529651425,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Fluoride content",
+            "termType": "property",
+            "@id": "fluorideContent",
+            "units": "%"
+          },
+          "value": 0.11770031688546853,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Iodine content",
+            "termType": "property",
+            "@id": "iodineContent",
+            "units": "%"
+          },
+          "value": 0.009053870529651425,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Transport, unspecified",
+            "termType": "transport",
+            "@id": "transportUnspecified",
+            "units": "tkm"
+          },
+          "value": 6.3984,
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "pesticideAI",
+        "name": "Herbicide unspecified (AI)",
+        "units": "kg active ingredient",
+        "@id": "herbicideUnspecifiedAi"
+      },
+      "value": [
+        0.048
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Urea (kg N)",
+        "termType": "inorganicFertiliser",
+        "@id": "ureaKgN",
+        "units": "kg N"
+      },
+      "value": [
+        0.624
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Seed",
+        "termType": "seed",
+        "@id": "seed",
+        "units": "kg"
+      },
+      "value": [
+        0.00528
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Generic tree, wood",
+        "units": "kg",
+        "@id": "genericTreeWood"
+      },
+      "value": [
+        15.84
+      ],
+      "isAnimalFeed": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Steel",
+        "termType": "material",
+        "@id": "steel",
+        "units": "kg"
+      },
+      "value": [
+        0.0912
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Assumed to be the wire used for partitionaing fields which is most commonly done with steel.",
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "operation",
+        "name": "Harrowing, machine unspecified",
+        "units": "hour",
+        "@id": "harrowingMachineUnspecified"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Rotational grazing",
+        "termType": "landUseManagement",
+        "@id": "rotationalGrazing",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Artificial insemination",
+        "termType": "animalManagement",
+        "@id": "artificialInsemination",
+        "units": "%"
+      },
+      "value": [
+        50
+      ],
+      "description": "Both artifical insemination and natural breeding are used.",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture grass",
+        "termType": "landUseManagement",
+        "@id": "pastureGrass",
+        "units": "% area"
+      },
+      "key": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Signal grass plant",
+        "units": "% area",
+        "@id": "signalGrassPlant"
+      },
+      "value": [
+        100
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Pasture is described to mainly consist of Brachiaria and therefore we have assumed 100% coverage of Brachiaria.",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Stocking density, permanent pasture (average)",
+        "termType": "animalManagement",
+        "@id": "stockingDensityPermanentPastureAverage",
+        "units": "animals / m2"
+      },
+      "value": [
+        0.00014706980216498694
+      ],
+      "description": "This is the total no. animals on farm/farm area. It is irrespective of the FU.",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Confined pasture system",
+        "termType": "system",
+        "@id": "confinedPastureSystem",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "animalId": "1",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, bull",
+        "units": "number",
+        "@id": "beefCattleBull"
+      },
+      "value": 0.04,
+      "referencePeriod": "average",
+      "@type": "Animal"
+    },
+    {
+      "animalId": "2",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, cow",
+        "units": "number",
+        "@id": "beefCattleCow"
+      },
+      "value": 2,
+      "referencePeriod": "average",
+      "@type": "Animal"
+    },
+    {
+      "animalId": "3",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, calf (male, unweaned)",
+        "units": "number",
+        "@id": "beefCattleCalfMaleUnweaned"
+      },
+      "value": 1,
+      "referencePeriod": "average",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Weaning time",
+            "termType": "property",
+            "@id": "weaningTime",
+            "units": "days"
+          },
+          "value": 182.5,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "animalId": "4",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, calf (female, unweaned)",
+        "units": "number",
+        "@id": "beefCattleCalfFemaleUnweaned"
+      },
+      "value": 0.45,
+      "referencePeriod": "average",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Weaning time",
+            "termType": "property",
+            "@id": "weaningTime",
+            "units": "days"
+          },
+          "value": 182.5,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "animalId": "5",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, calf (female, weaned)",
+        "units": "number",
+        "@id": "beefCattleCalfFemaleWeaned"
+      },
+      "value": 0.45,
+      "referencePeriod": "average",
+      "@type": "Animal"
+    }
+  ],
+  "transformations": [
+    {
+      "transformationId": "1",
+      "term": {
+        "@type": "Term",
+        "name": "Pasture/Range/Paddock (excreta management)",
+        "termType": "excretaManagement",
+        "@id": "pastureRangePaddockExcretaManagement"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, beef cattle, except feedlot fed (kg mass)",
+            "units": "kg",
+            "@id": "excretaBeefCattleExceptFeedlotFedKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "@type": "Transformation"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, beef cattle (liveweight)",
+        "units": "kg liveweight",
+        "@id": "meatBeefCattleLiveweight"
+      },
+      "value": [
+        369.6
+      ],
+      "description": "Meat from co-products: Heifers (302.4kg), cows (67.2kg)",
+      "primary": false,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, beef cattle, except feedlot fed (kg mass)",
+        "units": "kg",
+        "@id": "excretaBeefCattleExceptFeedlotFedKgMass"
+      },
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, calf (male, weaned)",
+        "units": "number",
+        "@id": "beefCattleCalfMaleWeaned"
+      },
+      "primary": true,
+      "value": [
+        1
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 345.59999999999997,
+          "methodClassification": "estimated with assumptions",
+          "methodClassificationDescription": "We are told that 0.72kg LW of calves from Farm 1 becomes 1kg of bulls in Farm 2. Therefore if the final LW of bulls in Farm 2 is 480kg, we assumed that the final LW of calves from Farm 1 is 480*0.72.",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "waste",
+        "name": "Plastic waste",
+        "units": "kg",
+        "@id": "plasticWaste"
+      },
+      "value": [
+        0.552
+      ],
+      "description": "0.01 is Polyethylene terephthalate from wrapping pesicide; 0.5424 is assumed LDPE for wrapping the mineral salt input; 0.0048 is assumed LDPE related to packaging inputs used on pasture.",
+      "@type": "Product"
+    }
+  ],
+  "emissions": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "NH3, to air, inorganic fertiliser",
+        "termType": "emission",
+        "@id": "nh3ToAirInorganicFertiliser",
+        "units": "kg NH3"
+      },
+      "value": [
+        0.009600000000000001
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2006)",
+        "termType": "model",
+        "@id": "ipcc2006"
+      },
+      "methodTier": "tier 2",
+      "@type": "Emission"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CO2, to air, fuel combustion",
+        "termType": "emission",
+        "@id": "co2ToAirFuelCombustion",
+        "units": "kg CO2"
+      },
+      "value": [
+        0.043199999999999995
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2006)",
+        "termType": "model",
+        "@id": "ipcc2006"
+      },
+      "methodTier": "tier 2",
+      "@type": "Emission"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CH4, to air, enteric fermentation",
+        "termType": "emission",
+        "@id": "ch4ToAirEntericFermentation",
+        "units": "kg CH4"
+      },
+      "value": [
+        0.28319999999999995
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2006)",
+        "termType": "model",
+        "@id": "ipcc2006"
+      },
+      "methodTier": "tier 2",
+      "@type": "Emission"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "ingredient": true,
+    "otherChemical": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "freshForage": false,
+    "liveAnimalInput": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Beef cattle, calf (male, weaned) - Itapetinga (Distrito), Itapetinga, Bahia, Brazil - 2013-01-01 - Production of calves that are ...",
+  "schemaVersion": "30.4.0",
+  "originalId": "F1- Calves"
+}

@@ -1,0 +1,85 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-05-30",
+  "updatedAt": "2024-12-19",
+  "@id": "ubijyqazgge9",
+  "@type": "Cycle",
+  "description": "France - animal to meat slaughter cycle",
+  "functionalUnit": "relative",
+  "defaultMethodClassification": "consistent external sources",
+  "defaultMethodClassificationDescription": "\"Data … are representative of certain areas, not on data from specific farms…\"",
+  "completeness": {
+    "fertiliser": true,
+    "soilAmendment": true,
+    "pesticideVeterinaryDrug": true,
+    "water": true,
+    "electricityFuel": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": true,
+    "seed": true,
+    "material": false,
+    "animalFeed": true,
+    "operation": false,
+    "waste": false,
+    "transport": true,
+    "liveAnimalInput": true,
+    "ingredient": true,
+    "freshForage": true,
+    "animalPopulation": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "endDate": "2011",
+  "defaultSource": {
+    "@id": "d5kbxxbrujd0",
+    "@type": "Source"
+  },
+  "site": {
+    "@id": "gemjli2gkang",
+    "@type": "Site"
+  },
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, chicken (cold carcass weight)",
+        "units": "kg cold carcass weight",
+        "@id": "meatChickenColdCarcassWeight"
+      },
+      "value": [
+        1
+      ],
+      "price": 0.83,
+      "currency": "EUR",
+      "primary": true,
+      "@type": "Product"
+    }
+  ],
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Broiler chicken",
+        "units": "number",
+        "@id": "broilerChicken"
+      },
+      "value": [
+        0.7440476190476191
+      ],
+      "impactAssessment": {
+        "@id": "sqtaj3nuoji5",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "isAnimalFeed": false,
+      "@type": "Input"
+    }
+  ],
+  "dataPrivate": false,
+  "name": "Meat, chicken (cold carcass weight) - Bretagne (Région), France - 2011 - France - animal to meat slaugh...",
+  "schemaVersion": "30.3.2",
+  "originalId": "14"
+}

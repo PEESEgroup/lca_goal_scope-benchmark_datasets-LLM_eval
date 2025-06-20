@@ -1,0 +1,228 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-02-20",
+  "updatedAt": "2024-12-06",
+  "@id": "2dvzsug2txu5",
+  "@type": "Cycle",
+  "description": "Cheese processing - Alpine pasture grazing",
+  "endDate": "2018",
+  "site": {
+    "@id": "l6ht9vc_vrlh",
+    "@type": "Site"
+  },
+  "functionalUnit": "relative",
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Production data of milk and cheese were provided both by dairy farms and by the production traceability system of the Toma di Lanzo Consortium.",
+  "defaultSource": {
+    "@id": "acmdw06gw2h5",
+    "@type": "Source"
+  },
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Milk, cow, raw (FPCM)",
+        "units": "kg FPCM",
+        "@id": "milkCowRawFpcm"
+      },
+      "value": [
+        11
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, source unspecified",
+        "units": "m3",
+        "@id": "waterSourceUnspecified"
+      },
+      "value": [
+        0.0000228
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Rennet",
+        "termType": "feedFoodAdditive",
+        "@id": "rennet",
+        "units": "kg"
+      },
+      "value": [
+        0.00322
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Disinfectant unspecified (AI)",
+        "termType": "otherOrganicChemical",
+        "@id": "disinfectantUnspecifiedAi",
+        "units": "kg active ingredient"
+      },
+      "value": [
+        0.0011
+      ],
+      "price": 22.5,
+      "currency": "EUR",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "pesticideAI",
+        "name": "Sodium hypochlorite",
+        "units": "kg active ingredient",
+        "@id": "CAS-7681-52-9"
+      },
+      "value": [
+        0.0028799999999999997
+      ],
+      "price": 0.3,
+      "currency": "EUR",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        0.025099999999999997
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Wood (fuel)",
+        "units": "kg",
+        "@id": "woodFuel"
+      },
+      "value": [
+        0.133
+      ],
+      "price": 0.17,
+      "currency": "EUR",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "processingAid",
+        "name": "Nitric acid (processing aid)",
+        "units": "kg",
+        "@id": "nitricAcidProcessingAid"
+      },
+      "value": [
+        0.022799999999999997
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Sodium chloride",
+        "termType": "feedFoodAdditive",
+        "@id": "sodiumChloride",
+        "units": "kg"
+      },
+      "value": [
+        0.0227
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Surface disinfection, by hand",
+        "termType": "operation",
+        "@id": "surfaceDisinfectionByHand",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Cheese, cow",
+        "termType": "processedFood",
+        "@id": "cheeseCow",
+        "units": "kg"
+      },
+      "description": "Toma di Lanzo",
+      "value": [
+        1
+      ],
+      "primary": true,
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, lorry, light commercial vehicle",
+            "units": "tkm",
+            "@id": "freightLorryLightCommercialVehicle"
+          },
+          "value": 0.0795,
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "variety": "Toma di Lanzo",
+      "price": 9,
+      "currency": "EUR",
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Whey, liquid",
+        "termType": "processedFood",
+        "@id": "wheyLiquid",
+        "units": "kg"
+      },
+      "primary": false,
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "operation": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": true,
+    "soilAmendment": true,
+    "water": true,
+    "product": false,
+    "cropResidue": true,
+    "excreta": true,
+    "animalFeed": true,
+    "waste": false,
+    "liveAnimalInput": true,
+    "transport": false,
+    "ingredient": true,
+    "otherChemical": true,
+    "animalPopulation": true,
+    "freshForage": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Cheese, cow - Piemonte, Italy - 2018 - Cheese processing - Alpine pas...",
+  "schemaVersion": "30.4.0",
+  "originalId": "verduna-apg"
+}

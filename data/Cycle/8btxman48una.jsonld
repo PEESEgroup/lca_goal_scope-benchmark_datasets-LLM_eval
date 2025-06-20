@@ -1,0 +1,319 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-02-20",
+  "updatedAt": "2024-12-06",
+  "@id": "8btxman48una",
+  "@type": "Cycle",
+  "description": "Mature cheese production",
+  "endDate": "2008",
+  "site": {
+    "@id": "prcwr4o-b2xs",
+    "@type": "Site"
+  },
+  "functionalUnit": "relative",
+  "defaultMethodClassification": "physical measurement",
+  "defaultMethodClassificationDescription": "On-site measurements in the dairy mill.",
+  "defaultSource": {
+    "@id": "9vb_z53eznev",
+    "@type": "Source"
+  },
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Milk, cow, raw (FPCM)",
+        "units": "kg FPCM",
+        "@id": "milkCowRawFpcm"
+      },
+      "value": [
+        8.24
+      ],
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, lorry, light commercial vehicle",
+            "units": "tkm",
+            "@id": "freightLorryLightCommercialVehicle"
+          },
+          "distance": 160,
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Milk powder",
+        "termType": "processedFood",
+        "@id": "milkPowder",
+        "units": "kg"
+      },
+      "value": [
+        0.129
+      ],
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, lorry, light commercial vehicle",
+            "units": "tkm",
+            "@id": "freightLorryLightCommercialVehicle"
+          },
+          "distance": 2400,
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, source unspecified",
+        "units": "m3",
+        "@id": "waterSourceUnspecified"
+      },
+      "value": [
+        0.023
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "processingAid",
+        "name": "Nitric acid (processing aid)",
+        "units": "kg",
+        "@id": "nitricAcidProcessingAid"
+      },
+      "value": [
+        0.037
+      ],
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, lorry, light commercial vehicle",
+            "units": "tkm",
+            "@id": "freightLorryLightCommercialVehicle"
+          },
+          "distance": 726,
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "processingAid",
+        "name": "Sodium hydroxide (processing aid)",
+        "units": "kg",
+        "@id": "sodiumHydroxideProcessingAid"
+      },
+      "value": [
+        0.101
+      ],
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, lorry, light commercial vehicle",
+            "units": "tkm",
+            "@id": "freightLorryLightCommercialVehicle"
+          },
+          "distance": 55,
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Fuel oil",
+        "units": "kg",
+        "@id": "fuelOil"
+      },
+      "value": [
+        0.401
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        1.08
+      ],
+      "@type": "Input"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Cheese, cow",
+        "termType": "processedFood",
+        "@id": "cheeseCow",
+        "units": "kg"
+      },
+      "description": "Mature cheese",
+      "value": [
+        1
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "processedFood",
+        "name": "Whey, powder",
+        "units": "kg",
+        "@id": "wheyPowder"
+      },
+      "primary": false,
+      "value": [
+        0.49
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Industrial sludge",
+        "termType": "waste",
+        "@id": "industrialSludge",
+        "units": "kg"
+      },
+      "value": [
+        0.199
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Food processing waste",
+        "termType": "waste",
+        "@id": "foodProcessingWaste",
+        "units": "kg"
+      },
+      "value": [
+        0.552
+      ],
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Waste incineration, machine unspecified",
+        "termType": "operation",
+        "@id": "wasteIncinerationMachineUnspecified",
+        "units": "hour"
+      },
+      "transformationId": "gonzalez-sludge-incineration",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Industrial sludge",
+            "termType": "waste",
+            "@id": "industrialSludge",
+            "units": "kg"
+          },
+          "value": [
+            0.199
+          ],
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "practices": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Waste incineration, machine unspecified",
+            "termType": "operation",
+            "@id": "wasteIncinerationMachineUnspecified",
+            "units": "hour"
+          },
+          "@type": "Practice"
+        }
+      ],
+      "products": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Industrial sludge",
+            "termType": "waste",
+            "@id": "industrialSludge",
+            "units": "kg"
+          },
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Ash content",
+                "termType": "property",
+                "@id": "ashContent",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "@type": "Product"
+        }
+      ],
+      "@type": "Transformation"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "operation": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": true,
+    "soilAmendment": true,
+    "water": true,
+    "product": true,
+    "cropResidue": true,
+    "excreta": true,
+    "animalFeed": true,
+    "waste": true,
+    "liveAnimalInput": true,
+    "transport": false,
+    "ingredient": true,
+    "otherChemical": true,
+    "animalPopulation": true,
+    "freshForage": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Cheese, cow - Portugal - 2008 - Mature cheese production",
+  "schemaVersion": "30.4.0",
+  "originalId": "gonzalez-cheese"
+}

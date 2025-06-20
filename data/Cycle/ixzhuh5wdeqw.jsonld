@@ -1,0 +1,232 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-02-20",
+  "updatedAt": "2024-12-06",
+  "@id": "ixzhuh5wdeqw",
+  "@type": "Cycle",
+  "description": "Cheese processing - Indoor winter feeding",
+  "endDate": "2018",
+  "site": {
+    "@id": "rqyn0tyxiwsp",
+    "@type": "Site"
+  },
+  "functionalUnit": "relative",
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Production data of milk and cheese were provided both by dairy farms and by the production traceability system of the Toma di Lanzo Consortium.",
+  "defaultSource": {
+    "@id": "acmdw06gw2h5",
+    "@type": "Source"
+  },
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Milk, cow, raw (FPCM)",
+        "units": "kg FPCM",
+        "@id": "milkCowRawFpcm"
+      },
+      "value": [
+        11
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, pumped groundwater",
+        "units": "m3",
+        "@id": "waterPumpedGroundwater"
+      },
+      "value": [
+        2.5799999999999998e-9
+      ],
+      "price": 0.18,
+      "currency": "EUR",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Rennet",
+        "termType": "feedFoodAdditive",
+        "@id": "rennet",
+        "units": "kg"
+      },
+      "value": [
+        0.00329
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Disinfectant unspecified (AI)",
+        "termType": "otherOrganicChemical",
+        "@id": "disinfectantUnspecifiedAi",
+        "units": "kg active ingredient"
+      },
+      "value": [
+        0.000952
+      ],
+      "price": 22.5,
+      "currency": "EUR",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "pesticideAI",
+        "name": "Sodium hypochlorite",
+        "units": "kg active ingredient",
+        "@id": "CAS-7681-52-9"
+      },
+      "value": [
+        0.00266
+      ],
+      "price": 0.3,
+      "currency": "EUR",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        0.023
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "I have assumed they mean kwh rather than kg of electricity.",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Propane",
+        "units": "m3",
+        "@id": "propane"
+      },
+      "value": [
+        0.020470588235294115
+      ],
+      "price": 1.92,
+      "currency": "EUR",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "processingAid",
+        "name": "Nitric acid (processing aid)",
+        "units": "kg",
+        "@id": "nitricAcidProcessingAid"
+      },
+      "value": [
+        0.00000258
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Sodium chloride",
+        "termType": "feedFoodAdditive",
+        "@id": "sodiumChloride",
+        "units": "kg"
+      },
+      "value": [
+        0.022799999999999997
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Surface disinfection, by hand",
+        "termType": "operation",
+        "@id": "surfaceDisinfectionByHand",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Cheese, cow",
+        "termType": "processedFood",
+        "@id": "cheeseCow",
+        "units": "kg"
+      },
+      "description": "Toma di Lanzo",
+      "value": [
+        1
+      ],
+      "primary": true,
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, lorry, light commercial vehicle",
+            "units": "tkm",
+            "@id": "freightLorryLightCommercialVehicle"
+          },
+          "value": 0.34800000000000003,
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "variety": "Toma di Lanzo",
+      "price": 9,
+      "currency": "EUR",
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Whey, liquid",
+        "termType": "processedFood",
+        "@id": "wheyLiquid",
+        "units": "kg"
+      },
+      "primary": false,
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "operation": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": true,
+    "soilAmendment": true,
+    "water": true,
+    "product": false,
+    "cropResidue": true,
+    "excreta": true,
+    "animalFeed": true,
+    "waste": false,
+    "liveAnimalInput": true,
+    "transport": false,
+    "ingredient": true,
+    "otherChemical": true,
+    "animalPopulation": true,
+    "freshForage": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Cheese, cow - Piemonte, Italy - 2018 - Cheese processing - Indoor win...",
+  "schemaVersion": "30.4.0",
+  "originalId": "verduna-iwf"
+}

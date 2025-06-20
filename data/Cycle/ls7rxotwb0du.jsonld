@@ -1,0 +1,142 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2023-10-12",
+  "updatedAt": "2024-12-04",
+  "@id": "ls7rxotwb0du",
+  "@type": "Cycle",
+  "description": "Frozen processing factory",
+  "endDate": "2017",
+  "site": {
+    "@id": "47zej1h678bw",
+    "@type": "Site"
+  },
+  "functionalUnit": "relative",
+  "defaultMethodClassification": "verified survey data",
+  "defaultMethodClassificationDescription": "Conducted through visits to the production process and collected information through inquiries and interviews with responsible persons. Secondary data has been collected by reviewing studies to check the information.",
+  "defaultSource": {
+    "@id": "ukwx4hsnmu5v",
+    "@type": "Source"
+  },
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, chicken (cold carcass weight)",
+        "units": "kg cold carcass weight",
+        "@id": "meatChickenColdCarcassWeight"
+      },
+      "value": [
+        1
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        0.8
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, source unspecified",
+        "units": "m3",
+        "@id": "waterSourceUnspecified"
+      },
+      "value": [
+        0.02
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Fuel oil, no. 6",
+        "termType": "pesticideAI",
+        "@id": "CAS-68553-00-4",
+        "units": "kg active ingredient"
+      },
+      "value": [
+        0.048375
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "pesticideAI",
+        "name": "Chlorine",
+        "units": "kg active ingredient",
+        "@id": "CAS-7782-50-5"
+      },
+      "value": [
+        0.0008236
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Freezing food, machine unspecified",
+        "termType": "operation",
+        "@id": "freezingFoodMachineUnspecified",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, chicken (cold carcass weight)",
+        "units": "kg cold carcass weight",
+        "@id": "meatChickenColdCarcassWeight"
+      },
+      "description": "1 kg frozen meat",
+      "value": [
+        1
+      ],
+      "primary": true,
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "operation": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": true,
+    "soilAmendment": true,
+    "water": true,
+    "product": true,
+    "cropResidue": true,
+    "excreta": true,
+    "animalFeed": true,
+    "waste": false,
+    "liveAnimalInput": true,
+    "transport": false,
+    "ingredient": true,
+    "otherChemical": true,
+    "animalPopulation": true,
+    "freshForage": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Meat, chicken (cold carcass weight) - Thailand - 2017 - Frozen processing factory",
+  "schemaVersion": "30.3.2",
+  "originalId": "6-frozen"
+}

@@ -1,0 +1,116 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-03-19",
+  "updatedAt": "2024-11-26",
+  "@id": "ad6deo092xev",
+  "@type": "Cycle",
+  "site": {
+    "@id": "knpbw431byhi",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "xjw-lobrpjl_",
+    "@type": "Source"
+  },
+  "description": "Production of Beef",
+  "endDate": "2012-12-31",
+  "functionalUnit": "relative",
+  "functionalUnitDetails": "1 kg carcass weight",
+  "defaultMethodClassification": "expert opinion",
+  "defaultMethodClassificationDescription": "To characterize the typical beef farm, members of CEPEA (Center for Advanced Studies on Applied Economics located in the Luiz de Queiroz College of Agriculture at the University of S~ao Paulo in Piracicaba-Brazil), in collaboration with technical staff of local farmers' unions, prepared a Microsoft Excel® worksheet to collect typical farm data. In 2012, a team from CEPEA characterized the typical farm through a focus group of local farmers and technical staff from the local farmers' unions. Economic and technical features of the typical beef farming system in the region were discussed with focus group participants (e.g. livestock flows, animal life cycle, livestock weights, technical indices, farm inputs and outputs). Through consensus of focus-group participants, data for the typical farm were considered representative of beef farms in the region.",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, bull",
+        "units": "number",
+        "@id": "beefCattleBull"
+      },
+      "value": [
+        144
+      ],
+      "impactAssessment": {
+        "@id": "juxgzkr7a0sc",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, cow",
+        "units": "number",
+        "@id": "beefCattleCow"
+      },
+      "value": [
+        100
+      ],
+      "impactAssessment": {
+        "@id": "m5yhiz1h8ndh",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": true,
+      "@type": "Input"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, beef cattle (cold carcass weight)",
+        "units": "kg cold carcass weight",
+        "@id": "meatBeefCattleColdCarcassWeight"
+      },
+      "value": [
+        52214.4
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Processing conversion, hot carcass weight to cold carcass weight",
+            "termType": "property",
+            "@id": "processingConversionHotCarcassWeightToColdCarcassWeight",
+            "units": "%"
+          },
+          "value": 2,
+          "description": "% change between hot and cold carcass weight for meat",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "primary": true,
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "animalFeed": true,
+    "animalPopulation": true,
+    "cropResidue": true,
+    "electricityFuel": false,
+    "excreta": true,
+    "fertiliser": true,
+    "freshForage": true,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "material": false,
+    "operation": false,
+    "otherChemical": false,
+    "pesticideVeterinaryDrug": true,
+    "product": true,
+    "seed": true,
+    "soilAmendment": true,
+    "transport": false,
+    "waste": false,
+    "water": false,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Meat, beef cattle (cold carcass weight) - Cáceres (Município), Mato Grosso, Brazil - 2012-12-31 - Production of Beef",
+  "schemaVersion": "30.3.2",
+  "originalId": "2"
+}

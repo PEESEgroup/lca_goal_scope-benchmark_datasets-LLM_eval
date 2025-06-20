@@ -1,0 +1,103 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Site.jsonld",
+  "createdAt": "2024-03-19",
+  "updatedAt": "2024-11-26",
+  "@id": "uispwoomut3u",
+  "@type": "Site",
+  "description": "Typical Amazonian beef farm in Cáceres, Mato Grosso state, Brazil. 1000 ha grassland from primary forest",
+  "siteType": "permanent pasture",
+  "area": 1000,
+  "latitude": -16.51738868,
+  "longitude": -57.83801209,
+  "country": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Brazil",
+    "@id": "GADM-BRA"
+  },
+  "region": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Cáceres (Município), Mato Grosso, Brazil",
+    "@id": "GADM-BRA.12.20_1"
+  },
+  "defaultSource": {
+    "@id": "xjw-lobrpjl_",
+    "@type": "Source"
+  },
+  "organisation": {
+    "@id": "j3vjiochwkx4",
+    "@type": "Organisation"
+  },
+  "defaultMethodClassification": "expert opinion",
+  "defaultMethodClassificationDescription": "To characterize the typical beef farm, members of CEPEA (Center for Advanced Studies on Applied Economics located in the Luiz de Queiroz College of Agriculture at the University of S~ao Paulo in Piracicaba-Brazil), in collaboration with technical staff of local farmers' unions, prepared a Microsoft Excel® worksheet to collect typical farm data. In 2012, a team from CEPEA characterized the typical farm through a focus group of local farmers and technical staff from the local farmers' unions. Economic and technical features of the typical beef farming system in the region were discussed with focus group participants (e.g. livestock flows, animal life cycle, livestock weights, technical indices, farm inputs and outputs). Through consensus of focus-group participants, data for the typical farm were considered representative of beef farms in the region.",
+  "measurements": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Temperature (annual)",
+        "termType": "measurement",
+        "@id": "temperatureAnnual",
+        "units": "°C"
+      },
+      "value": [
+        25.2
+      ],
+      "description": "Mean annual temperature in the municipality",
+      "methodClassification": "regional statistical data",
+      "methodClassificationDescription": "Provided by Brazilian Agricultural Research Corporation (Embrapa)",
+      "@type": "Measurement"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Potential evapotranspiration (annual)",
+        "termType": "measurement",
+        "@id": "potentialEvapotranspirationAnnual",
+        "units": "mm / year"
+      },
+      "value": [
+        1438
+      ],
+      "description": "Site mean annual potential evapotranspiration in mm",
+      "methodClassification": "regional statistical data",
+      "methodClassificationDescription": "Provided by Brazilian Agricultural Research Corporation (Embrapa)",
+      "@type": "Measurement"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "measurement",
+        "name": "Rainfall (annual)",
+        "units": "mm / year",
+        "@id": "rainfallAnnual"
+      },
+      "value": [
+        1347
+      ],
+      "description": "Mean annual rainfall in mm (mostly concentrated in summer months)",
+      "methodClassification": "regional statistical data",
+      "methodClassificationDescription": "Provided by Brazilian Agricultural Research Corporation (Embrapa)",
+      "@type": "Measurement"
+    }
+  ],
+  "management": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Forest",
+        "termType": "landCover",
+        "@id": "forest",
+        "units": "% area"
+      },
+      "value": 100,
+      "endDate": "1984",
+      "description": "1000 ha of native forest deforested for use of pasture starting in 1985",
+      "@type": "Management"
+    }
+  ],
+  "dataPrivate": false,
+  "name": "Permanent pasture - Typical Amazonian beef farm - Cáceres (Município), Mato Grosso, Brazil - Typical Amazonian beef farm in...",
+  "schemaVersion": "30.3.2",
+  "originalId": "1"
+}

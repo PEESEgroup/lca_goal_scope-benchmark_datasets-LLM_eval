@@ -1,0 +1,210 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-02-09",
+  "updatedAt": "2024-12-03",
+  "@id": "8x3e6ncw-2bs",
+  "@type": "Cycle",
+  "description": "Sow herds-2010",
+  "startDateDefinition": "stocking date",
+  "endDate": "2010",
+  "cycleDuration": 161.5044247787611,
+  "numberOfCycles": 749,
+  "site": {
+    "@id": "7kcs9n7ki99r",
+    "@type": "Site"
+  },
+  "functionalUnit": "relative",
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Collected from AgroSoft and Cloudfarms in Denmark.",
+  "defaultSource": {
+    "@id": "wcfuerr47b3k",
+    "@type": "Source"
+  },
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig, sow",
+        "units": "number",
+        "@id": "pigSow"
+      },
+      "isAnimalFeed": false,
+      "value": [
+        1
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "property",
+            "name": "Live animals per birth",
+            "units": "number",
+            "@id": "liveAnimalsPerBirth"
+          },
+          "value": 14.5,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "property",
+            "name": "Dead animals per birth",
+            "units": "number",
+            "@id": "deadAnimalsPerBirth"
+          },
+          "value": 1.8,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Total animal population",
+        "termType": "animalManagement",
+        "@id": "totalAnimalPopulation",
+        "units": "number"
+      },
+      "description": "615",
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig, sow",
+        "units": "number",
+        "@id": "pigSow"
+      },
+      "animalId": "helverskov-sow-10-Pig, sow",
+      "referencePeriod": "average",
+      "value": 1,
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig, piglet",
+        "units": "number",
+        "@id": "pigPiglet"
+      },
+      "animalId": "helverskov-sow-10-Pig, piglet",
+      "referencePeriod": "average",
+      "value": 2.040346575342465,
+      "@type": "Animal"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig, piglet",
+        "units": "number",
+        "@id": "pigPiglet"
+      },
+      "value": [
+        12.4
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Weight at weaning",
+            "termType": "property",
+            "@id": "weightAtWeaning",
+            "units": "kg liveweight / head"
+          },
+          "value": 7.2,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Mortality rate",
+            "termType": "property",
+            "@id": "mortalityRate",
+            "units": "%"
+          },
+          "value": 23.6,
+          "description": "The overall mortality including deaths during/at birth and until the piglets are weaned.",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Weaning time",
+            "termType": "property",
+            "@id": "weaningTime",
+            "units": "days"
+          },
+          "value": 30,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 7.2,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, pigs (kg mass)",
+        "units": "kg",
+        "@id": "excretaPigsKgMass"
+      },
+      "primary": false,
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "operation": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": false,
+    "waste": false,
+    "liveAnimalInput": true,
+    "transport": false,
+    "otherChemical": true,
+    "ingredient": true,
+    "freshForage": true,
+    "animalPopulation": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Pig, piglet - Denmark - 2010 - Sow herds-2010",
+  "schemaVersion": "30.3.2",
+  "originalId": "helverskov-sow-10"
+}

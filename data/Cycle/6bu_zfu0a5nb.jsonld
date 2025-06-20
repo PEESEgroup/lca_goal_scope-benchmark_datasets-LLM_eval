@@ -1,0 +1,340 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-12-04",
+  "updatedAt": "2024-12-06",
+  "@id": "6bu_zfu0a5nb",
+  "@type": "Cycle",
+  "description": "Beef cattle feedlot",
+  "startDate": "2012-04-29",
+  "startDateDefinition": "stocking date",
+  "endDate": "2012-07-28",
+  "cycleDuration": 90,
+  "numberOfCycles": 1,
+  "site": {
+    "@id": "pk04kix7x07y",
+    "@type": "Site"
+  },
+  "functionalUnit": "relative",
+  "defaultMethodClassification": "physical measurement",
+  "defaultMethodClassificationDescription": "It is not super clear how they collected the data - they carried out physical testing of the emissions from excreta.",
+  "defaultSource": {
+    "@id": "419nmdictgxz",
+    "@type": "Source"
+  },
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed blend",
+        "termType": "processedFood",
+        "@id": "concentrateFeedBlend",
+        "units": "kg"
+      },
+      "value": [
+        176151.31578947368
+      ],
+      "impactAssessment": {
+        "@id": "0at07fzr5gpo",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, heifer",
+        "units": "number",
+        "@id": "beefCattleHeifer"
+      },
+      "animalId": "1",
+      "description": "Pasture grown Red Angus heifers",
+      "referencePeriod": "average",
+      "value": 140,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 344.8,
+          "sd": 46.8,
+          "statsDefinition": "other observations",
+          "date": "2012-04-29",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 453.3,
+          "sd": 58.8,
+          "statsDefinition": "other observations",
+          "date": "2012-07-28",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight gain",
+            "termType": "property",
+            "@id": "liveweightGain",
+            "units": "kg liveweight / head / day"
+          },
+          "value": 1.35,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "value": 608.74,
+          "date": "2012-04-29",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Red Angus",
+        "termType": "animalBreed",
+        "@id": "redAngus",
+        "units": "%"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concrete flooring use",
+        "termType": "animalManagement",
+        "@id": "concreteFlooringUse",
+        "units": "% area"
+      },
+      "@type": "Practice"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, heifer",
+        "units": "number",
+        "@id": "beefCattleHeifer"
+      },
+      "value": [
+        140
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, beef cattle, feedlot fed (kg mass)",
+        "units": "kg",
+        "@id": "excretaBeefCattleFeedlotFedKgMass"
+      },
+      "primary": false,
+      "value": [
+        11880
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Total solids content",
+            "termType": "property",
+            "@id": "totalSolidsContent",
+            "units": "%"
+          },
+          "value": 35.5,
+          "sd": 4.4,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Excreta management, unspecified",
+        "termType": "excretaManagement",
+        "@id": "excretaManagementUnspecified"
+      },
+      "transformationId": "separating",
+      "description": "Separating into solid and liquid fraction using sieve technique.",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, beef cattle, feedlot fed (kg mass)",
+            "units": "kg",
+            "@id": "excretaBeefCattleFeedlotFedKgMass"
+          },
+          "value": [
+            11880
+          ],
+          "fromCycle": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "water",
+            "name": "Water, source unspecified",
+            "units": "m3",
+            "@id": "waterSourceUnspecified"
+          },
+          "value": [
+            90
+          ],
+          "fromCycle": false,
+          "@type": "Input"
+        }
+      ],
+      "products": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "organicFertiliser",
+            "name": "Manure, dry (kg mass)",
+            "units": "kg",
+            "@id": "manureDryKgMass"
+          },
+          "value": [
+            7740
+          ],
+          "fate": "home consumption",
+          "@type": "Product"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Processed excreta (kg mass)",
+            "termType": "excreta",
+            "@id": "processedExcretaKgMass",
+            "units": "kg"
+          },
+          "value": [
+            84600
+          ],
+          "fate": "processing",
+          "@type": "Product"
+        }
+      ],
+      "@type": "Transformation"
+    },
+    {
+      "previousTransformationId": "separating",
+      "term": {
+        "@type": "Term",
+        "name": "Anaerobic digester, unspecified",
+        "termType": "excretaManagement",
+        "@id": "anaerobicDigesterUnspecified"
+      },
+      "transformationId": "digestor",
+      "description": "The liquid fraction of the slurry is fed into the AD plant to generate electricity.",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Processed excreta (kg mass)",
+            "termType": "excreta",
+            "@id": "processedExcretaKgMass",
+            "units": "kg"
+          },
+          "value": [
+            84600
+          ],
+          "fromCycle": false,
+          "@type": "Input"
+        }
+      ],
+      "products": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "organicFertiliser",
+            "name": "Digestate (kg mass)",
+            "units": "kg",
+            "@id": "digestateKgMass"
+          },
+          "@type": "Product"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Electricity, produced on-site, biogas",
+            "termType": "electricity",
+            "@id": "electricityProducedOnSiteBiogas",
+            "units": "kWh"
+          },
+          "value": [
+            1156.3128000000002
+          ],
+          "@type": "Product"
+        }
+      ],
+      "@type": "Transformation"
+    }
+  ],
+  "completeness": {
+    "animalFeed": true,
+    "animalPopulation": true,
+    "cropResidue": true,
+    "electricityFuel": true,
+    "excreta": true,
+    "fertiliser": true,
+    "freshForage": true,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "material": false,
+    "operation": false,
+    "otherChemical": true,
+    "pesticideVeterinaryDrug": false,
+    "product": false,
+    "seed": true,
+    "soilAmendment": true,
+    "transport": false,
+    "waste": false,
+    "water": false,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Beef cattle, heifer - São Paulo, Brazil - 2012-07-28 - Beef cattle feedlot",
+  "schemaVersion": "30.4.0",
+  "originalId": "costa-beef"
+}

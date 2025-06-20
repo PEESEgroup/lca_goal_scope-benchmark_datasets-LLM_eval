@@ -1,0 +1,413 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2023-10-12",
+  "updatedAt": "2024-12-04",
+  "@id": "vpgjg_1h_dra",
+  "@type": "Cycle",
+  "description": "Broiler chicken farm to 6 weeks old",
+  "startDateDefinition": "stocking date",
+  "endDate": "2019",
+  "cycleDuration": 42,
+  "numberOfCycles": 1,
+  "site": {
+    "@id": "pkmew8wtcrab",
+    "@type": "Site"
+  },
+  "functionalUnit": "relative",
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "The empirical data analyzed in this study came from the filtered and completed questionnaires gathered from the samples.",
+  "defaultSource": {
+    "@id": "6x8shn-j0lez",
+    "@type": "Source"
+  },
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Broiler chicken, chick",
+        "units": "number",
+        "@id": "broilerChickenChick"
+      },
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Temperature",
+            "termType": "property",
+            "@id": "temperature",
+            "units": "° C"
+          },
+          "description": "Body temperature of the chick",
+          "value": 39.7,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 0.065,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Mortality rate",
+            "termType": "property",
+            "@id": "mortalityRate",
+            "units": "%"
+          },
+          "value": 3,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight gain",
+            "termType": "property",
+            "@id": "liveweightGain",
+            "units": "kg liveweight / head / day"
+          },
+          "value": 0.01219047619047619,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "description": "One day old broiler chick",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Animal bedding, unspecified",
+        "termType": "material",
+        "@id": "animalBeddingUnspecified",
+        "units": "kg"
+      },
+      "description": "8-10cm deep.",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed, unspecified",
+        "termType": "processedFood",
+        "@id": "concentrateFeedUnspecified",
+        "units": "kg"
+      },
+      "value": [
+        0.05026
+      ],
+      "operation": {
+        "@type": "Term",
+        "name": "Feeding animals, machine unspecified",
+        "termType": "operation",
+        "@id": "feedingAnimalsMachineUnspecified",
+        "units": "hour"
+      },
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "It is unclear in the study the amount they have used, I think they have got these values wrong, I have assumed they continued to feed the final value for the other 3 weeks where no value is provided.",
+      "startDate": "2019-01-01",
+      "endDate": "2019-01-07",
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed, unspecified",
+        "termType": "processedFood",
+        "@id": "concentrateFeedUnspecified",
+        "units": "kg"
+      },
+      "value": [
+        0.1491
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "It is unclear in the study the amount they have used, I think they have got these values wrong, I have assumed they continued to feed the final value for the other 3 weeks where no value is provided.",
+      "isAnimalFeed": true,
+      "startDate": "2019-01-07",
+      "endDate": "2019-01-14",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed, unspecified",
+        "termType": "processedFood",
+        "@id": "concentrateFeedUnspecified",
+        "units": "kg"
+      },
+      "value": [
+        0.22630999999999998
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "It is unclear in the study the amount they have used, I think they have got these values wrong, I have assumed they continued to feed the final value for the other 3 weeks where no value is provided.",
+      "isAnimalFeed": true,
+      "startDate": "2019-01-14",
+      "endDate": "2019-01-21",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed, unspecified",
+        "termType": "processedFood",
+        "@id": "concentrateFeedUnspecified",
+        "units": "kg"
+      },
+      "value": [
+        0.22630999999999998
+      ],
+      "isAnimalFeed": true,
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "It is unclear in the study the amount they have used, I think they have got these values wrong, I have assumed they continued to feed the final value for the other 3 weeks where no value is provided.",
+      "startDate": "2019-01-21",
+      "endDate": "2019-01-28",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed, unspecified",
+        "termType": "processedFood",
+        "@id": "concentrateFeedUnspecified",
+        "units": "kg"
+      },
+      "value": [
+        0.22630999999999998
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "It is unclear in the study the amount they have used, I think they have got these values wrong, I have assumed they continued to feed the final value for the other 3 weeks where no value is provided.",
+      "isAnimalFeed": true,
+      "startDate": "2019-01-28",
+      "endDate": "2019-02-04",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed, unspecified",
+        "termType": "processedFood",
+        "@id": "concentrateFeedUnspecified",
+        "units": "kg"
+      },
+      "isAnimalFeed": true,
+      "value": [
+        0.22630999999999998
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "It is unclear in the study the amount they have used, I think they have got these values wrong, I have assumed they continued to feed the final value for the other 3 weeks where no value is provided.",
+      "startDate": "2019-02-04",
+      "endDate": "2019-02-11",
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Cleaning animal housing",
+        "termType": "operation",
+        "@id": "cleaningAnimalHousing",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Surface disinfection, by hand",
+        "termType": "operation",
+        "@id": "surfaceDisinfectionByHand",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Total animal population",
+        "termType": "animalManagement",
+        "@id": "totalAnimalPopulation",
+        "units": "number"
+      },
+      "value": [
+        500
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Heating buildings, machine unspecified",
+        "termType": "operation",
+        "@id": "heatingBuildingsMachineUnspecified",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Feeding animals, machine unspecified",
+        "termType": "operation",
+        "@id": "feedingAnimalsMachineUnspecified",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Lighting, machine unspecified",
+        "termType": "operation",
+        "@id": "lightingMachineUnspecified",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Beak trimming, machine unspecified",
+        "termType": "operation",
+        "@id": "beakTrimmingMachineUnspecified",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Animal vaccination",
+        "termType": "operation",
+        "@id": "animalVaccination",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "system",
+        "name": "Barn system",
+        "units": "% area",
+        "@id": "barnSystem"
+      },
+      "@type": "Practice"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Broiler chicken",
+        "units": "number",
+        "@id": "broilerChicken"
+      },
+      "value": [
+        1
+      ],
+      "primary": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 0.577,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, poultry (kg mass)",
+        "units": "kg",
+        "@id": "excretaPoultryKgMass"
+      },
+      "primary": false,
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Poultry manure with litter",
+        "termType": "excretaManagement",
+        "@id": "poultryManureWithLitter"
+      },
+      "transformationId": "suwanbupha-transformation-1",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, poultry (kg mass)",
+            "units": "kg",
+            "@id": "excretaPoultryKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "products": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Processed excreta (kg mass)",
+            "termType": "excreta",
+            "@id": "processedExcretaKgMass",
+            "units": "kg"
+          },
+          "@type": "Product"
+        }
+      ],
+      "@type": "Transformation"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "operation": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "waste": false,
+    "liveAnimalInput": false,
+    "transport": false,
+    "ingredient": true,
+    "otherChemical": true,
+    "animalPopulation": true,
+    "freshForage": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Broiler chicken - Nong Ta Taem, Thailand - 2019 - Broiler chicken farm to 6 week...",
+  "schemaVersion": "30.3.2",
+  "originalId": "Suwanbupha-6wks"
+}

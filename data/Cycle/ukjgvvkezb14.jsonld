@@ -1,0 +1,124 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-01-24",
+  "updatedAt": "2024-12-06",
+  "@id": "ukjgvvkezb14",
+  "@type": "Cycle",
+  "description": "DP animal to meat",
+  "endDate": "2014",
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "ya5b0rdkbk_3",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "kv1m1hpv86fl",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "physical measurement",
+  "defaultMethodClassificationDescription": "Experimental study with measurement of different treatments",
+  "treatment": "7 different treatments of different levels of intensification and pasture management",
+  "commercialPracticeTreatment": true,
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, steer",
+        "units": "number",
+        "@id": "beefCattleSteer"
+      },
+      "value": [
+        1.795895097
+      ],
+      "impactAssessment": {
+        "@id": "kr_efvuhvycm",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, lorry",
+            "units": "tkm",
+            "@id": "freightLorry"
+          },
+          "distance": 129,
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, beef cattle (cold dressed carcass weight)",
+        "units": "kg cold dressed carcass weight",
+        "@id": "meatBeefCattleColdDressedCarcassWeight"
+      },
+      "value": [
+        142.3
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "pH",
+            "termType": "property",
+            "@id": "ph",
+            "units": "unitless"
+          },
+          "value": 5.5,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Ready-to-cook weight per head",
+            "termType": "property",
+            "@id": "readyToCookWeightPerHead",
+            "units": "kg ready-to-cook weight / head"
+          },
+          "value": 112.9,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "primary": true,
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "transport": true,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": true,
+    "soilAmendment": true,
+    "water": false,
+    "product": false,
+    "cropResidue": true,
+    "excreta": true,
+    "animalFeed": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "freshForage": true,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Meat, beef cattle (cold dressed carcass weight) - São Carlos (Distrito), São Carlos, São Paulo, Brazil - 2014 - 7 different treatmen... - DP animal to meat",
+  "schemaVersion": "30.4.0",
+  "originalId": "DP_A2M"
+}

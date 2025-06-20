@@ -1,0 +1,172 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2023-10-12",
+  "updatedAt": "2024-12-04",
+  "@id": "_eipnjwypu1j",
+  "@type": "Cycle",
+  "description": "Slaughterhouse",
+  "endDate": "2017",
+  "site": {
+    "@id": "tikpppyuepia",
+    "@type": "Site"
+  },
+  "functionalUnit": "relative",
+  "defaultMethodClassification": "verified survey data",
+  "defaultMethodClassificationDescription": "Conducted through visits to the production process and collected information through inquiries and interviews with responsible persons. Secondary data has been collected by reviewing studies to check the information.",
+  "defaultSource": {
+    "@id": "ukwx4hsnmu5v",
+    "@type": "Source"
+  },
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Broiler chicken",
+        "units": "number",
+        "@id": "broilerChicken"
+      },
+      "value": [
+        0.4400977995110025
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        0.12
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, source unspecified",
+        "units": "m3",
+        "@id": "waterSourceUnspecified"
+      },
+      "value": [
+        0.014
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Fuel oil, no. 6",
+        "termType": "pesticideAI",
+        "@id": "CAS-68553-00-4",
+        "units": "kg active ingredient"
+      },
+      "value": [
+        0.0037754
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "pesticideAI",
+        "name": "Chlorine",
+        "units": "kg active ingredient",
+        "@id": "CAS-7782-50-5"
+      },
+      "value": [
+        0.0008519999999999999
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Slaughtering",
+        "termType": "operation",
+        "@id": "slaughtering",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Plucking, by hand",
+        "termType": "operation",
+        "@id": "pluckingByHand",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Butchering",
+        "termType": "operation",
+        "@id": "butchering",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Washing, by hand",
+        "termType": "operation",
+        "@id": "washingByHand",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, chicken (cold carcass weight)",
+        "units": "kg cold carcass weight",
+        "@id": "meatChickenColdCarcassWeight"
+      },
+      "description": "1kg chicken meat",
+      "value": [
+        1
+      ],
+      "primary": true,
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "operation": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": true,
+    "soilAmendment": true,
+    "water": true,
+    "product": true,
+    "cropResidue": true,
+    "excreta": true,
+    "animalFeed": true,
+    "waste": false,
+    "liveAnimalInput": true,
+    "transport": false,
+    "ingredient": true,
+    "otherChemical": true,
+    "animalPopulation": true,
+    "freshForage": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Meat, chicken (cold carcass weight) - Thailand - 2017 - Slaughterhouse",
+  "schemaVersion": "30.3.2",
+  "originalId": "5-slaughter"
+}

@@ -1,0 +1,461 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2023-11-30",
+  "updatedAt": "2024-12-06",
+  "@id": "xuxhxjooeoju",
+  "@type": "Cycle",
+  "startDate": "2015",
+  "startDateDefinition": "stocking date",
+  "endDate": "2016",
+  "numberOfCycles": 1,
+  "cycleDuration": 365,
+  "functionalUnit": "relative",
+  "functionalUnitDetails": "Annual egg production in 2015 (13,344,000 eggs)",
+  "site": {
+    "@id": "qfdic_b875qk",
+    "@type": "Site"
+  },
+  "siteArea": 3.47,
+  "siteDuration": 365,
+  "defaultSource": {
+    "@id": "ddfpcactgv75",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Data collected through interviews with farmers and some data was collected from bilbiographic sources.",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Layer chicken, pullet",
+        "units": "number",
+        "@id": "layerChickenPullet"
+      },
+      "value": [
+        55000
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "value": 112,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "isAnimalFeed": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, source unspecified",
+        "units": "m3",
+        "@id": "waterSourceUnspecified"
+      },
+      "value": [
+        3123.9
+      ],
+      "operation": {
+        "@type": "Term",
+        "name": "Providing animals with water",
+        "termType": "operation",
+        "@id": "providingAnimalsWithWater",
+        "units": "hour"
+      },
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        49369
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed blend",
+        "termType": "processedFood",
+        "@id": "concentrateFeedBlend",
+        "units": "kg"
+      },
+      "value": [
+        2400000
+      ],
+      "impactAssessment": {
+        "@id": "rnqcxv71ptzp",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Cardboard",
+        "termType": "material",
+        "@id": "cardboard",
+        "units": "kg"
+      },
+      "value": [
+        87270.00000000001
+      ],
+      "description": "A mix of 65% recycled cardboard and 35% solid cardboard.",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Disinfectant unspecified (AI)",
+        "termType": "otherOrganicChemical",
+        "@id": "disinfectantUnspecifiedAi",
+        "units": "kg active ingredient"
+      },
+      "value": [
+        17
+      ],
+      "description": "Disinfectant = bleach.",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, source unspecified",
+        "units": "m3",
+        "@id": "waterSourceUnspecified"
+      },
+      "value": [
+        347.1
+      ],
+      "description": "Water used for cleaning transport vehichles",
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Packaging, machine unspecified",
+        "termType": "operation",
+        "@id": "packagingMachineUnspecified",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "system",
+        "name": "Colony cage system",
+        "units": "% area",
+        "@id": "colonyCageSystem"
+      },
+      "value": [
+        100
+      ],
+      "description": "farm studied fulfils the minimum requirement of 750 cm2 of cage area per hen fixed by European regulations.",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Rhode Island Red",
+        "termType": "animalBreed",
+        "@id": "rhodeIslandRed",
+        "units": "%"
+      },
+      "value": [
+        50
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Sussex (chicken breed)",
+        "termType": "animalBreed",
+        "@id": "sussexChickenBreed",
+        "units": "%"
+      },
+      "value": [
+        50
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Layer chicken, hen",
+        "units": "number",
+        "@id": "layerChickenHen"
+      },
+      "animalId": "Hens",
+      "referencePeriod": "average",
+      "value": 55000,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Mortality rate",
+            "termType": "property",
+            "@id": "mortalityRate",
+            "units": "%"
+          },
+          "value": 4,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Slaughter age",
+            "termType": "property",
+            "@id": "slaughterAge",
+            "units": "days"
+          },
+          "value": 542.5,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 2.1,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Eggs, hen, in shell (number)",
+        "units": "number",
+        "@id": "eggsHenInShellNumber"
+      },
+      "value": [
+        13344000
+      ],
+      "primary": true,
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, van",
+            "units": "tkm",
+            "@id": "freightVan"
+          },
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, chicken (liveweight)",
+        "units": "kg liveweight",
+        "@id": "meatChickenLiveweight"
+      },
+      "value": [
+        111300
+      ],
+      "primary": false,
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Liveweight of slaughtered hens was calculated supposing that each hen weighed 2.1kg and that 96% of replaced hens were sold for slaughter. The remaining 4% were the hens that die and managed as waste.",
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, poultry (kg mass)",
+        "units": "kg",
+        "@id": "excretaPoultryKgMass"
+      },
+      "value": [
+        1980000
+      ],
+      "primary": false,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 60,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Municipal solid waste",
+        "termType": "waste",
+        "@id": "municipalSolidWaste",
+        "units": "kg"
+      },
+      "value": [
+        10400
+      ],
+      "primary": false,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "waste",
+        "name": "Paper and cardboard waste",
+        "units": "kg",
+        "@id": "paperAndCardboardWaste"
+      },
+      "description": "Waste cardboard sent to recycling",
+      "value": [
+        69600
+      ],
+      "primary": false,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Waste water",
+        "termType": "waste",
+        "@id": "wasteWater",
+        "units": "kg"
+      },
+      "value": [
+        0.3471
+      ],
+      "primary": false,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Dead animal waste (kg mass)",
+        "termType": "waste",
+        "@id": "deadAnimalWasteKgMass",
+        "units": "kg"
+      },
+      "value": [
+        4770
+      ],
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "transformationId": "1",
+      "term": {
+        "@type": "Term",
+        "name": "Poultry manure without litter",
+        "termType": "excretaManagement",
+        "@id": "poultryManureWithoutLitter"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, poultry (kg mass)",
+            "units": "kg",
+            "@id": "excretaPoultryKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "description": "Belts beneath the cages collect the manure that is dried by an air duct.",
+      "@type": "Transformation"
+    },
+    {
+      "transformationId": "2",
+      "term": {
+        "@type": "Term",
+        "name": "Incinerated (waste management)",
+        "termType": "wasteManagement",
+        "@id": "incineratedWasteManagement"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dead animal waste (kg mass)",
+            "termType": "waste",
+            "@id": "deadAnimalWasteKgMass",
+            "units": "kg"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "@type": "Transformation"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "ingredient": true,
+    "otherChemical": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": true,
+    "product": true,
+    "cropResidue": true,
+    "excreta": true,
+    "animalFeed": true,
+    "freshForage": true,
+    "liveAnimalInput": true,
+    "animalPopulation": true,
+    "waste": true,
+    "operation": false,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Eggs, hen, in shell (number) - Principado de Asturias, Spain - 2016",
+  "schemaVersion": "30.4.0",
+  "originalId": "Egg_production"
+}

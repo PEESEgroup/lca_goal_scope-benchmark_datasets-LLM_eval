@@ -1,0 +1,276 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-02-20",
+  "updatedAt": "2024-12-06",
+  "@id": "eoelv8e5ugxr",
+  "@type": "Cycle",
+  "description": "Milk processing",
+  "startDate": "2007",
+  "startDateDefinition": "start of year",
+  "endDate": "2008",
+  "cycleDuration": 365,
+  "site": {
+    "@id": "khv85flxwtxi",
+    "@type": "Site"
+  },
+  "functionalUnit": "relative",
+  "defaultMethodClassification": "consistent external sources",
+  "defaultMethodClassificationDescription": "Data on the stage of concentrate production were obtained from the main feed company supplying the dairy farmers of the studied production chain. Data on the stage of milk production were obtained from the Agricultural Economics Research Institute in the Netherlands, recorded in the Farm Accountancy Data Network (FADN). Data of 13 conventional, specialized dairy farms involved in the studied production chain were available in FADN.",
+  "defaultSource": {
+    "@id": "6yfrfaqhjdjb",
+    "@type": "Source"
+  },
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Milk, cow, raw (FPCM)",
+        "units": "kg FPCM",
+        "@id": "milkCowRawFpcm"
+      },
+      "value": [
+        9
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Calcium chloride (feed food additive)",
+        "termType": "feedFoodAdditive",
+        "@id": "calciumChlorideFeedFoodAdditive",
+        "units": "kg"
+      },
+      "value": [
+        0.008
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Rennet",
+        "termType": "feedFoodAdditive",
+        "@id": "rennet",
+        "units": "kg"
+      },
+      "value": [
+        0.002
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Annatto",
+        "termType": "feedFoodAdditive",
+        "@id": "annatto",
+        "units": "kg"
+      },
+      "value": [
+        0.00023999999999999998
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Sodium Nitrate (kg N)",
+        "termType": "inorganicFertiliser",
+        "@id": "sodiumNitrateKgN",
+        "units": "kg N"
+      },
+      "value": [
+        0.000128
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "processingAid",
+        "name": "Sodium hydroxide (processing aid)",
+        "units": "kg",
+        "@id": "sodiumHydroxideProcessingAid"
+      },
+      "value": [
+        0.0464
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "processingAid",
+        "name": "Lactic acid (processing aid)",
+        "units": "kg",
+        "@id": "lacticAcidProcessingAid"
+      },
+      "value": [
+        0.045
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Paraffin wax (material)",
+        "termType": "material",
+        "@id": "paraffinWaxMaterial",
+        "units": "kg"
+      },
+      "value": [
+        0.006
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Wood (material)",
+        "termType": "material",
+        "@id": "woodMaterial",
+        "units": "kg"
+      },
+      "value": [
+        0.0001
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "I have assumed that the cheese marker is made from wood.",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Plastic, type unspecified",
+        "termType": "material",
+        "@id": "plasticTypeUnspecified",
+        "units": "kg"
+      },
+      "value": [
+        0.0175
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Paper",
+        "termType": "material",
+        "@id": "paper",
+        "units": "kg"
+      },
+      "value": [
+        0.015
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "pesticideBrandName",
+        "name": "Sodium Hypochlorite 6%",
+        "units": "kg",
+        "@id": "sodiumHypochlorite6"
+      },
+      "value": [
+        0.001
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "I have assumed it is a 6% sodium hypochlorite solution of bleach.",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "processingAid",
+        "name": "Nitric acid (processing aid)",
+        "units": "kg",
+        "@id": "nitricAcidProcessingAid"
+      },
+      "value": [
+        3e-7
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Detergent unspecified (AI)",
+        "termType": "otherOrganicChemical",
+        "@id": "detergentUnspecifiedAi",
+        "units": "kg active ingredient"
+      },
+      "value": [
+        0.00023999999999999998
+      ],
+      "operation": {
+        "@type": "Term",
+        "name": "Surface disinfection, by hand",
+        "termType": "operation",
+        "@id": "surfaceDisinfectionByHand",
+        "units": "hour"
+      },
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "I have assumed the mass they have provided is in KG of AI. This is probably inaccurate - I may need to remove this item.",
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Surface disinfection, by hand",
+        "termType": "operation",
+        "@id": "surfaceDisinfectionByHand",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Cheese, cow",
+        "termType": "processedFood",
+        "@id": "cheeseCow",
+        "units": "kg"
+      },
+      "description": "Semi-hard cheese",
+      "value": [
+        1
+      ],
+      "fate": "sold",
+      "primary": true,
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "operation": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": true,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "waste": false,
+    "liveAnimalInput": true,
+    "transport": false,
+    "ingredient": true,
+    "otherChemical": true,
+    "animalPopulation": true,
+    "freshForage": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Cheese, cow - Friesland (Provincie), Netherlands - 2008 - Milk processing",
+  "schemaVersion": "30.4.0",
+  "originalId": "Middelaar-milk-processing"
+}

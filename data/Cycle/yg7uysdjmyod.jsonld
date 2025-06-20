@@ -1,0 +1,702 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2023-09-25",
+  "updatedAt": "2024-11-26",
+  "@id": "yg7uysdjmyod",
+  "@type": "Cycle",
+  "description": "milk production cycle (average across 53 farms)",
+  "startDate": "2010",
+  "startDateDefinition": "start of year",
+  "endDate": "2011",
+  "functionalUnit": "1 ha",
+  "site": {
+    "@id": "_qin--btj2ph",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "e7cggytqz4gv",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Data were from 53 individual dairy farms in the Waikato region over one production year (2010/11), which had been collected into DairyBase (a web-based package that records and reports dairy farm business information; http://www.dairynz.co.nz).",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Inorganic Nitrogen fertiliser, unspecified (kg N)",
+        "termType": "inorganicFertiliser",
+        "@id": "inorganicNitrogenFertiliserUnspecifiedKgN",
+        "units": "kg N"
+      },
+      "value": [
+        142
+      ],
+      "sd": [
+        85
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        255
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Inorganic Phosphorus fertiliser, unspecified (kg P2O5)",
+        "termType": "inorganicFertiliser",
+        "@id": "inorganicPhosphorusFertiliserUnspecifiedKgP2O5",
+        "units": "kg P2O5"
+      },
+      "value": [
+        112.21
+      ],
+      "sd": [
+        82.44
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        384.72
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Inorganic Potassium fertiliser, unspecified (kg K2O)",
+        "termType": "inorganicFertiliser",
+        "@id": "inorganicPotassiumFertiliserUnspecifiedKgK2O",
+        "units": "kg K2O"
+      },
+      "value": [
+        54.45
+      ],
+      "sd": [
+        38.72
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        133.1
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Oil palm, kernel meal",
+        "units": "kg",
+        "@id": "oilPalmKernelMeal"
+      },
+      "value": [
+        1643
+      ],
+      "isAnimalFeed": true,
+      "sd": [
+        1513
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        4783
+      ],
+      "statsDefinition": "cycles",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Crude protein content",
+            "termType": "property",
+            "@id": "crudeProteinContent",
+            "units": "%"
+          },
+          "value": 14,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Energy digestibility, ruminants",
+            "termType": "property",
+            "@id": "energyDigestibilityRuminants",
+            "units": "%"
+          },
+          "value": 65,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Ash content",
+            "termType": "property",
+            "@id": "ashContent",
+            "units": "%"
+          },
+          "value": 5,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Neutral detergent fibre content",
+            "termType": "property",
+            "@id": "neutralDetergentFibreContent",
+            "units": "%"
+          },
+          "value": 70,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Energy content (higher heating value)",
+            "termType": "property",
+            "@id": "energyContentHigherHeatingValue",
+            "units": "MJ / kg"
+          },
+          "value": 18.6,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "methodClassification": "inconsistent external sources",
+      "methodClassificationDescription": "Obtained from the Agric-Footprint database (Agri-Footprint 2014)",
+      "country": {
+        "@type": "Term",
+        "termType": "region",
+        "name": "Malaysia",
+        "@id": "GADM-MYS"
+      },
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Maize, silage",
+        "units": "kg",
+        "@id": "maizeSilage"
+      },
+      "value": [
+        893
+      ],
+      "isAnimalFeed": true,
+      "impactAssessment": {
+        "@id": "tpsx9sarpj24",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": true,
+      "sd": [
+        867
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        2857
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed blend",
+        "termType": "processedFood",
+        "@id": "concentrateFeedBlend",
+        "units": "kg"
+      },
+      "value": [
+        34
+      ],
+      "isAnimalFeed": true,
+      "impactAssessment": {
+        "@id": "dwhkopqkq2gk",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": true,
+      "sd": [
+        178
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        924
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Grass-clover mixture, silage",
+        "units": "kg",
+        "@id": "grassCloverMixtureSilage"
+      },
+      "value": [
+        160
+      ],
+      "isAnimalFeed": true,
+      "impactAssessment": {
+        "@id": "hzhv-ry1rwsq",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": true,
+      "sd": [
+        234
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        816
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Generic crop, straw",
+        "units": "kg",
+        "@id": "genericCropStraw"
+      },
+      "value": [
+        13
+      ],
+      "isAnimalFeed": true,
+      "impactAssessment": {
+        "@id": "zjfjduaqg0ho",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": true,
+      "sd": [
+        42
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        164
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, fresh forage",
+        "termType": "forage",
+        "@id": "genericGrassFreshForage",
+        "units": "kg"
+      },
+      "value": [
+        9038
+      ],
+      "producedInCycle": true,
+      "isAnimalFeed": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 13,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Crude protein content",
+            "termType": "property",
+            "@id": "crudeProteinContent",
+            "units": "%"
+          },
+          "value": 23,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Total lipid content",
+            "termType": "property",
+            "@id": "totalLipidContent",
+            "units": "%"
+          },
+          "value": 5,
+          "methodModel": {
+            "@type": "Term",
+            "name": "Diethyl ether extraction method",
+            "termType": "methodMeasurement",
+            "@id": "diethylEtherExtractionMethod"
+          },
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Ash content",
+            "termType": "property",
+            "@id": "ashContent",
+            "units": "%"
+          },
+          "value": 3,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Neutral detergent fibre content",
+            "termType": "property",
+            "@id": "neutralDetergentFibreContent",
+            "units": "%"
+          },
+          "value": 40,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Energy content (higher heating value)",
+            "termType": "property",
+            "@id": "energyContentHigherHeatingValue",
+            "units": "MJ / kg"
+          },
+          "value": 13.28,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Energy digestibility, ruminants",
+            "termType": "property",
+            "@id": "energyDigestibilityRuminants",
+            "units": "%"
+          },
+          "value": 78,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Stocking density, permanent pasture (average)",
+        "termType": "animalManagement",
+        "@id": "stockingDensityPermanentPastureAverage",
+        "units": "animals / m2"
+      },
+      "min": [
+        0.00007757575758
+      ],
+      "max": [
+        0.0006878787879
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Herd replacement rate",
+        "termType": "animalManagement",
+        "@id": "herdReplacementRate",
+        "units": "%"
+      },
+      "value": [
+        23
+      ],
+      "sd": [
+        5
+      ],
+      "min": [
+        16
+      ],
+      "max": [
+        35
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture grass",
+        "termType": "landUseManagement",
+        "@id": "pastureGrass",
+        "units": "% area"
+      },
+      "key": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Rye plant",
+        "units": "% area",
+        "@id": "ryePlant"
+      },
+      "value": [
+        70
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "From the study \"Dairy farming systems in New Zealand are largely based on grazing of pastures (predominately perennial ryegrass (Lolium perenne L.), with white clover (Trifolium repens L.) as the main legume companion) throughout the year (Moot et al. 2009).\" Assumed to be 70%.",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture grass",
+        "termType": "landUseManagement",
+        "@id": "pastureGrass",
+        "units": "% area"
+      },
+      "key": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "White clover plant",
+        "units": "% area",
+        "@id": "whiteCloverPlant"
+      },
+      "value": [
+        30
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "From the study \"Dairy farming systems in New Zealand are largely based on grazing of pastures (predominately perennial ryegrass (Lolium perenne L.), with white clover (Trifolium repens L.) as the main legume companion) throughout the year (Moot et al. 2009).\" Assumed to be 30%.",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Holstein Friesian (cattle breed)",
+        "termType": "animalBreed",
+        "@id": "holsteinFriesianCattleBreed",
+        "units": "%"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalManagement",
+        "name": "Milk yield per cow (FPCM)",
+        "units": "kg / day",
+        "@id": "milkYieldPerCowFpcm"
+      },
+      "value": [
+        4730
+      ],
+      "min": [
+        3190
+      ],
+      "max": [
+        6139
+      ],
+      "sd": [
+        838
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Confined pasture system",
+        "termType": "system",
+        "@id": "confinedPastureSystem",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow",
+        "units": "number",
+        "@id": "dairyCattleCow"
+      },
+      "animalId": "1",
+      "referencePeriod": "average",
+      "min": 0.7757575758,
+      "max": 6.878787879,
+      "statsDefinition": "cycles",
+      "@type": "Animal"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture/Range/Paddock (excreta management)",
+        "termType": "excretaManagement",
+        "@id": "pastureRangePaddockExcretaManagement"
+      },
+      "transformationId": "1",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 95,
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Daily spread",
+        "termType": "excretaManagement",
+        "@id": "dailySpread"
+      },
+      "transformationId": "2",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 5,
+      "@type": "Transformation"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Milk, cow, raw (FPCM)",
+        "units": "kg FPCM",
+        "@id": "milkCowRawFpcm"
+      },
+      "value": [
+        12851
+      ],
+      "sd": [
+        3227
+      ],
+      "min": [
+        8024
+      ],
+      "max": [
+        20114
+      ],
+      "statsDefinition": "cycles",
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, dairy cattle (kg mass)",
+        "units": "kg",
+        "@id": "excretaDairyCattleKgMass"
+      },
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, dairy cattle (liveweight)",
+        "units": "kg liveweight",
+        "@id": "meatDairyCattleLiveweight"
+      },
+      "value": [
+        1531.907285
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Have used the biophysical allocation equation from Thoma et al. (2013) - AR = 1-1.51*BMR",
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "freshForage": true,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Milk, cow, raw (FPCM) - Waikato (Region), New Zealand - 2011 - milk production cycle (average...",
+  "siteArea": 1,
+  "schemaVersion": "30.3.2",
+  "originalId": "milk_cycle"
+}

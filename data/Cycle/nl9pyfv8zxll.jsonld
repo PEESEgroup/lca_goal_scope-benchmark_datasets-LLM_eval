@@ -1,0 +1,931 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2023-09-26",
+  "updatedAt": "2024-12-06",
+  "@id": "nl9pyfv8zxll",
+  "@type": "Cycle",
+  "description": "High sugar perennial ryegrass monoculture fields, fields",
+  "startDate": "2014-10",
+  "startDateDefinition": "stocking date",
+  "endDate": "2015-12",
+  "cycleDuration": 453,
+  "functionalUnit": "relative",
+  "functionalUnitDetails": "1 ha",
+  "site": {
+    "@id": "xabsznerhemq",
+    "@type": "Site"
+  },
+  "siteArea": 1,
+  "siteDuration": 226.5,
+  "siteUnusedDuration": 226.5,
+  "otherSites": [
+    {
+      "@id": "xkgyujlwchr_",
+      "@type": "Site"
+    }
+  ],
+  "otherSitesDuration": [
+    226.5
+  ],
+  "otherSitesUnusedDuration": [
+    226.5
+  ],
+  "defaultSource": {
+    "@id": "npl-0ixnthlu",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "physical measurement",
+  "defaultMethodClassificationDescription": "Experimental",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, calf (weaned)",
+        "units": "number",
+        "@id": "beefCattleCalfWeaned"
+      },
+      "isAnimalFeed": false,
+      "value": [
+        1.3986013986013985
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 284,
+          "sd": 35.76,
+          "statsDefinition": "other observations",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Inorganic Nitrogen fertiliser, unspecified (kg N)",
+        "termType": "inorganicFertiliser",
+        "@id": "inorganicNitrogenFertiliserUnspecifiedKgN",
+        "units": "kg N"
+      },
+      "value": [
+        206.6571564431764
+      ],
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, lorry, light commercial vehicle",
+            "units": "tkm",
+            "@id": "freightLorryLightCommercialVehicle"
+          },
+          "value": 167.7125176313407,
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Inorganic Phosphorus fertiliser, unspecified (kg P2O5)",
+        "termType": "inorganicFertiliser",
+        "@id": "inorganicPhosphorusFertiliserUnspecifiedKgP2O5",
+        "units": "kg P2O5"
+      },
+      "value": [
+        22.65273879097449
+      ],
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, lorry, light commercial vehicle",
+            "units": "tkm",
+            "@id": "freightLorryLightCommercialVehicle"
+          },
+          "value": 18.383819458602193,
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Inorganic Potassium fertiliser, unspecified (kg K2O)",
+        "termType": "inorganicFertiliser",
+        "@id": "inorganicPotassiumFertiliserUnspecifiedKgK2O",
+        "units": "kg K2O"
+      },
+      "value": [
+        17.8792201616738
+      ],
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, lorry, light commercial vehicle",
+            "units": "tkm",
+            "@id": "freightLorryLightCommercialVehicle"
+          },
+          "value": 14.50987267128028,
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Lime",
+        "termType": "soilAmendment",
+        "@id": "lime",
+        "units": "kg CaCO3"
+      },
+      "value": [
+        203.31002331002333
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "organicFertiliser",
+        "name": "Beef cattle, solid manure, fresh (kg mass)",
+        "units": "kg",
+        "@id": "beefCattleSolidManureFreshKgMass"
+      },
+      "value": [
+        4568.764568764569
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "pesticideAI",
+        "name": "Glyphosate",
+        "units": "kg active ingredient",
+        "@id": "CAS-1071-83-6"
+      },
+      "value": [
+        0.710955710955711
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "pesticideAI",
+        "name": "Fluroxypyr",
+        "units": "kg active ingredient",
+        "@id": "CAS-69377-81-7"
+      },
+      "value": [
+        0.04568764568764569
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Seed",
+        "termType": "seed",
+        "@id": "seed",
+        "units": "kg"
+      },
+      "value": [
+        6.0606060606060606
+      ],
+      "description": "650kg over full area, every 5 years",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        52.07167832167832
+      ],
+      "operation": {
+        "@type": "Term",
+        "name": "Machinery use, operation unspecified",
+        "termType": "operation",
+        "@id": "machineryUseOperationUnspecified",
+        "units": "hour"
+      },
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Soybean, meal",
+        "units": "kg",
+        "@id": "soybeanMeal"
+      },
+      "description": "Supplementary feed in final weeks of housing",
+      "isAnimalFeed": true,
+      "value": [
+        31.32867132867133
+      ],
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, transoceanic ship",
+            "units": "tkm",
+            "@id": "freightTransoceanicShip"
+          },
+          "value": 301.5850815850816,
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, lorry, light commercial vehicle",
+            "units": "tkm",
+            "@id": "freightLorryLightCommercialVehicle"
+          },
+          "value": 7.459207459207459,
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Barley, straw",
+        "units": "kg",
+        "@id": "barleyStraw"
+      },
+      "value": [
+        1850.1165501165501
+      ],
+      "isAnimalFeed": false,
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, lorry, light commercial vehicle",
+            "units": "tkm",
+            "@id": "freightLorryLightCommercialVehicle"
+          },
+          "value": 115.8041958041958,
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "forage",
+        "name": "Ryegrass, fresh forage",
+        "units": "kg",
+        "@id": "ryegrassFreshForage"
+      },
+      "isAnimalFeed": true,
+      "producedInCycle": true,
+      "description": "High sugar ryegrass cultivar. Quantity not given, but based on 226.5 days of grazing.",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Energy digestibility, ruminants",
+            "termType": "property",
+            "@id": "energyDigestibilityRuminants",
+            "units": "%"
+          },
+          "value": 76.78,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Crude protein content",
+            "termType": "property",
+            "@id": "crudeProteinContent",
+            "units": "%"
+          },
+          "value": 17.41,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture grass",
+        "termType": "landUseManagement",
+        "@id": "pastureGrass",
+        "units": "% area"
+      },
+      "key": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Ryegrass plant",
+        "units": "% area",
+        "@id": "ryegrassPlant"
+      },
+      "description": "High sugar ryegrass cultivar",
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "operation",
+        "name": "Ploughing, machine unspecified",
+        "units": "hour",
+        "@id": "ploughingMachineUnspecified"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "operation",
+        "name": "Harrowing, with roller harrow",
+        "units": "hour",
+        "@id": "harrowingWithRollerHarrow"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "operation",
+        "name": "Harrowing, with harrow",
+        "units": "hour",
+        "@id": "harrowingWithHarrow"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "operation",
+        "name": "Sowing or planting, machine unspecified",
+        "units": "hour",
+        "@id": "sowingOrPlantingMachineUnspecified"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "operation",
+        "name": "Fertilising, with spreader",
+        "units": "hour",
+        "@id": "fertilisingWithSpreader"
+      },
+      "description": "Inorganic fertiliser spreading",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "operation",
+        "name": "Herbicide application, with sprayer",
+        "units": "hour",
+        "@id": "herbicideApplicationWithSprayer"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "operation",
+        "name": "Fertilising, solid manure or compost, with spreader",
+        "units": "hour",
+        "@id": "fertilisingSolidManureOrCompostWithSpreader"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "operation",
+        "name": "Liming on bed",
+        "units": "hour",
+        "@id": "limingOnBed"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "operation",
+        "name": "Mowing, with rotary mower",
+        "units": "hour",
+        "@id": "mowingWithRotaryMower"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "operation",
+        "name": "Harvesting silage grass, with hay chopper and blower",
+        "units": "hour",
+        "@id": "harvestingSilageGrassWithHayChopperAndBlower"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Confined pasture system",
+        "termType": "system",
+        "@id": "confinedPastureSystem",
+        "units": "% area"
+      },
+      "value": [
+        50
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Indoor animal system",
+        "termType": "system",
+        "@id": "indoorAnimalSystem",
+        "units": "% area"
+      },
+      "value": [
+        50
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Stocking density, permanent pasture (average)",
+        "termType": "animalManagement",
+        "@id": "stockingDensityPermanentPastureAverage",
+        "units": "animals / m2"
+      },
+      "value": [
+        0.0001398601398601399
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, calf (weaned)",
+        "units": "number",
+        "@id": "beefCattleCalfWeaned"
+      },
+      "animalId": "WeanedCalves",
+      "value": 0.46620046620046623,
+      "referencePeriod": "average",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 284,
+          "sd": 35.76,
+          "statsDefinition": "other observations",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight gain",
+            "termType": "property",
+            "@id": "liveweightGain",
+            "units": "kg liveweight / head / day"
+          },
+          "value": 0.7,
+          "sd": 0.08,
+          "statsDefinition": "other observations",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, heifer and steer",
+        "units": "number",
+        "@id": "beefCattleHeiferAndSteer"
+      },
+      "animalId": "HeifersandSteers",
+      "value": 0.9324009324009325,
+      "referencePeriod": "average",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 590,
+          "sd": 39.23,
+          "statsDefinition": "other observations",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    }
+  ],
+  "transformations": [
+    {
+      "transformationId": "1",
+      "term": {
+        "@type": "Term",
+        "name": "Pasture/Range/Paddock (excreta management)",
+        "termType": "excretaManagement",
+        "@id": "pastureRangePaddockExcretaManagement"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, beef cattle, except feedlot fed (kg N)",
+            "units": "kg N",
+            "@id": "excretaBeefCattleExceptFeedlotFedKgN"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 50,
+      "@type": "Transformation"
+    },
+    {
+      "transformationId": "2",
+      "term": {
+        "@type": "Term",
+        "name": "Solid storage",
+        "termType": "excretaManagement",
+        "@id": "solidStorage"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, beef cattle, except feedlot fed (kg N)",
+            "units": "kg N",
+            "@id": "excretaBeefCattleExceptFeedlotFedKgN"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "description": "Manure collected during animal housing period will be spread on fields the following spring (next production cycle).",
+      "transformationDuration": 182.5,
+      "products": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "organicFertiliser",
+            "name": "Beef cattle, solid manure, fresh (kg N)",
+            "units": "kg N",
+            "@id": "beefCattleSolidManureFreshKgN"
+          },
+          "value": [
+            4568.764568764569
+          ],
+          "@type": "Product"
+        }
+      ],
+      "transformedShare": 50,
+      "@type": "Transformation"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, heifer and steer",
+        "units": "number",
+        "@id": "beefCattleHeiferAndSteer"
+      },
+      "value": [
+        1.3986013986013985
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 590,
+          "sd": 39.23,
+          "statsDefinition": "other observations",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, beef cattle, except feedlot fed (kg N)",
+        "units": "kg N",
+        "@id": "excretaBeefCattleExceptFeedlotFedKgN"
+      },
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, beef cattle, except feedlot fed (kg VS)",
+        "units": "kg VS",
+        "@id": "excretaBeefCattleExceptFeedlotFedKgVs"
+      },
+      "@type": "Product"
+    }
+  ],
+  "emissions": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CH4, to air, enteric fermentation",
+        "termType": "emission",
+        "@id": "ch4ToAirEntericFermentation",
+        "units": "kg CH4"
+      },
+      "value": [
+        115.31668331668331
+      ],
+      "min": [
+        80.35364635364635
+      ],
+      "max": [
+        147.36613386613388
+      ],
+      "statsDefinition": "other observations",
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2006)",
+        "termType": "model",
+        "@id": "ipcc2006"
+      },
+      "methodTier": "tier 2",
+      "@type": "Emission"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CH4, to air, excreta",
+        "termType": "emission",
+        "@id": "ch4ToAirExcreta",
+        "units": "kg CH4"
+      },
+      "value": [
+        25.762237762237763
+      ],
+      "min": [
+        19.47502497502498
+      ],
+      "max": [
+        39.71678321678322
+      ],
+      "statsDefinition": "other observations",
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2006)",
+        "termType": "model",
+        "@id": "ipcc2006"
+      },
+      "methodTier": "tier 2",
+      "@type": "Emission"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "N2O, to air, excreta, direct",
+        "termType": "emission",
+        "@id": "n2OToAirExcretaDirect",
+        "units": "kg N2O"
+      },
+      "value": [
+        2.025333157408629
+      ],
+      "min": [
+        1.3124158860007915
+      ],
+      "max": [
+        2.5762237762237765
+      ],
+      "statsDefinition": "other observations",
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2006)",
+        "termType": "model",
+        "@id": "ipcc2006"
+      },
+      "methodTier": "tier 2",
+      "@type": "Emission"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "N2O, to air, excreta, indirect",
+        "termType": "emission",
+        "@id": "n2OToAirExcretaIndirect",
+        "units": "kg N2O"
+      },
+      "value": [
+        0.29164797466684256
+      ],
+      "min": [
+        0.1944319831112284
+      ],
+      "max": [
+        0.3726613009631878
+      ],
+      "statsDefinition": "other observations",
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2006)",
+        "termType": "model",
+        "@id": "ipcc2006"
+      },
+      "methodTier": "tier 2",
+      "@type": "Emission"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "N2O, to air, inorganic fertiliser, direct",
+        "termType": "emission",
+        "@id": "n2OToAirInorganicFertiliserDirect",
+        "units": "kg N2O"
+      },
+      "value": [
+        3.0623037340018477
+      ],
+      "min": [
+        2.527615780445969
+      ],
+      "max": [
+        4.3585169547433695
+      ],
+      "statsDefinition": "other observations",
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2006)",
+        "termType": "model",
+        "@id": "ipcc2006"
+      },
+      "methodTier": "tier 2",
+      "@type": "Emission"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "N2O, to air, organic fertiliser, direct",
+        "termType": "emission",
+        "@id": "n2OToAirOrganicFertiliserDirect",
+        "units": "kg N2O"
+      },
+      "value": [
+        0.8425385934819898
+      ],
+      "min": [
+        0.6481066103707613
+      ],
+      "max": [
+        1.2638078902229846
+      ],
+      "statsDefinition": "other observations",
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2006)",
+        "termType": "model",
+        "@id": "ipcc2006"
+      },
+      "methodTier": "tier 2",
+      "@type": "Emission"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "N2O, to air, crop residue decomposition, direct",
+        "termType": "emission",
+        "@id": "n2OToAirCropResidueDecompositionDirect",
+        "units": "kg N2O"
+      },
+      "value": [
+        0.5346879535558781
+      ],
+      "min": [
+        0.4374719620002639
+      ],
+      "max": [
+        0.7453226019263756
+      ],
+      "statsDefinition": "other observations",
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2006)",
+        "termType": "model",
+        "@id": "ipcc2006"
+      },
+      "methodTier": "tier 2",
+      "@type": "Emission"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "ingredient": true,
+    "otherChemical": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": true,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "freshForage": false,
+    "liveAnimalInput": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Beef cattle, heifer and steer - Devon (Administrative County), England, United Kingdom - 2015-12 - High sugar perennial ryegrass ...",
+  "schemaVersion": "30.4.0",
+  "originalId": "HS"
+}

@@ -1,0 +1,658 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-01-05",
+  "updatedAt": "2024-11-25",
+  "@id": "k6jykw5e9clk",
+  "@type": "Cycle",
+  "endDate": "2012",
+  "functionalUnit": "relative",
+  "functionalUnitDetails": "One tonne of eggs.",
+  "site": {
+    "@id": "8mgylqwuitay",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "5wkskew6jvfz",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Data from 66 reporting layer facilities representing 43,159,610 dozen eggs sold. Surveys were administered by provincial egg boards and their field officers. Completed surveys were coded such that follow-up questions could be directed to data providers whilst ensuring data source confidentiality. All data were collected under guarantee of non-disclosure with respect to individual facilities.",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Layer chicken, pullet",
+        "units": "number",
+        "@id": "layerChickenPullet"
+      },
+      "value": [
+        55.95
+      ],
+      "min": [
+        46.74
+      ],
+      "max": [
+        67.17
+      ],
+      "statsDefinition": "cycles",
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Transport, unspecified",
+            "termType": "transport",
+            "@id": "transportUnspecified",
+            "units": "tkm"
+          },
+          "value": 11.17,
+          "min": 0,
+          "max": 103.42,
+          "statsDefinition": "cycles",
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 1.38,
+          "max": 1.7,
+          "min": 1,
+          "statsDefinition": "other observations",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "impactAssessment": {
+        "@id": "7zmj6qf0dhbt",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "isAnimalFeed": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed blend",
+        "termType": "processedFood",
+        "@id": "concentrateFeedBlend",
+        "units": "kg"
+      },
+      "value": [
+        2000
+      ],
+      "min": [
+        1640
+      ],
+      "max": [
+        2820
+      ],
+      "statsDefinition": "cycles",
+      "isAnimalFeed": true,
+      "impactAssessment": {
+        "@id": "4h1fbybjdqbp",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Transport, unspecified",
+            "termType": "transport",
+            "@id": "transportUnspecified",
+            "units": "tkm"
+          },
+          "value": 110.36,
+          "min": 0,
+          "max": 850,
+          "statsDefinition": "cycles",
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, source unspecified",
+        "units": "m3",
+        "@id": "waterSourceUnspecified"
+      },
+      "value": [
+        3.12
+      ],
+      "min": [
+        0.03
+      ],
+      "max": [
+        7.96
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        216.62
+      ],
+      "min": [
+        6.35
+      ],
+      "max": [
+        1448.61
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        0.50054
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        3.2794
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Petrol",
+        "units": "kg",
+        "@id": "petrol"
+      },
+      "value": [
+        0.4488
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        14.67576
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Fuel oil",
+        "units": "kg",
+        "@id": "fuelOil"
+      },
+      "value": [
+        0.0344
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        0.33540000000000003
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Liquefied petroleum gases (LPG)",
+        "units": "kg",
+        "@id": "liquefiedPetroleumGasesLpg"
+      },
+      "value": [
+        0.65807
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        4.81832
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Natural gas",
+        "units": "m3",
+        "@id": "naturalGas"
+      },
+      "value": [
+        5.67
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        421.23
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "system",
+        "name": "Battery cage system",
+        "units": "% area",
+        "@id": "batteryCageSystem"
+      },
+      "description": "Conventional cage system. 92% of layer hens housed in conventional cage systems in 2012",
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Layer chicken, pullet",
+        "units": "number",
+        "@id": "layerChickenPullet"
+      },
+      "animalId": "0",
+      "referencePeriod": "start of Cycle",
+      "value": 55.95,
+      "min": 67.17,
+      "max": 46.74,
+      "statsDefinition": "cycles",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Mortality rate",
+            "termType": "property",
+            "@id": "mortalityRate",
+            "units": "%"
+          },
+          "value": 3.18,
+          "min": 0.9,
+          "max": 7.3,
+          "statsDefinition": "other observations",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 1.38,
+          "min": 1,
+          "max": 1.7,
+          "statsDefinition": "other observations",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Layer chicken, hen",
+        "units": "number",
+        "@id": "layerChickenHen"
+      },
+      "animalId": "1",
+      "referencePeriod": "end of Cycle",
+      "value": 54.17079,
+      "@type": "Animal"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Eggs, hen, in shell",
+        "units": "kg",
+        "@id": "eggsHenInShell"
+      },
+      "value": [
+        1000
+      ],
+      "primary": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Weight per item",
+            "termType": "property",
+            "@id": "weightPerItem",
+            "units": "kg"
+          },
+          "value": 59.29,
+          "min": 50,
+          "max": 65,
+          "statsDefinition": "other observations",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Dead animal waste (kg mass)",
+        "termType": "waste",
+        "@id": "deadAnimalWasteKgMass",
+        "units": "kg"
+      },
+      "description": "Fate: 26.03% to rendering, 46.24% to composting, 13.59% to burial, 14.14% to incineration",
+      "value": [
+        2.58
+      ],
+      "min": [
+        0.74
+      ],
+      "max": [
+        5.81
+      ],
+      "statsDefinition": "cycles",
+      "primary": false,
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, tractor and trailer",
+            "units": "tkm",
+            "@id": "freightTractorAndTrailer"
+          },
+          "value": 0.001,
+          "min": 0,
+          "max": 0.04,
+          "statsDefinition": "cycles",
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, lorry",
+            "units": "tkm",
+            "@id": "freightLorry"
+          },
+          "value": 0.08,
+          "min": 0,
+          "max": 0.76,
+          "returnLegIncluded": false,
+          "statsDefinition": "other observations",
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, poultry (kg mass)",
+        "units": "kg",
+        "@id": "excretaPoultryKgMass"
+      },
+      "value": [
+        1140
+      ],
+      "min": [
+        930
+      ],
+      "max": [
+        1610
+      ],
+      "statsDefinition": "other observations",
+      "description": "Fate: 88.35% applied to cropland and 11.65% sold for fertilizer.",
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "In light of low data resolution/quality with respect to reported quantities of manure removed from facilities, a standard excretion rate was assumed for both pullet and layer facilities based on Pelletier et al. (2014b) (reflecting US production), and scaled relative to reported feed conversion efficiencies.",
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, tractor and trailer",
+            "units": "tkm",
+            "@id": "freightTractorAndTrailer"
+          },
+          "value": 3.26,
+          "min": 0,
+          "max": 28.5,
+          "statsDefinition": "cycles",
+          "returnLegIncluded": false,
+          "methodClassification": "estimated with assumptions",
+          "methodClassificationDescription": "For mass of manure handled (i.e. for the purpose of quantifying manure transport), the following assump- tions were also implemented: A) for liquid manure management systems, mass of manure handled was assumed equivalent to the mass of manure excreted, B) for dry manure management systems, mass of manure handled was assumed equivalent to 50% of the mass of manure excreted for stockpiled manure subject to uncovered storage, and 33% of the mass of manure excreted for stockpiled manure subject to covered storage, and C) for free range and organic systems, it was assumed that 50% of manure was excreted outdoors and was not subject to handling",
+          "@type": "Transport"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, lorry",
+            "units": "tkm",
+            "@id": "freightLorry"
+          },
+          "value": 17.98,
+          "min": 0,
+          "max": 658.92,
+          "statsDefinition": "cycles",
+          "returnLegIncluded": false,
+          "methodClassification": "estimated with assumptions",
+          "methodClassificationDescription": "For mass of manure handled (i.e. for the purpose of quantifying manure transport), the following assump- tions were also implemented: A) for liquid manure management systems, mass of manure handled was assumed equivalent to the mass of manure excreted, B) for dry manure management systems, mass of manure handled was assumed equivalent to 50% of the mass of manure excreted for stockpiled manure subject to uncovered storage, and 33% of the mass of manure excreted for stockpiled manure subject to covered storage, and C) for free range and organic systems, it was assumed that 50% of manure was excreted outdoors and was not subject to handling",
+          "@type": "Transport"
+        }
+      ],
+      "primary": false,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, chicken (liveweight)",
+        "units": "kg liveweight",
+        "@id": "meatChickenLiveweight"
+      },
+      "description": "Spent hens. Fate: 69.95% human consumption, 22.09% rendering, 7.84% composting and 0.11% inceneration.",
+      "value": [
+        93.69
+      ],
+      "min": [
+        72.07
+      ],
+      "max": [
+        132.46
+      ],
+      "statsDefinition": "cycles",
+      "primary": false,
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Liquid/Slurry, with cover",
+        "termType": "excretaManagement",
+        "@id": "liquidSlurryWithCover"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, poultry (kg mass)",
+            "units": "kg",
+            "@id": "excretaPoultryKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 5.34,
+      "transformationId": "1",
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Liquid/Slurry",
+        "termType": "excretaManagement",
+        "@id": "liquidSlurry"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, poultry (kg mass)",
+            "units": "kg",
+            "@id": "excretaPoultryKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 14.72,
+      "transformationId": "3",
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Solid storage, covered/compacted",
+        "termType": "excretaManagement",
+        "@id": "solidStorageCoveredCompacted"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, poultry (kg mass)",
+            "units": "kg",
+            "@id": "excretaPoultryKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 56.38,
+      "transformationId": "4",
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Solid storage",
+        "termType": "excretaManagement",
+        "@id": "solidStorage"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, poultry (kg mass)",
+            "units": "kg",
+            "@id": "excretaPoultryKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 9.36,
+      "transformationId": "5",
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pit storage below animal confinements",
+        "termType": "excretaManagement",
+        "@id": "pitStorageBelowAnimalConfinements"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, poultry (kg mass)",
+            "units": "kg",
+            "@id": "excretaPoultryKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 14.2,
+      "transformationId": "6",
+      "@type": "Transformation"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": true,
+    "product": true,
+    "cropResidue": true,
+    "excreta": true,
+    "animalFeed": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "freshForage": true,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Eggs, hen, in shell - Canada - 2012",
+  "schemaVersion": "30.3.2",
+  "originalId": "Conventional cage_Layer"
+}

@@ -1,0 +1,454 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2023-09-25",
+  "updatedAt": "2024-11-26",
+  "@id": "tl391bvonfve",
+  "@type": "Cycle",
+  "endDate": "2018",
+  "numberOfCycles": 9,
+  "cycleDuration": 365,
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "yd6dxlkx5ocz",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "ratfvc5sc2zo",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "The primary data source was information from questionnaire interviews conducted by agricultural advisors.",
+  "startDateDefinition": "one year prior",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed, unspecified",
+        "termType": "processedFood",
+        "@id": "concentrateFeedUnspecified",
+        "units": "kg"
+      },
+      "value": [
+        0.2014753571
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Rapeseed, meal",
+        "units": "kg",
+        "@id": "rapeseedMeal"
+      },
+      "value": [
+        0.04358715243
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Cereal, bran",
+        "units": "kg",
+        "@id": "cerealBran"
+      },
+      "value": [
+        0.04161190383
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Sugar beet, pulp (pressed)",
+        "units": "kg",
+        "@id": "sugarBeetPulpPressed"
+      },
+      "value": [
+        0.2251783403
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "feedFoodAdditive",
+        "name": "Minerals, unspecified",
+        "units": "kg",
+        "@id": "mineralsUnspecified"
+      },
+      "value": [
+        0.01013960948
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "pesticideBrandName",
+        "name": "Justifly 0.16% Diflubenzuron Milk Replacer Product",
+        "units": "kg",
+        "@id": "justifly016DiflubenzuronMilkReplacerProduct"
+      },
+      "value": [
+        0.001211485808
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, municipal tap",
+        "units": "m3",
+        "@id": "waterMunicipalTap"
+      },
+      "value": [
+        0.005082973063
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "material",
+        "name": "Polyethylene",
+        "units": "kg",
+        "@id": "polyethylene"
+      },
+      "value": [
+        0.002633664799
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Disinfectant unspecified (AI)",
+        "termType": "otherOrganicChemical",
+        "@id": "disinfectantUnspecifiedAi",
+        "units": "kg active ingredient"
+      },
+      "value": [
+        0.00144851564
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        0.03617631232
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        0.004477230159
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Alfalfa, silage",
+        "units": "kg",
+        "@id": "alfalfaSilage"
+      },
+      "value": [
+        1.137743193
+      ],
+      "isAnimalFeed": true,
+      "producedInCycle": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Maize, silage",
+        "units": "kg",
+        "@id": "maizeSilage"
+      },
+      "value": [
+        0.971822311
+      ],
+      "isAnimalFeed": true,
+      "producedInCycle": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, fresh forage",
+        "termType": "forage",
+        "@id": "genericGrassFreshForage",
+        "units": "kg"
+      },
+      "value": [
+        0.03660794071
+      ],
+      "isAnimalFeed": true,
+      "producedInCycle": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, hay",
+        "termType": "crop",
+        "@id": "genericGrassHay",
+        "units": "kg"
+      },
+      "value": [
+        0.06610498646
+      ],
+      "isAnimalFeed": true,
+      "producedInCycle": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Cereal, grain",
+        "units": "kg",
+        "@id": "cerealGrain"
+      },
+      "value": [
+        0.125099078
+      ],
+      "isAnimalFeed": true,
+      "producedInCycle": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Cereal, straw",
+        "units": "kg",
+        "@id": "cerealStraw"
+      },
+      "value": [
+        0.4450893511
+      ],
+      "isAnimalFeed": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Machinery infrastructure, depreciated amount per Cycle",
+        "termType": "material",
+        "@id": "machineryInfrastructureDepreciatedAmountPerCycle",
+        "units": "kg/functional unit/Cycle"
+      },
+      "value": [
+        0.0002633664799
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Indoor animal system",
+        "termType": "system",
+        "@id": "indoorAnimalSystem",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Have assumed 50:50 split between housing and pasture, as no split is provided",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "operation",
+        "name": "Tractor use, operation unspecified",
+        "units": "hour",
+        "@id": "tractorUseOperationUnspecified"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Artificial insemination",
+        "termType": "animalManagement",
+        "@id": "artificialInsemination",
+        "units": "%"
+      },
+      "value": [
+        100
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Have assumed 100% insemination",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Human labour",
+        "termType": "operation",
+        "@id": "humanLabour",
+        "units": "hour"
+      },
+      "value": [
+        0.0082
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Stocking density, animal housing (average)",
+        "termType": "animalManagement",
+        "@id": "stockingDensityAnimalHousingAverage",
+        "units": "animals / m2"
+      },
+      "value": [
+        0.00014
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle",
+        "units": "number",
+        "@id": "dairyCattle"
+      },
+      "animalId": "1",
+      "referencePeriod": "average",
+      "value": 0.0001648129324,
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Unclear in the study the breakdown of the herd",
+      "@type": "Animal"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Deep bedding",
+        "termType": "excretaManagement",
+        "@id": "deepBedding"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "transformationId": "1",
+      "@type": "Transformation"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Milk, cow, raw (FPCM)",
+        "units": "kg FPCM",
+        "@id": "milkCowRawFpcm"
+      },
+      "value": [
+        1
+      ],
+      "primary": true,
+      "revenue": 0.001119190344,
+      "currency": "PLN",
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, dairy cattle (liveweight)",
+        "units": "kg liveweight",
+        "@id": "meatDairyCattleLiveweight"
+      },
+      "value": [
+        0.06253614535
+      ],
+      "revenue": 5.938074046,
+      "currency": "PLN",
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, dairy cattle (kg mass)",
+        "units": "kg",
+        "@id": "excretaDairyCattleKgMass"
+      },
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "transport": false,
+    "material": true,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": true,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "freshForage": true,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Milk, cow, raw (FPCM) - Poland - 2018",
+  "schemaVersion": "30.3.2",
+  "originalId": "Mixed livestock farm - milk"
+}

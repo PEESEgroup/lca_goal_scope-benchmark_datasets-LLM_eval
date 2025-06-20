@@ -1,0 +1,578 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-01-24",
+  "updatedAt": "2024-12-06",
+  "@id": "vktv5yftrzqq",
+  "@type": "Cycle",
+  "description": "Irrigated pasture with high stocking rate",
+  "endDate": "2014",
+  "functionalUnit": "1 ha",
+  "site": {
+    "@id": "fxe96a0v7bca",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "nha19gkveh18",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "physical measurement",
+  "defaultMethodClassificationDescription": "Experimental study with measurement of different treatments",
+  "treatment": "4 different treatments of different levels of intensification and pasture management",
+  "commercialPracticeTreatment": true,
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Urea (kg N)",
+        "termType": "inorganicFertiliser",
+        "@id": "ureaKgN",
+        "units": "kg N"
+      },
+      "value": [
+        660
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Seed",
+        "termType": "seed",
+        "@id": "seed",
+        "units": "kg"
+      },
+      "value": [
+        90
+      ],
+      "description": "Overseeded with a mix of Avena byzantina cv. São Carlos (60 kg of seeds ha−1 ) and Loliun multifloram Lan. cv. BRS Ponteio (30 kg of seeds ha−1 ) in June 2012 and April 2013.",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Inorganic Phosphorus fertiliser, unspecified (kg P2O5)",
+        "termType": "inorganicFertiliser",
+        "@id": "inorganicPhosphorusFertiliserUnspecifiedKgP2O5",
+        "units": "kg P2O5"
+      },
+      "value": [
+        117
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        28281.71429
+      ],
+      "operation": {
+        "@type": "Term",
+        "name": "Irrigating",
+        "termType": "operation",
+        "@id": "irrigating",
+        "units": "hour"
+      },
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, source unspecified",
+        "units": "m3",
+        "@id": "waterSourceUnspecified"
+      },
+      "value": [
+        2014.845714
+      ],
+      "operation": {
+        "@type": "Term",
+        "name": "Irrigating",
+        "termType": "operation",
+        "@id": "irrigating",
+        "units": "hour"
+      },
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Converted to m3 using https://www.spikevm.com/calculators/irrigation/rainfall-mm-hectare.php",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "feedFoodAdditive",
+        "name": "Minerals, unspecified",
+        "units": "kg",
+        "@id": "mineralsUnspecified"
+      },
+      "description": "Mineral supplement of the rainy season, diluted in sodium chloride (25/50kg)",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Ad libitum feeding",
+            "termType": "property",
+            "@id": "adLibitumFeeding",
+            "units": "boolean"
+          },
+          "value": true,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Crude protein content",
+            "termType": "property",
+            "@id": "crudeProteinContent",
+            "units": "%"
+          },
+          "value": 20,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Phosphorus content (as P)",
+            "termType": "property",
+            "@id": "phosphorusContentAsP",
+            "units": "%"
+          },
+          "value": 7.1,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Sodium content",
+            "termType": "property",
+            "@id": "sodiumContent",
+            "units": "%"
+          },
+          "value": 1.75,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Calcium content",
+            "termType": "property",
+            "@id": "calciumContent",
+            "units": "%"
+          },
+          "value": 14.7,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Magnesium content",
+            "termType": "property",
+            "@id": "magnesiumContent",
+            "units": "%"
+          },
+          "value": 1.25,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Sulphur content",
+            "termType": "property",
+            "@id": "sulphurContent",
+            "units": "%"
+          },
+          "value": 2.75,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Zinc content",
+            "termType": "property",
+            "@id": "zincContent",
+            "units": "%"
+          },
+          "value": 0.532,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Copper content",
+            "termType": "property",
+            "@id": "copperContent",
+            "units": "%"
+          },
+          "value": 0.1835,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Manganese content",
+            "termType": "property",
+            "@id": "manganeseContent",
+            "units": "%"
+          },
+          "value": 0.09150000000000001,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Cobalt content",
+            "termType": "property",
+            "@id": "cobaltContent",
+            "units": "%"
+          },
+          "value": 0.0155,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Iodine content",
+            "termType": "property",
+            "@id": "iodineContent",
+            "units": "%"
+          },
+          "value": 0.020999999999999998,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Selenium content",
+            "termType": "property",
+            "@id": "seleniumContent",
+            "units": "%"
+          },
+          "value": 0.00165,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Fluoride content",
+            "termType": "property",
+            "@id": "fluorideContent",
+            "units": "%"
+          },
+          "value": 0.075,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Sodium chloride",
+        "termType": "feedFoodAdditive",
+        "@id": "sodiumChloride",
+        "units": "kg"
+      },
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Ad libitum feeding",
+            "termType": "property",
+            "@id": "adLibitumFeeding",
+            "units": "boolean"
+          },
+          "value": true,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "isAnimalFeed": true,
+      "description": "Diluted with the mineral supplement in the dry season with a ratio of 25:50kg",
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Rotational grazing",
+        "termType": "landUseManagement",
+        "@id": "rotationalGrazing",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "description": "Established in 2002 with Panicum maximum and were managed as rotational grazing systems with three days of occupation and 33 days of rest cycles. Each replicate area had 1.75 ha, divided in 12 paddocks.",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture grass",
+        "termType": "landUseManagement",
+        "@id": "pastureGrass",
+        "units": "% area"
+      },
+      "key": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Guinea grass plant",
+        "units": "% area",
+        "@id": "guineaGrassPlant"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "waterRegime",
+        "name": "Irrigated, center pivot irrigation",
+        "units": "% area",
+        "@id": "irrigatedCenterPivotIrrigation"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Nelore",
+        "termType": "animalBreed",
+        "@id": "nelore",
+        "units": "%"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Confined pasture system",
+        "termType": "system",
+        "@id": "confinedPastureSystem",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, steer",
+        "units": "number",
+        "@id": "beefCattleSteer"
+      },
+      "animalId": "1",
+      "value": 7.425928241,
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Estimated using stocking rate and 1 AU = 450kg LW for total LW/ ha across all cycles.",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 269.2,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "value": 180,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight gain",
+            "termType": "property",
+            "@id": "liveweightGain",
+            "units": "kg liveweight / head / day"
+          },
+          "value": 0.53,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "referencePeriod": "start of Cycle",
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, steer",
+        "units": "number",
+        "@id": "beefCattleSteer"
+      },
+      "animalId": "2",
+      "value": 7.425928241,
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Estimated using stocking rate and 1 AU = 450kg LW for total LW/ ha across all cycles.",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 530.7,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Cold carcass weight per head",
+            "termType": "property",
+            "@id": "coldCarcassWeightPerHead",
+            "units": "kg cold carcass weight / head"
+          },
+          "value": 142.8,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "referencePeriod": "end of Cycle",
+      "@type": "Animal"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture/Range/Paddock (excreta management)",
+        "termType": "excretaManagement",
+        "@id": "pastureRangePaddockExcretaManagement"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, beef cattle, except feedlot fed (kg mass)",
+            "units": "kg",
+            "@id": "excretaBeefCattleExceptFeedlotFedKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "transformationId": "1",
+      "@type": "Transformation"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, steer",
+        "units": "number",
+        "@id": "beefCattleSteer"
+      },
+      "value": [
+        7.425928241
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 530.7,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, beef cattle, except feedlot fed (kg mass)",
+        "units": "kg",
+        "@id": "excretaBeefCattleExceptFeedlotFedKgMass"
+      },
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": true,
+    "product": false,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": false,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "freshForage": false,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Beef cattle, steer - São Carlos (Distrito), São Carlos, São Paulo, Brazil - 2014 - 4 different treatmen... - Irrigated pasture with high st...",
+  "siteArea": 1,
+  "schemaVersion": "30.4.0",
+  "originalId": "IHS"
+}

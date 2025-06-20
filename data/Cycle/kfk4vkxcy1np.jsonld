@@ -1,0 +1,553 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-01-22",
+  "updatedAt": "2024-12-06",
+  "@id": "kfk4vkxcy1np",
+  "@type": "Cycle",
+  "startDateDefinition": "one year prior",
+  "description": "Average annual production data across 6 different organic dehesa cattle farms. Cow-calf operation",
+  "numberOfCycles": 6,
+  "endDate": "2019",
+  "cycleDuration": 365,
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "q04mtlfbhe8q",
+    "@type": "Site"
+  },
+  "siteArea": 152.5,
+  "siteDuration": 365,
+  "defaultSource": {
+    "@id": "_309twlkzg6f",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Data were obtained by direct interviews with farmers.",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, hay",
+        "termType": "crop",
+        "@id": "genericGrassHay",
+        "units": "kg"
+      },
+      "value": [
+        22226.75
+      ],
+      "sd": [
+        18095.35
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Assumed the values given in the study which are kg per cow per year have been calculated by taking the total herd feed intake and dividing by the number of adult cows only. Therefore to get back to the total herd intake, I have multiplied by the number of adult cows.",
+      "statsDefinition": "cycles",
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Generic crop, straw",
+        "units": "kg",
+        "@id": "genericCropStraw"
+      },
+      "value": [
+        41846.35
+      ],
+      "sd": [
+        54236
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Assumed the values given in the study which are kg per cow per year have been calculated by taking the total herd feed intake and dividing by the number of adult cows only. Therefore to get back to the total herd intake, I have multiplied by the number of adult cows.",
+      "statsDefinition": "cycles",
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed blend",
+        "termType": "processedFood",
+        "@id": "concentrateFeedBlend",
+        "units": "kg"
+      },
+      "isAnimalFeed": true,
+      "value": [
+        6006
+      ],
+      "sd": [
+        7161.7
+      ],
+      "statsDefinition": "cycles",
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Assumed the values given in the study which are kg per cow per year have been calculated by taking the total herd feed intake and dividing by the number of adult cows only. Therefore to get back to the total herd intake, I have multiplied by the number of adult cows.",
+      "impactAssessment": {
+        "@id": "gce8jczqgybq",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Energy digestibility, ruminants",
+            "termType": "property",
+            "@id": "energyDigestibilityRuminants",
+            "units": "%"
+          },
+          "value": 78.39,
+          "methodClassification": "consistent external sources",
+          "methodClassificationDescription": "Nutritional values to make the calculations were taken from FEDNA (FEDNA, 2011a,b).",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Crude protein content",
+            "termType": "property",
+            "@id": "crudeProteinContent",
+            "units": "%"
+          },
+          "value": 11.81,
+          "methodClassification": "consistent external sources",
+          "methodClassificationDescription": "Nutritional values to make the calculations were taken from FEDNA (FEDNA, 2011a,b).",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, fresh forage",
+        "termType": "forage",
+        "@id": "genericGrassFreshForage",
+        "units": "kg"
+      },
+      "producedInCycle": true,
+      "isAnimalFeed": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 29.7,
+          "methodClassification": "consistent external sources",
+          "methodClassificationDescription": "Considered that pasture was natural pastures and used national guidelines showing the nutritional value of nature pastures in dehesa systems.",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Crude protein content",
+            "termType": "property",
+            "@id": "crudeProteinContent",
+            "units": "%"
+          },
+          "value": 10.4,
+          "methodClassification": "consistent external sources",
+          "methodClassificationDescription": "Considered that pasture was natural pastures and used national guidelines showing the nutritional value of nature pastures in dehesa systems.",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "property",
+            "name": "Acid detergent fibre content",
+            "units": "%",
+            "@id": "acidDetergentFibreContent"
+          },
+          "value": 35.3,
+          "methodClassification": "consistent external sources",
+          "methodClassificationDescription": "Considered that pasture was natural pastures and used national guidelines showing the nutritional value of nature pastures in dehesa systems.",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Neutral detergent fibre content",
+            "termType": "property",
+            "@id": "neutralDetergentFibreContent",
+            "units": "%"
+          },
+          "value": 59.3,
+          "methodClassification": "consistent external sources",
+          "methodClassificationDescription": "Considered that pasture was natural pastures and used national guidelines showing the nutritional value of nature pastures in dehesa systems.",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Ash content",
+            "termType": "property",
+            "@id": "ashContent",
+            "units": "%"
+          },
+          "value": 12.4,
+          "methodClassification": "consistent external sources",
+          "methodClassificationDescription": "Considered that pasture was natural pastures and used national guidelines showing the nutritional value of nature pastures in dehesa systems.",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Calcium content",
+            "termType": "property",
+            "@id": "calciumContent",
+            "units": "%"
+          },
+          "value": 0.51,
+          "methodClassification": "consistent external sources",
+          "methodClassificationDescription": "Considered that pasture was natural pastures and used national guidelines showing the nutritional value of nature pastures in dehesa systems.",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        1294.5
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, municipal tap",
+        "units": "m3",
+        "@id": "waterMunicipalTap"
+      },
+      "value": [
+        862.5
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Organic",
+        "termType": "standardsLabels",
+        "@id": "organic",
+        "units": "boolean"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Silvopasture system",
+        "termType": "system",
+        "@id": "silvopastureSystem",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture grass",
+        "termType": "landUseManagement",
+        "@id": "pastureGrass",
+        "units": "% area"
+      },
+      "key": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Generic grass plant",
+        "units": "% area",
+        "@id": "genericGrassPlant"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Shade tree density",
+        "termType": "landUseManagement",
+        "@id": "shadeTreeDensity",
+        "units": "number"
+      },
+      "value": [
+        42.2
+      ],
+      "sd": [
+        8.4
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Stocking density, permanent pasture (average)",
+        "termType": "animalManagement",
+        "@id": "stockingDensityPermanentPastureAverage",
+        "units": "animals / m2"
+      },
+      "value": [
+        0.00005901639344262295
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "animalId": "Cows",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, cow",
+        "units": "number",
+        "@id": "beefCattleCow"
+      },
+      "value": 45.5,
+      "sd": 45,
+      "statsDefinition": "cycles",
+      "referencePeriod": "average",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 586.1659999999999,
+          "description": "Weighted average taking into account all of the different breeds present across the farms studies, there resepective prevlance in the adult female population and adult female liveweights.",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "animalId": "Heifers",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, heifer",
+        "units": "number",
+        "@id": "beefCattleHeifer"
+      },
+      "value": 6.3,
+      "referencePeriod": "average",
+      "sd": 3.5,
+      "statsDefinition": "cycles",
+      "@type": "Animal"
+    },
+    {
+      "animalId": "Bulls",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, bull",
+        "units": "number",
+        "@id": "beefCattleBull"
+      },
+      "value": 1.8,
+      "referencePeriod": "average",
+      "sd": 1.2,
+      "statsDefinition": "cycles",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 937.664,
+          "description": "Weighted average taking into account all of the different breeds present across the farms studies, their resepective prevlance in the adult male population and adult male liveweights.",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "animalId": "Calves",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, calf",
+        "units": "number",
+        "@id": "beefCattleCalf"
+      },
+      "value": 36.4,
+      "referencePeriod": "average",
+      "sd": 4.55,
+      "statsDefinition": "cycles",
+      "@type": "Animal"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, calf (weaned)",
+        "units": "number",
+        "@id": "beefCattleCalfWeaned"
+      },
+      "value": [
+        85.8
+      ],
+      "primary": true,
+      "price": 616,
+      "currency": "EUR",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "value": 215.83999999999997,
+          "sd": 30.4,
+          "statsDefinition": "cycles",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 220,
+          "sd": 28.3,
+          "statsDefinition": "cycles",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, cow",
+        "units": "number",
+        "@id": "beefCattleCow"
+      },
+      "value": [
+        3.3
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 578,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, beef cattle, except feedlot fed (kg mass)",
+        "units": "kg",
+        "@id": "excretaBeefCattleExceptFeedlotFedKgMass"
+      },
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "transformationId": "1",
+      "term": {
+        "@type": "Term",
+        "name": "Pasture/Range/Paddock (excreta management)",
+        "termType": "excretaManagement",
+        "@id": "pastureRangePaddockExcretaManagement"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, beef cattle, except feedlot fed (kg mass)",
+            "units": "kg",
+            "@id": "excretaBeefCattleExceptFeedlotFedKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "@type": "Transformation"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "transport": false,
+    "material": false,
+    "fertiliser": false,
+    "ingredient": true,
+    "otherChemical": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": true,
+    "soilAmendment": false,
+    "water": true,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "freshForage": false,
+    "liveAnimalInput": false,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Beef cattle, calf (weaned) - Spain - 2019 - Average annual production data...",
+  "schemaVersion": "30.4.0",
+  "originalId": "Organic_Dehesa"
+}

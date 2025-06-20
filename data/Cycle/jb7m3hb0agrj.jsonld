@@ -1,0 +1,377 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-12-03",
+  "updatedAt": "2024-12-06",
+  "@id": "jb7m3hb0agrj",
+  "@type": "Cycle",
+  "description": "T6",
+  "startDate": "2017-05",
+  "startDateDefinition": "stocking date",
+  "endDate": "2017-11",
+  "numberOfCycles": 3,
+  "site": {
+    "@id": "pjxjgjz4a-er",
+    "@type": "Site"
+  },
+  "functionalUnit": "relative",
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Scientific trial",
+  "defaultSource": {
+    "@id": "_hx1rkzual0i",
+    "@type": "Source"
+  },
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, heifer",
+        "units": "number",
+        "@id": "beefCattleHeifer"
+      },
+      "animalId": "6",
+      "description": "Nelore heifers",
+      "referencePeriod": "average",
+      "value": 18,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "description": "Weight at start",
+          "value": 370,
+          "sd": 15,
+          "statsDefinition": "cycles",
+          "date": "2017-05",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "description": "Weight at end",
+          "value": 419.02,
+          "date": "2017-11",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "description": "Age at start",
+          "value": 730,
+          "date": "2017-05",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "forage",
+            "name": "Bread grass, fresh forage",
+            "units": "kg",
+            "@id": "breadGrassFreshForage"
+          },
+          "value": [
+            42183.00000000001
+          ],
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Nitrogen content",
+                "termType": "property",
+                "@id": "nitrogenContent",
+                "units": "%"
+              },
+              "value": 1.3,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "Digestible dry matter",
+                "units": "%",
+                "@id": "digestibleDryMatter"
+              },
+              "value": 50,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Nelore",
+        "termType": "animalBreed",
+        "@id": "nelore",
+        "units": "%"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalManagement",
+        "name": "Stocking density, permanent pasture (final)",
+        "units": "animals / m2",
+        "@id": "stockingDensityPermanentPastureFinal"
+      },
+      "value": [
+        0.7
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Confined pasture system",
+        "termType": "system",
+        "@id": "confinedPastureSystem",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture grass",
+        "termType": "landUseManagement",
+        "@id": "pastureGrass",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Stocking density, permanent pasture (average)",
+        "termType": "animalManagement",
+        "@id": "stockingDensityPermanentPastureAverage",
+        "units": "animals / m2"
+      },
+      "value": [
+        0.00007
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, heifer",
+        "units": "number",
+        "@id": "beefCattleHeifer"
+      },
+      "value": [
+        18
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, beef cattle, except feedlot fed (kg mass)",
+        "units": "kg",
+        "@id": "excretaBeefCattleExceptFeedlotFedKgMass"
+      },
+      "primary": false,
+      "value": [
+        21285
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Nitrogen content",
+            "termType": "property",
+            "@id": "nitrogenContent",
+            "units": "%"
+          },
+          "value": 1.6,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "organicFertiliser",
+        "name": "Cattle, urine (kg mass)",
+        "units": "kg",
+        "@id": "cattleUrineKgMass"
+      },
+      "value": [
+        77400
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Nitrogen content",
+            "termType": "property",
+            "@id": "nitrogenContent",
+            "units": "%"
+          },
+          "value": 3.8,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture/Range/Paddock (excreta management)",
+        "termType": "excretaManagement",
+        "@id": "pastureRangePaddockExcretaManagement"
+      },
+      "transformationId": "t6",
+      "description": "Assumed excreta left on pasture.",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, beef cattle, except feedlot fed (kg mass)",
+            "units": "kg",
+            "@id": "excretaBeefCattleExceptFeedlotFedKgMass"
+          },
+          "value": [
+            21285
+          ],
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "products": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, beef cattle, except feedlot fed (kg mass)",
+            "units": "kg",
+            "@id": "excretaBeefCattleExceptFeedlotFedKgMass"
+          },
+          "value": [
+            21285
+          ],
+          "@type": "Product"
+        }
+      ],
+      "@type": "Transformation"
+    }
+  ],
+  "emissions": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CH4, to air, enteric fermentation",
+        "termType": "emission",
+        "@id": "ch4ToAirEntericFermentation",
+        "units": "kg CH4"
+      },
+      "value": [
+        990
+      ],
+      "methodTier": "tier 1",
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2006)",
+        "termType": "model",
+        "@id": "ipcc2006"
+      },
+      "@type": "Emission"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CH4, to air, excreta",
+        "termType": "emission",
+        "@id": "ch4ToAirExcreta",
+        "units": "kg CH4"
+      },
+      "value": [
+        48.6
+      ],
+      "methodTier": "tier 1",
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2006)",
+        "termType": "model",
+        "@id": "ipcc2006"
+      },
+      "@type": "Emission"
+    }
+  ],
+  "completeness": {
+    "animalFeed": true,
+    "animalPopulation": true,
+    "cropResidue": true,
+    "electricityFuel": true,
+    "excreta": true,
+    "fertiliser": true,
+    "freshForage": true,
+    "ingredient": true,
+    "liveAnimalInput": false,
+    "material": false,
+    "operation": false,
+    "otherChemical": true,
+    "pesticideVeterinaryDrug": false,
+    "product": true,
+    "seed": true,
+    "soilAmendment": true,
+    "transport": false,
+    "waste": false,
+    "water": false,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Beef cattle, heifer - Itabela (Município), Bahia, Brazil - 2017-11 - T6",
+  "schemaVersion": "30.4.0",
+  "originalId": "alecrim-t6"
+}
