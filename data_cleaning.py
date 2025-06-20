@@ -22,21 +22,23 @@ for entry_name in os.listdir(directory_path):
     site = data['site']["@id"]
     with open("./data/recalculated/Site/{}".format(site)+extension, 'r') as f_site:
         data_site = json.load(f_site)
-        # TODO: clean site data
-        lca_data['site'] = data_site
+        lca_data['siteDescription'] = data_site["description"]
+        lca_data['siteName'] = data_site["name"]
+        lca_data['siteType'] = data_site["siteType"]
+        lca_data['siteLocation'] = data_site["country"]["name"] + " - " + data_site["region"]["name"]
     # •	Comparative studies to be disclosed to the public - some studies have comparative studies, which I think are called cycles
     cycle = data['cycle']["@id"]
     with open("./data/recalculated/Cycle/{}".format(cycle) + extension, 'r') as f_cycle:
         data_cycle = json.load(f_cycle)
-        # TODO: clean cycle data
-        lca_data['cycle'] = data_cycle
+        lca_data['cycleDescription'] = data_cycle["description"]
+        lca_data['functionalUnit'] = data_cycle["functionalUnit"] #TODO: reconcile FU between here and data[product]
+        lca_data["systemBoundaryCompleteness"] = data_cycle["completeness"]
     # •	Commissioner of the study and other influential actors - source
     source = data['source']["@id"]
     with open("./data/Source/{}".format(source) + extension, 'r') as f_source:
         data_source = json.load(f_source)
-        # TODO: clean source data
-        # TODO: get system boundary completeness data
-        lca_data['source'] = data_source
+        lca_data['bibliography'] = data_source["bibliography"]
+        lca_data['notes'] = data_source["uploadNotes"]
     # •	Deliverables - not included in present data
     # •	Object of the assessment - name
     lca_data['name'] = data['name']
@@ -45,8 +47,11 @@ for entry_name in os.listdir(directory_path):
     lca_data['allocationMethod'] = data['allocationMethod']
     # •	System boundaries and completeness requirements - functional unit quantity, product, info in cycle.json
     lca_data['functionalUnitQuantity'] = data['functionalUnitQuantity']
-    # TODO: clean product data
-    lca_data["product"] = data["product"]
+    lca_data["product_fate"] = data["product"]["fate"]
+    for i in data["product"]["properties"]:
+        lca_data["product{}properties".format(i)]["name"] = data["product"]["properties"][i]["term"]["name"]
+        lca_data["product{}properties".format(i)]["units"] = data["product"]["properties"][i]["term"]["units"]
+    lca_data["product_primary"] = data["product"]["primary"]
     # •	Representativeness of LCI data - not available, but recalculated by Hestia
     # •	Preparation of the basis for impact assessment - not available in data
     # •	Special requirements for system comparisons - not available in data
