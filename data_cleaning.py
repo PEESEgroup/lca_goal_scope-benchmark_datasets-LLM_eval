@@ -9,11 +9,12 @@ for entry_name in os.listdir(directory_path):
     # get file path
     file_path = os.path.join(directory_path, entry_name)
     extension = ".jsonld"
-    # open file and remove LCIA calculated values
+    # open file
     lca_data = {}
     with open(file_path, 'r') as f:
         data = json.load(f)
 
+    # go through the list of available goal and scope tasks and find which ones are in Hestia
     # •	Intended application of results - not available in current data
     # •	Limitations due to methodological choices - not available in current data
     # •	Decision context and reasons for carrying out the study - not available in current data
@@ -25,13 +26,13 @@ for entry_name in os.listdir(directory_path):
         lca_data['site'] = data_site
     # •	Comparative studies to be disclosed to the public - some studies have comparative studies, which I think are called cycles
     cycle = data['cycle']["@id"]
-    with open("./data/recalculated/Cycle/{}".format(site) + extension, 'r') as f_cycle:
+    with open("./data/recalculated/Cycle/{}".format(cycle) + extension, 'r') as f_cycle:
         data_cycle = json.load(f_cycle)
         # TODO: clean cycle data
         lca_data['cycle'] = data_cycle
     # •	Commissioner of the study and other influential actors - source
     source = data['source']["@id"]
-    with open("./data/Source/{}".format(site) + extension, 'r') as f_source:
+    with open("./data/Source/{}".format(source) + extension, 'r') as f_source:
         data_source = json.load(f_source)
         # TODO: clean source data
         # TODO: get system boundary completeness data
@@ -52,5 +53,5 @@ for entry_name in os.listdir(directory_path):
     # •	Needs for critical review - not available in data
     # •	Planning reporting of results - not available in data, clearly results were reported
 
-    with open("data/cleaned/{}.json".format(entry_name), "w") as w:
+    with open("data/cleaned/{}".format(entry_name), "w+") as w:
         json.dump(lca_data, w)
