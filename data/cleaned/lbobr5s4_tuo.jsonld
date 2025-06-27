@@ -3,7 +3,6 @@
     "siteType": "agri-food processor",
     "siteLocation": "Russia",
     "cycleDescription": "Slaughterhouse",
-    "functionalUnit": "relative",
     "systemBoundaryCompleteness": {
         "electricityFuel": true,
         "material": false,
@@ -26,6 +25,33 @@
         "ingredient": true,
         "@type": "Completeness"
     },
+    "bibliography": {
+        "title": "Calculation of carbon emission resulting from poultry production under the conditions of the central region in european Russia",
+        "outlet": "\u0418\u0437\u0432\u0435\u0441\u0442\u0438\u044f \u0422\u0438\u043c\u0438\u0440\u044f\u0437\u0435\u0432\u0441\u043a\u043e\u0439 \u0421\u0435\u043b\u044c\u0441\u043a\u043e\u0445\u043e\u0437\u044f\u0439\u0441\u0442\u0432\u0435\u043d\u043d\u043e\u0439 \u0410\u043a\u0430\u0434\u0435\u043c\u0438\u0438",
+        "year": 2014,
+        "mendeleyID": "935c349a-0f01-3dff-a015-70ff01002f24",
+        "authors": [
+            {
+                "@id": "_ocqmaxtqx2-",
+                "@type": "Actor"
+            },
+            {
+                "@id": "0_jtbsmxe6fo",
+                "@type": "Actor"
+            },
+            {
+                "@id": "kyu7sgp_lxlw",
+                "@type": "Actor"
+            },
+            {
+                "@id": "t1dzwugxbcfo",
+                "@type": "Actor"
+            }
+        ],
+        "name": "Samardzic et al (2014)",
+        "@type": "Bibliography"
+    },
+    "notes": "The amount of excreta could be calculated as: (0.004)/(40%*3%) = 0.33333 kg N; however this value seems to high and is likely in error. Emissions from excreta also appear to be in error and excluded.",
     "name": "Meat, chicken (liveweight) - Russia - 2014",
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,

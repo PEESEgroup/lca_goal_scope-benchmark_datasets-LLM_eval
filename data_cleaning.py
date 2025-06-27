@@ -13,7 +13,7 @@ def main():
         extension = ".jsonld"
         # open file
         lca_data = {}
-        with open(file_path, 'r') as f:
+        with open(file_path, 'r', encoding='utf-8') as f:
             try:
                 data = json.load(f)
             except UnicodeDecodeError:
@@ -21,7 +21,6 @@ def main():
                 continue # can't read the file, so skipping
 
         # go through the list of available goal and scope tasks and find which ones are in Hestia
-        # TODO: fix unicode decode error
         # •	Intended application of results - in source
         # •	Limitations due to methodological choices - not available in current data
         # •	Decision context and reasons for carrying out the study - in source
@@ -29,7 +28,7 @@ def main():
         if "site" in data:
             site = data['site']["@id"]
             try:
-                with open("./data/recalculated/Site/{}".format(site)+extension, 'r') as f_site:
+                with open("./data/recalculated/Site/{}".format(site)+extension, 'r', encoding='utf-8') as f_site:
                     try:
                         data_site = json.load(f_site)
                         if "description" in data_site:
@@ -51,7 +50,7 @@ def main():
         # •	Comparative studies to be disclosed to the public - some studies have comparative studies,
         # which I think are called cycles
         cycle = data['cycle']["@id"]
-        with open("./data/recalculated/Cycle/{}".format(cycle) + extension, 'r') as f_cycle:
+        with open("./data/recalculated/Cycle/{}".format(cycle) + extension, 'r', encoding='utf-8') as f_cycle:
             try:
                 data_cycle = json.load(f_cycle)
                 if "description" in data_cycle:
@@ -65,7 +64,7 @@ def main():
 
         # •	Commissioner of the study and other influential actors - source
         source = data['source']["@id"]
-        with open("./data/Source/{}".format(source) + extension, 'r') as f_source:
+        with open("./data/Source/{}".format(source) + extension, 'r', encoding='utf-8') as f_source:
             try:
                 data_source = json.load(f_source)
                 if "bibliography" in data_source:

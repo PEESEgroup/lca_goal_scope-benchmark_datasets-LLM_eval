@@ -1,6 +1,7 @@
 import os
 import pandas as pd
 
+
 def main():
     # get the directory
     directory_path = "./data/recalculated/ImpactAssessment/"
