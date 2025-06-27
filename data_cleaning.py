@@ -73,8 +73,12 @@ def main():
                     lca_data['cycleDescription'] = data_cycle["description"]
                 else:
                     lca_data['cycleDescription'] = ""
-                # if "functionalUnit" in data_cycle: lca_data['functionalUnit'] = data_cycle["functionalUnit"]  #
-                # This FU is either ha or relative according to documentation, so it is ignored
+                if "functionalUnit" in data_cycle:
+                    lca_data['functionalUnit'] = data_cycle["functionalUnit"]  #
+                else:
+                    lca_data['functionalUnit'] = ""
+                # This FU is either ha or relative (meaning that the quantities of Inputs and Emissions correspond
+                # to the quantities of Products) according to documentation
                 if "completeness" in data_cycle:
                     lca_data["systemBoundaryCompleteness"] = data_cycle["completeness"]
                 else:
@@ -83,6 +87,7 @@ def main():
                 print(e, entry_name, "skipping cycle")
                 lca_data['cycleDescription'] = ""
                 lca_data['systemBoundaryCompleteness'] = ""
+                lca_data['functionalUnit'] = ""
 
         # •	Commissioner of the study and other influential actors - source
         source = data['source']["@id"]
