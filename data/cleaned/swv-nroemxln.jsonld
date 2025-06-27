@@ -37,6 +37,19 @@
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
     "product_fate": "",
-    "product_properties": "{0: {'term': {'@type': 'Term', 'name': 'Crude protein content', 'termType': 'property', '@id': 'crudeProteinContent', 'units': '%'}, 'value': 18, 'share': 100, '@type': 'Property'}}",
+    "product_properties": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "name": "Crude protein content",
+                "termType": "property",
+                "@id": "crudeProteinContent",
+                "units": "%"
+            },
+            "value": 18,
+            "share": 100,
+            "@type": "Property"
+        }
+    },
     "product_primary": true
 }

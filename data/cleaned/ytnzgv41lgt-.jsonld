@@ -37,6 +37,19 @@
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
     "product_fate": "",
-    "product_properties": "{0: {'term': {'@type': 'Term', 'name': 'Dry matter', 'termType': 'property', '@id': 'dryMatter', 'units': '%'}, 'value': 62.3, 'share': 100, '@type': 'Property'}}",
+    "product_properties": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+            },
+            "value": 62.3,
+            "share": 100,
+            "@type": "Property"
+        }
+    },
     "product_primary": true
 }

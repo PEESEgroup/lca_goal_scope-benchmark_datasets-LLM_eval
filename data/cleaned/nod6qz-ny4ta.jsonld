@@ -43,6 +43,21 @@
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
     "product_fate": "",
-    "product_properties": "{0: {'term': {'@type': 'Term', 'name': 'Liveweight per head', 'termType': 'property', '@id': 'liveweightPerHead', 'units': 'kg liveweight / head'}, 'value': 345.59999999999997, 'methodClassification': 'estimated with assumptions', 'methodClassificationDescription': 'We are told that 0.72kg LW of calves from Farm 1 becomes 1kg of bulls in Farm 2. Therefore if the final LW of bulls in Farm 2 is 480kg, we assumed that the final LW of calves from Farm 1 is 480*0.72.', 'share': 100, '@type': 'Property'}}",
+    "product_properties": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 345.59999999999997,
+            "methodClassification": "estimated with assumptions",
+            "methodClassificationDescription": "We are told that 0.72kg LW of calves from Farm 1 becomes 1kg of bulls in Farm 2. Therefore if the final LW of bulls in Farm 2 is 480kg, we assumed that the final LW of calves from Farm 1 is 480*0.72.",
+            "share": 100,
+            "@type": "Property"
+        }
+    },
     "product_primary": true
 }

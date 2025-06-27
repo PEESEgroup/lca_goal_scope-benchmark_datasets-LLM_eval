@@ -37,6 +37,20 @@
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
     "product_fate": "",
-    "product_properties": "{0: {'term': {'@type': 'Term', 'name': 'Liveweight per head', 'termType': 'property', '@id': 'liveweightPerHead', 'units': 'kg liveweight / head'}, 'value': 320, 'description': '41 heifers of average weight 320 kg sold annually for breeding', 'share': 100, '@type': 'Property'}}",
+    "product_properties": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 320,
+            "description": "41 heifers of average weight 320 kg sold annually for breeding",
+            "share": 100,
+            "@type": "Property"
+        }
+    },
     "product_primary": ""
 }

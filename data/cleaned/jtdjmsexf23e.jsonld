@@ -37,6 +37,33 @@
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
     "product_fate": "",
-    "product_properties": "{0: {'term': {'@type': 'Term', 'name': 'Liveweight per head', 'termType': 'property', '@id': 'liveweightPerHead', 'units': 'kg liveweight / head'}, 'value': 798, 'share': 100, '@type': 'Property'}, 1: {'term': {'@type': 'Term', 'name': 'Processing conversion, liveweight to cold carcass weight', 'termType': 'property', '@id': 'processingConversionLiveweightToColdCarcassWeight', 'units': '%'}, 'value': 54, 'methodClassification': 'consistent external sources', 'methodClassificationDescription': 'Expert knowledge and the slaughterhouse database of the INRA/Vet Agro Sup Herbivore Research Unit.', 'share': 100, '@type': 'Property'}}",
+    "product_properties": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 798,
+            "share": 100,
+            "@type": "Property"
+        },
+        "1": {
+            "term": {
+                "@type": "Term",
+                "name": "Processing conversion, liveweight to cold carcass weight",
+                "termType": "property",
+                "@id": "processingConversionLiveweightToColdCarcassWeight",
+                "units": "%"
+            },
+            "value": 54,
+            "methodClassification": "consistent external sources",
+            "methodClassificationDescription": "Expert knowledge and the slaughterhouse database of the INRA/Vet Agro Sup Herbivore Research Unit.",
+            "share": 100,
+            "@type": "Property"
+        }
+    },
     "product_primary": ""
 }

@@ -37,6 +37,56 @@
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
     "product_fate": "",
-    "product_properties": "{0: {'term': {'@type': 'Term', 'name': 'Weight at weaning', 'termType': 'property', '@id': 'weightAtWeaning', 'units': 'kg liveweight / head'}, 'value': 7.4, 'share': 100, '@type': 'Property'}, 1: {'term': {'@type': 'Term', 'name': 'Mortality rate', 'termType': 'property', '@id': 'mortalityRate', 'units': '%'}, 'value': 23.9, 'description': 'The overall mortality including deaths during/at birth and until the piglets are weaned.', 'share': 100, '@type': 'Property'}, 2: {'term': {'@type': 'Term', 'name': 'Weaning time', 'termType': 'property', '@id': 'weaningTime', 'units': 'days'}, 'value': 31, 'share': 100, '@type': 'Property'}, 3: {'term': {'@type': 'Term', 'name': 'Liveweight per head', 'termType': 'property', '@id': 'liveweightPerHead', 'units': 'kg liveweight / head'}, 'value': 7.4, 'share': 100, '@type': 'Property'}}",
+    "product_properties": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "name": "Weight at weaning",
+                "termType": "property",
+                "@id": "weightAtWeaning",
+                "units": "kg liveweight / head"
+            },
+            "value": 7.4,
+            "share": 100,
+            "@type": "Property"
+        },
+        "1": {
+            "term": {
+                "@type": "Term",
+                "name": "Mortality rate",
+                "termType": "property",
+                "@id": "mortalityRate",
+                "units": "%"
+            },
+            "value": 23.9,
+            "description": "The overall mortality including deaths during/at birth and until the piglets are weaned.",
+            "share": 100,
+            "@type": "Property"
+        },
+        "2": {
+            "term": {
+                "@type": "Term",
+                "name": "Weaning time",
+                "termType": "property",
+                "@id": "weaningTime",
+                "units": "days"
+            },
+            "value": 31,
+            "share": 100,
+            "@type": "Property"
+        },
+        "3": {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 7.4,
+            "share": 100,
+            "@type": "Property"
+        }
+    },
     "product_primary": true
 }

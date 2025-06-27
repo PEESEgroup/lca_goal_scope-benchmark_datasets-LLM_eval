@@ -33,6 +33,37 @@
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
     "product_fate": "",
-    "product_properties": "{0: {'term': {'@type': 'Term', 'termType': 'property', 'name': 'Fat content', 'units': '%', '@id': 'fatContent'}, 'value': 3.9, 'sd': 0.31, 'statsDefinition': 'cycles', 'methodModelDescription': 'Milk samples taken once a week and analysed for fat and protein content using a Milkoscan minor spectrophotometer and calibrated by methods of AOAC (2000).', 'share': 100, '@type': 'Property'}, 1: {'term': {'@type': 'Term', 'name': 'Crude protein content', 'termType': 'property', '@id': 'crudeProteinContent', 'units': '%'}, 'value': 3.4, 'sd': 0.07, 'statsDefinition': 'cycles', 'methodModelDescription': 'Milk samples taken once a week and analysed for fat and protein content using a Milkoscan minor spectrophotometer and calibrated by methods of AOAC (2000).', 'share': 100, '@type': 'Property'}}",
+    "product_properties": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "Fat content",
+                "units": "%",
+                "@id": "fatContent"
+            },
+            "value": 3.9,
+            "sd": 0.31,
+            "statsDefinition": "cycles",
+            "methodModelDescription": "Milk samples taken once a week and analysed for fat and protein content using a Milkoscan minor spectrophotometer and calibrated by methods of AOAC (2000).",
+            "share": 100,
+            "@type": "Property"
+        },
+        "1": {
+            "term": {
+                "@type": "Term",
+                "name": "Crude protein content",
+                "termType": "property",
+                "@id": "crudeProteinContent",
+                "units": "%"
+            },
+            "value": 3.4,
+            "sd": 0.07,
+            "statsDefinition": "cycles",
+            "methodModelDescription": "Milk samples taken once a week and analysed for fat and protein content using a Milkoscan minor spectrophotometer and calibrated by methods of AOAC (2000).",
+            "share": 100,
+            "@type": "Property"
+        }
+    },
     "product_primary": true
 }

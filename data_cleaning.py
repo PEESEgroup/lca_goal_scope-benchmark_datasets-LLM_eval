@@ -154,7 +154,7 @@ def main():
                 lca_data['product_fate'] = ""
             if "properties" in data["product"]:
                 # flattening handled when data table is made
-                lca_data["product_properties"] = str(dict(enumerate(data["product"]["properties"])))
+                lca_data["product_properties"] = json.loads(json.dumps(dict(enumerate(data["product"]["properties"]))))
             else:
                 lca_data['product_properties'] = ""
             if "primary" in data["product"]:

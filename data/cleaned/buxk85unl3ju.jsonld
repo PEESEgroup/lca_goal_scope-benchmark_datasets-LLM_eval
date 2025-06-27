@@ -37,6 +37,19 @@
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
     "product_fate": "sold",
-    "product_properties": "{0: {'term': {'@type': 'Term', 'name': 'Liveweight per head', 'termType': 'property', '@id': 'liveweightPerHead', 'units': 'kg liveweight / head'}, 'value': 30.8125, 'share': 100, '@type': 'Property'}}",
+    "product_properties": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 30.8125,
+            "share": 100,
+            "@type": "Property"
+        }
+    },
     "product_primary": ""
 }

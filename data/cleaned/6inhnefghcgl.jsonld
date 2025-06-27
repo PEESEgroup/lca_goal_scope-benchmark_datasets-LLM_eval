@@ -37,6 +37,43 @@
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
     "product_fate": "",
-    "product_properties": "{0: {'term': {'@type': 'Term', 'name': 'Liveweight per head', 'termType': 'property', '@id': 'liveweightPerHead', 'units': 'kg liveweight / head'}, 'value': 664, 'share': 100, '@type': 'Property'}, 1: {'term': {'@type': 'Term', 'name': 'Age', 'termType': 'property', '@id': 'age', 'units': 'days'}, 'value': 601, 'share': 100, '@type': 'Property'}, 2: {'term': {'@type': 'Term', 'name': 'Cold dressed carcass weight per head', 'termType': 'property', '@id': 'coldDressedCarcassWeightPerHead', 'units': 'kg cold dressed carcass weight / head'}, 'value': 387, 'share': 100, '@type': 'Property'}}",
+    "product_properties": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 664,
+            "share": 100,
+            "@type": "Property"
+        },
+        "1": {
+            "term": {
+                "@type": "Term",
+                "name": "Age",
+                "termType": "property",
+                "@id": "age",
+                "units": "days"
+            },
+            "value": 601,
+            "share": 100,
+            "@type": "Property"
+        },
+        "2": {
+            "term": {
+                "@type": "Term",
+                "name": "Cold dressed carcass weight per head",
+                "termType": "property",
+                "@id": "coldDressedCarcassWeightPerHead",
+                "units": "kg cold dressed carcass weight / head"
+            },
+            "value": 387,
+            "share": 100,
+            "@type": "Property"
+        }
+    },
     "product_primary": true
 }

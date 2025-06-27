@@ -37,6 +37,31 @@
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
     "product_fate": "",
-    "product_properties": "{0: {'term': {'@type': 'Term', 'name': 'Liveweight per head', 'termType': 'property', '@id': 'liveweightPerHead', 'units': 'kg liveweight / head'}, 'value': 490.7, 'share': 100, '@type': 'Property'}, 1: {'term': {'@type': 'Term', 'name': 'Slaughter age', 'termType': 'property', '@id': 'slaughterAge', 'units': 'days'}, 'value': 771, 'share': 100, '@type': 'Property'}}",
+    "product_properties": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 490.7,
+            "share": 100,
+            "@type": "Property"
+        },
+        "1": {
+            "term": {
+                "@type": "Term",
+                "name": "Slaughter age",
+                "termType": "property",
+                "@id": "slaughterAge",
+                "units": "days"
+            },
+            "value": 771,
+            "share": 100,
+            "@type": "Property"
+        }
+    },
     "product_primary": ""
 }

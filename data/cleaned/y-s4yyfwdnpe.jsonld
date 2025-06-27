@@ -37,6 +37,31 @@
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
     "product_fate": "",
-    "product_properties": "{0: {'term': {'@type': 'Term', 'termType': 'property', 'name': 'Fat content', 'units': '%', '@id': 'fatContent'}, 'value': 4.21, 'share': 100, '@type': 'Property'}, 1: {'term': {'@type': 'Term', 'name': 'Crude protein content', 'termType': 'property', '@id': 'crudeProteinContent', 'units': '%'}, 'value': 3.13, 'share': 100, '@type': 'Property'}}",
+    "product_properties": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "Fat content",
+                "units": "%",
+                "@id": "fatContent"
+            },
+            "value": 4.21,
+            "share": 100,
+            "@type": "Property"
+        },
+        "1": {
+            "term": {
+                "@type": "Term",
+                "name": "Crude protein content",
+                "termType": "property",
+                "@id": "crudeProteinContent",
+                "units": "%"
+            },
+            "value": 3.13,
+            "share": 100,
+            "@type": "Property"
+        }
+    },
     "product_primary": true
 }

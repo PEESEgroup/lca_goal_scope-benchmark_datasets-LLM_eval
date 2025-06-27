@@ -37,6 +37,19 @@
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
     "product_fate": "",
-    "product_properties": "{0: {'term': {'@type': 'Term', 'name': 'Weight per item', 'termType': 'property', '@id': 'weightPerItem', 'units': 'kg'}, 'value': 0.0625, 'share': 100, '@type': 'Property'}}",
+    "product_properties": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "name": "Weight per item",
+                "termType": "property",
+                "@id": "weightPerItem",
+                "units": "kg"
+            },
+            "value": 0.0625,
+            "share": 100,
+            "@type": "Property"
+        }
+    },
     "product_primary": true
 }
