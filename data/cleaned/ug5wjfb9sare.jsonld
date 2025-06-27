@@ -37,20 +37,6 @@
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
     "product_fate": "",
-    "product_properties": [
-        {
-            "term": {
-                "@type": "Term",
-                "name": "Processing conversion, hot carcass weight to cold carcass weight",
-                "termType": "property",
-                "@id": "processingConversionHotCarcassWeightToColdCarcassWeight",
-                "units": "%"
-            },
-            "value": 2,
-            "description": "% change between hot and cold carcass weight for meat",
-            "share": 100,
-            "@type": "Property"
-        }
-    ],
+    "product_properties": "{0: {'term': {'@type': 'Term', 'name': 'Processing conversion, hot carcass weight to cold carcass weight', 'termType': 'property', '@id': 'processingConversionHotCarcassWeightToColdCarcassWeight', 'units': '%'}, 'value': 2, 'description': '% change between hot and cold carcass weight for meat', 'share': 100, '@type': 'Property'}}",
     "product_primary": true
 }

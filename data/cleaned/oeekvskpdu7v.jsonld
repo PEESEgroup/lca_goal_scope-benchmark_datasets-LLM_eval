@@ -37,43 +37,6 @@
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
     "product_fate": "",
-    "product_properties": [
-        {
-            "term": {
-                "@type": "Term",
-                "termType": "property",
-                "name": "Fat content",
-                "units": "%",
-                "@id": "fatContent"
-            },
-            "value": 0.6,
-            "share": 100,
-            "@type": "Property"
-        },
-        {
-            "term": {
-                "@type": "Term",
-                "name": "Crude protein content",
-                "termType": "property",
-                "@id": "crudeProteinContent",
-                "units": "%"
-            },
-            "value": 0.75,
-            "share": 100,
-            "@type": "Property"
-        },
-        {
-            "term": {
-                "@type": "Term",
-                "name": "Dry matter",
-                "termType": "property",
-                "@id": "dryMatter",
-                "units": "%"
-            },
-            "value": 6,
-            "share": 100,
-            "@type": "Property"
-        }
-    ],
+    "product_properties": "{0: {'term': {'@type': 'Term', 'termType': 'property', 'name': 'Fat content', 'units': '%', '@id': 'fatContent'}, 'value': 0.6, 'share': 100, '@type': 'Property'}, 1: {'term': {'@type': 'Term', 'name': 'Crude protein content', 'termType': 'property', '@id': 'crudeProteinContent', 'units': '%'}, 'value': 0.75, 'share': 100, '@type': 'Property'}, 2: {'term': {'@type': 'Term', 'name': 'Dry matter', 'termType': 'property', '@id': 'dryMatter', 'units': '%'}, 'value': 6, 'share': 100, '@type': 'Property'}}",
     "product_primary": ""
 }

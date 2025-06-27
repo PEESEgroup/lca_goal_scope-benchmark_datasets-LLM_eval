@@ -37,43 +37,6 @@
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
     "product_fate": "",
-    "product_properties": [
-        {
-            "term": {
-                "@type": "Term",
-                "name": "Liveweight per head",
-                "termType": "property",
-                "@id": "liveweightPerHead",
-                "units": "kg liveweight / head"
-            },
-            "value": 112.2,
-            "share": 100,
-            "@type": "Property"
-        },
-        {
-            "term": {
-                "@type": "Term",
-                "name": "Processing conversion, liveweight to cold carcass weight",
-                "termType": "property",
-                "@id": "processingConversionLiveweightToColdCarcassWeight",
-                "units": "%"
-            },
-            "value": 77.54010695187165,
-            "share": 100,
-            "@type": "Property"
-        },
-        {
-            "term": {
-                "@type": "Term",
-                "name": "Processing allocation, cold carcass weight to ready-to-cook weight",
-                "termType": "property",
-                "@id": "processingAllocationColdCarcassWeightToReadyToCookWeight",
-                "units": "%"
-            },
-            "value": 60.91954022988506,
-            "share": 100,
-            "@type": "Property"
-        }
-    ],
+    "product_properties": "{0: {'term': {'@type': 'Term', 'name': 'Liveweight per head', 'termType': 'property', '@id': 'liveweightPerHead', 'units': 'kg liveweight / head'}, 'value': 112.2, 'share': 100, '@type': 'Property'}, 1: {'term': {'@type': 'Term', 'name': 'Processing conversion, liveweight to cold carcass weight', 'termType': 'property', '@id': 'processingConversionLiveweightToColdCarcassWeight', 'units': '%'}, 'value': 77.54010695187165, 'share': 100, '@type': 'Property'}, 2: {'term': {'@type': 'Term', 'name': 'Processing allocation, cold carcass weight to ready-to-cook weight', 'termType': 'property', '@id': 'processingAllocationColdCarcassWeightToReadyToCookWeight', 'units': '%'}, 'value': 60.91954022988506, 'share': 100, '@type': 'Property'}}",
     "product_primary": true
 }

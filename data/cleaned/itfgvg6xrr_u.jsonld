@@ -43,31 +43,6 @@
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
     "product_fate": "",
-    "product_properties": [
-        {
-            "term": {
-                "@type": "Term",
-                "name": "Liveweight per head",
-                "termType": "property",
-                "@id": "liveweightPerHead",
-                "units": "kg liveweight / head"
-            },
-            "value": 532.3891178492601,
-            "share": 100,
-            "@type": "Property"
-        },
-        {
-            "term": {
-                "@type": "Term",
-                "name": "Cold carcass weight per head",
-                "termType": "property",
-                "@id": "coldCarcassWeightPerHead",
-                "units": "kg cold carcass weight / head"
-            },
-            "value": 282.4384615384615,
-            "share": 100,
-            "@type": "Property"
-        }
-    ],
+    "product_properties": "{0: {'term': {'@type': 'Term', 'name': 'Liveweight per head', 'termType': 'property', '@id': 'liveweightPerHead', 'units': 'kg liveweight / head'}, 'value': 532.3891178492601, 'share': 100, '@type': 'Property'}, 1: {'term': {'@type': 'Term', 'name': 'Cold carcass weight per head', 'termType': 'property', '@id': 'coldCarcassWeightPerHead', 'units': 'kg cold carcass weight / head'}, 'value': 282.4384615384615, 'share': 100, '@type': 'Property'}}",
     "product_primary": ""
 }

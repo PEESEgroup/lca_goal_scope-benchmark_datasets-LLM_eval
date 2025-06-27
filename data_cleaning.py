@@ -136,7 +136,8 @@ def main():
             else:
                 lca_data['product_fate'] = ""
             if "properties" in data["product"]:
-                lca_data["product_properties"] = data["product"]["properties"]
+                # flattening handled when data table is made
+                lca_data["product_properties"] = str(dict(enumerate(data["product"]["properties"])))
             else:
                 lca_data['product_properties'] = ""
             if "primary" in data["product"]:

@@ -37,33 +37,6 @@
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
     "product_fate": "",
-    "product_properties": [
-        {
-            "term": {
-                "@type": "Term",
-                "name": "Liveweight per head",
-                "termType": "property",
-                "@id": "liveweightPerHead",
-                "units": "kg liveweight / head"
-            },
-            "value": 430,
-            "description": "420 beef steers are fattened to a weight of 430 kg and sold across all 7 production systems",
-            "share": 100,
-            "@type": "Property"
-        },
-        {
-            "term": {
-                "@type": "Term",
-                "name": "Slaughter age",
-                "termType": "property",
-                "@id": "slaughterAge",
-                "units": "days"
-            },
-            "value": 1020,
-            "description": "The steers are slaughtered after the number of days it takes them to reach 430 kg",
-            "share": 100,
-            "@type": "Property"
-        }
-    ],
+    "product_properties": "{0: {'term': {'@type': 'Term', 'name': 'Liveweight per head', 'termType': 'property', '@id': 'liveweightPerHead', 'units': 'kg liveweight / head'}, 'value': 430, 'description': '420 beef steers are fattened to a weight of 430 kg and sold across all 7 production systems', 'share': 100, '@type': 'Property'}, 1: {'term': {'@type': 'Term', 'name': 'Slaughter age', 'termType': 'property', '@id': 'slaughterAge', 'units': 'days'}, 'value': 1020, 'description': 'The steers are slaughtered after the number of days it takes them to reach 430 kg', 'share': 100, '@type': 'Property'}}",
     "product_primary": true
 }

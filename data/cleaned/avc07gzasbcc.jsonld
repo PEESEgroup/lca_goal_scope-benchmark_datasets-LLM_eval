@@ -37,33 +37,6 @@
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
     "product_fate": "",
-    "product_properties": [
-        {
-            "term": {
-                "@type": "Term",
-                "name": "Nitrogen content",
-                "termType": "property",
-                "@id": "nitrogenContent",
-                "units": "%"
-            },
-            "value": 1.8499999999999999,
-            "methodClassification": "consistent external sources",
-            "methodClassificationDescription": "IPCC 2019",
-            "share": 100,
-            "@type": "Property"
-        },
-        {
-            "term": {
-                "@type": "Term",
-                "name": "Weight per item",
-                "termType": "property",
-                "@id": "weightPerItem",
-                "units": "kg"
-            },
-            "value": 58,
-            "share": 100,
-            "@type": "Property"
-        }
-    ],
+    "product_properties": "{0: {'term': {'@type': 'Term', 'name': 'Nitrogen content', 'termType': 'property', '@id': 'nitrogenContent', 'units': '%'}, 'value': 1.8499999999999999, 'methodClassification': 'consistent external sources', 'methodClassificationDescription': 'IPCC 2019', 'share': 100, '@type': 'Property'}, 1: {'term': {'@type': 'Term', 'name': 'Weight per item', 'termType': 'property', '@id': 'weightPerItem', 'units': 'kg'}, 'value': 58, 'share': 100, '@type': 'Property'}}",
     "product_primary": true
 }

@@ -43,35 +43,6 @@
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
     "product_fate": "",
-    "product_properties": [
-        {
-            "term": {
-                "@type": "Term",
-                "name": "Age",
-                "termType": "property",
-                "@id": "age",
-                "units": "days"
-            },
-            "value": 179.36,
-            "sd": 27.36,
-            "statsDefinition": "cycles",
-            "share": 100,
-            "@type": "Property"
-        },
-        {
-            "term": {
-                "@type": "Term",
-                "name": "Liveweight per head",
-                "termType": "property",
-                "@id": "liveweightPerHead",
-                "units": "kg liveweight / head"
-            },
-            "value": 228.6,
-            "sd": 19.5,
-            "statsDefinition": "cycles",
-            "share": 100,
-            "@type": "Property"
-        }
-    ],
+    "product_properties": "{0: {'term': {'@type': 'Term', 'name': 'Age', 'termType': 'property', '@id': 'age', 'units': 'days'}, 'value': 179.36, 'sd': 27.36, 'statsDefinition': 'cycles', 'share': 100, '@type': 'Property'}, 1: {'term': {'@type': 'Term', 'name': 'Liveweight per head', 'termType': 'property', '@id': 'liveweightPerHead', 'units': 'kg liveweight / head'}, 'value': 228.6, 'sd': 19.5, 'statsDefinition': 'cycles', 'share': 100, '@type': 'Property'}}",
     "product_primary": true
 }

@@ -33,19 +33,6 @@
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
     "product_fate": "sold",
-    "product_properties": [
-        {
-            "term": {
-                "@type": "Term",
-                "termType": "property",
-                "name": "Fat content",
-                "units": "%",
-                "@id": "fatContent"
-            },
-            "value": 4,
-            "share": 100,
-            "@type": "Property"
-        }
-    ],
+    "product_properties": "{0: {'term': {'@type': 'Term', 'termType': 'property', 'name': 'Fat content', 'units': '%', '@id': 'fatContent'}, 'value': 4, 'share': 100, '@type': 'Property'}}",
     "product_primary": true
 }

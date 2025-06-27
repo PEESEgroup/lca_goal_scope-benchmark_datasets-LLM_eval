@@ -20,7 +20,7 @@ def main():
         df = pd.concat([df, table_data])
 
     # write out file
-    df.to_csv("data/input_data", index=False)
+    df.to_csv("data/input_data.csv", index=False)
 
 
 if __name__ == "__main__":
