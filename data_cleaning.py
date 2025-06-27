@@ -33,15 +33,23 @@ def main():
                         data_site = json.load(f_site)
                         if "description" in data_site:
                             lca_data['siteDescription'] = data_site["description"]
+                        else:
+                            lca_data['siteDescription'] = ""
                         if "name" in data_site:
                             lca_data['siteName'] = data_site["name"]
+                        else:
+                            lca_data['siteName'] = ""
                         if "siteType" in data_site:
                             lca_data['siteType'] = data_site["siteType"]
+                        else:
+                            lca_data['siteType'] = ""
                         if "country" in data_site:
                             if "region" in data_site:
                                 lca_data['siteLocation'] = data_site["country"]["name"] + " - " + data_site["region"]["name"]
                             else:
                                 lca_data['siteLocation'] = data_site["country"]["name"]
+                        else:
+                            lca_data['siteLocation'] = ""
                     except UnicodeDecodeError as e:
                         print(e, entry_name, "skipping site")
             except FileNotFoundError as e:
@@ -55,10 +63,14 @@ def main():
                 data_cycle = json.load(f_cycle)
                 if "description" in data_cycle:
                     lca_data['cycleDescription'] = data_cycle["description"]
+                else:
+                    lca_data['cycleDescription'] = ""
                 # if "functionalUnit" in data_cycle: lca_data['functionalUnit'] = data_cycle["functionalUnit"]  #
                 # This FU is either ha or relative according to documentation, so it is ignored
                 if "completeness" in data_cycle:
                     lca_data["systemBoundaryCompleteness"] = data_cycle["completeness"]
+                else:
+                    lca_data['systemBoundaryCompleteness'] = ""
             except UnicodeDecodeError as e:
                 print(e, entry_name, "skipping cycle")
 
@@ -68,39 +80,73 @@ def main():
             try:
                 data_source = json.load(f_source)
                 if "bibliography" in data_source:
-                    lca_data['bibliography'] = data_source["bibliography"]
+                    if "documentDOI" in data_source["bibliography"]:
+                        lca_data['DOI'] = data_source["bibliography"]["documentDOI"]
+                    else:
+                        lca_data['DOI'] = ""
+                    if "title" in data_source["bibliography"]:
+                        lca_data['title'] = data_source["bibliography"]["title"]
+                    else:
+                        lca_data['title'] = ""
+                else:
+                    lca_data['DOI'] = ""
+                    lca_data['title'] = ""
                 if "uploadNotes" in data_source:
                     lca_data['notes'] = data_source["uploadNotes"]
+                else:
+                    lca_data['notes'] = ""
                 if "intendedApplication" in data_source:
                     lca_data['intendedApplication'] = data_source["intendedApplication"]
+                else:
+                    lca_data['intendedApplication'] = ""
                 if "studyReasons" in data_source:
                     lca_data['studyReasons'] = data_source["studyReasons"]
+                else:
+                    lca_data['studyReasons'] = ""
                 if "intendedAudience" in data_source:
                     lca_data['intendedAudience'] = data_source["intendedAudience"]
+                else:
+                    lca_data['intendedAudience'] = ""
                 if "comparativeAssertions" in data_source:
                     lca_data['comparativeAssertions'] = data_source["comparativeAssertions"]
+                else:
+                    lca_data['comparativeAssertions'] = ""
             except UnicodeDecodeError as e:
                 print(e, entry_name, "skipping source")
         # •	Deliverables - not included in present data
         # •	Object of the assessment - name
         if "name" in data:
             lca_data['name'] = data['name']
+        else:
+            lca_data['name'] = ""
         # •	LCI modelling framework and handling of multifunctional processes - allocationMethod, LCI modelling framework is
         # recalculated to include all possible LCIA methods (107 midpoint methods at a count)
         if "allocationMethod" in data:
             lca_data['allocationMethod'] = data['allocationMethod']
+        else:
+            lca_data['allocationMethod'] = ""
         # •	System boundaries and completeness requirements - functional unit quantity, product, info in cycle.json
         if "functionalUnitQuantity" in data:
             lca_data['functionalUnitQuantity'] = data['functionalUnitQuantity']
+        else:
+            lca_data['functionalUnitQuantity'] = ""
         if "product" in data:
             if "fate" in data["product"]:
                 lca_data["product_fate"] = data["product"]["fate"]
+            else:
+                lca_data['product_fate'] = ""
             if "properties" in data["product"]:
-                for i in range(len(data["product"]["properties"])):
-                    lca_data["product{}properties".format(i)] = (data["product"]["properties"][i]["term"]["name"] + " - " +
-                                                                 data["product"]["properties"][i]["term"]["units"])
+                lca_data["product_properties"] = data["product"]["properties"]
+            else:
+                lca_data['product_properties'] = ""
             if "primary" in data["product"]:
                 lca_data["product_primary"] = data["product"]["primary"]
+            else:
+                lca_data['product_primary'] = ""
+        else:
+            lca_data['product_fate'] = ""
+            lca_data['product_properties'] = ""
+            lca_data['product_primary'] = ""
         # •	Representativeness of LCI data - not available, but recalculated by Hestia
         # •	Preparation of the basis for impact assessment - not available in data
         # •	Special requirements for system comparisons - in source
