@@ -1,104 +1,111 @@
 import os
 import json
 
-# get the directory
-directory_path = "./data/recalculated/ImpactAssessment/"
 
-# for each file in the directory, iterate through
-for entry_name in os.listdir(directory_path):
-    # get file path
-    file_path = os.path.join(directory_path, entry_name)
-    extension = ".jsonld"
-    # open file
-    lca_data = {}
-    with open(file_path, 'r') as f:
-        try:
-            data = json.load(f)
-        except UnicodeDecodeError:
-            print("cannot read the file, skipping")
-            continue # can't read the file, so skipping
+def main():
+    # get the directory
+    directory_path = "./data/recalculated/ImpactAssessment/"
 
-    # go through the list of available goal and scope tasks and find which ones are in Hestia
-    # TODO: fix unicode decode error
-    # TODO: check 10 other input files for differing categories that may be of interest
-    # •	Intended application of results - not available in current data
-    # •	Limitations due to methodological choices - not available in current data
-    # •	Decision context and reasons for carrying out the study - not available in current data
-    # •	Target audience - site
-    if "site" in data:
-        site = data['site']["@id"]
-        try:
-            with open("./data/recalculated/Site/{}".format(site)+extension, 'r') as f_site:
-                try:
-                    data_site = json.load(f_site)
-                    if "description" in data_site:
-                        lca_data['siteDescription'] = data_site["description"]
-                    if "name" in data_site:
-                        lca_data['siteName'] = data_site["name"]
-                    if "siteType" in data_site:
-                        lca_data['siteType'] = data_site["siteType"]
-                    if "country" in data_site:
-                        if "region" in data_site:
-                            lca_data['siteLocation'] = data_site["country"]["name"] + " - " + data_site["region"]["name"]
-                        else:
-                            lca_data['siteLocation'] = data_site["country"]["name"]
-                except UnicodeDecodeError as e:
-                    print(e, entry_name, "skipping site")
-        except FileNotFoundError as e:
-            print(e, entry_name, "missing site")
+    # for each file in the directory, iterate through
+    for entry_name in os.listdir(directory_path):
+        # get file path
+        file_path = os.path.join(directory_path, entry_name)
+        extension = ".jsonld"
+        # open file
+        lca_data = {}
+        with open(file_path, 'r') as f:
+            try:
+                data = json.load(f)
+            except UnicodeDecodeError:
+                print("cannot read the file, skipping")
+                continue # can't read the file, so skipping
 
-    # •	Comparative studies to be disclosed to the public - some studies have comparative studies,
-    # which I think are called cycles
-    cycle = data['cycle']["@id"]
-    with open("./data/recalculated/Cycle/{}".format(cycle) + extension, 'r') as f_cycle:
-        try:
-            data_cycle = json.load(f_cycle)
-            if "description" in data_cycle:
-                lca_data['cycleDescription'] = data_cycle["description"]
-            if "functionalUnit" in data_cycle:
-                lca_data['functionalUnit'] = data_cycle["functionalUnit"] #TODO: reconcile FU between here and data[product]
-            if "completeness" in data_cycle:
-                lca_data["systemBoundaryCompleteness"] = data_cycle["completeness"]
-        except UnicodeDecodeError as e:
-            print(e, entry_name, "skipping cycle")
+        # go through the list of available goal and scope tasks and find which ones are in Hestia
+        # TODO: fix unicode decode error
+        # TODO: check 10 other input files for differing categories that may be of interest
+        # •	Intended application of results - not available in current data
+        # •	Limitations due to methodological choices - not available in current data
+        # •	Decision context and reasons for carrying out the study - not available in current data
+        # •	Target audience - site
+        if "site" in data:
+            site = data['site']["@id"]
+            try:
+                with open("./data/recalculated/Site/{}".format(site)+extension, 'r') as f_site:
+                    try:
+                        data_site = json.load(f_site)
+                        if "description" in data_site:
+                            lca_data['siteDescription'] = data_site["description"]
+                        if "name" in data_site:
+                            lca_data['siteName'] = data_site["name"]
+                        if "siteType" in data_site:
+                            lca_data['siteType'] = data_site["siteType"]
+                        if "country" in data_site:
+                            if "region" in data_site:
+                                lca_data['siteLocation'] = data_site["country"]["name"] + " - " + data_site["region"]["name"]
+                            else:
+                                lca_data['siteLocation'] = data_site["country"]["name"]
+                    except UnicodeDecodeError as e:
+                        print(e, entry_name, "skipping site")
+            except FileNotFoundError as e:
+                print(e, entry_name, "missing site")
 
-    # •	Commissioner of the study and other influential actors - source
-    source = data['source']["@id"]
-    with open("./data/Source/{}".format(source) + extension, 'r') as f_source:
-        try:
-            data_source = json.load(f_source)
-            if "bibliography" in data_source:
-                lca_data['bibliography'] = data_source["bibliography"]
-            if "uploadNotes" in data_source:
-                lca_data['notes'] = data_source["uploadNotes"]
-        except UnicodeDecodeError as e:
-            print(e, entry_name, "skipping source")
-    # •	Deliverables - not included in present data
-    # •	Object of the assessment - name
-    if "name" in data:
-        lca_data['name'] = data['name']
-    # •	LCI modelling framework and handling of multifunctional processes - allocationMethod, LCI modelling framework is
-    # recalculated to include all possible LCIA methods (107 midpoint methods at a count)
-    if "allocationMethod" in data:
-        lca_data['allocationMethod'] = data['allocationMethod']
-    # •	System boundaries and completeness requirements - functional unit quantity, product, info in cycle.json
-    if "functionalUnitQuantity" in data:
-        lca_data['functionalUnitQuantity'] = data['functionalUnitQuantity']
-    if "product" in data:
-        if "fate" in data["product"]:
-            lca_data["product_fate"] = data["product"]["fate"]
-        if "properties" in data["product"]:
-            for i in range(len(data["product"]["properties"])):
-                lca_data["product{}properties".format(i)] = (data["product"]["properties"][i]["term"]["name"] + " - " +
-                                                             data["product"]["properties"][i]["term"]["units"])
-        if "primary" in data["product"]:
-            lca_data["product_primary"] = data["product"]["primary"]
-    # •	Representativeness of LCI data - not available, but recalculated by Hestia
-    # •	Preparation of the basis for impact assessment - not available in data
-    # •	Special requirements for system comparisons - not available in data
-    # •	Needs for critical review - not available in data
-    # •	Planning reporting of results - not available in data, clearly results were reported
+        # •	Comparative studies to be disclosed to the public - some studies have comparative studies,
+        # which I think are called cycles
+        cycle = data['cycle']["@id"]
+        with open("./data/recalculated/Cycle/{}".format(cycle) + extension, 'r') as f_cycle:
+            try:
+                data_cycle = json.load(f_cycle)
+                if "description" in data_cycle:
+                    lca_data['cycleDescription'] = data_cycle["description"]
+                if "functionalUnit" in data_cycle:
+                    lca_data['functionalUnit'] = data_cycle["functionalUnit"] #TODO: reconcile FU between here and data[product]
+                if "completeness" in data_cycle:
+                    lca_data["systemBoundaryCompleteness"] = data_cycle["completeness"]
+            except UnicodeDecodeError as e:
+                print(e, entry_name, "skipping cycle")
 
-    # write out data
-    with open("data/cleaned/{}".format(entry_name), "w+") as w:
-        json.dump(lca_data, w, indent=4)
+        # •	Commissioner of the study and other influential actors - source
+        source = data['source']["@id"]
+        with open("./data/Source/{}".format(source) + extension, 'r') as f_source:
+            try:
+                data_source = json.load(f_source)
+                if "bibliography" in data_source:
+                    lca_data['bibliography'] = data_source["bibliography"]
+                if "uploadNotes" in data_source:
+                    lca_data['notes'] = data_source["uploadNotes"]
+            except UnicodeDecodeError as e:
+                print(e, entry_name, "skipping source")
+        # •	Deliverables - not included in present data
+        # •	Object of the assessment - name
+        if "name" in data:
+            lca_data['name'] = data['name']
+        # •	LCI modelling framework and handling of multifunctional processes - allocationMethod, LCI modelling framework is
+        # recalculated to include all possible LCIA methods (107 midpoint methods at a count)
+        if "allocationMethod" in data:
+            lca_data['allocationMethod'] = data['allocationMethod']
+        # •	System boundaries and completeness requirements - functional unit quantity, product, info in cycle.json
+        if "functionalUnitQuantity" in data:
+            lca_data['functionalUnitQuantity'] = data['functionalUnitQuantity']
+        if "product" in data:
+            if "fate" in data["product"]:
+                lca_data["product_fate"] = data["product"]["fate"]
+            if "properties" in data["product"]:
+                for i in range(len(data["product"]["properties"])):
+                    lca_data["product{}properties".format(i)] = (data["product"]["properties"][i]["term"]["name"] + " - " +
+                                                                 data["product"]["properties"][i]["term"]["units"])
+            if "primary" in data["product"]:
+                lca_data["product_primary"] = data["product"]["primary"]
+        # •	Representativeness of LCI data - not available, but recalculated by Hestia
+        # •	Preparation of the basis for impact assessment - not available in data
+        # •	Special requirements for system comparisons - not available in data
+        # •	Needs for critical review - not available in data
+        # •	Planning reporting of results - not available in data, clearly results were reported
+
+        # write out data
+        with open("data/cleaned/{}".format(entry_name), "w+") as w:
+            json.dump(lca_data, w, indent=4)
+
+
+if __name__ == "__main__":
+    main()
+
