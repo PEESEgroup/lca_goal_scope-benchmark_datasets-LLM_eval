@@ -15,6 +15,7 @@ def main():
 
             # normalize data (completeness)
             table_data = pd.json_normalize(data)
+            test = pd.json_normalize(table_data["product_properties"])
 
             # drop unnecessary completeness columns
         df = pd.concat([df, table_data])

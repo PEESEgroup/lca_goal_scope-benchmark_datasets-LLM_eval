@@ -52,8 +52,16 @@ def main():
                             lca_data['siteLocation'] = ""
                     except UnicodeDecodeError as e:
                         print(e, entry_name, "skipping site")
+                        lca_data['siteDescription'] = ""
+                        lca_data['siteName'] = ""
+                        lca_data['siteType'] = ""
+                        lca_data['siteLocation'] = ""
             except FileNotFoundError as e:
                 print(e, entry_name, "missing site")
+                lca_data['siteDescription'] = ""
+                lca_data['siteName'] = ""
+                lca_data['siteType'] = ""
+                lca_data['siteLocation'] = ""
 
         # •	Comparative studies to be disclosed to the public - some studies have comparative studies,
         # which I think are called cycles
@@ -73,6 +81,8 @@ def main():
                     lca_data['systemBoundaryCompleteness'] = ""
             except UnicodeDecodeError as e:
                 print(e, entry_name, "skipping cycle")
+                lca_data['cycleDescription'] = ""
+                lca_data['systemBoundaryCompleteness'] = ""
 
         # •	Commissioner of the study and other influential actors - source
         source = data['source']["@id"]
@@ -113,6 +123,13 @@ def main():
                     lca_data['comparativeAssertions'] = ""
             except UnicodeDecodeError as e:
                 print(e, entry_name, "skipping source")
+                lca_data['title'] = ""
+                lca_data['DOI'] = ""
+                lca_data['notes'] = ""
+                lca_data['intendedApplication'] = ""
+                lca_data['studyReasons'] = ""
+                lca_data['intendedAudience'] = ""
+                lca_data['comparativeAssertions'] = ""
         # •	Deliverables - not included in present data
         # •	Object of the assessment - name
         if "name" in data:
