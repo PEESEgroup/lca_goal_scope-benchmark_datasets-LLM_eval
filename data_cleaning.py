@@ -22,10 +22,9 @@ def main():
 
         # go through the list of available goal and scope tasks and find which ones are in Hestia
         # TODO: fix unicode decode error
-        # TODO: check 10 other input files for differing categories that may be of interest
-        # •	Intended application of results - not available in current data
+        # •	Intended application of results - in source
         # •	Limitations due to methodological choices - not available in current data
-        # •	Decision context and reasons for carrying out the study - not available in current data
+        # •	Decision context and reasons for carrying out the study - in source
         # •	Target audience - site
         if "site" in data:
             site = data['site']["@id"]
@@ -57,8 +56,8 @@ def main():
                 data_cycle = json.load(f_cycle)
                 if "description" in data_cycle:
                     lca_data['cycleDescription'] = data_cycle["description"]
-                if "functionalUnit" in data_cycle:
-                    lca_data['functionalUnit'] = data_cycle["functionalUnit"] #TODO: reconcile FU between here and data[product]
+                # if "functionalUnit" in data_cycle: lca_data['functionalUnit'] = data_cycle["functionalUnit"]  #
+                # This FU is either ha or relative according to documentation, so it is ignored
                 if "completeness" in data_cycle:
                     lca_data["systemBoundaryCompleteness"] = data_cycle["completeness"]
             except UnicodeDecodeError as e:
@@ -73,6 +72,14 @@ def main():
                     lca_data['bibliography'] = data_source["bibliography"]
                 if "uploadNotes" in data_source:
                     lca_data['notes'] = data_source["uploadNotes"]
+                if "intendedApplication" in data_source:
+                    lca_data['intendedApplication'] = data_source["intendedApplication"]
+                if "studyReasons" in data_source:
+                    lca_data['studyReasons'] = data_source["studyReasons"]
+                if "intendedAudience" in data_source:
+                    lca_data['intendedAudience'] = data_source["intendedAudience"]
+                if "comparativeAssertions" in data_source:
+                    lca_data['comparativeAssertions'] = data_source["comparativeAssertions"]
             except UnicodeDecodeError as e:
                 print(e, entry_name, "skipping source")
         # •	Deliverables - not included in present data
@@ -97,7 +104,7 @@ def main():
                 lca_data["product_primary"] = data["product"]["primary"]
         # •	Representativeness of LCI data - not available, but recalculated by Hestia
         # •	Preparation of the basis for impact assessment - not available in data
-        # •	Special requirements for system comparisons - not available in data
+        # •	Special requirements for system comparisons - in source
         # •	Needs for critical review - not available in data
         # •	Planning reporting of results - not available in data, clearly results were reported
 
