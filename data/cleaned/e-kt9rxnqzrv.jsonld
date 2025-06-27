@@ -26,46 +26,42 @@
         "operation": false,
         "@type": "Completeness"
     },
-    "bibliography": {
-        "documentDOI": "10.1016/j.jclepro.2018.08.206",
-        "title": "Effects of high-sugar grasses and improved manure management on the environmental footprint of milk production at the farm level",
-        "name": "Soteriades et al (2018)",
-        "authors": [
-            {
-                "@id": "zg_7a6r4rqrb",
-                "@type": "Actor"
-            },
-            {
-                "@id": "gtbhc5ovb2pp",
-                "@type": "Actor"
-            },
-            {
-                "@id": "ybj6spzwjxhu",
-                "@type": "Actor"
-            },
-            {
-                "@id": "mpprdgr4yakp",
-                "@type": "Actor"
-            },
-            {
-                "@id": "qbbom5x_o1fh",
-                "@type": "Actor"
-            },
-            {
-                "@id": "m2rgxpmfjcsj",
-                "@type": "Actor"
-            }
-        ],
-        "outlet": "Journal of Cleaner Production",
-        "year": 2018,
-        "mendeleyID": "263bdaeb-13de-3dec-8c81-32c9d62d2d17",
-        "scopus": "2-s2.0-85053201030",
-        "@type": "Bibliography"
-    },
+    "DOI": "10.1016/j.jclepro.2018.08.206",
+    "title": "Effects of high-sugar grasses and improved manure management on the environmental footprint of milk production at the farm level",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
     "name": "Milk, cow, raw - United Kingdom - 2016",
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
-    "product0properties": "Fat content - %",
-    "product1properties": "Crude protein content - %",
+    "product_fate": "",
+    "product_properties": [
+        {
+            "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "Fat content",
+                "units": "%",
+                "@id": "fatContent"
+            },
+            "value": 4.29,
+            "share": 100,
+            "@type": "Property"
+        },
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Crude protein content",
+                "termType": "property",
+                "@id": "crudeProteinContent",
+                "units": "%"
+            },
+            "value": 3.18,
+            "share": 100,
+            "@type": "Property"
+        }
+    ],
     "product_primary": true
 }

@@ -1,4 +1,5 @@
 {
+    "siteDescription": "",
     "siteName": "Permanent pasture - Teagasc Johnstown Castle Research Farm - Ireland",
     "siteType": "permanent pasture",
     "siteLocation": "Ireland - Wexford (Administrative County), Ireland",
@@ -33,38 +34,30 @@
             "0.70.0"
         ]
     },
-    "bibliography": {
-        "documentDOI": "10.1016/j.agsy.2017.03.007",
-        "title": "An economic and greenhouse gas emissions evaluation of pasture-based dairy calf-to-beef production systems",
-        "year": 2017,
-        "name": "Murphy et al (2017)",
-        "authors": [
-            {
-                "@id": "kvw1tkauva6o",
-                "@type": "Actor"
-            },
-            {
-                "@id": "ltszc9mxk4hh",
-                "@type": "Actor"
-            },
-            {
-                "@id": "wck6gw-3peba",
-                "@type": "Actor"
-            },
-            {
-                "@id": "jawkujxik1um",
-                "@type": "Actor"
-            }
-        ],
-        "outlet": "Agricultural Systems",
-        "mendeleyID": "653b572c-a2c7-3569-b37f-7d260e3daea6",
-        "scopus": "2-s2.0-85016249851",
-        "articlePdf": "https://www.sciencedirect.com/science/article/am/pii/S0308521X16306412",
-        "@type": "Bibliography"
-    },
+    "DOI": "10.1016/j.agsy.2017.03.007",
+    "title": "An economic and greenhouse gas emissions evaluation of pasture-based dairy calf-to-beef production systems",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
     "name": "Beef cattle, steer - Ireland - 2014",
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
-    "product0properties": "Liveweight per head - kg liveweight / head",
+    "product_fate": "",
+    "product_properties": [
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 535,
+            "share": 100,
+            "@type": "Property"
+        }
+    ],
     "product_primary": true
 }

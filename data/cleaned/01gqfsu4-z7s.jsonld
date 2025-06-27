@@ -1,4 +1,5 @@
 {
+    "siteDescription": "",
     "siteName": "Animal housing - Schleswig-Holstein, Germany",
     "siteType": "animal housing",
     "siteLocation": "Germany - Schleswig-Holstein",
@@ -25,25 +26,30 @@
         "animalPopulation": true,
         "@type": "Completeness"
     },
-    "bibliography": {
-        "title": "Schweinereport 2010",
-        "outlet": "Schweinespezialberatung",
-        "websites": [
-            "https://www.ssbsh.de/download/"
-        ],
-        "year": 2010,
-        "authors": [
-            {
-                "@id": "chisvvxgpckk",
-                "@type": "Actor"
-            }
-        ],
-        "name": "Schweinespezialberatung (2010)",
-        "@type": "Bibliography"
-    },
+    "DOI": "",
+    "title": "Schweinereport 2010",
     "notes": "A series of pig reports.",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
     "name": "Pig, piglet - Germany - 2010",
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
-    "product0properties": "Liveweight per head - kg liveweight / head"
+    "product_fate": "",
+    "product_properties": [
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 30.6,
+            "share": 100,
+            "@type": "Property"
+        }
+    ],
+    "product_primary": ""
 }

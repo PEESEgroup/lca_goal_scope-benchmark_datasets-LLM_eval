@@ -3,6 +3,7 @@
     "siteName": "Agri-food processor - Meath, Ireland - Cycle for the conversion of an...",
     "siteType": "agri-food processor",
     "siteLocation": "Ireland - Meath",
+    "cycleDescription": "",
     "systemBoundaryCompleteness": {
         "electricityFuel": false,
         "transport": true,
@@ -25,34 +26,56 @@
         "otherChemical": false,
         "@type": "Completeness"
     },
-    "bibliography": {
-        "documentDOI": "10.1016/j.agsy.2022.103379",
-        "title": "Performance, meat quality, profitability, and greenhouse gas emissions of suckler bulls from pasture-based compared to an indoor high-concentrate weanling-to-beef finishing system",
-        "year": 2022,
-        "outlet": "Science of the Total Environment",
-        "authors": [
-            {
-                "@id": "stigtr7xq-4r",
-                "@type": "Actor"
-            },
-            {
-                "@id": "qrp4-ibcsx1d",
-                "@type": "Actor"
-            },
-            {
-                "@id": "7nf5xjpv0dnl",
-                "@type": "Actor"
-            }
-        ],
-        "name": "McGee et al (2022)",
-        "articlePdf": "https://www.sciencedirect.com/science/article/am/pii/S0308521X22000154",
-        "@type": "Bibliography"
-    },
+    "DOI": "10.1016/j.agsy.2022.103379",
+    "title": "Performance, meat quality, profitability, and greenhouse gas emissions of suckler bulls from pasture-based compared to an indoor high-concentrate weanling-to-beef finishing system",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
     "name": "Meat, beef cattle (cold dressed carcass weight) - Ireland - 2015",
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
-    "product0properties": "True protein content - %",
-    "product1properties": "Processing conversion, hot carcass weight to cold carcass weight - %",
-    "product2properties": "Ash content - %",
+    "product_fate": "",
+    "product_properties": [
+        {
+            "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "True protein content",
+                "units": "%",
+                "@id": "trueProteinContent"
+            },
+            "value": 22.9,
+            "description": "Measured on  M. longissimus",
+            "share": 100,
+            "@type": "Property"
+        },
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Processing conversion, hot carcass weight to cold carcass weight",
+                "termType": "property",
+                "@id": "processingConversionHotCarcassWeightToColdCarcassWeight",
+                "units": "%"
+            },
+            "value": 98,
+            "share": 100,
+            "@type": "Property"
+        },
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Ash content",
+                "termType": "property",
+                "@id": "ashContent",
+                "units": "%"
+            },
+            "value": 1.1,
+            "description": "Measured on  M. longissimus",
+            "share": 100,
+            "@type": "Property"
+        }
+    ],
     "product_primary": true
 }

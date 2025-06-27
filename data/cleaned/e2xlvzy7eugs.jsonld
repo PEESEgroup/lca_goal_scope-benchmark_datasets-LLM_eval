@@ -1,4 +1,5 @@
 {
+    "siteDescription": "",
     "siteName": "Animal housing - Spain",
     "siteType": "animal housing",
     "siteLocation": "Spain",
@@ -25,47 +26,46 @@
         "operation": false,
         "@type": "Completeness"
     },
-    "bibliography": {
-        "documentDOI": "10.1016/j.jclepro.2022.131918",
-        "title": "Carbon sequestration offsets a large share of GHG emissions in dehesa cattle production",
-        "name": "Reyes-Palomo et al (2022)",
-        "authors": [
-            {
-                "@id": "mjlll_4gpdxe",
-                "@type": "Actor"
-            },
-            {
-                "@id": "lhqstpk4abmf",
-                "@type": "Actor"
-            },
-            {
-                "@id": "fdi8_casai-a",
-                "@type": "Actor"
-            },
-            {
-                "@id": "iu38kowca6kd",
-                "@type": "Actor"
-            },
-            {
-                "@id": "gt6sphgkccgy",
-                "@type": "Actor"
-            },
-            {
-                "@id": "tyywbd4ysi04",
-                "@type": "Actor"
-            }
-        ],
-        "outlet": "Journal of Cleaner Production",
-        "year": 2022,
-        "mendeleyID": "dfbd5e5b-1e0c-3395-8863-5e43ff951476",
-        "scopus": "2-s2.0-85129739066",
-        "@type": "Bibliography"
-    },
+    "DOI": "10.1016/j.jclepro.2022.131918",
+    "title": "Carbon sequestration offsets a large share of GHG emissions in dehesa cattle production",
     "notes": "Emissions values were extracted from graphs in Figure 5 using a Web plot digitiser so may not be completely accurate. Extra data supplied from authors on cull cow sales, pasture inputs and pasture grass nutrition qualities",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
     "name": "Beef cattle, heifer and steer - Spain - 2019",
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
-    "product0properties": "Age - days",
-    "product1properties": "Liveweight per head - kg liveweight / head",
+    "product_fate": "",
+    "product_properties": [
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Age",
+                "termType": "property",
+                "@id": "age",
+                "units": "days"
+            },
+            "value": 456,
+            "sd": 127.67999999999999,
+            "statsDefinition": "cycles",
+            "share": 100,
+            "@type": "Property"
+        },
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 462.5,
+            "sd": 17.7,
+            "statsDefinition": "cycles",
+            "share": 100,
+            "@type": "Property"
+        }
+    ],
     "product_primary": true
 }

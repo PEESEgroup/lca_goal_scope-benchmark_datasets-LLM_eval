@@ -26,44 +26,44 @@
         "water": false,
         "@type": "Completeness"
     },
-    "bibliography": {
-        "documentDOI": "10.1016/j.jclepro.2014.01.037",
-        "title": "Carbon footprint in different beef production systems on a southern Brazilian farm: A case study",
-        "outlet": "Journal of Cleaner Production",
-        "year": 2015,
-        "name": "Ruviaro et al (2015)",
-        "authors": [
-            {
-                "@id": "a0gr3ye1yenu",
-                "@type": "Actor"
-            },
-            {
-                "@id": "dswbymqh_pjt",
-                "@type": "Actor"
-            },
-            {
-                "@id": "fmz1lmiuhgkh",
-                "@type": "Actor"
-            },
-            {
-                "@id": "condbcecfcu7",
-                "@type": "Actor"
-            },
-            {
-                "@id": "yxqeyvhlmk5s",
-                "@type": "Actor"
-            }
-        ],
-        "mendeleyID": "d87a8c67-2440-33f4-a6e8-a36300d13b71",
-        "scopus": "2-s2.0-84928091130",
-        "articlePdf": "http://ainfo.cnptia.embrapa.br/digital/bitstream/item/127004/1/JCPv96p435.pdf",
-        "@type": "Bibliography"
-    },
+    "DOI": "10.1016/j.jclepro.2014.01.037",
+    "title": "Carbon footprint in different beef production systems on a southern Brazilian farm: A case study",
     "notes": "This paper is also going to require an animal weighting similar to Sequiera & Duru",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
     "name": "Beef cattle, steer - Brazil - 2006-10-23",
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
-    "product0properties": "Liveweight per head - kg liveweight / head",
-    "product1properties": "Slaughter age - days",
+    "product_fate": "",
+    "product_properties": [
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 430,
+            "description": "420 beef steers are fattened to a weight of 430 kg and sold across all 7 production systems",
+            "share": 100,
+            "@type": "Property"
+        },
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Slaughter age",
+                "termType": "property",
+                "@id": "slaughterAge",
+                "units": "days"
+            },
+            "value": 840,
+            "description": "The steers are slaughtered after the number of days it takes them to reach 430 kg",
+            "share": 100,
+            "@type": "Property"
+        }
+    ],
     "product_primary": true
 }

@@ -22,53 +22,56 @@
         "operation": false,
         "@type": "Completeness"
     },
-    "bibliography": {
-        "documentDOI": "10.1016/j.livsci.2012.02.010",
-        "title": "Effects of type of ration and allocation methods on the environmental impacts of beef-production systems",
-        "name": "Nguyen et al (2012)",
-        "authors": [
-            {
-                "@id": "e8cze_aeau5o",
-                "@type": "Actor"
-            },
-            {
-                "@id": "mxyfkchwj2ps",
-                "@type": "Actor"
-            },
-            {
-                "@id": "krwqqhngyomb",
-                "@type": "Actor"
-            },
-            {
-                "@id": "awcfwyjiayrw",
-                "@type": "Actor"
-            },
-            {
-                "@id": "hhehspacnd6e",
-                "@type": "Actor"
-            },
-            {
-                "@id": "ae0bflhvidci",
-                "@type": "Actor"
-            },
-            {
-                "@id": "hs86gbn3luic",
-                "@type": "Actor"
-            }
-        ],
-        "outlet": "Livestock Science",
-        "year": 2012,
-        "mendeleyID": "bb495743-3f8d-3eff-aed4-ba3117da8f5a",
-        "scopus": "2-s2.0-84858154471",
-        "articlePdf": "https://hal.archives-ouvertes.fr/hal-01209098/document",
-        "@type": "Bibliography"
-    },
+    "DOI": "10.1016/j.livsci.2012.02.010",
+    "title": "Effects of type of ration and allocation methods on the environmental impacts of beef-production systems",
     "notes": "Authors have used daSilva for soybean cultivation data and dalgaard for soybean processing. Given these data are just proxies, we decided to omit them and just specify that the soybean meal is from Brazil.",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
     "name": "Beef cattle, heifer - France - 2010",
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
-    "product0properties": "Age - days",
-    "product1properties": "Liveweight per head - kg liveweight / head",
-    "product2properties": "Processing conversion, liveweight to cold carcass weight - %",
+    "product_fate": "",
+    "product_properties": [
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Age",
+                "termType": "property",
+                "@id": "age",
+                "units": "days"
+            },
+            "value": 1003.1999999999999,
+            "share": 100,
+            "@type": "Property"
+        },
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 701,
+            "share": 100,
+            "@type": "Property"
+        },
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Processing conversion, liveweight to cold carcass weight",
+                "termType": "property",
+                "@id": "processingConversionLiveweightToColdCarcassWeight",
+                "units": "%"
+            },
+            "value": 56,
+            "methodClassification": "consistent external sources",
+            "methodClassificationDescription": "Expert knowledge and the slaughterhouse database of the INRA/Vet Agro Sup Herbivore Research Unit.",
+            "share": 100,
+            "@type": "Property"
+        }
+    ],
     "product_primary": true
 }

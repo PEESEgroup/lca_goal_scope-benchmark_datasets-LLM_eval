@@ -32,45 +32,30 @@
             "0.70.0"
         ]
     },
-    "bibliography": {
-        "title": "Environmental footprint of the integrated France\u2013Italy beef production system assessed through a multi-indicator approach",
-        "documentDOI": "10.1016/j.agsy.2017.04.005",
-        "name": "Berton et al (2017)",
-        "authors": [
-            {
-                "@id": "uwdqvg0ortms",
-                "@type": "Actor"
-            },
-            {
-                "@id": "whhnofvdebak",
-                "@type": "Actor"
-            },
-            {
-                "@id": "dburb4d_m5ie",
-                "@type": "Actor"
-            },
-            {
-                "@id": "c_yvcuqj37af",
-                "@type": "Actor"
-            },
-            {
-                "@id": "igzkj0wtdr5y",
-                "@type": "Actor"
-            },
-            {
-                "@id": "yybgswdys0fz",
-                "@type": "Actor"
-            }
-        ],
-        "outlet": "Agricultural Systems",
-        "year": 2017,
-        "mendeleyID": "793715ae-7f6a-3427-8ec6-094f043c4428",
-        "scopus": "2-s2.0-85018521344",
-        "@type": "Bibliography"
-    },
+    "DOI": "10.1016/j.agsy.2017.04.005",
+    "title": "Environmental footprint of the integrated France\u2013Italy beef production system assessed through a multi-indicator approach",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
     "name": "Beef cattle, calf (male, weaned) - France - 2014",
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
-    "product0properties": "Liveweight per head - kg liveweight / head",
+    "product_fate": "",
+    "product_properties": [
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 377,
+            "share": 100,
+            "@type": "Property"
+        }
+    ],
     "product_primary": true
 }

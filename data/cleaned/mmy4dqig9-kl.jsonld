@@ -1,4 +1,5 @@
 {
+    "cycleDescription": "",
     "systemBoundaryCompleteness": {
         "electricityFuel": true,
         "material": false,
@@ -21,36 +22,42 @@
         "freshForage": true,
         "@type": "Completeness"
     },
-    "bibliography": {
-        "title": "Klimawirkungen der Landwirtschaft in Deutschland",
-        "outlet": "Schriftenreihe des I\u00d6W 186/08",
-        "year": 2008,
-        "pages": "1-203",
-        "authors": [
-            {
-                "@id": "dquj9lavwbmz",
-                "@type": "Actor"
-            },
-            {
-                "@id": "fm-ndgqx9w5b",
-                "@type": "Actor"
-            },
-            {
-                "@id": "4gkd1lzliyo4",
-                "@type": "Actor"
-            },
-            {
-                "@id": "m_ytu_mdtbtk",
-                "@type": "Actor"
-            }
-        ],
-        "name": "Hirschfeld et al (2008)",
-        "@type": "Bibliography"
-    },
+    "DOI": "",
+    "title": "Klimawirkungen der Landwirtschaft in Deutschland",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
     "name": "Pig - Germany - 2004",
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
-    "product0properties": "Liveweight per head - kg liveweight / head",
-    "product1properties": "Processing conversion, liveweight to cold carcass weight - %",
+    "product_fate": "",
+    "product_properties": [
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 115,
+            "share": 100,
+            "@type": "Property"
+        },
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Processing conversion, liveweight to cold carcass weight",
+                "termType": "property",
+                "@id": "processingConversionLiveweightToColdCarcassWeight",
+                "units": "%"
+            },
+            "value": 79,
+            "share": 100,
+            "@type": "Property"
+        }
+    ],
     "product_primary": true
 }

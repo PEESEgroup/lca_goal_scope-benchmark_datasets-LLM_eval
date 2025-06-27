@@ -1,4 +1,5 @@
 {
+    "cycleDescription": "",
     "systemBoundaryCompleteness": {
         "electricityFuel": true,
         "material": false,
@@ -21,39 +22,42 @@
         "otherChemical": true,
         "@type": "Completeness"
     },
-    "bibliography": {
-        "title": "Grazing intensity affects the environmental impact of dairy systems",
-        "documentDOI": "10.3168/jds.2016-12325",
-        "name": "Aguirre-Villegas et al (2017)",
-        "authors": [
-            {
-                "@id": "rawxbddgz7jc",
-                "@type": "Actor"
-            },
-            {
-                "@id": "fo_fweygcnf9",
-                "@type": "Actor"
-            },
-            {
-                "@id": "8jwfke0z0pm5",
-                "@type": "Actor"
-            },
-            {
-                "@id": "apg6tletxc0f",
-                "@type": "Actor"
-            }
-        ],
-        "outlet": "Journal of Dairy Science",
-        "year": 2017,
-        "mendeleyID": "9e46671c-86a0-3d37-b651-f6a759c057ed",
-        "scopus": "2-s2.0-85020247349",
-        "articlePdf": "http://www.journalofdairyscience.org/article/S0022030217305660/pdf",
-        "@type": "Bibliography"
-    },
+    "DOI": "10.3168/jds.2016-12325",
+    "title": "Grazing intensity affects the environmental impact of dairy systems",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
     "name": "Milk, cow, raw (FPCM) - United States - 2016",
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
-    "product0properties": "Fat content - %",
-    "product1properties": "Crude protein content - %",
+    "product_fate": "",
+    "product_properties": [
+        {
+            "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "Fat content",
+                "units": "%",
+                "@id": "fatContent"
+            },
+            "value": 4,
+            "share": 100,
+            "@type": "Property"
+        },
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Crude protein content",
+                "termType": "property",
+                "@id": "crudeProteinContent",
+                "units": "%"
+            },
+            "value": 3.3,
+            "share": 100,
+            "@type": "Property"
+        }
+    ],
     "product_primary": true
 }

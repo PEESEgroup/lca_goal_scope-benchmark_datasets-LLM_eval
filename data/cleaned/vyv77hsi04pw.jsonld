@@ -1,7 +1,9 @@
 {
+    "siteDescription": "",
     "siteName": "Animal housing - Canada",
     "siteType": "animal housing",
     "siteLocation": "Canada",
+    "cycleDescription": "",
     "systemBoundaryCompleteness": {
         "electricityFuel": true,
         "transport": false,
@@ -24,25 +26,33 @@
         "otherChemical": true,
         "@type": "Completeness"
     },
-    "bibliography": {
-        "documentDOI": "10.1016/j.jclepro.2017.03.050",
-        "title": "Life cycle assessment of Canadian egg products, with differentiation by hen housing system type",
-        "name": "Pelletier (2017)",
-        "authors": [
-            {
-                "@id": "stcubnhjtk1c",
-                "@type": "Actor"
-            }
-        ],
-        "outlet": "Journal of Cleaner Production",
-        "year": 2017,
-        "mendeleyID": "3a53ef08-42bb-3c3b-b343-8a136d673de3",
-        "scopus": "2-s2.0-85017580416",
-        "@type": "Bibliography"
-    },
+    "DOI": "10.1016/j.jclepro.2017.03.050",
+    "title": "Life cycle assessment of Canadian egg products, with differentiation by hen housing system type",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
     "name": "Layer chicken, pullet - Canada - 2012",
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
-    "product0properties": "Liveweight per head - kg liveweight / head",
+    "product_fate": "",
+    "product_properties": [
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 1.42,
+            "min": 1.4,
+            "max": 1.5,
+            "statsDefinition": "other observations",
+            "share": 100,
+            "@type": "Property"
+        }
+    ],
     "product_primary": true
 }

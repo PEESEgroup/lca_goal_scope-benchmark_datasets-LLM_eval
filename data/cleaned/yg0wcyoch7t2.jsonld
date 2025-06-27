@@ -1,4 +1,5 @@
 {
+    "siteDescription": "",
     "siteName": "Animal housing - Netherlands",
     "siteType": "animal housing",
     "siteLocation": "Netherlands",
@@ -25,33 +26,30 @@
         "animalPopulation": true,
         "@type": "Completeness"
     },
-    "bibliography": {
-        "title": "Carbon footprints of conventional and organic pork",
-        "outlet": "Wageningen University and Research Centre",
-        "websites": [
-            "https://www.researchgate.net/publication/41104476_Carbon_footprints_of_conventional_and_organic_pork_assessments_of_typical_production_systems_in_the_Netherlands_Denmark_England_and_GermanyCarbon_footprints_of_conventional_and_organic_pork_assessment"
-        ],
-        "year": 2009,
-        "authors": [
-            {
-                "@id": "rfvwahnlnd2g",
-                "@type": "Actor"
-            },
-            {
-                "@id": "g7qbdtbfrzio",
-                "@type": "Actor"
-            },
-            {
-                "@id": "aoyobz0p0cce",
-                "@type": "Actor"
-            }
-        ],
-        "name": "Kool et al (2009)",
-        "@type": "Bibliography"
-    },
+    "DOI": "",
+    "title": "Carbon footprints of conventional and organic pork",
     "notes": "They have included information from lots of different sources, for this reason I have not inlcuded the information regarding crop production (only feed composition) because some of these products we already have the sources.",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
     "name": "Pig, piglet - Netherlands - 2007",
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
-    "product0properties": "Liveweight per head - kg liveweight / head"
+    "product_fate": "",
+    "product_properties": [
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 29,
+            "share": 100,
+            "@type": "Property"
+        }
+    ],
+    "product_primary": ""
 }

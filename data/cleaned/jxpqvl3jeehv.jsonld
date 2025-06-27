@@ -3,6 +3,7 @@
     "siteName": "Permanent pasture - Traditional Mediterranean extensive mixed farming system - Ferreira do Alentejo, Portugal - The area is composed of natura...",
     "siteType": "permanent pasture",
     "siteLocation": "Portugal - Ferreira do Alentejo",
+    "cycleDescription": "",
     "systemBoundaryCompleteness": {
         "electricityFuel": false,
         "transport": false,
@@ -31,31 +32,30 @@
             "0.70.0"
         ]
     },
-    "bibliography": {
-        "title": "Economical and environmental trade-offs of traditional Mediterranean dry farming systems in the Alentejo region of Portugal.",
-        "year": 2013,
-        "authors": [
-            {
-                "@id": "dqvorbv0d252",
-                "@type": "Actor"
-            },
-            {
-                "@id": "pktfdgampvfx",
-                "@type": "Actor"
-            },
-            {
-                "@id": "2lcmqlcgxal9",
-                "@type": "Actor"
-            }
-        ],
-        "outlet": "Department of Zootecnia",
-        "name": "Rosado et al (2013)",
-        "@type": "Bibliography"
-    },
+    "DOI": "",
+    "title": "Economical and environmental trade-offs of traditional Mediterranean dry farming systems in the Alentejo region of Portugal.",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
     "name": "Beef cattle, calf (male, weaned) - Portugal - 2011",
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
     "product_fate": "sold",
-    "product0properties": "Liveweight per head - kg liveweight / head",
+    "product_properties": [
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 245,
+            "share": 100,
+            "@type": "Property"
+        }
+    ],
     "product_primary": true
 }

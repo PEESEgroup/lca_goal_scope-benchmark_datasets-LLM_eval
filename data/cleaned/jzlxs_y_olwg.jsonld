@@ -26,29 +26,30 @@
         "freshForage": true,
         "@type": "Completeness"
     },
-    "bibliography": {
-        "title": "Life Cycle Greenhouse Gases Emissions of Processed Frozen Chicken",
-        "authors": [
-            {
-                "@id": "vgqbwjrpcv5w",
-                "@type": "Actor"
-            },
-            {
-                "@id": "8uty1nqqfqkn",
-                "@type": "Actor"
-            }
-        ],
-        "year": 2020,
-        "websites": [
-            "https://li01.tci-thaijo.org/index.php/tstj/article/view/182514"
-        ],
-        "outlet": "Thai Science and Technology Journal (TSTJ)",
-        "name": "Jawjit & Jawjit (2020)",
-        "@type": "Bibliography"
-    },
+    "DOI": "",
+    "title": "Life Cycle Greenhouse Gases Emissions of Processed Frozen Chicken",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
     "name": "Broiler chicken - Thailand - 2017",
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
-    "product0properties": "Liveweight per head - kg liveweight / head",
+    "product_fate": "",
+    "product_properties": [
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 2.064,
+            "share": 100,
+            "@type": "Property"
+        }
+    ],
     "product_primary": true
 }

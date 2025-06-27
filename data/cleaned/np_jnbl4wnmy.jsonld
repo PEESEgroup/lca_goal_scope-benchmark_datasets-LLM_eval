@@ -1,4 +1,5 @@
 {
+    "siteDescription": "",
     "siteName": "Animal housing - Kipster - Netherlands",
     "siteType": "animal housing",
     "siteLocation": "Netherlands - Limburg (Provincie), Netherlands",
@@ -25,38 +26,42 @@
         "animalPopulation": true,
         "@type": "Completeness"
     },
-    "bibliography": {
-        "title": "Accounting for feed-food competition in environmental impact assessment: Towards a resource efficient food-system",
-        "documentDOI": "10.1016/j.jclepro.2019.118241",
-        "name": "van Hal et al (2019)",
-        "authors": [
-            {
-                "@id": "gfyzniftyr68",
-                "@type": "Actor"
-            },
-            {
-                "@id": "h81_56egaurw",
-                "@type": "Actor"
-            },
-            {
-                "@id": "bkgd_voswumd",
-                "@type": "Actor"
-            },
-            {
-                "@id": "yw3a7krvvmh5",
-                "@type": "Actor"
-            }
-        ],
-        "outlet": "Journal of Cleaner Production",
-        "year": 2019,
-        "mendeleyID": "ea8701c6-164a-3b21-8882-d0209ecf3d2f",
-        "scopus": "2-s2.0-85071862001",
-        "@type": "Bibliography"
-    },
+    "DOI": "10.1016/j.jclepro.2019.118241",
+    "title": "Accounting for feed-food competition in environmental impact assessment: Towards a resource efficient food-system",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
     "name": "Layer chicken, hen - Netherlands - 2017",
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
-    "product0properties": "Weight at slaughter - kg liveweight / head",
-    "product1properties": "Slaughter age - days",
+    "product_fate": "",
+    "product_properties": [
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Weight at slaughter",
+                "termType": "property",
+                "@id": "weightAtSlaughter",
+                "units": "kg liveweight / head"
+            },
+            "value": 1.5,
+            "share": 100,
+            "@type": "Property"
+        },
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Slaughter age",
+                "termType": "property",
+                "@id": "slaughterAge",
+                "units": "days"
+            },
+            "value": 588,
+            "share": 100,
+            "@type": "Property"
+        }
+    ],
     "product_primary": false
 }

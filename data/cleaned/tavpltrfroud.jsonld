@@ -3,6 +3,7 @@
     "siteName": "Agri-food processor - Emilia-Romagna, Italy - \"The study involved a cheese f...",
     "siteType": "agri-food processor",
     "siteLocation": "Italy - Emilia-Romagna",
+    "cycleDescription": "",
     "systemBoundaryCompleteness": {
         "electricityFuel": true,
         "transport": false,
@@ -25,59 +26,54 @@
         "operation": false,
         "@type": "Completeness"
     },
-    "bibliography": {
-        "documentDOI": "10.1016/j.scitotenv.2018.01.143",
-        "title": "Impact assessment of traditional food manufacturing: The case of Grana Padano cheese",
-        "name": "Bava et al (2018)",
-        "authors": [
-            {
-                "@id": "5lrgcpp98ojt",
-                "@type": "Actor"
-            },
-            {
-                "@id": "4gzko-5u99yy",
-                "@type": "Actor"
-            },
-            {
-                "@id": "2qw9p3wzeitg",
-                "@type": "Actor"
-            },
-            {
-                "@id": "w4yni2huf0-u",
-                "@type": "Actor"
-            },
-            {
-                "@id": "osvkndxvleop",
-                "@type": "Actor"
-            },
-            {
-                "@id": "6td-qwsi4nkf",
-                "@type": "Actor"
-            },
-            {
-                "@id": "vdrohkfhtxxk",
-                "@type": "Actor"
-            },
-            {
-                "@id": "tdikfxuv6weq",
-                "@type": "Actor"
-            },
-            {
-                "@id": "pq0gef_d34z8",
-                "@type": "Actor"
-            }
-        ],
-        "outlet": "Science of the Total Environment",
-        "year": 2018,
-        "mendeleyID": "c203df70-887d-3b92-8401-d23d70074045",
-        "scopus": "2-s2.0-85042925162",
-        "articlePdf": "https://air.unimi.it/bitstream/2434/559899/4/Bava%20et%20al_2018_Impact%20assessment%20of%20traditional%20food%20manufacturing%20The%20case%20of%20Grana%20Padano%20cheese.pdf",
-        "@type": "Bibliography"
-    },
+    "DOI": "10.1016/j.scitotenv.2018.01.143",
+    "title": "Impact assessment of traditional food manufacturing: The case of Grana Padano cheese",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
     "name": "Cream, cow, raw - Italy - 2015",
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
-    "product0properties": "Fat content - %",
-    "product1properties": "Crude protein content - %",
-    "product2properties": "Dry matter - %"
+    "product_fate": "",
+    "product_properties": [
+        {
+            "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "Fat content",
+                "units": "%",
+                "@id": "fatContent"
+            },
+            "value": 22,
+            "share": 100,
+            "@type": "Property"
+        },
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Crude protein content",
+                "termType": "property",
+                "@id": "crudeProteinContent",
+                "units": "%"
+            },
+            "value": 2.6,
+            "share": 100,
+            "@type": "Property"
+        },
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+            },
+            "value": 29,
+            "share": 100,
+            "@type": "Property"
+        }
+    ],
+    "product_primary": ""
 }

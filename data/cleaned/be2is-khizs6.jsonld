@@ -1,4 +1,5 @@
 {
+    "siteDescription": "",
     "siteName": "Animal housing - Lembang (Desa), Lembang, Bandung Barat, Jawa Barat, Indonesia",
     "siteType": "animal housing",
     "siteLocation": "Indonesia - Lembang (Desa), Lembang, Bandung Barat, Jawa Barat, Indonesia",
@@ -25,24 +26,42 @@
         "otherChemical": true,
         "@type": "Completeness"
     },
-    "bibliography": {
-        "year": 2017,
-        "outlet": "CGIAR CCAFS",
-        "authors": [
-            {
-                "@id": "nmojgebpseer",
-                "@type": "Actor"
-            }
-        ],
-        "title": "Environmental impacts of dairy farming in Lembang, West Java",
-        "name": "de Vries (2017)",
-        "@type": "Bibliography"
-    },
+    "DOI": "",
+    "title": "Environmental impacts of dairy farming in Lembang, West Java",
     "notes": "The same data is also presented in deVries et al. (2019) Entry Points for Reduction of Greenhouse Gas Emissions in Small-Scale Dairy Farms: Looking Beyond Milk Yield Increase.",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
     "name": "Milk, cow, raw - Indonesia - 2016",
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
-    "product0properties": "Fat content - %",
-    "product1properties": "True protein content - %",
+    "product_fate": "",
+    "product_properties": [
+        {
+            "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "Fat content",
+                "units": "%",
+                "@id": "fatContent"
+            },
+            "value": 4,
+            "share": 100,
+            "@type": "Property"
+        },
+        {
+            "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "True protein content",
+                "units": "%",
+                "@id": "trueProteinContent"
+            },
+            "value": 2.9,
+            "share": 100,
+            "@type": "Property"
+        }
+    ],
     "product_primary": true
 }

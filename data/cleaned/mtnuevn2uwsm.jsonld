@@ -26,111 +26,42 @@
         "water": false,
         "@type": "Completeness"
     },
-    "bibliography": {
-        "title": "The North Wyke Farm Platform: effect of temperate grassland farming systems on soil moisture contents, runoff and associated water quality dynamics",
-        "documentDOI": "10.1111/ejss.12350",
-        "websites": [
-            "http://resources.rothamsted.ac.uk/farmplatform"
-        ],
-        "name": "Orr et al (2016)",
-        "authors": [
-            {
-                "@id": "1sasfatkiglw",
-                "@type": "Actor"
-            },
-            {
-                "@id": "ucqxgsjyumt8",
-                "@type": "Actor"
-            },
-            {
-                "@id": "rr7uhyfdlf1h",
-                "@type": "Actor"
-            },
-            {
-                "@id": "jzxlvl380lgj",
-                "@type": "Actor"
-            },
-            {
-                "@id": "tl1q9bu10t-j",
-                "@type": "Actor"
-            },
-            {
-                "@id": "pdamqsw1o5h4",
-                "@type": "Actor"
-            },
-            {
-                "@id": "scbjf4qbcte5",
-                "@type": "Actor"
-            },
-            {
-                "@id": "xkett74p8p-i",
-                "@type": "Actor"
-            },
-            {
-                "@id": "sfsbp84bvb2j",
-                "@type": "Actor"
-            },
-            {
-                "@id": "cne9_6bwibcr",
-                "@type": "Actor"
-            },
-            {
-                "@id": "mt4ozjuns3w2",
-                "@type": "Actor"
-            },
-            {
-                "@id": "voxkb78yz9tt",
-                "@type": "Actor"
-            },
-            {
-                "@id": "ejub0sspgjlx",
-                "@type": "Actor"
-            },
-            {
-                "@id": "f2r5sxqk4izs",
-                "@type": "Actor"
-            },
-            {
-                "@id": "1hzxv9kz9sxl",
-                "@type": "Actor"
-            },
-            {
-                "@id": "kgipwcqw-rh1",
-                "@type": "Actor"
-            },
-            {
-                "@id": "k67scah9ckn6",
-                "@type": "Actor"
-            },
-            {
-                "@id": "r40hfvldsjp2",
-                "@type": "Actor"
-            },
-            {
-                "@id": "wbmn-5tasvjd",
-                "@type": "Actor"
-            },
-            {
-                "@id": "8qfckcci3hts",
-                "@type": "Actor"
-            },
-            {
-                "@id": "tn_5fi3fomum",
-                "@type": "Actor"
-            }
-        ],
-        "outlet": "European Journal of Soil Science",
-        "year": 2016,
-        "mendeleyID": "1b0c83be-873e-32ff-bf26-f00e7e9a464e",
-        "scopus": "2-s2.0-84979030971",
-        "articlePdf": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/ejss.12350",
-        "@type": "Bibliography"
-    },
+    "DOI": "10.1111/ejss.12350",
+    "title": "The North Wyke Farm Platform: effect of temperate grassland farming systems on soil moisture contents, runoff and associated water quality dynamics",
     "notes": "The North Wyke Farm Platform is a UK National Bioscience Research Infrastructure (NBRI) supported by the Biotechnology and Biological Sciences Research Council (BBS/E/RH/23NB0008).",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
     "name": "Sheep, ewe - United Kingdom - 2018-01-01",
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
     "product_fate": "sold for slaughter",
-    "product0properties": "Weight at slaughter - kg liveweight / head",
-    "product1properties": "Cold carcass weight per head - kg cold carcass weight / head"
+    "product_properties": [
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Weight at slaughter",
+                "termType": "property",
+                "@id": "weightAtSlaughter",
+                "units": "kg liveweight / head"
+            },
+            "value": 76.85714285714286,
+            "share": 100,
+            "@type": "Property"
+        },
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Cold carcass weight per head",
+                "termType": "property",
+                "@id": "coldCarcassWeightPerHead",
+                "units": "kg cold carcass weight / head"
+            },
+            "value": 34.142857142857146,
+            "share": 100,
+            "@type": "Property"
+        }
+    ],
+    "product_primary": ""
 }

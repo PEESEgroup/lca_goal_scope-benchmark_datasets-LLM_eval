@@ -1,4 +1,5 @@
 {
+    "siteDescription": "",
     "siteName": "Animal housing - Netherlands",
     "siteType": "animal housing",
     "siteLocation": "Netherlands",
@@ -25,31 +26,54 @@
         "otherChemical": false,
         "@type": "Completeness"
     },
-    "bibliography": {
-        "documentDOI": "10.1080/15693430412331291652",
-        "title": "Protein Chains and Environmental Pressures: A Comparison of Pork and Novel Protein Foods",
-        "name": "Zhu & van Ierland (2004)",
-        "authors": [
-            {
-                "@id": "hq4lz0pekzit",
-                "@type": "Actor"
-            },
-            {
-                "@id": "glvwn9ejk6cj",
-                "@type": "Actor"
-            }
-        ],
-        "outlet": "Environmental Sciences",
-        "year": 2004,
-        "mendeleyID": "938a65f8-20cd-3b9d-95ad-3606f4b7be89",
-        "articlePdf": "https://www.tandfonline.com/doi/pdf/10.1080/15693430412331291652?needAccess=true",
-        "@type": "Bibliography"
-    },
+    "DOI": "10.1080/15693430412331291652",
+    "title": "Protein Chains and Environmental Pressures: A Comparison of Pork and Novel Protein Foods",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
     "name": "Pig - Netherlands - 2008",
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
-    "product0properties": "Liveweight per head - kg liveweight / head",
-    "product1properties": "Processing conversion, liveweight to cold carcass weight - %",
-    "product2properties": "Processing allocation, cold carcass weight to ready-to-cook weight - %",
+    "product_fate": "",
+    "product_properties": [
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 112.2,
+            "share": 100,
+            "@type": "Property"
+        },
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Processing conversion, liveweight to cold carcass weight",
+                "termType": "property",
+                "@id": "processingConversionLiveweightToColdCarcassWeight",
+                "units": "%"
+            },
+            "value": 77.54010695187165,
+            "share": 100,
+            "@type": "Property"
+        },
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Processing allocation, cold carcass weight to ready-to-cook weight",
+                "termType": "property",
+                "@id": "processingAllocationColdCarcassWeightToReadyToCookWeight",
+                "units": "%"
+            },
+            "value": 60.91954022988506,
+            "share": 100,
+            "@type": "Property"
+        }
+    ],
     "product_primary": true
 }

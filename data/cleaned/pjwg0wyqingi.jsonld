@@ -1,7 +1,9 @@
 {
+    "siteDescription": "",
     "siteName": "Permanent pasture - Tegasc, Animal and Grassland Research and Innovation Centre - Meath, Ireland",
     "siteType": "permanent pasture",
     "siteLocation": "Ireland - Meath",
+    "cycleDescription": "",
     "systemBoundaryCompleteness": {
         "electricityFuel": false,
         "transport": false,
@@ -24,34 +26,54 @@
         "otherChemical": true,
         "@type": "Completeness"
     },
-    "bibliography": {
-        "documentDOI": "10.1016/j.agsy.2022.103379",
-        "title": "Performance, meat quality, profitability, and greenhouse gas emissions of suckler bulls from pasture-based compared to an indoor high-concentrate weanling-to-beef finishing system",
-        "year": 2022,
-        "outlet": "Science of the Total Environment",
-        "authors": [
-            {
-                "@id": "stigtr7xq-4r",
-                "@type": "Actor"
-            },
-            {
-                "@id": "qrp4-ibcsx1d",
-                "@type": "Actor"
-            },
-            {
-                "@id": "7nf5xjpv0dnl",
-                "@type": "Actor"
-            }
-        ],
-        "name": "McGee et al (2022)",
-        "articlePdf": "https://www.sciencedirect.com/science/article/am/pii/S0308521X22000154",
-        "@type": "Bibliography"
-    },
+    "DOI": "10.1016/j.agsy.2022.103379",
+    "title": "Performance, meat quality, profitability, and greenhouse gas emissions of suckler bulls from pasture-based compared to an indoor high-concentrate weanling-to-beef finishing system",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
     "name": "Beef cattle, bull - Ireland - 2015",
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
-    "product0properties": "Liveweight per head - kg liveweight / head",
-    "product1properties": "Age - days",
-    "product2properties": "Cold dressed carcass weight per head - kg cold dressed carcass weight / head",
+    "product_fate": "",
+    "product_properties": [
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 635,
+            "share": 100,
+            "@type": "Property"
+        },
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Age",
+                "termType": "property",
+                "@id": "age",
+                "units": "days"
+            },
+            "value": 601,
+            "share": 100,
+            "@type": "Property"
+        },
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Cold dressed carcass weight per head",
+                "termType": "property",
+                "@id": "coldDressedCarcassWeightPerHead",
+                "units": "kg cold dressed carcass weight / head"
+            },
+            "value": 367,
+            "share": 100,
+            "@type": "Property"
+        }
+    ],
     "product_primary": true
 }

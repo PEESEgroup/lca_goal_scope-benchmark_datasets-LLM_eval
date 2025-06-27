@@ -26,25 +26,30 @@
         "freshForage": true,
         "@type": "Completeness"
     },
-    "bibliography": {
-        "title": "Optimization of Broiler Farm Management of Rungnapha Farm, Nong Ta Taem Subdistrict, Pran Buri District, Prachuap Khiri Khan Province",
-        "authors": [
-            {
-                "@id": "wehz7amfc7jw",
-                "@type": "Actor"
-            }
-        ],
-        "year": 2021,
-        "websites": [
-            "https://mis.krirk.ac.th/librarytext/MOA/2564/Prang_Suwanbobpha.pdf"
-        ],
-        "outlet": "Krirk University",
-        "name": "Suwanbupha (2021)",
-        "@type": "Bibliography"
-    },
+    "DOI": "",
+    "title": "Optimization of Broiler Farm Management of Rungnapha Farm, Nong Ta Taem Subdistrict, Pran Buri District, Prachuap Khiri Khan Province",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
     "name": "Broiler chicken - Thailand - 2019",
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
-    "product0properties": "Liveweight per head - kg liveweight / head",
+    "product_fate": "",
+    "product_properties": [
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 1.631,
+            "share": 100,
+            "@type": "Property"
+        }
+    ],
     "product_primary": true
 }

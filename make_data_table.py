@@ -1,16 +1,23 @@
 import os
 import pandas as pd
+import json
 
 
 def main():
     # get the directory
-    directory_path = "./data/recalculated/ImpactAssessment/"
+    directory_path = "./data/cleaned/"
     df = pd.DataFrame()
 
     # for each file in the directory, iterate through and add to big table
     for entry_name in os.listdir(directory_path):
-        json_file = pd.read_json(entry_name)
-        df = pd.concat([df, json_file])
+        with open(directory_path + entry_name, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+
+            # normalize data (completeness)
+            table_data = pd.json_normalize(data)
+
+            # drop unnecessary completeness columns
+        df = pd.concat([df, table_data])
 
     # write out file
     df.to_csv("data/input_data", index=False)

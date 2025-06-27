@@ -1,7 +1,9 @@
 {
+    "siteDescription": "",
     "siteName": "Permanent pasture - Colombia",
     "siteType": "permanent pasture",
     "siteLocation": "Colombia",
+    "cycleDescription": "",
     "systemBoundaryCompleteness": {
         "electricityFuel": true,
         "transport": false,
@@ -24,49 +26,42 @@
         "operation": false,
         "@type": "Completeness"
     },
-    "bibliography": {
-        "documentDOI": "10.1016/j.scitotenv.2021.145573",
-        "title": "Environmental impact of primary beef production chain in Colombia: Carbon footprint, non-renewable energy and land use using Life Cycle Assessment",
-        "name": "Gonz\u00e1lez-Quintero et al (2021)",
-        "authors": [
-            {
-                "@id": "rivof2-xtcso",
-                "@type": "Actor"
-            },
-            {
-                "@id": "ebmlvx9qu4lj",
-                "@type": "Actor"
-            },
-            {
-                "@id": "veymkvo6lof1",
-                "@type": "Actor"
-            },
-            {
-                "@id": "te2zb8oe62cb",
-                "@type": "Actor"
-            },
-            {
-                "@id": "thnzmvhhbvpv",
-                "@type": "Actor"
-            },
-            {
-                "@id": "qgjuyckeaaa5",
-                "@type": "Actor"
-            },
-            {
-                "@id": "p92enn_c7amv",
-                "@type": "Actor"
-            }
-        ],
-        "outlet": "Science of the Total Environment",
-        "year": 2021,
-        "mendeleyID": "b9f0b2d2-bb3b-39a1-a8e3-37f93322404d",
-        "scopus": "2-s2.0-85100749344",
-        "@type": "Bibliography"
-    },
+    "DOI": "10.1016/j.scitotenv.2021.145573",
+    "title": "Environmental impact of primary beef production chain in Colombia: Carbon footprint, non-renewable energy and land use using Life Cycle Assessment",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
     "name": "Milk, cow, raw - Colombia - 2019",
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
-    "product0properties": "Fat content - %",
-    "product1properties": "Crude protein content - %"
+    "product_fate": "",
+    "product_properties": [
+        {
+            "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "Fat content",
+                "units": "%",
+                "@id": "fatContent"
+            },
+            "value": 3.5,
+            "share": 100,
+            "@type": "Property"
+        },
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Crude protein content",
+                "termType": "property",
+                "@id": "crudeProteinContent",
+                "units": "%"
+            },
+            "value": 3.3,
+            "share": 100,
+            "@type": "Property"
+        }
+    ],
+    "product_primary": ""
 }

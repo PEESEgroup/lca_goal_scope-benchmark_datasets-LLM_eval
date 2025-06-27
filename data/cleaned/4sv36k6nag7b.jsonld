@@ -26,29 +26,31 @@
         "water": false,
         "@type": "Completeness"
     },
-    "bibliography": {
-        "documentDOI": "10.1016/j.jclepro.2015.10.032",
-        "title": "Economics and environmental performance issues of a typical Amazonian beef farm: A case study",
-        "outlet": "Journal of Cleaner Production",
-        "year": 2016,
-        "name": "Siqueira & Duru (2016)",
-        "authors": [
-            {
-                "@id": "56lylclarpfx",
-                "@type": "Actor"
-            },
-            {
-                "@id": "diygmmltun5c",
-                "@type": "Actor"
-            }
-        ],
-        "mendeleyID": "76e42b61-5324-3189-8255-59442954aa67",
-        "scopus": "2-s2.0-84958104827",
-        "@type": "Bibliography"
-    },
+    "DOI": "10.1016/j.jclepro.2015.10.032",
+    "title": "Economics and environmental performance issues of a typical Amazonian beef farm: A case study",
     "notes": "For this paper we adjust theherd size by the number of days each animal spends in the cycle (see \"Animal Calculations\" sheet).",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
     "name": "Beef cattle, heifer - Brazil - 2012",
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
-    "product0properties": "Liveweight per head - kg liveweight / head"
+    "product_fate": "",
+    "product_properties": [
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 320,
+            "description": "41 heifers of average weight 320 kg sold annually for breeding",
+            "share": 100,
+            "@type": "Property"
+        }
+    ],
+    "product_primary": ""
 }

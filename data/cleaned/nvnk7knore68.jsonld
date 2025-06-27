@@ -26,25 +26,30 @@
         "animalPopulation": true,
         "@type": "Completeness"
     },
-    "bibliography": {
-        "title": "LANDSGENNEMSNIT FOR PRODUKTIVITET SVINEPRODUKTIONEN 2016",
-        "outlet": "SEGES",
-        "websites": [
-            "https://svineproduktion.dk/publikationer/kilder/notater/2017/1716"
-        ],
-        "year": 2017,
-        "authors": [
-            {
-                "@id": "82pvetuybukc",
-                "@type": "Actor"
-            }
-        ],
-        "name": "Helverskov (2017)",
-        "@type": "Bibliography"
-    },
+    "DOI": "",
+    "title": "LANDSGENNEMSNIT FOR PRODUKTIVITET SVINEPRODUKTIONEN 2016",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
     "name": "Pig - Denmark - 2014",
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
-    "product0properties": "Liveweight per head - kg liveweight / head",
+    "product_fate": "",
+    "product_properties": [
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 30.9,
+            "share": 100,
+            "@type": "Property"
+        }
+    ],
     "product_primary": true
 }

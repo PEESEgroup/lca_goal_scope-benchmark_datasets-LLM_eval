@@ -22,39 +22,54 @@
         "otherChemical": true,
         "@type": "Completeness"
     },
-    "bibliography": {
-        "title": "Environmental impacts of French and Brazilian broiler chicken production scenarios: An LCA approach",
-        "name": "Prud\u00eancio da Silva et al (2014)",
-        "authors": [
-            {
-                "@id": "yd4wzxfba3mf",
-                "@type": "Actor"
-            },
-            {
-                "@id": "mxyfkchwj2ps",
-                "@type": "Actor"
-            },
-            {
-                "@id": "y46xdhr3wmn9",
-                "@type": "Actor"
-            },
-            {
-                "@id": "0ju0-aayarnz",
-                "@type": "Actor"
-            }
-        ],
-        "outlet": "Journal of Environmental Management",
-        "year": 2014,
-        "mendeleyID": "28910905-07fc-3eb4-b204-9d285fed9cd0",
-        "documentDOI": "10.1016/j.jenvman.2013.12.011",
-        "scopus": "2-s2.0-84891471321",
-        "@type": "Bibliography"
-    },
+    "DOI": "10.1016/j.jenvman.2013.12.011",
+    "title": "Environmental impacts of French and Brazilian broiler chicken production scenarios: An LCA approach",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
     "name": "Broiler chicken - France - 2011",
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
-    "product0properties": "Processing conversion, liveweight to cold carcass weight - %",
-    "product1properties": "Liveweight per head - kg liveweight / head",
-    "product2properties": "Slaughter age - days",
+    "product_fate": "",
+    "product_properties": [
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Processing conversion, liveweight to cold carcass weight",
+                "termType": "property",
+                "@id": "processingConversionLiveweightToColdCarcassWeight",
+                "units": "%"
+            },
+            "value": 67,
+            "share": 100,
+            "@type": "Property"
+        },
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 2.26,
+            "share": 100,
+            "@type": "Property"
+        },
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Slaughter age",
+                "termType": "property",
+                "@id": "slaughterAge",
+                "units": "days"
+            },
+            "value": 89,
+            "share": 100,
+            "@type": "Property"
+        }
+    ],
     "product_primary": true
 }

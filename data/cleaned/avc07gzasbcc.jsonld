@@ -1,4 +1,5 @@
 {
+    "siteDescription": "",
     "siteName": "Animal housing - Friuli-Venezia Giulia, Italy",
     "siteType": "animal housing",
     "siteLocation": "Italy - Friuli-Venezia Giulia",
@@ -25,55 +26,44 @@
         "operation": false,
         "@type": "Completeness"
     },
-    "bibliography": {
-        "documentDOI": "10.1016/j.jclepro.2020.123046",
-        "title": "Investigating on the environmental sustainability of animal products: The case of organic eggs",
-        "name": "Costantini et al (2020)",
-        "authors": [
-            {
-                "@id": "5f1xqw2ffggp",
-                "@type": "Actor"
-            },
-            {
-                "@id": "4p1b35bgdhgk",
-                "@type": "Actor"
-            },
-            {
-                "@id": "qgwltbu1ob4o",
-                "@type": "Actor"
-            },
-            {
-                "@id": "kqb1vpfjnec9",
-                "@type": "Actor"
-            },
-            {
-                "@id": "vdjpx1_kdzvn",
-                "@type": "Actor"
-            },
-            {
-                "@id": "gf65aidcx0kw",
-                "@type": "Actor"
-            },
-            {
-                "@id": "hqc4icebfqxj",
-                "@type": "Actor"
-            },
-            {
-                "@id": "pk_mbv3na4bk",
-                "@type": "Actor"
-            }
-        ],
-        "outlet": "Journal of Cleaner Production",
-        "year": 2020,
-        "mendeleyID": "f55e60f6-aa5b-3cda-84ee-29e29b766d90",
-        "scopus": "2-s2.0-85088874872",
-        "@type": "Bibliography"
-    },
+    "DOI": "10.1016/j.jclepro.2020.123046",
+    "title": "Investigating on the environmental sustainability of animal products: The case of organic eggs",
     "notes": "The method used for the impact Assessment was \u201c the ILCD (International Reference Life Cycle Data System) 2011 Midpoint \u00fe method (V1.03), which is the impact assessment method endorsed by the European Commission\u201d. We used this link to figure out which models were used for the different impact categories: https://longtrailsustainability.com/wp-content/uploads/2016/10/ILCD-2011-Midpoint-is-the-PEF-Method.pdf",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
     "name": "Eggs, hen, in shell (number) - Italy - 2019",
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
-    "product0properties": "Nitrogen content - %",
-    "product1properties": "Weight per item - kg",
+    "product_fate": "",
+    "product_properties": [
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Nitrogen content",
+                "termType": "property",
+                "@id": "nitrogenContent",
+                "units": "%"
+            },
+            "value": 1.8499999999999999,
+            "methodClassification": "consistent external sources",
+            "methodClassificationDescription": "IPCC 2019",
+            "share": 100,
+            "@type": "Property"
+        },
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Weight per item",
+                "termType": "property",
+                "@id": "weightPerItem",
+                "units": "kg"
+            },
+            "value": 58,
+            "share": 100,
+            "@type": "Property"
+        }
+    ],
     "product_primary": true
 }

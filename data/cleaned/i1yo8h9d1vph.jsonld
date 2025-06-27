@@ -26,35 +26,42 @@
         "freshForage": true,
         "@type": "Completeness"
     },
-    "bibliography": {
-        "title": "Economic aspects of reducing stocking density in broiler chicken production using the example of farms in Southern Poland",
-        "documentDOI": "10.2478/aoas-2014-0029",
-        "name": "Utnik-Banas et al (2014)",
-        "authors": [
-            {
-                "@id": "kysvj0b6mrhw",
-                "@type": "Actor"
-            },
-            {
-                "@id": "nkj9dekiqbtu",
-                "@type": "Actor"
-            },
-            {
-                "@id": "0p0pibfiym4p",
-                "@type": "Actor"
-            }
-        ],
-        "outlet": "Annals of Animal Science",
-        "year": 2014,
-        "mendeleyID": "9c725435-5ac1-372f-b9a6-9c2762efe47e",
-        "scopus": "2-s2.0-84906983335",
-        "articlePdf": "https://content.sciendo.com/downloadpdf/journals/aoas/14/3/article-p663.pdf",
-        "@type": "Bibliography"
-    },
+    "DOI": "10.2478/aoas-2014-0029",
+    "title": "Economic aspects of reducing stocking density in broiler chicken production using the example of farms in Southern Poland",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
     "name": "Broiler chicken - Poland - 2009",
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
-    "product0properties": "Weight at slaughter - kg liveweight / head",
-    "product1properties": "Age - days",
+    "product_fate": "",
+    "product_properties": [
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Weight at slaughter",
+                "termType": "property",
+                "@id": "weightAtSlaughter",
+                "units": "kg liveweight / head"
+            },
+            "value": 2.52,
+            "share": 100,
+            "@type": "Property"
+        },
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Age",
+                "termType": "property",
+                "@id": "age",
+                "units": "days"
+            },
+            "value": 43,
+            "share": 100,
+            "@type": "Property"
+        }
+    ],
     "product_primary": true
 }

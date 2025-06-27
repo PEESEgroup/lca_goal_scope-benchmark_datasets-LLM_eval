@@ -1,4 +1,5 @@
 {
+    "siteDescription": "",
     "siteName": "Animal housing - United Kingdom",
     "siteType": "animal housing",
     "siteLocation": "United Kingdom",
@@ -25,41 +26,30 @@
         "operation": false,
         "@type": "Completeness"
     },
-    "bibliography": {
-        "documentDOI": "10.3382/ps.2011-01635",
-        "title": "Predicting the environmental impacts of chicken systems in the united kingdom through a life cycle assessment: Egg production systems",
-        "name": "Leinonen et al (2012)",
-        "authors": [
-            {
-                "@id": "xipvvl5bwwyv",
-                "@type": "Actor"
-            },
-            {
-                "@id": "kabdtrpt6_sl",
-                "@type": "Actor"
-            },
-            {
-                "@id": "kx_qecczpxtw",
-                "@type": "Actor"
-            },
-            {
-                "@id": "xx18hbd8nd6m",
-                "@type": "Actor"
-            },
-            {
-                "@id": "yxetw5230da7",
-                "@type": "Actor"
-            }
-        ],
-        "outlet": "Poultry Science",
-        "year": 2012,
-        "mendeleyID": "b4dba9e2-c58b-3efa-813a-b1914b988bdb",
-        "scopus": "2-s2.0-83755183296",
-        "@type": "Bibliography"
-    },
+    "DOI": "10.3382/ps.2011-01635",
+    "title": "Predicting the environmental impacts of chicken systems in the united kingdom through a life cycle assessment: Egg production systems",
     "notes": "Assuming Eutrophication potential is calculated with CML2001 Baseline method (although this is not clearly specified in the study).",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
     "name": "Layer chicken, hen - United Kingdom - 2010",
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
-    "product0properties": "Liveweight per head - kg liveweight / head"
+    "product_fate": "",
+    "product_properties": [
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 1.97,
+            "share": 100,
+            "@type": "Property"
+        }
+    ],
+    "product_primary": ""
 }

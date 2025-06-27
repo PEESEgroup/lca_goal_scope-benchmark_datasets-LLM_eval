@@ -1,7 +1,9 @@
 {
+    "siteDescription": "",
     "siteName": "Animal housing - China",
     "siteType": "animal housing",
     "siteLocation": "China",
+    "cycleDescription": "",
     "systemBoundaryCompleteness": {
         "transport": true,
         "material": false,
@@ -24,22 +26,30 @@
         "electricityFuel": true,
         "@type": "Completeness"
     },
-    "bibliography": {
-        "documentDOI": "10.1016/j.scitotenv.2017.12.259",
-        "title": "Environmental impacts and resource use of milk production on the North China Plain, based on life cycle assessment",
-        "outlet": "Science of the Total Environment",
-        "authors": [
-            {
-                "@id": "ule3nc-9elne",
-                "@type": "Actor"
-            }
-        ],
-        "year": 2018,
-        "name": "Wang (2018)",
-        "@type": "Bibliography"
-    },
+    "DOI": "10.1016/j.scitotenv.2017.12.259",
+    "title": "Environmental impacts and resource use of milk production on the North China Plain, based on life cycle assessment",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
     "name": "Dairy cattle, calf - China - 2016",
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
-    "product0properties": "Liveweight per head - kg liveweight / head"
+    "product_fate": "",
+    "product_properties": [
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 38,
+            "share": 100,
+            "@type": "Property"
+        }
+    ],
+    "product_primary": ""
 }

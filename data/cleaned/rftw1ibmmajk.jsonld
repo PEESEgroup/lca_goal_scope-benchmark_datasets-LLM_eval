@@ -1,4 +1,5 @@
 {
+    "siteDescription": "",
     "siteName": "Agri-food processor - Ireland",
     "siteType": "agri-food processor",
     "siteLocation": "Ireland",
@@ -25,38 +26,30 @@
         "otherChemical": true,
         "@type": "Completeness"
     },
-    "bibliography": {
-        "documentDOI": "10.1016/j.agsy.2017.03.007",
-        "title": "An economic and greenhouse gas emissions evaluation of pasture-based dairy calf-to-beef production systems",
-        "year": 2017,
-        "name": "Murphy et al (2017)",
-        "authors": [
-            {
-                "@id": "kvw1tkauva6o",
-                "@type": "Actor"
-            },
-            {
-                "@id": "ltszc9mxk4hh",
-                "@type": "Actor"
-            },
-            {
-                "@id": "wck6gw-3peba",
-                "@type": "Actor"
-            },
-            {
-                "@id": "jawkujxik1um",
-                "@type": "Actor"
-            }
-        ],
-        "outlet": "Agricultural Systems",
-        "mendeleyID": "653b572c-a2c7-3569-b37f-7d260e3daea6",
-        "scopus": "2-s2.0-85016249851",
-        "articlePdf": "https://www.sciencedirect.com/science/article/am/pii/S0308521X16306412",
-        "@type": "Bibliography"
-    },
+    "DOI": "10.1016/j.agsy.2017.03.007",
+    "title": "An economic and greenhouse gas emissions evaluation of pasture-based dairy calf-to-beef production systems",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
     "name": "Meat, beef cattle (cold carcass weight) - Ireland - 2014",
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
-    "product0properties": "Processing conversion, hot carcass weight to cold carcass weight - %",
+    "product_fate": "",
+    "product_properties": [
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Processing conversion, hot carcass weight to cold carcass weight",
+                "termType": "property",
+                "@id": "processingConversionHotCarcassWeightToColdCarcassWeight",
+                "units": "%"
+            },
+            "value": 0.98,
+            "share": 100,
+            "@type": "Property"
+        }
+    ],
     "product_primary": true
 }

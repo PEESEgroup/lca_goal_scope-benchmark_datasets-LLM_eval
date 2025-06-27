@@ -22,55 +22,30 @@
         "operation": false,
         "@type": "Completeness"
     },
-    "bibliography": {
-        "documentDOI": "10.1016/j.jenvman.2013.01.028",
-        "title": "Effect of dairy production system, breed and co-product handling methods on environmental impacts at farm level",
-        "name": "Nguyen et al (2013)",
-        "authors": [
-            {
-                "@id": "e8cze_aeau5o",
-                "@type": "Actor"
-            },
-            {
-                "@id": "k9fdwyrqex8h",
-                "@type": "Actor"
-            },
-            {
-                "@id": "0ju0-aayarnz",
-                "@type": "Actor"
-            },
-            {
-                "@id": "9wo-ci0eehgl",
-                "@type": "Actor"
-            },
-            {
-                "@id": "wlwxykwb5pfr",
-                "@type": "Actor"
-            },
-            {
-                "@id": "d4wxtyz39rpx",
-                "@type": "Actor"
-            },
-            {
-                "@id": "6rb06cjcp4sz",
-                "@type": "Actor"
-            },
-            {
-                "@id": "mxyfkchwj2ps",
-                "@type": "Actor"
-            }
-        ],
-        "outlet": "Journal of Environmental Management",
-        "year": 2013,
-        "mendeleyID": "a3ef9673-a6ea-393b-bae6-42ebbc05221d",
-        "scopus": "2-s2.0-84875239338",
-        "@type": "Bibliography"
-    },
+    "DOI": "10.1016/j.jenvman.2013.01.028",
+    "title": "Effect of dairy production system, breed and co-product handling methods on environmental impacts at farm level",
     "notes": "Linseed cultivation taken by authors from Nguyen (2012), original data from France. Linseed processing from Bacenetti (2017), selected by us as a proxy. Authors have used daSilva for soybean cultivation data and dalgaard for soybean processing. Given these data are just proxies, we decided to omit them and just specify that the soybean meal is from Brazil.",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
     "name": "Milk, cow, raw (FPCM) - France - 2011",
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
     "product_fate": "sold",
-    "product0properties": "Fat content - %",
+    "product_properties": [
+        {
+            "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "Fat content",
+                "units": "%",
+                "@id": "fatContent"
+            },
+            "value": 4,
+            "share": 100,
+            "@type": "Property"
+        }
+    ],
     "product_primary": true
 }

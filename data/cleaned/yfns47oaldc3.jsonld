@@ -1,4 +1,5 @@
 {
+    "siteDescription": "",
     "siteName": "Animal housing - Italy",
     "siteType": "animal housing",
     "siteLocation": "Italy",
@@ -25,46 +26,42 @@
         "otherChemical": true,
         "@type": "Completeness"
     },
-    "bibliography": {
-        "documentDOI": "10.1016/j.spc.2023.02.012",
-        "title": "The environmental impact of permanent meadows-based farms: A comparison among different dairy farm management systems of an Italian cheese",
-        "name": "Rencricca et al (2023)",
-        "authors": [
-            {
-                "@id": "avy9_cceetvf",
-                "@type": "Actor"
-            },
-            {
-                "@id": "b6e5snogywx3",
-                "@type": "Actor"
-            },
-            {
-                "@id": "gw1pedvddsq6",
-                "@type": "Actor"
-            },
-            {
-                "@id": "wthpq36h6gnu",
-                "@type": "Actor"
-            },
-            {
-                "@id": "6rid4chdsc5x",
-                "@type": "Actor"
-            },
-            {
-                "@id": "zfbndsg0awjz",
-                "@type": "Actor"
-            }
-        ],
-        "outlet": "Sustainable Production and Consumption",
-        "year": 2023,
-        "mendeleyID": "8953916d-466a-36cd-859c-ede440805ff6",
-        "scopus": "2-s2.0-85149991693",
-        "@type": "Bibliography"
-    },
+    "DOI": "10.1016/j.spc.2023.02.012",
+    "title": "The environmental impact of permanent meadows-based farms: A comparison among different dairy farm management systems of an Italian cheese",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
     "name": "Milk, cow, raw (FPCM) - Italy - 2019",
     "allocationMethod": "economic",
     "functionalUnitQuantity": 1,
-    "product0properties": "Crude protein content - %",
-    "product1properties": "Fat content - %",
+    "product_fate": "",
+    "product_properties": [
+        {
+            "term": {
+                "@type": "Term",
+                "name": "Crude protein content",
+                "termType": "property",
+                "@id": "crudeProteinContent",
+                "units": "%"
+            },
+            "value": 3.42,
+            "share": 100,
+            "@type": "Property"
+        },
+        {
+            "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "Fat content",
+                "units": "%",
+                "@id": "fatContent"
+            },
+            "value": 3.94,
+            "share": 100,
+            "@type": "Property"
+        }
+    ],
     "product_primary": true
 }
