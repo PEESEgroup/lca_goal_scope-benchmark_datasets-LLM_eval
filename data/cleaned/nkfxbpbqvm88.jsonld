@@ -21,17 +21,11 @@
         "animalPopulation": true,
         "waste": true,
         "operation": false,
-        "freshForage": true,
+        "freshForage": false,
         "ingredient": true,
         "liveAnimalInput": true,
         "otherChemical": true,
-        "@type": "Completeness",
-        "updated": [
-            "freshForage"
-        ],
-        "updatedVersion": [
-            "0.70.0"
-        ]
+        "@type": "Completeness"
     },
     "DOI": "10.1016/j.animal.2021.100247",
     "title": "Life cycle assessment of pasture-based suckler steer weanling-to-beef production systems: Effect of breed and slaughter age",
@@ -41,7 +35,7 @@
     "intendedAudience": "",
     "comparativeAssertions": "",
     "name": "Beef cattle, steer - United Kingdom - 2016",
-    "allocationMethod": "economic",
+    "allocationMethod": "none",
     "functionalUnitQuantity": 1,
     "product_fate": "",
     "product_properties": {

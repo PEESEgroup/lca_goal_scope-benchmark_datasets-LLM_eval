@@ -1,0 +1,56 @@
+{
+    "siteDescription": "",
+    "siteName": "Agri-food processor - Meath, Ireland",
+    "siteType": "agri-food processor",
+    "siteLocation": "Ireland - Meath",
+    "cycleDescription": "Cycle representing the slaughter of the animals produced during the production cycle",
+    "functionalUnit": "relative",
+    "systemBoundaryCompleteness": {
+        "electricityFuel": false,
+        "transport": false,
+        "material": false,
+        "fertiliser": true,
+        "seed": true,
+        "pesticideVeterinaryDrug": true,
+        "soilAmendment": true,
+        "water": true,
+        "product": true,
+        "cropResidue": true,
+        "excreta": true,
+        "animalFeed": true,
+        "animalPopulation": true,
+        "waste": false,
+        "operation": false,
+        "freshForage": true,
+        "ingredient": true,
+        "liveAnimalInput": true,
+        "otherChemical": true,
+        "@type": "Completeness"
+    },
+    "DOI": "10.1016/j.animal.2021.100247",
+    "title": "Life cycle assessment of pasture-based suckler steer weanling-to-beef production systems: Effect of breed and slaughter age",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
+    "name": "Meat, beef cattle (cold carcass weight) - Ireland - 2017",
+    "allocationMethod": "economic",
+    "functionalUnitQuantity": 1,
+    "product_fate": "",
+    "product_properties": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "name": "Processing conversion, liveweight to cold carcass weight",
+                "termType": "property",
+                "@id": "processingConversionLiveweightToColdCarcassWeight",
+                "units": "%"
+            },
+            "value": 52.68456376,
+            "share": 100,
+            "@type": "Property"
+        }
+    },
+    "product_primary": true
+}

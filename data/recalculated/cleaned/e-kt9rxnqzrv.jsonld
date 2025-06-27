@@ -1,0 +1,68 @@
+{
+    "siteDescription": "60 ha of grazing area for the herd and 40ha of grass to be cut for making silage",
+    "siteName": "Permanent pasture - United Kingdom - 60 ha of grazing area for the ...",
+    "siteType": "permanent pasture",
+    "siteLocation": "United Kingdom",
+    "cycleDescription": "Annual production cycle of an average baseline, grass-based UK dairy farm on conventional ryegrass",
+    "functionalUnit": "relative",
+    "systemBoundaryCompleteness": {
+        "electricityFuel": true,
+        "transport": false,
+        "material": false,
+        "fertiliser": false,
+        "seed": false,
+        "otherChemical": true,
+        "pesticideVeterinaryDrug": false,
+        "soilAmendment": true,
+        "water": false,
+        "product": true,
+        "cropResidue": true,
+        "excreta": false,
+        "ingredient": true,
+        "freshForage": true,
+        "animalFeed": true,
+        "liveAnimalInput": true,
+        "animalPopulation": true,
+        "waste": false,
+        "operation": false,
+        "@type": "Completeness"
+    },
+    "DOI": "10.1016/j.jclepro.2018.08.206",
+    "title": "Effects of high-sugar grasses and improved manure management on the environmental footprint of milk production at the farm level",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
+    "name": "Milk, cow, raw - United Kingdom - 2016",
+    "allocationMethod": "economic",
+    "functionalUnitQuantity": 1,
+    "product_fate": "",
+    "product_properties": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "Fat content",
+                "units": "%",
+                "@id": "fatContent"
+            },
+            "value": 4.29,
+            "share": 100,
+            "@type": "Property"
+        },
+        "1": {
+            "term": {
+                "@type": "Term",
+                "name": "Crude protein content",
+                "termType": "property",
+                "@id": "crudeProteinContent",
+                "units": "%"
+            },
+            "value": 3.18,
+            "share": 100,
+            "@type": "Property"
+        }
+    },
+    "product_primary": true
+}

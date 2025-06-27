@@ -2,11 +2,11 @@
     "siteDescription": "",
     "siteName": "Animal housing - Teagasc Johnstown Castle Research Farm - Ireland",
     "siteType": "animal housing",
-    "siteLocation": "Ireland - Wexford (Administrative County), Ireland",
+    "siteLocation": "Ireland",
     "cycleDescription": "19AL treatment where Bulls are offered grass silage ad libitum plus 1.5kg dry matter DM per head daily over the Winter period, turned out to pasture for 100 days and finished indoors on a concentrate ad libitum diet for 100 days and slaughtered at 19 months of age (this is the finishing phase)",
     "functionalUnit": "relative",
     "systemBoundaryCompleteness": {
-        "electricityFuel": true,
+        "electricityFuel": false,
         "transport": true,
         "material": false,
         "fertiliser": false,
@@ -25,13 +25,7 @@
         "ingredient": true,
         "liveAnimalInput": true,
         "otherChemical": true,
-        "@type": "Completeness",
-        "updated": [
-            "electricityFuel"
-        ],
-        "updatedVersion": [
-            "0.70.0"
-        ]
+        "@type": "Completeness"
     },
     "DOI": "10.1016/j.agsy.2017.03.007",
     "title": "An economic and greenhouse gas emissions evaluation of pasture-based dairy calf-to-beef production systems",
@@ -41,7 +35,7 @@
     "intendedAudience": "",
     "comparativeAssertions": "",
     "name": "Beef cattle, bull - Ireland - 2014",
-    "allocationMethod": "economic",
+    "allocationMethod": "none",
     "functionalUnitQuantity": 1,
     "product_fate": "",
     "product_properties": {

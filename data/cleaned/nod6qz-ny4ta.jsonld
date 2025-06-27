@@ -20,18 +20,12 @@
         "cropResidue": true,
         "excreta": false,
         "animalFeed": true,
-        "freshForage": true,
+        "freshForage": false,
         "liveAnimalInput": true,
         "animalPopulation": true,
         "waste": false,
         "operation": false,
-        "@type": "Completeness",
-        "updated": [
-            "freshForage"
-        ],
-        "updatedVersion": [
-            "0.70.0"
-        ]
+        "@type": "Completeness"
     },
     "DOI": "10.1007/s11367-016-1062-4",
     "title": "Environmental Impact assessment of a semi-intensive beef cattle production in Brazil\u2019s Northeast",
@@ -41,7 +35,7 @@
     "intendedAudience": "",
     "comparativeAssertions": "",
     "name": "Beef cattle, calf (male, weaned) - Brazil - 2013",
-    "allocationMethod": "economic",
+    "allocationMethod": "mass",
     "functionalUnitQuantity": 1,
     "product_fate": "",
     "product_properties": {

@@ -2,14 +2,11 @@ import os
 import json
 
 
-def main():
-    # get the directory
-    directory_path = "./data/recalculated/ImpactAssessment/"
-
+def main(directory_path):
     # for each file in the directory, iterate through
-    for entry_name in os.listdir(directory_path):
+    for entry_name in os.listdir(directory_path+"ImpactAssessment/"):
         # get file path
-        file_path = os.path.join(directory_path, entry_name)
+        file_path = os.path.join(directory_path+"ImpactAssessment/", entry_name)
         extension = ".jsonld"
         # open file
         lca_data = {}
@@ -28,7 +25,7 @@ def main():
         if "site" in data:
             site = data['site']["@id"]
             try:
-                with open("./data/recalculated/Site/{}".format(site)+extension, 'r', encoding='utf-8') as f_site:
+                with open(directory_path + "Site/{}".format(site)+extension, 'r', encoding='utf-8') as f_site:
                     try:
                         data_site = json.load(f_site)
                         if "description" in data_site:
@@ -66,7 +63,7 @@ def main():
         # •	Comparative studies to be disclosed to the public - some studies have comparative studies,
         # which I think are called cycles
         cycle = data['cycle']["@id"]
-        with open("./data/recalculated/Cycle/{}".format(cycle) + extension, 'r', encoding='utf-8') as f_cycle:
+        with open(directory_path + "Cycle/{}".format(cycle) + extension, 'r', encoding='utf-8') as f_cycle:
             try:
                 data_cycle = json.load(f_cycle)
                 if "description" in data_cycle:
@@ -177,7 +174,7 @@ def main():
         # •	Planning reporting of results - not available in data, clearly results were reported
 
         # write out data
-        with open("data/cleaned/{}".format(entry_name), "w+") as w:
+        with open(directory_path+"cleaned/{}".format(entry_name), "w+") as w:
             json.dump(lca_data, w, indent=4)
 
 

@@ -1,0 +1,56 @@
+{
+    "siteDescription": "",
+    "siteName": "Animal housing - United Kingdom",
+    "siteType": "animal housing",
+    "siteLocation": "United Kingdom",
+    "cycleDescription": "Cycle represents all inputs associated with the rearing of all chicks, pullets and layer hens in order to produce 1000kg of eggs in caged housing systems.",
+    "functionalUnit": "relative",
+    "systemBoundaryCompleteness": {
+        "electricityFuel": true,
+        "transport": false,
+        "material": false,
+        "fertiliser": true,
+        "ingredient": true,
+        "otherChemical": true,
+        "seed": true,
+        "pesticideVeterinaryDrug": false,
+        "soilAmendment": true,
+        "water": true,
+        "product": true,
+        "cropResidue": true,
+        "excreta": false,
+        "animalFeed": true,
+        "freshForage": true,
+        "liveAnimalInput": true,
+        "animalPopulation": true,
+        "waste": false,
+        "operation": false,
+        "@type": "Completeness"
+    },
+    "DOI": "10.3382/ps.2011-01635",
+    "title": "Predicting the environmental impacts of chicken systems in the united kingdom through a life cycle assessment: Egg production systems",
+    "notes": "Assuming Eutrophication potential is calculated with CML2001 Baseline method (although this is not clearly specified in the study).",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
+    "name": "Layer chicken, hen - United Kingdom - 2010",
+    "allocationMethod": "economic",
+    "functionalUnitQuantity": 1,
+    "product_fate": "",
+    "product_properties": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 1.97,
+            "share": 100,
+            "@type": "Property"
+        }
+    },
+    "product_primary": ""
+}

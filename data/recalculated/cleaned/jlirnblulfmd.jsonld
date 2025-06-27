@@ -1,0 +1,74 @@
+{
+    "siteDescription": "",
+    "siteName": "Permanent pasture - Animal & Grass-land Research and Innovation Centre -TEAGASC - Meath, Ireland",
+    "siteType": "permanent pasture",
+    "siteLocation": "Ireland - Meath",
+    "cycleDescription": "Early maturing suckler bred bull weanlings of breeds of Aberdeen Angus and Hereford sired, kept in housing to begin with and then moved to pasture before being rehoused and then slaughtered at 24 months of age.",
+    "functionalUnit": "relative",
+    "systemBoundaryCompleteness": {
+        "electricityFuel": false,
+        "transport": false,
+        "material": false,
+        "fertiliser": true,
+        "seed": true,
+        "pesticideVeterinaryDrug": false,
+        "soilAmendment": true,
+        "water": false,
+        "product": true,
+        "cropResidue": false,
+        "excreta": true,
+        "animalFeed": true,
+        "animalPopulation": true,
+        "waste": true,
+        "operation": false,
+        "freshForage": true,
+        "ingredient": true,
+        "liveAnimalInput": true,
+        "otherChemical": true,
+        "@type": "Completeness",
+        "updated": [
+            "freshForage"
+        ],
+        "updatedVersion": [
+            "0.70.0"
+        ]
+    },
+    "DOI": "10.1016/j.animal.2021.100247",
+    "title": "Life cycle assessment of pasture-based suckler steer weanling-to-beef production systems: Effect of breed and slaughter age",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
+    "name": "Beef cattle, steer - United Kingdom - 2017",
+    "allocationMethod": "economic",
+    "functionalUnitQuantity": 1,
+    "product_fate": "",
+    "product_properties": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 663,
+            "share": 100,
+            "@type": "Property"
+        },
+        "1": {
+            "term": {
+                "@type": "Term",
+                "name": "Cold carcass weight per head",
+                "termType": "property",
+                "@id": "coldCarcassWeightPerHead",
+                "units": "kg cold carcass weight / head"
+            },
+            "value": 361,
+            "share": 100,
+            "@type": "Property"
+        }
+    },
+    "product_primary": true
+}

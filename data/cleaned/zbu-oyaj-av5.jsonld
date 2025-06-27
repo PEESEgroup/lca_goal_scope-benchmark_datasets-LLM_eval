@@ -1,0 +1,71 @@
+{
+    "siteDescription": "",
+    "siteName": "Animal housing - Queensland, Australia",
+    "siteType": "animal housing",
+    "siteLocation": "Australia - Queensland",
+    "cycleDescription": "This cycle represents the inventory for grower/finisher pig production in the Northern supply chain.",
+    "functionalUnit": "relative",
+    "systemBoundaryCompleteness": {
+        "electricityFuel": true,
+        "material": true,
+        "fertiliser": true,
+        "seed": true,
+        "pesticideVeterinaryDrug": false,
+        "otherChemical": false,
+        "soilAmendment": true,
+        "water": true,
+        "product": true,
+        "cropResidue": true,
+        "excreta": true,
+        "animalFeed": true,
+        "transport": false,
+        "waste": false,
+        "liveAnimalInput": true,
+        "operation": false,
+        "ingredient": true,
+        "freshForage": true,
+        "animalPopulation": true,
+        "@type": "Completeness"
+    },
+    "DOI": "",
+    "title": "Environmental Assessment of Two Pork Supply Chains Using Life Cycle Assessment",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
+    "name": "Pig - Australia - 2008",
+    "allocationMethod": "economic",
+    "functionalUnitQuantity": 1,
+    "product_fate": "",
+    "product_properties": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 96.9,
+            "share": 100,
+            "@type": "Property"
+        },
+        "1": {
+            "term": {
+                "@type": "Term",
+                "name": "Processing conversion, liveweight to cold carcass weight",
+                "termType": "property",
+                "@id": "processingConversionLiveweightToColdCarcassWeight",
+                "units": "%"
+            },
+            "value": 76,
+            "min": 72,
+            "max": 80,
+            "statsDefinition": "other observations",
+            "share": 100,
+            "@type": "Property"
+        }
+    },
+    "product_primary": true
+}

@@ -6,7 +6,7 @@
     "cycleDescription": "",
     "functionalUnit": "relative",
     "systemBoundaryCompleteness": {
-        "electricityFuel": true,
+        "electricityFuel": false,
         "transport": false,
         "material": false,
         "fertiliser": true,
@@ -25,13 +25,7 @@
         "ingredient": true,
         "liveAnimalInput": true,
         "otherChemical": true,
-        "@type": "Completeness",
-        "updated": [
-            "electricityFuel"
-        ],
-        "updatedVersion": [
-            "0.70.0"
-        ]
+        "@type": "Completeness"
     },
     "DOI": "10.1016/j.jclepro.2020.124861",
     "title": "Pursuing the route to eco-efficiency in dairy production: The case of Galician area",

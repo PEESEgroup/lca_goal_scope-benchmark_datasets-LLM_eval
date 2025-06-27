@@ -2,11 +2,11 @@
     "siteDescription": "",
     "siteName": "Permanent pasture - Teagasc Johnstown Castle Research Farm - Ireland",
     "siteType": "permanent pasture",
-    "siteLocation": "Ireland - Wexford (Administrative County), Ireland",
+    "siteLocation": "Ireland",
     "cycleDescription": "21MO treatment where Steers are offered grass silage ad libitum plus 1.5 kg DM of concentrate per head daily over the winter period, turned out to pasture for 175 days, finished at pasture supplemented with 5 kg DM of concentrate per head daily for 60 days and slaughtered at 21 months of age - (this is the finishing period)",
     "functionalUnit": "relative",
     "systemBoundaryCompleteness": {
-        "electricityFuel": true,
+        "electricityFuel": false,
         "transport": true,
         "material": false,
         "fertiliser": false,
@@ -21,19 +21,11 @@
         "animalPopulation": true,
         "waste": false,
         "operation": true,
-        "freshForage": true,
+        "freshForage": false,
         "ingredient": true,
         "liveAnimalInput": true,
         "otherChemical": true,
-        "@type": "Completeness",
-        "updated": [
-            "electricityFuel",
-            "freshForage"
-        ],
-        "updatedVersion": [
-            "0.70.0",
-            "0.70.0"
-        ]
+        "@type": "Completeness"
     },
     "DOI": "10.1016/j.agsy.2017.03.007",
     "title": "An economic and greenhouse gas emissions evaluation of pasture-based dairy calf-to-beef production systems",
@@ -43,7 +35,7 @@
     "intendedAudience": "",
     "comparativeAssertions": "",
     "name": "Beef cattle, steer - Ireland - 2014",
-    "allocationMethod": "economic",
+    "allocationMethod": "none",
     "functionalUnitQuantity": 1,
     "product_fate": "",
     "product_properties": {

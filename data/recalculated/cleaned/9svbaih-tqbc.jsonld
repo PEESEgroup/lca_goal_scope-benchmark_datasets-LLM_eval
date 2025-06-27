@@ -1,0 +1,56 @@
+{
+    "siteDescription": "",
+    "siteName": "Agri-food processor - Ireland",
+    "siteType": "agri-food processor",
+    "siteLocation": "Ireland",
+    "cycleDescription": "Conversion of animals to meat",
+    "functionalUnit": "relative",
+    "systemBoundaryCompleteness": {
+        "electricityFuel": false,
+        "transport": false,
+        "material": false,
+        "fertiliser": true,
+        "seed": true,
+        "pesticideVeterinaryDrug": true,
+        "soilAmendment": true,
+        "water": true,
+        "product": false,
+        "cropResidue": true,
+        "excreta": true,
+        "animalFeed": true,
+        "animalPopulation": true,
+        "waste": false,
+        "operation": false,
+        "freshForage": true,
+        "ingredient": true,
+        "liveAnimalInput": true,
+        "otherChemical": true,
+        "@type": "Completeness"
+    },
+    "DOI": "10.1016/j.agsy.2017.03.007",
+    "title": "An economic and greenhouse gas emissions evaluation of pasture-based dairy calf-to-beef production systems",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
+    "name": "Meat, beef cattle (cold carcass weight) - Ireland - 2014",
+    "allocationMethod": "economic",
+    "functionalUnitQuantity": 1,
+    "product_fate": "",
+    "product_properties": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "name": "Processing conversion, hot carcass weight to cold carcass weight",
+                "termType": "property",
+                "@id": "processingConversionHotCarcassWeightToColdCarcassWeight",
+                "units": "%"
+            },
+            "value": 0.98,
+            "share": 100,
+            "@type": "Property"
+        }
+    },
+    "product_primary": true
+}

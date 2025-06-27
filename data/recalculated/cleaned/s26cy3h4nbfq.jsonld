@@ -1,0 +1,78 @@
+{
+    "siteDescription": "",
+    "siteName": "Permanent pasture - Spain",
+    "siteType": "permanent pasture",
+    "siteLocation": "Spain",
+    "cycleDescription": "Average annual production data across 9 different conventional dehesa cattle farms. Cow-calf operation",
+    "functionalUnit": "relative",
+    "systemBoundaryCompleteness": {
+        "electricityFuel": false,
+        "transport": false,
+        "material": false,
+        "fertiliser": false,
+        "ingredient": true,
+        "otherChemical": true,
+        "seed": true,
+        "pesticideVeterinaryDrug": false,
+        "soilAmendment": false,
+        "water": true,
+        "product": true,
+        "cropResidue": true,
+        "excreta": false,
+        "animalFeed": true,
+        "freshForage": true,
+        "liveAnimalInput": false,
+        "animalPopulation": true,
+        "waste": false,
+        "operation": false,
+        "@type": "Completeness",
+        "updated": [
+            "freshForage"
+        ],
+        "updatedVersion": [
+            "0.70.0"
+        ]
+    },
+    "DOI": "10.1016/j.jclepro.2022.131918",
+    "title": "Carbon sequestration offsets a large share of GHG emissions in dehesa cattle production",
+    "notes": "Emissions values were extracted from graphs in Figure 5 using a Web plot digitiser so may not be completely accurate. Extra data supplied from authors on cull cow sales, pasture inputs and pasture grass nutrition qualities",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
+    "name": "Beef cattle, calf (weaned) - Spain - 2019",
+    "allocationMethod": "economic",
+    "functionalUnitQuantity": 1,
+    "product_fate": "",
+    "product_properties": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "name": "Age",
+                "termType": "property",
+                "@id": "age",
+                "units": "days"
+            },
+            "value": 179.36,
+            "sd": 27.36,
+            "statsDefinition": "cycles",
+            "share": 100,
+            "@type": "Property"
+        },
+        "1": {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 228.6,
+            "sd": 19.5,
+            "statsDefinition": "cycles",
+            "share": 100,
+            "@type": "Property"
+        }
+    },
+    "product_primary": true
+}

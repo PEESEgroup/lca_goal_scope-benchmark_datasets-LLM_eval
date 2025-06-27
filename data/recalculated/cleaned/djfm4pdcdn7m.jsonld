@@ -1,0 +1,68 @@
+{
+    "siteDescription": "",
+    "siteName": "",
+    "siteType": "",
+    "siteLocation": "",
+    "cycleDescription": "",
+    "functionalUnit": "relative",
+    "systemBoundaryCompleteness": {
+        "electricityFuel": true,
+        "material": false,
+        "fertiliser": true,
+        "seed": false,
+        "pesticideVeterinaryDrug": false,
+        "soilAmendment": true,
+        "water": false,
+        "product": true,
+        "cropResidue": false,
+        "excreta": true,
+        "animalFeed": true,
+        "transport": false,
+        "liveAnimalInput": false,
+        "operation": false,
+        "waste": false,
+        "otherChemical": false,
+        "ingredient": true,
+        "animalPopulation": true,
+        "freshForage": true,
+        "@type": "Completeness"
+    },
+    "DOI": "",
+    "title": "Klimawirkungen der Landwirtschaft in Deutschland",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
+    "name": "Pig - Germany - 2004",
+    "allocationMethod": "economic",
+    "functionalUnitQuantity": 1,
+    "product_fate": "",
+    "product_properties": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 115,
+            "share": 100,
+            "@type": "Property"
+        },
+        "1": {
+            "term": {
+                "@type": "Term",
+                "name": "Processing conversion, liveweight to cold carcass weight",
+                "termType": "property",
+                "@id": "processingConversionLiveweightToColdCarcassWeight",
+                "units": "%"
+            },
+            "value": 79,
+            "share": 100,
+            "@type": "Property"
+        }
+    },
+    "product_primary": true
+}

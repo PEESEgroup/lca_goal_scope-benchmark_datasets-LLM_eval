@@ -1,0 +1,73 @@
+{
+    "siteDescription": "Organic - The outdoor run must be accessible for at least 1/3 of their life.",
+    "siteName": "Animal housing - Netherlands - Organic - The outdoor run must...",
+    "siteType": "animal housing",
+    "siteLocation": "Netherlands",
+    "cycleDescription": "Broiler production - Organic",
+    "functionalUnit": "relative",
+    "systemBoundaryCompleteness": {
+        "electricityFuel": true,
+        "operation": false,
+        "material": false,
+        "fertiliser": true,
+        "seed": true,
+        "pesticideVeterinaryDrug": false,
+        "soilAmendment": true,
+        "water": true,
+        "product": true,
+        "cropResidue": true,
+        "excreta": true,
+        "animalFeed": true,
+        "waste": false,
+        "liveAnimalInput": true,
+        "transport": false,
+        "ingredient": true,
+        "otherChemical": true,
+        "animalPopulation": true,
+        "freshForage": true,
+        "@type": "Completeness"
+    },
+    "DOI": "10.1080/00071660903140999",
+    "title": "Economic, ecological, and social performance of conventional and organic broiler production in the Netherlands",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
+    "name": "Broiler chicken - Netherlands - 2003",
+    "allocationMethod": "economic",
+    "functionalUnitQuantity": 1,
+    "product_fate": "",
+    "product_properties": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "name": "Slaughter age",
+                "termType": "property",
+                "@id": "slaughterAge",
+                "units": "days"
+            },
+            "value": 75.5,
+            "min": 70,
+            "max": 81,
+            "statsDefinition": "other observations",
+            "share": 100,
+            "@type": "Property"
+        },
+        "1": {
+            "term": {
+                "@type": "Term",
+                "name": "Weight at slaughter",
+                "termType": "property",
+                "@id": "weightAtSlaughter",
+                "units": "kg liveweight / head"
+            },
+            "value": 2.6,
+            "max": 3.05,
+            "statsDefinition": "other observations",
+            "share": 100,
+            "@type": "Property"
+        }
+    },
+    "product_primary": true
+}

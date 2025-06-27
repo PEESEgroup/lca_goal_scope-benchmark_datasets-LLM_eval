@@ -1,0 +1,70 @@
+{
+    "cycleDescription": "Control merit cows, in low forage system (conventional housed system with animals confined all year round)",
+    "functionalUnit": "relative",
+    "systemBoundaryCompleteness": {
+        "electricityFuel": true,
+        "transport": false,
+        "material": false,
+        "fertiliser": true,
+        "ingredient": true,
+        "otherChemical": true,
+        "seed": true,
+        "pesticideVeterinaryDrug": false,
+        "soilAmendment": true,
+        "water": false,
+        "product": false,
+        "cropResidue": true,
+        "excreta": false,
+        "animalFeed": true,
+        "freshForage": true,
+        "liveAnimalInput": true,
+        "animalPopulation": true,
+        "waste": false,
+        "operation": false,
+        "@type": "Completeness"
+    },
+    "DOI": "10.3389/fsufs.2021.588158",
+    "title": "Effect of Nutritional Variation and LCA Methodology on the Carbon Footprint of Milk Production From Holstein Friesian Dairy Cows",
+    "notes": "Suspect that the diesel, electricity and petrol use recorded is for the full system (i.e. including for growing fodder crops on farm), as opposed to simply the animal rearing cycle (pasture and housing) under which it is currently recorded. Author has been emailed to ask for disaggregated data (incl.  more specific data on crop cultivation), but cannot supply this at this time. Quantity of meat/live animals sold as co-products is also missing. The study states that \"a whole farm approach is taken and emissions are allocated between milk and meat using no allocation to meat and 100% to milk\".",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
+    "name": "Milk, cow, raw - United Kingdom - 2010-12-01",
+    "allocationMethod": "economic",
+    "functionalUnitQuantity": 1,
+    "product_fate": "",
+    "product_properties": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "Fat content",
+                "units": "%",
+                "@id": "fatContent"
+            },
+            "value": 3.6,
+            "sd": 0.13,
+            "statsDefinition": "cycles",
+            "methodModelDescription": "Milk samples taken once a week and analysed for fat and protein content using a Milkoscan minor spectrophotometer and calibrated by methods of AOAC (2000).",
+            "share": 100,
+            "@type": "Property"
+        },
+        "1": {
+            "term": {
+                "@type": "Term",
+                "name": "Crude protein content",
+                "termType": "property",
+                "@id": "crudeProteinContent",
+                "units": "%"
+            },
+            "value": 3.1,
+            "sd": 0.06,
+            "statsDefinition": "cycles",
+            "methodModelDescription": "Milk samples taken once a week and analysed for fat and protein content using a Milkoscan minor spectrophotometer and calibrated by methods of AOAC (2000).",
+            "share": 100,
+            "@type": "Property"
+        }
+    },
+    "product_primary": true
+}

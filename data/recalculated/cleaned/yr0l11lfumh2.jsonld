@@ -1,0 +1,68 @@
+{
+    "siteDescription": "",
+    "siteName": "Animal housing - Italy",
+    "siteType": "animal housing",
+    "siteLocation": "Italy",
+    "cycleDescription": "Mountainous Farms - representative of farms located in Alpine mountain areas that produce milk destined for the Trentingrana cheese making. For this farm system, silage feed was not allowed. The cattle were fed without silage feed and protein ingredients, but mainly with forage and compound feed, with small amounts of alfalfa and corn feed. The herd grazed for four months during the summer season, except for the calves.",
+    "functionalUnit": "relative",
+    "systemBoundaryCompleteness": {
+        "electricityFuel": true,
+        "transport": false,
+        "material": false,
+        "fertiliser": true,
+        "seed": true,
+        "pesticideVeterinaryDrug": false,
+        "soilAmendment": true,
+        "water": true,
+        "product": true,
+        "cropResidue": true,
+        "excreta": true,
+        "animalFeed": true,
+        "animalPopulation": true,
+        "waste": false,
+        "operation": false,
+        "freshForage": true,
+        "ingredient": true,
+        "liveAnimalInput": true,
+        "otherChemical": true,
+        "@type": "Completeness"
+    },
+    "DOI": "10.1016/j.spc.2023.02.012",
+    "title": "The environmental impact of permanent meadows-based farms: A comparison among different dairy farm management systems of an Italian cheese",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
+    "name": "Milk, cow, raw (FPCM) - Italy - 2019",
+    "allocationMethod": "economic",
+    "functionalUnitQuantity": 1,
+    "product_fate": "",
+    "product_properties": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "name": "Crude protein content",
+                "termType": "property",
+                "@id": "crudeProteinContent",
+                "units": "%"
+            },
+            "value": 3.4,
+            "share": 100,
+            "@type": "Property"
+        },
+        "1": {
+            "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "Fat content",
+                "units": "%",
+                "@id": "fatContent"
+            },
+            "value": 3.99,
+            "share": 100,
+            "@type": "Property"
+        }
+    },
+    "product_primary": true
+}

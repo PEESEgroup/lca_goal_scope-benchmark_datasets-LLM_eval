@@ -1,0 +1,56 @@
+{
+    "siteDescription": "",
+    "siteName": "Permanent pasture - United Kingdom",
+    "siteType": "permanent pasture",
+    "siteLocation": "United Kingdom",
+    "cycleDescription": "Cycle to reflect standard practice of beef production in the UK. It represents a fully integrated system, where production of replacement stock and finishing of production stock takes place on the same enterprise.",
+    "functionalUnit": "relative",
+    "systemBoundaryCompleteness": {
+        "electricityFuel": true,
+        "transport": false,
+        "material": false,
+        "fertiliser": false,
+        "ingredient": true,
+        "otherChemical": true,
+        "seed": false,
+        "pesticideVeterinaryDrug": false,
+        "soilAmendment": true,
+        "water": false,
+        "product": true,
+        "cropResidue": true,
+        "excreta": false,
+        "animalFeed": true,
+        "freshForage": false,
+        "liveAnimalInput": true,
+        "animalPopulation": true,
+        "waste": false,
+        "operation": false,
+        "@type": "Completeness"
+    },
+    "DOI": "10.1016/j.jclepro.2019.06.171",
+    "title": "Understanding uncertainty in the carbon footprint of beef production",
+    "notes": "Recorded GWP value - unlear whether the \"per kg LW\" FU quoted for the figure given in the text refers to liveweight of both finished and cull cattle, or just the finished steers. Suckling calves and finishing animals from 13 to 19 months were at pasture and did not require fed rations. All other animal classes spent 5 months housed (and 7 months at pasture).",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
+    "name": "Beef cattle, steer - United Kingdom - 2017",
+    "allocationMethod": "mass",
+    "functionalUnitQuantity": 1,
+    "product_fate": "",
+    "product_properties": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 600,
+            "share": 100,
+            "@type": "Property"
+        }
+    },
+    "product_primary": true
+}

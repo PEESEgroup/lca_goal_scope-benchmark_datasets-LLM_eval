@@ -1,0 +1,56 @@
+{
+    "siteDescription": "",
+    "siteName": "Animal housing - Queensland, Australia",
+    "siteType": "animal housing",
+    "siteLocation": "Australia - Queensland",
+    "cycleDescription": "This cycle represent major input for breeding and hatching phase for Queensland.",
+    "functionalUnit": "relative",
+    "systemBoundaryCompleteness": {
+        "electricityFuel": true,
+        "material": false,
+        "fertiliser": true,
+        "seed": true,
+        "pesticideVeterinaryDrug": true,
+        "otherChemical": true,
+        "soilAmendment": true,
+        "water": true,
+        "product": true,
+        "cropResidue": true,
+        "excreta": false,
+        "animalFeed": true,
+        "transport": true,
+        "waste": false,
+        "liveAnimalInput": true,
+        "operation": false,
+        "animalPopulation": true,
+        "freshForage": true,
+        "ingredient": true,
+        "@type": "Completeness"
+    },
+    "DOI": "10.1016/j.jclepro.2016.06.086",
+    "title": "Resource use and environmental impacts from Australian chicken meat production",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
+    "name": "Broiler chicken, chick - Australia - 2010",
+    "allocationMethod": "none required",
+    "functionalUnitQuantity": 1,
+    "product_fate": "",
+    "product_properties": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "name": "Age",
+                "termType": "property",
+                "@id": "age",
+                "units": "days"
+            },
+            "value": 1,
+            "share": 100,
+            "@type": "Property"
+        }
+    },
+    "product_primary": true
+}

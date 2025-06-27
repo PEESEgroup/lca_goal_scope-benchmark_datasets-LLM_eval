@@ -2,11 +2,11 @@
     "siteDescription": "",
     "siteName": "Animal housing - Teagasc Johnstown Castle Research Farm - Ireland",
     "siteType": "animal housing",
-    "siteLocation": "Ireland - Wexford (Administrative County), Ireland",
+    "siteLocation": "Ireland",
     "cycleDescription": "15MO treatment where at the end of their treatment, Bulls are finished indoors on a concentrate ad libitum diet for 200 days and slaughtered at 15 months of age - (this is the finishing stage)",
     "functionalUnit": "relative",
     "systemBoundaryCompleteness": {
-        "electricityFuel": true,
+        "electricityFuel": false,
         "transport": true,
         "material": false,
         "fertiliser": true,
@@ -25,13 +25,7 @@
         "ingredient": true,
         "liveAnimalInput": true,
         "otherChemical": true,
-        "@type": "Completeness",
-        "updated": [
-            "electricityFuel"
-        ],
-        "updatedVersion": [
-            "0.70.0"
-        ]
+        "@type": "Completeness"
     },
     "DOI": "10.1016/j.agsy.2017.03.007",
     "title": "An economic and greenhouse gas emissions evaluation of pasture-based dairy calf-to-beef production systems",
@@ -41,7 +35,7 @@
     "intendedAudience": "",
     "comparativeAssertions": "",
     "name": "Beef cattle, bull - Ireland - 2014",
-    "allocationMethod": "economic",
+    "allocationMethod": "none",
     "functionalUnitQuantity": 1,
     "product_fate": "",
     "product_properties": {

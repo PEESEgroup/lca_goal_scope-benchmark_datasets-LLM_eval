@@ -1,0 +1,93 @@
+{
+    "siteDescription": "They do not provide much information on site.",
+    "siteName": "Animal housing - Denmark - They do not provide much infor...",
+    "siteType": "animal housing",
+    "siteLocation": "Denmark",
+    "cycleDescription": "Sow herds-2012",
+    "functionalUnit": "relative",
+    "systemBoundaryCompleteness": {
+        "electricityFuel": false,
+        "operation": false,
+        "material": false,
+        "fertiliser": true,
+        "seed": true,
+        "pesticideVeterinaryDrug": false,
+        "soilAmendment": true,
+        "water": false,
+        "product": true,
+        "cropResidue": true,
+        "excreta": false,
+        "animalFeed": false,
+        "waste": false,
+        "liveAnimalInput": true,
+        "transport": false,
+        "otherChemical": true,
+        "ingredient": true,
+        "freshForage": true,
+        "animalPopulation": true,
+        "@type": "Completeness"
+    },
+    "DOI": "",
+    "title": "LANDSGENNEMSNIT FOR PRODUKTIVITET SVINEPRODUKTIONEN 2016",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
+    "name": "Pig, piglet - Denmark - 2012",
+    "allocationMethod": "economic",
+    "functionalUnitQuantity": 1,
+    "product_fate": "",
+    "product_properties": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "name": "Weight at weaning",
+                "termType": "property",
+                "@id": "weightAtWeaning",
+                "units": "kg liveweight / head"
+            },
+            "value": 7,
+            "share": 100,
+            "@type": "Property"
+        },
+        "1": {
+            "term": {
+                "@type": "Term",
+                "name": "Mortality rate",
+                "termType": "property",
+                "@id": "mortalityRate",
+                "units": "%"
+            },
+            "value": 22.4,
+            "description": "The overall mortality including deaths during/at birth and until the piglets are weaned.",
+            "share": 100,
+            "@type": "Property"
+        },
+        "2": {
+            "term": {
+                "@type": "Term",
+                "name": "Weaning time",
+                "termType": "property",
+                "@id": "weaningTime",
+                "units": "days"
+            },
+            "value": 31,
+            "share": 100,
+            "@type": "Property"
+        },
+        "3": {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 7,
+            "share": 100,
+            "@type": "Property"
+        }
+    },
+    "product_primary": true
+}

@@ -1,0 +1,62 @@
+{
+    "siteDescription": "Cerrado (Goi\u00e1s, Mato Grosso do Sul, Mato Grosso, Tocantins and Minas Gerais states)",
+    "siteName": "Permanent pasture - Brazil - Cerrado (Goi\u00e1s, Mato Grosso do...",
+    "siteType": "permanent pasture",
+    "siteLocation": "Brazil",
+    "cycleDescription": "Beef, fertilized Guinea grass (Panicum maximum cv. Tanz\u00e2nia) pasture + 75-day finishing period in confinement (Scenario 5)",
+    "functionalUnit": "1 ha",
+    "systemBoundaryCompleteness": {
+        "electricityFuel": true,
+        "material": false,
+        "fertiliser": true,
+        "seed": true,
+        "pesticideVeterinaryDrug": false,
+        "soilAmendment": true,
+        "water": true,
+        "product": true,
+        "cropResidue": false,
+        "excreta": true,
+        "animalFeed": true,
+        "transport": false,
+        "liveAnimalInput": false,
+        "waste": false,
+        "operation": false,
+        "freshForage": true,
+        "animalPopulation": true,
+        "ingredient": true,
+        "otherChemical": true,
+        "@type": "Completeness",
+        "updated": [
+            "freshForage"
+        ],
+        "updatedVersion": [
+            "0.70.0"
+        ]
+    },
+    "DOI": "10.1016/j.agsy.2015.12.007",
+    "title": "Impact of the intensification of beef production in Brazil on greenhouse gas emissions and land use",
+    "notes": "No end date for Cycle provided. Assumed to be 2014. Error in electricity unit corrected here (Table 5 reports values in kWh, not MWh). Mineral salts described as 60% CaCO3 and 40% Ca3(PO4)2 in the text. Age at slaughter from supplementary material, sheet \"B1, Herd composition\". Error in carcass weight (Supplementary matrial, sheet B1 \"Herd composition\") corrected here (see Joseph Poore edits). Vaccines used, but data not provided.",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
+    "name": "Beef cattle, cow - Brazil - 2014",
+    "allocationMethod": "economic",
+    "functionalUnitQuantity": 1,
+    "product_fate": "",
+    "product_properties": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 430,
+            "share": 100,
+            "@type": "Property"
+        }
+    },
+    "product_primary": true
+}
