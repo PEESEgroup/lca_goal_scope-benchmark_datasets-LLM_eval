@@ -15,10 +15,26 @@ def main():
 
             # normalize data (completeness)
             table_data = pd.json_normalize(data)
-            test = pd.json_normalize(table_data["product_properties"])
 
-            # drop unnecessary completeness columns
         df = pd.concat([df, table_data])
+
+    # drop unnecessary columns
+    df = df.drop(columns=['systemBoundaryCompleteness.@type', 'systemBoundaryCompleteness.updatedVersion', "product_properties.0.term.@type",
+                          "product_properties.0.term.termType", "product_properties.0.term.@id", "product_properties.0.@type",
+                          "product_properties.1.term.@type", "product_properties.1.min", "product_properties.1.sd",
+                          "product_properties.1.term.termType", "product_properties.1.term.@id", "product_properties.2.term.@id",
+                          "product_properties.1.@type", "product_properties", "product_properties.0.date", "product_properties.2.@type",
+                          "product_properties.0.min", "product_properties.0.max", "product_properties.2.methodClassification",
+                          "product_properties.2.methodClassificationDescription", "product_properties.0.statsDefinition",
+                          "product_properties.1.max", "product_properties.1.statsDefinition", "product_properties.0.sd", "product_properties.1.methodClassification",
+                          "product_properties.1.methodClassificationDescription", "product_properties.0.methodClassification",
+                          "product_properties.0.methodClassificationDescription", "product_properties.3.term.@type", "product_properties.3.term.termType",
+                          "product_properties.3.term.@id", "product_properties.3.@type", "product_properties.0.methodModelDescription",
+                          "product_properties.1.methodModelDescription", "product_properties.2.term.@type", "product_properties.2.term.termType"
+                          ])
+
+    # relabel columns - Hestia says FU are given by the term of the product (units)
+    df.columns = df.columns.str.replace('units', 'functionalUnit')
 
     # write out file
     df.to_csv("data/input_data.csv", index=False)
