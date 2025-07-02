@@ -3,7 +3,7 @@ import pandas as pd
 
 
 def intendedApplication(row):
-    if row["intendedApplication"].empty:
+    if len(row["intendedApplication"])==0:
         return ""
     else:
         return {"prompt": "For this production system, " + row["systemDescription"] + ", what is the intended application of the LCA study?",
@@ -12,7 +12,7 @@ def intendedApplication(row):
 
 
 def studyReasons(row):
-    if row["studyReasons"].empty:
+    if len(row["studyReasons"])==0:
         return ""
     else:
         return {"prompt": "For this production system, " + row["systemDescription"] + ", what are the reasons for carrying out the LCA study?",
@@ -21,7 +21,7 @@ def studyReasons(row):
 
 
 def targetAudience(row):
-    if row["intendedAudience"].empty:
+    if len(row["intendedAudience"])==0:
         return ""
     else:
         return {"prompt": "For this production system, " + row["systemDescription"] + ", what is the target audience of the LCA study?",
@@ -30,7 +30,7 @@ def targetAudience(row):
 
 
 def comparativeAssertions(row):
-    if row["comparativeAssertions"].empty:
+    if len(row["comparativeAssertions"])==0:
         return ""
     else:
         return {"prompt": "For this production system, " + row["systemDescription"] + ", are these results to be used in comparative assertions?",
@@ -61,19 +61,23 @@ def main(directory):
     df["targetAudienceQA"] = df.apply(lambda row: targetAudience(row), axis=1)
 
     # •	Comparative studies to be disclosed to the public
-    # •	Commissioner of the study and other influential actors
-    # •	Deliverables
-    # •	Object of the assessment
-    # •	LCI modelling framework and handling of multifunctional processes
-    # •	System boundaries and completeness requirements
-    # •	Representativeness of LCI data
-    # •	Preparation of the basis for impact assessment
-
-    # •	Special requirements for system comparisons
     df["comparativeAssertionsQA"] = df.apply(lambda row: comparativeAssertions(row), axis=1)
 
-    # •	Needs for critical review
-    # •	Planning reporting of results
+    # •	Commissioner of the study and other influential actors
+
+    # •	Deliverables - not included, skipped
+    # •	Object of the assessment
+
+    # •	LCI modelling framework and handling of multifunctional processes - allocation here
+
+    # •	System boundaries and completeness requirements - big boi
+
+    # •	Representativeness of LCI data, not available, skipping
+    # •	Preparation of the basis for impact assessment - LCIA method here [not in LCI Modelling framework]
+
+    # •	Special requirements for system comparisons - not included, skipped
+    # •	Needs for critical review -  not included, skipped
+    # •	Planning reporting of results - not included, skipped
 
     # melt the data table and convert it into an array
     data = []
