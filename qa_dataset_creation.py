@@ -3,14 +3,19 @@ import pandas as pd
 
 
 def main(directory):
+    # read in data
     df = pd.read_csv(directory + "input_data.csv")
+    # replace nan with empty strings
+    df = df.fillna('')
 
-    # reference output format
-    # {"prompt": <prompt>, "referenceResponse": <answer>, "category": <category>}
+    # reference output format - add this string as a new column in pandas
+    # {"prompt": <prompt>, "referenceResponse": [<answer>], "category": <category>}
 
-    # add this string as a new column in pandas
+    # create a system description column
+    df["systemDescription"] = df["siteType"] + " producing " + df["name"] + ". Additional description: " + df["cycleDescription"]
 
     #•	Intended application of results
+    df["intendedApplicationResults"] = "A"
     # •	Limitations due to methodological choices
     # •	Decision context and reasons for carrying out the study
     # •	Target audience
