@@ -1,5 +1,6 @@
 import json
 import pandas as pd
+import re
 
 
 def intendedApplication(row):
@@ -66,6 +67,32 @@ def allocation(row):
                 "category": "Allocation Method"}
 
 
+def systemBoundary(row):
+    data = []
+    for i in row.index.to_list():
+        if "systemBoundaryCompleteness" in i:
+            # replace camel case part of string so that it can go in the question
+            sb_part = i.split('.')[1]
+            sb_part = re.sub(r'([A-Z])', r' \1', sb_part).strip().lower()
+
+            # standard output of questions
+            if len(str(row[str(i)])) == 0:
+                return ""
+            else:
+                data.append({"prompt": "True or False. For this production system, " + row[
+                    "systemDescription"] + ", does the system boundary contain " + sb_part + "? ",
+                        "referenceResponse": [str(row[str(i)]).capitalize()],
+                        "category": "System Boundary Completeness"})
+    return data
+
+
+def systemDescription(row):
+    names = row["name"].split('-')
+    if len(row["cycleDescription"]) > 0:
+        return row["siteType"] + " producing " + names[0] + " in " + names[1] + ". Additional description: " + row["cycleDescription"]
+    return row["siteType"] + " producing " + names[0] + " in " + names[1] + "."
+
+
 def main(directory):
     # read in data
     df = pd.read_csv(directory + "input_data.csv")
@@ -76,7 +103,7 @@ def main(directory):
     # {"prompt": <prompt>, "referenceResponse": [<answer>], "category": <category>}
 
     # create a system description column
-    df["systemDescription"] = df["siteType"] + " producing " + df["name"] + ". Additional description: " + df["cycleDescription"]
+    df["systemDescription"] = df.apply(lambda row: systemDescription(row), axis=1)
 
     #•	Intended application of results
     df["intendedApplicationQA"] =  df.apply(lambda row: intendedApplication(row), axis=1)
@@ -102,6 +129,7 @@ def main(directory):
     df["allocationQA"] = df.apply(lambda row: allocation(row), axis=1)
 
     # •	System boundaries and completeness requirements - big boi
+    df["systemBoundaryQA"] = df.apply(lambda row: systemBoundary(row), axis=1)
 
     # •	Representativeness of LCI data, not available, skipping
     # •	Preparation of the basis for impact assessment - LCIA method here [not in LCI Modelling framework]
