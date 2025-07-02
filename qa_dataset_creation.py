@@ -37,6 +37,35 @@ def comparativeAssertions(row):
                 "referenceResponse": [row["comparativeAssertions"]],
                 "category": "Comparative Assertion"}
 
+
+def actors(row):
+    #TODO: fix once list of actors is created in data processing
+    if len(row["comparativeAssertions"])==0:
+        return ""
+    else:
+        return {"prompt": "For this production system, " + row["systemDescription"] + ", are these results to be used in comparative assertions?",
+                "referenceResponse": [row["comparativeAssertions"]],
+                "category": "Comparative Assertion"}
+
+def product(row):
+    if len(row["name"]) == 0:
+        return ""
+    else:
+        return {"prompt": "For this production system, " + row[
+            "systemDescription"] + ", what product is the object of the assessment?",
+                "referenceResponse": [row["name"].split('-')[0].strip()],
+                "category": "Object of Assessment"}
+
+def allocation(row):
+    if len(row["allocationMethod"]) == 0:
+        return ""
+    else:
+        return {"prompt": "For this production system, " + row[
+            "systemDescription"] + ", what is the appropriate allocation method? If an allocation method isn't needed, respond with \"none\".",
+                "referenceResponse": [row["allocationMethod"], "none" if row["allocationMethod"].lower() in "none" else ""],
+                "category": "Allocation Method"}
+
+
 def main(directory):
     # read in data
     df = pd.read_csv(directory + "input_data.csv")
@@ -53,7 +82,6 @@ def main(directory):
     df["intendedApplicationQA"] =  df.apply(lambda row: intendedApplication(row), axis=1)
 
     # •	Limitations due to methodological choices - not available, skipping
-
     # •	Decision context and reasons for carrying out the study
     df["studyReasonsQA"] = df.apply(lambda row: studyReasons(row), axis=1)
 
@@ -64,16 +92,20 @@ def main(directory):
     df["comparativeAssertionsQA"] = df.apply(lambda row: comparativeAssertions(row), axis=1)
 
     # •	Commissioner of the study and other influential actors
+    df["actorsQA"] = df.apply(lambda row: comparativeAssertions(row), axis=1)
 
     # •	Deliverables - not included, skipped
-    # •	Object of the assessment
+    # •	Object of the assessment - excluding location and date
+    df["productQA"] = df.apply(lambda row: product(row), axis=1)  # we would expect llms to excel at this one because this info is in the given context
 
     # •	LCI modelling framework and handling of multifunctional processes - allocation here
+    df["allocationQA"] = df.apply(lambda row: allocation(row), axis=1)
 
     # •	System boundaries and completeness requirements - big boi
 
     # •	Representativeness of LCI data, not available, skipping
     # •	Preparation of the basis for impact assessment - LCIA method here [not in LCI Modelling framework]
+    # TODO: fix processing of LCIA method in data cleaning for non-recalculated sources
 
     # •	Special requirements for system comparisons - not included, skipped
     # •	Needs for critical review -  not included, skipped

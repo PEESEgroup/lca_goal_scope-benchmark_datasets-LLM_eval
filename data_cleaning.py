@@ -91,6 +91,7 @@ def main(directory_path):
         with open("./data/Source/{}".format(source) + extension, 'r', encoding='utf-8') as f_source:
             try:
                 data_source = json.load(f_source)
+                # TODO: get list of actors (authors of study) and farm names (from source?) if possible
                 if "bibliography" in data_source:
                     if "documentDOI" in data_source["bibliography"]:
                         lca_data['DOI'] = data_source["bibliography"]["documentDOI"]
@@ -144,6 +145,7 @@ def main(directory_path):
             lca_data['allocationMethod'] = data['allocationMethod']
         else:
             lca_data['allocationMethod'] = ""
+        # TODO: if not recalculated, check if there is only 1 LCI modeling framework used
         # •	System boundaries and completeness requirements - functional unit quantity, product, info in cycle.json
         if "functionalUnitQuantity" in data:
             lca_data['functionalUnitQuantity'] = data['functionalUnitQuantity']
@@ -167,9 +169,9 @@ def main(directory_path):
             lca_data['product_fate'] = ""
             lca_data['product_properties'] = ""
             lca_data['product_primary'] = ""
-        # •	Representativeness of LCI data - not available, but recalculated by Hestia
+        # •	Representativeness of LCI data - not available
         # •	Preparation of the basis for impact assessment - not available in data
-        # •	Special requirements for system comparisons - in source
+        # •	Special requirements for system comparisons - not available in data
         # •	Needs for critical review - not available in data
         # •	Planning reporting of results - not available in data, clearly results were reported
 
