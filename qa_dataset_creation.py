@@ -1,42 +1,44 @@
 import json
 import pandas as pd
 import re
+import random
+import itertools
 
 
 def intendedApplication(row):
     if len(row["intendedApplication"])==0:
         return ""
     else:
-        return {"prompt": "For this production system, " + row["systemDescription"] + ", what is the intended application of the LCA study?",
+        return [{"prompt": "For this production system, " + row["systemDescription"] + ", what is the intended application of the LCA study?",
                 "referenceResponse": [row["intendedApplication"]],
-                "category": "Intended Application"}
+                "category": "Intended Application"}]
 
 
 def studyReasons(row):
     if len(row["studyReasons"])==0:
         return ""
     else:
-        return {"prompt": "For this production system, " + row["systemDescription"] + ", what are the reasons for carrying out the LCA study?",
+        return [{"prompt": "For this production system, " + row["systemDescription"] + ", what are the reasons for carrying out the LCA study?",
                 "referenceResponse": [row["studyReasons"]],
-                "category": "Study Reasons"}
+                "category": "Study Reasons"}]
 
 
 def targetAudience(row):
     if len(row["intendedAudience"])==0:
         return ""
     else:
-        return {"prompt": "For this production system, " + row["systemDescription"] + ", what is the target audience of the LCA study?",
+        return [{"prompt": "For this production system, " + row["systemDescription"] + ", what is the target audience of the LCA study?",
                 "referenceResponse": [row["intendedAudience"]],
-                "category": "Target Audience"}
+                "category": "Target Audience"}]
 
 
 def comparativeAssertions(row):
     if len(row["comparativeAssertions"])==0:
         return ""
     else:
-        return {"prompt": "For this production system, " + row["systemDescription"] + ", are these results to be used in comparative assertions?",
+        return [{"prompt": "For this production system, " + row["systemDescription"] + ", are these results to be used in comparative assertions?",
                 "referenceResponse": [row["comparativeAssertions"]],
-                "category": "Comparative Assertion"}
+                "category": "Comparative Assertion"}]
 
 
 def actors(row):
@@ -44,27 +46,27 @@ def actors(row):
     if len(row["comparativeAssertions"])==0:
         return ""
     else:
-        return {"prompt": "For this production system, " + row["systemDescription"] + ", are these results to be used in comparative assertions?",
+        return [{"prompt": "For this production system, " + row["systemDescription"] + ", are these results to be used in comparative assertions?",
                 "referenceResponse": [row["comparativeAssertions"]],
-                "category": "Comparative Assertion"}
+                "category": "Comparative Assertion"}]
 
 def product(row):
     if len(row["name"]) == 0:
         return ""
     else:
-        return {"prompt": "For this production system, " + row[
+        return [{"prompt": "For this production system, " + row[
             "systemDescription"] + ", what product is the object of the assessment?",
                 "referenceResponse": [row["name"].split('-')[0].strip()],
-                "category": "Object of Assessment"}
+                "category": "Object of Assessment"}]
 
 def allocation(row):
     if len(row["allocationMethod"]) == 0:
         return ""
     else:
-        return {"prompt": "For this production system, " + row[
+        return [{"prompt": "For this production system, " + row[
             "systemDescription"] + ", what is the appropriate allocation method? If an allocation method isn't needed, respond with \"none\".",
                 "referenceResponse": [row["allocationMethod"], "none" if row["allocationMethod"].lower() in "none" else ""],
-                "category": "Allocation Method"}
+                "category": "Allocation Method"}]
 
 
 def systemBoundary(row):
@@ -141,14 +143,27 @@ def main(directory):
 
     # melt the data table and convert it into an array
     data = []
-    output_filename = "qa_dataset.jsonl"
+    output_filename = directory + "qa_dataset.jsonl"
 
     # TODO: there is a limit of 1000 prompts per job in aws, so we might need to create multiple files
+
+    # append all column values to list
+    df = df[[col for col in df.columns if "QA" in col]]
+    for i in df.columns:
+        data.append(df[str(i)].tolist())
+
+    # unnest sublists and remove empty strings
+    data = list(itertools.chain.from_iterable(data))
+    data = [item for item in data if item != ""]
+
+    # shuffle list for training/testing purposes
+    random.seed(42)
+    random.shuffle(data)
 
     # write out file
     with open(output_filename, 'w') as f:
         for item in data:
-            json_line = json.dumps(item)
+            json_line = json.dumps(item[0])
             f.write(json_line + '\n')
 
 
