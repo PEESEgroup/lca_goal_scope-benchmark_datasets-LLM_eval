@@ -2,6 +2,22 @@ import json
 import pandas as pd
 
 
+def intendedApplication(row):
+    if row["intendedApplication"].empty:
+        return ""
+    else:
+        return {"prompt": "For this production system, " + row["systemDescription"] + ", what is the intended application of the LCA study?",
+                "referenceResponse": [row["intendedApplication"]],
+                "category": "Intended Application"}
+
+def studyReasons(row):
+    if row["studyReasons"].empty:
+        return ""
+    else:
+        return {"prompt": "For this production system, " + row["systemDescription"] + ", what are the reasons for carrying out the LCA study?",
+                "referenceResponse": [row["studyReasons"]],
+                "category": "Study Reasons"}
+
 def main(directory):
     # read in data
     df = pd.read_csv(directory + "input_data.csv")
@@ -15,8 +31,11 @@ def main(directory):
     df["systemDescription"] = df["siteType"] + " producing " + df["name"] + ". Additional description: " + df["cycleDescription"]
 
     #•	Intended application of results
-    df["intendedApplicationResults"] = "A"
-    # •	Limitations due to methodological choices
+    df["intendedApplicationQA"] =  df.apply(lambda row: intendedApplication(row), axis=1)
+
+    # •	Limitations due to methodological choices - not available, skipping
+    df["studyReasonsQA"] = df.apply(lambda row: studyReasons(row), axis=1)
+
     # •	Decision context and reasons for carrying out the study
     # •	Target audience
     # •	Comparative studies to be disclosed to the public
