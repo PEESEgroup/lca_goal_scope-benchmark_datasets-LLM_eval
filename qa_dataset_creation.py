@@ -42,13 +42,14 @@ def comparativeAssertions(row):
 
 
 def actors(row):
-    #TODO: fix once list of actors is created in data processing
-    if len(row["comparativeAssertions"])==0:
-        return ""
+    if len(row["organization"])==0:
+        return [{"prompt": "For this production system, " + row["systemDescription"] + ", who are the important actors?",
+                "referenceResponse": ["authors of the study", "authors and their collaborators"],
+                "category": "Actors"}]
     else:
-        return [{"prompt": "For this production system, " + row["systemDescription"] + ", are these results to be used in comparative assertions?",
-                "referenceResponse": [row["comparativeAssertions"]],
-                "category": "Comparative Assertion"}]
+        return [{"prompt": "For this production system, " + row["systemDescription"] + ", who are the important actors?",
+                "referenceResponse": [row["organization"], "authors of the study", "authors and their collaborators"],
+                "category": "Actors"}]
 
 def product(row):
     if len(row["name"]) == 0:
@@ -91,8 +92,8 @@ def systemBoundary(row):
 def systemDescription(row):
     names = row["name"].split('-')
     if len(row["cycleDescription"]) > 0:
-        return row["siteType"] + " producing " + names[0] + " in " + names[1] + ". Additional description: " + row["cycleDescription"]
-    return row["siteType"] + " producing " + names[0] + " in " + names[1] + "."
+        return row["siteType"] + " producing " + names[0].strip() + "in" + names[1].strip() + ". Additional description: " + row["cycleDescription"]
+    return row["siteType"] + " producing " + names[0].strip() + " in " + names[1].strip() + "."
 
 
 def main(directory):
@@ -102,7 +103,7 @@ def main(directory):
     df = df.fillna('')
 
     # reference output format - add this string as a new column in pandas
-    # {"prompt": <prompt>, "referenceResponse": [<answer>], "category": <category>}
+    # [{"prompt": <prompt>, "referenceResponse": [<answer>], "category": <category>}]
 
     # create a system description column
     df["systemDescription"] = df.apply(lambda row: systemDescription(row), axis=1)
@@ -120,8 +121,9 @@ def main(directory):
     # •	Comparative studies to be disclosed to the public
     df["comparativeAssertionsQA"] = df.apply(lambda row: comparativeAssertions(row), axis=1)
 
-    # •	Commissioner of the study and other influential actors
-    df["actorsQA"] = df.apply(lambda row: comparativeAssertions(row), axis=1)
+    # •	Commissioner of the study and other influential actors - not currently included
+    # cannot easily get hestia to divulge actors and organizations, which are relevant here
+    # df["actorsQA"] = df.apply(lambda row: actors(row), axis=1)
 
     # •	Deliverables - not included, skipped
     # •	Object of the assessment - excluding location and date
@@ -136,6 +138,7 @@ def main(directory):
     # •	Representativeness of LCI data, not available, skipping
     # •	Preparation of the basis for impact assessment - LCIA method here [not in LCI Modelling framework]
     # TODO: fix processing of LCIA method in data cleaning for non-recalculated sources
+    # TODO: functional unit processing goes here as well
 
     # •	Special requirements for system comparisons - not included, skipped
     # •	Needs for critical review -  not included, skipped

@@ -40,6 +40,13 @@ def main(directory_path):
                             lca_data['siteType'] = data_site["siteType"]
                         else:
                             lca_data['siteType'] = ""
+                        """
+                        # removed for now because hestia doesn't divulge this information
+                        if "organisation" in data_site:
+                            lca_data['organization'] = data_site["organisation"]
+                        else:
+                            lca_data['organization'] = ""
+                        """
                         if "country" in data_site:
                             if "region" in data_site:
                                 lca_data['siteLocation'] = data_site["country"]["name"] + " - " + data_site["region"]["name"]
@@ -53,12 +60,14 @@ def main(directory_path):
                         lca_data['siteName'] = ""
                         lca_data['siteType'] = ""
                         lca_data['siteLocation'] = ""
+                        # lca_data['organization'] = ""
             except FileNotFoundError as e:
                 print(e, entry_name, "missing site")
                 lca_data['siteDescription'] = ""
                 lca_data['siteName'] = ""
                 lca_data['siteType'] = ""
                 lca_data['siteLocation'] = ""
+                # lca_data['organization'] = ""
 
         # •	Comparative studies to be disclosed to the public - some studies have comparative studies,
         # which I think are called cycles
@@ -91,7 +100,8 @@ def main(directory_path):
         with open("./data/Source/{}".format(source) + extension, 'r', encoding='utf-8') as f_source:
             try:
                 data_source = json.load(f_source)
-                # TODO: get list of actors (authors of study) and farm names (from source?) if possible
+                # while it would be nice to have a list of all the authors associated with the manuscript, getting actors from hestia isn't readily apparent
+                # it will be easiest to have the agent reply "authors of the study" or similar
                 if "bibliography" in data_source:
                     if "documentDOI" in data_source["bibliography"]:
                         lca_data['DOI'] = data_source["bibliography"]["documentDOI"]
@@ -181,5 +191,6 @@ def main(directory_path):
 
 
 if __name__ == "__main__":
-    main()
+    main("./data/")
+    main("./data/recalculated/")
 
