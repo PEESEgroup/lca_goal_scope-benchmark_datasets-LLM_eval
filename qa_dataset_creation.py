@@ -51,6 +51,7 @@ def actors(row):
                 "referenceResponse": [row["organization"], "authors of the study", "authors and their collaborators"],
                 "category": "Actors"}]
 
+
 def product(row):
     if len(row["name"]) == 0:
         return ""
@@ -60,13 +61,15 @@ def product(row):
                 "referenceResponse": [row["name"].split('-')[0].strip()],
                 "category": "Object of Assessment"}]
 
+
 def allocation(row):
     if len(row["allocationMethod"]) == 0:
         return ""
     else:
         return [{"prompt": "For this production system, " + row[
-            "systemDescription"] + ", what is the appropriate allocation method? Possible answers are: economic, mass, energy, biophysical, none, none required, system expansion.",
-                "referenceResponse": [row["allocationMethod"], "none" if row["allocationMethod"].lower() in "none" else ""],
+            "systemDescription"] + ", what is the appropriate allocation method? Possible answers are: economic, "
+                                   "mass, energy, biophysical, none, none required, system expansion.",
+                "referenceResponse": [row["allocationMethod"]],
                 "category": "Allocation Method"}]
 
 
@@ -91,31 +94,35 @@ def systemBoundary(row):
 
 def functionalUnit(row):
     fUnit = []
-    if len(row["functionalUnit"]) !=0:
+    if len(row["functionalUnit"]) != 0:
         fUnit.append(row["functionalUnit"])
     if len(row["product_properties.0.term.functionalUnit"]) !=0:
         fUnit.append(row["product_properties.0.term.functionalUnit"])
         fraction = row["product_properties.0.term.functionalUnit"].split('/')
         if len(fraction) > 1:
             fUnit.append(fraction[1].strip())
+            fUnit.append(fraction[0].strip() + "/" + fraction[1].strip())
         fUnit.append(fraction[0].strip())
     if len(row["product_properties.1.term.functionalUnit"]) != 0:
         fUnit.append(row["product_properties.1.term.functionalUnit"])
         fraction = row["product_properties.1.term.functionalUnit"].split('/')
         if len(fraction) > 1:
             fUnit.append(fraction[1].strip())
+            fUnit.append(fraction[0].strip() + "/" + fraction[1].strip())
         fUnit.append(fraction[0].strip())
     if len(row["product_properties.2.term.functionalUnit"]) != 0:
         fUnit.append(row["product_properties.2.term.functionalUnit"])
         fraction = row["product_properties.2.term.functionalUnit"].split('/')
         if len(fraction) > 1:
             fUnit.append(fraction[1].strip())
+            fUnit.append(fraction[0].strip() + "/" + fraction[1].strip())
         fUnit.append(fraction[0].strip())
     if len(row["product_properties.3.term.functionalUnit"]) != 0:
         fUnit.append(row["product_properties.3.term.functionalUnit"])
         fraction = row["product_properties.3.term.functionalUnit"].split('/')
         if len(fraction) > 1:
             fUnit.append(fraction[1].strip())
+            fUnit.append(fraction[0].strip() + "/" + fraction[1].strip())
         fUnit.append(fraction[0].strip())
 
     if len(fUnit) == 0:
