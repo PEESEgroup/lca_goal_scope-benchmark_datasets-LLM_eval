@@ -155,7 +155,6 @@ def main(directory_path):
             lca_data['allocationMethod'] = data['allocationMethod']
         else:
             lca_data['allocationMethod'] = ""
-        # TODO: if not recalculated, check if there is only 1 LCI modeling framework used
         # •	System boundaries and completeness requirements - functional unit quantity, product, info in cycle.json
         if "functionalUnitQuantity" in data:
             lca_data['functionalUnitQuantity'] = data['functionalUnitQuantity']

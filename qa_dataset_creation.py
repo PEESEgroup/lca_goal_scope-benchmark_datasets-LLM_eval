@@ -65,7 +65,7 @@ def allocation(row):
         return ""
     else:
         return [{"prompt": "For this production system, " + row[
-            "systemDescription"] + ", what is the appropriate allocation method? If an allocation method isn't needed, respond with \"none\".",
+            "systemDescription"] + ", what is the appropriate allocation method? Possible answers are: economic, mass, energy, biophysical, none, none required, system expansion.",
                 "referenceResponse": [row["allocationMethod"], "none" if row["allocationMethod"].lower() in "none" else ""],
                 "category": "Allocation Method"}]
 
@@ -89,11 +89,48 @@ def systemBoundary(row):
     return data
 
 
+def functionalUnit(row):
+    fUnit = []
+    if len(row["functionalUnit"]) !=0:
+        fUnit.append(row["functionalUnit"])
+    if len(row["product_properties.0.term.functionalUnit"]) !=0:
+        fUnit.append(row["product_properties.0.term.functionalUnit"])
+        fraction = row["product_properties.0.term.functionalUnit"].split('/')
+        if len(fraction) > 1:
+            fUnit.append(fraction[1].strip())
+        fUnit.append(fraction[0].strip())
+    if len(row["product_properties.1.term.functionalUnit"]) != 0:
+        fUnit.append(row["product_properties.1.term.functionalUnit"])
+        fraction = row["product_properties.1.term.functionalUnit"].split('/')
+        if len(fraction) > 1:
+            fUnit.append(fraction[1].strip())
+        fUnit.append(fraction[0].strip())
+    if len(row["product_properties.2.term.functionalUnit"]) != 0:
+        fUnit.append(row["product_properties.2.term.functionalUnit"])
+        fraction = row["product_properties.2.term.functionalUnit"].split('/')
+        if len(fraction) > 1:
+            fUnit.append(fraction[1].strip())
+        fUnit.append(fraction[0].strip())
+    if len(row["product_properties.3.term.functionalUnit"]) != 0:
+        fUnit.append(row["product_properties.3.term.functionalUnit"])
+        fraction = row["product_properties.3.term.functionalUnit"].split('/')
+        if len(fraction) > 1:
+            fUnit.append(fraction[1].strip())
+        fUnit.append(fraction[0].strip())
+
+    if len(fUnit) == 0:
+        return ""
+    else:
+        return [{"prompt": "For this production system, " + row["systemDescription"] + ", what is the functional unit?",
+                "referenceResponse": fUnit,
+                "category": "Intended Application"}]
+
+
 def systemDescription(row):
     names = row["name"].split('-')
     if len(row["cycleDescription"]) > 0:
-        return row["siteType"] + " producing " + names[0].strip() + "in" + names[1].strip() + ". Additional description: " + row["cycleDescription"]
-    return row["siteType"] + " producing " + names[0].strip() + " in " + names[1].strip() + "."
+        return row["siteType"] + " producing " + names[0].strip() + " in " + names[1].strip() + ". Additional description: " + row["cycleDescription"]
+    return row["siteType"] + " producing " + names[0].strip() + " in " + names[1].strip() + "N"
 
 
 def main(directory):
@@ -136,9 +173,8 @@ def main(directory):
     df["systemBoundaryQA"] = df.apply(lambda row: systemBoundary(row), axis=1)
 
     # •	Representativeness of LCI data, not available, skipping
-    # •	Preparation of the basis for impact assessment - LCIA method here [not in LCI Modelling framework]
-    # TODO: fix processing of LCIA method in data cleaning for non-recalculated sources
-    # TODO: functional unit processing goes here as well
+    # •	Preparation of the basis for impact assessment - LCIA method not included in base ImpactAssessment, too many versions in recalculated
+    df["functionalUnitQA"] = df.apply(lambda row: functionalUnit(row), axis=1)
 
     # •	Special requirements for system comparisons - not included, skipped
     # •	Needs for critical review -  not included, skipped
@@ -146,9 +182,6 @@ def main(directory):
 
     # melt the data table and convert it into an array
     data = []
-    output_filename = directory + "qa_dataset.jsonl"
-
-    # TODO: there is a limit of 1000 prompts per job in aws, so we might need to create multiple files
 
     # append all column values to list
     df = df[[col for col in df.columns if "QA" in col]]
@@ -163,8 +196,7 @@ def main(directory):
     random.seed(42)
     random.shuffle(data)
 
-    # write out file
-    with open(output_filename, 'w') as f:
+    with open(directory + "qa_dataset.jsonl", 'w') as f:
         for item in data:
             json_line = json.dumps(item[0])
             f.write(json_line + '\n')
