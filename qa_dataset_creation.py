@@ -6,50 +6,56 @@ import itertools
 
 
 def intendedApplication(row):
-    if len(row["intendedApplication"])==0:
+    if len(row["intendedApplication"]) == 0:
         return ""
     else:
-        return [{"prompt": "For this production system, " + row["systemDescription"] + ", what is the intended application of the LCA study?",
-                "referenceResponse": [row["intendedApplication"]],
-                "category": "Intended Application"}]
+        return [{"prompt": "For this production system, " + row[
+            "systemDescription"] + ", what is the intended application of the LCA study?",
+                 "referenceResponse": [row["intendedApplication"]],
+                 "category": "Intended Application"}]
 
 
 def studyReasons(row):
-    if len(row["studyReasons"])==0:
+    if len(row["studyReasons"]) == 0:
         return ""
     else:
-        return [{"prompt": "For this production system, " + row["systemDescription"] + ", what are the reasons for carrying out the LCA study?",
-                "referenceResponse": [row["studyReasons"]],
-                "category": "Study Reasons"}]
+        return [{"prompt": "For this production system, " + row[
+            "systemDescription"] + ", what are the reasons for carrying out the LCA study?",
+                 "referenceResponse": [row["studyReasons"]],
+                 "category": "Study Reasons"}]
 
 
 def targetAudience(row):
-    if len(row["intendedAudience"])==0:
+    if len(row["intendedAudience"]) == 0:
         return ""
     else:
-        return [{"prompt": "For this production system, " + row["systemDescription"] + ", what is the target audience of the LCA study?",
-                "referenceResponse": [row["intendedAudience"]],
-                "category": "Target Audience"}]
+        return [{"prompt": "For this production system, " + row[
+            "systemDescription"] + ", what is the target audience of the LCA study?",
+                 "referenceResponse": [row["intendedAudience"]],
+                 "category": "Target Audience"}]
 
 
 def comparativeAssertions(row):
-    if len(row["comparativeAssertions"])==0:
+    if len(row["comparativeAssertions"]) == 0:
         return ""
     else:
-        return [{"prompt": "For this production system, " + row["systemDescription"] + ", are these results to be used in comparative assertions?",
-                "referenceResponse": [row["comparativeAssertions"]],
-                "category": "Comparative Assertion"}]
+        return [{"prompt": "For this production system, " + row[
+            "systemDescription"] + ", are these results to be used in comparative assertions?",
+                 "referenceResponse": [row["comparativeAssertions"]],
+                 "category": "Comparative Assertion"}]
 
 
 def actors(row):
-    if len(row["organization"])==0:
-        return [{"prompt": "For this production system, " + row["systemDescription"] + ", who are the important actors?",
-                "referenceResponse": ["authors of the study", "authors and their collaborators"],
-                "category": "Actors"}]
+    if len(row["organization"]) == 0:
+        return [
+            {"prompt": "For this production system, " + row["systemDescription"] + ", who are the important actors?",
+             "referenceResponse": ["authors of the study", "authors and their collaborators"],
+             "category": "Actors"}]
     else:
-        return [{"prompt": "For this production system, " + row["systemDescription"] + ", who are the important actors?",
-                "referenceResponse": [row["organization"], "authors of the study", "authors and their collaborators"],
-                "category": "Actors"}]
+        return [
+            {"prompt": "For this production system, " + row["systemDescription"] + ", who are the important actors?",
+             "referenceResponse": [row["organization"], "authors of the study", "authors and their collaborators"],
+             "category": "Actors"}]
 
 
 def product(row):
@@ -58,8 +64,8 @@ def product(row):
     else:
         return [{"prompt": "For this production system, " + row[
             "systemDescription"] + ", what product is the object of the assessment?",
-                "referenceResponse": [row["name"].split('-')[0].strip()],
-                "category": "Object of Assessment"}]
+                 "referenceResponse": [row["name"].split('-')[0].strip()],
+                 "category": "Object of Assessment"}]
 
 
 def allocation(row):
@@ -69,8 +75,8 @@ def allocation(row):
         return [{"prompt": "For this production system, " + row[
             "systemDescription"] + ", what is the appropriate allocation method? Possible answers are: economic, "
                                    "mass, energy, biophysical, none, none required, system expansion.",
-                "referenceResponse": [row["allocationMethod"]],
-                "category": "Allocation Method"}]
+                 "referenceResponse": [row["allocationMethod"]],
+                 "category": "Allocation Method"}]
 
 
 def systemBoundary(row):
@@ -87,8 +93,8 @@ def systemBoundary(row):
             else:
                 data.append({"prompt": "True or False. For this production system, " + row[
                     "systemDescription"] + ", does the system boundary contain " + sb_part + "? ",
-                        "referenceResponse": [str(row[str(i)]).capitalize()],
-                        "category": "System Boundary Completeness"})
+                             "referenceResponse": [str(row[str(i)]).capitalize()],
+                             "category": "System Boundary Completeness"})
     return data
 
 
@@ -96,7 +102,7 @@ def functionalUnit(row):
     fUnit = []
     if len(row["functionalUnit"]) != 0:
         fUnit.append(row["functionalUnit"])
-    if len(row["product_properties.0.term.functionalUnit"]) !=0:
+    if len(row["product_properties.0.term.functionalUnit"]) != 0:
         fUnit.append(row["product_properties.0.term.functionalUnit"])
         fraction = row["product_properties.0.term.functionalUnit"].split('/')
         if len(fraction) > 1:
@@ -129,14 +135,15 @@ def functionalUnit(row):
         return ""
     else:
         return [{"prompt": "For this production system, " + row["systemDescription"] + ", what is the functional unit?",
-                "referenceResponse": fUnit,
-                "category": "Intended Application"}]
+                 "referenceResponse": fUnit,
+                 "category": "Functional Unit"}]
 
 
 def systemDescription(row):
     names = row["name"].split('-')
     if len(row["cycleDescription"]) > 0:
-        return row["siteType"] + " producing " + names[0].strip() + " in " + names[1].strip() + ". Additional description: " + row["cycleDescription"]
+        return row["siteType"] + " producing " + names[0].strip() + " in " + names[
+            1].strip() + ". Additional description: " + row["cycleDescription"]
     return row["siteType"] + " producing " + names[0].strip() + " in " + names[1].strip() + "N"
 
 
@@ -153,7 +160,7 @@ def main(directory):
     df["systemDescription"] = df.apply(lambda row: systemDescription(row), axis=1)
 
     #•	Intended application of results
-    df["intendedApplicationQA"] =  df.apply(lambda row: intendedApplication(row), axis=1)
+    df["intendedApplicationQA"] = df.apply(lambda row: intendedApplication(row), axis=1)
 
     # •	Limitations due to methodological choices - not available, skipping
     # •	Decision context and reasons for carrying out the study
@@ -171,7 +178,8 @@ def main(directory):
 
     # •	Deliverables - not included, skipped
     # •	Object of the assessment - excluding location and date
-    df["productQA"] = df.apply(lambda row: product(row), axis=1)  # we would expect llms to excel at this one because this info is in the given context
+    df["productQA"] = df.apply(lambda row: product(row),
+                               axis=1)  # we would expect llms to excel at this one because this info is in the given context
 
     # •	LCI modelling framework and handling of multifunctional processes - allocation here
     df["allocationQA"] = df.apply(lambda row: allocation(row), axis=1)
@@ -207,7 +215,6 @@ def main(directory):
         for item in data:
             json_line = json.dumps(item[0])
             f.write(json_line + '\n')
-
 
 
 if __name__ == "__main__":
