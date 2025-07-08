@@ -1,14 +1,13 @@
 import datasets
 from tqdm import tqdm
 import pandas as pd
-from typing import Optional, List, Tuple
-from sentence_transformers import SentenceTransformer
+from typing import List
 import matplotlib.pyplot as plt
 from langchain.docstore.document import Document as LangchainDocument
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from transformers import AutoTokenizer
-from langchain.vectorstores import FAISS
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_community.vectorstores import FAISS
+from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores.utils import DistanceStrategy
 
 
@@ -31,13 +30,15 @@ def split_documents(
     )
 
     docs_processed = []
-    for doc in knowledge_base:
+    print("\nchunking documents")
+    for doc in tqdm(knowledge_base):
         docs_processed += text_splitter.split_documents([doc])
 
     # Remove duplicates
     unique_texts = {}
     docs_processed_unique = []
-    for doc in docs_processed:
+    print("\nremoving duplicates")
+    for doc in tqdm(docs_processed):
         if doc.page_content not in unique_texts:
             unique_texts[doc.page_content] = True
             docs_processed_unique.append(doc)
@@ -45,8 +46,9 @@ def split_documents(
     return docs_processed_unique
 
 
-def main():
+def vs_creation(filename):
     ds = datasets.load_dataset("m-ric/huggingface_doc", split="train")
+    print("\ndataset loaded")
 
     # TODO: update knowledge base with our own - currently loaded from a dataset
     RAW_KNOWLEDGE_BASE = [
@@ -75,6 +77,7 @@ def main():
         tokenizer_name=EMBEDDING_MODEL_NAME,
         markdown_separators= MARKDOWN_SEPARATORS
     )
+    print("\nplotting documents")
 
     # Let's visualize the chunk sizes we would have in tokens from a common model
     tokenizer = AutoTokenizer.from_pretrained(EMBEDDING_MODEL_NAME)
@@ -87,15 +90,20 @@ def main():
     embedding_model = HuggingFaceEmbeddings(
         model_name=EMBEDDING_MODEL_NAME,
         multi_process=True,
-        model_kwargs={"device": "cuda"},
+        model_kwargs={"device": "cpu"}, #TODO: find and set appropriate device when running later (non-locally)
         encode_kwargs={"normalize_embeddings": True},  # Set `True` for cosine similarity
     )
 
+    # embed documents
     KNOWLEDGE_VECTOR_DATABASE = FAISS.from_documents(
         docs_processed, embedding_model, distance_strategy=DistanceStrategy.COSINE
     )
+    print("\ndocuments embedded")
 
+    # save embeddings locally
+    KNOWLEDGE_VECTOR_DATABASE.save_local(filename)
+    print("vector store saved locally")
 
 
 if __name__ == "__main__":
-    main()
+    vs_creation("/vectorstore/vs_journal")
