@@ -6,9 +6,9 @@ import matplotlib.pyplot as plt
 from langchain.docstore.document import Document as LangchainDocument
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
-from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores.utils import DistanceStrategy
 from transformers import AutoTokenizer
+import constants
 
 
 def split_documents(
@@ -46,7 +46,7 @@ def split_documents(
     return docs_processed_unique
 
 
-def vs_creation(filename):
+def vs_creation(filename, embedding_model, EMBEDDING_MODEL_NAME):
     ds = datasets.load_dataset("m-ric/huggingface_doc", split="train")
     print("\ndataset loaded")
 
@@ -68,9 +68,6 @@ def vs_creation(filename):
         "",
     ]
 
-    # TODO: get a nice big 1024-D tokenizer model and update chunk size
-    EMBEDDING_MODEL_NAME = "thenlper/gte-small"
-
     docs_processed = split_documents(
         512,  # We choose a chunk size adapted to our model
         RAW_KNOWLEDGE_BASE,
@@ -86,15 +83,6 @@ def vs_creation(filename):
     plt.title("Distribution of document lengths in the knowledge base (in count of tokens)")
     plt.show()
 
-    # embeddings
-    embedding_model = HuggingFaceEmbeddings(
-        model_name=EMBEDDING_MODEL_NAME,
-        multi_process=True,
-        model_kwargs={"device": "cpu"}, #TODO: find and set appropriate device when running later (non-locally)
-        encode_kwargs={"normalize_embeddings": True},  # Set `True` for cosine similarity
-        show_progress=True
-    )
-
     # embed documents
     KNOWLEDGE_VECTOR_DATABASE = FAISS.from_documents(
         docs_processed, embedding_model, distance_strategy=DistanceStrategy.COSINE
@@ -107,4 +95,6 @@ def vs_creation(filename):
 
 
 if __name__ == "__main__":
-    vs_creation("/vectorstore/vs_journal")
+    embed_model = constants.EMBED_MODEL
+    embed_model_name = constants.EMBEDDING_MODEL_NAME
+    vs_creation("/vectorstore/vs_journal", embed_model, embed_model_name)

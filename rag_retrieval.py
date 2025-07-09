@@ -90,5 +90,7 @@ def answer_with_rag(
 
 
 if __name__ == "__main__":
-
+    KNOWLEDGE_VECTOR_DATABASE = new_vector_store = FAISS.load_local(
+    "faiss_index", embeddings, allow_dangerous_deserialization=True
+)
     answer_with_rag("/vectorstore/vs_journal")
