@@ -1,17 +1,14 @@
 import datasets
 from tqdm import tqdm
 import pandas as pd
-from typing import List, Optional, Tuple
+from typing import List
 import matplotlib.pyplot as plt
 from langchain.docstore.document import Document as LangchainDocument
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from transformers import AutoTokenizer, pipeline
 from langchain_community.vectorstores import FAISS
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores.utils import DistanceStrategy
-import torch
-from ragatouille import RAGPretrainedModel
-from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
+from transformers import AutoTokenizer
 
 
 def split_documents(
