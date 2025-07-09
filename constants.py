@@ -8,4 +8,4 @@ EMBED_MODEL = HuggingFaceEmbeddings(
     encode_kwargs={"normalize_embeddings": True},  # Set `True` for cosine similarity
     show_progress=True
 )
-VDB_LOCATION = "/vectorstore/vs_journal"
+VDB_LOCATION = "/vectorstore/vs_goalscope"

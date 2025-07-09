@@ -1,11 +1,10 @@
 from transformers import Pipeline, pipeline
-from typing import List, Optional, Tuple, Any
+from typing import Any
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
-from langchain.docstore.document import Document as LangchainDocument
 from langchain_community.vectorstores import FAISS
-
 import constants
+import pprint
 
 
 def answer_with_rag(
@@ -45,6 +44,8 @@ def answer_with_rag(
     relevant_docs = knowledge_index.similarity_search(query=question, k=num_retrieved_docs)
     relevant_docs = [doc.page_content for doc in relevant_docs]  # Keep only the text
     relevant_docs = relevant_docs[:num_docs_final]
+
+    # TODO: reranking documents
 
     # Build the final prompt
     context = "\nExtracted documents:\n"
@@ -87,6 +88,10 @@ if __name__ == "__main__":
     embeddings = constants.EMBED_MODEL
     vdb = FAISS.load_local(
         constants.VDB_LOCATION, embeddings, allow_dangerous_deserialization=True)
+    print("vdb loaded")
     reader, tokenizer = model_config()
+    print("model configured")
     question = "what is qux?"
-    answer_with_rag(question, reader, tokenizer, vdb)
+    answer, docs = answer_with_rag(question, reader, tokenizer, vdb)
+    pprint.pprint(answer, indent=2, width=40, depth=2)
+    pprint.pprint(docs, indent=2, width=40, depth=2)

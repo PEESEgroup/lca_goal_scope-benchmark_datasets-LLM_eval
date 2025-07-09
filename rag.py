@@ -46,11 +46,15 @@ def split_documents(
     return docs_processed_unique
 
 
+def get_rag_json():
+
+
 def vs_creation(filename, embedding_model, EMBEDDING_MODEL_NAME):
     ds = datasets.load_dataset("m-ric/huggingface_doc", split="train")
     print("\ndataset loaded")
 
     # TODO: update knowledge base with our own - currently loaded from a dataset
+    # dataset as a list of dicts
     RAW_KNOWLEDGE_BASE = [
         LangchainDocument(page_content=doc["text"], metadata={"source": doc["source"]}) for doc in tqdm(ds)
     ]
