@@ -84,17 +84,17 @@ def vs_creation(filename, embedding_model, EMBEDDING_MODEL_NAME):
     plt.show()
 
     # embed documents
-    KNOWLEDGE_VECTOR_DATABASE = FAISS.from_documents(
+    vdb = FAISS.from_documents(
         docs_processed, embedding_model, distance_strategy=DistanceStrategy.COSINE
     )
     print("\ndocuments embedded")
 
     # save embeddings locally
-    KNOWLEDGE_VECTOR_DATABASE.save_local(filename)
+    vdb.save_local(filename)
     print("vector store saved locally")
 
 
 if __name__ == "__main__":
     embed_model = constants.EMBED_MODEL
     embed_model_name = constants.EMBEDDING_MODEL_NAME
-    vs_creation("/vectorstore/vs_journal", embed_model, embed_model_name)
+    vs_creation(constants.VDB_LOCATION, embed_model, embed_model_name)

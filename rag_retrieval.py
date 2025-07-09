@@ -1,44 +1,22 @@
 from transformers import Pipeline, pipeline
 from typing import List, Optional, Tuple
 import torch
-from ragatouille import RAGPretrainedModel
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig, HF_ColBERT
 from langchain.docstore.document import Document as LangchainDocument
 from langchain_community.vectorstores import FAISS
 
+import constants
+
+
 def answer_with_rag(
         question: str,
         llm: Pipeline,
+        reading_tokenizer: AutoTokenizer,
         knowledge_index: FAISS,
-        reranker: Optional[RAGPretrainedModel] = None,
+        reranker: Optional[HF_ColBERT] = None,
         num_retrieved_docs: int = 30,
         num_docs_final: int = 5,
 ) -> Tuple[str, List[LangchainDocument]]:
-    # configure reading LLM
-    READER_MODEL_NAME = "HuggingFaceH4/zephyr-7b-beta"
-
-    bnb_config = BitsAndBytesConfig(
-        load_in_4bit=True,
-        bnb_4bit_use_double_quant=True,
-        bnb_4bit_quant_type="nf4",
-        bnb_4bit_compute_dtype=torch.bfloat16,
-    )
-    model = AutoModelForCausalLM.from_pretrained(READER_MODEL_NAME, quantization_config=bnb_config)
-    reading_tokenizer = AutoTokenizer.from_pretrained(READER_MODEL_NAME)
-
-    rerank_tokenizer = AutoTokenizer.from_pretrained("colbert-ir/colbertv2.0")
-    RERANKER = HF_ColBERT.from_pretrained("colbert-ir/colbertv2.0")
-    READER_LLM = pipeline(
-        model=model,
-        tokenizer=reading_tokenizer,
-        task="text-generation",
-        do_sample=True,
-        temperature=0.2,
-        repetition_penalty=1.1,
-        return_full_text=False,
-        max_new_tokens=500,
-    )
-
     # configure orchestration rag prompt
     prompt_in_chat_format = [
         {
@@ -89,8 +67,36 @@ def answer_with_rag(
     return answer, relevant_docs
 
 
+def model_config():
+    # configure reading LLM
+    READER_MODEL_NAME = "HuggingFaceH4/zephyr-7b-beta"
+    bnb_config = BitsAndBytesConfig(
+        load_in_4bit=True,
+        bnb_4bit_use_double_quant=True,
+        bnb_4bit_quant_type="nf4",
+        bnb_4bit_compute_dtype=torch.bfloat16,
+    )
+    model = AutoModelForCausalLM.from_pretrained(READER_MODEL_NAME, quantization_config=bnb_config)
+    reading_tokenizer = AutoTokenizer.from_pretrained(READER_MODEL_NAME)
+    rerank_tokenizer = AutoTokenizer.from_pretrained("colbert-ir/colbertv2.0")
+    RERANKER = HF_ColBERT.from_pretrained("colbert-ir/colbertv2.0")
+    READER_LLM = pipeline(
+        model=model,
+        tokenizer=reading_tokenizer,
+        task="text-generation",
+        do_sample=True,
+        temperature=0.2,
+        repetition_penalty=1.1,
+        return_full_text=False,
+        max_new_tokens=500,
+    )
+    return READER_LLM, RERANKER, reading_tokenizer
+
+
 if __name__ == "__main__":
-    KNOWLEDGE_VECTOR_DATABASE = new_vector_store = FAISS.load_local(
-    "faiss_index", embeddings, allow_dangerous_deserialization=True
-)
-    answer_with_rag("/vectorstore/vs_journal")
+    embeddings = constants.EMBED_MODEL
+    vdb = FAISS.load_local(
+        constants.VDB_LOCATION, embeddings, allow_dangerous_deserialization=True)
+    reader, reranker, tokenizer = model_config()
+    question = "what is qux?"
+    answer_with_rag(question, reader, tokenizer, vdb, reranker)
