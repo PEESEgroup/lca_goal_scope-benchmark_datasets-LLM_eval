@@ -1,7 +1,7 @@
 from transformers import Pipeline, pipeline
-from typing import List, Optional, Tuple
+from typing import List, Optional, Tuple, Any
 import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig, HF_ColBERT
+from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 from langchain.docstore.document import Document as LangchainDocument
 from langchain_community.vectorstores import FAISS
 
@@ -13,10 +13,9 @@ def answer_with_rag(
         llm: Pipeline,
         reading_tokenizer: AutoTokenizer,
         knowledge_index: FAISS,
-        reranker: Optional[HF_ColBERT] = None,
         num_retrieved_docs: int = 30,
         num_docs_final: int = 5,
-) -> Tuple[str, List[LangchainDocument]]:
+) -> tuple[Any, list[str]]:
     # configure orchestration rag prompt
     prompt_in_chat_format = [
         {
@@ -45,13 +44,6 @@ def answer_with_rag(
     print("=> Retrieving documents...")
     relevant_docs = knowledge_index.similarity_search(query=question, k=num_retrieved_docs)
     relevant_docs = [doc.page_content for doc in relevant_docs]  # Keep only the text
-
-    # Optionally rerank results
-    if reranker:
-        print("=> Reranking documents...")
-        relevant_docs = reranker.rerank(question, relevant_docs, k=num_docs_final)
-        relevant_docs = [doc["content"] for doc in relevant_docs]
-
     relevant_docs = relevant_docs[:num_docs_final]
 
     # Build the final prompt
@@ -78,8 +70,6 @@ def model_config():
     )
     model = AutoModelForCausalLM.from_pretrained(READER_MODEL_NAME, quantization_config=bnb_config)
     reading_tokenizer = AutoTokenizer.from_pretrained(READER_MODEL_NAME)
-    rerank_tokenizer = AutoTokenizer.from_pretrained("colbert-ir/colbertv2.0")
-    RERANKER = HF_ColBERT.from_pretrained("colbert-ir/colbertv2.0")
     READER_LLM = pipeline(
         model=model,
         tokenizer=reading_tokenizer,
@@ -90,13 +80,13 @@ def model_config():
         return_full_text=False,
         max_new_tokens=500,
     )
-    return READER_LLM, RERANKER, reading_tokenizer
+    return READER_LLM, reading_tokenizer
 
 
 if __name__ == "__main__":
     embeddings = constants.EMBED_MODEL
     vdb = FAISS.load_local(
         constants.VDB_LOCATION, embeddings, allow_dangerous_deserialization=True)
-    reader, reranker, tokenizer = model_config()
+    reader, tokenizer = model_config()
     question = "what is qux?"
-    answer_with_rag(question, reader, tokenizer, vdb, reranker)
+    answer_with_rag(question, reader, tokenizer, vdb)
