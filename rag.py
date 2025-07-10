@@ -9,13 +9,15 @@ from langchain_community.vectorstores import FAISS
 from langchain_community.vectorstores.utils import DistanceStrategy
 from transformers import AutoTokenizer
 import constants
+import os
+import json
 
 
 def split_documents(
-    chunk_size: int,
-    knowledge_base: List[LangchainDocument],
-    tokenizer_name: str,
-    markdown_separators: List[str]
+        chunk_size: int,
+        knowledge_base: List[LangchainDocument],
+        tokenizer_name: str,
+        markdown_separators: List[str]
 ) -> List[LangchainDocument]:
     """
     Split documents into chunks of maximum size `chunk_size` tokens and return a list of documents.
@@ -47,6 +49,21 @@ def split_documents(
 
 
 def get_rag_json():
+    file_path = "data/RAG-textract/"
+    for entry_name in os.listdir(file_path):
+        # get file path
+        file_path = os.path.join(file_path, entry_name)
+        # open file
+        rag_data = []
+        with open(file_path, 'r', encoding='utf-8') as f:
+            try:
+                data = json.load(f)
+                ds_data = {"title": entry_name,
+                           "text": data}
+                rag_data.append(ds_data)
+            except UnicodeDecodeError:
+                print("cannot read the file, skipping")
+                continue  # can't read the file, so skipping
 
 
 def vs_creation(filename, embedding_model, EMBEDDING_MODEL_NAME):
@@ -76,7 +93,7 @@ def vs_creation(filename, embedding_model, EMBEDDING_MODEL_NAME):
         512,  # We choose a chunk size adapted to our model
         RAW_KNOWLEDGE_BASE,
         tokenizer_name=EMBEDDING_MODEL_NAME,
-        markdown_separators= MARKDOWN_SEPARATORS
+        markdown_separators=MARKDOWN_SEPARATORS
     )
     print("\nplotting documents")
 
