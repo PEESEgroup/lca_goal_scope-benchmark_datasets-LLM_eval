@@ -50,27 +50,31 @@ def split_documents(
 
 def get_rag_json():
     file_path = "data/RAG-textract/"
-    for entry_name in os.listdir(file_path):
+    rag_data = []
+
+    for entry_name in tqdm(os.listdir(str(file_path))):
         # get file path
-        file_path = os.path.join(file_path, entry_name)
+        fname = os.path.join(file_path, entry_name)
         # open file
-        rag_data = []
-        with open(file_path, 'r', encoding='utf-8') as f:
+        with open(fname, 'r', encoding='utf-8') as f:
             try:
                 data = json.load(f)
-                ds_data = {"title": entry_name,
-                           "text": data}
+                # TODO: make pretty and flatten the json
+                ds_data = {"source": entry_name,
+                           "text": json.dumps(data)}
                 rag_data.append(ds_data)
             except UnicodeDecodeError:
                 print("cannot read the file, skipping")
                 continue  # can't read the file, so skipping
 
+    return rag_data
+
 
 def vs_creation(filename, embedding_model, EMBEDDING_MODEL_NAME):
-    ds = datasets.load_dataset("m-ric/huggingface_doc", split="train")
+    ds = get_rag_json()
+    ds = datasets.Dataset.from_list(ds)
     print("\ndataset loaded")
 
-    # TODO: update knowledge base with our own - currently loaded from a dataset
     # dataset as a list of dicts
     RAW_KNOWLEDGE_BASE = [
         LangchainDocument(page_content=doc["text"], metadata={"source": doc["source"]}) for doc in tqdm(ds)
@@ -87,6 +91,9 @@ def vs_creation(filename, embedding_model, EMBEDDING_MODEL_NAME):
         "\n",
         " ",
         "",
+        "<*>",
+        "[",
+        "{",
     ]
 
     docs_processed = split_documents(
