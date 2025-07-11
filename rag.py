@@ -59,9 +59,9 @@ def get_rag_json():
         with open(fname, 'r', encoding='utf-8') as f:
             try:
                 data = json.load(f)
-                # TODO: make pretty and flatten the json
+                pretty_json_string = json.dumps(data).replace("- ", "")  # remove hyphens over lines
                 ds_data = {"source": entry_name,
-                           "text": json.dumps(data)}
+                           "text": pretty_json_string}
                 rag_data.append(ds_data)
             except UnicodeDecodeError:
                 print("cannot read the file, skipping")
