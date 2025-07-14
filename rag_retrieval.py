@@ -91,7 +91,7 @@ if __name__ == "__main__":
     print("vdb loaded")
     reader, tokenizer = model_config()
     print("model configured")
-    question = "what is qux?"
+    question = "what is a functional unit for milk?"
     answer, docs = answer_with_rag(question, reader, tokenizer, vdb)
-    pprint.pprint(answer, indent=2, width=40, depth=2)
-    pprint.pprint(docs, indent=2, width=40, depth=2)
+    pprint.pprint(answer, indent=2, width=120, depth=2)
+    pprint.pprint(docs, indent=2, width=120, depth=2)
