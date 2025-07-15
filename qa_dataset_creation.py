@@ -78,11 +78,12 @@ def allocation(row):
     if len(row["allocationMethod"]) == 0:
         return ""
     else:
-        return [{"question": "For this production system, what is the appropriate allocation method? Possible answers are: economic, "
-                                   "mass, energy, biophysical, none, none required, system expansion.",
-                 "referenceResponse": [row["allocationMethod"]],
-                 "id": "Allocation Method",
-                 "context": row["systemDescription"]}]
+        return [{
+                    "question": "For this production system, what is the appropriate allocation method? Possible answers are: economic, "
+                                "mass, energy, biophysical, none, none required, system expansion.",
+                    "referenceResponse": [row["allocationMethod"]],
+                    "id": "Allocation Method",
+                    "context": row["systemDescription"]}]
 
 
 def systemBoundary(row):
@@ -97,10 +98,11 @@ def systemBoundary(row):
             if len(str(row[str(i)])) == 0:
                 return ""
             else:
-                data.append({"question": "True or False. For this production system, does the system boundary contain " + sb_part + "? ",
-                             "referenceResponse": [str(row[str(i)]).capitalize()],
-                             "id": "System Boundary Completeness",
-                             "context": row["systemDescription"]})
+                data.append({
+                                "question": "True or False. For this production system, does the system boundary contain " + sb_part + "? ",
+                                "referenceResponse": [str(row[str(i)]).capitalize()],
+                                "id": "System Boundary Completeness",
+                                "context": row["systemDescription"]})
     return data
 
 
@@ -144,7 +146,7 @@ def functionalUnit(row):
             {"question": "For this production system, what is the functional unit?",
              "referenceResponse": fUnit,
              "id": "Functional Unit",
-                "context": row["systemDescription"]}]
+             "context": row["systemDescription"]}]
 
 
 def systemDescription(row, RAG, knowledge_index):
@@ -180,20 +182,25 @@ def main(directory, RAG):
     # reference output format - add this string as a new column in pandas
     # [{"question": <prompt>, "referenceResponse": [<answer>], "id": <category>, "context": <systemDescription>}]
 
-    # create a system description column
+    # create a system description column that contains relevant context
+    print("\n systemDescription")
     df["systemDescription"] = df.progress_apply(lambda row: systemDescription(row, RAG, vdb), axis=1)
 
-    #•	Intended application of results
+    # •	Intended application of results
+    print("\n intendedApplicationQA")
     df["intendedApplicationQA"] = df.progress_apply(lambda row: intendedApplication(row), axis=1)
 
     # •	Limitations due to methodological choices - not available, skipping
     # •	Decision context and reasons for carrying out the study
+    print("\n studyReasonsQA")
     df["studyReasonsQA"] = df.progress_apply(lambda row: studyReasons(row), axis=1)
 
     # •	Target audience
+    print("\n targetAudienceQA")
     df["targetAudienceQA"] = df.progress_apply(lambda row: targetAudience(row), axis=1)
 
     # •	Comparative studies to be disclosed to the public
+    print("\n comparativeAssertionsQA")
     df["comparativeAssertionsQA"] = df.progress_apply(lambda row: comparativeAssertions(row), axis=1)
 
     # •	Commissioner of the study and other influential actors - not currently included
@@ -202,17 +209,21 @@ def main(directory, RAG):
 
     # •	Deliverables - not included, skipped
     # •	Object of the assessment - excluding location and date
+    print("\n productQA")
     df["productQA"] = df.progress_apply(lambda row: product(row),
-                               axis=1)  # we would expect llms to excel at this one because this info is in the given context
+                                        axis=1)  # we would expect llms to excel at this one because this info is in the given context
 
     # •	LCI modelling framework and handling of multifunctional processes - allocation here
+    print("\n allocationQA")
     df["allocationQA"] = df.progress_apply(lambda row: allocation(row), axis=1)
 
     # •	System boundaries and completeness requirements - big boi
+    print("\n systemBoundaryQA")
     df["systemBoundaryQA"] = df.progress_apply(lambda row: systemBoundary(row), axis=1)
 
     # •	Representativeness of LCI data, not available, skipping
     # •	Preparation of the basis for impact assessment - LCIA method not included in base ImpactAssessment, too many versions in recalculated
+    print("\n functionalUnitQA")
     df["functionalUnitQA"] = df.progress_apply(lambda row: functionalUnit(row), axis=1)
 
     # •	Special requirements for system comparisons - not included, skipped
@@ -223,6 +234,7 @@ def main(directory, RAG):
     data = []
 
     # append all column values to list
+    print("\n append all questions to list")
     df = df[[col for col in df.columns if "QA" in col]]
     for i in tqdm(df.columns):
         data.append(df[str(i)].tolist())
