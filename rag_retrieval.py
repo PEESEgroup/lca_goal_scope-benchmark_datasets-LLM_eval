@@ -60,17 +60,49 @@ def answer_with_rag(
     return answer, relevant_docs
 
 
-def model_config():
+def answer_without_rag(
+        question: str,
+        llm: Pipeline,
+        reading_tokenizer: AutoTokenizer,
+) -> tuple[Any, list[str]]:
+    # configure orchestration rag prompt
+    prompt_in_chat_format = [
+        {
+            "role": "system",
+            "content": """Give a comprehensive answer to the question.
+    Respond only to the question asked, response should be concise and relevant to the question.""",
+        },
+        {
+            "role": "user",
+            "content": """Here is the question you need to answer.
+
+    Question: {question}""",
+        },
+    ]
+    RAG_PROMPT_TEMPLATE = reading_tokenizer.apply_chat_template(
+        prompt_in_chat_format, tokenize=False, add_generation_prompt=True
+    )
+
+    final_prompt = RAG_PROMPT_TEMPLATE.format(question=question)
+
+    # Redact an answer
+    print("=> Generating answer...")
+    answer = llm(final_prompt)[0]["generated_text"]
+
+    return answer
+
+
+def model_config(model_name="HuggingFaceH4/zephyr-7b-beta"):
     # configure reading LLM
-    READER_MODEL_NAME = "HuggingFaceH4/zephyr-7b-beta"
     bnb_config = BitsAndBytesConfig(
         load_in_4bit=True,
         bnb_4bit_use_double_quant=True,
         bnb_4bit_quant_type="nf4",
         bnb_4bit_compute_dtype=torch.bfloat16,
     )
-    model = AutoModelForCausalLM.from_pretrained(READER_MODEL_NAME, quantization_config=bnb_config)
-    reading_tokenizer = AutoTokenizer.from_pretrained(READER_MODEL_NAME)
+    # TODO: remove quantization???
+    model = AutoModelForCausalLM.from_pretrained(model_name, quantization_config=bnb_config)
+    reading_tokenizer = AutoTokenizer.from_pretrained(model_name)
     READER_LLM = pipeline(
         model=model,
         tokenizer=reading_tokenizer,
