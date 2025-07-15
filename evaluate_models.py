@@ -20,7 +20,6 @@ def eval_models(dataset, dataset_name):
         print(dataset_name, eval_results)
 
 
-
 if __name__ == "__main__":
     # load vdb information
     embeddings = constants.EMBED_MODEL
