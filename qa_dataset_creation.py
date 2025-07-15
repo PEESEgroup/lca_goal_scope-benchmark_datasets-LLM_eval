@@ -3,80 +3,86 @@ import pandas as pd
 import re
 import random
 import itertools
+import constants
+from langchain_community.vectorstores import FAISS
+import rag_retrieval
+import tqdm
 
 
 def intendedApplication(row):
     if len(row["intendedApplication"]) == 0:
         return ""
     else:
-        return [{"prompt": "For this production system, " + row[
-            "systemDescription"] + ", what is the intended application of the LCA study?",
+        return [{"question": "For this production system, what is the intended application of the LCA study?",
                  "referenceResponse": [row["intendedApplication"]],
-                 "category": "Intended Application"}]
+                 "id": "Intended Application",
+                 "context": row["systemDescription"]}]
 
 
 def studyReasons(row):
     if len(row["studyReasons"]) == 0:
         return ""
     else:
-        return [{"prompt": "For this production system, " + row[
-            "systemDescription"] + ", what are the reasons for carrying out the LCA study?",
+        return [{"question": "For this production system, what are the reasons for carrying out the LCA study?",
                  "referenceResponse": [row["studyReasons"]],
-                 "category": "Study Reasons"}]
+                 "id": "Study Reasons",
+                 "context": row["systemDescription"]}]
 
 
 def targetAudience(row):
     if len(row["intendedAudience"]) == 0:
         return ""
     else:
-        return [{"prompt": "For this production system, " + row[
-            "systemDescription"] + ", what is the target audience of the LCA study?",
+        return [{"question": "For this production system, what is the target audience of the LCA study?",
                  "referenceResponse": [row["intendedAudience"]],
-                 "category": "Target Audience"}]
+                 "id": "Target Audience",
+                 "context": row["systemDescription"]}]
 
 
 def comparativeAssertions(row):
     if len(row["comparativeAssertions"]) == 0:
         return ""
     else:
-        return [{"prompt": "For this production system, " + row[
-            "systemDescription"] + ", are these results to be used in comparative assertions?",
+        return [{"question": "For this production system, are these results to be used in comparative assertions?",
                  "referenceResponse": [row["comparativeAssertions"]],
-                 "category": "Comparative Assertion"}]
+                 "id": "Comparative Assertion",
+                 "context": row["systemDescription"]}]
 
 
 def actors(row):
     if len(row["organization"]) == 0:
         return [
-            {"prompt": "For this production system, " + row["systemDescription"] + ", who are the important actors?",
+            {"question": "For this production system, who are the important actors?",
              "referenceResponse": ["authors of the study", "authors and their collaborators"],
-             "category": "Actors"}]
+             "id": "Actors",
+             "context": row["systemDescription"]}]
     else:
         return [
-            {"prompt": "For this production system, " + row["systemDescription"] + ", who are the important actors?",
+            {"question": "For this production system, who are the important actors?",
              "referenceResponse": [row["organization"], "authors of the study", "authors and their collaborators"],
-             "category": "Actors"}]
+             "id": "Actors",
+             "context": row["systemDescription"]}]
 
 
 def product(row):
     if len(row["name"]) == 0:
         return ""
     else:
-        return [{"prompt": "For this production system, " + row[
-            "systemDescription"] + ", what product is the object of the assessment?",
+        return [{"question": "For this production system, what product is the object of the assessment?",
                  "referenceResponse": [row["name"].split('-')[0].strip()],
-                 "category": "Object of Assessment"}]
+                 "id": "Object of Assessment",
+                 "context": row["systemDescription"]}]
 
 
 def allocation(row):
     if len(row["allocationMethod"]) == 0:
         return ""
     else:
-        return [{"prompt": "For this production system, " + row[
-            "systemDescription"] + ", what is the appropriate allocation method? Possible answers are: economic, "
+        return [{"question": "For this production system, what is the appropriate allocation method? Possible answers are: economic, "
                                    "mass, energy, biophysical, none, none required, system expansion.",
                  "referenceResponse": [row["allocationMethod"]],
-                 "category": "Allocation Method"}]
+                 "id": "Allocation Method",
+                 "context": row["systemDescription"]}]
 
 
 def systemBoundary(row):
@@ -91,10 +97,10 @@ def systemBoundary(row):
             if len(str(row[str(i)])) == 0:
                 return ""
             else:
-                data.append({"prompt": "True or False. For this production system, " + row[
-                    "systemDescription"] + ", does the system boundary contain " + sb_part + "? ",
+                data.append({"question": "True or False. For this production system, does the system boundary contain " + sb_part + "? ",
                              "referenceResponse": [str(row[str(i)]).capitalize()],
-                             "category": "System Boundary Completeness"})
+                             "id": "System Boundary Completeness",
+                             "context": row["systemDescription"]})
     return data
 
 
@@ -134,30 +140,47 @@ def functionalUnit(row):
     if len(fUnit) == 0:
         return ""
     else:
-        return [{"prompt": "For this production system, " + row["systemDescription"] + ", what is the functional unit?",
-                 "referenceResponse": fUnit,
-                 "category": "Functional Unit"}]
+        return [
+            {"question": "For this production system, what is the functional unit?",
+             "referenceResponse": fUnit,
+             "id": "Functional Unit",
+                "context": row["systemDescription"]}]
 
 
-def systemDescription(row):
+def systemDescription(row, RAG, knowledge_index):
     names = row["name"].split('-')
-    if len(row["cycleDescription"]) > 0:
+
+    # if RAG is enabled, add additional context to the description of the site
+    if RAG:
+        context = rag_retrieval.get_context(knowledge_index)
+        if len(row["cycleDescription"]) > 0:
+            return row["siteType"] + " producing " + names[0].strip() + " in " + names[
+                1].strip() + ". Additional description: " + row["cycleDescription"] + ". Additional Context: " + context
         return row["siteType"] + " producing " + names[0].strip() + " in " + names[
-            1].strip() + ". Additional description: " + row["cycleDescription"]
-    return row["siteType"] + " producing " + names[0].strip() + " in " + names[1].strip() + "N"
+            1].strip() + ". Additional Context: " + context
+    else:
+        if len(row["cycleDescription"]) > 0:
+            return row["siteType"] + " producing " + names[0].strip() + " in " + names[
+                1].strip() + ". Additional description: " + row["cycleDescription"]
+        return row["siteType"] + " producing " + names[0].strip() + " in " + names[1].strip()
 
 
-def main(directory):
+def main(directory, RAG):
     # read in data
     df = pd.read_csv(directory + "input_data.csv")
     # replace nan with empty strings
     df = df.fillna('')
 
+    if RAG:
+        embeddings = constants.EMBED_MODEL
+        vdb = FAISS.load_local(
+            constants.VDB_LOCATION, embeddings, allow_dangerous_deserialization=True)
+
     # reference output format - add this string as a new column in pandas
-    # [{"prompt": <prompt>, "referenceResponse": [<answer>], "category": <category>}]
+    # [{"question": <prompt>, "referenceResponse": [<answer>], "id": <category>, "context": <systemDescription>}]
 
     # create a system description column
-    df["systemDescription"] = df.apply(lambda row: systemDescription(row), axis=1)
+    df["systemDescription"] = df.apply(lambda row: systemDescription(row, RAG, vdb), axis=1)
 
     #•	Intended application of results
     df["intendedApplicationQA"] = df.apply(lambda row: intendedApplication(row), axis=1)
@@ -211,7 +234,12 @@ def main(directory):
     random.seed(42)
     random.shuffle(data)
 
-    with open(directory + "qa_dataset.jsonl", 'w') as f:
+    if RAG:
+        fname = "rag_qa_dataset.jsonl"
+    else:
+        fname = "qa_dataset.jsonl"
+
+    with open(directory + fname, 'w') as f:
         for item in data:
             json_line = json.dumps(item[0])
             f.write(json_line + '\n')

@@ -60,36 +60,11 @@ def answer_with_rag(
     return answer, relevant_docs
 
 
-def answer_without_rag(
-        question: str,
-        llm: Pipeline,
-        reading_tokenizer: AutoTokenizer,
-) -> tuple[Any, list[str]]:
-    # configure orchestration rag prompt
-    prompt_in_chat_format = [
-        {
-            "role": "system",
-            "content": """Give a comprehensive answer to the question.
-    Respond only to the question asked, response should be concise and relevant to the question.""",
-        },
-        {
-            "role": "user",
-            "content": """Here is the question you need to answer.
-
-    Question: {question}""",
-        },
-    ]
-    RAG_PROMPT_TEMPLATE = reading_tokenizer.apply_chat_template(
-        prompt_in_chat_format, tokenize=False, add_generation_prompt=True
-    )
-
-    final_prompt = RAG_PROMPT_TEMPLATE.format(question=question)
-
-    # Redact an answer
-    print("=> Generating answer...")
-    answer = llm(final_prompt)[0]["generated_text"]
-
-    return answer
+def get_context(knowledge_index, num_retrieved_docs=5):
+    print("=> Retrieving documents...")
+    relevant_docs = knowledge_index.similarity_search(query=question, k=num_retrieved_docs)
+    relevant_docs = [doc.page_content for doc in relevant_docs]  # Keep only the text
+    return relevant_docs
 
 
 def model_config(model_name="HuggingFaceH4/zephyr-7b-beta"):
