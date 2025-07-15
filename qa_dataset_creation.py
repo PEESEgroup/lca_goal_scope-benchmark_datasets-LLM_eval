@@ -15,7 +15,8 @@ def intendedApplication(row, RAG, vdb):
     else:
         question = "For this production system, what is the intended application of the LCA study?"
         if RAG:
-            context = " Additional Context: " + rag_retrieval.get_context(row["systemDescription"] + question, vdb)
+            docs = rag_retrieval.get_context(row["systemDescription"] + question, vdb)
+            context = " Additional Context: " + ' '.join(docs)
         else:
             context = ""
         return [{"question": question,
@@ -30,7 +31,8 @@ def studyReasons(row, RAG, vdb):
     else:
         question = "For this production system, what are the reasons for carrying out the LCA study?"
         if RAG:
-            context = " Additional Context: " + rag_retrieval.get_context(row["systemDescription"] + question, vdb)
+            docs = rag_retrieval.get_context(row["systemDescription"] + question, vdb)
+            context = " Additional Context: " + ' '.join(docs)
         else:
             context = ""
         return [{"question": question,
@@ -45,7 +47,8 @@ def targetAudience(row, RAG, vdb):
     else:
         question = "For this production system, what is the target audience of the LCA study?"
         if RAG:
-            context = " Additional Context: " + rag_retrieval.get_context(row["systemDescription"] + question, vdb)
+            docs = rag_retrieval.get_context(row["systemDescription"] + question, vdb)
+            context = " Additional Context: " + ' '.join(docs)
         else:
             context = ""
         return [{"question": question,
@@ -60,7 +63,8 @@ def comparativeAssertions(row, RAG, vdb):
     else:
         question = "For this production system, are these results to be used in comparative assertions?"
         if RAG:
-            context = " Additional Context: " + rag_retrieval.get_context(row["systemDescription"] + question, vdb)
+            docs = rag_retrieval.get_context(row["systemDescription"] + question, vdb)
+            context = " Additional Context: " + ' '.join(docs)
         else:
             context = ""
         return [{"question": question,
@@ -72,7 +76,8 @@ def comparativeAssertions(row, RAG, vdb):
 def actors(row, RAG, vdb):
     question = "For this production system, who are the important actors?"
     if RAG:
-        context = " Additional Context: " + rag_retrieval.get_context(row["systemDescription"] + question, vdb)
+        docs = rag_retrieval.get_context(row["systemDescription"] + question, vdb)
+        context = " Additional Context: " + ' '.join(docs)
     else:
         context = ""
     if len(row["organization"]) == 0:
@@ -95,7 +100,8 @@ def product(row, RAG, vdb):
     else:
         question = "For this production system, what product is the object of the assessment?"
         if RAG:
-            context = " Additional Context: " + rag_retrieval.get_context(row["systemDescription"] + question, vdb)
+            docs = rag_retrieval.get_context(row["systemDescription"] + question, vdb)
+            context = " Additional Context: " + ' '.join(docs)
         else:
             context = ""
         return [{"question": question,
@@ -111,7 +117,8 @@ def allocation(row, RAG, vdb):
         question = ("For this production system, what is the appropriate allocation method? Possible answers are: "
                     "economic, mass, energy, biophysical, none, none required, system expansion.")
         if RAG:
-            context = " Additional Context: " + rag_retrieval.get_context(row["systemDescription"] + question, vdb)
+            docs = rag_retrieval.get_context(row["systemDescription"] + question, vdb)
+            context = " Additional Context: " + ' '.join(docs)
         else:
             context = ""
         return [{
@@ -124,7 +131,8 @@ def allocation(row, RAG, vdb):
 def systemBoundary(row, RAG, vdb):
     question = "What is included in the system boundary of this production system?"
     if RAG:
-        context = " Additional Context: " + rag_retrieval.get_context(row["systemDescription"] + question, vdb)
+            docs = rag_retrieval.get_context(row["systemDescription"] + question, vdb)
+            context = " Additional Context: " + ' '.join(docs)
     else:
         context = ""
     data = []
@@ -184,7 +192,8 @@ def functionalUnit(row, RAG, vdb):
     else:
         question = "For this production system, what is the functional unit?"
         if RAG:
-            context = " Additional Context: " + rag_retrieval.get_context(row["systemDescription"] + question, vdb)
+            docs = rag_retrieval.get_context(row["systemDescription"] + question, vdb)
+            context = " Additional Context: " + ' '.join(docs)
         else:
             context = ""
         return [
