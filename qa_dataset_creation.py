@@ -10,15 +10,14 @@ from tqdm import tqdm
 
 
 def intendedApplication(row, RAG, vdb):
-    question = "For this production system, what is the intended application of the LCA study?"
-    if RAG:
-        context = " Additional Context: " + rag_retrieval.get_context(row["systemDescription"] + question, vdb)
-    else:
-        context = ""
-        
     if len(row["intendedApplication"]) == 0:
         return ""
     else:
+        question = "For this production system, what is the intended application of the LCA study?"
+        if RAG:
+            context = " Additional Context: " + rag_retrieval.get_context(row["systemDescription"] + question, vdb)
+        else:
+            context = ""
         return [{"question": question,
                  "referenceResponse": [row["intendedApplication"]],
                  "id": "Intended Application",
@@ -26,14 +25,14 @@ def intendedApplication(row, RAG, vdb):
 
 
 def studyReasons(row, RAG, vdb):
-    question = "For this production system, what are the reasons for carrying out the LCA study?"
-    if RAG:
-        context = " Additional Context: " + rag_retrieval.get_context(row["systemDescription"] + question, vdb)
-    else:
-        context = ""
     if len(row["studyReasons"]) == 0:
         return ""
     else:
+        question = "For this production system, what are the reasons for carrying out the LCA study?"
+        if RAG:
+            context = " Additional Context: " + rag_retrieval.get_context(row["systemDescription"] + question, vdb)
+        else:
+            context = ""
         return [{"question": question,
                  "referenceResponse": [row["studyReasons"]],
                  "id": "Study Reasons",
@@ -41,14 +40,14 @@ def studyReasons(row, RAG, vdb):
 
 
 def targetAudience(row, RAG, vdb):
-    question = "For this production system, what is the target audience of the LCA study?"
-    if RAG:
-        context = " Additional Context: " + rag_retrieval.get_context(row["systemDescription"] + question, vdb)
-    else:
-        context = ""
     if len(row["intendedAudience"]) == 0:
         return ""
     else:
+        question = "For this production system, what is the target audience of the LCA study?"
+        if RAG:
+            context = " Additional Context: " + rag_retrieval.get_context(row["systemDescription"] + question, vdb)
+        else:
+            context = ""
         return [{"question": question,
                  "referenceResponse": [row["intendedAudience"]],
                  "id": "Target Audience",
@@ -56,14 +55,14 @@ def targetAudience(row, RAG, vdb):
 
 
 def comparativeAssertions(row, RAG, vdb):
-    question = "For this production system, are these results to be used in comparative assertions?"
-    if RAG:
-        context = " Additional Context: " + rag_retrieval.get_context(row["systemDescription"] + question, vdb)
-    else:
-        context = ""
     if len(row["comparativeAssertions"]) == 0:
         return ""
     else:
+        question = "For this production system, are these results to be used in comparative assertions?"
+        if RAG:
+            context = " Additional Context: " + rag_retrieval.get_context(row["systemDescription"] + question, vdb)
+        else:
+            context = ""
         return [{"question": question,
                  "referenceResponse": [row["comparativeAssertions"]],
                  "id": "Comparative Assertion",
@@ -91,14 +90,14 @@ def actors(row, RAG, vdb):
 
 
 def product(row, RAG, vdb):
-    question = "For this production system, what product is the object of the assessment?"
-    if RAG:
-        context = " Additional Context: " + rag_retrieval.get_context(row["systemDescription"] + question, vdb)
-    else:
-        context = ""
     if len(row["name"]) == 0:
         return ""
     else:
+        question = "For this production system, what product is the object of the assessment?"
+        if RAG:
+            context = " Additional Context: " + rag_retrieval.get_context(row["systemDescription"] + question, vdb)
+        else:
+            context = ""
         return [{"question": question,
                  "referenceResponse": [row["name"].split('-')[0].strip()],
                  "id": "Object of Assessment",
@@ -106,15 +105,15 @@ def product(row, RAG, vdb):
 
 
 def allocation(row, RAG, vdb):
-    question = ("For this production system, what is the appropriate allocation method? Possible answers are: "
-                "economic, mass, energy, biophysical, none, none required, system expansion.")
-    if RAG:
-        context = " Additional Context: " + rag_retrieval.get_context(row["systemDescription"] + question, vdb)
-    else:
-        context = ""
     if len(row["allocationMethod"]) == 0:
         return ""
     else:
+        question = ("For this production system, what is the appropriate allocation method? Possible answers are: "
+                    "economic, mass, energy, biophysical, none, none required, system expansion.")
+        if RAG:
+            context = " Additional Context: " + rag_retrieval.get_context(row["systemDescription"] + question, vdb)
+        else:
+            context = ""
         return [{
                     "question": question,
                     "referenceResponse": [row["allocationMethod"]],
@@ -148,11 +147,6 @@ def systemBoundary(row, RAG, vdb):
 
 
 def functionalUnit(row, RAG, vdb):
-    question = "For this production system, what is the functional unit?"
-    if RAG:
-        context = " Additional Context: " + rag_retrieval.get_context(row["systemDescription"] + question, vdb)
-    else:
-        context = ""
     fUnit = []
     if len(row["functionalUnit"]) != 0:
         fUnit.append(row["functionalUnit"])
@@ -188,6 +182,11 @@ def functionalUnit(row, RAG, vdb):
     if len(fUnit) == 0:
         return ""
     else:
+        question = "For this production system, what is the functional unit?"
+        if RAG:
+            context = " Additional Context: " + rag_retrieval.get_context(row["systemDescription"] + question, vdb)
+        else:
+            context = ""
         return [
             {"question": question,
              "referenceResponse": fUnit,
