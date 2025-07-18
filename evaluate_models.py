@@ -16,7 +16,7 @@ def eval_models(dataset, dataset_name):
         eval_results = task_evaluator.compute(
             model_or_pipeline=i,
             data=dataset,
-            metric="squad",
+            metric="squad", #TODO: is the metric having difficulty due to the use of "squad". what others are available?
             strategy="bootstrap",
             n_resamples=30
         )
@@ -71,6 +71,7 @@ if __name__ == "__main__":
                 data.append(json.loads(line))
 
         # convert to dataset
+        #TODO: rerun rag code
         dataset = Dataset.from_list(data)
         data = load_dataset("squad", split="validation[:2]")
         print(data[0])
