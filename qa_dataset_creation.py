@@ -20,7 +20,7 @@ def intendedApplication(row, RAG, vdb):
         else:
             context = ""
         return [{"question": question,
-                 "referenceResponse": [row["intendedApplication"]],
+                 "answers": [row["intendedApplication"]],
                  "id": "Intended Application",
                  "context": row["systemDescription"] + context + context}]
 
@@ -36,7 +36,7 @@ def studyReasons(row, RAG, vdb):
         else:
             context = ""
         return [{"question": question,
-                 "referenceResponse": [row["studyReasons"]],
+                 "answers": [row["studyReasons"]],
                  "id": "Study Reasons",
                  "context": row["systemDescription"] + context}]
 
@@ -52,7 +52,7 @@ def targetAudience(row, RAG, vdb):
         else:
             context = ""
         return [{"question": question,
-                 "referenceResponse": [row["intendedAudience"]],
+                 "answers": [row["intendedAudience"]],
                  "id": "Target Audience",
                  "context": row["systemDescription"] + context}]
 
@@ -68,7 +68,7 @@ def comparativeAssertions(row, RAG, vdb):
         else:
             context = ""
         return [{"question": question,
-                 "referenceResponse": [row["comparativeAssertions"]],
+                 "answers": [row["comparativeAssertions"]],
                  "id": "Comparative Assertion",
                  "context": row["systemDescription"] + context}]
 
@@ -83,13 +83,13 @@ def actors(row, RAG, vdb):
     if len(row["organization"]) == 0:
         return [
             {"question": question,
-             "referenceResponse": ["authors of the study", "authors and their collaborators"],
+             "answers": ["authors of the study", "authors and their collaborators"],
              "id": "Actors",
              "context": row["systemDescription"] + context}]
     else:
         return [
             {"question": question,
-             "referenceResponse": [row["organization"], "authors of the study", "authors and their collaborators"],
+             "answers": [row["organization"], "authors of the study", "authors and their collaborators"],
              "id": "Actors",
              "context": row["systemDescription"] + context}]
 
@@ -105,7 +105,7 @@ def product(row, RAG, vdb):
         else:
             context = ""
         return [{"question": question,
-                 "referenceResponse": [row["name"].split('-')[0].strip()],
+                 "answers": [row["name"].split('-')[0].strip()],
                  "id": "Object of Assessment",
                  "context": row["systemDescription"] + context}]
 
@@ -123,7 +123,7 @@ def allocation(row, RAG, vdb):
             context = ""
         return [{
                     "question": question,
-                    "referenceResponse": [row["allocationMethod"]],
+                    "answers": [row["allocationMethod"]],
                     "id": "Allocation Method",
                     "context": row["systemDescription"] + context}]
 
@@ -148,7 +148,7 @@ def systemBoundary(row, RAG, vdb):
             else:
                 data.append({
                                 "question": "True or False. For this production system, does the system boundary contain " + sb_part + "? ",
-                                "referenceResponse": [str(row[str(i)]).capitalize()],
+                                "answers": [str(row[str(i)]).capitalize()],
                                 "id": "System Boundary Completeness",
                                 "context": row["systemDescription"] + context})
     return data
@@ -198,7 +198,7 @@ def functionalUnit(row, RAG, vdb):
             context = ""
         return [
             {"question": question,
-             "referenceResponse": fUnit,
+             "answers": fUnit,
              "id": "Functional Unit",
              "context": row["systemDescription"] + context}]
 
@@ -226,7 +226,7 @@ def main(directory, RAG):
         vdb = ""
 
     # reference output format - add this string as a new column in pandas
-    # [{"question": <prompt>, "referenceResponse": [<answer>], "id": <category>, "context": <systemDescription>}]
+    # [{"question": <prompt>, "answers": [<answer>], "id": <category>, "context": <systemDescription>}]
 
     # create a system description column that contains relevant context
     print("\n systemDescription")

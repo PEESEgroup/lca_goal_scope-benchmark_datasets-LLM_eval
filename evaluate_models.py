@@ -28,7 +28,7 @@ if __name__ == "__main__":
     print("vdb loaded")
 
     # load qa dataset
-    filenames = ["data/recalculated/qa_dataset.jsonl", "data/qa_dataset.jsonl"]
+    filenames = ["data/recalculated/qa_dataset.jsonl", "data/qa_dataset.jsonl", "data/recalculated/rag_qa_dataset.jsonl", "data/rag_qa_dataset.jsonl"]
     for k in filenames:
         with open(k, 'r', encoding='utf-8') as f:
             data = json.load(f)
