@@ -7,6 +7,7 @@ import constants
 from langchain_community.vectorstores import FAISS
 import rag_retrieval
 from tqdm import tqdm
+import uuid
 
 
 def intendedApplication(row, RAG, vdb):
@@ -22,6 +23,7 @@ def intendedApplication(row, RAG, vdb):
         return [{"question": question,
                  "answers": [row["intendedApplication"]],
                  "title": "Intended Application",
+                 "id": str(uuid.uuid4()),
                  "context": row["systemDescription"] + context + context}]
 
 
@@ -38,6 +40,7 @@ def studyReasons(row, RAG, vdb):
         return [{"question": question,
                  "answers": [row["studyReasons"]],
                  "title": "Study Reasons",
+                 "id": str(uuid.uuid4()),
                  "context": row["systemDescription"] + context}]
 
 
@@ -54,6 +57,7 @@ def targetAudience(row, RAG, vdb):
         return [{"question": question,
                  "answers": [row["intendedAudience"]],
                  "title": "Target Audience",
+                 "id": str(uuid.uuid4()),
                  "context": row["systemDescription"] + context}]
 
 
@@ -70,6 +74,7 @@ def comparativeAssertions(row, RAG, vdb):
         return [{"question": question,
                  "answers": [row["comparativeAssertions"]],
                  "title": "Comparative Assertion",
+                 "id": str(uuid.uuid4()),
                  "context": row["systemDescription"] + context}]
 
 
@@ -85,12 +90,14 @@ def actors(row, RAG, vdb):
             {"question": question,
              "answers": ["authors of the study", "authors and their collaborators"],
              "title": "Actors",
+             "id": str(uuid.uuid4()),
              "context": row["systemDescription"] + context}]
     else:
         return [
             {"question": question,
              "answers": [row["organization"], "authors of the study", "authors and their collaborators"],
              "title": "Actors",
+             "id": str(uuid.uuid4()),
              "context": row["systemDescription"] + context}]
 
 
@@ -107,6 +114,7 @@ def product(row, RAG, vdb):
         return [{"question": question,
                  "answers": [row["name"].split('-')[0].strip()],
                  "title": "Object of Assessment",
+                 "id": str(uuid.uuid4()),
                  "context": row["systemDescription"] + context}]
 
 
@@ -125,6 +133,7 @@ def allocation(row, RAG, vdb):
                     "question": question,
                     "answers": [row["allocationMethod"]],
                     "title": "Allocation Method",
+                    "id": str(uuid.uuid4()),
                     "context": row["systemDescription"] + context}]
 
 
@@ -150,6 +159,7 @@ def systemBoundary(row, RAG, vdb):
                                 "question": "True or False. For this production system, does the system boundary contain " + sb_part + "? ",
                                 "answers": [str(row[str(i)]).capitalize()],
                                 "title": "System Boundary Completeness",
+                                "id": str(uuid.uuid4()),
                                 "context": row["systemDescription"] + context})
     return data
 
@@ -200,6 +210,7 @@ def functionalUnit(row, RAG, vdb):
             {"question": question,
              "answers": fUnit,
              "title": "Functional Unit",
+             "id": str(uuid.uuid4()),
              "context": row["systemDescription"] + context}]
 
 
@@ -226,7 +237,7 @@ def main(directory, RAG):
         vdb = ""
 
     # reference output format - add this string as a new column in pandas
-    # [{"question": <prompt>, "answers": [<answer>], "title": <category>, "context": <systemDescription>}]
+    # [{"question": <prompt>, "answers": [<answer>], "title": <category>, "context": <systemDescription>}, "id": <uuid>]
 
     # create a system description column that contains relevant context
     print("\n systemDescription")
@@ -305,4 +316,5 @@ def main(directory, RAG):
 
 
 if __name__ == "__main__":
-    main("./data/", True)
+    main("./data/recalculated/", False)
+    main("./data/", False)
