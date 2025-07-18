@@ -9,6 +9,8 @@ def eval_models(dataset, dataset_name):
     # for each model, we need to run an evaluation
     model_names = ["distilbert-base-uncased-distilled-squad"]
     for i in model_names:
+        # as qa
+        # TODO: filter by type???
         task_evaluator = evaluator("question-answering")
         print("evaluating dataset", dataset_name, " using model", i)
         eval_results = task_evaluator.compute(
@@ -18,6 +20,37 @@ def eval_models(dataset, dataset_name):
             strategy="bootstrap",
             n_resamples=30
         )
+
+
+        """
+        # TODO: try text-generation
+        task_evaluator = evaluator("text-generation")
+        print("evaluating dataset", dataset_name, " using model", i)
+        eval_results = task_evaluator.compute(
+            model_or_pipeline=i,
+            data=dataset,
+            metric="squad",
+            strategy="bootstrap",
+            input_column="question",
+            label_column="answers",
+            n_resamples=30
+        )
+        """
+
+        """
+        # for text2text-generation, which may or may not be what we want
+        task_evaluator = evaluator("text2text-generation")
+        print("evaluating dataset", dataset_name, " using model", i)
+        eval_results = task_evaluator.compute(
+            model_or_pipeline=i,
+            data=dataset,
+            metric="squad",
+            strategy="bootstrap",
+            n_resamples=30
+        )
+
+        print(dataset_name, eval_results)
+        """
 
         print(dataset_name, eval_results)
 
@@ -39,6 +72,9 @@ if __name__ == "__main__":
 
         # convert to dataset
         dataset = Dataset.from_list(data)
+        data = load_dataset("squad", split="validation[:2]")
+        print(data[0])
+        print(dataset[0])
         print("dataset loaded")
         eval_models(dataset, k)
 
