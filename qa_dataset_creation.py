@@ -21,7 +21,7 @@ def intendedApplication(row, RAG, vdb):
             context = ""
         return [{"question": question,
                  "answers": [row["intendedApplication"]],
-                 "id": "Intended Application",
+                 "title": "Intended Application",
                  "context": row["systemDescription"] + context + context}]
 
 
@@ -37,7 +37,7 @@ def studyReasons(row, RAG, vdb):
             context = ""
         return [{"question": question,
                  "answers": [row["studyReasons"]],
-                 "id": "Study Reasons",
+                 "title": "Study Reasons",
                  "context": row["systemDescription"] + context}]
 
 
@@ -53,7 +53,7 @@ def targetAudience(row, RAG, vdb):
             context = ""
         return [{"question": question,
                  "answers": [row["intendedAudience"]],
-                 "id": "Target Audience",
+                 "title": "Target Audience",
                  "context": row["systemDescription"] + context}]
 
 
@@ -69,7 +69,7 @@ def comparativeAssertions(row, RAG, vdb):
             context = ""
         return [{"question": question,
                  "answers": [row["comparativeAssertions"]],
-                 "id": "Comparative Assertion",
+                 "title": "Comparative Assertion",
                  "context": row["systemDescription"] + context}]
 
 
@@ -84,13 +84,13 @@ def actors(row, RAG, vdb):
         return [
             {"question": question,
              "answers": ["authors of the study", "authors and their collaborators"],
-             "id": "Actors",
+             "title": "Actors",
              "context": row["systemDescription"] + context}]
     else:
         return [
             {"question": question,
              "answers": [row["organization"], "authors of the study", "authors and their collaborators"],
-             "id": "Actors",
+             "title": "Actors",
              "context": row["systemDescription"] + context}]
 
 
@@ -106,7 +106,7 @@ def product(row, RAG, vdb):
             context = ""
         return [{"question": question,
                  "answers": [row["name"].split('-')[0].strip()],
-                 "id": "Object of Assessment",
+                 "title": "Object of Assessment",
                  "context": row["systemDescription"] + context}]
 
 
@@ -124,7 +124,7 @@ def allocation(row, RAG, vdb):
         return [{
                     "question": question,
                     "answers": [row["allocationMethod"]],
-                    "id": "Allocation Method",
+                    "title": "Allocation Method",
                     "context": row["systemDescription"] + context}]
 
 
@@ -149,7 +149,7 @@ def systemBoundary(row, RAG, vdb):
                 data.append({
                                 "question": "True or False. For this production system, does the system boundary contain " + sb_part + "? ",
                                 "answers": [str(row[str(i)]).capitalize()],
-                                "id": "System Boundary Completeness",
+                                "title": "System Boundary Completeness",
                                 "context": row["systemDescription"] + context})
     return data
 
@@ -199,7 +199,7 @@ def functionalUnit(row, RAG, vdb):
         return [
             {"question": question,
              "answers": fUnit,
-             "id": "Functional Unit",
+             "title": "Functional Unit",
              "context": row["systemDescription"] + context}]
 
 
@@ -226,7 +226,7 @@ def main(directory, RAG):
         vdb = ""
 
     # reference output format - add this string as a new column in pandas
-    # [{"question": <prompt>, "answers": [<answer>], "id": <category>, "context": <systemDescription>}]
+    # [{"question": <prompt>, "answers": [<answer>], "title": <category>, "context": <systemDescription>}]
 
     # create a system description column that contains relevant context
     print("\n systemDescription")

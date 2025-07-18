@@ -2,7 +2,7 @@ import constants
 from langchain_community.vectorstores import FAISS
 import json
 from evaluate import evaluator
-from datasets import Dataset
+from datasets import Dataset, load_dataset
 
 
 def eval_models(dataset, dataset_name):
@@ -10,14 +10,13 @@ def eval_models(dataset, dataset_name):
     model_names = ["distilbert-base-uncased-distilled-squad"]
     for i in model_names:
         task_evaluator = evaluator("question-answering")
-        print("evaluating dataset:", dataset_name, "\nusing model:", i)
+        print("evaluating dataset", dataset_name, " using model", i)
         eval_results = task_evaluator.compute(
             model_or_pipeline=i,
             data=dataset,
             metric="squad",
             strategy="bootstrap",
-            n_resamples=30,
-            squad_v2_format = False # by definition there are no questions with no answer
+            n_resamples=30
         )
 
         print(dataset_name, eval_results)
