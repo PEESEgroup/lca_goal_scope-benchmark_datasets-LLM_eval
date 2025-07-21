@@ -237,6 +237,7 @@ def main(directory, RAG):
         vdb = ""
 
     # reference output format - add this string as a new column in pandas
+    # TODO: remove answer_start when possible
     # [{"question": <prompt>, "answers": {'text': [<answer>], "answer_start": [0]}, "title": <category>, "context": <systemDescription>}, "id": <uuid>]
 
     # create a system description column that contains relevant context
@@ -318,3 +319,5 @@ def main(directory, RAG):
 if __name__ == "__main__":
     main("./data/recalculated/", False)
     main("./data/", False)
+    main("./data/recalculated/", True)
+    main("./data/", True)
