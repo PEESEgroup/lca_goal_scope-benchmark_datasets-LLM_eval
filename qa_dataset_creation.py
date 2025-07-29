@@ -197,6 +197,8 @@ def functionalUnit(row, RAG, vdb):
             fUnit.append(fraction[0].strip() + "/" + fraction[1].strip())
         fUnit.append(fraction[0].strip())
 
+    fUnit = list(set(fUnit)) # remove duplicates
+
     if len(fUnit) == 0:
         return ""
     else:
