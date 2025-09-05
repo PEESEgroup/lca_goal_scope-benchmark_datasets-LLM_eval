@@ -211,10 +211,10 @@ def systemDescription(row):
     return row["siteType"] + " producing " + names[0].strip() + " in " + names[1].strip()
 
 
-def main(directory, RAG):
+def main(output_directory, input_directory, RAG):
     tqdm.pandas()
     # read in data
-    df = pd.read_csv(directory + "input_data.csv")
+    df = pd.read_csv(input_directory + "input_data.csv")
     # replace nan with empty strings
     df = df.fillna('')
 
@@ -295,14 +295,17 @@ def main(directory, RAG):
             fname = str(i) + ".jsonl"
 
         print(i)
-        with open(directory + fname, 'w') as f:
+        with open(output_directory + fname, 'w') as f:
             for item in data:
-                json_line = json.dumps(item[0])
+                if 0 not in item:
+                    json_line = json.dumps(item)
+                else:
+                    json_line = json.dumps(item[0])
                 f.write(json_line + '\n')
 
 
 if __name__ == "__main__":
-    main("./data/recalculated/qa_dataset/", False)
-    main("./data/qa_dataset/", False)
-    main("./data/recalculated/qa_dataset/", True)
-    main("./data/qa_dataset/", True)
+    main("./qa_dataset/recalculated/no_rag/", "./data/recalculated/qa_dataset/",False)
+    main("./qa_dataset/original/no_rag/", "./data/qa_dataset/",False)
+    main("./qa_dataset/recalculated/rag/", "./data/recalculated/qa_dataset/", True)
+    main("./qa_dataset/original/rag/", "./data/qa_dataset/", True)
