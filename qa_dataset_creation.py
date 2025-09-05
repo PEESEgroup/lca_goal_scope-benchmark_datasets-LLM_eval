@@ -143,7 +143,8 @@ def systemBoundary(row, RAG, vdb):
             if len(str(row[str(i)])) == 0:
                 return ""
             else:
-                if str(i) != "updated":
+                # by definition this is a true or false question
+                if str(row[str(i)]).capitalize() == "True" or str(row[str(i)]).capitalize() == "False":
                     data.append({"labels": [str(row[str(i)]).capitalize()],
                                  "title": "System Boundary Completeness",
                                  "id": str(uuid.uuid4()),
