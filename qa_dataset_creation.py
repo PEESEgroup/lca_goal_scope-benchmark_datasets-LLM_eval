@@ -298,6 +298,9 @@ def main(output_directory, input_directory, RAG):
 
         with open(output_directory + fname, 'w') as f:
             for item in data:
+                # TODO: fix list processing
+                # TODO: fix why object of assessment and allocation share the same qa file
+                # TODO: fix why functionalunit QA and systemboundary QA is in improper form
                 if item is not list:
                     json_line = json.dumps(item)
                 else:
