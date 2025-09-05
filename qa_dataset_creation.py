@@ -139,18 +139,15 @@ def systemBoundary(row, RAG, vdb):
     data = []
     for i in row.index.to_list():
         if "systemBoundaryCompleteness" in i:
-            # replace camel case part of string so that it can go in the question
-            sb_part = i.split('.')[1]
-            sb_part = re.sub(r'([A-Z])', r' \1', sb_part).strip().lower()
-
             # standard output of questions
             if len(str(row[str(i)])) == 0:
                 return ""
             else:
-                data.append({"labels": [str(row[str(i)]).capitalize()],
-                             "title": "System Boundary Completeness",
-                             "id": str(uuid.uuid4()),
-                             "context": row["systemDescription"] + context})
+                if str(i) != "updated":
+                    data.append({"labels": [str(row[str(i)]).capitalize()],
+                                 "title": "System Boundary Completeness",
+                                 "id": str(uuid.uuid4()),
+                                 "context": row["systemDescription"] + "Is " + str(i) + "included in the system boundary?" + context})
     return data
 
 
@@ -278,14 +275,11 @@ def main(output_directory, input_directory, RAG):
     # •	Needs for critical review -  not included, skipped
     # •	Planning reporting of results - not included, skipped
 
-    # melt the data table and convert it into an array
-    data = []
-
-    # append all column values to list
+    # output the data
     print("\n append all questions to list")
     df = df[[col for col in df.columns if "QA" in col]]
     for i in tqdm(df.columns):
-        data.append(df[str(i)].tolist())
+        data = df[str(i)].tolist()
 
         # unnest sublists and remove empty strings
         data = list(itertools.chain.from_iterable(data))
