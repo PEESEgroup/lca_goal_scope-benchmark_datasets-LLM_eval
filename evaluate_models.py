@@ -38,9 +38,12 @@ def compute_metrics(eval_pred):
 def eval_models(dataset, dataset_name):
     # from: https://huggingface.co/blog/Valerii-Knowledgator/multi-label-classification
 
-    # dataset = load_dataset('knowledgator/events_classification_biotech', trust_remote_code=True)
+    reeee = load_dataset('knowledgator/events_classification_biotech', trust_remote_code=True)
 
-    # a list of all of the unique classes
+    temp = dataset['train'].features['labels']
+    a = reeee['train'].features['label 1']
+    b = reeee['train'].features['label 1'].names
+
     classes = [class_ for class_ in dataset['train'].features['labels'].names if class_]
     class2id = {class_: id for id, class_ in enumerate(classes)}
     id2class = {id: class_ for class_, id in class2id.items()}
@@ -58,6 +61,7 @@ def eval_models(dataset, dataset_name):
         label2id=class2id,
         problem_type="multi_label_classification"
     )
+    # TODO: add model training validation
     training_args = TrainingArguments(
         output_dir="my_awesome_model"+dataset_name,
         learning_rate=2e-5,
@@ -104,16 +108,16 @@ if __name__ == "__main__":
                 data.append(json.loads(line))
 
         # convert to dataset
-        # TODO: rerun rag code
         dataset = Dataset.from_list(data)
+        dataset = dataset.class_encode_column("labels")
 
         # shuffle dataset before splitting
         dataset = dataset.shuffle(seed=42)
 
         # 80% train, 20% test + validation
-        train_testvalid = dataset.train_test_split(test=0.2)
+        train_testvalid = dataset.train_test_split(test_size=0.2)
         # Split the 10% test + valid in half test, half valid
-        test_valid = train_testvalid['test'].train_test_split(test=0.5)
+        test_valid = train_testvalid['test'].train_test_split(test_size=0.5)
         # gather everyone if you want to have a single DatasetDict
         train_test_valid_dataset = DatasetDict({
             'train': train_testvalid['train'],
@@ -121,4 +125,4 @@ if __name__ == "__main__":
             'valid': test_valid['train']})
 
         print("dataset loaded")
-        eval_models(dataset, k)
+        eval_models(train_test_valid_dataset, k)
