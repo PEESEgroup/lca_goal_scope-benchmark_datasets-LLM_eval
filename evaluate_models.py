@@ -4,7 +4,7 @@ import json
 import evaluate
 import numpy as np
 from evaluate import evaluator
-from datasets import Dataset, load_dataset
+from datasets import Dataset, load_dataset, DatasetDict
 from transformers import AutoModelForSequenceClassification, TrainingArguments, Trainer, DataCollatorWithPadding, \
     AutoTokenizer
 
@@ -38,11 +38,10 @@ def compute_metrics(eval_pred):
 def eval_models(dataset, dataset_name):
     # from: https://huggingface.co/blog/Valerii-Knowledgator/multi-label-classification
 
-    data = dataset
-    dataset = load_dataset('knowledgator/events_classification_biotech', trust_remote_code=True)
+    # dataset = load_dataset('knowledgator/events_classification_biotech', trust_remote_code=True)
 
     # a list of all of the unique classes
-    classes = [class_ for class_ in dataset['train'].features['label 1'].names if class_]
+    classes = [class_ for class_ in dataset['train'].features['labels'].names if class_]
     class2id = {class_: id for id, class_ in enumerate(classes)}
     id2class = {id: class_ for class_, id in class2id.items()}
 
@@ -94,7 +93,7 @@ if __name__ == "__main__":
     print("vdb loaded")
 
     # load all datasets
-    filenames = ["data/recalculated/qa_dataset.jsonl", "data/qa_dataset.jsonl",
+    filenames = ["data/qa_dataset/recalculated/no_rag/productQA.jsonl", "data/qa_dataset.jsonl",
                  "data/recalculated/rag_qa_dataset.jsonl", "data/rag_qa_dataset.jsonl"]
 
     # for each dataset
@@ -105,9 +104,21 @@ if __name__ == "__main__":
                 data.append(json.loads(line))
 
         # convert to dataset
-        # TODO: combine question and context into a single entry
         # TODO: rerun rag code
-        # TODO: test-train split
         dataset = Dataset.from_list(data)
+
+        # shuffle dataset before splitting
+        dataset = dataset.shuffle(seed=42)
+
+        # 80% train, 20% test + validation
+        train_testvalid = dataset.train_test_split(test=0.2)
+        # Split the 10% test + valid in half test, half valid
+        test_valid = train_testvalid['test'].train_test_split(test=0.5)
+        # gather everyone if you want to have a single DatasetDict
+        train_test_valid_dataset = DatasetDict({
+            'train': train_testvalid['train'],
+            'test': test_valid['test'],
+            'valid': test_valid['train']})
+
         print("dataset loaded")
         eval_models(dataset, k)

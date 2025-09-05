@@ -296,8 +296,7 @@ def main(output_directory, input_directory, RAG):
         else:
             fname = str(i) + ".jsonl"
 
-        print(os.path.exists(output_directory))
-        with open(output_directory + fname, 'w+') as f:
+        with open(output_directory + fname, 'w') as f:
             for item in data:
                 if item is not list:
                     json_line = json.dumps(item)
