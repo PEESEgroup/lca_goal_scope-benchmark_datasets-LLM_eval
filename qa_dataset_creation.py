@@ -148,7 +148,8 @@ def systemBoundary(row, RAG, vdb):
                     data.append({"labels": [str(row[str(i)]).capitalize()],
                                  "title": "System Boundary Completeness",
                                  "id": str(uuid.uuid4()),
-                                 "context": row["systemDescription"] + "Is " + str(i) + "included in the system boundary?" + context})
+                                 "context": row["systemDescription"] + " Is " + str(i).split(".")[1] +
+                                            " included in the system boundary? " + context})
     return data
 
 
