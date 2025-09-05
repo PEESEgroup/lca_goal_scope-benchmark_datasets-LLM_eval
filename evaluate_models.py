@@ -44,6 +44,7 @@ def eval_models(dataset, dataset_name):
     a = reeee['train'].features['label 1']
     b = reeee['train'].features['label 1'].names
 
+    unique_classes = dataset.unique("labels")
     classes = [class_ for class_ in dataset['train'].features['labels'].names if class_]
     class2id = {class_: id for id, class_ in enumerate(classes)}
     id2class = {id: class_ for class_, id in class2id.items()}
@@ -109,7 +110,7 @@ if __name__ == "__main__":
 
         # convert to dataset
         dataset = Dataset.from_list(data)
-        dataset = dataset.class_encode_column("labels")
+        #dataset = dataset.class_encode_column("labels")
 
         # shuffle dataset before splitting
         dataset = dataset.shuffle(seed=42)

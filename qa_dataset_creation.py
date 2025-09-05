@@ -21,7 +21,7 @@ def intendedApplication(row, RAG, vdb):
             context = " Additional Context: " + ' '.join(docs)
         else:
             context = ""
-        return [{"labels": {'text': [row["intendedApplication"]], "answer_start": [0]},
+        return [{"labels": row["intendedApplication"],
                  "title": "Intended Application",
                  "id": str(uuid.uuid4()),
                  "context": row["systemDescription"] + context}]
@@ -37,7 +37,7 @@ def studyReasons(row, RAG, vdb):
             context = " Additional Context: " + ' '.join(docs)
         else:
             context = ""
-        return [{"labels": [row["studyReasons"]],
+        return [{"labels": row["studyReasons"],
                  "title": "Study Reasons",
                  "id": str(uuid.uuid4()),
                  "context": row["systemDescription"] + context}]
@@ -53,7 +53,7 @@ def targetAudience(row, RAG, vdb):
             context = " Additional Context: " + ' '.join(docs)
         else:
             context = ""
-        return [{"labels": [row["intendedAudience"]],
+        return [{"labels": row["intendedAudience"],
                  "title": "Target Audience",
                  "id": str(uuid.uuid4()),
                  "context": row["systemDescription"] + context}]
@@ -69,7 +69,7 @@ def comparativeAssertions(row, RAG, vdb):
             context = " Additional Context: " + ' '.join(docs)
         else:
             context = ""
-        return [{"labels": [row["comparativeAssertions"]],
+        return [{"labels": row["comparativeAssertions"],
                  "title": "Comparative Assertion",
                  "id": str(uuid.uuid4()),
                  "context": row["systemDescription"] + context}]
@@ -84,13 +84,13 @@ def actors(row, RAG, vdb):
         context = ""
     if len(row["organization"]) == 0:
         return [
-            {"labels": ["authors of the study", "authors and their collaborators"],
+            {"labels": "authors of the study, authors and their collaborators",
              "title": "Actors",
              "id": str(uuid.uuid4()),
              "context": row["systemDescription"] + context}]
     else:
         return [
-            {"labels": [row["organization"], "authors of the study", "authors and their collaborators"],
+            {"labels": row["organization"] + ", authors of the study, authors and their collaborators",
              "title": "Actors",
              "id": str(uuid.uuid4()),
              "context": row["systemDescription"] + context}]
@@ -106,7 +106,7 @@ def product(row, RAG, vdb):
             context = " Additional Context: " + ' '.join(docs)
         else:
             context = ""
-        return [{"labels": [row["name"].split('-')[0].strip()],
+        return [{"labels": row["name"].split('-')[0].strip(),
                  "title": "Object of Assessment",
                  "id": str(uuid.uuid4()),
                  "context": row["systemDescription"] + context}]
@@ -123,7 +123,7 @@ def allocation(row, RAG, vdb):
         else:
             context = ""
         return [{
-            "labels": [row["allocationMethod"]],
+            "labels": row["allocationMethod"],
             "title": "Allocation Method",
             "id": str(uuid.uuid4()),
             "context": row["systemDescription"] + context}]
@@ -145,7 +145,7 @@ def systemBoundary(row, RAG, vdb):
             else:
                 # by definition this is a true or false question
                 if str(row[str(i)]).capitalize() == "True" or str(row[str(i)]).capitalize() == "False":
-                    data.append({"labels": [str(row[str(i)]).capitalize()],
+                    data.append({"labels": str(row[str(i)]).capitalize(),
                                  "title": "System Boundary Completeness",
                                  "id": str(uuid.uuid4()),
                                  "context": row["systemDescription"] + " Is " + str(i).split(".")[1] +
@@ -198,7 +198,7 @@ def functionalUnit(row, RAG, vdb):
         else:
             context = ""
         return [
-            {"labels": {'text': fUnit, "answer_start": [0]},
+            {"labels": ', '.join(fUnit),
              "title": "Functional Unit",
              "id": str(uuid.uuid4()),
              "context": row["systemDescription"] + context}]
