@@ -1,7 +1,6 @@
 import json
 import pandas as pd
 import re
-import random
 import itertools
 import constants
 from langchain_community.vectorstores import FAISS
@@ -20,8 +19,7 @@ def intendedApplication(row, RAG, vdb):
             context = " Additional Context: " + ' '.join(docs)
         else:
             context = ""
-        return [{"question": question,
-                 "answers": {'text': [row["intendedApplication"]], "answer_start": [0]},
+        return [{"labels": {'text': [row["intendedApplication"]], "answer_start": [0]},
                  "title": "Intended Application",
                  "id": str(uuid.uuid4()),
                  "context": row["systemDescription"] + context}]
@@ -37,8 +35,7 @@ def studyReasons(row, RAG, vdb):
             context = " Additional Context: " + ' '.join(docs)
         else:
             context = ""
-        return [{"question": question,
-                 "answers": [row["studyReasons"]],
+        return [{"labels": [row["studyReasons"]],
                  "title": "Study Reasons",
                  "id": str(uuid.uuid4()),
                  "context": row["systemDescription"] + context}]
@@ -54,8 +51,7 @@ def targetAudience(row, RAG, vdb):
             context = " Additional Context: " + ' '.join(docs)
         else:
             context = ""
-        return [{"question": question,
-                 "answers": [row["intendedAudience"]],
+        return [{"labels": [row["intendedAudience"]],
                  "title": "Target Audience",
                  "id": str(uuid.uuid4()),
                  "context": row["systemDescription"] + context}]
@@ -71,8 +67,7 @@ def comparativeAssertions(row, RAG, vdb):
             context = " Additional Context: " + ' '.join(docs)
         else:
             context = ""
-        return [{"question": question,
-                 "answers": [row["comparativeAssertions"]],
+        return [{"labels": [row["comparativeAssertions"]],
                  "title": "Comparative Assertion",
                  "id": str(uuid.uuid4()),
                  "context": row["systemDescription"] + context}]
@@ -87,15 +82,13 @@ def actors(row, RAG, vdb):
         context = ""
     if len(row["organization"]) == 0:
         return [
-            {"question": question,
-             "answers": ["authors of the study", "authors and their collaborators"],
+            {"labels": ["authors of the study", "authors and their collaborators"],
              "title": "Actors",
              "id": str(uuid.uuid4()),
              "context": row["systemDescription"] + context}]
     else:
         return [
-            {"question": question,
-             "answers": [row["organization"], "authors of the study", "authors and their collaborators"],
+            {"labels": [row["organization"], "authors of the study", "authors and their collaborators"],
              "title": "Actors",
              "id": str(uuid.uuid4()),
              "context": row["systemDescription"] + context}]
@@ -111,8 +104,7 @@ def product(row, RAG, vdb):
             context = " Additional Context: " + ' '.join(docs)
         else:
             context = ""
-        return [{"question": question,
-                 "answers": [row["name"].split('-')[0].strip()],
+        return [{"labels": [row["name"].split('-')[0].strip()],
                  "title": "Object of Assessment",
                  "id": str(uuid.uuid4()),
                  "context": row["systemDescription"] + context}]
@@ -122,26 +114,24 @@ def allocation(row, RAG, vdb):
     if len(row["allocationMethod"]) == 0:
         return ""
     else:
-        question = ("For this production system, what is the appropriate allocation method? Possible answers are: "
-                    "economic, mass, energy, biophysical, none, none required, system expansion.")
+        question = "For this production system, what is the appropriate allocation method?"
         if RAG:
             docs = rag_retrieval.get_context(row["systemDescription"] + question, vdb)
             context = " Additional Context: " + ' '.join(docs)
         else:
             context = ""
         return [{
-                    "question": question,
-                    "answers": [row["allocationMethod"]],
-                    "title": "Allocation Method",
-                    "id": str(uuid.uuid4()),
-                    "context": row["systemDescription"] + context}]
+            "labels": [row["allocationMethod"]],
+            "title": "Allocation Method",
+            "id": str(uuid.uuid4()),
+            "context": row["systemDescription"] + context}]
 
 
 def systemBoundary(row, RAG, vdb):
     question = "What is included in the system boundary of this production system?"
     if RAG:
-            docs = rag_retrieval.get_context(row["systemDescription"] + question, vdb)
-            context = " Additional Context: " + ' '.join(docs)
+        docs = rag_retrieval.get_context(row["systemDescription"] + question, vdb)
+        context = " Additional Context: " + ' '.join(docs)
     else:
         context = ""
     data = []
@@ -155,12 +145,10 @@ def systemBoundary(row, RAG, vdb):
             if len(str(row[str(i)])) == 0:
                 return ""
             else:
-                data.append({
-                                "question": "True or False. For this production system, does the system boundary contain " + sb_part + "? ",
-                                "answers": [str(row[str(i)]).capitalize()],
-                                "title": "System Boundary Completeness",
-                                "id": str(uuid.uuid4()),
-                                "context": row["systemDescription"] + context})
+                data.append({"labels": [str(row[str(i)]).capitalize()],
+                             "title": "System Boundary Completeness",
+                             "id": str(uuid.uuid4()),
+                             "context": row["systemDescription"] + context})
     return data
 
 
@@ -197,7 +185,7 @@ def functionalUnit(row, RAG, vdb):
             fUnit.append(fraction[0].strip() + "/" + fraction[1].strip())
         fUnit.append(fraction[0].strip())
 
-    fUnit = list(set(fUnit)) # remove duplicates
+    fUnit = list(set(fUnit))  # remove duplicates
 
     if len(fUnit) == 0:
         return ""
@@ -209,8 +197,7 @@ def functionalUnit(row, RAG, vdb):
         else:
             context = ""
         return [
-            {"question": question,
-             "answers": {'text': fUnit, "answer_start": [0]},
+            {"labels": {'text': fUnit, "answer_start": [0]},
              "title": "Functional Unit",
              "id": str(uuid.uuid4()),
              "context": row["systemDescription"] + context}]
@@ -239,7 +226,7 @@ def main(directory, RAG):
         vdb = ""
 
     # reference output format - add this string as a new column in pandas
-    # [{"question": <prompt>, "answers": {'text': [<answer>], "answer_start": [0]}, "title": <category>, "context": <systemDescription>}, "id": <uuid>]
+    # [{"question": <prompt>, "labels": {'text': [<answer>], "answer_start": [0]}, "title": <category>, "context": <systemDescription>}, "id": <uuid>]
 
     # create a system description column that contains relevant context
     print("\n systemDescription")
@@ -298,27 +285,24 @@ def main(directory, RAG):
     for i in tqdm(df.columns):
         data.append(df[str(i)].tolist())
 
-    # unnest sublists and remove empty strings
-    data = list(itertools.chain.from_iterable(data))
-    data = [item for item in data if item != ""]
+        # unnest sublists and remove empty strings
+        data = list(itertools.chain.from_iterable(data))
+        data = [item for item in data if item != ""]
 
-    # shuffle list for training/testing purposes
-    random.seed(42)
-    random.shuffle(data)
+        if RAG:
+            fname = "rag_" + str(i) + ".jsonl"
+        else:
+            fname = str(i) + ".jsonl"
 
-    if RAG:
-        fname = "rag_qa_dataset.jsonl"
-    else:
-        fname = "qa_dataset.jsonl"
-
-    with open(directory + fname, 'w') as f:
-        for item in data:
-            json_line = json.dumps(item[0])
-            f.write(json_line + '\n')
+        print(i)
+        with open(directory + fname, 'w') as f:
+            for item in data:
+                json_line = json.dumps(item[0])
+                f.write(json_line + '\n')
 
 
 if __name__ == "__main__":
-    main("./data/recalculated/", False)
-    main("./data/", False)
-    main("./data/recalculated/", True)
-    main("./data/", True)
+    main("./data/recalculated/qa_dataset/", False)
+    main("./data/qa_dataset/", False)
+    main("./data/recalculated/qa_dataset/", True)
+    main("./data/qa_dataset/", True)
