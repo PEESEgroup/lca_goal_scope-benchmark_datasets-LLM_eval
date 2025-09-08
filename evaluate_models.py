@@ -76,7 +76,7 @@ def eval_models(dataset, dataset_name):
             learning_rate=2e-5,
             per_device_train_batch_size=3,
             per_device_eval_batch_size=3,
-            num_train_epochs=5,
+            num_train_epochs=10,
             weight_decay=0.01,
             eval_strategy="epoch",
             logging_strategy='epoch',
@@ -109,7 +109,7 @@ def eval_models(dataset, dataset_name):
             disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=['Negative', 'Positive'])
             disp.plot(cmap='Blues', values_format='d')
             plt.title(f'Confusion Matrix for {classes[i]} class for ' + str(dataset_name))
-            plt.savefig("data/qa_dataset/results/" + dataset_name + f'/Confusion Matrix for {classes[i]} class.png', dpi=300)
+            plt.savefig("data/qa_dataset/results/" + dataset_name + f'/Confusion Matrix for {classes[i].replace("/", "")} class.png', dpi=300)
             plt.show()
 
         # record data
