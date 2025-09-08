@@ -3,6 +3,7 @@ from langchain_community.vectorstores import FAISS
 import json
 import evaluate
 import numpy as np
+import csv
 import pandas as pd
 import matplotlib.pyplot as plt
 from datasets import Dataset, load_dataset, DatasetDict
@@ -88,19 +89,29 @@ def eval_models(dataset, dataset_name):
         )
 
         trainer.train()
-
         log_history_df = pd.DataFrame(trainer.state.log_history)
-        train_logs = log_history_df[log_history_df['loss'].notna()]
-        eval_logs = log_history_df[log_history_df['eval_loss'].notna()]
-        fpath = "data/qa_dataset/results/"
-        plotting(train_logs, eval_logs, dataset_name, fpath)
+        plotting(log_history_df, dataset_name)
+
+        print("test dataset evaluation")
+        predictions_output = trainer.evaluate(tokenized_dataset["test"])
+        if predictions_output.metrics:
+            print(dataset_name)
+            print("Metrics:", predictions_output.metrics)
+            with open("data/qa_dataset/results/" + dataset_name + 'test_metrics.csv', 'w') as f:
+                w = csv.writer(f)
+                w.writerows(predictions_output.metrics.items())
+
     else:
         print("dataset missing:", str(dataset_name))
 
     # TODO: evaluation
 
 
-def plotting(train_logs, eval_logs, dataset_name, fpath):
+def plotting(log_history_df, dataset_name):
+    train_logs = log_history_df[log_history_df['loss'].notna()]
+    eval_logs = log_history_df[log_history_df['eval_loss'].notna()]
+    fpath = "data/qa_dataset/results/"
+
     # Plotting Loss
     plt.figure(figsize=(10, 6))
     plt.plot(train_logs['step'], train_logs['loss'], label='Training Loss')
