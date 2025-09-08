@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 from datasets import Dataset, load_dataset, DatasetDict
 from transformers import AutoModelForSequenceClassification, TrainingArguments, Trainer, DataCollatorWithPadding, \
     AutoTokenizer
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 
 
 def preprocess_function(example, classes, class2id, tokenizer):
@@ -61,23 +62,24 @@ def eval_models(dataset, dataset_name):
             label2id=class2id,
             problem_type="multi_label_classification"
         )
-        # update the dataset name
 
+        # update the dataset name
         dataset_name = dataset_name.split(".")[0]
         dataset_name = dataset_name.split("/")[2:]
         dataset_name = "_".join(dataset_name)
+
+        # training parameters
         training_args = TrainingArguments(
             output_dir="data/checkpoints/" + dataset_name,
             learning_rate=2e-5,
             per_device_train_batch_size=3,
             per_device_eval_batch_size=3,
-            num_train_epochs=2,
+            num_train_epochs=1,
             weight_decay=0.01,
             eval_strategy="epoch",
             save_strategy="epoch",
             load_best_model_at_end=True,
         )
-
         trainer = Trainer(
             model=model,
             args=training_args,
@@ -95,6 +97,12 @@ def eval_models(dataset, dataset_name):
         # eval
         print("test dataset evaluation")
         predictions_output = trainer.evaluate(tokenized_dataset["test"])
+
+        # confusion matrix
+        cm = confusion_matrix(tokenized_dataset["test"]["labels"], predictions_output.predictions)
+        disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=classes)
+        disp.plot(cmap=plt.cm.Blues)  # You can choose a different colormap
+        plt.show()
 
         # record data
         if predictions_output.metrics:
@@ -122,7 +130,7 @@ def plotting(log_history_df, dataset_name):
     plt.title('Training and Validation Loss Over Time for ' + str(dataset_name))
     plt.legend()
     plt.grid(True)
-    plt.savefig(fpath, dataset_name + "_loss.png", dpi=300)
+    plt.savefig(fpath + dataset_name + "_loss.png", dpi=300)
     plt.show()
 
     # Plotting Accuracy (if 'accuracy' and 'eval_accuracy' are present in your logs)
