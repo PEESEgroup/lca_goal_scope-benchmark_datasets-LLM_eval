@@ -67,7 +67,7 @@ def eval_models(dataset, dataset_name):
         dataset_name = dataset_name.split("/")[2:]
         dataset_name = "_".join(dataset_name)
         training_args = TrainingArguments(
-            output_dir="data/checkpoints/"+dataset_name,
+            output_dir="data/checkpoints/" + dataset_name,
             learning_rate=2e-5,
             per_device_train_batch_size=3,
             per_device_eval_batch_size=3,
@@ -87,13 +87,16 @@ def eval_models(dataset, dataset_name):
             data_collator=data_collator,
             compute_metrics=compute_metrics,
         )
-
+        # training
         trainer.train()
         log_history_df = pd.DataFrame(trainer.state.log_history)
         plotting(log_history_df, dataset_name)
 
+        # eval
         print("test dataset evaluation")
         predictions_output = trainer.evaluate(tokenized_dataset["test"])
+
+        # record data
         if predictions_output.metrics:
             print(dataset_name)
             print("Metrics:", predictions_output.metrics)
@@ -103,8 +106,6 @@ def eval_models(dataset, dataset_name):
 
     else:
         print("dataset missing:", str(dataset_name))
-
-    # TODO: evaluation
 
 
 def plotting(log_history_df, dataset_name):
@@ -131,7 +132,7 @@ def plotting(log_history_df, dataset_name):
         plt.plot(eval_logs['step'], eval_logs['eval_accuracy'], label='Validation Accuracy')
         plt.xlabel('Step')
         plt.ylabel('Accuracy')
-        plt.title('Training and Validation Accuracy Over Time for '+ str(dataset_name))
+        plt.title('Training and Validation Accuracy Over Time for ' + str(dataset_name))
         plt.legend()
         plt.grid(True)
         plt.savefig(fpath, dataset_name + "_accuracy.png", dpi=300)
@@ -146,8 +147,39 @@ if __name__ == "__main__":
     print("vdb loaded")
 
     # load all datasets
-    filenames = ["data/qa_dataset/recalculated/no_rag/productQA.jsonl", "data/qa_dataset.jsonl",
-                 "data/recalculated/rag_qa_dataset.jsonl", "data/rag_qa_dataset.jsonl"]
+    filenames = ["data/qa_dataset/original/no_rag/allocationQA.jsonl",
+                 "data/qa_dataset/original/no_rag/comparativeAssertionsQA.jsonl",
+                 "data/qa_dataset/original/no_rag/functionalUnitQA.jsonl",
+                 "data/qa_dataset/original/no_rag/intendedApplicationQA.jsonl",
+                 "data/qa_dataset/original/no_rag/productQA.jsonl",
+                 "data/qa_dataset/original/no_rag/studyReasonsQA.jsonl",
+                 "data/qa_dataset/original/no_rag/systemBoundaryQA.jsonl",
+                 "data/qa_dataset/original/no_rag/targetAudienceQA.jsonl",
+                 "data/qa_dataset/original/rag/allocationQA.jsonl",
+                 "data/qa_dataset/original/rag/comparativeAssertionsQA.jsonl",
+                 "data/qa_dataset/original/rag/functionalUnitQA.jsonl",
+                 "data/qa_dataset/original/rag/intendedApplicationQA.jsonl",
+                 "data/qa_dataset/original/rag/productQA.jsonl",
+                 "data/qa_dataset/original/rag/studyReasonsQA.jsonl",
+                 "data/qa_dataset/original/rag/systemBoundaryQA.jsonl",
+                 "data/qa_dataset/original/rag/targetAudienceQA.jsonl",
+                 "data/qa_dataset/recalculated/no_rag/allocationQA.jsonl",
+                 "data/qa_dataset/recalculated/no_rag/comparativeAssertionsQA.jsonl",
+                 "data/qa_dataset/recalculated/no_rag/functionalUnitQA.jsonl",
+                 "data/qa_dataset/recalculated/no_rag/intendedApplicationQA.jsonl",
+                 "data/qa_dataset/recalculated/no_rag/productQA.jsonl",
+                 "data/qa_dataset/recalculated/no_rag/studyReasonsQA.jsonl",
+                 "data/qa_dataset/recalculated/no_rag/systemBoundaryQA.jsonl",
+                 "data/qa_dataset/recalculated/no_rag/targetAudienceQA.jsonl",
+                 "data/qa_dataset/recalculated/rag/allocationQA.jsonl",
+                 "data/qa_dataset/recalculated/rag/comparativeAssertionsQA.jsonl",
+                 "data/qa_dataset/recalculated/rag/functionalUnitQA.jsonl",
+                 "data/qa_dataset/recalculated/rag/intendedApplicationQA.jsonl",
+                 "data/qa_dataset/recalculated/rag/productQA.jsonl",
+                 "data/qa_dataset/recalculated/rag/studyReasonsQA.jsonl",
+                 "data/qa_dataset/recalculated/rag/systemBoundaryQA.jsonl",
+                 "data/qa_dataset/recalculated/rag/targetAudienceQA.jsonl"
+                 ]
 
     # for each dataset
     for k in filenames:
@@ -156,21 +188,25 @@ if __name__ == "__main__":
             for line in f:
                 data.append(json.loads(line))
 
-        # convert to dataset
-        dataset = Dataset.from_list(data)
+        if len(data) > 0:
+            # convert to dataset
+            dataset = Dataset.from_list(data)
 
-        # shuffle dataset before splitting
-        dataset = dataset.shuffle(seed=42)
+            # shuffle dataset before splitting
+            dataset = dataset.shuffle(seed=42)
 
-        # 80% train, 20% test + validation
-        train_testvalid = dataset.train_test_split(test_size=0.2)
-        # Split the 10% test + valid in half test, half valid
-        test_valid = train_testvalid['test'].train_test_split(test_size=0.5)
-        # gather everyone if you want to have a single DatasetDict
-        train_test_valid_dataset = DatasetDict({
-            'train': train_testvalid['train'],
-            'test': test_valid['test'],
-            'valid': test_valid['train']})
+            # 80% train, 20% test + validation
+            train_testvalid = dataset.train_test_split(test_size=0.2)
+            # Split the 10% test + valid in half test, half valid
+            test_valid = train_testvalid['test'].train_test_split(test_size=0.5)
+            # gather everyone if you want to have a single DatasetDict
+            train_test_valid_dataset = DatasetDict({
+                'train': train_testvalid['train'],
+                'test': test_valid['test'],
+                'valid': test_valid['train']})
 
-        print("dataset loaded")
-        eval_models(train_test_valid_dataset, k)
+            print(str(k), "dataset loaded")
+            eval_models(train_test_valid_dataset, k)
+        else:
+            # no data in the dataset
+            print(str(k), "failed to load because there is no data")
