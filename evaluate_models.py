@@ -10,7 +10,7 @@ import matplotlib as mpl
 from datasets import Dataset, load_dataset, DatasetDict
 from transformers import AutoModelForSequenceClassification, TrainingArguments, Trainer, DataCollatorWithPadding, \
     AutoTokenizer
-from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+from sklearn.metrics import multilabel_confusion_matrix, ConfusionMatrixDisplay
 
 
 def preprocess_function(example, classes, class2id, tokenizer):
@@ -102,10 +102,12 @@ def eval_models(dataset, dataset_name):
         # confusion matrix
         # convert probabilities based on a threshold value
         multilabel_indicators = (predictions_output.predictions > 1).astype(int)
-        cm = confusion_matrix(predictions_output.label_ids, multilabel_indicators)
-        disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=classes)
-        disp.plot(cmap=mpl.cm.Blues)  # You can choose a different colormap
-        plt.show()
+        cm = multilabel_confusion_matrix(predictions_output.label_ids, multilabel_indicators)
+        for i, cm in enumerate(cm):
+            disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=['Negative', 'Positive'])
+            disp.plot(cmap='Blues', values_format='d')
+            plt.title(f'Confusion Matrix for {classes[i]}')
+            plt.show()
 
         # record data
         if predictions_output.metrics:
@@ -207,9 +209,9 @@ if __name__ == "__main__":
             dataset = dataset.shuffle(seed=42)
 
             # 80% train, 20% test + validation
-            train_testvalid = dataset.train_test_split(test_size=0.2)
+            train_testvalid = dataset.train_test_split(test_size=0.2, seed=42)
             # Split the 10% test + valid in half test, half valid
-            test_valid = train_testvalid['test'].train_test_split(test_size=0.5)
+            test_valid = train_testvalid['test'].train_test_split(test_size=0.5, seed=42)
             # gather everyone if you want to have a single DatasetDict
             train_test_valid_dataset = DatasetDict({
                 'train': train_testvalid['train'],
