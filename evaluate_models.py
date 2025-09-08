@@ -7,6 +7,7 @@ import csv
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib as mpl
+import os
 from datasets import Dataset, load_dataset, DatasetDict
 from transformers import AutoModelForSequenceClassification, TrainingArguments, Trainer, DataCollatorWithPadding, \
     AutoTokenizer
@@ -67,6 +68,7 @@ def eval_models(dataset, dataset_name):
         dataset_name = dataset_name.split(".")[0]
         dataset_name = dataset_name.split("/")[2:]
         dataset_name = "_".join(dataset_name)
+        os.makedirs("data/qa_dataset/results/" + dataset_name + "/", exist_ok=True)
 
         # training parameters
         training_args = TrainingArguments(
@@ -107,13 +109,14 @@ def eval_models(dataset, dataset_name):
             disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=['Negative', 'Positive'])
             disp.plot(cmap='Blues', values_format='d')
             plt.title(f'Confusion Matrix for {classes[i]} class for ' + str(dataset_name))
+            plt.savefig("data/qa_dataset/results/" + dataset_name + f'/Confusion Matrix for {classes[i]} class.png', dpi=300)
             plt.show()
 
         # record data
         if predictions_output.metrics:
             print(dataset_name)
             print("Metrics:", predictions_output.metrics)
-            with open("data/qa_dataset/results/" + dataset_name + 'test_metrics.csv', 'w') as f:
+            with open("data/qa_dataset/results/" + dataset_name + '/test_metrics.csv', 'w') as f:
                 w = csv.writer(f)
                 w.writerows(predictions_output.metrics.items())
 
@@ -135,7 +138,7 @@ def plotting(log_history_df, dataset_name):
     plt.title('Training and Validation Loss Over Time for ' + str(dataset_name))
     plt.legend()
     plt.grid(True)
-    plt.savefig(fpath + dataset_name + "_loss.png", dpi=300)
+    plt.savefig(fpath + dataset_name + "/loss.png", dpi=300)
     plt.show()
 
     # Plotting Accuracy (if 'accuracy' and 'eval_accuracy' are present in your logs)
