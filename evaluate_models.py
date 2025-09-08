@@ -6,6 +6,7 @@ import numpy as np
 import csv
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib as mpl
 from datasets import Dataset, load_dataset, DatasetDict
 from transformers import AutoModelForSequenceClassification, TrainingArguments, Trainer, DataCollatorWithPadding, \
     AutoTokenizer
@@ -40,8 +41,7 @@ def compute_metrics(eval_pred):
 def eval_models(dataset, dataset_name):
     # from: https://huggingface.co/blog/Valerii-Knowledgator/multi-label-classification
 
-    reeee = load_dataset('knowledgator/events_classification_biotech', trust_remote_code=True)
-    row = dataset["train"][0]
+    # reeee = load_dataset('knowledgator/events_classification_biotech', trust_remote_code=True)
 
     # bad practice, but because all the labels are in each row of the dataset, things can be trained
     if "all_labels" in dataset["train"][0]:
@@ -77,6 +77,7 @@ def eval_models(dataset, dataset_name):
             num_train_epochs=1,
             weight_decay=0.01,
             eval_strategy="epoch",
+            logging_strategy='epoch',
             save_strategy="epoch",
             load_best_model_at_end=True,
         )
@@ -96,12 +97,14 @@ def eval_models(dataset, dataset_name):
 
         # eval
         print("test dataset evaluation")
-        predictions_output = trainer.evaluate(tokenized_dataset["test"])
+        predictions_output = trainer.predict(tokenized_dataset["test"])
 
         # confusion matrix
-        cm = confusion_matrix(tokenized_dataset["test"]["labels"], predictions_output.predictions)
+        # convert probabilities based on a threshold value
+        multilabel_indicators = (predictions_output.predictions > 1).astype(int)
+        cm = confusion_matrix(predictions_output.label_ids, multilabel_indicators)
         disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=classes)
-        disp.plot(cmap=plt.cm.Blues)  # You can choose a different colormap
+        disp.plot(cmap=mpl.cm.Blues)  # You can choose a different colormap
         plt.show()
 
         # record data
