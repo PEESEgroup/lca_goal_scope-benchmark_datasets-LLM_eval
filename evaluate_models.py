@@ -3,6 +3,8 @@ from langchain_community.vectorstores import FAISS
 import json
 import evaluate
 import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
 from datasets import Dataset, load_dataset, DatasetDict
 from transformers import AutoModelForSequenceClassification, TrainingArguments, Trainer, DataCollatorWithPadding, \
     AutoTokenizer
@@ -40,49 +42,89 @@ def eval_models(dataset, dataset_name):
     row = dataset["train"][0]
 
     # bad practice, but because all the labels are in each row of the dataset, things can be trained
-    classes = [class_ for class_ in dataset['train'][0]['all_labels'].split("; ") if class_]
-    class2id = {class_: id for id, class_ in enumerate(classes)}
-    id2class = {id: class_ for class_, id in class2id.items()}
+    if "all_labels" in dataset["train"][0]:
+        classes = [class_ for class_ in dataset['train'][0]['all_labels'].split("; ") if class_]
+        class2id = {class_: id for id, class_ in enumerate(classes)}
+        id2class = {id: class_ for class_, id in class2id.items()}
 
-    model_path = 'microsoft/deberta-v3-small'
+        model_path = 'microsoft/deberta-v3-small'
 
-    tokenizer = AutoTokenizer.from_pretrained(model_path)
-    tokenized_dataset = dataset.map(lambda example: preprocess_function(example, classes, class2id, tokenizer))
-    data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
+        tokenizer = AutoTokenizer.from_pretrained(model_path)
+        tokenized_dataset = dataset.map(lambda example: preprocess_function(example, classes, class2id, tokenizer))
+        data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
 
-    model = AutoModelForSequenceClassification.from_pretrained(
-        model_path,
-        num_labels=len(classes),
-        id2label=id2class,
-        label2id=class2id,
-        problem_type="multi_label_classification"
-    )
-    # TODO: add model training validation
-    training_args = TrainingArguments(
-        output_dir="my_awesome_model"+dataset_name,
-        learning_rate=2e-5,
-        per_device_train_batch_size=3,
-        per_device_eval_batch_size=3,
-        num_train_epochs=2,
-        weight_decay=0.01,
-        eval_strategy="epoch",
-        save_strategy="epoch",
-        load_best_model_at_end=True,
-    )
+        model = AutoModelForSequenceClassification.from_pretrained(
+            model_path,
+            num_labels=len(classes),
+            id2label=id2class,
+            label2id=class2id,
+            problem_type="multi_label_classification"
+        )
+        # update the dataset name
 
-    trainer = Trainer(
-        model=model,
-        args=training_args,
-        train_dataset=tokenized_dataset["train"],
-        eval_dataset=tokenized_dataset["test"],
-        tokenizer=tokenizer,
-        data_collator=data_collator,
-        compute_metrics=compute_metrics,
-    )
+        dataset_name = dataset_name.split(".")[0]
+        dataset_name = dataset_name.split("/")[2:]
+        dataset_name = "_".join(dataset_name)
+        training_args = TrainingArguments(
+            output_dir="data/checkpoints/"+dataset_name,
+            learning_rate=2e-5,
+            per_device_train_batch_size=3,
+            per_device_eval_batch_size=3,
+            num_train_epochs=2,
+            weight_decay=0.01,
+            eval_strategy="epoch",
+            save_strategy="epoch",
+            load_best_model_at_end=True,
+        )
 
-    trainer.train()
+        trainer = Trainer(
+            model=model,
+            args=training_args,
+            train_dataset=tokenized_dataset["train"],
+            eval_dataset=tokenized_dataset["valid"],
+            tokenizer=tokenizer,
+            data_collator=data_collator,
+            compute_metrics=compute_metrics,
+        )
+
+        trainer.train()
+
+        log_history_df = pd.DataFrame(trainer.state.log_history)
+        train_logs = log_history_df[log_history_df['loss'].notna()]
+        eval_logs = log_history_df[log_history_df['eval_loss'].notna()]
+        fpath = "data/qa_dataset/results/"
+        plotting(train_logs, eval_logs, dataset_name, fpath)
+    else:
+        print("dataset missing:", str(dataset_name))
 
     # TODO: evaluation
+
+
+def plotting(train_logs, eval_logs, dataset_name, fpath):
+    # Plotting Loss
+    plt.figure(figsize=(10, 6))
+    plt.plot(train_logs['step'], train_logs['loss'], label='Training Loss')
+    plt.plot(eval_logs['step'], eval_logs['eval_loss'], label='Validation Loss')
+    plt.xlabel('Step')
+    plt.ylabel('Loss')
+    plt.title('Training and Validation Loss Over Time for ' + str(dataset_name))
+    plt.legend()
+    plt.grid(True)
+    plt.savefig(fpath, dataset_name + "_loss.png", dpi=300)
+    plt.show()
+
+    # Plotting Accuracy (if 'accuracy' and 'eval_accuracy' are present in your logs)
+    if 'accuracy' in train_logs.columns and 'eval_accuracy' in eval_logs.columns:
+        plt.figure(figsize=(10, 6))
+        plt.plot(train_logs['step'], train_logs['accuracy'], label='Training Accuracy')
+        plt.plot(eval_logs['step'], eval_logs['eval_accuracy'], label='Validation Accuracy')
+        plt.xlabel('Step')
+        plt.ylabel('Accuracy')
+        plt.title('Training and Validation Accuracy Over Time for '+ str(dataset_name))
+        plt.legend()
+        plt.grid(True)
+        plt.savefig(fpath, dataset_name + "_accuracy.png", dpi=300)
+        plt.show()
 
 
 if __name__ == "__main__":
