@@ -26,22 +26,6 @@ def main():
                  "data/qa_dataset/recalculated/no_rag/studyReasonsQA.jsonl",
                  "data/qa_dataset/recalculated/no_rag/systemBoundaryQA.jsonl",
                  "data/qa_dataset/recalculated/no_rag/targetAudienceQA.jsonl",
-                 "data/qa_dataset/original/rag/rag_allocationQA.jsonl",
-                 "data/qa_dataset/original/rag/rag_comparativeAssertionsQA.jsonl",
-                 "data/qa_dataset/original/rag/rag_functionalUnitQA.jsonl",
-                 "data/qa_dataset/original/rag/rag_intendedApplicationQA.jsonl",
-                 "data/qa_dataset/original/rag/rag_productQA.jsonl",
-                 "data/qa_dataset/original/rag/rag_studyReasonsQA.jsonl",
-                 "data/qa_dataset/original/rag/rag_systemBoundaryQA.jsonl",
-                 "data/qa_dataset/original/rag/rag_targetAudienceQA.jsonl",
-                 "data/qa_dataset/recalculated/rag/rag_allocationQA.jsonl",
-                 "data/qa_dataset/recalculated/rag/rag_comparativeAssertionsQA.jsonl",
-                 "data/qa_dataset/recalculated/rag/rag_functionalUnitQA.jsonl",
-                 "data/qa_dataset/recalculated/rag/rag_intendedApplicationQA.jsonl",
-                 "data/qa_dataset/recalculated/rag/rag_productQA.jsonl",
-                 "data/qa_dataset/recalculated/rag/rag_studyReasonsQA.jsonl",
-                 "data/qa_dataset/recalculated/rag/rag_systemBoundaryQA.jsonl",
-                 "data/qa_dataset/recalculated/rag/rag_targetAudienceQA.jsonl"
                  ]
 
     # for each dataset
@@ -65,20 +49,22 @@ def covariance(dataset, dataset_name):
     # process data
     dataset = DatasetDict({'train': dataset})
     classes = [class_ for class_ in dataset['train'][0]['all_labels'].split("; ") if class_]
-    class2id = {class_: id for id, class_ in enumerate(classes)}
-    id2class = {id: class_ for class_, id in class2id.items()}
+    if len(classes) > 1:
+        class2id = {class_: id for id, class_ in enumerate(classes)}
 
-    model_path = 'microsoft/deberta-v3-small'
-    tokenizer = AutoTokenizer.from_pretrained(model_path)
-    tokenized_dataset = dataset.map(lambda example: evaluate_models.preprocess_function(example, classes, class2id, tokenizer))
+        # model setup
+        model_path = 'microsoft/deberta-v3-small'
+        tokenizer = AutoTokenizer.from_pretrained(model_path)
+        tokenized_dataset = dataset.map(lambda example: evaluate_models.preprocess_function(example, classes, class2id, tokenizer))
 
-    df = pd.DataFrame(tokenized_dataset["train"])
-    new_columns_df = pd.DataFrame(df['labels'].tolist(), index=df.index, columns=classes)
-    labels_array = new_columns_df.values
-    covariance_matrix = np.cov(labels_array.T)
+        # covariance calculations
+        df = pd.DataFrame(tokenized_dataset["train"])
+        new_columns_df = pd.DataFrame(df['labels'].tolist(), index=df.index, columns=classes)
+        labels_array = new_columns_df.values
+        covariance_matrix = np.cov(labels_array.T)
 
-    # plot covariance
-    covariance_plotting(classes, covariance_matrix, dataset_name)
+        # plot covariance
+        covariance_plotting(classes, covariance_matrix, dataset_name)
 
 
 def covariance_plotting(classes, covariance_matrix, dataset_name):
