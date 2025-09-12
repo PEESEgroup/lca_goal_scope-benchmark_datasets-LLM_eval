@@ -62,9 +62,12 @@ def covariance(dataset, dataset_name):
         new_columns_df = pd.DataFrame(df['labels'].tolist(), index=df.index, columns=classes)
         labels_array = new_columns_df.values
         covariance_matrix = np.cov(labels_array.T)
+        correlation = new_columns_df.corr()
 
         # plot covariance
+        correlation_plotting(classes, correlation, dataset_name)
         covariance_plotting(classes, covariance_matrix, dataset_name)
+
 
 
 def covariance_plotting(classes, covariance_matrix, dataset_name):
@@ -83,6 +86,25 @@ def covariance_plotting(classes, covariance_matrix, dataset_name):
     dataset_name = "_".join(dataset_name)
     os.makedirs("data/qa_dataset/results/" + dataset_name + "/", exist_ok=True)
     plt.savefig(fpath + dataset_name + "/covariance.png", dpi=300)
+    plt.show()
+
+
+def correlation_plotting(classes, correlation_matrix, dataset_name):
+    plt.figure(figsize=(8, 6))  # Adjust figure size as needed
+    sns.heatmap(correlation_matrix,
+                annot=True,  # Show the covariance values on the heatmap
+                fmt='.2f',  # Format the annotation values to two decimal places
+                cmap='viridis',  # Choose a colormap (e.g., 'viridis', 'coolwarm', 'RdBu')
+                xticklabels=classes,
+                yticklabels=classes)
+    plt.title('Correlation Matrix Heatmap')
+    # open output
+    fpath = "data/qa_dataset/results/"
+    dataset_name = dataset_name.split(".")[0]
+    dataset_name = dataset_name.split("/")[2:]
+    dataset_name = "_".join(dataset_name)
+    os.makedirs("data/qa_dataset/results/" + dataset_name + "/", exist_ok=True)
+    plt.savefig(fpath + dataset_name + "/correlation.png", dpi=300)
     plt.show()
 
 
