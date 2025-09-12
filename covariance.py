@@ -73,11 +73,15 @@ def covariance(dataset, dataset_name):
     tokenized_dataset = dataset.map(lambda example: evaluate_models.preprocess_function(example, classes, class2id, tokenizer))
 
     df = pd.DataFrame(tokenized_dataset["train"])
-    df_labels = df["labels"]
-    labels_array = df_labels.values
+    new_columns_df = pd.DataFrame(df['labels'].tolist(), index=df.index, columns=classes)
+    labels_array = new_columns_df.values
     covariance_matrix = np.cov(labels_array.T)
 
     # plot covariance
+    covariance_plotting(classes, covariance_matrix, dataset_name)
+
+
+def covariance_plotting(classes, covariance_matrix, dataset_name):
     plt.figure(figsize=(8, 6))  # Adjust figure size as needed
     sns.heatmap(covariance_matrix,
                 annot=True,  # Show the covariance values on the heatmap
@@ -86,14 +90,13 @@ def covariance(dataset, dataset_name):
                 xticklabels=classes,
                 yticklabels=classes)
     plt.title('Covariance Matrix Heatmap')
-
     # open output
     fpath = "data/qa_dataset/results/"
     dataset_name = dataset_name.split(".")[0]
     dataset_name = dataset_name.split("/")[2:]
     dataset_name = "_".join(dataset_name)
     os.makedirs("data/qa_dataset/results/" + dataset_name + "/", exist_ok=True)
-    plt.savefig(fpath + dataset_name + "/loss.png", dpi=300)
+    plt.savefig(fpath + dataset_name + "/covariance.png", dpi=300)
     plt.show()
 
 
