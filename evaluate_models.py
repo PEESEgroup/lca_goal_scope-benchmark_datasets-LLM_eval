@@ -6,7 +6,7 @@ import numpy as np
 import csv
 import pandas as pd
 import matplotlib.pyplot as plt
-import torch.nn.functional as F
+import torch.nn as nn
 import torch
 import matplotlib as mpl
 import os
@@ -21,35 +21,76 @@ class CustomLossTrainer(Trainer):
         super().__init__(*args, **kwargs)
         # Store your custom loss function.
         # This should take (logits, labels) as arguments.
-        self.loss_fn = loss_fn
+        self.loss_fn = AsymmetricLossOptimized()
 
-    def compute_loss(self, model, inputs, return_outputs=False):
+    def compute_loss(self, model, inputs, num_items_in_batch, return_outputs=False):
         # Assume your inputs include "labels" and your model returns logits.
         labels = inputs.get("labels")
         outputs = model(**inputs)
         logits = outputs.get("logits")
 
+        # get the batch size
+        # TODO: verify if this *needs* to be done because forward doesn't depend on batch size
+        batch_size = labels.size(0)
+
         # Compute the custom loss using your loss function.
-        loss = self.loss_fn(logits, labels)
+        loss = self.loss_fn(logits, labels)/batch_size
 
         return (loss, outputs) if return_outputs else loss
 
 
-def asymmetric_loss_function(logits, labels, positive_weight=1.0, negative_weight=0.5):
-    """
-    Example of an asymmetric loss function.
-    This function assigns different weights to positive and negative class errors.
-    """
-    # Assuming binary classification for simplicity
-    # You might need to adapt this for multi-class scenarios
+class AsymmetricLossOptimized(nn.Module):
+    ''' Notice - optimized version, minimizes memory allocation and gpu uploading,
+    favors inplace operations'''
 
-    # Calculate standard binary cross-entropy loss
-    bce_loss = F.binary_cross_entropy_with_logits(logits, labels.float(), reduction='none')
+    def __init__(self, gamma_neg=4, gamma_pos=1, clip=0.05, eps=1e-8, disable_torch_grad_focal_loss=False):
+        super(AsymmetricLossOptimized, self).__init__()
 
-    # Apply asymmetric weighting
-    weighted_loss = torch.where(labels == 1, bce_loss * positive_weight, bce_loss * negative_weight)
+        self.gamma_neg = gamma_neg
+        self.gamma_pos = gamma_pos
+        self.clip = clip
+        self.disable_torch_grad_focal_loss = disable_torch_grad_focal_loss
+        self.eps = eps
 
-    return weighted_loss.mean()  # Return the mean loss across the batch
+        # prevent memory allocation and gpu uploading every iteration, and encourages inplace operations
+        self.targets = self.anti_targets = self.xs_pos = self.xs_neg = self.asymmetric_w = self.loss = None
+
+    def forward(self, logits, labels):
+        """"
+        Parameters
+        ----------
+        logits: input logits
+        labels: targets (multi-label binarized vector)
+        """
+
+        self.targets = labels
+        self.anti_targets = 1 - labels
+
+        # Calculating Probabilities
+        self.xs_pos = torch.sigmoid(logits)
+        self.xs_neg = 1.0 - self.xs_pos
+
+        # Asymmetric Clipping
+        if self.clip is not None and self.clip > 0:
+            self.xs_neg.add_(self.clip).clamp_(max=1)
+
+        # Basic CE calculation
+        self.loss = self.targets * torch.log(self.xs_pos.clamp(min=self.eps))
+        self.loss.add_(self.anti_targets * torch.log(self.xs_neg.clamp(min=self.eps)))
+
+        # Asymmetric Focusing
+        if self.gamma_neg > 0 or self.gamma_pos > 0:
+            if self.disable_torch_grad_focal_loss:
+                torch.set_grad_enabled(False)
+            self.xs_pos = self.xs_pos * self.targets
+            self.xs_neg = self.xs_neg * self.anti_targets
+            self.asymmetric_w = torch.pow(1 - self.xs_pos - self.xs_neg,
+                                          self.gamma_pos * self.targets + self.gamma_neg * self.anti_targets)
+            if self.disable_torch_grad_focal_loss:
+                torch.set_grad_enabled(True)
+            self.loss *= self.asymmetric_w
+
+        return -self.loss.sum()
 
 
 def preprocess_function(example, classes, class2id, tokenizer):
@@ -121,7 +162,7 @@ def eval_models(dataset, dataset_name):
             save_strategy="epoch",
             load_best_model_at_end=True,
         )
-        trainer = Trainer(
+        trainer = CustomLossTrainer(
             model=model,
             args=training_args,
             train_dataset=tokenized_dataset["train"],
@@ -205,7 +246,7 @@ if __name__ == "__main__":
     #              "data/qa_dataset/original/no_rag/comparativeAssertionsQA.jsonl",
     #              "data/qa_dataset/original/no_rag/functionalUnitQA.jsonl",
     #              "data/qa_dataset/original/no_rag/intendedApplicationQA.jsonl",
-    #              "data/qa_dataset/original/no_rag/productQA.jsonl",
+                  "data/qa_dataset/original/no_rag/productQA.jsonl",
     #              "data/qa_dataset/original/no_rag/studyReasonsQA.jsonl",
     #              "data/qa_dataset/original/no_rag/systemBoundaryQA.jsonl",
     #              "data/qa_dataset/original/no_rag/targetAudienceQA.jsonl",
