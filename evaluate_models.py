@@ -199,12 +199,17 @@ def eval_models(dataset, dataset_name):
                 dpi=300)
             plt.show()
 
-            ap = average_precision_score(predictions_output.label_ids[:, i], multilabel_indicators[:, i])
+            # if there are no positive class in y_true, then precision is undefined and not included in the mean calculation
+            try:
+                ap = average_precision_score(predictions_output.label_ids[:, i], multilabel_indicators[:, i])
+            except UserWarning as e:
+                ap = np.nan
+                print(e)
             ap_scores.append(ap)
-            print(f"Average Precision for Label {i}: {ap:.4f}")
+            print(f"Average Precision for Label {classes[i]}: {ap:.4f}")
 
         # Calculate Mean Average Precision (mAP)
-        mAP = np.mean(ap_scores)
+        mAP = np.nanmean(ap_scores)
         print(f"\nMean Average Precision (mAP): {mAP:.4f}")
 
         # record data
