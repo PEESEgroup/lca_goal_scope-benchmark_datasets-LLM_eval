@@ -162,32 +162,12 @@ def functionalUnit(row, RAG, vdb):
         fUnit.append(row["functionalUnit"])
     if len(row["product_properties.0.term.functionalUnit"]) != 0:
         fUnit.append(row["product_properties.0.term.functionalUnit"])
-        fraction = row["product_properties.0.term.functionalUnit"].split('/')
-        if len(fraction) > 1:
-            fUnit.append(fraction[1].strip())
-            fUnit.append(fraction[0].strip() + "/" + fraction[1].strip())
-        fUnit.append(fraction[0].strip())
     if len(row["product_properties.1.term.functionalUnit"]) != 0:
         fUnit.append(row["product_properties.1.term.functionalUnit"])
-        fraction = row["product_properties.1.term.functionalUnit"].split('/')
-        if len(fraction) > 1:
-            fUnit.append(fraction[1].strip())
-            fUnit.append(fraction[0].strip() + "/" + fraction[1].strip())
-        fUnit.append(fraction[0].strip())
     if len(row["product_properties.2.term.functionalUnit"]) != 0:
         fUnit.append(row["product_properties.2.term.functionalUnit"])
-        fraction = row["product_properties.2.term.functionalUnit"].split('/')
-        if len(fraction) > 1:
-            fUnit.append(fraction[1].strip())
-            fUnit.append(fraction[0].strip() + "/" + fraction[1].strip())
-        fUnit.append(fraction[0].strip())
     if len(row["product_properties.3.term.functionalUnit"]) != 0:
         fUnit.append(row["product_properties.3.term.functionalUnit"])
-        fraction = row["product_properties.3.term.functionalUnit"].split('/')
-        if len(fraction) > 1:
-            fUnit.append(fraction[1].strip())
-            fUnit.append(fraction[0].strip() + "/" + fraction[1].strip())
-        fUnit.append(fraction[0].strip())
 
     fUnit = [i.replace("/ ", "/").replace(" /", "/") for i in fUnit]
     fUnit = list(set(fUnit))  # remove duplicates
