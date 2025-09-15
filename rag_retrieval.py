@@ -60,7 +60,7 @@ def answer_with_rag(
     return answer, relevant_docs
 
 
-def get_context(question, knowledge_index, num_retrieved_docs=5):
+def get_context(question, knowledge_index, num_retrieved_docs=3):
     relevant_docs = knowledge_index.similarity_search(query=question, k=num_retrieved_docs)
     relevant_docs = [doc.page_content for doc in relevant_docs]  # Keep only the text
     return relevant_docs
