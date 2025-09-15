@@ -69,7 +69,6 @@ def covariance(dataset, dataset_name):
         covariance_plotting(classes, covariance_matrix, dataset_name)
 
 
-
 def covariance_plotting(classes, covariance_matrix, dataset_name):
     plt.figure(figsize=(8, 6))  # Adjust figure size as needed
     sns.heatmap(covariance_matrix,
