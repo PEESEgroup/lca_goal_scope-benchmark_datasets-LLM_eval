@@ -103,7 +103,13 @@ def product(row, RAG, vdb):
             context = " Additional Context: " + ' '.join(docs)
         else:
             context = ""
-        return [{"labels": [row["name"].split('-')[0].strip()],
+        labels = [row["name"].split('-')[0].strip()]
+        final_labels = []
+        for j in labels:
+            category = j.split(",")[0].strip()
+            final_labels.append(j)
+            final_labels.append(category)
+        return [{"labels": final_labels,
                  "title": "Object of Assessment",
                  "id": str(uuid.uuid4()),
                  "context": row["systemDescription"] + context}]
@@ -183,9 +189,7 @@ def functionalUnit(row, RAG, vdb):
             fUnit.append(fraction[0].strip() + "/" + fraction[1].strip())
         fUnit.append(fraction[0].strip())
 
-    for i in fUnit:
-        fUnit[i] = fUnit[i].replace("/ ", "/").replace(" /", "/")
-
+    fUnit = [i.replace("/ ", "/").replace(" /", "/") for i in fUnit]
     fUnit = list(set(fUnit))  # remove duplicates
 
     if len(fUnit) == 0:
@@ -304,9 +308,6 @@ def main(output_directory, input_directory, RAG):
 
         with open(output_directory + fname, 'w') as f:
             for item in data:
-                # TODO: fix list processing
-                # TODO: fix why object of assessment and allocation share the same qa file
-                # TODO: fix why functionalunit QA and systemboundary QA is in improper form
                 if item is not list:
                     json_line = json.dumps(item)
                 else:
