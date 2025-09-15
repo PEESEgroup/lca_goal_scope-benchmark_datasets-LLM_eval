@@ -6,12 +6,50 @@ import numpy as np
 import csv
 import pandas as pd
 import matplotlib.pyplot as plt
+import torch.nn.functional as F
+import torch
 import matplotlib as mpl
 import os
 from datasets import Dataset, load_dataset, DatasetDict
 from transformers import AutoModelForSequenceClassification, TrainingArguments, Trainer, DataCollatorWithPadding, \
     AutoTokenizer
 from sklearn.metrics import multilabel_confusion_matrix, ConfusionMatrixDisplay
+
+
+class CustomLossTrainer(Trainer):
+    def __init__(self, *args, loss_fn=None, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Store your custom loss function.
+        # This should take (logits, labels) as arguments.
+        self.loss_fn = loss_fn
+
+    def compute_loss(self, model, inputs, return_outputs=False):
+        # Assume your inputs include "labels" and your model returns logits.
+        labels = inputs.get("labels")
+        outputs = model(**inputs)
+        logits = outputs.get("logits")
+
+        # Compute the custom loss using your loss function.
+        loss = self.loss_fn(logits, labels)
+
+        return (loss, outputs) if return_outputs else loss
+
+
+def asymmetric_loss_function(logits, labels, positive_weight=1.0, negative_weight=0.5):
+    """
+    Example of an asymmetric loss function.
+    This function assigns different weights to positive and negative class errors.
+    """
+    # Assuming binary classification for simplicity
+    # You might need to adapt this for multi-class scenarios
+
+    # Calculate standard binary cross-entropy loss
+    bce_loss = F.binary_cross_entropy_with_logits(logits, labels.float(), reduction='none')
+
+    # Apply asymmetric weighting
+    weighted_loss = torch.where(labels == 1, bce_loss * positive_weight, bce_loss * negative_weight)
+
+    return weighted_loss.mean()  # Return the mean loss across the batch
 
 
 def preprocess_function(example, classes, class2id, tokenizer):
