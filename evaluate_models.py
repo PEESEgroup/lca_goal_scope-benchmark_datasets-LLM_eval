@@ -9,8 +9,10 @@ import matplotlib.pyplot as plt
 import torch.nn as nn
 import torch
 import matplotlib as mpl
+from typing import Optional
 import os
 from datasets import Dataset, load_dataset, DatasetDict
+from sklearn.metrics import average_precision_score
 from transformers import AutoModelForSequenceClassification, TrainingArguments, Trainer, DataCollatorWithPadding, \
     AutoTokenizer
 from sklearn.metrics import multilabel_confusion_matrix, ConfusionMatrixDisplay
@@ -23,7 +25,7 @@ class CustomLossTrainer(Trainer):
         # This should take (logits, labels) as arguments.
         self.loss_fn = AsymmetricLossOptimized()
 
-    def compute_loss(self, model, inputs, num_items_in_batch, return_outputs=False):
+    def compute_loss(self, model, inputs, num_items_in_batch: Optional[torch.Tensor] = None, return_outputs=False):
         # Assume your inputs include "labels" and your model returns logits.
         labels = inputs.get("labels")
         outputs = model(**inputs)
@@ -34,7 +36,7 @@ class CustomLossTrainer(Trainer):
         batch_size = labels.size(0)
 
         # Compute the custom loss using your loss function.
-        loss = self.loss_fn(logits, labels)/batch_size
+        loss = self.loss_fn(logits, labels) / batch_size
 
         return (loss, outputs) if return_outputs else loss
 
@@ -155,7 +157,7 @@ def eval_models(dataset, dataset_name):
             learning_rate=2e-5,
             per_device_train_batch_size=3,
             per_device_eval_batch_size=3,
-            num_train_epochs=10,
+            num_train_epochs=1,
             weight_decay=0.01,
             eval_strategy="epoch",
             logging_strategy='epoch',
@@ -182,14 +184,28 @@ def eval_models(dataset, dataset_name):
 
         # confusion matrix
         # convert probabilities based on a threshold value
-        multilabel_indicators = (predictions_output.predictions > 1).astype(int)
+        # take the sigmoid of the outputs
+        print(predictions_output.predictions)
+        print((1 / (1 + np.exp(-predictions_output.predictions))))
+        multilabel_indicators = ((1 / (1 + np.exp(-predictions_output.predictions))) > 0.5).astype(int)
         cm = multilabel_confusion_matrix(predictions_output.label_ids, multilabel_indicators)
+        ap_scores = []
         for i, cm in enumerate(cm):
             disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=['Negative', 'Positive'])
             disp.plot(cmap='Blues', values_format='d')
             plt.title(f'Confusion Matrix for {classes[i]} class for ' + str(dataset_name))
-            plt.savefig("data/qa_dataset/results/" + dataset_name + f'/Confusion Matrix for {classes[i].replace("/", "")} class.png', dpi=300)
+            plt.savefig(
+                "data/qa_dataset/results/" + dataset_name + f'/Confusion Matrix for {classes[i].replace("/", "")} class.png',
+                dpi=300)
             plt.show()
+
+            ap = average_precision_score(predictions_output.label_ids[:, i], multilabel_indicators[:, i])
+            ap_scores.append(ap)
+            print(f"Average Precision for Label {i}: {ap:.4f}")
+
+        # Calculate Mean Average Precision (mAP)
+        mAP = np.mean(ap_scores)
+        print(f"\nMean Average Precision (mAP): {mAP:.4f}")
 
         # record data
         if predictions_output.metrics:
@@ -198,6 +214,7 @@ def eval_models(dataset, dataset_name):
             with open("data/qa_dataset/results/" + dataset_name + '/test_metrics.csv', 'w') as f:
                 w = csv.writer(f)
                 w.writerows(predictions_output.metrics.items())
+                w.writerow(f"\nMean Average Precision (mAP): {mAP:.4f}")
 
     else:
         print("dataset missing:", str(dataset_name))
@@ -242,40 +259,40 @@ if __name__ == "__main__":
     print("vdb loaded")
 
     # load all datasets
-    filenames = [#"data/qa_dataset/original/no_rag/allocationQA.jsonl",
-    #              "data/qa_dataset/original/no_rag/comparativeAssertionsQA.jsonl",
-    #              "data/qa_dataset/original/no_rag/functionalUnitQA.jsonl",
-    #              "data/qa_dataset/original/no_rag/intendedApplicationQA.jsonl",
-                  "data/qa_dataset/original/no_rag/productQA.jsonl",
-    #              "data/qa_dataset/original/no_rag/studyReasonsQA.jsonl",
-    #              "data/qa_dataset/original/no_rag/systemBoundaryQA.jsonl",
-    #              "data/qa_dataset/original/no_rag/targetAudienceQA.jsonl",
+    filenames = [  #"data/qa_dataset/original/no_rag/allocationQA.jsonl",
+        #              "data/qa_dataset/original/no_rag/comparativeAssertionsQA.jsonl",
+        #              "data/qa_dataset/original/no_rag/functionalUnitQA.jsonl",
+        #              "data/qa_dataset/original/no_rag/intendedApplicationQA.jsonl",
+        "data/qa_dataset/original/no_rag/productQA.jsonl",
+        #              "data/qa_dataset/original/no_rag/studyReasonsQA.jsonl",
+        #              "data/qa_dataset/original/no_rag/systemBoundaryQA.jsonl",
+        #              "data/qa_dataset/original/no_rag/targetAudienceQA.jsonl",
 
-                 # "data/qa_dataset/recalculated/no_rag/allocationQA.jsonl",
-                 # "data/qa_dataset/recalculated/no_rag/comparativeAssertionsQA.jsonl",
-                 # "data/qa_dataset/recalculated/no_rag/functionalUnitQA.jsonl",
-                 # "data/qa_dataset/recalculated/no_rag/intendedApplicationQA.jsonl",
-                 # "data/qa_dataset/recalculated/no_rag/productQA.jsonl",
-                 # "data/qa_dataset/recalculated/no_rag/studyReasonsQA.jsonl",
-                 # "data/qa_dataset/recalculated/no_rag/systemBoundaryQA.jsonl",
-                 # "data/qa_dataset/recalculated/no_rag/targetAudienceQA.jsonl",
-                # "data/qa_dataset/original/rag/rag_allocationQA.jsonl",
-                "data/qa_dataset/original/rag/rag_comparativeAssertionsQA.jsonl",
-                "data/qa_dataset/original/rag/rag_functionalUnitQA.jsonl",
-                "data/qa_dataset/original/rag/rag_intendedApplicationQA.jsonl",
-                "data/qa_dataset/original/rag/rag_productQA.jsonl",
-                "data/qa_dataset/original/rag/rag_studyReasonsQA.jsonl",
-                "data/qa_dataset/original/rag/rag_systemBoundaryQA.jsonl",
-                "data/qa_dataset/original/rag/rag_targetAudienceQA.jsonl",
-                 "data/qa_dataset/recalculated/rag/rag_allocationQA.jsonl",
-                 "data/qa_dataset/recalculated/rag/rag_comparativeAssertionsQA.jsonl",
-                 "data/qa_dataset/recalculated/rag/rag_functionalUnitQA.jsonl",
-                 "data/qa_dataset/recalculated/rag/rag_intendedApplicationQA.jsonl",
-                 "data/qa_dataset/recalculated/rag/rag_productQA.jsonl",
-                 "data/qa_dataset/recalculated/rag/rag_studyReasonsQA.jsonl",
-                 "data/qa_dataset/recalculated/rag/rag_systemBoundaryQA.jsonl",
-                 "data/qa_dataset/recalculated/rag/rag_targetAudienceQA.jsonl"
-                 ]
+        # "data/qa_dataset/recalculated/no_rag/allocationQA.jsonl",
+        # "data/qa_dataset/recalculated/no_rag/comparativeAssertionsQA.jsonl",
+        # "data/qa_dataset/recalculated/no_rag/functionalUnitQA.jsonl",
+        # "data/qa_dataset/recalculated/no_rag/intendedApplicationQA.jsonl",
+        # "data/qa_dataset/recalculated/no_rag/productQA.jsonl",
+        # "data/qa_dataset/recalculated/no_rag/studyReasonsQA.jsonl",
+        # "data/qa_dataset/recalculated/no_rag/systemBoundaryQA.jsonl",
+        # "data/qa_dataset/recalculated/no_rag/targetAudienceQA.jsonl",
+        # "data/qa_dataset/original/rag/rag_allocationQA.jsonl",
+        "data/qa_dataset/original/rag/rag_comparativeAssertionsQA.jsonl",
+        "data/qa_dataset/original/rag/rag_functionalUnitQA.jsonl",
+        "data/qa_dataset/original/rag/rag_intendedApplicationQA.jsonl",
+        "data/qa_dataset/original/rag/rag_productQA.jsonl",
+        "data/qa_dataset/original/rag/rag_studyReasonsQA.jsonl",
+        "data/qa_dataset/original/rag/rag_systemBoundaryQA.jsonl",
+        "data/qa_dataset/original/rag/rag_targetAudienceQA.jsonl",
+        "data/qa_dataset/recalculated/rag/rag_allocationQA.jsonl",
+        "data/qa_dataset/recalculated/rag/rag_comparativeAssertionsQA.jsonl",
+        "data/qa_dataset/recalculated/rag/rag_functionalUnitQA.jsonl",
+        "data/qa_dataset/recalculated/rag/rag_intendedApplicationQA.jsonl",
+        "data/qa_dataset/recalculated/rag/rag_productQA.jsonl",
+        "data/qa_dataset/recalculated/rag/rag_studyReasonsQA.jsonl",
+        "data/qa_dataset/recalculated/rag/rag_systemBoundaryQA.jsonl",
+        "data/qa_dataset/recalculated/rag/rag_targetAudienceQA.jsonl"
+    ]
 
     # for each dataset
     for k in filenames:
