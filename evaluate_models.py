@@ -218,7 +218,8 @@ def eval_models(dataset, dataset_name):
             with open("data/qa_dataset/results/" + dataset_name + '/test_metrics.csv', 'w') as f:
                 w = csv.writer(f)
                 w.writerows(predictions_output.metrics.items())
-                w.writerow([f"\nMean Average Precision (mAP): {mAP:.4f}"])
+                map_dict = {"Mean Average Precision (mAP)": f"{mAP:.4f}"}
+                w.writerows(map_dict.items())
 
     else:
         print("dataset missing:", str(dataset_name))
