@@ -288,7 +288,7 @@ if __name__ == "__main__":
                  # "data/qa_dataset/original/rag/rag_studyReasonsQA.jsonl",
                  # "data/qa_dataset/original/rag/rag_systemBoundaryQA.jsonl",
                  # "data/qa_dataset/original/rag/rag_targetAudienceQA.jsonl",
-                 "data/qa_dataset/recalculated/rag/rag_allocationQA.jsonl",
+                 #"data/qa_dataset/recalculated/rag/rag_allocationQA.jsonl",
                  "data/qa_dataset/recalculated/rag/rag_comparativeAssertionsQA.jsonl",
                  "data/qa_dataset/recalculated/rag/rag_functionalUnitQA.jsonl",
                  "data/qa_dataset/recalculated/rag/rag_intendedApplicationQA.jsonl",
