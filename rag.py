@@ -50,9 +50,11 @@ def split_documents(
 
 def get_rag_json():
     file_path = "llm-goal-scope/data/RAG-textract/"
-    rag_data = []
+    rag_data = {}
 
+    counter = 0
     for entry_name in tqdm(os.listdir(str(file_path))):
+        counter = counter + 1
         # get file path
         fname = os.path.join(file_path, entry_name)
         # open file
@@ -62,7 +64,7 @@ def get_rag_json():
                 pretty_json_string = json.dumps(data).replace("- ", "")  # remove hyphens over lines
                 ds_data = {"source": entry_name,
                            "text": pretty_json_string}
-                rag_data.append(ds_data)
+                rag_data[counter] = ds_data
             except UnicodeDecodeError:
                 print("cannot read the file, skipping")
                 continue  # can't read the file, so skipping
@@ -72,7 +74,7 @@ def get_rag_json():
 
 def vs_creation(filename, embedding_model, EMBEDDING_MODEL_NAME):
     ds = get_rag_json()
-    ds = datasets.Dataset.from_list(ds)
+    ds = datasets.Dataset.from_dict(ds)
     print("\ndataset loaded")
 
     # dataset as a list of dicts
