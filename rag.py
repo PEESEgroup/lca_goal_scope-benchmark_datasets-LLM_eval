@@ -51,6 +51,7 @@ def split_documents(
 
 def get_rag_json():
     file_path = "./data/RAG-textract/"
+    # file_path = "./data/small_rag/"  # for testing
     rag_data = []
 
     counter = 0
@@ -75,14 +76,11 @@ def get_rag_json():
                 print("cannot read the file, skipping")
                 continue  # can't read the file, so skipping
     
-    rag_data = {"data": rag_data}
-    with open('./rag_data.json', 'w') as f:
-        json.dump(rag_data, f)
+    return rag_data
 
 
 def vs_creation(filename, embedding_model, EMBEDDING_MODEL_NAME):
-    get_rag_json()
-    ds = load_dataset("json", data_files="./rag_data.json", field="data")
+    ds = get_rag_json()
     print("\ndataset loaded")
 
     # dataset as a list of dicts
