@@ -1,4 +1,5 @@
 import datasets
+from datasets import load_dataset
 from tqdm import tqdm
 import pandas as pd
 from typing import List
@@ -49,10 +50,15 @@ def split_documents(
 
 
 def get_rag_json():
-    file_path = "llm-goal-scope/data/RAG-textract/"
-    rag_data = {}
+    file_path = "./data/RAG-textract/"
+    rag_data = []
 
     counter = 0
+
+    # fix cwd problems
+    if os.getcwd() == "/home/sagemaker-user":
+        os.chdir("./llm-goal-scope")
+
     for entry_name in tqdm(os.listdir(str(file_path))):
         counter = counter + 1
         # get file path
@@ -64,17 +70,19 @@ def get_rag_json():
                 pretty_json_string = json.dumps(data).replace("- ", "")  # remove hyphens over lines
                 ds_data = {"source": entry_name,
                            "text": pretty_json_string}
-                rag_data[counter] = ds_data
+                rag_data.append(ds_data)
             except UnicodeDecodeError:
                 print("cannot read the file, skipping")
                 continue  # can't read the file, so skipping
-
-    return rag_data
+    
+    rag_data = {"data": rag_data}
+    with open('./rag_data.json', 'w') as f:
+        json.dump(rag_data, f)
 
 
 def vs_creation(filename, embedding_model, EMBEDDING_MODEL_NAME):
-    ds = get_rag_json()
-    ds = datasets.Dataset.from_dict(ds)
+    get_rag_json()
+    ds = load_dataset("json", data_files="./rag_data.json", field="data")
     print("\ndataset loaded")
 
     # dataset as a list of dicts
