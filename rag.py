@@ -49,7 +49,7 @@ def split_documents(
 
 
 def get_rag_json():
-    file_path = "data/RAG-textract/"
+    file_path = "llm-goal-scope/data/RAG-textract/"
     rag_data = []
 
     for entry_name in tqdm(os.listdir(str(file_path))):

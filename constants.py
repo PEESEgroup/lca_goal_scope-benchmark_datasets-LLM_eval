@@ -4,7 +4,7 @@ EMBEDDING_MODEL_NAME = "thenlper/gte-small"
 EMBED_MODEL = HuggingFaceEmbeddings(
     model_name=EMBEDDING_MODEL_NAME,
     multi_process=True,
-    model_kwargs={"device": "gpu"}, #TODO: find and set appropriate device when running later (non-locally)
+    model_kwargs={"device": "cuda"}, #TODO: find and set appropriate device when running later (non-locally)
     encode_kwargs={"normalize_embeddings": True},  # Set `True` for cosine similarity
     show_progress=True
 )
