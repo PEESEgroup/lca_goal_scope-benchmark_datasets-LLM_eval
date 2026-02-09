@@ -1,5 +1,4 @@
 import constants
-from langchain_community.vectorstores import FAISS
 import json
 import evaluate
 import numpy as np
@@ -151,7 +150,7 @@ def eval_models(dataset, dataset_name):
         dataset_name = dataset_name.split(".")[0]
         dataset_name = dataset_name.split("/")[2:]
         dataset_name = "_".join(dataset_name)
-        os.makedirs("data/qa_dataset/results/" + dataset_name + "/", exist_ok=True)
+        os.makedirs("/home/sagemaker-user/llm-goal-scope/data/qa_dataset/results/" + dataset_name + "/", exist_ok=True)
 
         # training parameters
         training_args = TrainingArguments(
@@ -159,11 +158,12 @@ def eval_models(dataset, dataset_name):
             learning_rate=2e-5,
             per_device_train_batch_size=3,
             per_device_eval_batch_size=3,
-            num_train_epochs=10,
+            num_train_epochs=2,
             weight_decay=0.01,
             eval_strategy="epoch",
             logging_strategy='epoch',
-            save_strategy="no",
+            save_strategy="epoch",
+            save_total_limit=2,
             load_best_model_at_end=True,
         )
         trainer = CustomLossTrainer(
@@ -187,6 +187,8 @@ def eval_models(dataset, dataset_name):
         # confusion matrix
         # convert probabilities based on a threshold value
         # take the sigmoid of the outputs
+        # TODO: make a histogram to get a better threshold value for multilabel indicators
+
         multilabel_indicators = ((1 / (1 + np.exp(-predictions_output.predictions))) > 0.5).astype(int)
         cm = multilabel_confusion_matrix(predictions_output.label_ids, multilabel_indicators)
         ap_scores = []
@@ -195,7 +197,7 @@ def eval_models(dataset, dataset_name):
             disp.plot(cmap='Blues', values_format='d')
             plt.title(f'Confusion Matrix for {classes[i]} class for ' + str(dataset_name))
             plt.savefig(
-                "data/qa_dataset/results/" + dataset_name + f'/Confusion Matrix for {classes[i].replace("/", "")} class.png',
+                "/home/sagemaker-user/data/qa_dataset/results/" + dataset_name + f'/Confusion Matrix for {classes[i].replace("/", "")} class.png',
                 dpi=300)
             plt.show()
 
@@ -228,7 +230,9 @@ def eval_models(dataset, dataset_name):
 def plotting(log_history_df, dataset_name):
     train_logs = log_history_df[log_history_df['loss'].notna()]
     eval_logs = log_history_df[log_history_df['eval_loss'].notna()]
-    fpath = "data/qa_dataset/results/"
+    fpath = "/home/sagemaker-user/llm-goal-scope/data/qa_dataset/results/"
+
+    print(os.getcwd())
 
     # Plotting Loss
     plt.figure(figsize=(10, 6))
@@ -257,63 +261,51 @@ def plotting(log_history_df, dataset_name):
 
 
 if __name__ == "__main__":
-    # load vdb information
-    embeddings = constants.EMBED_MODEL
-    vdb = FAISS.load_local(
-        constants.VDB_LOCATION, embeddings, allow_dangerous_deserialization=True)
-    print("vdb loaded")
-
     # load all datasets
-    filenames = ["data/qa_dataset/original/no_rag/allocationQA.jsonl",
-                 "data/qa_dataset/original/no_rag/comparativeAssertionsQA.jsonl",
-                 "data/qa_dataset/original/no_rag/functionalUnitQA.jsonl",
-                 "data/qa_dataset/original/no_rag/intendedApplicationQA.jsonl",
-                 "data/qa_dataset/original/no_rag/productQA.jsonl",
-                 "data/qa_dataset/original/no_rag/studyReasonsQA.jsonl",
-                 "data/qa_dataset/original/no_rag/systemBoundaryQA.jsonl",
-                 "data/qa_dataset/original/no_rag/targetAudienceQA.jsonl",
-                 "data/qa_dataset/recalculated/no_rag/allocationQA.jsonl",
-                 "data/qa_dataset/recalculated/no_rag/comparativeAssertionsQA.jsonl",
-                 "data/qa_dataset/recalculated/no_rag/functionalUnitQA.jsonl",
-                 "data/qa_dataset/recalculated/no_rag/intendedApplicationQA.jsonl",
-                 "data/qa_dataset/recalculated/no_rag/productQA.jsonl",
-                 "data/qa_dataset/recalculated/no_rag/studyReasonsQA.jsonl",
-                 "data/qa_dataset/recalculated/no_rag/systemBoundaryQA.jsonl",
-                 "data/qa_dataset/recalculated/no_rag/targetAudienceQA.jsonl",
-                 "data/qa_dataset/original/rag/rag_allocationQA.jsonl",
-                 "data/qa_dataset/original/rag/rag_comparativeAssertionsQA.jsonl",
-                 "data/qa_dataset/original/rag/rag_functionalUnitQA.jsonl",
-                 "data/qa_dataset/original/rag/rag_intendedApplicationQA.jsonl",
-                 "data/qa_dataset/original/rag/rag_productQA.jsonl",
-                 "data/qa_dataset/original/rag/rag_studyReasonsQA.jsonl",
-                 "data/qa_dataset/original/rag/rag_systemBoundaryQA.jsonl",
-                 "data/qa_dataset/original/rag/rag_targetAudienceQA.jsonl",
-                 "data/qa_dataset/recalculated/rag/rag_allocationQA.jsonl",
-                 "data/qa_dataset/recalculated/rag/rag_comparativeAssertionsQA.jsonl",
-                 "data/qa_dataset/recalculated/rag/rag_functionalUnitQA.jsonl",
-                 "data/qa_dataset/recalculated/rag/rag_intendedApplicationQA.jsonl",
-                 "data/qa_dataset/recalculated/rag/rag_productQA.jsonl",
-                 "data/qa_dataset/recalculated/rag/rag_studyReasonsQA.jsonl",
-                 "data/qa_dataset/recalculated/rag/rag_systemBoundaryQA.jsonl",
-                 "data/qa_dataset/recalculated/rag/rag_targetAudienceQA.jsonl"
+    # apparently the debug and run configuration require different filepaths, so may need to remove the first directory
+    filenames = ["llm-goal-scope/data/qa_dataset/original/no_rag/allocationQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/original/no_rag/comparativeAssertionsQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/original/no_rag/functionalUnitQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/original/no_rag/intendedApplicationQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/original/no_rag/productQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/original/no_rag/studyReasonsQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/original/no_rag/systemBoundaryQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/original/no_rag/targetAudienceQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/recalculated/no_rag/allocationQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/recalculated/no_rag/comparativeAssertionsQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/recalculated/no_rag/functionalUnitQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/recalculated/no_rag/intendedApplicationQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/recalculated/no_rag/productQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/recalculated/no_rag/studyReasonsQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/recalculated/no_rag/systemBoundaryQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/recalculated/no_rag/targetAudienceQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/original/rag/rag_allocationQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/original/rag/rag_comparativeAssertionsQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/original/rag/rag_functionalUnitQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/original/rag/rag_intendedApplicationQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/original/rag/rag_productQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/original/rag/rag_studyReasonsQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/original/rag/rag_systemBoundaryQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/original/rag/rag_targetAudienceQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_allocationQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_comparativeAssertionsQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_functionalUnitQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_intendedApplicationQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_productQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_studyReasonsQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_systemBoundaryQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_targetAudienceQA.jsonl"
                  ]
 
     # for each dataset
     for k in filenames:
-        data = []
-        with open(k, 'r', encoding='utf-8') as f:
-            for line in f:
-                data.append(json.loads(line))
-
-        if len(data) > 0:
-            # convert to dataset
-            dataset = Dataset.from_list(data)
-
-            # shuffle dataset before splitting
+        # load the dataset
+        try:
+            dataset = load_dataset('json', data_files=k) # shuffle dataset before splitting
             dataset = dataset.shuffle(seed=42)
-
+            
             # 80% train, 20% test + validation
-            train_testvalid = dataset.train_test_split(test_size=0.2, seed=42)
+            train_testvalid = dataset['train'].train_test_split(test_size=0.2, seed=42)
             # Split the 10% test + valid in half test, half valid
             test_valid = train_testvalid['test'].train_test_split(test_size=0.5, seed=42)
             # gather everyone if you want to have a single DatasetDict
@@ -324,6 +316,6 @@ if __name__ == "__main__":
 
             print(str(k), "dataset loaded")
             eval_models(train_test_valid_dataset, k)
-        else:
-            # no data in the dataset
+
+        except ValueError as e:
             print(str(k), "failed to load because there is no data")
