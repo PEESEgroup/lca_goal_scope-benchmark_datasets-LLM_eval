@@ -184,11 +184,8 @@ def eval_models(dataset, dataset_name):
         print("test dataset evaluation")
         predictions_output = trainer.predict(tokenized_dataset["test"])
 
-        # confusion matrix
-        # convert probabilities based on a threshold value
-        # take the sigmoid of the outputs
+        # confusion matrix converts probabilities based on a threshold value and then take the sigmoid of the outputs
         # TODO: make a histogram to get a better threshold value for multilabel indicators
-
         multilabel_indicators = ((1 / (1 + np.exp(-predictions_output.predictions))) > 0.5).astype(int)
         cm = multilabel_confusion_matrix(predictions_output.label_ids, multilabel_indicators)
         ap_scores = []
@@ -197,7 +194,7 @@ def eval_models(dataset, dataset_name):
             disp.plot(cmap='Blues', values_format='d')
             plt.title(f'Confusion Matrix for {classes[i]} class for ' + str(dataset_name))
             plt.savefig(
-                "/home/sagemaker-user/data/qa_dataset/results/" + dataset_name + f'/Confusion Matrix for {classes[i].replace("/", "")} class.png',
+                "/home/sagemaker-user/data/qa_dataset/results/" + dataset_name + f'/Confusion asdf Matrix for {classes[i].replace("/", "")} class.png',
                 dpi=300)
             plt.show()
 
@@ -208,6 +205,7 @@ def eval_models(dataset, dataset_name):
                 ap = np.nan
             ap_scores.append(ap)
             print(f"Average Precision for Label {classes[i]}: {ap:.4f}")
+        print("saved confusion matrices")
 
         # Calculate Mean Average Precision (mAP)
         mAP = np.nanmean(ap_scores)
@@ -217,11 +215,13 @@ def eval_models(dataset, dataset_name):
         if predictions_output.metrics:
             print(dataset_name)
             print("Metrics:", predictions_output.metrics)
-            with open("data/qa_dataset/results/" + dataset_name + '/test_metrics.csv', 'w') as f:
+            print(os.getcwd())
+            with open("/llm-goal-scope/data/qa_dataset/results/" + dataset_name + '/test_metrics.csv', 'w', newline='', encoding='utf-8') as f:
                 w = csv.writer(f)
                 w.writerows(predictions_output.metrics.items())
                 map_dict = {"Mean Average Precision (mAP)": f"{mAP:.4f}"}
                 w.writerows(map_dict.items())
+                print("metric records written out")
 
     else:
         print("dataset missing:", str(dataset_name))
@@ -231,8 +231,6 @@ def plotting(log_history_df, dataset_name):
     train_logs = log_history_df[log_history_df['loss'].notna()]
     eval_logs = log_history_df[log_history_df['eval_loss'].notna()]
     fpath = "/home/sagemaker-user/llm-goal-scope/data/qa_dataset/results/"
-
-    print(os.getcwd())
 
     # Plotting Loss
     plt.figure(figsize=(10, 6))
@@ -245,19 +243,7 @@ def plotting(log_history_df, dataset_name):
     plt.grid(True)
     plt.savefig(fpath + dataset_name + "/loss.png", dpi=300)
     plt.show()
-
-    # Plotting Accuracy (if 'accuracy' and 'eval_accuracy' are present in your logs)
-    if 'accuracy' in train_logs.columns and 'eval_accuracy' in eval_logs.columns:
-        plt.figure(figsize=(10, 6))
-        plt.plot(train_logs['step'], train_logs['accuracy'], label='Training Accuracy')
-        plt.plot(eval_logs['step'], eval_logs['eval_accuracy'], label='Validation Accuracy')
-        plt.xlabel('Step')
-        plt.ylabel('Accuracy')
-        plt.title('Training and Validation Accuracy Over Time for ' + str(dataset_name))
-        plt.legend()
-        plt.grid(True)
-        plt.savefig(fpath, dataset_name + "_accuracy.png", dpi=300)
-        plt.show()
+    print("loss plot saved")
 
 
 if __name__ == "__main__":
