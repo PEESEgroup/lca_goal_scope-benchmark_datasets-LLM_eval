@@ -6,6 +6,7 @@ from langchain_community.vectorstores import FAISS
 import rag_retrieval
 from tqdm import tqdm
 import uuid
+import os
 
 
 def intendedApplication(row, RAG, vdb):
@@ -195,7 +196,21 @@ def systemDescription(row):
             1].strip() + ". Additional description: " + row["cycleDescription"]
     return row["siteType"] + " producing " + names[0].strip() + " in " + names[1].strip()
 
-
+    
+def process_all_tasks(row, RAG, vdb):
+    """Processes all columns for a single row in one go."""
+    return pd.Series({
+        "intendedApplicationQA": intendedApplication(row, RAG, vdb),
+        "studyReasonsQA": studyReasons(row, RAG, vdb),
+        "targetAudienceQA": targetAudience(row, RAG, vdb),
+        "comparativeAssertionsQA": comparativeAssertions(row, RAG, vdb),
+        "productQA": product(row, RAG, vdb),
+        "allocationQA": allocation(row, RAG, vdb),
+        "systemBoundaryQA": systemBoundary(row, RAG, vdb),
+        "functionalUnitQA": functionalUnit(row, RAG, vdb)
+    })
+    
+    
 def main(output_directory, input_directory, RAG):
     tqdm.pandas()
     # read in data
@@ -205,7 +220,7 @@ def main(output_directory, input_directory, RAG):
 
     if RAG:
         embeddings = constants.EMBED_MODEL
-        vdb = FAISS.load_local(
+        vdb = FAISS.load_local("llm-goal-scope/" + 
             constants.VDB_LOCATION, embeddings, allow_dangerous_deserialization=True)
     else:
         vdb = ""
@@ -213,53 +228,35 @@ def main(output_directory, input_directory, RAG):
     # reference output format - add this string as a new column in pandas
     # [{"question": <prompt>, "labels": {'text': [<answer>], "answer_start": [0]}, "title": <category>, "context": <systemDescription>}, "id": <uuid>]
 
-    # create a system description column that contains relevant context
-    print("\n systemDescription")
-    df["systemDescription"] = df.progress_apply(lambda row: systemDescription(row), axis=1)
-
+    # List of goal and scope tasks
     # •	Intended application of results
-    print("\n intendedApplicationQA")
-    df["intendedApplicationQA"] = df.progress_apply(lambda row: intendedApplication(row, RAG, vdb), axis=1)
-
     # •	Limitations due to methodological choices - not available, skipping
     # •	Decision context and reasons for carrying out the study
-    print("\n studyReasonsQA")
-    df["studyReasonsQA"] = df.progress_apply(lambda row: studyReasons(row, RAG, vdb), axis=1)
-
     # •	Target audience
-    print("\n targetAudienceQA")
-    df["targetAudienceQA"] = df.progress_apply(lambda row: targetAudience(row, RAG, vdb), axis=1)
-
     # •	Comparative studies to be disclosed to the public
-    print("\n comparativeAssertionsQA")
-    df["comparativeAssertionsQA"] = df.progress_apply(lambda row: comparativeAssertions(row, RAG, vdb), axis=1)
-
     # •	Commissioner of the study and other influential actors - not currently included
     # cannot easily get hestia to divulge actors and organizations, which are relevant here
     # df["actorsQA"] = df.progress_apply(lambda row: actors(row), axis=1)
-
     # •	Deliverables - not included, skipped
     # •	Object of the assessment - excluding location and date
-    print("\n productQA")
-    df["productQA"] = df.progress_apply(lambda row: product(row, RAG, vdb),
-                                        axis=1)  # we would expect llms to excel at this one because this info is in the given context
-
-    # •	LCI modelling framework and handling of multifunctional processes - allocation here
-    print("\n allocationQA")
-    df["allocationQA"] = df.progress_apply(lambda row: allocation(row, RAG, vdb), axis=1)
-
-    # •	System boundaries and completeness requirements - big boi
-    print("\n systemBoundaryQA")
-    df["systemBoundaryQA"] = df.progress_apply(lambda row: systemBoundary(row, RAG, vdb), axis=1)
-
-    # •	Representativeness of LCI data, not available, skipping
-    # •	Preparation of the basis for impact assessment - LCIA method not included in base ImpactAssessment, too many versions in recalculated
-    print("\n functionalUnitQA")
-    df["functionalUnitQA"] = df.progress_apply(lambda row: functionalUnit(row, RAG, vdb), axis=1)
-
     # •	Special requirements for system comparisons - not included, skipped
     # •	Needs for critical review -  not included, skipped
     # •	Planning reporting of results - not included, skipped
+    # •	LCI modelling framework and handling of multifunctional processes - allocation here
+    # •	System boundaries and completeness requirements
+    # •	Representativeness of LCI data, not available, skipping
+    # •	Preparation of the basis for impact assessment - LCIA method not included in base ImpactAssessment, too many versions in recalculated
+
+    # system description needs to be created before other data
+    tqdm.pandas(desc="Creating System Description")
+    df["systemDescription"] = df.progress_apply(lambda row: systemDescription(row), axis=1)
+
+    # further optimize code to create dataset
+    tqdm.pandas(desc="Processing RAG Tasks")
+    new_cols = df.progress_apply(lambda row: process_all_tasks(row, RAG, vdb), axis=1)
+
+    # Join the results back to your original dataframe
+    df = pd.concat([df, new_cols], axis=1)
 
     # output the data
     print("\n append all questions to list")
