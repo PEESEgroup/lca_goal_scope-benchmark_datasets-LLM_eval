@@ -124,7 +124,7 @@ def compute_metrics(eval_pred):
 def train_model(model, tokenized_dataset, tokenizer, data_collator, dataset_name, model_path):
     # create necessary filepaths
     checkpoint_path = "llm-goal-scope/data/checkpoints/" + model_path + "/" + dataset_name
-    final_model_path = "llm-goal-scope/data/model/" + model_path + "/" + dataset_name
+    final_model_path = "llm-goal-scope/data/trained_model/" + model_path + "/" + dataset_name
 
     # training parameters
     training_args = TrainingArguments(
@@ -132,7 +132,7 @@ def train_model(model, tokenized_dataset, tokenizer, data_collator, dataset_name
         learning_rate=2e-5,
         per_device_train_batch_size=3,
         per_device_eval_batch_size=3,
-        num_train_epochs=2, # try 15
+        num_train_epochs=15, # try 15
         weight_decay=0.01,
         eval_strategy="epoch",
         logging_strategy='epoch',
@@ -207,15 +207,17 @@ def eval_models(dataset, dataset_name):
         class2id = {class_: id for id, class_ in enumerate(classes)}
         id2class = {id: class_ for class_, id in class2id.items()}
 
-        model_paths = [
-            # 'microsoft/deberta-v3-small','microsoft/deberta-v3-base', 'microsoft/deberta-v3-large',  # these models are confirmed to work
+        model_paths = ['microsoft/deberta-v3-small','microsoft/deberta-v3-base', 'microsoft/deberta-v3-large',  # these models are confirmed to work
         "google-bert/bert-base-uncased", "FacebookAI/roberta-large", 
         "climatebert/distilroberta-base-climate-f", "ESGBERT/EnvironmentalBERT-base"]
 
         # train and eval loop
         for model_path in model_paths:
             tokenizer = AutoTokenizer.from_pretrained(model_path)
-            tokenized_dataset = dataset.map(lambda example: preprocess_function(example, classes, class2id, tokenizer))
+            tokenized_dataset = dataset.map(
+                lambda example: preprocess_function(example, classes, class2id, tokenizer),
+                load_from_cache_file=False
+            )
             data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
 
             model = AutoModelForSequenceClassification.from_pretrained(
@@ -227,19 +229,19 @@ def eval_models(dataset, dataset_name):
             )
 
             # update the dataset name
-            dataset_name = dataset_name.split(".")[0]
-            dataset_name = dataset_name.split("/")[2:]
-            dataset_name = "_".join(dataset_name)
-            fpath = "/home/sagemaker-user/llm-goal-scope/data/qa_dataset/results/" + dataset_name + "/" + model_path
+            dataset_path = dataset_name.split(".")[0]
+            dataset_path = dataset_path.split("/")[2:]
+            dataset_path = "_".join(dataset_path)
+            fpath = "/home/sagemaker-user/llm-goal-scope/data/qa_dataset/results/" + dataset_path + "/" + model_path
             os.makedirs(fpath, exist_ok=True)
 
             # train model
-            trainer = train_model(model, tokenized_dataset, tokenizer, data_collator, dataset_name, model_path)
+            trainer = train_model(model, tokenized_dataset, tokenizer, data_collator, dataset_path, model_path)
 
             # eval model
             print("test dataset evaluation")
             predictions_output = trainer.predict(tokenized_dataset["test"])
-            eval_metrics(predictions_output, classes, dataset_name, fpath)
+            eval_metrics(predictions_output, classes, dataset_path, fpath)
 
             # cleaning up after model
             print(f"Cleaning up after {model_path}...")
@@ -255,7 +257,7 @@ def eval_models(dataset, dataset_name):
             
     # else there is no data in the datset
     else:
-        print("dataset missing:", str(dataset_name))
+        print("dataset missing:", str(dataset_path))
 
 
 def plotting(log_history_df, dataset_name, model_name):
