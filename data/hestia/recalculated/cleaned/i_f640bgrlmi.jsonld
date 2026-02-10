@@ -1,0 +1,56 @@
+{
+    "siteDescription": "",
+    "siteName": "Animal housing - G/HM-Ho - Normandie, France",
+    "siteType": "animal housing",
+    "siteLocation": "France - Normandie",
+    "cycleDescription": "Grass and high proportion maize silage in forage area, with cattle fed an Omega-3 supplement, Holstein breed. Annual milk production cycle, including all grazing and animal housing components.",
+    "functionalUnit": "relative",
+    "systemBoundaryCompleteness": {
+        "electricityFuel": true,
+        "transport": false,
+        "material": false,
+        "fertiliser": true,
+        "ingredient": true,
+        "otherChemical": true,
+        "seed": true,
+        "pesticideVeterinaryDrug": true,
+        "soilAmendment": true,
+        "water": false,
+        "product": true,
+        "cropResidue": true,
+        "excreta": false,
+        "animalFeed": true,
+        "freshForage": true,
+        "liveAnimalInput": true,
+        "animalPopulation": true,
+        "waste": true,
+        "operation": false,
+        "@type": "Completeness"
+    },
+    "DOI": "10.1016/j.jenvman.2013.01.028",
+    "title": "Effect of dairy production system, breed and co-product handling methods on environmental impacts at farm level",
+    "notes": "Linseed cultivation taken by authors from Nguyen (2012), original data from France. Linseed processing from Bacenetti (2017), selected by us as a proxy. Authors have used daSilva for soybean cultivation data and dalgaard for soybean processing. Given these data are just proxies, we decided to omit them and just specify that the soybean meal is from Brazil.",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
+    "name": "Milk, cow, raw (FPCM) - France - 2011",
+    "allocationMethod": "economic",
+    "functionalUnitQuantity": 1,
+    "product_fate": "sold",
+    "product_properties": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "Fat content",
+                "units": "%",
+                "@id": "fatContent"
+            },
+            "value": 4,
+            "share": 100,
+            "@type": "Property"
+        }
+    },
+    "product_primary": true
+}

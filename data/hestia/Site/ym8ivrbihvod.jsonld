@@ -1,0 +1,72 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Site.jsonld",
+  "createdAt": "2024-12-04",
+  "updatedAt": "2024-12-04",
+  "@id": "ym8ivrbihvod",
+  "@type": "Site",
+  "description": "Farm in the Western Frontier region of the state of Reio Grande do Sul in the Southern part of Brazil. For each cycle, we use the stocking density and the number of animals to calculate how ma ny hectares are used for each cycle",
+  "siteType": "permanent pasture",
+  "area": 49.11838790931991,
+  "latitude": -28.936606,
+  "longitude": -55.7838,
+  "country": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Brazil",
+    "@id": "GADM-BRA"
+  },
+  "region": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Rio Grande do Sul",
+    "@id": "GADM-BRA.21_1"
+  },
+  "defaultSource": {
+    "@id": "_gzgjmujsbln",
+    "@type": "Source"
+  },
+  "organisation": {
+    "@id": "8qpeapyxvbt9",
+    "@type": "Organisation"
+  },
+  "defaultMethodClassification": "unsourced assumption",
+  "defaultMethodClassificationDescription": "The study does not explicitly specify where information about the farm site are collected",
+  "measurements": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Precipitation (annual)",
+        "termType": "measurement",
+        "@id": "precipitationAnnual",
+        "units": "mm / year"
+      },
+      "value": [
+        1598
+      ],
+      "description": "Mean precipitation without periodical dry seasons of the region",
+      "methodClassification": "unsourced assumption",
+      "methodClassificationDescription": "The authors provide no source in the text for their precipitation data",
+      "@type": "Measurement"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Temperature (annual)",
+        "termType": "measurement",
+        "@id": "temperatureAnnual",
+        "units": "°C"
+      },
+      "value": [
+        19.8
+      ],
+      "description": "Mean annual temperature of the region",
+      "methodClassification": "unsourced assumption",
+      "methodClassificationDescription": "The authors provide no source in the text for their temperature data",
+      "@type": "Measurement"
+    }
+  ],
+  "dataPrivate": false,
+  "name": "Permanent pasture - Sao Lucas Farm - Rio Grande do Sul, Brazil - Farm in the Western Frontier r...",
+  "schemaVersion": "30.3.2",
+  "originalId": "7"
+}

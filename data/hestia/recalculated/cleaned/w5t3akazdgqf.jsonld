@@ -1,0 +1,74 @@
+{
+    "siteDescription": "Pasture area containing 8 ponds and a creek for livestock watering along with road acces to the property, corral, administration building and workers housing.",
+    "siteName": "Permanent pasture - Itapetinga (Distrito), Itapetinga, Bahia, Brazil - Pasture area containing 8 pond...",
+    "siteType": "permanent pasture",
+    "siteLocation": "Brazil - Itapetinga (Distrito), Itapetinga, Bahia, Brazil",
+    "cycleDescription": "Bull calves are fattened over a period of 20 months until they are a life weight of around 480 kg and sold to slaughter.",
+    "functionalUnit": "relative",
+    "systemBoundaryCompleteness": {
+        "electricityFuel": true,
+        "transport": false,
+        "material": false,
+        "fertiliser": true,
+        "ingredient": true,
+        "otherChemical": true,
+        "seed": true,
+        "pesticideVeterinaryDrug": false,
+        "soilAmendment": true,
+        "water": false,
+        "product": true,
+        "cropResidue": true,
+        "excreta": false,
+        "animalFeed": true,
+        "freshForage": true,
+        "liveAnimalInput": true,
+        "animalPopulation": true,
+        "waste": false,
+        "operation": false,
+        "@type": "Completeness",
+        "updated": [
+            "freshForage"
+        ],
+        "updatedVersion": [
+            "0.70.0"
+        ]
+    },
+    "DOI": "10.1007/s11367-016-1062-4",
+    "title": "Environmental Impact assessment of a semi-intensive beef cattle production in Brazil\u2019s Northeast",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
+    "name": "Beef cattle, bull - Brazil - 2013",
+    "allocationMethod": "economic",
+    "functionalUnitQuantity": 1,
+    "product_fate": "",
+    "product_properties": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 480,
+            "share": 100,
+            "@type": "Property"
+        },
+        "1": {
+            "term": {
+                "@type": "Term",
+                "name": "Age",
+                "termType": "property",
+                "@id": "age",
+                "units": "days"
+            },
+            "value": 790.4,
+            "share": 100,
+            "@type": "Property"
+        }
+    },
+    "product_primary": true
+}

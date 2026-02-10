@@ -97,7 +97,7 @@ def main(directory_path):
 
         # •	Commissioner of the study and other influential actors - source
         source = data['source']["@id"]
-        with open("llm-goal-scope/data/Source/{}".format(source) + extension, 'r', encoding='utf-8') as f_source:
+        with open("llm-goal-scope/data/hestia/Source/{}".format(source) + extension, 'r', encoding='utf-8') as f_source:
             try:
                 data_source = json.load(f_source)
                 # while it would be nice to have a list of all the authors associated with the manuscript, getting actors from hestia isn't readily apparent
@@ -190,6 +190,6 @@ def main(directory_path):
 
 
 if __name__ == "__main__":
-    main("./data/")
-    main("./data/recalculated/")
+    main("llm-goal-scope/data/hestia/")
+    main("llm-goal-scope/data/hestia/recalculated/")
 

@@ -1,0 +1,68 @@
+{
+    "siteDescription": "",
+    "siteName": "Agri-food processor - S\u00e3o Carlos (Distrito), S\u00e3o Carlos, S\u00e3o Paulo, Brazil",
+    "siteType": "agri-food processor",
+    "siteLocation": "Brazil - S\u00e3o Carlos (Distrito), S\u00e3o Carlos, S\u00e3o Paulo, Brazil",
+    "cycleDescription": "DHS animal to meat",
+    "functionalUnit": "relative",
+    "systemBoundaryCompleteness": {
+        "electricityFuel": false,
+        "transport": true,
+        "material": false,
+        "fertiliser": true,
+        "seed": true,
+        "pesticideVeterinaryDrug": true,
+        "soilAmendment": true,
+        "water": false,
+        "product": false,
+        "cropResidue": true,
+        "excreta": true,
+        "animalFeed": true,
+        "animalPopulation": true,
+        "waste": false,
+        "operation": false,
+        "freshForage": true,
+        "ingredient": true,
+        "liveAnimalInput": true,
+        "otherChemical": true,
+        "@type": "Completeness"
+    },
+    "DOI": "10.1016/j.meatsci.2018.01.019",
+    "title": "The effect of grazing system intensification on the growth and meat quality of beef cattle in the Brazilian Atlantic Forest biome",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
+    "name": "Meat, beef cattle (cold dressed carcass weight) - Brazil - 2014",
+    "allocationMethod": "economic",
+    "functionalUnitQuantity": 1,
+    "product_fate": "",
+    "product_properties": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "name": "pH",
+                "termType": "property",
+                "@id": "ph",
+                "units": "unitless"
+            },
+            "value": 5.4,
+            "share": 100,
+            "@type": "Property"
+        },
+        "1": {
+            "term": {
+                "@type": "Term",
+                "name": "Ready-to-cook weight per head",
+                "termType": "property",
+                "@id": "readyToCookWeightPerHead",
+                "units": "kg ready-to-cook weight / head"
+            },
+            "value": 113.2,
+            "share": 100,
+            "@type": "Property"
+        }
+    },
+    "product_primary": true
+}

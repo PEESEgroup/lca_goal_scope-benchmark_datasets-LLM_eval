@@ -1,0 +1,35 @@
+{
+  "@context": "https://contribute.hestia.earth/schema/Site.jsonld",
+  "createdAt": "2024-02-09",
+  "updatedAt": "2025-03-10",
+  "@id": "w4ovaul-nw_a",
+  "@type": "Site",
+  "description": "Generic site representing farms in this area where cattle are fed a standard silage maize based diet.",
+  "defaultSource": {
+    "@id": "2uaxgmjzmtai",
+    "@type": "Source"
+  },
+  "siteType": "animal housing",
+  "country": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "France",
+    "@id": "GADM-FRA"
+  },
+  "region": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Pays de la Loire",
+    "@id": "GADM-FRA.12_1"
+  },
+  "organisation": {
+    "@id": "lcj1pvhbf-fe",
+    "@type": "Organisation"
+  },
+  "defaultMethodClassification": "modelled",
+  "defaultMethodClassificationDescription": "Diet based on Eugene et al., 2011",
+  "dataPrivate": false,
+  "name": "Animal housing - O3 Enriched Production System - Pays de la Loire, France - Generic site representing farm...",
+  "schemaVersion": "30.4.0",
+  "originalId": "SML Herd_Site"
+}

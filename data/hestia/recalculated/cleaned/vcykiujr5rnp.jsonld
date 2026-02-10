@@ -1,0 +1,77 @@
+{
+    "cycleDescription": "",
+    "functionalUnit": "1 ha",
+    "systemBoundaryCompleteness": {
+        "electricityFuel": false,
+        "transport": false,
+        "material": false,
+        "fertiliser": true,
+        "ingredient": true,
+        "otherChemical": true,
+        "seed": false,
+        "pesticideVeterinaryDrug": false,
+        "soilAmendment": true,
+        "water": false,
+        "product": true,
+        "cropResidue": true,
+        "excreta": false,
+        "animalFeed": true,
+        "freshForage": true,
+        "liveAnimalInput": true,
+        "animalPopulation": false,
+        "waste": false,
+        "operation": false,
+        "@type": "Completeness"
+    },
+    "DOI": "10.3168/jds.2019-17182",
+    "title": "Temporal, spatial, and management variability in the carbon footprint of New Zealand milk",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
+    "name": "Milk, cow, raw (FPCM) - New Zealand - 2017",
+    "allocationMethod": "economic",
+    "functionalUnitQuantity": 1,
+    "product_fate": "",
+    "product_properties": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "name": "Total solids content",
+                "termType": "property",
+                "@id": "totalSolidsContent",
+                "units": "%"
+            },
+            "value": 7.704576976421637,
+            "description": "(Milk solids/FPCM)*106",
+            "share": 100,
+            "@type": "Property"
+        },
+        "1": {
+            "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "True protein content",
+                "units": "%",
+                "@id": "trueProteinContent"
+            },
+            "value": 3.3,
+            "share": 100,
+            "@type": "Property"
+        },
+        "2": {
+            "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "Fat content",
+                "units": "%",
+                "@id": "fatContent"
+            },
+            "value": 4,
+            "share": 100,
+            "@type": "Property"
+        }
+    },
+    "product_primary": true
+}

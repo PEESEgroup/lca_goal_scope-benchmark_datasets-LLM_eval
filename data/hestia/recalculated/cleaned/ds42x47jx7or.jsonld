@@ -1,0 +1,68 @@
+{
+    "siteDescription": "Access to outdoor area. 4m2 per bird. Access to daylight.",
+    "siteName": "Animal housing - Netherlands - Access to outdoor area. 4m2 pe...",
+    "siteType": "animal housing",
+    "siteLocation": "Netherlands",
+    "cycleDescription": "Organic broiler",
+    "functionalUnit": "relative",
+    "systemBoundaryCompleteness": {
+        "electricityFuel": true,
+        "operation": false,
+        "material": false,
+        "fertiliser": true,
+        "seed": true,
+        "pesticideVeterinaryDrug": false,
+        "soilAmendment": true,
+        "water": false,
+        "product": true,
+        "cropResidue": true,
+        "excreta": false,
+        "animalFeed": true,
+        "waste": false,
+        "liveAnimalInput": true,
+        "transport": false,
+        "ingredient": true,
+        "otherChemical": true,
+        "animalPopulation": true,
+        "freshForage": true,
+        "@type": "Completeness"
+    },
+    "DOI": "10.18174/518522",
+    "title": "Economics of broiler production systems in the Netherlands: Economic aspects within the Greenwell sustainability assessment model",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
+    "name": "Broiler chicken - Netherlands - 2017",
+    "allocationMethod": "economic",
+    "functionalUnitQuantity": 1,
+    "product_fate": "",
+    "product_properties": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 2.4,
+            "share": 100,
+            "@type": "Property"
+        },
+        "1": {
+            "term": {
+                "@type": "Term",
+                "name": "Age",
+                "termType": "property",
+                "@id": "age",
+                "units": "days"
+            },
+            "value": 75,
+            "share": 100,
+            "@type": "Property"
+        }
+    },
+    "product_primary": true
+}
