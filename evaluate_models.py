@@ -121,109 +121,124 @@ def compute_metrics(eval_pred):
     return clf_metrics.compute(predictions=predictions, references=labels.astype(int).reshape(-1))
 
 
+def train_model(checkpoint_path, model, tokenized_dataset, tokenizer, data_collator):
+    # training parameters
+    training_args = TrainingArguments(
+        output_dir=checkpoint_path,
+        learning_rate=2e-5,
+        per_device_train_batch_size=3,
+        per_device_eval_batch_size=3,
+        num_train_epochs=2,
+        weight_decay=0.01,
+        eval_strategy="epoch",
+        logging_strategy='epoch',
+        save_strategy="epoch",
+        save_total_limit=1,
+        load_best_model_at_end=True,
+    )
+    trainer = CustomLossTrainer(
+        model=model,
+        args=training_args,
+        train_dataset=tokenized_dataset["train"],
+        eval_dataset=tokenized_dataset["valid"],
+        tokenizer=tokenizer,
+        data_collator=data_collator,
+        compute_metrics=compute_metrics,
+    )
+    # training
+    trainer.train()
+
+    #TODO: save model to an S3 bucket to save space???
+    trainer.save_model(final_model_path)
+    log_history_df = pd.DataFrame(trainer.state.log_history)
+    plotting(log_history_df, dataset_name, model_path)
+    return trainer
+
+
+def confusion_matrices(predictions_output, cm, classes, dataset_name, fpath):
+    # confusion matrix converts probabilities based on a threshold value and then take the sigmoid of the outputs
+    multilabel_indicators = ((1 / (1 + np.exp(-predictions_output.predictions))) > 0.5).astype(int)
+    plt.hist((1 / (1 + np.exp(-predictions_output.predictions))))
+    plt.savefig(fpath + f'/Raw Logit Predictions for {dataset_name}.png', dpi=300)
+    plt.show()
+
+    cm = multilabel_confusion_matrix(predictions_output.label_ids, multilabel_indicators)
+    ap_scores = []
+    for i, cm in enumerate(cm):
+        disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=['Negative', 'Positive'])
+        disp.plot(cmap='Blues', values_format='d')
+        plt.title(f'Confusion Matrix for {classes[i]} class for ' + str(dataset_name))
+        plt.savefig(fpath + f'/Confusion Matrix for {classes[i].replace("/", "")} class.png', dpi=300)
+        plt.show()
+
+        # if there are no positive class in y_true, then precision is undefined and not included in the mean calculation
+        if max(predictions_output.label_ids[:, i]) > 0:
+            ap = average_precision_score(predictions_output.label_ids[:, i], multilabel_indicators[:, i])
+        else:
+            ap = np.nan
+        ap_scores.append(ap)
+        eval_metrics[f"Average Precision for Label {classes[i]}"] =  f"{ap:.4f}"
+    print("saved confusion matrices")
+
+    # Calculate Mean Average Precision (mAP)
+    mAP = np.nanmean(ap_scores)
+    eval_metrics["Mean Average Precision (mAP)"] = f"{mAP:.4f}"
+
+    # record data
+    if predictions_output.metrics:
+        with open(fpath + '/test_metrics.csv', 'w', newline='', encoding='utf-8') as f:
+            w = csv.writer(f)
+            w.writerows(eval_metrics.items())
+            print("Saved Metrics for {dataset_name}:", eval_metrics)
+
+
 def eval_models(dataset, dataset_name):
     # from: https://huggingface.co/blog/Valerii-Knowledgator/multi-label-classification
-
-    # reeee = load_dataset('knowledgator/events_classification_biotech', trust_remote_code=True)
-
     # bad practice, but because all the labels are in each row of the dataset, things can be trained
     if "all_labels" in dataset["train"][0]:
         classes = [class_ for class_ in dataset['train'][0]['all_labels'].split("; ") if class_]
         class2id = {class_: id for id, class_ in enumerate(classes)}
         id2class = {id: class_ for class_, id in class2id.items()}
 
-        model_path = 'microsoft/deberta-v3-small'
+        model_paths = ['microsoft/deberta-v3-small']
 
-        tokenizer = AutoTokenizer.from_pretrained(model_path)
-        tokenized_dataset = dataset.map(lambda example: preprocess_function(example, classes, class2id, tokenizer))
-        data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
+        # train and eval loop
+        for model_path in model_paths:
+            tokenizer = AutoTokenizer.from_pretrained(model_path)
+            tokenized_dataset = dataset.map(lambda example: preprocess_function(example, classes, class2id, tokenizer))
+            data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
 
-        model = AutoModelForSequenceClassification.from_pretrained(
-            model_path,
-            num_labels=len(classes),
-            id2label=id2class,
-            label2id=class2id,
-            problem_type="multi_label_classification"
-        )
+            model = AutoModelForSequenceClassification.from_pretrained(
+                model_path,
+                num_labels=len(classes),
+                id2label=id2class,
+                label2id=class2id,
+                problem_type="multi_label_classification"
+            )
 
-        # update the dataset name
-        dataset_name = dataset_name.split(".")[0]
-        dataset_name = dataset_name.split("/")[2:]
-        dataset_name = "_".join(dataset_name)
-        fpath = "/home/sagemaker-user/llm-goal-scope/data/qa_dataset/results/" + dataset_name + "/"
-        os.makedirs(fpath, exist_ok=True)
+            # update the dataset name
+            dataset_name = dataset_name.split(".")[0]
+            dataset_name = dataset_name.split("/")[2:]
+            dataset_name = "_".join(dataset_name)
+            checkpoint_path = "llm-goal-scope/data/checkpoints/" + model_path + "/" + dataset_name
+            final_model_path = "llm-goal-scope/data/model/" + model_path + "/" + dataset_name
+            fpath = "/home/sagemaker-user/llm-goal-scope/data/qa_dataset/results/" + dataset_name + "/" + model_path
+            os.makedirs(fpath, exist_ok=True)
 
-        # training parameters
-        training_args = TrainingArguments(
-            output_dir="data/checkpoints/" + dataset_name,
-            learning_rate=2e-5,
-            per_device_train_batch_size=3,
-            per_device_eval_batch_size=3,
-            num_train_epochs=15,
-            weight_decay=0.01,
-            eval_strategy="epoch",
-            logging_strategy='epoch',
-            save_strategy="epoch",
-            save_total_limit=2,
-            load_best_model_at_end=True,
-        )
-        trainer = CustomLossTrainer(
-            model=model,
-            args=training_argteas,
-            train_dataset=tokenized_dataset["train"],
-            eval_dataset=tokenized_dataset["valid"],
-            tokenizer=tokenizer,
-            data_collator=data_collator,
-            compute_metrics=compute_metrics,
-        )
-        # training
-        trainer.train()
-        log_history_df = pd.DataFrame(trainer.state.log_history)
-        plotting(log_history_df, dataset_name)
+            trainer = train_model(checkpoint_path, model, tokenized_dataset, tokenizer, data_collator)
 
-        # eval
-        print("test dataset evaluation")
-        predictions_output = trainer.predict(tokenized_dataset["test"])
-        eval_metrics = predictions_output.metrics
-
-        # confusion matrix converts probabilities based on a threshold value and then take the sigmoid of the outputs
-        # TODO: make a histogram to get a better threshold value for multilabel indicators
-        multilabel_indicators = ((1 / (1 + np.exp(-predictions_output.predictions))) > 0.5).astype(int)
-        cm = multilabel_confusion_matrix(predictions_output.label_ids, multilabel_indicators)
-        ap_scores = []
-        for i, cm in enumerate(cm):
-            disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=['Negative', 'Positive'])
-            disp.plot(cmap='Blues', values_format='d')
-            plt.title(f'Confusion Matrix for {classes[i]} class for ' + str(dataset_name))
-            plt.savefig(fpath + f'/Confusion Matrix for {classes[i].replace("/", "")} class.png',
-                dpi=300)
-            plt.show()
-
-            # if there are no positive class in y_true, then precision is undefined and not included in the mean calculation
-            if max(predictions_output.label_ids[:, i]) > 0:
-                ap = average_precision_score(predictions_output.label_ids[:, i], multilabel_indicators[:, i])
-            else:
-                ap = np.nan
-            ap_scores.append(ap)
-            eval_metrics[f"Average Precision for Label {classes[i]}"] =  f"{ap:.4f}"
-        print("saved confusion matrices")
-
-        # Calculate Mean Average Precision (mAP)
-        mAP = np.nanmean(ap_scores)
-        eval_metrics["Mean Average Precision (mAP)"] = f"{mAP:.4f}"
-
-        # record data
-        if predictions_output.metrics:
-            with open(fpath + '/test_metrics.csv', 'w', newline='', encoding='utf-8') as f:
-                w = csv.writer(f)
-                w.writerows(eval_metrics.items())
-                print("Saved Metrics for {dataset_name}:", eval_metrics)
-
+            # eval
+            print("test dataset evaluation")
+            predictions_output = trainer.predict(tokenized_dataset["test"])
+            eval_metrics = predictions_output.metrics
+            confusion_matrices(predictions_output, cm, classes, dataset_name, fpath)
+            
+    # else there is no data in the datset
     else:
         print("dataset missing:", str(dataset_name))
 
 
-def plotting(log_history_df, dataset_name):
+def plotting(log_history_df, dataset_name, model_name):
     train_logs = log_history_df[log_history_df['loss'].notna()]
     eval_logs = log_history_df[log_history_df['eval_loss'].notna()]
     fpath = "/home/sagemaker-user/llm-goal-scope/data/qa_dataset/results/"
@@ -237,7 +252,7 @@ def plotting(log_history_df, dataset_name):
     plt.title('Training and Validation Loss Over Time for ' + str(dataset_name))
     plt.legend()
     plt.grid(True)
-    plt.savefig(fpath + dataset_name + "/loss.png", dpi=300)
+    plt.savefig(fpath + dataset_name + model_name + "/loss.png", dpi=300)
     plt.show()
     print("loss plot saved")
 
