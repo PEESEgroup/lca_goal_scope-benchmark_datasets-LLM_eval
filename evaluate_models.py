@@ -206,7 +206,8 @@ def eval_models(dataset, dataset_name):
         class2id = {class_: id for id, class_ in enumerate(classes)}
         id2class = {id: class_ for class_, id in class2id.items()}
 
-        model_paths = ['microsoft/deberta-v3-small','microsoft/deberta-v3-base', 'microsoft/deberta-v3-large',
+        model_paths = [
+            # 'microsoft/deberta-v3-small','microsoft/deberta-v3-base', 'microsoft/deberta-v3-large',  # these models are confirmed to work
         "google-bert/bert-base-uncased", "FacebookAI/roberta-large", 
         "climatebert/distilroberta-base-climate-f", "ESGBERT/EnvironmentalBERT-base"]
 
