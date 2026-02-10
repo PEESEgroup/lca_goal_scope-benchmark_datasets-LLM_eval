@@ -132,7 +132,7 @@ def train_model(model, tokenized_dataset, tokenizer, data_collator, dataset_name
         learning_rate=2e-5,
         per_device_train_batch_size=3,
         per_device_eval_batch_size=3,
-        num_train_epochs=2,
+        num_train_epochs=15,
         weight_decay=0.01,
         eval_strategy="epoch",
         logging_strategy='epoch',
@@ -159,9 +159,11 @@ def train_model(model, tokenized_dataset, tokenizer, data_collator, dataset_name
     return trainer
 
 
-def confusion_matrices(predictions_output, cm, classes, dataset_name, fpath):
+def eval_metrics(predictions_output, classes, dataset_name, fpath):
     # confusion matrix converts probabilities based on a threshold value and then take the sigmoid of the outputs
+    eval_metrics = predictions_output.metrics
     multilabel_indicators = ((1 / (1 + np.exp(-predictions_output.predictions))) > 0.5).astype(int)
+    plt.clf()
     plt.hist((1 / (1 + np.exp(-predictions_output.predictions))))
     plt.savefig(fpath + f'/Raw Logit Predictions for {dataset_name}.png', dpi=300)
     plt.show()
@@ -204,7 +206,7 @@ def eval_models(dataset, dataset_name):
         class2id = {class_: id for id, class_ in enumerate(classes)}
         id2class = {id: class_ for class_, id in class2id.items()}
 
-        model_paths = ['microsoft/deberta-v3-small','microsoft/deberta-v3', 'microsoft/deberta-v3-large',
+        model_paths = ['microsoft/deberta-v3-small','microsoft/deberta-v3-base', 'microsoft/deberta-v3-large',
         "google-bert/bert-base-uncased", "FacebookAI/roberta-large", 
         "climatebert/distilroberta-base-climate-f", "ESGBERT/EnvironmentalBERT-base"]
 
@@ -235,8 +237,7 @@ def eval_models(dataset, dataset_name):
             # eval model
             print("test dataset evaluation")
             predictions_output = trainer.predict(tokenized_dataset["test"])
-            eval_metrics = predictions_output.metrics
-            confusion_matrices(predictions_output, cm, classes, dataset_name, fpath)
+            eval_metrics(predictions_output, classes, dataset_name, fpath)
             
     # else there is no data in the datset
     else:
@@ -283,22 +284,22 @@ if __name__ == "__main__":
                  "llm-goal-scope/data/qa_dataset/recalculated/no_rag/studyReasonsQA.jsonl",
                  "llm-goal-scope/data/qa_dataset/recalculated/no_rag/systemBoundaryQA.jsonl",
                  "llm-goal-scope/data/qa_dataset/recalculated/no_rag/targetAudienceQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/original/rag/rag_allocationQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/original/rag/rag_comparativeAssertionsQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/original/rag/rag_functionalUnitQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/original/rag/rag_intendedApplicationQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/original/rag/rag_productQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/original/rag/rag_studyReasonsQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/original/rag/rag_systemBoundaryQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/original/rag/rag_targetAudienceQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_allocationQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_comparativeAssertionsQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_functionalUnitQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_intendedApplicationQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_productQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_studyReasonsQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_systemBoundaryQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_targetAudienceQA.jsonl"
+                #  "llm-goal-scope/data/qa_dataset/original/rag/rag_allocationQA.jsonl",
+                #  "llm-goal-scope/data/qa_dataset/original/rag/rag_comparativeAssertionsQA.jsonl",
+                #  "llm-goal-scope/data/qa_dataset/original/rag/rag_functionalUnitQA.jsonl",
+                #  "llm-goal-scope/data/qa_dataset/original/rag/rag_intendedApplicationQA.jsonl",
+                #  "llm-goal-scope/data/qa_dataset/original/rag/rag_productQA.jsonl",
+                #  "llm-goal-scope/data/qa_dataset/original/rag/rag_studyReasonsQA.jsonl",
+                #  "llm-goal-scope/data/qa_dataset/original/rag/rag_systemBoundaryQA.jsonl",
+                #  "llm-goal-scope/data/qa_dataset/original/rag/rag_targetAudienceQA.jsonl",
+                #  "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_allocationQA.jsonl",
+                #  "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_comparativeAssertionsQA.jsonl",
+                #  "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_functionalUnitQA.jsonl",
+                #  "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_intendedApplicationQA.jsonl",
+                #  "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_productQA.jsonl",
+                #  "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_studyReasonsQA.jsonl",
+                #  "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_systemBoundaryQA.jsonl",
+                #  "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_targetAudienceQA.jsonl"
                  ]
 
     # for each dataset
