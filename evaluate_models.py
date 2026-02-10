@@ -121,7 +121,11 @@ def compute_metrics(eval_pred):
     return clf_metrics.compute(predictions=predictions, references=labels.astype(int).reshape(-1))
 
 
-def train_model(checkpoint_path, model, tokenized_dataset, tokenizer, data_collator):
+def train_model(model, tokenized_dataset, tokenizer, data_collator, dataset_name, model_path):
+    # create necessary filepaths
+    checkpoint_path = "llm-goal-scope/data/checkpoints/" + model_path + "/" + dataset_name
+    final_model_path = "llm-goal-scope/data/model/" + model_path + "/" + dataset_name
+
     # training parameters
     training_args = TrainingArguments(
         output_dir=checkpoint_path,
@@ -200,7 +204,9 @@ def eval_models(dataset, dataset_name):
         class2id = {class_: id for id, class_ in enumerate(classes)}
         id2class = {id: class_ for class_, id in class2id.items()}
 
-        model_paths = ['microsoft/deberta-v3-small']
+        model_paths = ['microsoft/deberta-v3-small','microsoft/deberta-v3', 'microsoft/deberta-v3-large',
+        "google-bert/bert-base-uncased", "FacebookAI/roberta-large", 
+        "climatebert/distilroberta-base-climate-f", "ESGBERT/EnvironmentalBERT-base"]
 
         # train and eval loop
         for model_path in model_paths:
@@ -220,14 +226,13 @@ def eval_models(dataset, dataset_name):
             dataset_name = dataset_name.split(".")[0]
             dataset_name = dataset_name.split("/")[2:]
             dataset_name = "_".join(dataset_name)
-            checkpoint_path = "llm-goal-scope/data/checkpoints/" + model_path + "/" + dataset_name
-            final_model_path = "llm-goal-scope/data/model/" + model_path + "/" + dataset_name
             fpath = "/home/sagemaker-user/llm-goal-scope/data/qa_dataset/results/" + dataset_name + "/" + model_path
             os.makedirs(fpath, exist_ok=True)
 
-            trainer = train_model(checkpoint_path, model, tokenized_dataset, tokenizer, data_collator)
+            # train model
+            trainer = train_model(model, tokenized_dataset, tokenizer, data_collator, dataset_name, model_path)
 
-            # eval
+            # eval model
             print("test dataset evaluation")
             predictions_output = trainer.predict(tokenized_dataset["test"])
             eval_metrics = predictions_output.metrics
@@ -241,7 +246,9 @@ def eval_models(dataset, dataset_name):
 def plotting(log_history_df, dataset_name, model_name):
     train_logs = log_history_df[log_history_df['loss'].notna()]
     eval_logs = log_history_df[log_history_df['eval_loss'].notna()]
-    fpath = "/home/sagemaker-user/llm-goal-scope/data/qa_dataset/results/"
+    # list filepath and create directory to store the image
+    fpath = f"/home/sagemaker-user/llm-goal-scope/data/qa_dataset/results/{dataset_name}/{model_name}"
+    os.makedirs(fpath, exist_ok=True)
 
     # Plotting Loss
     plt.figure(figsize=(10, 6))
@@ -252,7 +259,7 @@ def plotting(log_history_df, dataset_name, model_name):
     plt.title('Training and Validation Loss Over Time for ' + str(dataset_name))
     plt.legend()
     plt.grid(True)
-    plt.savefig(fpath + dataset_name + model_name + "/loss.png", dpi=300)
+    plt.savefig(fpath + "/loss.png", dpi=300)
     plt.show()
     print("loss plot saved")
 
