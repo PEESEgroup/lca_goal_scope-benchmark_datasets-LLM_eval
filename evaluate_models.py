@@ -20,9 +20,8 @@ from sklearn.metrics import multilabel_confusion_matrix, ConfusionMatrixDisplay
 class CustomLossTrainer(Trainer):
     def __init__(self, *args, loss_fn=None, **kwargs):
         super().__init__(*args, **kwargs)
-        # Store your custom loss function.
-        # This should take (logits, labels) as arguments.
-        self.loss_fn = AsymmetricLossOptimized()
+        # Use the loss_fn passed in, or default to a NEW instance
+        self.loss_fn = loss_fn if loss_fn is not None else AsymmetricLossOptimized()
 
     def compute_loss(self, model, inputs, num_items_in_batch: Optional[torch.Tensor] = None, return_outputs=False):
         # Assume your inputs include "labels" and your model returns logits.
@@ -65,35 +64,35 @@ class AsymmetricLossOptimized(nn.Module):
         logits: input logits
         labels: targets (multi-label binarized vector)
         """
-
-        self.targets = labels
-        self.anti_targets = 1 - labels
+        # using local variables instead of self.variable to avoid CUDA errors
+        targets = labels
+        anti_targets = 1 - labels
 
         # Calculating Probabilities
-        self.xs_pos = torch.sigmoid(logits)
-        self.xs_neg = 1.0 - self.xs_pos
+        xs_pos = torch.sigmoid(logits)
+        xs_neg = 1.0 - xs_pos
 
         # Asymmetric Clipping
         if self.clip is not None and self.clip > 0:
-            self.xs_neg.add_(self.clip).clamp_(max=1)
+            xs_neg = (xs_neg + self.clip).clamp(max=1)
 
         # Basic CE calculation
-        self.loss = self.targets * torch.log(self.xs_pos.clamp(min=self.eps))
-        self.loss.add_(self.anti_targets * torch.log(self.xs_neg.clamp(min=self.eps)))
+        loss = targets * torch.log(xs_pos.clamp(min=self.eps))
+        loss = loss + (anti_targets * torch.log(xs_neg.clamp(min=self.eps)))
 
         # Asymmetric Focusing
         if self.gamma_neg > 0 or self.gamma_pos > 0:
             if self.disable_torch_grad_focal_loss:
-                torch.set_grad_enabled(False)
-            self.xs_pos = self.xs_pos * self.targets
-            self.xs_neg = self.xs_neg * self.anti_targets
-            self.asymmetric_w = torch.pow(1 - self.xs_pos - self.xs_neg,
-                                          self.gamma_pos * self.targets + self.gamma_neg * self.anti_targets)
-            if self.disable_torch_grad_focal_loss:
-                torch.set_grad_enabled(True)
-            self.loss *= self.asymmetric_w
+                with torch.no_grad():
+                    # Logic remains the same, just local variables
+                    w = torch.pow(1 - (xs_pos * targets) - (xs_neg * anti_targets),
+                                self.gamma_pos * targets + self.gamma_neg * anti_targets)
+            else:
+                w = torch.pow(1 - (xs_pos * targets) - (xs_neg * anti_targets),
+                            self.gamma_pos * targets + self.gamma_neg * anti_targets)
+            loss = loss * w
 
-        return -self.loss.sum()
+    return -loss.sum()
 
 
 def preprocess_function(example, classes, class2id, tokenizer):
@@ -132,7 +131,7 @@ def train_model(model, tokenized_dataset, tokenizer, data_collator, dataset_name
         learning_rate=2e-5,
         per_device_train_batch_size=3,
         per_device_eval_batch_size=3,
-        num_train_epochs=15,
+        num_train_epochs=2, # try 15
         weight_decay=0.01,
         eval_strategy="epoch",
         logging_strategy='epoch',
@@ -153,6 +152,7 @@ def train_model(model, tokenized_dataset, tokenizer, data_collator, dataset_name
     trainer.train()
 
     #TODO: save model to an S3 bucket to save space???
+    #TODO: clear out model checkpoints
     trainer.save_model(final_model_path)
     log_history_df = pd.DataFrame(trainer.state.log_history)
     plotting(log_history_df, dataset_name, model_path)
