@@ -150,7 +150,8 @@ def eval_models(dataset, dataset_name):
         dataset_name = dataset_name.split(".")[0]
         dataset_name = dataset_name.split("/")[2:]
         dataset_name = "_".join(dataset_name)
-        os.makedirs("/home/sagemaker-user/llm-goal-scope/data/qa_dataset/results/" + dataset_name + "/", exist_ok=True)
+        fpath = "/home/sagemaker-user/llm-goal-scope/data/qa_dataset/results/" + dataset_name + "/"
+        os.makedirs(fpath, exist_ok=True)
 
         # training parameters
         training_args = TrainingArguments(
@@ -158,7 +159,7 @@ def eval_models(dataset, dataset_name):
             learning_rate=2e-5,
             per_device_train_batch_size=3,
             per_device_eval_batch_size=3,
-            num_train_epochs=2,
+            num_train_epochs=15,
             weight_decay=0.01,
             eval_strategy="epoch",
             logging_strategy='epoch',
@@ -168,7 +169,7 @@ def eval_models(dataset, dataset_name):
         )
         trainer = CustomLossTrainer(
             model=model,
-            args=training_args,
+            args=training_argteas,
             train_dataset=tokenized_dataset["train"],
             eval_dataset=tokenized_dataset["valid"],
             tokenizer=tokenizer,
@@ -183,6 +184,7 @@ def eval_models(dataset, dataset_name):
         # eval
         print("test dataset evaluation")
         predictions_output = trainer.predict(tokenized_dataset["test"])
+        eval_metrics = predictions_output.metrics
 
         # confusion matrix converts probabilities based on a threshold value and then take the sigmoid of the outputs
         # TODO: make a histogram to get a better threshold value for multilabel indicators
@@ -193,8 +195,7 @@ def eval_models(dataset, dataset_name):
             disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=['Negative', 'Positive'])
             disp.plot(cmap='Blues', values_format='d')
             plt.title(f'Confusion Matrix for {classes[i]} class for ' + str(dataset_name))
-            plt.savefig(
-                "/home/sagemaker-user/data/qa_dataset/results/" + dataset_name + f'/Confusion asdf Matrix for {classes[i].replace("/", "")} class.png',
+            plt.savefig(fpath + f'/Confusion Matrix for {classes[i].replace("/", "")} class.png',
                 dpi=300)
             plt.show()
 
@@ -204,24 +205,19 @@ def eval_models(dataset, dataset_name):
             else:
                 ap = np.nan
             ap_scores.append(ap)
-            print(f"Average Precision for Label {classes[i]}: {ap:.4f}")
+            eval_metrics[f"Average Precision for Label {classes[i]}"] =  f"{ap:.4f}"
         print("saved confusion matrices")
 
         # Calculate Mean Average Precision (mAP)
         mAP = np.nanmean(ap_scores)
-        print(f"\nMean Average Precision (mAP): {mAP:.4f}")
+        eval_metrics["Mean Average Precision (mAP)"] = f"{mAP:.4f}"
 
         # record data
         if predictions_output.metrics:
-            print(dataset_name)
-            print("Metrics:", predictions_output.metrics)
-            print(os.getcwd())
-            with open("/llm-goal-scope/data/qa_dataset/results/" + dataset_name + '/test_metrics.csv', 'w', newline='', encoding='utf-8') as f:
+            with open(fpath + '/test_metrics.csv', 'w', newline='', encoding='utf-8') as f:
                 w = csv.writer(f)
-                w.writerows(predictions_output.metrics.items())
-                map_dict = {"Mean Average Precision (mAP)": f"{mAP:.4f}"}
-                w.writerows(map_dict.items())
-                print("metric records written out")
+                w.writerows(eval_metrics.items())
+                print("Saved Metrics for {dataset_name}:", eval_metrics)
 
     else:
         print("dataset missing:", str(dataset_name))
