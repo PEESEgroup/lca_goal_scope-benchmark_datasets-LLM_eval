@@ -7,6 +7,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import torch.nn as nn
 import torch
+import gc
 import matplotlib as mpl
 from typing import Optional
 import os
@@ -92,7 +93,7 @@ class AsymmetricLossOptimized(nn.Module):
                             self.gamma_pos * targets + self.gamma_neg * anti_targets)
             loss = loss * w
 
-    return -loss.sum()
+        return -loss.sum()
 
 
 def preprocess_function(example, classes, class2id, tokenizer):
@@ -239,6 +240,18 @@ def eval_models(dataset, dataset_name):
             print("test dataset evaluation")
             predictions_output = trainer.predict(tokenized_dataset["test"])
             eval_metrics(predictions_output, classes, dataset_name, fpath)
+
+            # cleaning up after model
+            print(f"Cleaning up after {model_path}...")
+            
+            # delete the big GPU objects and force garbage collection
+            del model
+            del trainer
+            gc.collect()
+            
+            # clear CUDA cache
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
             
     # else there is no data in the datset
     else:
