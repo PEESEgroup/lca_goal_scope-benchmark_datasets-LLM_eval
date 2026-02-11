@@ -1,15 +1,17 @@
-test_loss,0.2909483313560486
-test_accuracy,0.9407051282051282
-test_f1,0.8355555555555556
-test_precision,0.7768595041322314
-test_recall,0.9038461538461539
-test_runtime,2.8586
-test_samples_per_second,36.381
-test_steps_per_second,12.244
-Average Precision for Label biophysical,0.3718
-Average Precision for Label mass,0.0096
+test_loss,0.17303016781806946
+test_accuracy,0.9807692307692307
+test_f1,0.9428571428571428
+test_precision,0.9339622641509434
+test_recall,0.9519230769230769
+test_runtime,2.5073
+test_samples_per_second,41.478
+test_steps_per_second,13.959
+Average Precision for Label biophysical,0.7041
 Average Precision for Label energy,nan
-Average Precision for Label economic,0.8214
-Average Precision for Label none,0.5778
-Average Precision for Label none required,0.5617
-Mean Average Precision (mAP),0.4685
+Average Precision for Label economic,0.9452
+Average Precision for Label none required,0.7978
+Average Precision for Label mass,1.0000
+Average Precision for Label none,0.8374
+Mean Average Precision (mAP),0.8569
+dataset_name,qa_dataset_original_no_rag_allocationQA
+fpath,/home/sagemaker-user/llm-goal-scope/data/qa_dataset/results/qa_dataset_original_no_rag_allocationQA/microsoft/deberta-v3-base

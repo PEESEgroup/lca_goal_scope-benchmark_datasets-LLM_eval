@@ -190,6 +190,8 @@ def eval_metrics(predictions_output, classes, dataset_name, fpath):
     # Calculate Mean Average Precision (mAP)
     mAP = np.nanmean(ap_scores)
     eval_metrics["Mean Average Precision (mAP)"] = f"{mAP:.4f}"
+    eval_metrics["dataset_name"] = f"{dataset_name}"
+    eval_metrics["fpath"] = f"{fpath}"
 
     # record data
     if predictions_output.metrics:
