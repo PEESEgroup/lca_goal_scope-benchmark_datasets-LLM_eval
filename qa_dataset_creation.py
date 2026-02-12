@@ -149,7 +149,7 @@ def systemBoundary(row, RAG, vdb):
             else:
                 # by definition this is a true or false question
                 if str(row[str(i)]).capitalize() == "True" or str(row[str(i)]).capitalize() == "False":
-                    data.append({"labels": [str(row[str(i)]).capitalize()],
+                    data.append({"labels": [str(row[str(i)]).capitalize() + "_" + str(i).split(".")[1]], # unique true and false label for each type of system boundary
                                  "title": "System Boundary Completeness",
                                  "id": str(uuid.uuid4()),
                                  "context": row["systemDescription"] + " Is " + str(i).split(".")[1] +
@@ -295,6 +295,8 @@ def main(output_directory, input_directory, RAG):
 if __name__ == "__main__":
     #main("./data/qa_dataset/recalculated/rag/", "./data/hestia/recalculated/", True)
     #main("./data/qa_dataset/original/rag/", "./data/hestia/", True)
+
+    # DO NOT RERUN THESE WHEN UPDATING RAG FUNCTION - change uuid and is hard to track through git
     main("llm-goal-scope/data/qa_dataset/recalculated/no_rag/", "llm-goal-scope/data/hestia/recalculated/",False)
     main("llm-goal-scope/data/qa_dataset/original/no_rag/", "llm-goal-scope/data/hestia/",False)
 
