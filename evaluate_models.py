@@ -152,9 +152,8 @@ def train_model(model, tokenized_dataset, tokenizer, data_collator, dataset_name
     # training
     trainer.train()
 
-    #TODO: save model to an S3 bucket to save space???
-    #TODO: clear out model checkpoints
-    trainer.save_model(final_model_path)
+    # save model to an S3 bucket to save space???
+    # trainer.save_model(final_model_path)
     log_history_df = pd.DataFrame(trainer.state.log_history)
     plotting(log_history_df, dataset_name, model_path)
     return trainer
@@ -286,22 +285,22 @@ def plotting(log_history_df, dataset_name, model_name):
 if __name__ == "__main__":
     # load all datasets
     # apparently the debug and run configuration require different filepaths, so may need to remove the first directory
-    filenames = ["llm-goal-scope/data/qa_dataset/original/no_rag/allocationQA.jsonl",  # have results
-                 "llm-goal-scope/data/qa_dataset/original/no_rag/comparativeAssertionsQA.jsonl", # no dataset
-                 "llm-goal-scope/data/qa_dataset/original/no_rag/functionalUnitQA.jsonl", # have results
-                 "llm-goal-scope/data/qa_dataset/original/no_rag/intendedApplicationQA.jsonl", # no dataset
-                 "llm-goal-scope/data/qa_dataset/original/no_rag/productQA.jsonl", # have results
-                 "llm-goal-scope/data/qa_dataset/original/no_rag/studyReasonsQA.jsonl", # no dataset
+    filenames = [# "llm-goal-scope/data/qa_dataset/original/no_rag/allocationQA.jsonl",  # have results
+    #              "llm-goal-scope/data/qa_dataset/original/no_rag/comparativeAssertionsQA.jsonl", # no dataset
+    #              "llm-goal-scope/data/qa_dataset/original/no_rag/functionalUnitQA.jsonl", # have results
+    #              "llm-goal-scope/data/qa_dataset/original/no_rag/intendedApplicationQA.jsonl", # no dataset
+    #              "llm-goal-scope/data/qa_dataset/original/no_rag/productQA.jsonl", # have results
+    #              "llm-goal-scope/data/qa_dataset/original/no_rag/studyReasonsQA.jsonl", # no dataset
                  "llm-goal-scope/data/qa_dataset/original/no_rag/systemBoundaryQA.jsonl", # ongoing
-                 "llm-goal-scope/data/qa_dataset/original/no_rag/targetAudienceQA.jsonl", # no dataset
+                 # "llm-goal-scope/data/qa_dataset/original/no_rag/targetAudienceQA.jsonl", # no dataset
                  "llm-goal-scope/data/qa_dataset/recalculated/no_rag/allocationQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/recalculated/no_rag/comparativeAssertionsQA.jsonl",
+                 # "llm-goal-scope/data/qa_dataset/recalculated/no_rag/comparativeAssertionsQA.jsonl",  # no dataset
                  "llm-goal-scope/data/qa_dataset/recalculated/no_rag/functionalUnitQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/recalculated/no_rag/intendedApplicationQA.jsonl",
+                 # "llm-goal-scope/data/qa_dataset/recalculated/no_rag/intendedApplicationQA.jsonl",  # no dataset
                  "llm-goal-scope/data/qa_dataset/recalculated/no_rag/productQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/recalculated/no_rag/studyReasonsQA.jsonl",
+                 # "llm-goal-scope/data/qa_dataset/recalculated/no_rag/studyReasonsQA.jsonl",  # no dataset
                  "llm-goal-scope/data/qa_dataset/recalculated/no_rag/systemBoundaryQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/recalculated/no_rag/targetAudienceQA.jsonl",
+                 # "llm-goal-scope/data/qa_dataset/recalculated/no_rag/targetAudienceQA.jsonl",  # no dataset
                 #  "llm-goal-scope/data/qa_dataset/original/rag/rag_allocationQA.jsonl",
                 #  "llm-goal-scope/data/qa_dataset/original/rag/rag_comparativeAssertionsQA.jsonl",
                 #  "llm-goal-scope/data/qa_dataset/original/rag/rag_functionalUnitQA.jsonl",
