@@ -141,6 +141,8 @@ def systemBoundary(row, RAG, vdb):
     else:
         context = ""
     data = []
+    labels = []
+    # get all of the system boundary items and put them in the labels
     for i in row.index.to_list():
         if "systemBoundaryCompleteness" in i:
             # standard output of questions
@@ -148,12 +150,16 @@ def systemBoundary(row, RAG, vdb):
                 return ""
             else:
                 # by definition this is a true or false question
-                if str(row[str(i)]).capitalize() == "True" or str(row[str(i)]).capitalize() == "False":
-                    data.append({"labels": [str(row[str(i)]).capitalize() + "_" + str(i).split(".")[1]], # unique true and false label for each type of system boundary
-                                 "title": "System Boundary Completeness",
-                                 "id": str(uuid.uuid4()),
-                                 "context": row["systemDescription"] + " Is " + str(i).split(".")[1] +
-                                            " included in the system boundary? " + context})
+                # because this is a binary, we only need the true labels
+                if str(row[str(i)]).capitalize() == "True":
+                    # unique true label for each type of system boundary
+                    labels.append(str(row[str(i)]).capitalize() + "_" + str(i).split(".")[1])
+    
+    # return the data object
+    data.append({"labels": labels, 
+                    "title": "System Boundary Completeness",
+                    "id": str(uuid.uuid4()),
+                    "context": row["systemDescription"] + " What is in the system boundary?" + context})
     return data
 
 
