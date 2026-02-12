@@ -199,8 +199,8 @@ def systemDescription(row):
     names = row["name"].split('-')
     if len(row["cycleDescription"]) > 0:
         return row["siteType"] + " producing " + names[0].strip() + " in " + names[
-            1].strip() + ". Additional description: " + row["cycleDescription"]
-    return row["siteType"] + " producing " + names[0].strip() + " in " + names[1].strip()
+            1].strip() + ". Additional description: " + row["cycleDescription"] + "."
+    return row["siteType"] + " producing " + names[0].strip() + " in " + names[1].strip() + "."
 
     
 def process_all_tasks(row, RAG, vdb):

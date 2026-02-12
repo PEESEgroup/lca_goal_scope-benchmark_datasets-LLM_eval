@@ -285,38 +285,23 @@ def plotting(log_history_df, dataset_name, model_name):
 if __name__ == "__main__":
     # load all datasets
     # apparently the debug and run configuration require different filepaths, so may need to remove the first directory
-    filenames = [# "llm-goal-scope/data/qa_dataset/original/no_rag/allocationQA.jsonl",  # have results
-    #              "llm-goal-scope/data/qa_dataset/original/no_rag/comparativeAssertionsQA.jsonl", # no dataset
-    #              "llm-goal-scope/data/qa_dataset/original/no_rag/functionalUnitQA.jsonl", # have results
-    #              "llm-goal-scope/data/qa_dataset/original/no_rag/intendedApplicationQA.jsonl", # no dataset
-    #              "llm-goal-scope/data/qa_dataset/original/no_rag/productQA.jsonl", # have results
-    #              "llm-goal-scope/data/qa_dataset/original/no_rag/studyReasonsQA.jsonl", # no dataset
-                 "llm-goal-scope/data/qa_dataset/original/no_rag/systemBoundaryQA.jsonl", # ongoing
-                 # "llm-goal-scope/data/qa_dataset/original/no_rag/targetAudienceQA.jsonl", # no dataset
-                 "llm-goal-scope/data/qa_dataset/recalculated/no_rag/allocationQA.jsonl",
-                 # "llm-goal-scope/data/qa_dataset/recalculated/no_rag/comparativeAssertionsQA.jsonl",  # no dataset
+
+    # ignoring comparative assertion, intended application, study reasons, and target audience as Hestia does not have that data
+    # ignoring recalculated allocation because it only uses the economic label
+    filenames = ["llm-goal-scope/data/qa_dataset/original/no_rag/systemBoundaryQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/original/no_rag/allocationQA.jsonl",  # have results
+                 "llm-goal-scope/data/qa_dataset/original/no_rag/functionalUnitQA.jsonl", # have results
+                 "llm-goal-scope/data/qa_dataset/original/no_rag/productQA.jsonl", # have results
                  "llm-goal-scope/data/qa_dataset/recalculated/no_rag/functionalUnitQA.jsonl",
-                 # "llm-goal-scope/data/qa_dataset/recalculated/no_rag/intendedApplicationQA.jsonl",  # no dataset
                  "llm-goal-scope/data/qa_dataset/recalculated/no_rag/productQA.jsonl",
-                 # "llm-goal-scope/data/qa_dataset/recalculated/no_rag/studyReasonsQA.jsonl",  # no dataset
                  "llm-goal-scope/data/qa_dataset/recalculated/no_rag/systemBoundaryQA.jsonl",
-                 # "llm-goal-scope/data/qa_dataset/recalculated/no_rag/targetAudienceQA.jsonl",  # no dataset
                 #  "llm-goal-scope/data/qa_dataset/original/rag/rag_allocationQA.jsonl",
-                #  "llm-goal-scope/data/qa_dataset/original/rag/rag_comparativeAssertionsQA.jsonl",
                 #  "llm-goal-scope/data/qa_dataset/original/rag/rag_functionalUnitQA.jsonl",
-                #  "llm-goal-scope/data/qa_dataset/original/rag/rag_intendedApplicationQA.jsonl",
                 #  "llm-goal-scope/data/qa_dataset/original/rag/rag_productQA.jsonl",
-                #  "llm-goal-scope/data/qa_dataset/original/rag/rag_studyReasonsQA.jsonl",
                 #  "llm-goal-scope/data/qa_dataset/original/rag/rag_systemBoundaryQA.jsonl",
-                #  "llm-goal-scope/data/qa_dataset/original/rag/rag_targetAudienceQA.jsonl",
-                #  "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_allocationQA.jsonl",
-                #  "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_comparativeAssertionsQA.jsonl",
                 #  "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_functionalUnitQA.jsonl",
-                #  "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_intendedApplicationQA.jsonl",
                 #  "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_productQA.jsonl",
-                #  "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_studyReasonsQA.jsonl",
                 #  "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_systemBoundaryQA.jsonl",
-                #  "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_targetAudienceQA.jsonl"
                  ]
 
     # for each dataset
