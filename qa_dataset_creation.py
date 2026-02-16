@@ -143,12 +143,11 @@ def systemBoundary(row, RAG, vdb):
     data = []
     labels = []
     # get all of the system boundary items and put them in the labels
+    counter = 0
     for i in row.index.to_list():
         if "systemBoundaryCompleteness" in i:
             # standard output of questions
-            if len(str(row[str(i)])) == 0:
-                return ""
-            else:
+            if len(str(row[str(i)])) != 0:
                 # by definition this is a true or false question
                 # because this is a binary, we only need the true labels
                 if str(row[str(i)]).capitalize() == "True":
@@ -304,5 +303,5 @@ if __name__ == "__main__":
 
     # DO NOT RERUN THESE WHEN UPDATING RAG FUNCTION - change uuid and is hard to track through git
     main("llm-goal-scope/data/qa_dataset/recalculated/no_rag/", "llm-goal-scope/data/hestia/recalculated/",False)
-    main("llm-goal-scope/data/qa_dataset/original/no_rag/", "llm-goal-scope/data/hestia/",False)
+    # main("llm-goal-scope/data/qa_dataset/original/no_rag/", "llm-goal-scope/data/hestia/",False)
 
