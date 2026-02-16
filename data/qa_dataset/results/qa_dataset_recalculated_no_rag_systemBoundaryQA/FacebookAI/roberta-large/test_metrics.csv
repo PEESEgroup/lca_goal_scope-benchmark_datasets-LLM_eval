@@ -1,29 +1,30 @@
-test_loss,0.019232245162129402
-test_accuracy,0.9953703703703703
-test_f1,0.9966480446927374
-test_precision,0.9933184855233853
-test_recall,1.0
-test_runtime,2.1335
-test_samples_per_second,16.874
-test_steps_per_second,5.625
-Average Precision for Label True_seed,1.0000
-Average Precision for Label True_waste,1.0000
-Average Precision for Label True_product,1.0000
-Average Precision for Label True_cropResidue,0.6667
-Average Precision for Label True_liveAnimalInput,1.0000
+test_loss,0.20994852483272552
+test_accuracy,0.988835725677831
+test_f1,0.9913473423980222
+test_precision,0.9893092105263158
+test_recall,0.9933938893476466
+test_runtime,2.6017
+test_samples_per_second,38.052
+test_steps_per_second,12.684
+Average Precision for Label True_product,0.9989
+Average Precision for Label True_ingredient,0.9898
+Average Precision for Label True_animalPopulation,0.9895
+Average Precision for Label True_fertiliser,1.0000
+Average Precision for Label True_freshForage,0.9247
+Average Precision for Label True_excreta,1.0000
+Average Precision for Label True_water,1.0000
+Average Precision for Label True_seed,0.9862
+Average Precision for Label True_waste,0.7345
 Average Precision for Label True_transport,1.0000
 Average Precision for Label True_soilAmendment,1.0000
-Average Precision for Label True_water,1.0000
-Average Precision for Label True_pesticideVeterinaryDrug,1.0000
-Average Precision for Label True_excreta,1.0000
 Average Precision for Label True_otherChemical,1.0000
-Average Precision for Label True_animalPopulation,1.0000
-Average Precision for Label True_fertiliser,1.0000
-Average Precision for Label True_ingredient,1.0000
-Average Precision for Label True_animalFeed,0.9429
-Average Precision for Label True_freshForage,1.0000
+Average Precision for Label True_cropResidue,0.9905
+Average Precision for Label True_liveAnimalInput,1.0000
 Average Precision for Label True_operation,1.0000
-Average Precision for Label True_electricityFuel,1.0000
-Mean Average Precision (mAP),0.9783
+Average Precision for Label True_material,nan
+Average Precision for Label True_electricityFuel,0.9740
+Average Precision for Label True_animalFeed,0.9895
+Average Precision for Label True_pesticideVeterinaryDrug,0.9926
+Mean Average Precision (mAP),0.9761
 dataset_name,qa_dataset_recalculated_no_rag_systemBoundaryQA
 fpath,/home/sagemaker-user/llm-goal-scope/data/qa_dataset/results/qa_dataset_recalculated_no_rag_systemBoundaryQA/FacebookAI/roberta-large
