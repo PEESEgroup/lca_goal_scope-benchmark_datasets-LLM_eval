@@ -1,16 +1,116 @@
 import os
 from pathlib import Path
 import pandas as pd
+from collections import Counter
+from datasets import Dataset, load_dataset, DatasetDict
+import itertools
 
 def main():
     # build mAP output tables for each of the four categories
-    map_tables("llm-goal-scope/data/results/")
+    # map_tables()
 
     # plot number of labels versus precision for each of the four categories
-    # label_precision("llm-goal-scope/data/results/")
+    label_precision()
 
 
-def map_tables(fpath):
+def label_precision():
+    root_directory = Path("./llm-goal-scope/data/qa_dataset/results")
+
+    # four dataframes for four different dataset types
+    rag_original = pd.DataFrame()
+    rag_recalculated = pd.DataFrame()
+    original = pd.DataFrame()
+    recalculated = pd.DataFrame()
+
+    # Use rglob to recursively find all files matching the pattern
+    for file_path in root_directory.rglob('test_metrics.csv'):
+        rag = "" if "no" in str(file_path).split("_") else "_rag"
+        dataset_type = "original" if "original" in str(file_path).split("_") else "recalculated"
+        dataset_category = dataset_type + rag
+
+        # read in data and extract mean average precision, dataset name, and model name
+        data = pd.read_csv(file_path, header=None)
+        language_model = "/".join(str(file_path).split("/")[5:7])
+        data = data[data[0].str.contains("Average Precision for Label ")]
+        data["label"] = data[0].str.split(" ").str[4]
+        data["model"] = language_model
+        dataset_name = str(file_path).split("/")[4].split("_")[-1]
+        data["precision"] = data[1] # relabel map column
+        data["dataset"] = dataset_name
+        data = data[["model", "label", "dataset", "precision"]]  # clean columns
+
+        # assign data to appropriate dataframe
+        if dataset_category == "original":
+            original = pd.concat([original, data])
+        elif dataset_category == "recalculated":
+            recalculated = pd.concat([recalculated, data])
+        elif dataset_category == "original_rag":
+            rag_original = pd.concat([rag_original, data])
+        elif dataset_category == "recalculated_rag":
+            rag_recalculated = pd.concat([rag_recalculated, data])
+    
+    # read in datasets and extract number of labels in the test set
+    print(os.getcwd())
+    filenames = ["llm-goal-scope/data/qa_dataset/original/no_rag/systemBoundaryQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/original/no_rag/allocationQA.jsonl",  
+                 "llm-goal-scope/data/qa_dataset/original/no_rag/functionalUnitQA.jsonl", 
+                 "llm-goal-scope/data/qa_dataset/original/no_rag/productQA.jsonl", 
+                 "llm-goal-scope/data/qa_dataset/recalculated/no_rag/functionalUnitQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/recalculated/no_rag/productQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/recalculated/no_rag/systemBoundaryQA.jsonl",
+                #  "llm-goal-scope/data/qa_dataset/original/rag/rag_allocationQA.jsonl",
+                #  "llm-goal-scope/data/qa_dataset/original/rag/rag_functionalUnitQA.jsonl",
+                #  "llm-goal-scope/data/qa_dataset/original/rag/rag_productQA.jsonl",
+                #  "llm-goal-scope/data/qa_dataset/original/rag/rag_systemBoundaryQA.jsonl",
+                #  "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_functionalUnitQA.jsonl",
+                #  "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_productQA.jsonl",
+                #  "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_systemBoundaryQA.jsonl",
+                 ]
+
+    # for each dataset
+    rag_original_test = pd.DataFrame()
+    rag_recalculated_test = pd.DataFrame()
+    original_test = pd.DataFrame()
+    recalculated_test = pd.DataFrame()
+
+    for k in filenames:
+        # load the dataset
+        dataset_rag = "" if "no_rag" in str(k).split("/") else "_rag"
+        dataset_dataset_type = "original" if "original" in str(k).split("/") else "recalculated"
+        dataset_dataset_category = dataset_dataset_type + dataset_rag
+        dataset_name = k.split("/")[-1].split(".")[0]
+
+        dataset = load_dataset('json', data_files=k) # shuffle dataset before splitting
+        dataset = dataset.shuffle(seed=42)
+        
+        # 80% train, 20% test + validation
+        train_testvalid = dataset['train'].train_test_split(test_size=0.2, seed=42)
+        # Split the 10% test + valid in half test, half valid
+        test_valid = train_testvalid['test'].train_test_split(test_size=0.5, seed=42)
+        test = test_valid['test']
+        test_labels = test["labels"] # get the test labels
+        print("got labels")
+        
+        # flatten and count the occurence of labels
+        flattened_test_labels = list(itertools.chain.from_iterable(test_labels))
+        counts = Counter(flattened_test_labels)
+        print(counts)
+        counts = pd.DataFrame.from_dict(counts, orient='index', columns=['count'])
+        print(counts)
+        counts["dataset"] = dataset_name
+
+        # save the label information to the appropriate place
+        if dataset_dataset_category == "original":
+            original_test = pd.concat([original_test, data])
+        elif dataset_dataset_category == "recalculated":
+            recalculated_test = pd.concat([recalculated_test, data])
+        elif dataset_dataset_category == "original_rag":
+            rag_original_test = pd.concat([rag_original_test, data])
+        elif dataset_dataset_category == "recalculated_rag":
+            rag_recalculated_test = pd.concat([rag_recalculated_test, data])
+
+
+def map_tables():
     # get all the results files
     root_directory = Path("./llm-goal-scope/data/qa_dataset/results")
 
@@ -66,7 +166,6 @@ def map_tables(fpath):
     recalculated.to_csv("./llm-goal-scope/data/qa_dataset/results/mAP_recalculated.csv")
     # rag_original.to_csv("./llm-goal-scope/data/qa_dataset/results/mAP_rag_original.csv")
     # rag_recalculated.to_csv("./llm-goal-scope/data/qa_dataset/results/mAP_rag_recalculated.csv")
-
 
 
 if __name__ == "__main__":
