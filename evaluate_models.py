@@ -31,7 +31,6 @@ class CustomLossTrainer(Trainer):
         logits = outputs.get("logits")
 
         # get the batch size
-        # TODO: verify if this *needs* to be done because forward doesn't depend on batch size
         batch_size = labels.size(0)
 
         # Compute the custom loss using your loss function.
@@ -288,11 +287,11 @@ if __name__ == "__main__":
 
     # ignoring comparative assertion, intended application, study reasons, and target audience as Hestia does not have that data
     # ignoring recalculated allocation because it only uses the economic label
-    filenames = [# "llm-goal-scope/data/qa_dataset/original/no_rag/systemBoundaryQA.jsonl",
-    #              "llm-goal-scope/data/qa_dataset/original/no_rag/allocationQA.jsonl",  
-    #              "llm-goal-scope/data/qa_dataset/original/no_rag/functionalUnitQA.jsonl", 
-    #              "llm-goal-scope/data/qa_dataset/original/no_rag/productQA.jsonl", 
-    #              "llm-goal-scope/data/qa_dataset/recalculated/no_rag/functionalUnitQA.jsonl",
+    filenames = [ # "llm-goal-scope/data/qa_dataset/original/no_rag/systemBoundaryQA.jsonl",
+                #  "llm-goal-scope/data/qa_dataset/original/no_rag/allocationQA.jsonl",  
+                #  "llm-goal-scope/data/qa_dataset/original/no_rag/functionalUnitQA.jsonl", 
+                #  "llm-goal-scope/data/qa_dataset/original/no_rag/productQA.jsonl", 
+                #  "llm-goal-scope/data/qa_dataset/recalculated/no_rag/functionalUnitQA.jsonl",
                  "llm-goal-scope/data/qa_dataset/recalculated/no_rag/productQA.jsonl",
                  "llm-goal-scope/data/qa_dataset/recalculated/no_rag/systemBoundaryQA.jsonl",
                 #  "llm-goal-scope/data/qa_dataset/original/rag/rag_allocationQA.jsonl",

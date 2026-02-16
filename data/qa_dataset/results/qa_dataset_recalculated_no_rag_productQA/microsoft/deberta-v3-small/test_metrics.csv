@@ -1,11 +1,11 @@
-test_loss,0.1498911827802658
-test_accuracy,0.9982683982683983
-test_f1,0.9666666666666667
-test_precision,0.9560439560439561
+test_loss,0.157032310962677
+test_accuracy,0.9981240981240981
+test_f1,0.96398891966759
+test_precision,0.9508196721311475
 test_recall,0.9775280898876404
-test_runtime,2.4102
-test_samples_per_second,41.076
-test_steps_per_second,13.692
+test_runtime,2.6603
+test_samples_per_second,37.214
+test_steps_per_second,12.405
 "Average Precision for Label Beef cattle, steer",1.0000
 "Average Precision for Label Beef cattle, heifer and steer",nan
 Average Precision for Label Broiler chicken,1.0000
@@ -15,17 +15,17 @@ Average Precision for Label Soft,1.0000
 "Average Precision for Label Sheep, ewe",1.0000
 Average Precision for Label Electricity,0.0202
 "Average Precision for Label Cheese, sheep",nan
-"Average Precision for Label Layer chicken, hen",1.0000
+"Average Precision for Label Layer chicken, hen",0.3333
 "Average Precision for Label Milk, cow, raw (FPCM)",1.0000
-Average Precision for Label Milk,0.5000
+Average Precision for Label Milk,1.0000
 "Average Precision for Label Meat, chicken, leg",nan
 "Average Precision for Label Whey, liquid",1.0000
 "Average Precision for Label Electricity, produced on",0.0202
-Average Precision for Label Dairy cattle,1.0000
+Average Precision for Label Dairy cattle,0.7500
 "Average Precision for Label Meat, chicken, breast",nan
 "Average Precision for Label Meat, dairy cattle (liveweight)",1.0000
 "Average Precision for Label Beef cattle, bull",1.0000
-"Average Precision for Label Milk, cow, raw",0.3333
+"Average Precision for Label Milk, cow, raw",1.0000
 "Average Precision for Label Sheep, ram",1.0000
 Average Precision for Label Caciotta,1.0000
 "Average Precision for Label Whey, powder",nan
@@ -47,7 +47,7 @@ Average Precision for Label Poultry by,nan
 "Average Precision for Label Eggs, hen, in shell (number)",1.0000
 "Average Precision for Label Meat, dairy cattle (cold carcass weight)",nan
 Average Precision for Label Meat,1.0000
-Average Precision for Label Layer chicken,1.0000
+Average Precision for Label Layer chicken,0.6667
 Average Precision for Label Butter,1.0000
 "Average Precision for Label Meat, pig (cold dressed carcass weight)",1.0000
 "Average Precision for Label Eggs, hen, in shell",nan
@@ -76,6 +76,6 @@ Average Precision for Label Beef cattle,1.0000
 "Average Precision for Label Meat, chicken, wings",1.0000
 "Average Precision for Label Meat, beef cattle (cold dressed carcass weight)",1.0000
 "Average Precision for Label Layer chicken, pullet",1.0000
-Mean Average Precision (mAP),0.9212
+Mean Average Precision (mAP),0.9194
 dataset_name,qa_dataset_recalculated_no_rag_productQA
 fpath,/home/sagemaker-user/llm-goal-scope/data/qa_dataset/results/qa_dataset_recalculated_no_rag_productQA/microsoft/deberta-v3-small
