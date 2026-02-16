@@ -4,6 +4,9 @@ import pandas as pd
 from collections import Counter
 from datasets import Dataset, load_dataset, DatasetDict
 import itertools
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
 
 def main():
     # build mAP output tables for each of the four categories
@@ -28,19 +31,17 @@ def label_precision():
         dataset_type = "original" if "original" in str(file_path).split("_") else "recalculated"
         dataset_category = dataset_type + rag
 
-        # read in data and extract mean average precision, dataset name, and model name
+        # read in data and extract label precision, dataset name, and model name
         data = pd.read_csv(file_path, header=None)
         language_model = "/".join(str(file_path).split("/")[5:7])
         data = data[data[0].str.contains("Average Precision for Label ")]
-
-        # TODO: fix label assignment code
-        data["label"] = data[0].str.split(" ").str[4]
-
+        data["label"] = data[0].str.split(" ").str[4:].str.join(" ")
         data["model"] = language_model
         dataset_name = str(file_path).split("/")[4].split("_")[-1]
         data["precision"] = data[1] # relabel map column
         data["dataset"] = dataset_name
-        data = data[["model", "label", "dataset", "precision"]]  # clean columns
+        data["category"] = dataset_category
+        data = data[["model", "label", "dataset", "precision", "category"]]  # clean columns
 
         # assign data to appropriate dataframe
         if dataset_category == "original":
@@ -53,7 +54,6 @@ def label_precision():
             rag_recalculated = pd.concat([rag_recalculated, data])
     
     # read in datasets and extract number of labels in the test set
-    print(os.getcwd())
     filenames = ["llm-goal-scope/data/qa_dataset/original/no_rag/systemBoundaryQA.jsonl",
                  "llm-goal-scope/data/qa_dataset/original/no_rag/allocationQA.jsonl",  
                  "llm-goal-scope/data/qa_dataset/original/no_rag/functionalUnitQA.jsonl", 
@@ -115,8 +115,39 @@ def label_precision():
     # rag_original = pd.merge(rag_original, rag_original_test, "left", ["dataset", "label"])
     # rag_recalculated = pd.merge(rag_recalculated, rag_recalculated_test, "left", ["dataset", "label"])
 
-    # TODO: plot histograms
+    # plot histograms
+    for i in [original, recalculated]: # rag_original, rag_recalculated
+        for j in i["dataset"].unique():
+            fig, ax = plt.subplots()
+            df = i[i["dataset"] == j].copy(deep=True)
+            df = df.dropna()
+            df['precision'] = df['precision'].astype(float) # handle nan
+            df['count'] = df['count'].astype(int)
+            df = map_color(df, "model")
+            print(df)
+            for model in df["model"].unique():
+                plotting_df = df[df["model"] == model]
+                ax.scatter(x =plotting_df['count'], y=plotting_df['precision'], c=plotting_df["color"], label=model, alpha=0.7)
+            plt.xlabel('Frequency of Label')
+            plt.ylabel('Model Precision')
+            plt.title('Sample size effect for dataset' + str(df["category"].unique()[0]) + str(j))
+            plt.legend()
+            plt.grid(True)
+            plt.savefig("llm-goal-scope/data/qa_dataset/results/" + str(df["category"].unique()[0]) + str(j)+".png", dpi=300)
+            plt.show()
+            print("dataset precision plot saved")
 
+    # save data
+    original.to_csv("./llm-goal-scope/data/qa_dataset/results/labels_original.csv")
+    recalculated.to_csv("./llm-goal-scope/data/qa_dataset/results/labels_recalculated.csv")
+    # rag_original.to_csv("./llm-goal-scope/data/qa_dataset/results/labels_rag_original.csv")
+    # rag_recalculated.to_csv("./llm-goal-scope/data/qa_dataset/results/labels_rag_recalculated.csv")
+
+
+def map_color(df, col):
+    color_d = dict(zip(df[col].unique(), sns.color_palette("hls", df[col].nunique())))
+    df['color'] = df[col].map(color_d)
+    return df
 
 
 def map_tables():
