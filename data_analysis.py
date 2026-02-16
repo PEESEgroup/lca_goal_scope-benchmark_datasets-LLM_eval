@@ -32,7 +32,10 @@ def label_precision():
         data = pd.read_csv(file_path, header=None)
         language_model = "/".join(str(file_path).split("/")[5:7])
         data = data[data[0].str.contains("Average Precision for Label ")]
+
+        # TODO: fix label assignment code
         data["label"] = data[0].str.split(" ").str[4]
+
         data["model"] = language_model
         dataset_name = str(file_path).split("/")[4].split("_")[-1]
         data["precision"] = data[1] # relabel map column
@@ -79,7 +82,6 @@ def label_precision():
         dataset_dataset_type = "original" if "original" in str(k).split("/") else "recalculated"
         dataset_dataset_category = dataset_dataset_type + dataset_rag
         dataset_name = k.split("/")[-1].split(".")[0]
-
         dataset = load_dataset('json', data_files=k) # shuffle dataset before splitting
         dataset = dataset.shuffle(seed=42)
         
@@ -89,25 +91,32 @@ def label_precision():
         test_valid = train_testvalid['test'].train_test_split(test_size=0.5, seed=42)
         test = test_valid['test']
         test_labels = test["labels"] # get the test labels
-        print("got labels")
         
         # flatten and count the occurence of labels
         flattened_test_labels = list(itertools.chain.from_iterable(test_labels))
         counts = Counter(flattened_test_labels)
-        print(counts)
         counts = pd.DataFrame.from_dict(counts, orient='index', columns=['count'])
-        print(counts)
         counts["dataset"] = dataset_name
+        counts = counts.reset_index(names='label')
 
         # save the label information to the appropriate place
         if dataset_dataset_category == "original":
-            original_test = pd.concat([original_test, data])
+            original_test = pd.concat([original_test, counts])
         elif dataset_dataset_category == "recalculated":
-            recalculated_test = pd.concat([recalculated_test, data])
+            recalculated_test = pd.concat([recalculated_test, counts])
         elif dataset_dataset_category == "original_rag":
-            rag_original_test = pd.concat([rag_original_test, data])
+            rag_original_test = pd.concat([rag_original_test, counts])
         elif dataset_dataset_category == "recalculated_rag":
-            rag_recalculated_test = pd.concat([rag_recalculated_test, data])
+            rag_recalculated_test = pd.concat([rag_recalculated_test, counts])
+
+    # merge datatables
+    original = pd.merge(original, original_test, "left", ["dataset", "label"])
+    recalculated = pd.merge(recalculated, recalculated_test, "left", ["dataset", "label"])
+    # rag_original = pd.merge(rag_original, rag_original_test, "left", ["dataset", "label"])
+    # rag_recalculated = pd.merge(rag_recalculated, rag_recalculated_test, "left", ["dataset", "label"])
+
+    # TODO: plot histograms
+
 
 
 def map_tables():
