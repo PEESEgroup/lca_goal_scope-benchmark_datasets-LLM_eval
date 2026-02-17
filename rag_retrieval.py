@@ -3,8 +3,10 @@ from typing import Any
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 from langchain_community.vectorstores import FAISS
+from sentence_transformers import CrossEncoder
 import constants
 import pprint
+import os
 
 
 def answer_with_rag(
@@ -15,26 +17,24 @@ def answer_with_rag(
         num_retrieved_docs: int = 30,
         num_docs_final: int = 5,
 ) -> tuple[Any, list[str]]:
-    # configure orchestration rag prompt
+
+    # configure rag prompt
     prompt_in_chat_format = [
         {
             "role": "system",
-            "content": """Using the information contained in the context,
-    give a comprehensive answer to the question.
-    Respond only to the question asked, response should be concise and relevant to the question.
-    Provide the number of the source document when relevant.
-    If the answer cannot be deduced from the context, do not give an answer.""",
+            "content": """You are an expert on agricultural life cycle assessment (LCA). 
+            Please summarize the life cycle assessment information contained within the context.
+            Only summarize the information contained in the context that is relevant to the question.""",
         },
         {
             "role": "user",
             "content": """Context:
-    {context}
-    ---
-    Now here is the question you need to answer.
-
-    Question: {question}""",
+            {context}
+            ---
+            Question: {question}""",
         },
     ]
+
     RAG_PROMPT_TEMPLATE = reading_tokenizer.apply_chat_template(
         prompt_in_chat_format, tokenize=False, add_generation_prompt=True
     )
@@ -43,20 +43,32 @@ def answer_with_rag(
     print("=> Retrieving documents...")
     relevant_docs = knowledge_index.similarity_search(query=question, k=num_retrieved_docs)
     relevant_docs = [doc.page_content for doc in relevant_docs]  # Keep only the text
-    relevant_docs = relevant_docs[:num_docs_final]
+    # relevant_docs = relevant_docs[:num_docs_final]
 
-    # TODO: reranking documents
+    # reranking documents
+    rerank_model = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')
 
-    # Build the final prompt
+    # pair the query with each document and calculate scores
+    pairs = [[question, doc] for doc in relevant_docs]
+    scores = rerank_model.predict(pairs)
+
+    # rank scores
+    scored_docs = sorted(zip(scores, documents), key=lambda x: x[0], reverse=True)
+
+    for score, doc in scored_docs:
+        print(f"Score: {score:.4f} | Doc: {doc}")
+
+    # TODO: take the top k docs
+
+    # build the final prompt
     context = "\nExtracted documents:\n"
     context += "".join([f"Document {str(i)}:::\n" + doc for i, doc in enumerate(relevant_docs)])
-
     final_prompt = RAG_PROMPT_TEMPLATE.format(question=question, context=context)
 
     # Redact an answer
     print("=> Generating answer...")
-    answer = llm(final_prompt)[0]["generated_text"]
-
+    answer = llm(final_prompt)[0]["generated_text"][-1]['content']
+    
     return answer, relevant_docs
 
 
@@ -66,32 +78,26 @@ def get_context(question, knowledge_index, num_retrieved_docs=3):
     return relevant_docs
 
 
-def model_config(model_name="HuggingFaceH4/zephyr-7b-beta"):
-    # configure reading LLM
-    bnb_config = BitsAndBytesConfig(
-        load_in_4bit=True,
-        bnb_4bit_use_double_quant=True,
-        bnb_4bit_quant_type="nf4",
-        bnb_4bit_compute_dtype=torch.bfloat16,
+def model_config(model_name="meta-llama/Llama-3.2-3B-Instruct"):
+    # initialize the tokenizer
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
+    
+    # initialize the pipeline
+    pipe = pipeline(
+        "text-generation",
+        model=model_name,
+        torch_dtype=torch.bfloat16,
+        device_map="auto",
+        max_new_tokens=150,
+        do_sample=False
     )
-    # TODO: remove quantization???
-    model = AutoModelForCausalLM.from_pretrained(model_name, quantization_config=bnb_config)
-    reading_tokenizer = AutoTokenizer.from_pretrained(model_name)
-    READER_LLM = pipeline(
-        model=model,
-        tokenizer=reading_tokenizer,
-        task="text-generation",
-        do_sample=True,
-        temperature=0.2,
-        repetition_penalty=1.1,
-        return_full_text=False,
-        max_new_tokens=500,
-    )
-    return READER_LLM, reading_tokenizer
+
+    return pipe, tokenizer
 
 
 if __name__ == "__main__":
     embeddings = constants.EMBED_MODEL
+    os.chdir('llm-goal-scope')
     vdb = FAISS.load_local(
         constants.VDB_LOCATION, embeddings, allow_dangerous_deserialization=True)
     print("vdb loaded")
