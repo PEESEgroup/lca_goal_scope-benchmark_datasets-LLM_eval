@@ -53,23 +53,38 @@ def answer_with_rag(
     scores = rerank_model.predict(pairs)
 
     # rank scores
-    scored_docs = sorted(zip(scores, documents), key=lambda x: x[0], reverse=True)
+    scored_docs = sorted(zip(scores, relevant_docs), key=lambda x: x[0], reverse=True)
 
+    # use a counter to save the top n docs
+    counter = 0
+    reranked_docs = []
+
+    # go through the documents and print out the top ones
     for score, doc in scored_docs:
-        print(f"Score: {score:.4f} | Doc: {doc}")
+        # print(f"Score: {score:.4f} | Doc: {doc}")
+        counter = counter + 1
 
-    # TODO: take the top k docs
+        # append the top documents to a list
+        if counter <= num_docs_final:
+            reranked_docs.append(doc)
 
     # build the final prompt
     context = "\nExtracted documents:\n"
-    context += "".join([f"Document {str(i)}:::\n" + doc for i, doc in enumerate(relevant_docs)])
+    context += "".join([f"Document {str(i)}:::\n" + doc for i, doc in enumerate(reranked_docs)])
     final_prompt = RAG_PROMPT_TEMPLATE.format(question=question, context=context)
 
-    # Redact an answer
+    # retrieve an answer
     print("=> Generating answer...")
-    answer = llm(final_prompt)[0]["generated_text"][-1]['content']
+    answer = llm(final_prompt)[0]["generated_text"]
+
+    # for llama: llm(final_prompt)[0]["generated_text"][-1]['content']???
+
+    # do some string processing to extract just the generated string
+    print("model answer")
+    generated_answer = answer.split("<|assistant|>")[1]
+    generated_answer = generated_answer.strip()
     
-    return answer, relevant_docs
+    return generated_answer, relevant_docs
 
 
 def get_context(question, knowledge_index, num_retrieved_docs=3):
@@ -78,7 +93,9 @@ def get_context(question, knowledge_index, num_retrieved_docs=3):
     return relevant_docs
 
 
-def model_config(model_name="meta-llama/Llama-3.2-3B-Instruct"):
+def model_config(model_name="HuggingFaceH4/zephyr-7b-beta"):
+    # "HuggingFaceH4/zephyr-7b-beta" for testing
+    # "meta-llama/Llama-3.2-3B-Instruct" for actuality
     # initialize the tokenizer
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     
@@ -86,9 +103,9 @@ def model_config(model_name="meta-llama/Llama-3.2-3B-Instruct"):
     pipe = pipeline(
         "text-generation",
         model=model_name,
-        torch_dtype=torch.bfloat16,
+        dtype=torch.bfloat16,
         device_map="auto",
-        max_new_tokens=150,
+        max_new_tokens=48, # do not need a lot of information here
         do_sample=False
     )
 
@@ -105,5 +122,4 @@ if __name__ == "__main__":
     print("model configured")
     question = "what is a functional unit for milk?"
     answer, docs = answer_with_rag(question, reader, tokenizer, vdb)
-    pprint.pprint(answer, indent=2, width=120, depth=2)
-    pprint.pprint(docs, indent=2, width=120, depth=2)
+    print(answer)
