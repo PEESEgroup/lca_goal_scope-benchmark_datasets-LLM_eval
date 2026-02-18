@@ -23,8 +23,8 @@ def answer_with_rag(
         {
             "role": "system",
             "content": """You are an expert on agricultural life cycle assessment (LCA). 
-            Please summarize the life cycle assessment information contained within the context.
-            Only summarize the information contained in the context that is relevant to the question.""",
+            Please summarize the life cycle assessment information contained within the context that is relevant to the context.
+            You do not need to provide document numbers.""",
         },
         {
             "role": "user",
@@ -81,7 +81,7 @@ def answer_with_rag(
 
     # do some string processing to extract just the generated string
     print("model answer")
-    generated_answer = answer.split("<|assistant|>")[1]
+    generated_answer = answer.split("<|start_header_id|>assistant<|end_header_id|>")[1]
     generated_answer = generated_answer.strip()
     
     return generated_answer, relevant_docs
@@ -93,7 +93,7 @@ def get_context(question, knowledge_index, num_retrieved_docs=3):
     return relevant_docs
 
 
-def model_config(model_name="HuggingFaceH4/zephyr-7b-beta"):
+def model_config(model_name="meta-llama/Llama-3.2-3B-Instruct"):
     # "HuggingFaceH4/zephyr-7b-beta" for testing
     # "meta-llama/Llama-3.2-3B-Instruct" for actuality
     # initialize the tokenizer
@@ -105,7 +105,7 @@ def model_config(model_name="HuggingFaceH4/zephyr-7b-beta"):
         model=model_name,
         dtype=torch.bfloat16,
         device_map="auto",
-        max_new_tokens=48, # do not need a lot of information here
+        max_new_tokens=96, # do not need a lot of information here
         do_sample=False
     )
 

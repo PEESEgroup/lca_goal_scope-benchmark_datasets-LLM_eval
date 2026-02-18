@@ -9,14 +9,14 @@ import uuid
 import os
 
 
-def intendedApplication(row, RAG, vdb):
+def intendedApplication(row, RAG, vdb, reader, tokenizer):
     if len(row["intendedApplication"]) == 0:
         return ""
     else:
         question = "For this production system, what is the intended application of the LCA study?"
         if RAG:
-            docs = rag_retrieval.get_context(row["systemDescription"] + question, vdb)
-            context = " Additional Context: " + ' '.join(docs)
+            answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
+            context = " Additional Context: " + ' '.join(answer)
         else:
             context = ""
         return [{"labels": [row["intendedApplication"]],
@@ -25,14 +25,14 @@ def intendedApplication(row, RAG, vdb):
                  "context": row["systemDescription"] + context}]
 
 
-def studyReasons(row, RAG, vdb):
+def studyReasons(row, RAG, vdb, reader, tokenizer):
     if len(row["studyReasons"]) == 0:
         return ""
     else:
         question = "For this production system, what are the reasons for carrying out the LCA study?"
         if RAG:
-            docs = rag_retrieval.get_context(row["systemDescription"] + question, vdb)
-            context = " Additional Context: " + ' '.join(docs)
+            answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
+            context = " Additional Context: " + ' '.join(answer)
         else:
             context = ""
         return [{"labels": [row["studyReasons"]],
@@ -41,14 +41,14 @@ def studyReasons(row, RAG, vdb):
                  "context": row["systemDescription"] + context}]
 
 
-def targetAudience(row, RAG, vdb):
+def targetAudience(row, RAG, vdb, reader, tokenizer):
     if len(row["intendedAudience"]) == 0:
         return ""
     else:
         question = "For this production system, what is the target audience of the LCA study?"
         if RAG:
-            docs = rag_retrieval.get_context(row["systemDescription"] + question, vdb)
-            context = " Additional Context: " + ' '.join(docs)
+            answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
+            context = " Additional Context: " + ' '.join(answer)
         else:
             context = ""
         return [{"labels": [row["intendedAudience"]],
@@ -57,14 +57,14 @@ def targetAudience(row, RAG, vdb):
                  "context": row["systemDescription"] + context}]
 
 
-def comparativeAssertions(row, RAG, vdb):
+def comparativeAssertions(row, RAG, vdb, reader, tokenizer):
     if len(row["comparativeAssertions"]) == 0:
         return ""
     else:
         question = "For this production system, are these results to be used in comparative assertions?"
         if RAG:
-            docs = rag_retrieval.get_context(row["systemDescription"] + question, vdb)
-            context = " Additional Context: " + ' '.join(docs)
+            answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
+            context = " Additional Context: " + ' '.join(answer)
         else:
             context = ""
         return [{"labels": [row["comparativeAssertions"]],
@@ -73,11 +73,11 @@ def comparativeAssertions(row, RAG, vdb):
                  "context": row["systemDescription"] + context}]
 
 
-def actors(row, RAG, vdb):
+def actors(row, RAG, vdb, reader, tokenizer):
     question = "For this production system, who are the important actors?"
     if RAG:
-        docs = rag_retrieval.get_context(row["systemDescription"] + question, vdb)
-        context = " Additional Context: " + ' '.join(docs)
+        answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
+        context = " Additional Context: " + ' '.join(answer)
     else:
         context = ""
     if len(row["organization"]) == 0:
@@ -94,14 +94,14 @@ def actors(row, RAG, vdb):
              "context": row["systemDescription"] + context}]
 
 
-def product(row, RAG, vdb):
+def product(row, RAG, vdb, reader, tokenizer):
     if len(row["name"]) == 0:
         return ""
     else:
         question = "For this production system, what product is the object of the assessment?"
         if RAG:
-            docs = rag_retrieval.get_context(row["systemDescription"] + question, vdb)
-            context = " Additional Context: " + ' '.join(docs)
+            answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
+            context = " Additional Context: " + ' '.join(answer)
         else:
             context = ""
         labels = [row["name"].split('-')[0].strip()]
@@ -116,14 +116,14 @@ def product(row, RAG, vdb):
                  "context": row["systemDescription"] + context}]
 
 
-def allocation(row, RAG, vdb):
+def allocation(row, RAG, vdb, reader, tokenizer):
     if len(row["allocationMethod"]) == 0:
         return ""
     else:
         question = "For this production system, what is the appropriate allocation method?"
         if RAG:
-            docs = rag_retrieval.get_context(row["systemDescription"] + question, vdb)
-            context = " Additional Context: " + ' '.join(docs)
+            answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
+            context = " Additional Context: " + ' '.join(answer)
         else:
             context = ""
         return [{
@@ -133,11 +133,11 @@ def allocation(row, RAG, vdb):
             "context": row["systemDescription"] + context}]
 
 
-def systemBoundary(row, RAG, vdb):
+def systemBoundary(row, RAG, vdb, reader, tokenizer):
     question = "What is included in the system boundary of this production system?"
     if RAG:
-        docs = rag_retrieval.get_context(row["systemDescription"] + question, vdb)
-        context = " Additional Context: " + ' '.join(docs)
+        answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
+        context = " Additional Context: " + ' '.join(answer)
     else:
         context = ""
     data = []
@@ -162,7 +162,7 @@ def systemBoundary(row, RAG, vdb):
     return data
 
 
-def functionalUnit(row, RAG, vdb):
+def functionalUnit(row, RAG, vdb, reader, tokenizer):
     fUnit = []
     if len(row["functionalUnit"]) != 0:
         fUnit.append(row["functionalUnit"])
@@ -183,8 +183,8 @@ def functionalUnit(row, RAG, vdb):
     else:
         question = "For this production system, what is the functional unit?"
         if RAG:
-            docs = rag_retrieval.get_context(row["systemDescription"] + question, vdb)
-            context = " Additional Context: " + ' '.join(docs)
+            answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
+            context = " Additional Context: " + ' '.join(answer)
         else:
             context = ""
         return [
@@ -202,17 +202,17 @@ def systemDescription(row):
     return row["siteType"] + " producing " + names[0].strip() + " in " + names[1].strip() + "."
 
     
-def process_all_tasks(row, RAG, vdb):
+def process_all_tasks(row, RAG, vdb, reader, tokenizer):
     """Processes all columns for a single row in one go."""
     return pd.Series({
-        "intendedApplicationQA": intendedApplication(row, RAG, vdb),
-        "studyReasonsQA": studyReasons(row, RAG, vdb),
-        "targetAudienceQA": targetAudience(row, RAG, vdb),
-        "comparativeAssertionsQA": comparativeAssertions(row, RAG, vdb),
-        "productQA": product(row, RAG, vdb),
-        "allocationQA": allocation(row, RAG, vdb),
-        "systemBoundaryQA": systemBoundary(row, RAG, vdb),
-        "functionalUnitQA": functionalUnit(row, RAG, vdb)
+        "intendedApplicationQA": intendedApplication(row, RAG, vdb, reader, tokenizer),
+        "studyReasonsQA": studyReasons(row, RAG, vdb, reader, tokenizer),
+        "targetAudienceQA": targetAudience(row, RAG, vdb, reader, tokenizer),
+        "comparativeAssertionsQA": comparativeAssertions(row, RAG, vdb, reader, tokenizer),
+        "productQA": product(row, RAG, vdb, reader, tokenizer),
+        "allocationQA": allocation(row, RAG, vdb, reader, tokenizer),
+        "systemBoundaryQA": systemBoundary(row, RAG, vdb, reader, tokenizer),
+        "functionalUnitQA": functionalUnit(row, RAG, vdb, reader, tokenizer)
     })
     
     
@@ -229,6 +229,9 @@ def main(output_directory, input_directory, RAG):
             constants.VDB_LOCATION, embeddings, allow_dangerous_deserialization=True)
     else:
         vdb = ""
+
+    # set up llm models
+    reader, tokenizer = rag_retrieval.model_config()
 
     # reference output format - add this string as a new column in pandas
     # [{"question": <prompt>, "labels": {'text': [<answer>], "answer_start": [0]}, "title": <category>, "context": <systemDescription>}, "id": <uuid>]
@@ -258,7 +261,7 @@ def main(output_directory, input_directory, RAG):
 
     # further optimize code to create dataset
     tqdm.pandas(desc="Processing RAG Tasks")
-    new_cols = df.progress_apply(lambda row: process_all_tasks(row, RAG, vdb), axis=1)
+    new_cols = df.progress_apply(lambda row: process_all_tasks(row, RAG, vdb, reader, tokenizer), axis=1)
 
     # Join the results back to your original dataframe
     df = pd.concat([df, new_cols], axis=1)
@@ -298,10 +301,10 @@ def main(output_directory, input_directory, RAG):
 
 
 if __name__ == "__main__":
-    #main("./data/qa_dataset/recalculated/rag/", "./data/hestia/recalculated/", True)
-    #main("./data/qa_dataset/original/rag/", "./data/hestia/", True)
+    main("llm-goal-scope/data/qa_dataset/recalculated/rag/", "llm-goal-scope/data/hestia/recalculated/", True)
+    main("llm-goal-scope/data/qa_dataset/original/rag/", "llm-goal-scope/data/hestia/", True)
 
     # DO NOT RERUN THESE WHEN UPDATING RAG FUNCTION - change uuid and is hard to track through git
-    main("llm-goal-scope/data/qa_dataset/recalculated/no_rag/", "llm-goal-scope/data/hestia/recalculated/",False)
+    # main("llm-goal-scope/data/qa_dataset/recalculated/no_rag/", "llm-goal-scope/data/hestia/recalculated/",False)
     # main("llm-goal-scope/data/qa_dataset/original/no_rag/", "llm-goal-scope/data/hestia/",False)
 
