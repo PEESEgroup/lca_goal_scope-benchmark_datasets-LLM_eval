@@ -76,11 +76,11 @@ def covariance_plotting(classes, covariance_matrix, dataset_name):
                 yticklabels=classes)
     plt.title('Covariance Matrix Heatmap')
     # open output
-    fpath = "data/qa_dataset/results/"
+    fpath = "llm-goal-scope/data/qa_dataset/results/"
     dataset_name = dataset_name.split(".")[0]
     dataset_name = dataset_name.split("/")[2:]
     dataset_name = "_".join(dataset_name)
-    os.makedirs("data/qa_dataset/results/" + dataset_name + "/", exist_ok=True)
+    os.makedirs("llm-goal-scope/data/qa_dataset/results/" + dataset_name + "/", exist_ok=True)
     plt.savefig(fpath + dataset_name + "/covariance.png", dpi=300)
     plt.show()
 
@@ -95,11 +95,11 @@ def correlation_plotting(classes, correlation_matrix, dataset_name):
                 yticklabels=classes)
     plt.title('Correlation Matrix Heatmap')
     # open output
-    fpath = "data/qa_dataset/results/"
+    fpath = "llm-goal-scope/data/qa_dataset/results/"
     dataset_name = dataset_name.split(".")[0]
     dataset_name = dataset_name.split("/")[2:]
     dataset_name = "_".join(dataset_name)
-    os.makedirs("data/qa_dataset/results/" + dataset_name + "/", exist_ok=True)
+    os.makedirs("llm-goal-scope/data/qa_dataset/results/" + dataset_name + "/", exist_ok=True)
     plt.savefig(fpath + dataset_name + "/correlation.png", dpi=300)
     plt.show()
 

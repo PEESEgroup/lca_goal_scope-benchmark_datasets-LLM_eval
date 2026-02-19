@@ -40,7 +40,7 @@ def answer_with_rag(
     )
 
     # Gather documents with retriever
-    print("=> Retrieving documents...")
+    print(f"=> Retrieving documents for query {question}...")
     relevant_docs = knowledge_index.similarity_search(query=question, k=num_retrieved_docs)
     relevant_docs = [doc.page_content for doc in relevant_docs]  # Keep only the text
     # relevant_docs = relevant_docs[:num_docs_final]
@@ -69,8 +69,8 @@ def answer_with_rag(
             reranked_docs.append(doc)
 
     # build the final prompt
-    context = "\nExtracted documents:\n"
-    context += "".join([f"Document {str(i)}:::\n" + doc for i, doc in enumerate(reranked_docs)])
+    context = "\nAdditional Context:\n"
+    context += "".join([f"Source {str(i)}:::\n" + doc for i, doc in enumerate(reranked_docs)])
     final_prompt = RAG_PROMPT_TEMPLATE.format(question=question, context=context)
 
     # retrieve an answer
@@ -80,17 +80,11 @@ def answer_with_rag(
     # for llama: llm(final_prompt)[0]["generated_text"][-1]['content']???
 
     # do some string processing to extract just the generated string
-    print("model answer")
     generated_answer = answer.split("<|start_header_id|>assistant<|end_header_id|>")[1]
     generated_answer = generated_answer.strip()
+    print(f"model answers \"{generated_answer}\"")
     
     return generated_answer, relevant_docs
-
-
-def get_context(question, knowledge_index, num_retrieved_docs=3):
-    relevant_docs = knowledge_index.similarity_search(query=question, k=num_retrieved_docs)
-    relevant_docs = [doc.page_content for doc in relevant_docs]  # Keep only the text
-    return relevant_docs
 
 
 def model_config(model_name="meta-llama/Llama-3.2-3B-Instruct"):
@@ -120,6 +114,6 @@ if __name__ == "__main__":
     print("vdb loaded")
     reader, tokenizer = model_config()
     print("model configured")
-    question = "what is a functional unit for milk?"
+    question = "what is a functional unit for sheep production in the UK?"
     answer, docs = answer_with_rag(question, reader, tokenizer, vdb)
     print(answer)
