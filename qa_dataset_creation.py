@@ -16,7 +16,7 @@ def intendedApplication(row, RAG, vdb, reader, tokenizer):
         question = "For this production system, what is the intended application of the LCA study?"
         if RAG:
             answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
-            context = " Additional Context: " + ' '.join(answer)
+            context = " Additional Context: " + str(answer)
         else:
             context = ""
         return [{"labels": [row["intendedApplication"]],
@@ -32,7 +32,7 @@ def studyReasons(row, RAG, vdb, reader, tokenizer):
         question = "For this production system, what are the reasons for carrying out the LCA study?"
         if RAG:
             answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
-            context = " Additional Context: " + ' '.join(answer)
+            context = " Additional Context: " + str(answer)
         else:
             context = ""
         return [{"labels": [row["studyReasons"]],
@@ -48,7 +48,7 @@ def targetAudience(row, RAG, vdb, reader, tokenizer):
         question = "For this production system, what is the target audience of the LCA study?"
         if RAG:
             answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
-            context = " Additional Context: " + ' '.join(answer)
+            context = " Additional Context: " + str(answer)
         else:
             context = ""
         return [{"labels": [row["intendedAudience"]],
@@ -64,7 +64,7 @@ def comparativeAssertions(row, RAG, vdb, reader, tokenizer):
         question = "For this production system, are these results to be used in comparative assertions?"
         if RAG:
             answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
-            context = " Additional Context: " + ' '.join(answer)
+            context = " Additional Context: " + str(answer)
         else:
             context = ""
         return [{"labels": [row["comparativeAssertions"]],
@@ -77,7 +77,7 @@ def actors(row, RAG, vdb, reader, tokenizer):
     question = "For this production system, who are the important actors?"
     if RAG:
         answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
-        context = " Additional Context: " + ' '.join(answer)
+        context = " Additional Context: " + str(answer)
     else:
         context = ""
     if len(row["organization"]) == 0:
@@ -101,7 +101,7 @@ def product(row, RAG, vdb, reader, tokenizer):
         question = "For this production system, what product is the object of the assessment?"
         if RAG:
             answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
-            context = " Additional Context: " + ' '.join(answer)
+            context = " Additional Context: " + str(answer)
         else:
             context = ""
         labels = [row["name"].split('-')[0].strip()]
@@ -123,7 +123,7 @@ def allocation(row, RAG, vdb, reader, tokenizer):
         question = "For this production system, what is the appropriate allocation method?"
         if RAG:
             answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
-            context = " Additional Context: " + ' '.join(answer)
+            context = " Additional Context: " + str(answer)
         else:
             context = ""
         return [{
@@ -137,7 +137,7 @@ def systemBoundary(row, RAG, vdb, reader, tokenizer):
     question = "What is included in the system boundary of this production system?"
     if RAG:
         answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
-        context = " Additional Context: " + ' '.join(answer)
+        context = " Additional Context: " + str(answer)
     else:
         context = ""
     data = []
@@ -184,7 +184,7 @@ def functionalUnit(row, RAG, vdb, reader, tokenizer):
         question = "For this production system, what is the functional unit?"
         if RAG:
             answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
-            context = " Additional Context: " + ' '.join(answer)
+            context = " Additional Context: " + str(answer)
         else:
             context = ""
         return [
