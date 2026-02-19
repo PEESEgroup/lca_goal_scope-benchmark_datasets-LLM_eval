@@ -120,7 +120,7 @@ def allocation(row, RAG, vdb, reader, tokenizer):
     if len(row["allocationMethod"]) == 0:
         return ""
     else:
-        question = f"For the following production system, what is the appropriate allocation method? Production system: {str(row["systemDescription"])}"
+        question = f"For the following production system, what is the appropriate allocation method? If system expansion is used, the available choices are either mass, economic, energy, or biophysical. If system expansion is not necessary, answer \"none required\". If another allocation method is used, answer \"none\". Production system: {str(row["systemDescription"])}"
         if RAG:
             answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
             context = " Additional Context: " + str(answer)

@@ -83,7 +83,7 @@ def answer_with_rag(
     # do some string processing to extract just the generated string
     generated_answer = answer.split("<|start_header_id|>assistant<|end_header_id|>")[1]
     generated_answer = generated_answer.strip()
-    print(f"model answers \"{generated_answer}\"")
+    print(f"=> model answers \"{generated_answer}\"\n\n")
     
     return generated_answer, relevant_docs
 
