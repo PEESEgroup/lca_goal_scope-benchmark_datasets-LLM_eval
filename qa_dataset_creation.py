@@ -13,7 +13,7 @@ def intendedApplication(row, RAG, vdb, reader, tokenizer):
     if len(row["intendedApplication"]) == 0:
         return ""
     else:
-        question = "For this production system, what is the intended application of the LCA study?"
+        question = f"For the following production system, what is the intended application of the LCA study? Production system: {str(row["systemDescription"])}"
         if RAG:
             answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
             context = " Additional Context: " + str(answer)
@@ -29,7 +29,7 @@ def studyReasons(row, RAG, vdb, reader, tokenizer):
     if len(row["studyReasons"]) == 0:
         return ""
     else:
-        question = "For this production system, what are the reasons for carrying out the LCA study?"
+        question = f"For the following production system, what are the reasons for carrying out the LCA study? Production system: {str(row["systemDescription"])}"
         if RAG:
             answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
             context = " Additional Context: " + str(answer)
@@ -45,7 +45,7 @@ def targetAudience(row, RAG, vdb, reader, tokenizer):
     if len(row["intendedAudience"]) == 0:
         return ""
     else:
-        question = "For this production system, what is the target audience of the LCA study?"
+        question = f"For the following production system, what is the target audience of the LCA study? Production system: {str(row["systemDescription"])}"
         if RAG:
             answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
             context = " Additional Context: " + str(answer)
@@ -61,7 +61,7 @@ def comparativeAssertions(row, RAG, vdb, reader, tokenizer):
     if len(row["comparativeAssertions"]) == 0:
         return ""
     else:
-        question = "For this production system, are these results to be used in comparative assertions?"
+        question = f"For the following production system, are these results to be used in comparative assertions? Production system: {str(row["systemDescription"])}"
         if RAG:
             answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
             context = " Additional Context: " + str(answer)
@@ -74,7 +74,7 @@ def comparativeAssertions(row, RAG, vdb, reader, tokenizer):
 
 
 def actors(row, RAG, vdb, reader, tokenizer):
-    question = "For this production system, who are the important actors?"
+    question = f"For the following production system, who are the important actors? Production system: {str(row["systemDescription"])}"
     if RAG:
         answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
         context = " Additional Context: " + str(answer)
@@ -98,7 +98,7 @@ def product(row, RAG, vdb, reader, tokenizer):
     if len(row["name"]) == 0:
         return ""
     else:
-        question = "For this production system, what product is the object of the assessment?"
+        question = f"For the following production system, what product is the object of the assessment? Production system: {str(row["systemDescription"])}"
         if RAG:
             answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
             context = " Additional Context: " + str(answer)
@@ -120,7 +120,7 @@ def allocation(row, RAG, vdb, reader, tokenizer):
     if len(row["allocationMethod"]) == 0:
         return ""
     else:
-        question = "For this production system, what is the appropriate allocation method?"
+        question = f"For the following production system, what is the appropriate allocation method? Production system: {str(row["systemDescription"])}"
         if RAG:
             answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
             context = " Additional Context: " + str(answer)
@@ -134,7 +134,7 @@ def allocation(row, RAG, vdb, reader, tokenizer):
 
 
 def systemBoundary(row, RAG, vdb, reader, tokenizer):
-    question = "What is included in the system boundary of this production system?"
+    question = f"What is included in the system boundary of this production system? Production system: {str(row["systemDescription"])}"
     if RAG:
         answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
         context = " Additional Context: " + str(answer)
@@ -181,7 +181,7 @@ def functionalUnit(row, RAG, vdb, reader, tokenizer):
     if len(fUnit) == 0:
         return ""
     else:
-        question = "For this production system, what is the functional unit?"
+        question = f"For the following production system, what is the functional unit? Production system: {str(row["systemDescription"])}"
         if RAG:
             answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
             context = " Additional Context: " + str(answer)
