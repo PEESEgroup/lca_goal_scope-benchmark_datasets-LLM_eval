@@ -23,8 +23,9 @@ def answer_with_rag(
         {
             "role": "system",
             "content": """You are an expert on agricultural life cycle assessment (LCA). 
-            Please summarize the life cycle assessment information contained within the context that is relevant to the context.
-            You do not need to provide document numbers.""",
+            Please summarize the life cycle assessment information that is relevant to the context.
+            Please use as few words as necessary.
+            You do not need to provide document numbers or restate parts of the prompt.""",
         },
         {
             "role": "user",
@@ -99,7 +100,7 @@ def model_config(model_name="meta-llama/Llama-3.2-3B-Instruct"):
         model=model_name,
         dtype=torch.bfloat16,
         device_map="auto",
-        max_new_tokens=96, # do not need a lot of information here
+        max_new_tokens=256, # do not need a lot of information here
         do_sample=False
     )
 
