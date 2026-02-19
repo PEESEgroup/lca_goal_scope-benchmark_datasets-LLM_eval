@@ -2,7 +2,7 @@ import json
 import numpy as np
 import pandas as pd
 import seaborn as sns
-from datasets import Dataset, DatasetDict
+from datasets import Dataset, DatasetDict, load_dataset
 import matplotlib.pyplot as plt
 import os
 from transformers import AutoTokenizer
@@ -10,22 +10,22 @@ import evaluate_models
 
 
 def main():
-    filenames = ["data/qa_dataset/original/no_rag/allocationQA.jsonl",
-                 "data/qa_dataset/original/no_rag/comparativeAssertionsQA.jsonl",
-                 "data/qa_dataset/original/no_rag/functionalUnitQA.jsonl",
-                 "data/qa_dataset/original/no_rag/intendedApplicationQA.jsonl",
-                 "data/qa_dataset/original/no_rag/productQA.jsonl",
-                 "data/qa_dataset/original/no_rag/studyReasonsQA.jsonl",
-                 "data/qa_dataset/original/no_rag/systemBoundaryQA.jsonl",
-                 "data/qa_dataset/original/no_rag/targetAudienceQA.jsonl",
-                 "data/qa_dataset/recalculated/no_rag/allocationQA.jsonl",
-                 "data/qa_dataset/recalculated/no_rag/comparativeAssertionsQA.jsonl",
-                 "data/qa_dataset/recalculated/no_rag/functionalUnitQA.jsonl",
-                 "data/qa_dataset/recalculated/no_rag/intendedApplicationQA.jsonl",
-                 "data/qa_dataset/recalculated/no_rag/productQA.jsonl",
-                 "data/qa_dataset/recalculated/no_rag/studyReasonsQA.jsonl",
-                 "data/qa_dataset/recalculated/no_rag/systemBoundaryQA.jsonl",
-                 "data/qa_dataset/recalculated/no_rag/targetAudienceQA.jsonl",
+    filenames = ["llm-goal-scope/data/qa_dataset/original/no_rag/allocationQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/original/no_rag/comparativeAssertionsQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/original/no_rag/functionalUnitQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/original/no_rag/intendedApplicationQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/original/no_rag/productQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/original/no_rag/studyReasonsQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/original/no_rag/systemBoundaryQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/original/no_rag/targetAudienceQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/recalculated/no_rag/allocationQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/recalculated/no_rag/comparativeAssertionsQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/recalculated/no_rag/functionalUnitQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/recalculated/no_rag/intendedApplicationQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/recalculated/no_rag/productQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/recalculated/no_rag/studyReasonsQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/recalculated/no_rag/systemBoundaryQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/recalculated/no_rag/targetAudienceQA.jsonl",
                  ]
 
     # for each dataset
@@ -37,9 +37,7 @@ def main():
 
         if len(data) > 0:
             # convert to dataset
-            dataset = Dataset.from_list(data)
-
-            # shuffle dataset before splitting
+            dataset = load_dataset('json', data_files=k) # shuffle dataset before splitting
             dataset = dataset.shuffle(seed=42)
             covariance(dataset, k)
 
@@ -47,7 +45,6 @@ def main():
 def covariance(dataset, dataset_name):
     # calculate covariance
     # process data
-    dataset = DatasetDict({'train': dataset})
     classes = [class_ for class_ in dataset['train'][0]['all_labels'].split("; ") if class_]
     if len(classes) > 1:
         class2id = {class_: id for id, class_ in enumerate(classes)}
@@ -92,7 +89,7 @@ def correlation_plotting(classes, correlation_matrix, dataset_name):
     plt.figure(figsize=(8, 6))  # Adjust figure size as needed
     sns.heatmap(correlation_matrix,
                 annot=True,  # Show the covariance values on the heatmap
-                fmt='.2f',  # Format the annotation values to two decimal places
+                fmt='.1f',  # Format the annotation values to two decimal places
                 cmap='viridis',  # Choose a colormap (e.g., 'viridis', 'coolwarm', 'RdBu')
                 xticklabels=classes,
                 yticklabels=classes)
