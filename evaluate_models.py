@@ -131,7 +131,7 @@ def train_model(model, tokenized_dataset, tokenizer, data_collator, dataset_name
         learning_rate=2e-5,
         per_device_train_batch_size=3,
         per_device_eval_batch_size=3,
-        num_train_epochs=15, # try 15
+        num_train_epochs=2, # try 15
         weight_decay=0.01,
         eval_strategy="epoch",
         logging_strategy='epoch',
@@ -158,7 +158,10 @@ def train_model(model, tokenized_dataset, tokenizer, data_collator, dataset_name
     return trainer
 
 
-def eval_metrics(predictions_output, classes, dataset_name, fpath):
+def eval_metrics(tokenized_dataset, trainer, classes, dataset_name, fpath):
+    # predict step
+    predictions_output = trainer.predict(tokenized_dataset["test"])
+
     # confusion matrix converts probabilities based on a threshold value and then take the sigmoid of the outputs
     eval_metrics = predictions_output.metrics
     multilabel_indicators = ((1 / (1 + np.exp(-predictions_output.predictions))) > 0.5).astype(int)
@@ -197,6 +200,37 @@ def eval_metrics(predictions_output, classes, dataset_name, fpath):
             w = csv.writer(f)
             w.writerows(eval_metrics.items())
             print("Saved Metrics for {dataset_name}:", eval_metrics)
+
+    # identify errors
+    # create an error mask
+    is_correct = (multilabel_indicators == predictions_output.label_ids).all(axis=1)
+    error_indices = np.where(~is_correct)[0]
+    # get the contexts
+    test_dataset = tokenized_dataset["test"]
+    error_texts = [test_dataset[int(i)]['context'] for i in np.where(error_indices)[0]]
+
+    print(error_texts)
+
+    # build df
+    error_df = pd.DataFrame({
+        'sample_index': error_indices,
+        'context_for_errors': error_texts,
+        'logits': [list(p) for p in predictions_output.predictions[~is_correct]],
+        'predicted_labels': [list(l) for l in multilabel_indicators[~is_correct]],
+        'true_labels': [l.astype(int).tolist() for l in predictions_output.label_ids[~is_correct]]
+    })
+
+    print([test_dataset[int(i)]['context'] for i in range(len(test_dataset))])
+
+    # save predictions
+    prediction_df = pd.DataFrame({
+        'context': [test_dataset[int(i)]['context'] for i in range(len(test_dataset))],
+        'logits': predictions_output.predictions,
+        'predicted_labels': multilabel_indicators,
+        'true_labels': predictions_output.label_ids
+    })
+
+    return error_df, prediction_df
 
 
 def eval_models(dataset, dataset_name):
@@ -240,8 +274,11 @@ def eval_models(dataset, dataset_name):
 
             # eval model
             print("test dataset evaluation")
-            predictions_output = trainer.predict(tokenized_dataset["test"])
-            eval_metrics(predictions_output, classes, dataset_path, fpath)
+            errors, predictions = eval_metrics(tokenized_dataset, trainer, classes, dataset_path, fpath)
+
+            # write out the errors and predictions to a .csv file for future use
+            errors.to_csv(fpath+"/errors.csv", index=False)
+            predictions.to_csv(fpath+"/predictions.csv", index=False)
 
             # cleaning up after model
             print(f"Cleaning up after {model_path}...")
@@ -324,4 +361,4 @@ if __name__ == "__main__":
             eval_models(train_test_valid_dataset, k)
 
         except ValueError as e:
-            print(str(k), "failed to load because there is no data")
+            print("\n\n", str(k), "failed to load because there is no data\n\n")
