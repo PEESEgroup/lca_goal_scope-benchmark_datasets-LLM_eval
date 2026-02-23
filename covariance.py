@@ -10,22 +10,20 @@ import evaluate_models
 
 
 def main():
-    filenames = ["llm-goal-scope/data/qa_dataset/original/no_rag/allocationQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/original/no_rag/comparativeAssertionsQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/original/no_rag/functionalUnitQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/original/no_rag/intendedApplicationQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/original/no_rag/productQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/original/no_rag/studyReasonsQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/original/no_rag/systemBoundaryQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/original/no_rag/targetAudienceQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/recalculated/no_rag/allocationQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/recalculated/no_rag/comparativeAssertionsQA.jsonl",
+    filenames = ["llm-goal-scope/data/qa_dataset/original/no_rag/systemBoundaryQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/original/no_rag/allocationQA.jsonl",  
+                 "llm-goal-scope/data/qa_dataset/original/no_rag/functionalUnitQA.jsonl", 
+                 "llm-goal-scope/data/qa_dataset/original/no_rag/productQA.jsonl", 
                  "llm-goal-scope/data/qa_dataset/recalculated/no_rag/functionalUnitQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/recalculated/no_rag/intendedApplicationQA.jsonl",
                  "llm-goal-scope/data/qa_dataset/recalculated/no_rag/productQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/recalculated/no_rag/studyReasonsQA.jsonl",
                  "llm-goal-scope/data/qa_dataset/recalculated/no_rag/systemBoundaryQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/recalculated/no_rag/targetAudienceQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/original/rag/rag_allocationQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/original/rag/rag_functionalUnitQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/original/rag/rag_productQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/original/rag/rag_systemBoundaryQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_functionalUnitQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_productQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_systemBoundaryQA.jsonl"
                  ]
 
     # for each dataset
