@@ -10,7 +10,7 @@ import numpy as np
 
 def main():
     # build mAP output tables for each of the four categories
-    # map_tables()
+    map_tables()
 
     # plot number of labels versus precision for each of the four categories
     label_precision()
@@ -61,13 +61,13 @@ def label_precision():
                  "llm-goal-scope/data/qa_dataset/recalculated/no_rag/functionalUnitQA.jsonl",
                  "llm-goal-scope/data/qa_dataset/recalculated/no_rag/productQA.jsonl",
                  "llm-goal-scope/data/qa_dataset/recalculated/no_rag/systemBoundaryQA.jsonl",
-                #  "llm-goal-scope/data/qa_dataset/original/rag/rag_allocationQA.jsonl",
-                #  "llm-goal-scope/data/qa_dataset/original/rag/rag_functionalUnitQA.jsonl",
-                #  "llm-goal-scope/data/qa_dataset/original/rag/rag_productQA.jsonl",
-                #  "llm-goal-scope/data/qa_dataset/original/rag/rag_systemBoundaryQA.jsonl",
-                #  "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_functionalUnitQA.jsonl",
-                #  "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_productQA.jsonl",
-                #  "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_systemBoundaryQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/original/rag/rag_allocationQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/original/rag/rag_functionalUnitQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/original/rag/rag_productQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/original/rag/rag_systemBoundaryQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_functionalUnitQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_productQA.jsonl",
+                 "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_systemBoundaryQA.jsonl",
                  ]
 
     # for each dataset
@@ -112,8 +112,8 @@ def label_precision():
     # merge datatables
     original = pd.merge(original, original_test, "left", ["dataset", "label"])
     recalculated = pd.merge(recalculated, recalculated_test, "left", ["dataset", "label"])
-    # rag_original = pd.merge(rag_original, rag_original_test, "left", ["dataset", "label"])
-    # rag_recalculated = pd.merge(rag_recalculated, rag_recalculated_test, "left", ["dataset", "label"])
+    rag_original = pd.merge(rag_original, rag_original_test, "left", ["dataset", "label"])
+    rag_recalculated = pd.merge(rag_recalculated, rag_recalculated_test, "left", ["dataset", "label"])
 
     # plot histograms
     for i in [original, recalculated]: # rag_original, rag_recalculated
@@ -140,8 +140,8 @@ def label_precision():
     # save data
     original.to_csv("./llm-goal-scope/data/qa_dataset/results/labels_original.csv")
     recalculated.to_csv("./llm-goal-scope/data/qa_dataset/results/labels_recalculated.csv")
-    # rag_original.to_csv("./llm-goal-scope/data/qa_dataset/results/labels_rag_original.csv")
-    # rag_recalculated.to_csv("./llm-goal-scope/data/qa_dataset/results/labels_rag_recalculated.csv")
+    rag_original.to_csv("./llm-goal-scope/data/qa_dataset/results/labels_rag_original.csv")
+    rag_recalculated.to_csv("./llm-goal-scope/data/qa_dataset/results/labels_rag_recalculated.csv")
 
 
 def map_color(df, col):
@@ -191,21 +191,21 @@ def map_tables():
     original.columns = ['model', 'mAP', 'dataset']
     recalculated = recalculated.reset_index(drop=True)
     recalculated.columns = ['model', 'mAP', 'dataset']
-    # rag_original = rag_original.reset_index(drop=True)
-    # rag_original.columns = ['model', 'mAP', 'dataset']
-    # rag_recalculated = rag_recalculated.reset_index(drop=True)
-    # rag_recalculated.columns = ['model', 'mAP', 'dataset']
+    rag_original = rag_original.reset_index(drop=True)
+    rag_original.columns = ['model', 'mAP', 'dataset']
+    rag_recalculated = rag_recalculated.reset_index(drop=True)
+    rag_recalculated.columns = ['model', 'mAP', 'dataset']
 
     original = original.pivot(index='dataset', columns='model', values='mAP')
     recalculated = recalculated.pivot(index='dataset', columns='model', values='mAP')
-    # rag_original = rag_original.pivot(index='dataset', columns='model', values='mAP')
-    # rag_recalculated = rag_recalculated.pivot(index='dataset', columns='model', values='mAP')
+    rag_original = rag_original.pivot(index='dataset', columns='model', values='mAP')
+    rag_recalculated = rag_recalculated.pivot(index='dataset', columns='model', values='mAP')
     
     # print out dataframes
     original.to_csv("./llm-goal-scope/data/qa_dataset/results/mAP_original.csv")
     recalculated.to_csv("./llm-goal-scope/data/qa_dataset/results/mAP_recalculated.csv")
-    # rag_original.to_csv("./llm-goal-scope/data/qa_dataset/results/mAP_rag_original.csv")
-    # rag_recalculated.to_csv("./llm-goal-scope/data/qa_dataset/results/mAP_rag_recalculated.csv")
+    rag_original.to_csv("./llm-goal-scope/data/qa_dataset/results/mAP_rag_original.csv")
+    rag_recalculated.to_csv("./llm-goal-scope/data/qa_dataset/results/mAP_rag_recalculated.csv")
 
 
 if __name__ == "__main__":
