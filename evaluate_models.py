@@ -207,9 +207,7 @@ def eval_metrics(tokenized_dataset, trainer, classes, dataset_name, fpath):
     error_indices = np.where(~is_correct)[0]
     # get the contexts
     test_dataset = tokenized_dataset["test"]
-    error_texts = [test_dataset[int(i)]['context'] for i in np.where(error_indices)[0]]
-
-    print(error_texts)
+    error_texts = [test_dataset[int(i)]['context'] for i in error_indices]
 
     # build df
     error_df = pd.DataFrame({
@@ -220,14 +218,12 @@ def eval_metrics(tokenized_dataset, trainer, classes, dataset_name, fpath):
         'true_labels': [l.astype(int).tolist() for l in predictions_output.label_ids[~is_correct]]
     })
 
-    print([test_dataset[int(i)]['context'] for i in range(len(test_dataset))])
-
     # save predictions
     prediction_df = pd.DataFrame({
         'context': [test_dataset[int(i)]['context'] for i in range(len(test_dataset))],
-        'logits': predictions_output.predictions,
-        'predicted_labels': multilabel_indicators,
-        'true_labels': predictions_output.label_ids
+        'logits': [list(p) for p in predictions_output.predictions],
+        'predicted_labels': [list(m) for m in multilabel_indicators],
+        'true_labels': [p.astype(int).tolist() for p in predictions_output.label_ids]
     })
 
     return error_df, prediction_df
@@ -343,22 +339,18 @@ if __name__ == "__main__":
     # for each dataset
     for k in filenames:
         # load the dataset
-        try:
-            dataset = load_dataset('json', data_files=k) # shuffle dataset before splitting
-            dataset = dataset.shuffle(seed=42)
-            
-            # 80% train, 20% test + validation
-            train_testvalid = dataset['train'].train_test_split(test_size=0.2, seed=42)
-            # Split the 10% test + valid in half test, half valid
-            test_valid = train_testvalid['test'].train_test_split(test_size=0.5, seed=42)
-            # gather everyone if you want to have a single DatasetDict
-            train_test_valid_dataset = DatasetDict({
-                'train': train_testvalid['train'],
-                'test': test_valid['test'],
-                'valid': test_valid['train']})
+        dataset = load_dataset('json', data_files=k) # shuffle dataset before splitting
+        dataset = dataset.shuffle(seed=42)
+        
+        # 80% train, 20% test + validation
+        train_testvalid = dataset['train'].train_test_split(test_size=0.2, seed=42)
+        # Split the 10% test + valid in half test, half valid
+        test_valid = train_testvalid['test'].train_test_split(test_size=0.5, seed=42)
+        # gather everyone if you want to have a single DatasetDict
+        train_test_valid_dataset = DatasetDict({
+            'train': train_testvalid['train'],
+            'test': test_valid['test'],
+            'valid': test_valid['train']})
 
-            print(str(k), "dataset loaded")
-            eval_models(train_test_valid_dataset, k)
-
-        except ValueError as e:
-            print("\n\n", str(k), "failed to load because there is no data\n\n")
+        print(str(k), "dataset loaded")
+        eval_models(train_test_valid_dataset, k)
