@@ -214,6 +214,7 @@ def eval_metrics(tokenized_dataset, trainer, classes, dataset_name, fpath):
     # create an error mask
     is_correct = (multilabel_indicators == predictions_output.label_ids).all(axis=1)
     error_indices = np.where(~is_correct)[0]
+
     # get the contexts
     test_dataset = tokenized_dataset["test"]
     error_texts = [test_dataset[int(i)]['context'] for i in error_indices]
@@ -224,7 +225,8 @@ def eval_metrics(tokenized_dataset, trainer, classes, dataset_name, fpath):
         'context_for_errors': error_texts,
         'logits': [list(p) for p in predictions_output.predictions[~is_correct]],
         'predicted_labels': [list(l) for l in multilabel_indicators[~is_correct]],
-        'true_labels': [l.astype(int).tolist() for l in predictions_output.label_ids[~is_correct]]
+        'true_labels': [l.astype(int).tolist() for l in predictions_output.label_ids[~is_correct]],
+        'classes': [classes for l in predictions_output.label_ids[~is_correct]]
     })
 
     # save predictions
@@ -232,7 +234,8 @@ def eval_metrics(tokenized_dataset, trainer, classes, dataset_name, fpath):
         'context': [test_dataset[int(i)]['context'] for i in range(len(test_dataset))],
         'logits': [list(p) for p in predictions_output.predictions],
         'predicted_labels': [list(m) for m in multilabel_indicators],
-        'true_labels': [p.astype(int).tolist() for p in predictions_output.label_ids]
+        'true_labels': [p.astype(int).tolist() for p in predictions_output.label_ids],
+        'classes': [classes for l in predictions_output.label_ids]
     })
 
     return error_df, prediction_df

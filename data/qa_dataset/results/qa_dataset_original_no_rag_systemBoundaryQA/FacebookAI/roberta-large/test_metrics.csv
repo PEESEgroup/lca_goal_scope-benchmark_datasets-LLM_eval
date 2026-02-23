@@ -3,9 +3,9 @@ test_accuracy,0.9832995951417004
 test_f1,0.9869203329369798
 test_precision,0.9787735849056604
 test_recall,0.9952038369304557
-test_runtime,2.5697
-test_samples_per_second,40.471
-test_steps_per_second,13.62
+test_runtime,2.6393
+test_samples_per_second,39.404
+test_steps_per_second,13.261
 Average Precision for Label True_waste,0.6327
 Average Precision for Label True_pesticideVeterinaryDrug,0.9564
 Average Precision for Label True_excreta,0.9826
@@ -28,3 +28,5 @@ Average Precision for Label True_transport,0.8499
 Mean Average Precision (mAP),0.9357
 dataset_name,qa_dataset_original_no_rag_systemBoundaryQA
 fpath,/home/sagemaker-user/llm-goal-scope/data/qa_dataset/results/qa_dataset_original_no_rag_systemBoundaryQA/FacebookAI/roberta-large
+micro-f1,0.9869
+accuracy (hamming loss),0.9833

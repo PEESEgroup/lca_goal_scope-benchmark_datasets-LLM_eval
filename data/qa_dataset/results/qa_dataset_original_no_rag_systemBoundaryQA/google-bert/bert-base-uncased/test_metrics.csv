@@ -3,9 +3,9 @@ test_accuracy,0.979251012145749
 test_f1,0.9838136596920647
 test_precision,0.9719188767550702
 test_recall,0.9960031974420464
-test_runtime,2.4304
-test_samples_per_second,42.792
-test_steps_per_second,14.401
+test_runtime,2.5984
+test_samples_per_second,40.024
+test_steps_per_second,13.47
 Average Precision for Label True_waste,0.8333
 Average Precision for Label True_pesticideVeterinaryDrug,0.9564
 Average Precision for Label True_excreta,0.9652
@@ -28,3 +28,5 @@ Average Precision for Label True_transport,1.0000
 Mean Average Precision (mAP),0.9665
 dataset_name,qa_dataset_original_no_rag_systemBoundaryQA
 fpath,/home/sagemaker-user/llm-goal-scope/data/qa_dataset/results/qa_dataset_original_no_rag_systemBoundaryQA/google-bert/bert-base-uncased
+micro-f1,0.9838
+accuracy (hamming loss),0.9793

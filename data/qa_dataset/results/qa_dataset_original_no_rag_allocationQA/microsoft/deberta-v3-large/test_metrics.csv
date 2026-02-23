@@ -3,9 +3,9 @@ test_accuracy,0.9791666666666666
 test_f1,0.937799043062201
 test_precision,0.9333333333333333
 test_recall,0.9423076923076923
-test_runtime,3.063
-test_samples_per_second,33.954
-test_steps_per_second,11.427
+test_runtime,3.3974
+test_samples_per_second,30.612
+test_steps_per_second,10.302
 Average Precision for Label none required,0.8524
 Average Precision for Label mass,0.0096
 Average Precision for Label economic,0.9079
@@ -15,3 +15,5 @@ Average Precision for Label none,0.9187
 Mean Average Precision (mAP),0.7063
 dataset_name,qa_dataset_original_no_rag_allocationQA
 fpath,/home/sagemaker-user/llm-goal-scope/data/qa_dataset/results/qa_dataset_original_no_rag_allocationQA/microsoft/deberta-v3-large
+micro-f1,0.9378
+accuracy (hamming loss),0.9792

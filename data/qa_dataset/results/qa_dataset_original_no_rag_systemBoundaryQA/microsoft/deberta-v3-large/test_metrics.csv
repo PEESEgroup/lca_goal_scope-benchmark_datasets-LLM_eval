@@ -1,30 +1,32 @@
-test_loss,0.2614859342575073
-test_accuracy,0.979251012145749
-test_f1,0.9837236998809051
-test_precision,0.9771293375394322
-test_recall,0.9904076738609112
-test_runtime,3.3371
-test_samples_per_second,31.164
-test_steps_per_second,10.488
-Average Precision for Label True_waste,0.5733
-Average Precision for Label True_pesticideVeterinaryDrug,0.9564
+test_loss,0.21565088629722595
+test_accuracy,0.9853238866396761
+test_f1,0.9884783472387764
+test_precision,0.9826224328593997
+test_recall,0.9944044764188649
+test_runtime,3.3357
+test_samples_per_second,31.178
+test_steps_per_second,10.493
+Average Precision for Label True_waste,0.6010
+Average Precision for Label True_pesticideVeterinaryDrug,0.9821
 Average Precision for Label True_excreta,0.9826
 Average Precision for Label True_fertiliser,0.9898
-Average Precision for Label True_water,0.9333
+Average Precision for Label True_water,0.9074
 Average Precision for Label True_soilAmendment,1.0000
-Average Precision for Label True_operation,0.9737
+Average Precision for Label True_operation,1.0000
 Average Precision for Label True_material,0.6667
-Average Precision for Label True_seed,0.9778
+Average Precision for Label True_seed,0.9789
 Average Precision for Label True_product,1.0000
 Average Precision for Label True_cropResidue,0.9538
 Average Precision for Label True_liveAnimalInput,0.9700
-Average Precision for Label True_animalFeed,0.9891
-Average Precision for Label True_freshForage,0.9927
+Average Precision for Label True_animalFeed,0.9798
+Average Precision for Label True_freshForage,1.0000
 Average Precision for Label True_ingredient,1.0000
-Average Precision for Label True_animalPopulation,0.9604
-Average Precision for Label True_electricityFuel,0.9550
-Average Precision for Label True_otherChemical,0.9684
-Average Precision for Label True_transport,0.7768
-Mean Average Precision (mAP),0.9274
+Average Precision for Label True_animalPopulation,0.9898
+Average Precision for Label True_electricityFuel,0.9835
+Average Precision for Label True_otherChemical,0.9787
+Average Precision for Label True_transport,0.9263
+Mean Average Precision (mAP),0.9416
 dataset_name,qa_dataset_original_no_rag_systemBoundaryQA
 fpath,/home/sagemaker-user/llm-goal-scope/data/qa_dataset/results/qa_dataset_original_no_rag_systemBoundaryQA/microsoft/deberta-v3-large
+micro-f1,0.9885
+accuracy (hamming loss),0.9853
