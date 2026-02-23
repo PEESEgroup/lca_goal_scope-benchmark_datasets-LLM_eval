@@ -12,7 +12,7 @@ import matplotlib as mpl
 from typing import Optional
 import os
 from datasets import Dataset, load_dataset, DatasetDict
-from sklearn.metrics import average_precision_score
+from sklearn.metrics import average_precision_score, f1_score, hamming_loss
 from transformers import AutoModelForSequenceClassification, TrainingArguments, Trainer, DataCollatorWithPadding, \
     AutoTokenizer
 from sklearn.metrics import multilabel_confusion_matrix, ConfusionMatrixDisplay
@@ -131,7 +131,7 @@ def train_model(model, tokenized_dataset, tokenizer, data_collator, dataset_name
         learning_rate=2e-5,
         per_device_train_batch_size=3,
         per_device_eval_batch_size=3,
-        num_train_epochs=15, # try 15
+        num_train_epochs=2, # try 15
         weight_decay=0.01,
         eval_strategy="epoch",
         logging_strategy='epoch',
@@ -193,6 +193,15 @@ def eval_metrics(tokenized_dataset, trainer, classes, dataset_name, fpath):
     eval_metrics["Mean Average Precision (mAP)"] = f"{mAP:.4f}"
     eval_metrics["dataset_name"] = f"{dataset_name}"
     eval_metrics["fpath"] = f"{fpath}"
+
+    # calculate micro-f1
+    f1_micro = f1_score(predictions_output.label_ids, multilabel_indicators, average='micro')
+    eval_metrics["micro-f1"] = f"{f1_micro:.4f}"
+
+    # calculate hamming accuracy
+    h_loss = hamming_loss(predictions_output.label_ids, multilabel_indicators)
+    hamming_score = 1 - h_loss
+    eval_metrics["accuracy (hamming loss)"] = f"{hamming_score:.4f}"
 
     # record data
     if predictions_output.metrics:
