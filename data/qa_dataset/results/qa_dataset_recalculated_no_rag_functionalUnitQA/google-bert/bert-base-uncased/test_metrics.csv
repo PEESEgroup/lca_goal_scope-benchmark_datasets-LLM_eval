@@ -3,9 +3,9 @@ test_accuracy,0.9818181818181818
 test_f1,0.9526315789473684
 test_precision,0.9282051282051282
 test_recall,0.9783783783783784
-test_runtime,2.2584
-test_samples_per_second,43.837
-test_steps_per_second,14.612
+test_runtime,2.4145
+test_samples_per_second,41.002
+test_steps_per_second,13.667
 Average Precision for Label days,0.6907
 Average Precision for Label 1 ha,1.0000
 Average Precision for Label kg,1.0000
@@ -19,3 +19,5 @@ Average Precision for Label %,0.8434
 Mean Average Precision (mAP),0.8941
 dataset_name,qa_dataset_recalculated_no_rag_functionalUnitQA
 fpath,/home/sagemaker-user/llm-goal-scope/data/qa_dataset/results/qa_dataset_recalculated_no_rag_functionalUnitQA/google-bert/bert-base-uncased
+micro-f1,0.9526
+accuracy (hamming loss),0.9818

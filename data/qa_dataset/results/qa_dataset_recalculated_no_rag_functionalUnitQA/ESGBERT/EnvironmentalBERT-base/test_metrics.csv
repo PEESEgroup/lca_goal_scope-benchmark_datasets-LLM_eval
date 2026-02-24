@@ -3,9 +3,9 @@ test_accuracy,0.9838383838383838
 test_f1,0.9576719576719577
 test_precision,0.9378238341968912
 test_recall,0.9783783783783784
-test_runtime,2.2202
-test_samples_per_second,44.59
-test_steps_per_second,14.863
+test_runtime,2.0106
+test_samples_per_second,49.239
+test_steps_per_second,16.413
 Average Precision for Label days,0.8851
 Average Precision for Label 1 ha,1.0000
 Average Precision for Label kg,1.0000
@@ -19,3 +19,5 @@ Average Precision for Label %,0.7500
 Mean Average Precision (mAP),0.9055
 dataset_name,qa_dataset_recalculated_no_rag_functionalUnitQA
 fpath,/home/sagemaker-user/llm-goal-scope/data/qa_dataset/results/qa_dataset_recalculated_no_rag_functionalUnitQA/ESGBERT/EnvironmentalBERT-base
+micro-f1,0.9577
+accuracy (hamming loss),0.9838

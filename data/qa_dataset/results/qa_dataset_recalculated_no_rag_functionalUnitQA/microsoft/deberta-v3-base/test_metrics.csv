@@ -3,9 +3,9 @@ test_accuracy,0.9818181818181818
 test_f1,0.9523809523809523
 test_precision,0.9326424870466321
 test_recall,0.972972972972973
-test_runtime,2.5001
-test_samples_per_second,39.599
-test_steps_per_second,13.2
+test_runtime,2.5437
+test_samples_per_second,38.92
+test_steps_per_second,12.973
 Average Precision for Label days,0.6907
 Average Precision for Label 1 ha,1.0000
 Average Precision for Label kg,1.0000
@@ -19,3 +19,5 @@ Average Precision for Label %,0.8434
 Mean Average Precision (mAP),0.8895
 dataset_name,qa_dataset_recalculated_no_rag_functionalUnitQA
 fpath,/home/sagemaker-user/llm-goal-scope/data/qa_dataset/results/qa_dataset_recalculated_no_rag_functionalUnitQA/microsoft/deberta-v3-base
+micro-f1,0.9524
+accuracy (hamming loss),0.9818

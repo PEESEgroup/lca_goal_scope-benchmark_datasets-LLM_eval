@@ -1,11 +1,11 @@
-test_loss,0.12846387922763824
-test_accuracy,0.9978205128205129
-test_f1,0.9567430025445293
-test_precision,0.94
+test_loss,0.15372323989868164
+test_accuracy,0.997948717948718
+test_f1,0.9591836734693877
+test_precision,0.9447236180904522
 test_recall,0.9740932642487047
-test_runtime,2.552
-test_samples_per_second,40.753
-test_steps_per_second,13.715
+test_runtime,2.3415
+test_samples_per_second,44.416
+test_steps_per_second,14.948
 "Average Precision for Label Beef cattle, steer",1.0000
 "Average Precision for Label Hides, dairy cattle, fresh",0.0096
 "Average Precision for Label Beef cattle, heifer and steer",nan
@@ -24,9 +24,9 @@ Average Precision for Label Milk,1.0000
 "Average Precision for Label Electricity, produced on",nan
 Average Precision for Label Dairy cattle,0.8333
 "Average Precision for Label Meat, chicken, breast",nan
-"Average Precision for Label Meat, dairy cattle (liveweight)",0.7500
+"Average Precision for Label Meat, dairy cattle (liveweight)",1.0000
 "Average Precision for Label Beef cattle, bull",1.0000
-"Average Precision for Label Milk, cow, raw",0.5000
+"Average Precision for Label Milk, cow, raw",1.0000
 "Average Precision for Label Sheep, ram",nan
 Average Precision for Label Caciotta,0.0192
 Average Precision for Label Offal,nan
@@ -39,7 +39,7 @@ Average Precision for Label Sheep,1.0000
 "Average Precision for Label Dairy cattle, calf",0.0096
 "Average Precision for Label Beef cattle, calf (weaned)",nan
 "Average Precision for Label Dairy cattle, calf (female, weaned)",nan
-Average Precision for Label Ricotta,1.0000
+Average Precision for Label Ricotta,0.3333
 "Average Precision for Label Offal, pigs",nan
 "Average Precision for Label Dairy cattle, heifer",0.5000
 Average Precision for Label Hides,0.0096
@@ -64,14 +64,14 @@ Average Precision for Label Cattle,nan
 Average Precision for Label Pig,1.0000
 "Average Precision for Label Beef cattle, cow",1.0000
 Average Precision for Label Cream,nan
-Average Precision for Label Ripened cheese,0.3333
+Average Precision for Label Ripened cheese,1.0000
 "Average Precision for Label Dairy cattle, calf (weaned)",nan
 Average Precision for Label Yoghurt,nan
 Average Precision for Label Whey,nan
 "Average Precision for Label Meat, beef cattle (liveweight)",nan
 "Average Precision for Label Cheese, cow",1.0000
 "Average Precision for Label Pig, piglet",1.0000
-Average Precision for Label Cheese,0.6667
+Average Precision for Label Cheese,1.0000
 "Average Precision for Label Meat, chicken (liveweight)",nan
 "Average Precision for Label Beef cattle, calf (female, weaned)",1.0000
 "Average Precision for Label Broiler chicken, hen",1.0000
@@ -81,8 +81,8 @@ Average Precision for Label Beef cattle,1.0000
 "Average Precision for Label Meat, chicken, wings",nan
 "Average Precision for Label Meat, beef cattle (cold dressed carcass weight)",1.0000
 "Average Precision for Label Layer chicken, pullet",1.0000
-Mean Average Precision (mAP),0.8462
+Mean Average Precision (mAP),0.8708
 dataset_name,qa_dataset_original_no_rag_productQA
 fpath,/home/sagemaker-user/llm-goal-scope/data/qa_dataset/results/qa_dataset_original_no_rag_productQA/microsoft/deberta-v3-small
-micro-f1,0.9567
-accuracy (hamming loss),0.9978
+micro-f1,0.9592
+accuracy (hamming loss),0.9979
