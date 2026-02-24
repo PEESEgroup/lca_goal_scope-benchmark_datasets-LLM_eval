@@ -3,9 +3,9 @@ test_accuracy,0.9807692307692307
 test_f1,0.9423076923076923
 test_precision,0.9423076923076923
 test_recall,0.9423076923076923
-test_runtime,2.0486
-test_samples_per_second,50.766
-test_steps_per_second,17.085
+test_runtime,2.2193
+test_samples_per_second,46.862
+test_steps_per_second,15.771
 Average Precision for Label none required,0.7978
 Average Precision for Label mass,1.0000
 Average Precision for Label economic,0.9452
@@ -15,3 +15,5 @@ Average Precision for Label none,0.7561
 Mean Average Precision (mAP),0.8684
 dataset_name,qa_dataset_original_no_rag_allocationQA
 fpath,/home/sagemaker-user/llm-goal-scope/data/qa_dataset/results/qa_dataset_original_no_rag_allocationQA/climatebert/distilroberta-base-climate-f
+micro-f1,0.9423
+accuracy (hamming loss),0.9808

@@ -3,9 +3,9 @@ test_accuracy,0.9983333333333333
 test_f1,0.9665809768637532
 test_precision,0.9591836734693877
 test_recall,0.9740932642487047
-test_runtime,2.6829
-test_samples_per_second,38.764
-test_steps_per_second,13.046
+test_runtime,2.6939
+test_samples_per_second,38.605
+test_steps_per_second,12.992
 "Average Precision for Label Beef cattle, steer",1.0000
 "Average Precision for Label Hides, dairy cattle, fresh",0.0096
 "Average Precision for Label Beef cattle, heifer and steer",nan
@@ -84,3 +84,5 @@ Average Precision for Label Beef cattle,1.0000
 Mean Average Precision (mAP),0.8908
 dataset_name,qa_dataset_original_no_rag_productQA
 fpath,/home/sagemaker-user/llm-goal-scope/data/qa_dataset/results/qa_dataset_original_no_rag_productQA/microsoft/deberta-v3-base
+micro-f1,0.9666
+accuracy (hamming loss),0.9983

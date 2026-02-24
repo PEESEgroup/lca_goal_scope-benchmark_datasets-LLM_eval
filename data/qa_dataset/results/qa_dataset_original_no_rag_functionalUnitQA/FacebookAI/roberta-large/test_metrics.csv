@@ -3,9 +3,9 @@ test_accuracy,0.975
 test_f1,0.9371980676328503
 test_precision,0.919431279620853
 test_recall,0.9556650246305419
-test_runtime,2.5122
-test_samples_per_second,41.399
-test_steps_per_second,13.932
+test_runtime,2.8287
+test_samples_per_second,36.766
+test_steps_per_second,12.373
 Average Precision for Label days,0.5637
 Average Precision for Label 1 ha,0.6192
 Average Precision for Label kg,1.0000
@@ -19,3 +19,5 @@ Average Precision for Label %,0.7207
 Mean Average Precision (mAP),0.7994
 dataset_name,qa_dataset_original_no_rag_functionalUnitQA
 fpath,/home/sagemaker-user/llm-goal-scope/data/qa_dataset/results/qa_dataset_original_no_rag_functionalUnitQA/FacebookAI/roberta-large
+micro-f1,0.9372
+accuracy (hamming loss),0.9750
