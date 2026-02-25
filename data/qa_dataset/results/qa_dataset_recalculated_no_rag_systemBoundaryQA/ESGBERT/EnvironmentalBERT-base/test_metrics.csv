@@ -3,9 +3,9 @@ test_accuracy,0.988835725677831
 test_f1,0.991396968455551
 test_precision,0.983739837398374
 test_recall,0.9991742361684558
-test_runtime,2.0996
-test_samples_per_second,47.151
-test_steps_per_second,15.717
+test_runtime,2.0711
+test_samples_per_second,47.8
+test_steps_per_second,15.933
 Average Precision for Label True_product,1.0000
 Average Precision for Label True_ingredient,0.9899
 Average Precision for Label True_animalPopulation,0.9895
@@ -28,3 +28,5 @@ Average Precision for Label True_pesticideVeterinaryDrug,1.0000
 Mean Average Precision (mAP),0.9513
 dataset_name,qa_dataset_recalculated_no_rag_systemBoundaryQA
 fpath,/home/sagemaker-user/llm-goal-scope/data/qa_dataset/results/qa_dataset_recalculated_no_rag_systemBoundaryQA/ESGBERT/EnvironmentalBERT-base
+micro-f1,0.9914
+accuracy (hamming loss),0.9888

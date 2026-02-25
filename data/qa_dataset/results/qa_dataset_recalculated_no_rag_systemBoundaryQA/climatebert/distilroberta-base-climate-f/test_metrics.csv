@@ -3,9 +3,9 @@ test_accuracy,0.9920255183413078
 test_f1,0.9938398357289527
 test_precision,0.988562091503268
 test_recall,0.9991742361684558
-test_runtime,2.1204
-test_samples_per_second,46.689
-test_steps_per_second,15.563
+test_runtime,2.0038
+test_samples_per_second,49.405
+test_steps_per_second,16.468
 Average Precision for Label True_product,1.0000
 Average Precision for Label True_ingredient,0.9899
 Average Precision for Label True_animalPopulation,0.9895
@@ -28,3 +28,5 @@ Average Precision for Label True_pesticideVeterinaryDrug,0.9828
 Mean Average Precision (mAP),0.9776
 dataset_name,qa_dataset_recalculated_no_rag_systemBoundaryQA
 fpath,/home/sagemaker-user/llm-goal-scope/data/qa_dataset/results/qa_dataset_recalculated_no_rag_systemBoundaryQA/climatebert/distilroberta-base-climate-f
+micro-f1,0.9938
+accuracy (hamming loss),0.9920
