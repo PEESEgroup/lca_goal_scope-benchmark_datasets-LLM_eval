@@ -3,9 +3,9 @@ test_accuracy,0.9992784992784993
 test_f1,0.9858356940509915
 test_precision,0.9942857142857143
 test_recall,0.9775280898876404
-test_runtime,2.3361
-test_samples_per_second,42.379
-test_steps_per_second,14.126
+test_runtime,2.1165
+test_samples_per_second,46.775
+test_steps_per_second,15.592
 "Average Precision for Label Beef cattle, steer",1.0000
 "Average Precision for Label Beef cattle, heifer and steer",nan
 Average Precision for Label Broiler chicken,1.0000
@@ -79,3 +79,5 @@ Average Precision for Label Beef cattle,1.0000
 Mean Average Precision (mAP),0.9543
 dataset_name,qa_dataset_recalculated_no_rag_productQA
 fpath,/home/sagemaker-user/llm-goal-scope/data/qa_dataset/results/qa_dataset_recalculated_no_rag_productQA/climatebert/distilroberta-base-climate-f
+micro-f1,0.9858
+accuracy (hamming loss),0.9993

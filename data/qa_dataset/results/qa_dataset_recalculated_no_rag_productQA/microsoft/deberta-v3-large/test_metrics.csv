@@ -3,9 +3,9 @@ test_accuracy,0.9988455988455989
 test_f1,0.9775280898876404
 test_precision,0.9775280898876404
 test_recall,0.9775280898876404
-test_runtime,3.1139
-test_samples_per_second,31.793
-test_steps_per_second,10.598
+test_runtime,3.1709
+test_samples_per_second,31.222
+test_steps_per_second,10.407
 "Average Precision for Label Beef cattle, steer",1.0000
 "Average Precision for Label Beef cattle, heifer and steer",nan
 Average Precision for Label Broiler chicken,1.0000
@@ -79,3 +79,5 @@ Average Precision for Label Beef cattle,0.9615
 Mean Average Precision (mAP),0.9480
 dataset_name,qa_dataset_recalculated_no_rag_productQA
 fpath,/home/sagemaker-user/llm-goal-scope/data/qa_dataset/results/qa_dataset_recalculated_no_rag_productQA/microsoft/deberta-v3-large
+micro-f1,0.9775
+accuracy (hamming loss),0.9988
