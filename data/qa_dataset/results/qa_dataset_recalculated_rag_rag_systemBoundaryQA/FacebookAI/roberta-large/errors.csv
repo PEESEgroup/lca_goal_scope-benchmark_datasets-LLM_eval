@@ -1,0 +1,258 @@
+sample_index,context_for_errors,logits,predicted_labels,true_labels,classes
+3,"permanent pasture producing Beef cattle, calf (female, weaned) in United Kingdom. Additional description: Generic grass pasture for sheep and cattle.. What is in the system boundary? Additional Context: The system boundary of the production system includes:
+
+- Livestock (cattle, bulls, heifers, calves, and dry cows)
+- Local feeds (alfalfa and maize)
+- Fertilizers
+- Irrigation
+- Pesticides
+- Machinery (roads, irrigation infrastructure, buildings, and tools)
+- Fuels (diesel and electricity)
+- Water for livestock
+- Manure management
+- Pasture production
+- Crop production
+- Animal transport
+- Calf production
+- Fattening
+- Breeding
+- Feed production
+- Manure
+- Pasture recovery
+- Grazing
+- Supplements (mineral salts)
+- Farm infrastructure (corral, administration building, workers' housing)
+- Farm operations (fertilizer application, manure application, forage production)
+- Farm management (farm decisions, including animal selection, feeding, and breeding)
+- Farm endowments (prices, farm resources)
+- Farm activities (cash crop and dairy production)
+- Farm operations (livestock management, feed planning, and animal health)
+- Farm infrastructure (access road, ponds, creek)
+- Farm management practices (animal breeding, reproduction, and slaughter)
+- Farm operations (animal transport, slaughter, and processing)
+- Farm","[4.8759007, -1.8684549, 4.9518213, 4.921807, 4.9166393, -1.883542, 2.1729782, -1.6896987, 4.7365775, -1.8866279, 5.0417867, 4.688481, 5.2219515, -1.9370886, 4.999124, 4.7110906, 4.8857417, -1.9522306, 5.2600784]","[1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1]","[1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1]","['True_liveAnimalInput', 'True_cropResidue', 'True_seed', 'True_product', 'True_pesticideVeterinaryDrug', 'True_excreta', 'True_freshForage', 'True_transport', 'True_animalFeed', 'True_waste', 'True_ingredient', 'True_operation', 'True_soilAmendment', 'True_material', 'True_animalPopulation', 'True_otherChemical', 'True_electricityFuel', 'True_water', 'True_fertiliser']"
+13,"permanent pasture producing Beef cattle, heifer in United Kingdom. Additional description: High sugar pasture for sheep and cattle.. What is in the system boundary? Additional Context: The system boundary of the beef production system includes:
+
+* The whole dairy herd, including lactating and dry cows, heifers, calves, and bulls
+* Non-lactating animals of the dairy herd (bulls for insemination and labor, female calves and heifers for replacement, and male calves and young bulls for sale)
+* Production of local feeds, including fertilizers, irrigation, pesticides, and machinery
+* Production of ancillary inputs such as fuels and electricity
+* Drinking water for the cattle
+* The equipment of the farms with roads, irrigation infrastructure, buildings, and tools (excluding small-scale infrastructure)
+* The production of concentrates and by-products, such as molasses and manure
+* The breeding and fattening of cattle
+* The sale of calves, heifers, and young bulls
+* The production of grass silage and pasture
+* The grazing of cattle on permanent pasture
+* The use of manure as fertilizer
+* The production of electricity and diesel fuel for agricultural operations
+* The transportation of cattle to and from the farm
+* The sale of beef and other products.","[4.8286624, -1.89409, 4.9569607, 4.8987627, 4.8310986, -1.9322698, 1.8189427, -1.6024727, 4.671507, -1.8662357, 4.9421463, 4.6675496, 5.20502, -1.9084569, 4.978277, 4.766677, 4.862639, -1.8526254, 5.251714]","[1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1]","[1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1]","['True_liveAnimalInput', 'True_cropResidue', 'True_seed', 'True_product', 'True_pesticideVeterinaryDrug', 'True_excreta', 'True_freshForage', 'True_transport', 'True_animalFeed', 'True_waste', 'True_ingredient', 'True_operation', 'True_soilAmendment', 'True_material', 'True_animalPopulation', 'True_otherChemical', 'True_electricityFuel', 'True_water', 'True_fertiliser']"
+38,"permanent pasture producing Dairy cattle, heifer in New Zealand. Additional description: Off-site replacement cow pasture grazing from weaned calf -> 90% of mature weight (2mo -> 22mo) (2017/18). What is in the system boundary? Additional Context: The system boundary of the production system includes:
+
+- Dairy cattle
+- Heifers
+- Pasture (permanent pasture producing dairy cattle)
+- Off-site replacement cow pasture grazing (from weaned calf to 90% of mature weight, 2 months to 22 months)
+- Feed inputs:
+  - Alfalfa
+  - Grain premix
+  - Other grass hays and silages
+- Farm inputs:
+  - Fertilizers
+  - Lime
+  - Manure spreading
+  - Irrigation
+  - Seeding of pastures
+- Background processes:
+  - Grazing
+  - Silage production
+  - Manure spreading
+  - Diffuse emissions (N2O, CH4) from manure spread or deposited on pastures","[3.801335, 3.547979, -0.38890648, 4.0371637, -2.1693707, -2.4106853, 3.943579, -1.5651642, 3.5833578, -2.3062778, 4.511035, -1.7906404, 4.040127, -1.4437419, -0.33324203, 4.44656, -1.1078637, -1.7038851, 3.704256]","[1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1]","[1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1]","['True_liveAnimalInput', 'True_cropResidue', 'True_seed', 'True_product', 'True_pesticideVeterinaryDrug', 'True_excreta', 'True_freshForage', 'True_transport', 'True_animalFeed', 'True_waste', 'True_ingredient', 'True_operation', 'True_soilAmendment', 'True_material', 'True_animalPopulation', 'True_otherChemical', 'True_electricityFuel', 'True_water', 'True_fertiliser']"
+40,"permanent pasture producing Sheep, ewe in United Kingdom. Additional description: Generic grass pasture for sheep and cattle.. What is in the system boundary? Additional Context: The system boundary includes:
+
+- On-farm production of sheep (including feed grown on the farm and imported to the farm)
+- Production of a range of crops
+- Stubble
+- Interrelationships between the sheep and cropping activities
+- Transport between processes (where explicitly shown)
+- Farm services
+- Off-farm inputs (e.g. fertiliser, pesticides, machinery)
+- Infrastructure (excluding construction and establishment)
+- Farm boundary","[4.852268, -1.8576604, 4.911187, 5.0292177, 4.902119, -1.8506927, 2.3182588, -1.7242111, 4.7707925, -1.8898805, 5.0764256, 4.648662, 5.225808, -1.9350935, 4.999471, 4.800786, 4.828068, -1.992598, 5.2761035]","[1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1]","[1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1]","['True_liveAnimalInput', 'True_cropResidue', 'True_seed', 'True_product', 'True_pesticideVeterinaryDrug', 'True_excreta', 'True_freshForage', 'True_transport', 'True_animalFeed', 'True_waste', 'True_ingredient', 'True_operation', 'True_soilAmendment', 'True_material', 'True_animalPopulation', 'True_otherChemical', 'True_electricityFuel', 'True_water', 'True_fertiliser']"
+44,"permanent pasture producing Beef cattle, calf (male, weaned) in United Kingdom. Additional description: High sugar pasture for sheep and cattle.. What is in the system boundary? Additional Context: The system boundary includes:
+
+* The production of beef cattle
+* The production of calf (male, weaned)
+* High sugar pasture for sheep and cattle
+* The production of feed (not specified)
+* The production of fertilizers
+* The production of pesticides
+* The production of electricity and diesel fuel
+* The production of medicines and insecticides
+* The production of machinery and buildings
+* The production of roads
+* The transportation of feed, fertilizers, and other inputs
+* The grazing and management of cattle
+* The production of manure
+* The production of grass silage
+* The production of concentrates
+* The slaughter of cattle
+* The processing of beef
+* The transportation of beef to market
+
+Note that the system boundary does not include:
+
+* The production of milk (as it is a separate system)
+* The production of dairy products (as it is a separate system)
+* The production of other crops (such as wheat, barley, etc.)
+* The production of other livestock (such as sheep, pigs, etc.)
+* The production of other agricultural products (such as fruits, vegetables, etc.)
+* The production of biofuels
+* The production of biogenic carbon emissions
+* The production of carbon sequestration","[4.8428383, -1.9620662, 4.912461, 4.876277, 4.779513, -1.9281459, 1.8235663, -1.6114515, 4.6677046, -1.8510468, 4.9353995, 4.6789756, 5.200746, -1.8906633, 4.9996796, 4.7244277, 4.9044766, -1.8210379, 5.2373157]","[1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1]","[1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1]","['True_liveAnimalInput', 'True_cropResidue', 'True_seed', 'True_product', 'True_pesticideVeterinaryDrug', 'True_excreta', 'True_freshForage', 'True_transport', 'True_animalFeed', 'True_waste', 'True_ingredient', 'True_operation', 'True_soilAmendment', 'True_material', 'True_animalPopulation', 'True_otherChemical', 'True_electricityFuel', 'True_water', 'True_fertiliser']"
+46,"permanent pasture producing Beef cattle, steer in United Kingdom. Additional description: Generic grass pasture for sheep and cattle.. What is in the system boundary? Additional Context: Here is a summary of the system boundary for the beef production system:
+
+* The system boundary includes:
+	+ Farm operations (e.g. breeding, feeding, manure management)
+	+ Feed production (e.g. grass, cereals, soy meal)
+	+ Land use (e.g. pasture, grazing)
+	+ Livestock production (e.g. cattle, sheep)
+	+ Manure management
+	+ Transportation of animals and feed
+	+ Processing and slaughter of animals
+	+ Energy and fuel use (e.g. diesel, electricity)
+	+ Water use
+	+ Fertilizer and pesticide use
+	+ Crop production (e.g. grass, cereals)
+	+ Farm infrastructure (e.g. buildings, roads)
+	+ Off-farm processes (e.g. soybean production, mineral feed supplement production)
+
+The system boundary does not include:
+
+* Impacts from transport of bulls to the slaughterhouse
+* Impacts from processing of the meat
+* Carbon sequestration and biogenic carbon emissions of locally produced feeds
+* Medicines and seeds
+* Basic infrastructure (e.g. unpaved roads, unfortified irrigation channels)","[4.884772, -1.7511368, 4.9364014, 4.984873, 4.851125, -1.8739257, 2.3404207, -1.7309757, 4.796431, -1.9241335, 5.1396985, 4.6433773, 5.2255726, -1.9738879, 5.026995, 4.78518, 4.8501673, -1.947575, 5.28249]","[1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1]","[1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1]","['True_liveAnimalInput', 'True_cropResidue', 'True_seed', 'True_product', 'True_pesticideVeterinaryDrug', 'True_excreta', 'True_freshForage', 'True_transport', 'True_animalFeed', 'True_waste', 'True_ingredient', 'True_operation', 'True_soilAmendment', 'True_material', 'True_animalPopulation', 'True_otherChemical', 'True_electricityFuel', 'True_water', 'True_fertiliser']"
+58,"agri-food processor producing Whey, liquid in Spain. What is in the system boundary? Additional Context: The system boundary of the agri-food processor producing Whey, liquid in Spain includes:
+
+* Production of feed on supplier farms
+* Agricultural activities (e.g. cultivation, harvesting, manure management)
+* Dairy farm (including milk production, pasteurization, homogenization, and packaging)
+* Dairy factory (including cooling, storage, and packaging)
+* Transport of animal feed and milk products
+* WWTP (wastewater treatment plant)
+* Emissions from manure and agricultural activities
+* Energy and water usage
+* Agricultural machinery and equipment
+* Farm buildings and infrastructure
+* Employee transport and corporate office operation
+
+The following is excluded from the system boundary:
+
+* Delivery of final products to wholesale and retailers
+* Consumption phase of the different products
+* Production of capital goods (e.g. equipment, machinery)
+* Off-farm activities (e.g. transportation of raw materials, packaging, and distribution)","[3.8903594, 2.5444138, 4.0994186, 3.3283083, 4.009921, 4.037338, 3.5654736, 2.4561875, 3.4576962, -0.7778139, 2.213222, -0.30912128, 3.2391999, -0.420657, 2.3064842, 2.765723, 2.8774467, 2.2477562, 3.8635836]","[1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1]","[1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1]","['True_liveAnimalInput', 'True_cropResidue', 'True_seed', 'True_product', 'True_pesticideVeterinaryDrug', 'True_excreta', 'True_freshForage', 'True_transport', 'True_animalFeed', 'True_waste', 'True_ingredient', 'True_operation', 'True_soilAmendment', 'True_material', 'True_animalPopulation', 'True_otherChemical', 'True_electricityFuel', 'True_water', 'True_fertiliser']"
+59,"agri-food processor producing Ripened cheese in Italy. What is in the system boundary? Additional Context: The system boundary of the production system includes:
+
+- Dairy farm
+- Dairy factory
+- Raw milk production
+- Concentrated feed production
+- Fodder production
+- Milk treatment
+- Coagulation and moulding
+- Salting and curing
+- Pressing
+- Packaging
+- Waste treatment
+- Emissions to:
+  - Soil
+  - Water
+  - Air","[3.5709462, 3.3772297, 2.4432473, 1.5804657, 3.5054867, 4.649767, 2.9343545, 1.2565169, 3.454739, -0.41390362, -0.7503246, -0.835028, 3.47278, 0.35674727, 3.0012426, 2.6708348, 3.8111432, 1.5965434, 3.1520824]","[1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1]","[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1]","['True_liveAnimalInput', 'True_cropResidue', 'True_seed', 'True_product', 'True_pesticideVeterinaryDrug', 'True_excreta', 'True_freshForage', 'True_transport', 'True_animalFeed', 'True_waste', 'True_ingredient', 'True_operation', 'True_soilAmendment', 'True_material', 'True_animalPopulation', 'True_otherChemical', 'True_electricityFuel', 'True_water', 'True_fertiliser']"
+68,"permanent pasture producing Meat, beef cattle (liveweight) in Colombia. What is in the system boundary? Additional Context: Here is a summary of the relevant life cycle assessment (LCA) information:
+
+**System boundary**: The system boundary includes the production of beef cattle from birth to slaughter, from the farm to the point of transportation away from the farm gate.
+
+**Components included**:
+
+1. Feed production:
+	* Grass silage
+	* Cereals (e.g. spring barley, maize)
+	* Soy meal
+	* Minerals
+2. Fertilizer production
+3. Manure management
+4. Electricity and diesel fuel use
+5. Land use (pasture and grazing)
+
+**Exclusions**:
+
+1. Direct N2O emissions from cattle
+2. CO2 from enteric fermentation
+3. Emissions from production of medicines, insecticides, machines, buildings, and roads
+4. Emissions from transportation of feed and other inputs outside the system boundary
+
+**Allocation methods**:
+
+1. Energy allocation method based on energy contents of meat and milk produced
+2. Mass allocation method based on mass of meat and milk produced
+
+**System types**:
+
+1. Extensive (EXT) beef production system: small-scale, no fencing, cattle grazed in the same manner
+2. Intensive (INT) beef production system: three subsystems:","[-0.3308017, 1.2165403, 2.953882, 3.051085, -1.6266956, -1.4243082, 3.2839336, -1.354283, 3.9971817, -2.12448, 5.2471976, -1.2602838, 3.8507237, -1.6821555, 4.339281, 3.8134341, 1.7277434, -1.537506, 3.7295752]","[0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1]","[1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1]","['True_liveAnimalInput', 'True_cropResidue', 'True_seed', 'True_product', 'True_pesticideVeterinaryDrug', 'True_excreta', 'True_freshForage', 'True_transport', 'True_animalFeed', 'True_waste', 'True_ingredient', 'True_operation', 'True_soilAmendment', 'True_material', 'True_animalPopulation', 'True_otherChemical', 'True_electricityFuel', 'True_water', 'True_fertiliser']"
+74,"permanent pasture producing Beef cattle, heifer in United Kingdom. Additional description: Generic grass pasture for sheep and cattle.. What is in the system boundary? Additional Context: The system boundary of the beef production system includes:
+
+* The whole dairy herd, including lactating and dry cows, heifers, calves, and bulls
+* Non-lactating animals of the dairy herd (bulls for insemination and labor, female calves and heifers for replacement, and male calves and young bulls for sale)
+* Production of local feeds, including fertilizers, irrigation, pesticides, and machinery
+* Production of ancillary inputs such as fuels and electricity
+* Drinking water for the cattle
+* The equipment of the farms with roads, irrigation infrastructure, buildings, and tools (excluding specialized tools)
+* The production of medicines and seeds (excluding due to lack of unit processes in LCA databases)
+* Carbon sequestration and biogenic carbon emissions of locally produced feeds (excluding due to vegetation cycles shorter than one year)
+* The fattening and cow-calf subsystems (for intensive beef production)
+* The breeding farm (for breeding and reproduction)
+* The pasture production (for grazing and forage)
+* The manure and feed production (for animal transport and feeding)
+* The fattening farm (for fattening and finishing)
+* The cow-calf subsystem (for backgrounding and raising)
+* The animal transport (for transportation of cattle to and","[4.8383255, -1.7886957, 4.966641, 4.964952, 4.890525, -1.8517427, 2.281945, -1.7048308, 4.799737, -1.9104444, 5.105587, 4.657313, 5.256291, -1.9319539, 5.013535, 4.7918544, 4.8659763, -1.9569162, 5.2905803]","[1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1]","[1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1]","['True_liveAnimalInput', 'True_cropResidue', 'True_seed', 'True_product', 'True_pesticideVeterinaryDrug', 'True_excreta', 'True_freshForage', 'True_transport', 'True_animalFeed', 'True_waste', 'True_ingredient', 'True_operation', 'True_soilAmendment', 'True_material', 'True_animalPopulation', 'True_otherChemical', 'True_electricityFuel', 'True_water', 'True_fertiliser']"
+82,"animal housing producing Pig in Germany. Additional description: Fattening-FARM. What is in the system boundary? Additional Context: The system boundary of this production system includes:
+
+1. Feed production, both on-farm and off-farm
+2. Manure management, including emissions due to manure storage and application
+3. Manure in the sample farms
+4. Emissions from enteric fermentation of all animal categories
+5. Emissions from land use change (not included in this study)
+6. Feed consumption and transportation to the farms
+7. Recycling of products, such as manure exceeding on-farm feed production needs
+8. Emissions from agricultural operations, including fertilizers, pesticides, and herbicides
+9. Energy consumption and transportation activities
+10. Slaughter and processing of animals
+11. Distribution of pig feed from feed producers to the farm gate
+12. Emissions from slurry management and application on agricultural lands
+13. Emissions from electricity production and use
+14. Emissions from water and soil pollution
+15. Emissions from pharmaceutical and chemical management
+16. Avoided mineral fertilizer production and application
+17. Natural gas production and use
+18. System boundaries do not include packaging, disposal, and incidental use of veterinary products.","[4.1227975, 3.7264318, 4.366968, 4.6733546, -1.1549037, -2.2065303, 4.3321366, -1.7686094, 5.09113, -0.989008, 5.445652, -1.6697338, 5.1135855, -1.7014196, 4.5381627, 4.7924366, -1.4838146, -1.8678511, 4.722566]","[1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1]","[1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1]","['True_liveAnimalInput', 'True_cropResidue', 'True_seed', 'True_product', 'True_pesticideVeterinaryDrug', 'True_excreta', 'True_freshForage', 'True_transport', 'True_animalFeed', 'True_waste', 'True_ingredient', 'True_operation', 'True_soilAmendment', 'True_material', 'True_animalPopulation', 'True_otherChemical', 'True_electricityFuel', 'True_water', 'True_fertiliser']"
+98," producing Broiler chicken in France. Additional description: France standard system (Fr-ST). What is in the system boundary? Additional Context: The system boundary of the Broiler chicken production system in France (Fr-ST) includes:
+
+1. Crop production
+2. Feed production
+3. Slaughterhouse
+4. Packaging process
+5. Transport
+
+The following processes are excluded from the system boundary:
+
+1. Production of cleaning agents
+2. Solid-stream processing (e.g. processing of feathers, heads, feet, and viscera)
+3. Production of vaccines
+4. Production of fungicides
+5. Production of phosphate","[4.502616, 4.2404103, 3.7566204, 3.9101136, 2.2475643, -2.6557157, 4.744663, -1.7027549, 4.664494, -1.6738479, 5.6339817, -0.7558192, 4.4387684, -2.2235584, 4.495518, 3.4378626, 0.32935405, -1.6519929, 4.304618]","[1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1]","[1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1]","['True_liveAnimalInput', 'True_cropResidue', 'True_seed', 'True_product', 'True_pesticideVeterinaryDrug', 'True_excreta', 'True_freshForage', 'True_transport', 'True_animalFeed', 'True_waste', 'True_ingredient', 'True_operation', 'True_soilAmendment', 'True_material', 'True_animalPopulation', 'True_otherChemical', 'True_electricityFuel', 'True_water', 'True_fertiliser']"
