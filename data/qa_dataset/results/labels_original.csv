@@ -1,23 +1,23 @@
 ,model,label,dataset,precision,category,count
 0,microsoft/deberta-v3-small,True_waste,systemBoundaryQA,0.6846,original,10.0
-1,microsoft/deberta-v3-small,True_pesticideVeterinaryDrug,systemBoundaryQA,0.9564,original,55.0
+1,microsoft/deberta-v3-small,True_pesticideVeterinaryDrug,systemBoundaryQA,0.9736,original,55.0
 2,microsoft/deberta-v3-small,True_excreta,systemBoundaryQA,0.9826,original,37.0
-3,microsoft/deberta-v3-small,True_fertiliser,systemBoundaryQA,0.9798,original,97.0
-4,microsoft/deberta-v3-small,True_water,systemBoundaryQA,0.9395,original,28.0
+3,microsoft/deberta-v3-small,True_fertiliser,systemBoundaryQA,0.9700,original,97.0
+4,microsoft/deberta-v3-small,True_water,systemBoundaryQA,0.9655,original,28.0
 5,microsoft/deberta-v3-small,True_soilAmendment,systemBoundaryQA,1.0000,original,100.0
 6,microsoft/deberta-v3-small,True_operation,systemBoundaryQA,0.9737,original,37.0
-7,microsoft/deberta-v3-small,True_material,systemBoundaryQA,0.5000,original,2.0
-8,microsoft/deberta-v3-small,True_seed,systemBoundaryQA,0.9789,original,93.0
+7,microsoft/deberta-v3-small,True_material,systemBoundaryQA,0.6667,original,2.0
+8,microsoft/deberta-v3-small,True_seed,systemBoundaryQA,0.9778,original,93.0
 9,microsoft/deberta-v3-small,True_product,systemBoundaryQA,1.0000,original,96.0
-10,microsoft/deberta-v3-small,True_cropResidue,systemBoundaryQA,0.9394,original,62.0
+10,microsoft/deberta-v3-small,True_cropResidue,systemBoundaryQA,0.9538,original,62.0
 11,microsoft/deberta-v3-small,True_liveAnimalInput,systemBoundaryQA,0.9700,original,97.0
-12,microsoft/deberta-v3-small,True_animalFeed,systemBoundaryQA,0.9898,original,97.0
-13,microsoft/deberta-v3-small,True_freshForage,systemBoundaryQA,0.9370,original,59.0
+12,microsoft/deberta-v3-small,True_animalFeed,systemBoundaryQA,0.9798,original,97.0
+13,microsoft/deberta-v3-small,True_freshForage,systemBoundaryQA,0.9672,original,59.0
 14,microsoft/deberta-v3-small,True_ingredient,systemBoundaryQA,1.0000,original,104.0
-15,microsoft/deberta-v3-small,True_animalPopulation,systemBoundaryQA,0.9510,original,97.0
-16,microsoft/deberta-v3-small,True_electricityFuel,systemBoundaryQA,0.9799,original,76.0
-17,microsoft/deberta-v3-small,True_otherChemical,systemBoundaryQA,0.9583,original,92.0
-18,microsoft/deberta-v3-small,True_transport,systemBoundaryQA,0.5718,original,12.0
+15,microsoft/deberta-v3-small,True_animalPopulation,systemBoundaryQA,0.9604,original,97.0
+16,microsoft/deberta-v3-small,True_electricityFuel,systemBoundaryQA,1.0000,original,76.0
+17,microsoft/deberta-v3-small,True_otherChemical,systemBoundaryQA,0.9485,original,92.0
+18,microsoft/deberta-v3-small,True_transport,systemBoundaryQA,0.9231,original,12.0
 19,microsoft/deberta-v3-base,True_waste,systemBoundaryQA,0.6327,original,10.0
 20,microsoft/deberta-v3-base,True_pesticideVeterinaryDrug,systemBoundaryQA,0.9821,original,55.0
 21,microsoft/deberta-v3-base,True_excreta,systemBoundaryQA,0.9563,original,37.0
@@ -37,25 +37,25 @@
 35,microsoft/deberta-v3-base,True_electricityFuel,systemBoundaryQA,0.9870,original,76.0
 36,microsoft/deberta-v3-base,True_otherChemical,systemBoundaryQA,0.9787,original,92.0
 37,microsoft/deberta-v3-base,True_transport,systemBoundaryQA,0.8571,original,12.0
-38,microsoft/deberta-v3-large,True_waste,systemBoundaryQA,0.5733,original,10.0
-39,microsoft/deberta-v3-large,True_pesticideVeterinaryDrug,systemBoundaryQA,0.9564,original,55.0
+38,microsoft/deberta-v3-large,True_waste,systemBoundaryQA,0.6010,original,10.0
+39,microsoft/deberta-v3-large,True_pesticideVeterinaryDrug,systemBoundaryQA,0.9821,original,55.0
 40,microsoft/deberta-v3-large,True_excreta,systemBoundaryQA,0.9826,original,37.0
 41,microsoft/deberta-v3-large,True_fertiliser,systemBoundaryQA,0.9898,original,97.0
-42,microsoft/deberta-v3-large,True_water,systemBoundaryQA,0.9333,original,28.0
+42,microsoft/deberta-v3-large,True_water,systemBoundaryQA,0.9074,original,28.0
 43,microsoft/deberta-v3-large,True_soilAmendment,systemBoundaryQA,1.0000,original,100.0
-44,microsoft/deberta-v3-large,True_operation,systemBoundaryQA,0.9737,original,37.0
+44,microsoft/deberta-v3-large,True_operation,systemBoundaryQA,1.0000,original,37.0
 45,microsoft/deberta-v3-large,True_material,systemBoundaryQA,0.6667,original,2.0
-46,microsoft/deberta-v3-large,True_seed,systemBoundaryQA,0.9778,original,93.0
+46,microsoft/deberta-v3-large,True_seed,systemBoundaryQA,0.9789,original,93.0
 47,microsoft/deberta-v3-large,True_product,systemBoundaryQA,1.0000,original,96.0
 48,microsoft/deberta-v3-large,True_cropResidue,systemBoundaryQA,0.9538,original,62.0
 49,microsoft/deberta-v3-large,True_liveAnimalInput,systemBoundaryQA,0.9700,original,97.0
-50,microsoft/deberta-v3-large,True_animalFeed,systemBoundaryQA,0.9891,original,97.0
-51,microsoft/deberta-v3-large,True_freshForage,systemBoundaryQA,0.9927,original,59.0
+50,microsoft/deberta-v3-large,True_animalFeed,systemBoundaryQA,0.9798,original,97.0
+51,microsoft/deberta-v3-large,True_freshForage,systemBoundaryQA,1.0000,original,59.0
 52,microsoft/deberta-v3-large,True_ingredient,systemBoundaryQA,1.0000,original,104.0
-53,microsoft/deberta-v3-large,True_animalPopulation,systemBoundaryQA,0.9604,original,97.0
-54,microsoft/deberta-v3-large,True_electricityFuel,systemBoundaryQA,0.9550,original,76.0
-55,microsoft/deberta-v3-large,True_otherChemical,systemBoundaryQA,0.9684,original,92.0
-56,microsoft/deberta-v3-large,True_transport,systemBoundaryQA,0.7768,original,12.0
+53,microsoft/deberta-v3-large,True_animalPopulation,systemBoundaryQA,0.9898,original,97.0
+54,microsoft/deberta-v3-large,True_electricityFuel,systemBoundaryQA,0.9835,original,76.0
+55,microsoft/deberta-v3-large,True_otherChemical,systemBoundaryQA,0.9787,original,92.0
+56,microsoft/deberta-v3-large,True_transport,systemBoundaryQA,0.9263,original,12.0
 57,google-bert/bert-base-uncased,True_waste,systemBoundaryQA,0.8333,original,10.0
 58,google-bert/bert-base-uncased,True_pesticideVeterinaryDrug,systemBoundaryQA,0.9564,original,55.0
 59,google-bert/bert-base-uncased,True_excreta,systemBoundaryQA,0.9652,original,37.0
@@ -262,9 +262,9 @@
 260,microsoft/deberta-v3-small,"Electricity, produced on",productQA,,original,
 261,microsoft/deberta-v3-small,Dairy cattle,productQA,0.8333,original,5.0
 262,microsoft/deberta-v3-small,"Meat, chicken, breast",productQA,,original,
-263,microsoft/deberta-v3-small,"Meat, dairy cattle (liveweight)",productQA,0.7500,original,3.0
+263,microsoft/deberta-v3-small,"Meat, dairy cattle (liveweight)",productQA,1.0000,original,3.0
 264,microsoft/deberta-v3-small,"Beef cattle, bull",productQA,1.0000,original,1.0
-265,microsoft/deberta-v3-small,"Milk, cow, raw",productQA,0.5000,original,1.0
+265,microsoft/deberta-v3-small,"Milk, cow, raw",productQA,1.0000,original,1.0
 266,microsoft/deberta-v3-small,"Sheep, ram",productQA,,original,
 267,microsoft/deberta-v3-small,Caciotta,productQA,0.0192,original,4.0
 268,microsoft/deberta-v3-small,Offal,productQA,,original,
@@ -277,7 +277,7 @@
 275,microsoft/deberta-v3-small,"Dairy cattle, calf",productQA,0.0096,original,1.0
 276,microsoft/deberta-v3-small,"Beef cattle, calf (weaned)",productQA,,original,
 277,microsoft/deberta-v3-small,"Dairy cattle, calf (female, weaned)",productQA,,original,
-278,microsoft/deberta-v3-small,Ricotta,productQA,1.0000,original,2.0
+278,microsoft/deberta-v3-small,Ricotta,productQA,0.3333,original,2.0
 279,microsoft/deberta-v3-small,"Offal, pigs",productQA,,original,
 280,microsoft/deberta-v3-small,"Dairy cattle, heifer",productQA,0.5000,original,1.0
 281,microsoft/deberta-v3-small,Hides,productQA,0.0096,original,1.0
@@ -302,14 +302,14 @@
 300,microsoft/deberta-v3-small,Pig,productQA,1.0000,original,18.0
 301,microsoft/deberta-v3-small,"Beef cattle, cow",productQA,1.0000,original,1.0
 302,microsoft/deberta-v3-small,Cream,productQA,,original,
-303,microsoft/deberta-v3-small,Ripened cheese,productQA,0.3333,original,2.0
+303,microsoft/deberta-v3-small,Ripened cheese,productQA,1.0000,original,2.0
 304,microsoft/deberta-v3-small,"Dairy cattle, calf (weaned)",productQA,,original,
 305,microsoft/deberta-v3-small,Yoghurt,productQA,,original,
 306,microsoft/deberta-v3-small,Whey,productQA,,original,
 307,microsoft/deberta-v3-small,"Meat, beef cattle (liveweight)",productQA,,original,
 308,microsoft/deberta-v3-small,"Cheese, cow",productQA,1.0000,original,2.0
 309,microsoft/deberta-v3-small,"Pig, piglet",productQA,1.0000,original,7.0
-310,microsoft/deberta-v3-small,Cheese,productQA,0.6667,original,2.0
+310,microsoft/deberta-v3-small,Cheese,productQA,1.0000,original,2.0
 311,microsoft/deberta-v3-small,"Meat, chicken (liveweight)",productQA,,original,
 312,microsoft/deberta-v3-small,"Beef cattle, calf (female, weaned)",productQA,1.0000,original,2.0
 313,microsoft/deberta-v3-small,"Broiler chicken, hen",productQA,1.0000,original,1.0
