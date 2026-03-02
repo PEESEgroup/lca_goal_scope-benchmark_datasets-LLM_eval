@@ -1,12 +1,13 @@
-import os
 from pathlib import Path
 import pandas as pd
 from collections import Counter
-from datasets import Dataset, load_dataset, DatasetDict
+from datasets import load_dataset
 import itertools
 import matplotlib.pyplot as plt
 import seaborn as sns
-import numpy as np
+import matplotlib.cm as cm
+import matplotlib.colors
+
 
 def main():
     # build mAP output tables for each of the four categories
@@ -28,34 +29,52 @@ def collect_error_samples():
 
     # Use rglob to recursively find all files matching the pattern
     for file_path in root_directory.rglob('errors.csv'):
-        rag = "" if "no" in str(file_path).split("_") else "rag"
+        rag = "no rag" if "no" in str(file_path).split("_") else "rag"
         dataset_type = "original" if "original" in str(file_path).split("_") else "recalculated"
 
         # read in data and extract label precision, dataset name, and model name
-        data = pd.read_csv(file_path, header=None)
-        language_model = "/".join(str(file_path).split("/")[5:7])
+        data = pd.read_csv(file_path)
+        language_model = "/".join(str(file_path).split("\\")[4:6])
         data["model"] = language_model
-        dataset_name = str(file_path).split("/")[4].split("_")[-1]
+        dataset_name = str(file_path).split("\\")[3].split("_")[-1]
         data["dataset"] = dataset_name
+        data["dataset_type"] = dataset_type
         data["rag"] = rag
 
-        # assign data to appropriate dataframe
-        if dataset_type == "original":
-            original = pd.concat([original, data])
-        elif dataset_type == "recalculated":
-            recalculated = pd.concat([recalculated, data])
+        # assign data to appropriate dataframe if there is data
+        if len(data) > 0:
+            if dataset_type == "original":
+                original = pd.concat([original, data])
+            elif dataset_type == "recalculated":
+                recalculated = pd.concat([recalculated, data])
             
     # build histograms for frequency of sample errors
     # plot histograms
     for i in [original, recalculated]:
-        counts = i[['sample_index', 'model', 'rag']].value_counts()
+        # get the first indication of the frequency of error
+        counts = i[['sample_index', 'dataset', 'rag']].value_counts().reset_index()
 
-        counts.plot.hist(column="sample_index", stacked=True)
+        # pivot the dataframe
+        counts = counts.pivot(columns=["dataset", "rag"], values="count")
+
+        # get colors
+        cmap = cm.get_cmap('tab20')
+        colors_rgba = [cmap(j) for j in range(20)]
+        colors_hex = [matplotlib.colors.to_hex(c) for c in colors_rgba]
+
+        # plot df
+        counts.plot.hist(
+            bins=7,
+            stacked=True,
+            color=colors_hex,
+            title='Stacked Histogram by Category (Pivoted Data)'
+        )
+
         plt.title("Histogram of Sample Data")
         plt.xlabel("Number of Models in Which a Sample is Labeled Incorrectly")
         plt.ylabel("Frequency")
 
-        plt.savefig("llm-goal-scope/data/qa_dataset/results/" + str(dataset_type) +".png", dpi=300)
+        plt.savefig("data/qa_dataset/results/" + str(i["dataset_type"].unique()[0]) +".png", dpi=300)
         plt.show()
         print("dataset precision plot saved")
 
@@ -66,6 +85,8 @@ def collect_error_samples():
     # TODO: for those errors that are persistent (appear across multiple models) do a deeper analysis
 
     # TODO: deduplicate entries
+
+    # TODO: 2x3 grid [[rag, no rag, both], [rag, no rag, both]], 1 row per dataset looking at location of errors
 
 
 def label_precision():
@@ -85,11 +106,11 @@ def label_precision():
 
         # read in data and extract label precision, dataset name, and model name
         data = pd.read_csv(file_path, header=None)
-        language_model = "/".join(str(file_path).split("/")[5:7])
+        language_model = "/".join(str(file_path).split("\\")[4:6])
         data = data[data[0].str.contains("Average Precision for Label ")]
         data["label"] = data[0].str.split(" ").str[4:].str.join(" ")
         data["model"] = language_model
-        dataset_name = str(file_path).split("/")[4].split("_")[-1]
+        dataset_name = str(file_path).split("\\")[3].split("_")[-1]
         data["precision"] = data[1] # relabel map column
         data["dataset"] = dataset_name
         data["category"] = dataset_category
@@ -220,10 +241,10 @@ def map_tables():
 
         # read in data and extract mean average precision, dataset name, and model name
         data = pd.read_csv(file_path, header=None)
-        language_model = "/".join(str(file_path).split("/")[5:7])
+        language_model = "/".join(str(file_path).split("\\")[4:6])
         data = data[data[0] == "Mean Average Precision (mAP)"] 
         data["model"] = language_model
-        dataset_name = str(file_path).split("/")[4].split("_")[-1]
+        dataset_name = str(file_path).split("\\")[3].split("_")[-1]
         data["mAP"] = data[1] # relabel map column
         data["dataset"] = dataset_name
         data = data[["model", "mAP", "dataset"]]  # clean columns
