@@ -149,6 +149,33 @@ def collect_error_samples():
         filtered_dedup.to_csv(
             f"./data/qa_dataset/results/persistent_errors_ignore_rag_{dataset_type}.csv")
 
+        # repeat the above but ignore the difference between RAG and no RAG
+        # deduplicate dataframe
+        dedup = df.drop_duplicates(subset=['sample_index', 'dataset_type'], keep='first').copy(deep=True)
+
+        # Calculate the count for each 'model' and map it back to the rows
+        counts = df.groupby(['sample_index']).transform('count')
+        # add back data because groupby columns go missing during the transform
+        counts['dataset'] = counts['logits']
+        counts['rag'] = counts['logits']
+        counts['sample_index'] = counts['logits']
+        filtered_df = df[counts > 20]  # on average wrong for at least 2 dfs in each
+        filtered_df['sample_index'] = df['sample_index'].astype(int)  # fix count datatype
+        filtered_df = filtered_df.dropna()  # drop na
+        # calculate the number of entries excluded from the filtered dataframe and output the number
+        filtered_dedup = filtered_df.drop_duplicates(subset=['sample_index', 'dataset_type'],
+                                                     keep='first').copy(deep=True)
+        error_analysis[
+            f"{dataset_type} | All Samples | Number of entries in dataframe"] = f"{len(dedup)}"
+        error_analysis[
+            f"{dataset_type} | Persistent Samples | Number of entries in dataframe"] = f"{len(filtered_dedup)}"
+        error_analysis[
+            f"{dataset_type} | Percentage Reduction in Samples | Number of entries in dataframe"] = f"{100 * (len(filtered_dedup) - len(dedup)) / len(dedup):.2f}%"
+
+        # save filtered dataframe
+        filtered_dedup.to_csv(
+            f"./data/qa_dataset/results/persistent_samples_{dataset_type}.csv")
+
     # save error statistics
     df = pd.Series(error_analysis).reset_index()
     df.columns = ['Key', 'Value']
