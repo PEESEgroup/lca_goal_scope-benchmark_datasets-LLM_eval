@@ -49,42 +49,87 @@ def collect_error_samples():
                 recalculated = pd.concat([recalculated, data])
             
     # build histograms for frequency of sample errors
-    # plot histograms
-    for i in [original, recalculated]:
-        # get the first indication of the frequency of error
-        counts = i[['sample_index', 'dataset', 'rag']].value_counts().reset_index()
-
-        # pivot the dataframe
-        counts = counts.pivot(columns=["dataset", "rag"], values="count")
-
-        # get colors
-        cmap = cm.get_cmap('tab20')
-        colors_rgba = [cmap(j) for j in range(20)]
-        colors_hex = [matplotlib.colors.to_hex(c) for c in colors_rgba]
-
-        # plot df
-        counts.plot.hist(
-            bins=7,
-            stacked=True,
-            color=colors_hex,
-            title='Stacked Histogram by Category (Pivoted Data)'
-        )
-
-        plt.title("Histogram of Sample Data")
-        plt.xlabel("Number of Models in Which a Sample is Labeled Incorrectly")
-        plt.ylabel("Frequency")
-
-        plt.savefig("data/qa_dataset/results/" + str(i["dataset_type"].unique()[0]) +".png", dpi=300)
-        plt.show()
-        print("dataset precision plot saved")
+    # for i in [original, recalculated]:
+    #     # get the first indication of the frequency of error
+    #     counts = i[['sample_index', 'dataset', 'rag']].value_counts().reset_index()
+    #
+    #     # pivot the dataframe
+    #     counts = counts.pivot(columns=["dataset", "rag"], values="count")
+    #
+    #     # get colors
+    #     cmap = cm.get_cmap('tab20')
+    #     colors_rgba = [cmap(j) for j in range(20)]
+    #     colors_hex = [matplotlib.colors.to_hex(c) for c in colors_rgba]
+    #
+    #     # plot df
+    #     counts.plot.hist(
+    #         bins=7,
+    #         stacked=True,
+    #         color=colors_hex,
+    #         title='Stacked Histogram by Category (Pivoted Data)'
+    #     )
+    #
+    #     plt.title("Histogram of Sample Data")
+    #     plt.xlabel("Number of Models in Which a Sample is Labeled Incorrectly")
+    #     plt.ylabel("Frequency")
+    #
+    #     plt.savefig("data/qa_dataset/results/" + str(i["dataset_type"].unique()[0]) +".png", dpi=300)
+    #     plt.show()
+    #     print("dataset precision plot saved")
 
     # save data
     original.to_csv("./data/qa_dataset/results/all_errors_original.csv")
     recalculated.to_csv("./data/qa_dataset/results/all_errors_recalculated.csv")
 
-    # TODO: for those errors that are persistent (appear across multiple models) do a deeper analysis
+    # for those errors that are persistent (appear across multiple models) do a deeper analysis
+    for df in [original, recalculated]:
+        # deduplicate dataframe
+        dedup = df.drop_duplicates(subset=['sample_index', 'rag', 'dataset', 'dataset_type'], keep='first').copy(deep=True)
 
-    # TODO: deduplicate entries
+        # find the percentage of rows that are in only rag, only no rag, or both
+        # a row is de
+
+        # Calculate the count for each 'model' and map it back to the rows
+        counts = df.groupby(['dataset', 'rag', 'sample_index']).transform('count')
+        # add back data because groupby columns go missing during the transform
+        counts['dataset'] = counts['logits']
+        counts['rag'] = counts['logits']
+        counts['sample_index'] = counts['logits']
+        filtered_df = df[counts > 3]
+        filtered_df['sample_index'] = df['sample_index'].astype(int) # fix count datatype
+        filtered_df = filtered_df.dropna()  # drop na
+        # calculate the number of entries excluded from the filtered dataframe and output the number
+        filtered_dedup = filtered_df.drop_duplicates(subset=['sample_index', 'rag', 'dataset', 'dataset_type'], keep='first').copy(
+            deep=True)
+        # get the number of nans in the dataframe
+        print(f"Keeping distinction between RAG and no RAG\nDataset: {filtered_dedup['dataset_type'].unique()[0]}\nNumber of entries in dataframe: {len(dedup)}\nNumber of entries in common errors: {len(filtered_dedup)}\nReduction: {100*(len(filtered_dedup)-len(dedup))/len(dedup):.2f}%\n")
+
+        # save filtered dataframe
+        filtered_dedup.to_csv(f"./data/qa_dataset/results/persistent_errors_{filtered_dedup['dataset_type'].unique()[0]}.csv")
+
+        # repeat the above but ignore the difference between RAG and no RAG
+        # deduplicate dataframe
+        dedup = df.drop_duplicates(subset=['sample_index', 'dataset', 'dataset_type'], keep='first').copy(deep=True)
+
+        # Calculate the count for each 'model' and map it back to the rows
+        counts = df.groupby(['dataset', 'sample_index']).transform('count')
+        # add back data because groupby columns go missing during the transform
+        counts['dataset'] = counts['logits']
+        counts['rag'] = counts['logits']
+        counts['sample_index'] = counts['logits']
+        filtered_df = df[counts > 3]
+        filtered_df['sample_index'] = df['sample_index'].astype(int)  # fix count datatype
+        filtered_df = filtered_df.dropna()  # drop na
+        # calculate the number of entries excluded from the filtered dataframe and output the number
+        filtered_dedup = filtered_df.drop_duplicates(subset=['sample_index', 'dataset', 'dataset_type'],
+                                                     keep='first').copy(deep=True)
+        # get the number of nans in the dataframe
+        print(
+            f"Ignoring difference between RAG and no rag results\nDataset: {filtered_dedup['dataset_type'].unique()[0]}\nNumber of entries in dataframe: {len(dedup)}\nNumber of entries in common errors: {len(filtered_dedup)}\nReduction: {100 * (len(filtered_dedup) - len(dedup)) / len(dedup):.2f}%\n")
+
+        # save filtered dataframe
+        filtered_dedup.to_csv(
+            f"./data/qa_dataset/results/persistent_errors_ignore_rag_{filtered_dedup['dataset_type'].unique()[0]}.csv")
 
     # TODO: 2x3 grid [[rag, no rag, both], [rag, no rag, both]], 1 row per dataset looking at location of errors
 
