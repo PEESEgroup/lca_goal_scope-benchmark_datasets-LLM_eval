@@ -10,14 +10,66 @@ import numpy as np
 
 def main():
     # build mAP output tables for each of the four categories
-    map_tables()
+    # map_tables()
 
     # plot number of labels versus precision for each of the four categories
-    label_precision()
+    # label_precision()
+    
+    # collate errors for each dataset
+    collect_error_samples()
+    
+    
+def collect_error_samples():
+    root_directory = Path("./data/qa_dataset/results")
+
+    # two dataframes for two different dataset types
+    original = pd.DataFrame()
+    recalculated = pd.DataFrame()
+
+    # Use rglob to recursively find all files matching the pattern
+    for file_path in root_directory.rglob('errors.csv'):
+        rag = "" if "no" in str(file_path).split("_") else "rag"
+        dataset_type = "original" if "original" in str(file_path).split("_") else "recalculated"
+
+        # read in data and extract label precision, dataset name, and model name
+        data = pd.read_csv(file_path, header=None)
+        language_model = "/".join(str(file_path).split("/")[5:7])
+        data["model"] = language_model
+        dataset_name = str(file_path).split("/")[4].split("_")[-1]
+        data["dataset"] = dataset_name
+        data["rag"] = rag
+
+        # assign data to appropriate dataframe
+        if dataset_type == "original":
+            original = pd.concat([original, data])
+        elif dataset_type == "recalculated":
+            recalculated = pd.concat([recalculated, data])
+            
+    # build histograms for frequency of sample errors
+    # plot histograms
+    for i in [original, recalculated]:
+        counts = i[['sample_index', 'model', 'rag']].value_counts()
+
+        counts.plot.hist(column="sample_index", stacked=True)
+        plt.title("Histogram of Sample Data")
+        plt.xlabel("Number of Models in Which a Sample is Labeled Incorrectly")
+        plt.ylabel("Frequency")
+
+        plt.savefig("llm-goal-scope/data/qa_dataset/results/" + str(dataset_type) +".png", dpi=300)
+        plt.show()
+        print("dataset precision plot saved")
+
+    # save data
+    original.to_csv("./data/qa_dataset/results/all_errors_original.csv")
+    recalculated.to_csv("./data/qa_dataset/results/all_errors_recalculated.csv")
+
+    # TODO: for those errors that are persistent (appear across multiple models) do a deeper analysis
+
+    # TODO: deduplicate entries
 
 
 def label_precision():
-    root_directory = Path("./llm-goal-scope/data/qa_dataset/results")
+    root_directory = Path("./data/qa_dataset/results")
 
     # four dataframes for four different dataset types
     rag_original = pd.DataFrame()
@@ -115,8 +167,8 @@ def label_precision():
     rag_original = pd.merge(rag_original, rag_original_test, "left", ["dataset", "label"])
     rag_recalculated = pd.merge(rag_recalculated, rag_recalculated_test, "left", ["dataset", "label"])
 
-    # plot histograms
-    for i in [original, recalculated]: # rag_original, rag_recalculated
+    # plot scatterplot
+    for i in [original, recalculated, rag_original, rag_recalculated]:
         for j in i["dataset"].unique():
             fig, ax = plt.subplots()
             df = i[i["dataset"] == j].copy(deep=True)
@@ -138,10 +190,10 @@ def label_precision():
             print("dataset precision plot saved")
 
     # save data
-    original.to_csv("./llm-goal-scope/data/qa_dataset/results/labels_original.csv")
-    recalculated.to_csv("./llm-goal-scope/data/qa_dataset/results/labels_recalculated.csv")
-    rag_original.to_csv("./llm-goal-scope/data/qa_dataset/results/labels_rag_original.csv")
-    rag_recalculated.to_csv("./llm-goal-scope/data/qa_dataset/results/labels_rag_recalculated.csv")
+    original.to_csv("./data/qa_dataset/results/labels_original.csv")
+    recalculated.to_csv("./data/qa_dataset/results/labels_recalculated.csv")
+    rag_original.to_csv("./data/qa_dataset/results/labels_rag_original.csv")
+    rag_recalculated.to_csv("./data/qa_dataset/results/labels_rag_recalculated.csv")
 
 
 def map_color(df, col):
@@ -152,7 +204,7 @@ def map_color(df, col):
 
 def map_tables():
     # get all the results files
-    root_directory = Path("./llm-goal-scope/data/qa_dataset/results")
+    root_directory = Path("./data/qa_dataset/results")
 
     # four dataframes for four different dataset types
     rag_original = pd.DataFrame()
@@ -202,10 +254,10 @@ def map_tables():
     rag_recalculated = rag_recalculated.pivot(index='dataset', columns='model', values='mAP')
     
     # print out dataframes
-    original.to_csv("./llm-goal-scope/data/qa_dataset/results/mAP_original.csv")
-    recalculated.to_csv("./llm-goal-scope/data/qa_dataset/results/mAP_recalculated.csv")
-    rag_original.to_csv("./llm-goal-scope/data/qa_dataset/results/mAP_rag_original.csv")
-    rag_recalculated.to_csv("./llm-goal-scope/data/qa_dataset/results/mAP_rag_recalculated.csv")
+    original.to_csv("./data/qa_dataset/results/mAP_original.csv")
+    recalculated.to_csv("./data/qa_dataset/results/mAP_recalculated.csv")
+    rag_original.to_csv("./data/qa_dataset/results/mAP_rag_original.csv")
+    rag_recalculated.to_csv("./data/qa_dataset/results/mAP_rag_recalculated.csv")
 
 
 if __name__ == "__main__":
