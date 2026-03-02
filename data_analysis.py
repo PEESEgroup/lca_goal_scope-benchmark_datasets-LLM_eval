@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import matplotlib.cm as cm
 import matplotlib.colors
+import csv
 
 
 def main():
@@ -82,12 +83,23 @@ def collect_error_samples():
     recalculated.to_csv("./data/qa_dataset/results/all_errors_recalculated.csv")
 
     # for those errors that are persistent (appear across multiple models) do a deeper analysis
+    error_analysis = {}
     for df in [original, recalculated]:
         # deduplicate dataframe
         dedup = df.drop_duplicates(subset=['sample_index', 'rag', 'dataset', 'dataset_type'], keep='first').copy(deep=True)
+        dataset_type = df["dataset_type"].unique()[0]
 
         # find the percentage of rows that are in only rag, only no rag, or both
-        # a row is de
+        # a row is defined as a row number and a dataset
+        presence = pd.crosstab([df['sample_index'], df['dataset']], df['rag']).gt(0)
+        only_rag_count = ((presence['rag'] == True) & (presence['no rag'] == False)).sum()
+        only_no_rag_count = ((presence['no rag'] == True) & (presence['rag'] == False)).sum()
+        both_count = ((presence['rag'] == True) & (presence['no rag'] == True)).sum()
+        total = len(presence)
+
+        error_analysis[f"{dataset_type} | Error Appears only in RAG"] = f"{only_rag_count / total:.1%}"
+        error_analysis[f"{dataset_type} | Error Appears only without RAG"] = f"{only_no_rag_count / total:.1%}"
+        error_analysis[f"{dataset_type} | Error appears in both"] = f"{both_count / total:.1%}"
 
         # Calculate the count for each 'model' and map it back to the rows
         counts = df.groupby(['dataset', 'rag', 'sample_index']).transform('count')
@@ -102,10 +114,13 @@ def collect_error_samples():
         filtered_dedup = filtered_df.drop_duplicates(subset=['sample_index', 'rag', 'dataset', 'dataset_type'], keep='first').copy(
             deep=True)
         # get the number of nans in the dataframe
-        print(f"Keeping distinction between RAG and no RAG\nDataset: {filtered_dedup['dataset_type'].unique()[0]}\nNumber of entries in dataframe: {len(dedup)}\nNumber of entries in common errors: {len(filtered_dedup)}\nReduction: {100*(len(filtered_dedup)-len(dedup))/len(dedup):.2f}%\n")
+        error_analysis[f"{dataset_type} | All Errors | Keeping RAG Distinct | Number of entries in dataframe"] = f"{len(dedup)}"
+        error_analysis[f"{dataset_type} | Persistent Errors | Keeping RAG Distinct | Number of entries in dataframe"] = f"{len(filtered_dedup)}"
+        error_analysis[
+            f"{dataset_type} | Percentage Reduction | Keeping RAG Distinct | Number of entries in dataframe"] = f"{100*(len(filtered_dedup)-len(dedup))/len(dedup):.2f}%"
 
         # save filtered dataframe
-        filtered_dedup.to_csv(f"./data/qa_dataset/results/persistent_errors_{filtered_dedup['dataset_type'].unique()[0]}.csv")
+        filtered_dedup.to_csv(f"./data/qa_dataset/results/persistent_errors_{dataset_type}.csv")
 
         # repeat the above but ignore the difference between RAG and no RAG
         # deduplicate dataframe
@@ -117,21 +132,27 @@ def collect_error_samples():
         counts['dataset'] = counts['logits']
         counts['rag'] = counts['logits']
         counts['sample_index'] = counts['logits']
-        filtered_df = df[counts > 3]
+        filtered_df = df[counts > 4] # on average wrong for at least 2 dfs in each
         filtered_df['sample_index'] = df['sample_index'].astype(int)  # fix count datatype
         filtered_df = filtered_df.dropna()  # drop na
         # calculate the number of entries excluded from the filtered dataframe and output the number
         filtered_dedup = filtered_df.drop_duplicates(subset=['sample_index', 'dataset', 'dataset_type'],
                                                      keep='first').copy(deep=True)
-        # get the number of nans in the dataframe
-        print(
-            f"Ignoring difference between RAG and no rag results\nDataset: {filtered_dedup['dataset_type'].unique()[0]}\nNumber of entries in dataframe: {len(dedup)}\nNumber of entries in common errors: {len(filtered_dedup)}\nReduction: {100 * (len(filtered_dedup) - len(dedup)) / len(dedup):.2f}%\n")
+        error_analysis[
+            f"{dataset_type} | All Errors | Number of entries in dataframe"] = f"{len(dedup)}"
+        error_analysis[
+            f"{dataset_type} | Persistent Errors | Number of entries in dataframe"] = f"{len(filtered_dedup)}"
+        error_analysis[
+            f"{dataset_type} | Percentage Reduction | Number of entries in dataframe"] = f"{100 * (len(filtered_dedup) - len(dedup)) / len(dedup):.2f}%"
 
         # save filtered dataframe
         filtered_dedup.to_csv(
-            f"./data/qa_dataset/results/persistent_errors_ignore_rag_{filtered_dedup['dataset_type'].unique()[0]}.csv")
+            f"./data/qa_dataset/results/persistent_errors_ignore_rag_{dataset_type}.csv")
 
-    # TODO: 2x3 grid [[rag, no rag, both], [rag, no rag, both]], 1 row per dataset looking at location of errors
+    # save error statistics
+    df = pd.Series(error_analysis).reset_index()
+    df.columns = ['Key', 'Value']
+    df.to_csv(f"./data/qa_dataset/results/error_stats_{dataset_type}.csv", index=False)
 
 
 def label_precision():
