@@ -159,7 +159,10 @@ def collect_error_samples():
         counts['dataset'] = counts['logits']
         counts['rag'] = counts['logits']
         counts['sample_index'] = counts['logits']
-        filtered_df = df[counts > 20]  # on average wrong for at least 2 dfs in each
+        if dataset_type == "original":
+            filtered_df = df[counts > 16]  # 4 datasets x 2 RAG x 2 errors
+        else:
+            filtered_df = df[counts > 12]  # 3 datasets x 2 RAG x 2 errors
         filtered_df['sample_index'] = df['sample_index'].astype(int)  # fix count datatype
         filtered_df = filtered_df.dropna()  # drop na
         # calculate the number of entries excluded from the filtered dataframe and output the number
