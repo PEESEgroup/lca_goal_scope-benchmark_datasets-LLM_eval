@@ -139,9 +139,9 @@ def collect_error_samples():
         filtered_dedup = filtered_df.drop_duplicates(subset=['sample_index', 'dataset', 'dataset_type'],
                                                      keep='first').copy(deep=True)
         error_analysis[
-            f"{dataset_type} | All Errors | Number of entries in dataframe"] = f"{len(dedup)}"
+            f"{dataset_type} | Samples with Errors | Number of entries in dataframe"] = f"{len(dedup)}"
         error_analysis[
-            f"{dataset_type} | Persistent Errors | Number of entries in dataframe"] = f"{len(filtered_dedup)}"
+            f"{dataset_type} | Samples with Persistent Errors | Number of entries in dataframe"] = f"{len(filtered_dedup)}"
         error_analysis[
             f"{dataset_type} | Percentage Reduction | Number of entries in dataframe"] = f"{100 * (len(filtered_dedup) - len(dedup)) / len(dedup):.2f}%"
 
@@ -151,7 +151,7 @@ def collect_error_samples():
 
         # repeat the above but ignore the difference between RAG and no RAG
         # deduplicate dataframe
-        dedup = df.drop_duplicates(subset=['sample_index', 'dataset_type'], keep='first').copy(deep=True)
+        dedup = df.drop_duplicates(subset=['sample_index', 'rag', 'dataset_type'], keep='first').copy(deep=True)
 
         # Calculate the count for each 'model' and map it back to the rows
         counts = df.groupby(['sample_index']).transform('count')
@@ -160,20 +160,19 @@ def collect_error_samples():
         counts['rag'] = counts['logits']
         counts['sample_index'] = counts['logits']
         if dataset_type == "original":
-            filtered_df = df[counts > 16]  # 4 datasets x 2 RAG x 2 errors
+            filtered_df = df[counts > 8]  # 4 datasets x 2 errors out of 7 models
         else:
-            filtered_df = df[counts > 12]  # 3 datasets x 2 RAG x 2 errors
+            filtered_df = df[counts > 6]  # 3 datasets x 2 errors out of 7 models
         filtered_df['sample_index'] = df['sample_index'].astype(int)  # fix count datatype
         filtered_df = filtered_df.dropna()  # drop na
         # calculate the number of entries excluded from the filtered dataframe and output the number
-        filtered_dedup = filtered_df.drop_duplicates(subset=['sample_index', 'dataset_type'],
+        filtered_dedup = filtered_df.drop_duplicates(subset=['sample_index', 'rag', 'dataset_type'],
                                                      keep='first').copy(deep=True)
-        error_analysis[
-            f"{dataset_type} | All Samples | Number of entries in dataframe"] = f"{len(dedup)}"
-        error_analysis[
-            f"{dataset_type} | Persistent Samples | Number of entries in dataframe"] = f"{len(filtered_dedup)}"
-        error_analysis[
-            f"{dataset_type} | Percentage Reduction in Samples | Number of entries in dataframe"] = f"{100 * (len(filtered_dedup) - len(dedup)) / len(dedup):.2f}%"
+        for k in ["rag", "no rag"]:
+            error_analysis[
+                f"{dataset_type} | {k} | Samples with Error | Number of entries in dataframe"] = f"{len(dedup[dedup['rag'] == k])}"
+            error_analysis[
+                f"{dataset_type} | {k} | Samples with Persistent Error | Number of entries in dataframe"] = f"{len(filtered_dedup[filtered_dedup['rag'] == k])}"
 
         # save filtered dataframe
         filtered_dedup.to_csv(
