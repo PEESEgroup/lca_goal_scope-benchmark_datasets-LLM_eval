@@ -19,9 +19,85 @@ def main():
     # label_precision()
     
     # collate errors for each dataset based on RAG
-    collect_rag_error_rates()
+    # collect_rag_error_rates()
+
+    # identify occurence of errors and the extent to which models and ground truths agree
+    inter_reviewer_alignment()
     
-    
+
+def inter_reviewer_alignment():
+    root_directory = Path("./data/qa_dataset/results")
+
+    # two dataframes for two different dataset types
+    original = pd.DataFrame()
+    recalculated = pd.DataFrame()
+
+    # Use rglob to recursively find all files matching the pattern
+    for file_path in root_directory.rglob('errors.csv'):
+        rag = "no rag" if "no" in str(file_path).split("_") else "rag"
+        dataset_type = "original" if "original" in str(file_path).split("_") else "recalculated"
+
+        # read in data and extract label precision, dataset name, and model name
+        data = pd.read_csv(file_path)
+        language_model = "/".join(str(file_path).split("\\")[4:6])
+        data["model"] = language_model
+        dataset_name = str(file_path).split("\\")[3].split("_")[-1]
+        data["dataset"] = dataset_name
+        data["dataset_type"] = dataset_type
+        data["rag"] = rag
+
+        # assign data to appropriate dataframe if there is data
+        if len(data) > 0:
+            if dataset_type == "original":
+                original = pd.concat([original, data])
+            elif dataset_type == "recalculated":
+                recalculated = pd.concat([recalculated, data])
+
+    # Identify the percentage of samples of LCA that have 0, 1, 2+ errors
+    error_analysis = {}
+    for df in [original, recalculated]:
+        for models in [["ESGBERT/EnvironmentalBERT-base", "FacebookAI/roberta-large",
+                        "climatebert/distilroberta-base-climate-f", "google-bert/bert-base-uncased",
+                        "microsoft/deberta-v3-base", "microsoft/deberta-v3-large", "microsoft/deberta-v3-small"],
+                       ["google-bert/bert-base-uncased", "microsoft/deberta-v3-large",
+                        "ESGBERT/EnvironmentalBERT-base"]]:
+            dataset_type = df["dataset_type"].unique()[0]
+            if dataset_type == "original":
+                total_samples = 104
+            else:
+                total_samples = 99
+
+            # subset df by the occurence of models
+            analysis_df = df[df["model"].isin(models)]
+
+            if len(models) < 7:  # if we are doing an ensemble estimate, apply it only to the case with fewer models
+                # keep errors if they appear in the majority of models
+                analysis_df = analysis_df.groupby(['sample_index', 'dataset']).filter(
+                    lambda x: len(x) >= math.ceil(len(models) / 2))
+
+                # TODO: remove duplicates
+
+            # group by unique sample identifiers
+            error_counts = analysis_df.groupby(['sample_index', 'model'])['dataset'].nunique()
+
+            # count how many samples have exactly 1 error, 2+ errors, or 0 errors
+            s_1_error = (error_counts == 1).sum()
+            s_2_plus_errors = (error_counts >= 2).sum()
+            s_0_errors = total_samples - len(error_counts)
+
+            # write data out to series
+            data = [len(models), f"{s_0_errors / total_samples:.1%}", f"{s_1_error / total_samples:.1%}",
+                    f"{s_2_plus_errors / total_samples:.1%}"]
+            index_labels = ["Number of Models", '0 Errors', '1 Error', '2+ Errors']
+            s = pd.Series(data, index=index_labels)
+            error_analysis[dataset_type + str(len(models))] = s
+
+    # save error statistics
+    df = pd.DataFrame(error_analysis)
+    df = df.reset_index()
+    df.to_csv(f"./data/qa_dataset/results/error_location.csv", index=False)
+
+
 def collect_rag_error_rates():
     root_directory = Path("./data/qa_dataset/results")
 
@@ -157,20 +233,20 @@ def label_precision():
             rag_recalculated = pd.concat([rag_recalculated, data])
     
     # read in datasets and extract number of labels in the test set
-    filenames = ["llm-goal-scope/data/qa_dataset/original/no_rag/systemBoundaryQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/original/no_rag/allocationQA.jsonl",  
-                 "llm-goal-scope/data/qa_dataset/original/no_rag/functionalUnitQA.jsonl", 
-                 "llm-goal-scope/data/qa_dataset/original/no_rag/productQA.jsonl", 
-                 "llm-goal-scope/data/qa_dataset/recalculated/no_rag/functionalUnitQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/recalculated/no_rag/productQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/recalculated/no_rag/systemBoundaryQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/original/rag/rag_allocationQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/original/rag/rag_functionalUnitQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/original/rag/rag_productQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/original/rag/rag_systemBoundaryQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_functionalUnitQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_productQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_systemBoundaryQA.jsonl",
+    filenames = ["data/qa_dataset/original/no_rag/systemBoundaryQA.jsonl",
+                 "data/qa_dataset/original/no_rag/allocationQA.jsonl",
+                 "data/qa_dataset/original/no_rag/functionalUnitQA.jsonl",
+                 "data/qa_dataset/original/no_rag/productQA.jsonl",
+                 "data/qa_dataset/recalculated/no_rag/functionalUnitQA.jsonl",
+                 "data/qa_dataset/recalculated/no_rag/productQA.jsonl",
+                 "data/qa_dataset/recalculated/no_rag/systemBoundaryQA.jsonl",
+                 "data/qa_dataset/original/rag/rag_allocationQA.jsonl",
+                 "data/qa_dataset/original/rag/rag_functionalUnitQA.jsonl",
+                 "data/qa_dataset/original/rag/rag_productQA.jsonl",
+                 "data/qa_dataset/original/rag/rag_systemBoundaryQA.jsonl",
+                 "data/qa_dataset/recalculated/rag/rag_functionalUnitQA.jsonl",
+                 "data/qa_dataset/recalculated/rag/rag_productQA.jsonl",
+                 "data/qa_dataset/recalculated/rag/rag_systemBoundaryQA.jsonl",
                  ]
 
     # for each dataset
@@ -193,6 +269,7 @@ def label_precision():
         # Split the 10% test + valid in half test, half valid
         test_valid = train_testvalid['test'].train_test_split(test_size=0.5, seed=42)
         test = test_valid['test']
+        print(str(dataset_dataset_category), len(test))
         test_labels = test["labels"] # get the test labels
         
         # flatten and count the occurence of labels
