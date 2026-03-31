@@ -1,3 +1,4 @@
+import math
 from pathlib import Path
 import pandas as pd
 from collections import Counter
@@ -17,11 +18,11 @@ def main():
     # plot number of labels versus precision for each of the four categories
     # label_precision()
     
-    # collate errors for each dataset
-    collect_error_samples()
+    # collate errors for each dataset based on RAG
+    collect_rag_error_rates()
     
     
-def collect_error_samples():
+def collect_rag_error_rates():
     root_directory = Path("./data/qa_dataset/results")
 
     # two dataframes for two different dataset types
@@ -82,106 +83,40 @@ def collect_error_samples():
     original.to_csv("./data/qa_dataset/results/all_errors_original.csv")
     recalculated.to_csv("./data/qa_dataset/results/all_errors_recalculated.csv")
 
-    # for those errors that are persistent (appear across multiple models) do a deeper analysis
+    # Identify incidence of all/persistent errors in RAG
     error_analysis = {}
     for df in [original, recalculated]:
-        # deduplicate dataframe
-        dedup = df.drop_duplicates(subset=['sample_index', 'rag', 'dataset', 'dataset_type'], keep='first').copy(deep=True)
-        dataset_type = df["dataset_type"].unique()[0]
+        for models in [["ESGBERT/EnvironmentalBERT-base", "FacebookAI/roberta-large",
+                        "climatebert/distilroberta-base-climate-f", "google-bert/bert-base-uncased",
+                        "microsoft/deberta-v3-base", "microsoft/deberta-v3-large", "microsoft/deberta-v3-small"],
+                       ["google-bert/bert-base-uncased", "microsoft/deberta-v3-large", "ESGBERT/EnvironmentalBERT-base"]]:
+            dataset_type = df["dataset_type"].unique()[0]
 
-        # find the percentage of rows that are in only rag, only no rag, or both
-        # a row is defined as a row number and a dataset
-        presence = pd.crosstab([df['sample_index'], df['dataset']], df['rag']).gt(0)
-        only_rag_count = ((presence['rag'] == True) & (presence['no rag'] == False)).sum()
-        only_no_rag_count = ((presence['no rag'] == True) & (presence['rag'] == False)).sum()
-        both_count = ((presence['rag'] == True) & (presence['no rag'] == True)).sum()
-        total = len(presence)
+            # subset df by the occurence of models
+            analysis_df = df[df["model"].isin(models)]
 
-        error_analysis[f"{dataset_type} | Error Appears only in RAG"] = f"{only_rag_count / total:.1%}"
-        error_analysis[f"{dataset_type} | Error Appears only without RAG"] = f"{only_no_rag_count / total:.1%}"
-        error_analysis[f"{dataset_type} | Error appears in both"] = f"{both_count / total:.1%}"
+            if len(models) < 7:  # if we are doing an ensemble estimate, apply it only to the case with fewer models
+                # keep errors if they appear in the majority of models
+                analysis_df = analysis_df.groupby(['sample_index', 'dataset']).filter(lambda x: len(x) >= math.ceil(len(models)/2))
 
-        # Calculate the count for each 'model' and map it back to the rows
-        counts = df.groupby(['dataset', 'rag', 'sample_index']).transform('count')
-        # add back data because groupby columns go missing during the transform
-        counts['dataset'] = counts['logits']
-        counts['rag'] = counts['logits']
-        counts['sample_index'] = counts['logits']
-        filtered_df = df[counts > 3]
-        filtered_df['sample_index'] = df['sample_index'].astype(int) # fix count datatype
-        filtered_df = filtered_df.dropna()  # drop na
-        # calculate the number of entries excluded from the filtered dataframe and output the number
-        filtered_dedup = filtered_df.drop_duplicates(subset=['sample_index', 'rag', 'dataset', 'dataset_type'], keep='first').copy(
-            deep=True)
-        # get the number of nans in the dataframe
-        error_analysis[f"{dataset_type} | All Errors | Keeping RAG Distinct | Number of entries in dataframe"] = f"{len(dedup)}"
-        error_analysis[f"{dataset_type} | Persistent Errors | Keeping RAG Distinct | Number of entries in dataframe"] = f"{len(filtered_dedup)}"
-        error_analysis[
-            f"{dataset_type} | Percentage Reduction | Keeping RAG Distinct | Number of entries in dataframe"] = f"{100*(len(filtered_dedup)-len(dedup))/len(dedup):.2f}%"
+            # find the percentage of rows that are in only rag, only no rag, or both
+            # a row is defined as a row number and a dataset
+            presence = pd.crosstab([analysis_df['sample_index'], analysis_df['dataset']], analysis_df['rag']).gt(0)
+            only_rag_count = ((presence['rag'] == True) & (presence['no rag'] == False)).sum()
+            only_no_rag_count = ((presence['no rag'] == True) & (presence['rag'] == False)).sum()
+            both_count = ((presence['rag'] == True) & (presence['no rag'] == True)).sum()
+            total = len(presence)
 
-        # save filtered dataframe
-        filtered_dedup.to_csv(f"./data/qa_dataset/results/persistent_errors_{dataset_type}.csv")
-
-        # repeat the above but ignore the difference between RAG and no RAG
-        # deduplicate dataframe
-        dedup = df.drop_duplicates(subset=['sample_index', 'dataset', 'dataset_type'], keep='first').copy(deep=True)
-
-        # Calculate the count for each 'model' and map it back to the rows
-        counts = df.groupby(['dataset', 'sample_index']).transform('count')
-        # add back data because groupby columns go missing during the transform
-        counts['dataset'] = counts['logits']
-        counts['rag'] = counts['logits']
-        counts['sample_index'] = counts['logits']
-        filtered_df = df[counts > 4] # on average wrong for at least 2 dfs in each
-        filtered_df['sample_index'] = df['sample_index'].astype(int)  # fix count datatype
-        filtered_df = filtered_df.dropna()  # drop na
-        # calculate the number of entries excluded from the filtered dataframe and output the number
-        filtered_dedup = filtered_df.drop_duplicates(subset=['sample_index', 'dataset', 'dataset_type'],
-                                                     keep='first').copy(deep=True)
-        error_analysis[
-            f"{dataset_type} | Samples with Errors | Number of entries in dataframe"] = f"{len(dedup)}"
-        error_analysis[
-            f"{dataset_type} | Samples with Persistent Errors | Number of entries in dataframe"] = f"{len(filtered_dedup)}"
-        error_analysis[
-            f"{dataset_type} | Percentage Reduction | Number of entries in dataframe"] = f"{100 * (len(filtered_dedup) - len(dedup)) / len(dedup):.2f}%"
-
-        # save filtered dataframe
-        filtered_dedup.to_csv(
-            f"./data/qa_dataset/results/persistent_errors_ignore_rag_{dataset_type}.csv")
-
-        # repeat the above but ignore the difference between RAG and no RAG
-        # deduplicate dataframe
-        dedup = df.drop_duplicates(subset=['sample_index', 'rag', 'dataset_type'], keep='first').copy(deep=True)
-
-        # Calculate the count for each 'model' and map it back to the rows
-        counts = df.groupby(['sample_index']).transform('count')
-        # add back data because groupby columns go missing during the transform
-        counts['dataset'] = counts['logits']
-        counts['rag'] = counts['logits']
-        counts['sample_index'] = counts['logits']
-        if dataset_type == "original":
-            filtered_df = df[counts > 8]  # 4 datasets x 2 errors out of 7 models
-        else:
-            filtered_df = df[counts > 6]  # 3 datasets x 2 errors out of 7 models
-        filtered_df['sample_index'] = df['sample_index'].astype(int)  # fix count datatype
-        filtered_df = filtered_df.dropna()  # drop na
-        # calculate the number of entries excluded from the filtered dataframe and output the number
-        filtered_dedup = filtered_df.drop_duplicates(subset=['sample_index', 'rag', 'dataset_type'],
-                                                     keep='first').copy(deep=True)
-        for k in ["rag", "no rag"]:
-            error_analysis[
-                f"{dataset_type} | {k} | Samples with Error | Number of entries in dataframe"] = f"{len(dedup[dedup['rag'] == k])}"
-            error_analysis[
-                f"{dataset_type} | {k} | Samples with Persistent Error | Number of entries in dataframe"] = f"{len(filtered_dedup[filtered_dedup['rag'] == k])}"
-
-        # save filtered dataframe
-        filtered_dedup.to_csv(
-            f"./data/qa_dataset/results/persistent_samples_{dataset_type}.csv")
+            # write data out to series
+            data = [len(models), f"{only_rag_count / total:.1%}", f"{only_no_rag_count / total:.1%}", f"{both_count / total:.1%}"]
+            index_labels = ["Number of Models", 'RAG only', 'No RAG only', 'Both']
+            s = pd.Series(data, index=index_labels)
+            error_analysis[dataset_type + str(len(models))] = s
 
     # save error statistics
-    df = pd.Series(error_analysis).reset_index()
-    df.columns = ['Key', 'Value']
-    df.to_csv(f"./data/qa_dataset/results/error_stats_{dataset_type}.csv", index=False)
+    df = pd.DataFrame(error_analysis)
+    df = df.reset_index()
+    df.to_csv(f"./data/qa_dataset/results/error_location.csv", index=False)
 
 
 def label_precision():
