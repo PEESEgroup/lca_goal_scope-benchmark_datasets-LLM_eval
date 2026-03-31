@@ -56,46 +56,59 @@ def inter_reviewer_alignment():
     # Identify the percentage of samples of LCA that have 0, 1, 2+ errors
     error_analysis = {}
     for df in [original, recalculated]:
-        for models in [["ESGBERT/EnvironmentalBERT-base", "FacebookAI/roberta-large",
-                        "climatebert/distilroberta-base-climate-f", "google-bert/bert-base-uncased",
-                        "microsoft/deberta-v3-base", "microsoft/deberta-v3-large", "microsoft/deberta-v3-small"],
-                       ["google-bert/bert-base-uncased", "microsoft/deberta-v3-large",
-                        "ESGBERT/EnvironmentalBERT-base"]]:
-            dataset_type = df["dataset_type"].unique()[0]
-            if dataset_type == "original":
-                total_samples = 104
-            else:
-                total_samples = 99
+        for rag in ["rag", "no rag"]:
+            rag_df = df[df["rag"] == rag]
+            for models in [["ESGBERT/EnvironmentalBERT-base", "FacebookAI/roberta-large",
+                            "climatebert/distilroberta-base-climate-f", "google-bert/bert-base-uncased",
+                            "microsoft/deberta-v3-base", "microsoft/deberta-v3-large", "microsoft/deberta-v3-small"],
+                           ["google-bert/bert-base-uncased", "microsoft/deberta-v3-large",
+                            "ESGBERT/EnvironmentalBERT-base"]]:
+                dataset_type = rag_df["dataset_type"].unique()[0]
 
-            # subset df by the occurence of models
-            analysis_df = df[df["model"].isin(models)]
+                # treating the ensemble prediction as a single model (see below)
+                if len(models) == 7:
+                    num_models = len(models)
+                else:
+                    num_models = 1
+                num_rag_datasets = 2
 
-            if len(models) < 7:  # if we are doing an ensemble estimate, apply it only to the case with fewer models
-                # keep errors if they appear in the majority of models
-                analysis_df = analysis_df.groupby(['sample_index', 'dataset']).filter(
-                    lambda x: len(x) >= math.ceil(len(models) / 2))
+                # calculate the total number of available samples based on the number of models
+                if dataset_type == "original":
+                    total_samples = 104 * num_models * num_rag_datasets
+                else:
+                    total_samples = 99 * num_models * num_rag_datasets
 
-                # TODO: remove duplicates
+                # subset df by the occurence of models
+                analysis_df = rag_df[rag_df["model"].isin(models)]
 
-            # group by unique sample identifiers
-            error_counts = analysis_df.groupby(['sample_index', 'model'])['dataset'].nunique()
+                if len(models) < 7:  # if we are doing an ensemble estimate, apply it only to the case with fewer models
+                    # keep errors if they appear in the majority of models
+                    analysis_df = analysis_df.groupby(['sample_index', 'dataset']).filter(
+                        lambda x: len(x) >= math.ceil(len(models) / 2))
 
-            # count how many samples have exactly 1 error, 2+ errors, or 0 errors
-            s_1_error = (error_counts == 1).sum()
-            s_2_plus_errors = (error_counts >= 2).sum()
-            s_0_errors = total_samples - len(error_counts)
+                    # remove duplicates (ensemble is treated as 1 model, so look for identical sample indexes, datasets, and RAG)
+                    analysis_df = analysis_df.drop_duplicates(subset=['sample_index', 'dataset'])
+                    analysis_df["model"] = "ensemble"
 
-            # write data out to series
-            data = [len(models), f"{s_0_errors / total_samples:.1%}", f"{s_1_error / total_samples:.1%}",
-                    f"{s_2_plus_errors / total_samples:.1%}"]
-            index_labels = ["Number of Models", '0 Errors', '1 Error', '2+ Errors']
-            s = pd.Series(data, index=index_labels)
-            error_analysis[dataset_type + str(len(models))] = s
+                # group by unique sample identifiers of the sample, the model, and whether or not it is rag
+                error_counts = analysis_df.groupby(['sample_index', 'model'])['dataset'].nunique()
+
+                # count how many samples have exactly 1 error, 2+ errors, or 0 errors
+                s_1_error = (error_counts == 1).sum()
+                s_2_plus_errors = (error_counts >= 2).sum()
+                s_0_errors = total_samples - len(error_counts)
+
+                # write data out to series
+                data = [num_models, rag, f"{s_0_errors / total_samples:.1%}", f"{s_1_error / total_samples:.1%}",
+                        f"{s_2_plus_errors / total_samples:.1%}"]
+                index_labels = ["Number of Models", "RAG", '0 Errors', '1 Error', '2+ Errors']
+                s = pd.Series(data, index=index_labels)
+                error_analysis[dataset_type + str(rag) + str(len(models))] = s
 
     # save error statistics
     df = pd.DataFrame(error_analysis)
     df = df.reset_index()
-    df.to_csv(f"./data/qa_dataset/results/error_location.csv", index=False)
+    df.to_csv(f"./data/qa_dataset/results/num_correct_LCA.csv", index=False)
 
 
 def collect_rag_error_rates():
