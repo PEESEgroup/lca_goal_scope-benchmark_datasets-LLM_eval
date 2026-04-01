@@ -1,4 +1,5 @@
 import math
+import os
 from pathlib import Path
 import pandas as pd
 from collections import Counter
@@ -9,6 +10,7 @@ import seaborn as sns
 import matplotlib.cm as cm
 import matplotlib.colors
 import csv
+import numpy as np
 
 
 def main():
@@ -16,13 +18,13 @@ def main():
     # map_tables()
 
     # plot number of labels versus precision for each of the four categories
-    # label_precision()
+    label_precision()
     
     # collate errors for each dataset based on RAG
     # collect_rag_error_rates()
 
     # identify occurence of errors and the extent to which models and ground truths agree
-    inter_reviewer_alignment()
+    # inter_reviewer_alignment()
     
 
 def inter_reviewer_alignment():
@@ -282,7 +284,6 @@ def label_precision():
         # Split the 10% test + valid in half test, half valid
         test_valid = train_testvalid['test'].train_test_split(test_size=0.5, seed=42)
         test = test_valid['test']
-        print(str(dataset_dataset_category), len(test))
         test_labels = test["labels"] # get the test labels
         
         # flatten and count the occurence of labels
@@ -310,25 +311,41 @@ def label_precision():
 
     # plot scatterplot
     for i in [original, recalculated, rag_original, rag_recalculated]:
-        for j in i["dataset"].unique():
-            fig, ax = plt.subplots()
-            df = i[i["dataset"] == j].copy(deep=True)
-            df = df.dropna()
-            df['precision'] = df['precision'].astype(float) # handle nan
-            df['count'] = df['count'].astype(int)
-            df = map_color(df, "model")
-            print(df)
-            for model in df["model"].unique():
-                plotting_df = df[df["model"] == model]
-                ax.scatter(x =plotting_df['count'], y=plotting_df['precision'], c=plotting_df["color"], label=model, alpha=0.7)
-            plt.xlabel('Frequency of Label')
-            plt.ylabel('Model Precision')
-            plt.title('Sample size effect for dataset' + str(df["category"].unique()[0]) + str(j))
-            plt.legend()
-            plt.grid(True)
-            plt.savefig("llm-goal-scope/data/qa_dataset/results/" + str(df["category"].unique()[0]) + str(j)+".png", dpi=300)
-            plt.show()
-            print("dataset precision plot saved")
+        fig, ax = plt.subplots()
+        df = i.dropna().copy(deep=True)
+        df['precision'] = df['precision'].astype(float) # handle nan
+        df['count'] = df['count'].astype(int)
+        df = map_color(df, "dataset")
+        for dataset in df["dataset"].unique():
+            plotting_df = df[df["dataset"] == dataset]
+            x = plotting_df['count']
+            y = plotting_df['precision']
+            # plot scatter plot
+            ax.scatter(x, y, c=plotting_df["color"], label=dataset, alpha=0.7)
+
+            # calculate trend lines
+            sort_idx = np.argsort(x)
+            x_sorted = x.iloc[sort_idx]
+            y_sorted = y.iloc[sort_idx]
+
+            # --- LINEAR FIT & R2 ---
+            linear_coefs = np.polyfit(x, y, 1)
+            linear_fit = np.poly1d(linear_coefs)
+            # Calculate R2 using all points
+            r2_lin = calculate_r2(y, linear_fit(x))
+
+            ax.plot(x_sorted, linear_fit(x_sorted), color=plotting_df["color"].iloc[0],
+                    linestyle='--', alpha=0.8,
+                    label=f'{dataset} Linear ($R^2$={r2_lin:.2f})')
+
+        plt.xlabel('Frequency of Label')
+        plt.ylabel('Dataset Precision')
+        plt.title('Sample size effect for dataset' + str(df["category"].unique()[0]))
+        plt.legend()
+        plt.grid(True)
+        plt.savefig("./data/qa_dataset/results/" + str(df["category"].unique()[0])+ " " + str(df["dataset"].unique()[0])+".png", dpi=300)
+        plt.show()
+        print("dataset precision plot saved")
 
     # save data
     original.to_csv("./data/qa_dataset/results/labels_original.csv")
@@ -341,6 +358,14 @@ def map_color(df, col):
     color_d = dict(zip(df[col].unique(), sns.color_palette("hls", df[col].nunique())))
     df['color'] = df[col].map(color_d)
     return df
+
+
+def calculate_r2(y, y_pred):
+    """Helper function to calculate R-squared"""
+    residuals = y - y_pred
+    ss_res = np.sum(residuals**2)
+    ss_tot = np.sum((y - np.mean(y))**2)
+    return 1 - (ss_res / ss_tot)
 
 
 def map_tables():
