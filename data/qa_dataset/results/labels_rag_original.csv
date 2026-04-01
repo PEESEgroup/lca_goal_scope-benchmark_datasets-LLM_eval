@@ -1,771 +1,771 @@
 ,model,label,dataset,precision,category,count
-0,microsoft/deberta-v3-small,none,allocationQA,0.9187,original_rag,
-1,microsoft/deberta-v3-small,energy,allocationQA,,original_rag,
-2,microsoft/deberta-v3-small,mass,allocationQA,1.0000,original_rag,
-3,microsoft/deberta-v3-small,none required,allocationQA,0.8462,original_rag,
-4,microsoft/deberta-v3-small,economic,allocationQA,0.9583,original_rag,
-5,microsoft/deberta-v3-small,biophysical,allocationQA,0.6049,original_rag,
-6,microsoft/deberta-v3-base,none,allocationQA,0.5578,original_rag,
-7,microsoft/deberta-v3-base,energy,allocationQA,,original_rag,
-8,microsoft/deberta-v3-base,mass,allocationQA,0.0096,original_rag,
-9,microsoft/deberta-v3-base,none required,allocationQA,0.8464,original_rag,
-10,microsoft/deberta-v3-base,economic,allocationQA,0.9200,original_rag,
-11,microsoft/deberta-v3-base,biophysical,allocationQA,0.8429,original_rag,
-12,microsoft/deberta-v3-large,none,allocationQA,0.1058,original_rag,
-13,microsoft/deberta-v3-large,energy,allocationQA,,original_rag,
-14,microsoft/deberta-v3-large,mass,allocationQA,0.0096,original_rag,
-15,microsoft/deberta-v3-large,none required,allocationQA,0.1635,original_rag,
-16,microsoft/deberta-v3-large,economic,allocationQA,0.6635,original_rag,
-17,microsoft/deberta-v3-large,biophysical,allocationQA,0.0577,original_rag,
-18,google-bert/bert-base-uncased,none,allocationQA,0.9187,original_rag,
+0,climatebert/distilroberta-base-climate-f,none,allocationQA,0.9187,original_rag,11.0
+1,climatebert/distilroberta-base-climate-f,energy,allocationQA,,original_rag,
+2,climatebert/distilroberta-base-climate-f,mass,allocationQA,0.3333,original_rag,1.0
+3,climatebert/distilroberta-base-climate-f,none required,allocationQA,0.7975,original_rag,17.0
+4,climatebert/distilroberta-base-climate-f,economic,allocationQA,0.9200,original_rag,69.0
+5,climatebert/distilroberta-base-climate-f,biophysical,allocationQA,0.8429,original_rag,6.0
+6,ESGBERT/EnvironmentalBERT-base,none,allocationQA,0.8361,original_rag,11.0
+7,ESGBERT/EnvironmentalBERT-base,energy,allocationQA,,original_rag,
+8,ESGBERT/EnvironmentalBERT-base,mass,allocationQA,0.5000,original_rag,1.0
+9,ESGBERT/EnvironmentalBERT-base,none required,allocationQA,0.7978,original_rag,17.0
+10,ESGBERT/EnvironmentalBERT-base,economic,allocationQA,0.9324,original_rag,69.0
+11,ESGBERT/EnvironmentalBERT-base,biophysical,allocationQA,0.7041,original_rag,6.0
+12,FacebookAI/roberta-large,none,allocationQA,0.8361,original_rag,11.0
+13,FacebookAI/roberta-large,energy,allocationQA,,original_rag,
+14,FacebookAI/roberta-large,mass,allocationQA,0.5000,original_rag,1.0
+15,FacebookAI/roberta-large,none required,allocationQA,0.8462,original_rag,17.0
+16,FacebookAI/roberta-large,economic,allocationQA,0.9079,original_rag,69.0
+17,FacebookAI/roberta-large,biophysical,allocationQA,0.6859,original_rag,6.0
+18,google-bert/bert-base-uncased,none,allocationQA,0.9187,original_rag,11.0
 19,google-bert/bert-base-uncased,energy,allocationQA,,original_rag,
-20,google-bert/bert-base-uncased,mass,allocationQA,1.0000,original_rag,
-21,google-bert/bert-base-uncased,none required,allocationQA,0.7978,original_rag,
-22,google-bert/bert-base-uncased,economic,allocationQA,0.9079,original_rag,
-23,google-bert/bert-base-uncased,biophysical,allocationQA,0.6859,original_rag,
-24,FacebookAI/roberta-large,none,allocationQA,0.8361,original_rag,
-25,FacebookAI/roberta-large,energy,allocationQA,,original_rag,
-26,FacebookAI/roberta-large,mass,allocationQA,0.5000,original_rag,
-27,FacebookAI/roberta-large,none required,allocationQA,0.8462,original_rag,
-28,FacebookAI/roberta-large,economic,allocationQA,0.9079,original_rag,
-29,FacebookAI/roberta-large,biophysical,allocationQA,0.6859,original_rag,
-30,climatebert/distilroberta-base-climate-f,none,allocationQA,0.9187,original_rag,
-31,climatebert/distilroberta-base-climate-f,energy,allocationQA,,original_rag,
-32,climatebert/distilroberta-base-climate-f,mass,allocationQA,0.3333,original_rag,
-33,climatebert/distilroberta-base-climate-f,none required,allocationQA,0.7975,original_rag,
-34,climatebert/distilroberta-base-climate-f,economic,allocationQA,0.9200,original_rag,
-35,climatebert/distilroberta-base-climate-f,biophysical,allocationQA,0.8429,original_rag,
-36,ESGBERT/EnvironmentalBERT-base,none,allocationQA,0.8361,original_rag,
-37,ESGBERT/EnvironmentalBERT-base,energy,allocationQA,,original_rag,
-38,ESGBERT/EnvironmentalBERT-base,mass,allocationQA,0.5000,original_rag,
-39,ESGBERT/EnvironmentalBERT-base,none required,allocationQA,0.7978,original_rag,
-40,ESGBERT/EnvironmentalBERT-base,economic,allocationQA,0.9324,original_rag,
-41,ESGBERT/EnvironmentalBERT-base,biophysical,allocationQA,0.7041,original_rag,
-42,microsoft/deberta-v3-small,kg cold carcass weight/head,functionalUnitQA,0.8570,original_rag,
-43,microsoft/deberta-v3-small,1 ha,functionalUnitQA,0.8096,original_rag,
-44,microsoft/deberta-v3-small,kg cold dressed carcass weight/head,functionalUnitQA,,original_rag,
-45,microsoft/deberta-v3-small,days,functionalUnitQA,0.4729,original_rag,
-46,microsoft/deberta-v3-small,relative,functionalUnitQA,0.9706,original_rag,
-47,microsoft/deberta-v3-small,kg,functionalUnitQA,1.0000,original_rag,
-48,microsoft/deberta-v3-small,unitless,functionalUnitQA,,original_rag,
-49,microsoft/deberta-v3-small,kg liveweight/head,functionalUnitQA,0.8998,original_rag,
-50,microsoft/deberta-v3-small,%,functionalUnitQA,0.5637,original_rag,
-51,microsoft/deberta-v3-small,kg ready-to-cook weight/head,functionalUnitQA,,original_rag,
-52,microsoft/deberta-v3-base,kg cold carcass weight/head,functionalUnitQA,0.8570,original_rag,
-53,microsoft/deberta-v3-base,1 ha,functionalUnitQA,0.6192,original_rag,
-54,microsoft/deberta-v3-base,kg cold dressed carcass weight/head,functionalUnitQA,,original_rag,
-55,microsoft/deberta-v3-base,days,functionalUnitQA,0.5142,original_rag,
-56,microsoft/deberta-v3-base,relative,functionalUnitQA,0.9802,original_rag,
-57,microsoft/deberta-v3-base,kg,functionalUnitQA,0.5000,original_rag,
-58,microsoft/deberta-v3-base,unitless,functionalUnitQA,,original_rag,
-59,microsoft/deberta-v3-base,kg liveweight/head,functionalUnitQA,0.8730,original_rag,
-60,microsoft/deberta-v3-base,%,functionalUnitQA,0.5000,original_rag,
-61,microsoft/deberta-v3-base,kg ready-to-cook weight/head,functionalUnitQA,,original_rag,
-62,microsoft/deberta-v3-large,kg cold carcass weight/head,functionalUnitQA,0.8570,original_rag,
-63,microsoft/deberta-v3-large,1 ha,functionalUnitQA,0.4692,original_rag,
-64,microsoft/deberta-v3-large,kg cold dressed carcass weight/head,functionalUnitQA,,original_rag,
-65,microsoft/deberta-v3-large,days,functionalUnitQA,0.4380,original_rag,
-66,microsoft/deberta-v3-large,relative,functionalUnitQA,0.9706,original_rag,
-67,microsoft/deberta-v3-large,kg,functionalUnitQA,1.0000,original_rag,
-68,microsoft/deberta-v3-large,unitless,functionalUnitQA,,original_rag,
-69,microsoft/deberta-v3-large,kg liveweight/head,functionalUnitQA,0.8998,original_rag,
-70,microsoft/deberta-v3-large,%,functionalUnitQA,0.6000,original_rag,
-71,microsoft/deberta-v3-large,kg ready-to-cook weight/head,functionalUnitQA,,original_rag,
-72,google-bert/bert-base-uncased,kg cold carcass weight/head,functionalUnitQA,0.7850,original_rag,
-73,google-bert/bert-base-uncased,1 ha,functionalUnitQA,0.6192,original_rag,
+20,google-bert/bert-base-uncased,mass,allocationQA,1.0000,original_rag,1.0
+21,google-bert/bert-base-uncased,none required,allocationQA,0.7978,original_rag,17.0
+22,google-bert/bert-base-uncased,economic,allocationQA,0.9079,original_rag,69.0
+23,google-bert/bert-base-uncased,biophysical,allocationQA,0.6859,original_rag,6.0
+24,microsoft/deberta-v3-base,none,allocationQA,0.5578,original_rag,11.0
+25,microsoft/deberta-v3-base,energy,allocationQA,,original_rag,
+26,microsoft/deberta-v3-base,mass,allocationQA,0.0096,original_rag,1.0
+27,microsoft/deberta-v3-base,none required,allocationQA,0.8464,original_rag,17.0
+28,microsoft/deberta-v3-base,economic,allocationQA,0.9200,original_rag,69.0
+29,microsoft/deberta-v3-base,biophysical,allocationQA,0.8429,original_rag,6.0
+30,microsoft/deberta-v3-large,none,allocationQA,0.1058,original_rag,11.0
+31,microsoft/deberta-v3-large,energy,allocationQA,,original_rag,
+32,microsoft/deberta-v3-large,mass,allocationQA,0.0096,original_rag,1.0
+33,microsoft/deberta-v3-large,none required,allocationQA,0.1635,original_rag,17.0
+34,microsoft/deberta-v3-large,economic,allocationQA,0.6635,original_rag,69.0
+35,microsoft/deberta-v3-large,biophysical,allocationQA,0.0577,original_rag,6.0
+36,microsoft/deberta-v3-small,none,allocationQA,0.9187,original_rag,11.0
+37,microsoft/deberta-v3-small,energy,allocationQA,,original_rag,
+38,microsoft/deberta-v3-small,mass,allocationQA,1.0000,original_rag,1.0
+39,microsoft/deberta-v3-small,none required,allocationQA,0.8462,original_rag,17.0
+40,microsoft/deberta-v3-small,economic,allocationQA,0.9583,original_rag,69.0
+41,microsoft/deberta-v3-small,biophysical,allocationQA,0.6049,original_rag,6.0
+42,climatebert/distilroberta-base-climate-f,kg cold carcass weight/head,functionalUnitQA,0.8570,original_rag,23.0
+43,climatebert/distilroberta-base-climate-f,1 ha,functionalUnitQA,0.6192,original_rag,5.0
+44,climatebert/distilroberta-base-climate-f,kg cold dressed carcass weight/head,functionalUnitQA,,original_rag,
+45,climatebert/distilroberta-base-climate-f,days,functionalUnitQA,0.3328,original_rag,9.0
+46,climatebert/distilroberta-base-climate-f,relative,functionalUnitQA,0.9612,original_rag,99.0
+47,climatebert/distilroberta-base-climate-f,kg,functionalUnitQA,0.7500,original_rag,3.0
+48,climatebert/distilroberta-base-climate-f,unitless,functionalUnitQA,,original_rag,
+49,climatebert/distilroberta-base-climate-f,kg liveweight/head,functionalUnitQA,0.8462,original_rag,55.0
+50,climatebert/distilroberta-base-climate-f,%,functionalUnitQA,0.3595,original_rag,9.0
+51,climatebert/distilroberta-base-climate-f,kg ready-to-cook weight/head,functionalUnitQA,,original_rag,
+52,ESGBERT/EnvironmentalBERT-base,kg cold carcass weight/head,functionalUnitQA,0.7850,original_rag,23.0
+53,ESGBERT/EnvironmentalBERT-base,1 ha,functionalUnitQA,0.6192,original_rag,5.0
+54,ESGBERT/EnvironmentalBERT-base,kg cold dressed carcass weight/head,functionalUnitQA,,original_rag,
+55,ESGBERT/EnvironmentalBERT-base,days,functionalUnitQA,0.5142,original_rag,9.0
+56,ESGBERT/EnvironmentalBERT-base,relative,functionalUnitQA,0.9706,original_rag,99.0
+57,ESGBERT/EnvironmentalBERT-base,kg,functionalUnitQA,1.0000,original_rag,3.0
+58,ESGBERT/EnvironmentalBERT-base,unitless,functionalUnitQA,,original_rag,
+59,ESGBERT/EnvironmentalBERT-base,kg liveweight/head,functionalUnitQA,0.9322,original_rag,55.0
+60,ESGBERT/EnvironmentalBERT-base,%,functionalUnitQA,0.6022,original_rag,9.0
+61,ESGBERT/EnvironmentalBERT-base,kg ready-to-cook weight/head,functionalUnitQA,,original_rag,
+62,FacebookAI/roberta-large,kg cold carcass weight/head,functionalUnitQA,0.8194,original_rag,23.0
+63,FacebookAI/roberta-large,1 ha,functionalUnitQA,0.6192,original_rag,5.0
+64,FacebookAI/roberta-large,kg cold dressed carcass weight/head,functionalUnitQA,,original_rag,
+65,FacebookAI/roberta-large,days,functionalUnitQA,0.1848,original_rag,9.0
+66,FacebookAI/roberta-large,relative,functionalUnitQA,0.9612,original_rag,99.0
+67,FacebookAI/roberta-large,kg,functionalUnitQA,1.0000,original_rag,3.0
+68,FacebookAI/roberta-large,unitless,functionalUnitQA,,original_rag,
+69,FacebookAI/roberta-large,kg liveweight/head,functionalUnitQA,0.8594,original_rag,55.0
+70,FacebookAI/roberta-large,%,functionalUnitQA,0.1848,original_rag,9.0
+71,FacebookAI/roberta-large,kg ready-to-cook weight/head,functionalUnitQA,,original_rag,
+72,google-bert/bert-base-uncased,kg cold carcass weight/head,functionalUnitQA,0.7850,original_rag,23.0
+73,google-bert/bert-base-uncased,1 ha,functionalUnitQA,0.6192,original_rag,5.0
 74,google-bert/bert-base-uncased,kg cold dressed carcass weight/head,functionalUnitQA,,original_rag,
-75,google-bert/bert-base-uncased,days,functionalUnitQA,0.5637,original_rag,
-76,google-bert/bert-base-uncased,relative,functionalUnitQA,0.9706,original_rag,
-77,google-bert/bert-base-uncased,kg,functionalUnitQA,1.0000,original_rag,
+75,google-bert/bert-base-uncased,days,functionalUnitQA,0.5637,original_rag,9.0
+76,google-bert/bert-base-uncased,relative,functionalUnitQA,0.9706,original_rag,99.0
+77,google-bert/bert-base-uncased,kg,functionalUnitQA,1.0000,original_rag,3.0
 78,google-bert/bert-base-uncased,unitless,functionalUnitQA,,original_rag,
-79,google-bert/bert-base-uncased,kg liveweight/head,functionalUnitQA,0.8871,original_rag,
-80,google-bert/bert-base-uncased,%,functionalUnitQA,0.7500,original_rag,
+79,google-bert/bert-base-uncased,kg liveweight/head,functionalUnitQA,0.8871,original_rag,55.0
+80,google-bert/bert-base-uncased,%,functionalUnitQA,0.7500,original_rag,9.0
 81,google-bert/bert-base-uncased,kg ready-to-cook weight/head,functionalUnitQA,,original_rag,
-82,FacebookAI/roberta-large,kg cold carcass weight/head,functionalUnitQA,0.8194,original_rag,
-83,FacebookAI/roberta-large,1 ha,functionalUnitQA,0.6192,original_rag,
-84,FacebookAI/roberta-large,kg cold dressed carcass weight/head,functionalUnitQA,,original_rag,
-85,FacebookAI/roberta-large,days,functionalUnitQA,0.1848,original_rag,
-86,FacebookAI/roberta-large,relative,functionalUnitQA,0.9612,original_rag,
-87,FacebookAI/roberta-large,kg,functionalUnitQA,1.0000,original_rag,
-88,FacebookAI/roberta-large,unitless,functionalUnitQA,,original_rag,
-89,FacebookAI/roberta-large,kg liveweight/head,functionalUnitQA,0.8594,original_rag,
-90,FacebookAI/roberta-large,%,functionalUnitQA,0.1848,original_rag,
-91,FacebookAI/roberta-large,kg ready-to-cook weight/head,functionalUnitQA,,original_rag,
-92,climatebert/distilroberta-base-climate-f,kg cold carcass weight/head,functionalUnitQA,0.8570,original_rag,
-93,climatebert/distilroberta-base-climate-f,1 ha,functionalUnitQA,0.6192,original_rag,
-94,climatebert/distilroberta-base-climate-f,kg cold dressed carcass weight/head,functionalUnitQA,,original_rag,
-95,climatebert/distilroberta-base-climate-f,days,functionalUnitQA,0.3328,original_rag,
-96,climatebert/distilroberta-base-climate-f,relative,functionalUnitQA,0.9612,original_rag,
-97,climatebert/distilroberta-base-climate-f,kg,functionalUnitQA,0.7500,original_rag,
-98,climatebert/distilroberta-base-climate-f,unitless,functionalUnitQA,,original_rag,
-99,climatebert/distilroberta-base-climate-f,kg liveweight/head,functionalUnitQA,0.8462,original_rag,
-100,climatebert/distilroberta-base-climate-f,%,functionalUnitQA,0.3595,original_rag,
-101,climatebert/distilroberta-base-climate-f,kg ready-to-cook weight/head,functionalUnitQA,,original_rag,
-102,ESGBERT/EnvironmentalBERT-base,kg cold carcass weight/head,functionalUnitQA,0.7850,original_rag,
-103,ESGBERT/EnvironmentalBERT-base,1 ha,functionalUnitQA,0.6192,original_rag,
-104,ESGBERT/EnvironmentalBERT-base,kg cold dressed carcass weight/head,functionalUnitQA,,original_rag,
-105,ESGBERT/EnvironmentalBERT-base,days,functionalUnitQA,0.5142,original_rag,
-106,ESGBERT/EnvironmentalBERT-base,relative,functionalUnitQA,0.9706,original_rag,
-107,ESGBERT/EnvironmentalBERT-base,kg,functionalUnitQA,1.0000,original_rag,
-108,ESGBERT/EnvironmentalBERT-base,unitless,functionalUnitQA,,original_rag,
-109,ESGBERT/EnvironmentalBERT-base,kg liveweight/head,functionalUnitQA,0.9322,original_rag,
-110,ESGBERT/EnvironmentalBERT-base,%,functionalUnitQA,0.6022,original_rag,
-111,ESGBERT/EnvironmentalBERT-base,kg ready-to-cook weight/head,functionalUnitQA,,original_rag,
-112,microsoft/deberta-v3-small,"Meat, beef cattle (cold carcass weight)",productQA,1.0000,original_rag,
-113,microsoft/deberta-v3-small,Layer chicken,productQA,1.0000,original_rag,
-114,microsoft/deberta-v3-small,Pig,productQA,1.0000,original_rag,
-115,microsoft/deberta-v3-small,"Meat, beef cattle (cold dressed carcass weight)",productQA,1.0000,original_rag,
-116,microsoft/deberta-v3-small,Hides,productQA,0.0096,original_rag,
-117,microsoft/deberta-v3-small,Dairy cattle,productQA,0.8333,original_rag,
-118,microsoft/deberta-v3-small,Milk,productQA,1.0000,original_rag,
-119,microsoft/deberta-v3-small,Cream,productQA,,original_rag,
-120,microsoft/deberta-v3-small,"Beef cattle, calf (male, weaned)",productQA,1.0000,original_rag,
-121,microsoft/deberta-v3-small,"Beef cattle, cow",productQA,1.0000,original_rag,
-122,microsoft/deberta-v3-small,"Whey, liquid",productQA,,original_rag,
-123,microsoft/deberta-v3-small,Wastewater (kg mass),productQA,,original_rag,
-124,microsoft/deberta-v3-small,"Milk, cow, raw (FPCM)",productQA,1.0000,original_rag,
-125,microsoft/deberta-v3-small,"Meat, chicken, wings",productQA,,original_rag,
-126,microsoft/deberta-v3-small,"Beef cattle, heifer and steer",productQA,,original_rag,
-127,microsoft/deberta-v3-small,"Meat, dairy cattle (cold carcass weight)",productQA,,original_rag,
-128,microsoft/deberta-v3-small,Buttermilk,productQA,,original_rag,
-129,microsoft/deberta-v3-small,"Pig, sow",productQA,1.0000,original_rag,
-130,microsoft/deberta-v3-small,"Cattle, urine (kg mass)",productQA,,original_rag,
-131,microsoft/deberta-v3-small,"Beef cattle, calf (female, weaned)",productQA,1.0000,original_rag,
-132,microsoft/deberta-v3-small,Yoghurt,productQA,,original_rag,
-133,microsoft/deberta-v3-small,"Meat, beef cattle (liveweight)",productQA,,original_rag,
-134,microsoft/deberta-v3-small,"Dairy cattle, heifer",productQA,1.0000,original_rag,
-135,microsoft/deberta-v3-small,"Sheep, ram",productQA,,original_rag,
-136,microsoft/deberta-v3-small,Caciotta,productQA,0.0192,original_rag,
-137,microsoft/deberta-v3-small,"Electricity, produced on",productQA,,original_rag,
-138,microsoft/deberta-v3-small,Fresh cheese,productQA,,original_rag,
-139,microsoft/deberta-v3-small,Electricity,productQA,,original_rag,
-140,microsoft/deberta-v3-small,"Sheep, ewe",productQA,1.0000,original_rag,
-141,microsoft/deberta-v3-small,"Dairy cattle, calf (male, unweaned)",productQA,,original_rag,
-142,microsoft/deberta-v3-small,"Meat, pig (cold carcass weight)",productQA,,original_rag,
-143,microsoft/deberta-v3-small,"Beef cattle, calf (weaned)",productQA,,original_rag,
-144,microsoft/deberta-v3-small,"Meat, pig (cold dressed carcass weight)",productQA,1.0000,original_rag,
-145,microsoft/deberta-v3-small,"Dairy cattle, calf (female, weaned)",productQA,,original_rag,
-146,microsoft/deberta-v3-small,Whey,productQA,,original_rag,
-147,microsoft/deberta-v3-small,Offal,productQA,,original_rag,
-148,microsoft/deberta-v3-small,Cattle,productQA,,original_rag,
-149,microsoft/deberta-v3-small,"Dairy cattle, calf (weaned)",productQA,,original_rag,
-150,microsoft/deberta-v3-small,"Dairy cattle, calf",productQA,0.0096,original_rag,
-151,microsoft/deberta-v3-small,Sheep,productQA,1.0000,original_rag,
-152,microsoft/deberta-v3-small,"Meat, chicken, breast",productQA,,original_rag,
-153,microsoft/deberta-v3-small,"Beef cattle, bull",productQA,1.0000,original_rag,
-154,microsoft/deberta-v3-small,"Offal, pigs",productQA,,original_rag,
-155,microsoft/deberta-v3-small,"Cream, cow, raw",productQA,,original_rag,
-156,microsoft/deberta-v3-small,"Broiler chicken, hen",productQA,1.0000,original_rag,
-157,microsoft/deberta-v3-small,"Broiler chicken, chick",productQA,1.0000,original_rag,
-158,microsoft/deberta-v3-small,"Sheep, lamb (weaned)",productQA,1.0000,original_rag,
-159,microsoft/deberta-v3-small,"Meat, dairy cattle (liveweight)",productQA,1.0000,original_rag,
-160,microsoft/deberta-v3-small,"Layer chicken, pullet",productQA,1.0000,original_rag,
-161,microsoft/deberta-v3-small,Broiler chicken,productQA,1.0000,original_rag,
-162,microsoft/deberta-v3-small,Beef cattle,productQA,1.0000,original_rag,
-163,microsoft/deberta-v3-small,"Cheese, cow",productQA,1.0000,original_rag,
-164,microsoft/deberta-v3-small,"Eggs, hen, in shell",productQA,1.0000,original_rag,
-165,microsoft/deberta-v3-small,"Cheese, sheep",productQA,,original_rag,
-166,microsoft/deberta-v3-small,Eggs,productQA,1.0000,original_rag,
-167,microsoft/deberta-v3-small,"Layer chicken, hen",productQA,,original_rag,
-168,microsoft/deberta-v3-small,"Sheep, lamb",productQA,1.0000,original_rag,
-169,microsoft/deberta-v3-small,"Milk, cow, raw",productQA,1.0000,original_rag,
-170,microsoft/deberta-v3-small,"Beef cattle, steer",productQA,1.0000,original_rag,
-171,microsoft/deberta-v3-small,Butter,productQA,,original_rag,
-172,microsoft/deberta-v3-small,Poultry by,productQA,,original_rag,
-173,microsoft/deberta-v3-small,"Dairy cattle, cow",productQA,0.6000,original_rag,
-174,microsoft/deberta-v3-small,"Pig, piglet",productQA,0.8750,original_rag,
-175,microsoft/deberta-v3-small,"Meat, chicken, leg",productQA,1.0000,original_rag,
-176,microsoft/deberta-v3-small,"Hides, dairy cattle, fresh",productQA,0.0096,original_rag,
-177,microsoft/deberta-v3-small,"Meat, chicken (cold carcass weight)",productQA,1.0000,original_rag,
-178,microsoft/deberta-v3-small,"Whey, powder",productQA,,original_rag,
-179,microsoft/deberta-v3-small,Cheese,productQA,1.0000,original_rag,
-180,microsoft/deberta-v3-small,Soft,productQA,1.0000,original_rag,
-181,microsoft/deberta-v3-small,"Eggs, hen, in shell (number)",productQA,1.0000,original_rag,
-182,microsoft/deberta-v3-small,Meat,productQA,1.0000,original_rag,
-183,microsoft/deberta-v3-small,"Meat, chicken (liveweight)",productQA,,original_rag,
-184,microsoft/deberta-v3-small,"Beef cattle, heifer",productQA,1.0000,original_rag,
-185,microsoft/deberta-v3-small,Ricotta,productQA,0.3333,original_rag,
-186,microsoft/deberta-v3-small,Ripened cheese,productQA,0.3333,original_rag,
-187,microsoft/deberta-v3-base,"Meat, beef cattle (cold carcass weight)",productQA,1.0000,original_rag,
-188,microsoft/deberta-v3-base,Layer chicken,productQA,1.0000,original_rag,
-189,microsoft/deberta-v3-base,Pig,productQA,1.0000,original_rag,
-190,microsoft/deberta-v3-base,"Meat, beef cattle (cold dressed carcass weight)",productQA,1.0000,original_rag,
-191,microsoft/deberta-v3-base,Hides,productQA,0.0096,original_rag,
-192,microsoft/deberta-v3-base,Dairy cattle,productQA,0.8333,original_rag,
-193,microsoft/deberta-v3-base,Milk,productQA,1.0000,original_rag,
-194,microsoft/deberta-v3-base,Cream,productQA,,original_rag,
-195,microsoft/deberta-v3-base,"Beef cattle, calf (male, weaned)",productQA,1.0000,original_rag,
-196,microsoft/deberta-v3-base,"Beef cattle, cow",productQA,1.0000,original_rag,
-197,microsoft/deberta-v3-base,"Whey, liquid",productQA,,original_rag,
-198,microsoft/deberta-v3-base,Wastewater (kg mass),productQA,,original_rag,
-199,microsoft/deberta-v3-base,"Milk, cow, raw (FPCM)",productQA,1.0000,original_rag,
-200,microsoft/deberta-v3-base,"Meat, chicken, wings",productQA,,original_rag,
-201,microsoft/deberta-v3-base,"Beef cattle, heifer and steer",productQA,,original_rag,
-202,microsoft/deberta-v3-base,"Meat, dairy cattle (cold carcass weight)",productQA,,original_rag,
-203,microsoft/deberta-v3-base,Buttermilk,productQA,,original_rag,
-204,microsoft/deberta-v3-base,"Pig, sow",productQA,1.0000,original_rag,
-205,microsoft/deberta-v3-base,"Cattle, urine (kg mass)",productQA,,original_rag,
-206,microsoft/deberta-v3-base,"Beef cattle, calf (female, weaned)",productQA,1.0000,original_rag,
-207,microsoft/deberta-v3-base,Yoghurt,productQA,,original_rag,
-208,microsoft/deberta-v3-base,"Meat, beef cattle (liveweight)",productQA,,original_rag,
-209,microsoft/deberta-v3-base,"Dairy cattle, heifer",productQA,1.0000,original_rag,
-210,microsoft/deberta-v3-base,"Sheep, ram",productQA,,original_rag,
-211,microsoft/deberta-v3-base,Caciotta,productQA,0.0192,original_rag,
-212,microsoft/deberta-v3-base,"Electricity, produced on",productQA,,original_rag,
-213,microsoft/deberta-v3-base,Fresh cheese,productQA,,original_rag,
-214,microsoft/deberta-v3-base,Electricity,productQA,,original_rag,
-215,microsoft/deberta-v3-base,"Sheep, ewe",productQA,1.0000,original_rag,
-216,microsoft/deberta-v3-base,"Dairy cattle, calf (male, unweaned)",productQA,,original_rag,
-217,microsoft/deberta-v3-base,"Meat, pig (cold carcass weight)",productQA,,original_rag,
-218,microsoft/deberta-v3-base,"Beef cattle, calf (weaned)",productQA,,original_rag,
-219,microsoft/deberta-v3-base,"Meat, pig (cold dressed carcass weight)",productQA,1.0000,original_rag,
-220,microsoft/deberta-v3-base,"Dairy cattle, calf (female, weaned)",productQA,,original_rag,
-221,microsoft/deberta-v3-base,Whey,productQA,,original_rag,
-222,microsoft/deberta-v3-base,Offal,productQA,,original_rag,
-223,microsoft/deberta-v3-base,Cattle,productQA,,original_rag,
-224,microsoft/deberta-v3-base,"Dairy cattle, calf (weaned)",productQA,,original_rag,
-225,microsoft/deberta-v3-base,"Dairy cattle, calf",productQA,0.0096,original_rag,
-226,microsoft/deberta-v3-base,Sheep,productQA,1.0000,original_rag,
-227,microsoft/deberta-v3-base,"Meat, chicken, breast",productQA,,original_rag,
-228,microsoft/deberta-v3-base,"Beef cattle, bull",productQA,1.0000,original_rag,
-229,microsoft/deberta-v3-base,"Offal, pigs",productQA,,original_rag,
-230,microsoft/deberta-v3-base,"Cream, cow, raw",productQA,,original_rag,
-231,microsoft/deberta-v3-base,"Broiler chicken, hen",productQA,1.0000,original_rag,
-232,microsoft/deberta-v3-base,"Broiler chicken, chick",productQA,1.0000,original_rag,
-233,microsoft/deberta-v3-base,"Sheep, lamb (weaned)",productQA,1.0000,original_rag,
-234,microsoft/deberta-v3-base,"Meat, dairy cattle (liveweight)",productQA,0.7500,original_rag,
-235,microsoft/deberta-v3-base,"Layer chicken, pullet",productQA,1.0000,original_rag,
-236,microsoft/deberta-v3-base,Broiler chicken,productQA,1.0000,original_rag,
-237,microsoft/deberta-v3-base,Beef cattle,productQA,1.0000,original_rag,
-238,microsoft/deberta-v3-base,"Cheese, cow",productQA,1.0000,original_rag,
-239,microsoft/deberta-v3-base,"Eggs, hen, in shell",productQA,1.0000,original_rag,
-240,microsoft/deberta-v3-base,"Cheese, sheep",productQA,,original_rag,
-241,microsoft/deberta-v3-base,Eggs,productQA,1.0000,original_rag,
-242,microsoft/deberta-v3-base,"Layer chicken, hen",productQA,,original_rag,
-243,microsoft/deberta-v3-base,"Sheep, lamb",productQA,1.0000,original_rag,
-244,microsoft/deberta-v3-base,"Milk, cow, raw",productQA,1.0000,original_rag,
-245,microsoft/deberta-v3-base,"Beef cattle, steer",productQA,1.0000,original_rag,
-246,microsoft/deberta-v3-base,Butter,productQA,,original_rag,
-247,microsoft/deberta-v3-base,Poultry by,productQA,,original_rag,
-248,microsoft/deberta-v3-base,"Dairy cattle, cow",productQA,0.7500,original_rag,
-249,microsoft/deberta-v3-base,"Pig, piglet",productQA,1.0000,original_rag,
-250,microsoft/deberta-v3-base,"Meat, chicken, leg",productQA,1.0000,original_rag,
-251,microsoft/deberta-v3-base,"Hides, dairy cattle, fresh",productQA,0.0096,original_rag,
-252,microsoft/deberta-v3-base,"Meat, chicken (cold carcass weight)",productQA,1.0000,original_rag,
-253,microsoft/deberta-v3-base,"Whey, powder",productQA,,original_rag,
-254,microsoft/deberta-v3-base,Cheese,productQA,1.0000,original_rag,
-255,microsoft/deberta-v3-base,Soft,productQA,1.0000,original_rag,
-256,microsoft/deberta-v3-base,"Eggs, hen, in shell (number)",productQA,1.0000,original_rag,
-257,microsoft/deberta-v3-base,Meat,productQA,0.9375,original_rag,
-258,microsoft/deberta-v3-base,"Meat, chicken (liveweight)",productQA,,original_rag,
-259,microsoft/deberta-v3-base,"Beef cattle, heifer",productQA,1.0000,original_rag,
-260,microsoft/deberta-v3-base,Ricotta,productQA,1.0000,original_rag,
-261,microsoft/deberta-v3-base,Ripened cheese,productQA,1.0000,original_rag,
-262,microsoft/deberta-v3-large,"Meat, beef cattle (cold carcass weight)",productQA,1.0000,original_rag,
-263,microsoft/deberta-v3-large,Layer chicken,productQA,1.0000,original_rag,
-264,microsoft/deberta-v3-large,Pig,productQA,1.0000,original_rag,
-265,microsoft/deberta-v3-large,"Meat, beef cattle (cold dressed carcass weight)",productQA,1.0000,original_rag,
-266,microsoft/deberta-v3-large,Hides,productQA,0.0096,original_rag,
-267,microsoft/deberta-v3-large,Dairy cattle,productQA,1.0000,original_rag,
-268,microsoft/deberta-v3-large,Milk,productQA,1.0000,original_rag,
-269,microsoft/deberta-v3-large,Cream,productQA,,original_rag,
-270,microsoft/deberta-v3-large,"Beef cattle, calf (male, weaned)",productQA,1.0000,original_rag,
-271,microsoft/deberta-v3-large,"Beef cattle, cow",productQA,1.0000,original_rag,
-272,microsoft/deberta-v3-large,"Whey, liquid",productQA,,original_rag,
-273,microsoft/deberta-v3-large,Wastewater (kg mass),productQA,,original_rag,
-274,microsoft/deberta-v3-large,"Milk, cow, raw (FPCM)",productQA,1.0000,original_rag,
-275,microsoft/deberta-v3-large,"Meat, chicken, wings",productQA,,original_rag,
-276,microsoft/deberta-v3-large,"Beef cattle, heifer and steer",productQA,,original_rag,
-277,microsoft/deberta-v3-large,"Meat, dairy cattle (cold carcass weight)",productQA,,original_rag,
-278,microsoft/deberta-v3-large,Buttermilk,productQA,,original_rag,
-279,microsoft/deberta-v3-large,"Pig, sow",productQA,1.0000,original_rag,
-280,microsoft/deberta-v3-large,"Cattle, urine (kg mass)",productQA,,original_rag,
-281,microsoft/deberta-v3-large,"Beef cattle, calf (female, weaned)",productQA,1.0000,original_rag,
-282,microsoft/deberta-v3-large,Yoghurt,productQA,,original_rag,
-283,microsoft/deberta-v3-large,"Meat, beef cattle (liveweight)",productQA,,original_rag,
-284,microsoft/deberta-v3-large,"Dairy cattle, heifer",productQA,0.5000,original_rag,
-285,microsoft/deberta-v3-large,"Sheep, ram",productQA,,original_rag,
-286,microsoft/deberta-v3-large,Caciotta,productQA,0.0192,original_rag,
-287,microsoft/deberta-v3-large,"Electricity, produced on",productQA,,original_rag,
-288,microsoft/deberta-v3-large,Fresh cheese,productQA,,original_rag,
-289,microsoft/deberta-v3-large,Electricity,productQA,,original_rag,
-290,microsoft/deberta-v3-large,"Sheep, ewe",productQA,1.0000,original_rag,
-291,microsoft/deberta-v3-large,"Dairy cattle, calf (male, unweaned)",productQA,,original_rag,
-292,microsoft/deberta-v3-large,"Meat, pig (cold carcass weight)",productQA,,original_rag,
-293,microsoft/deberta-v3-large,"Beef cattle, calf (weaned)",productQA,,original_rag,
-294,microsoft/deberta-v3-large,"Meat, pig (cold dressed carcass weight)",productQA,1.0000,original_rag,
-295,microsoft/deberta-v3-large,"Dairy cattle, calf (female, weaned)",productQA,,original_rag,
-296,microsoft/deberta-v3-large,Whey,productQA,,original_rag,
-297,microsoft/deberta-v3-large,Offal,productQA,,original_rag,
-298,microsoft/deberta-v3-large,Cattle,productQA,,original_rag,
-299,microsoft/deberta-v3-large,"Dairy cattle, calf (weaned)",productQA,,original_rag,
-300,microsoft/deberta-v3-large,"Dairy cattle, calf",productQA,0.0096,original_rag,
-301,microsoft/deberta-v3-large,Sheep,productQA,1.0000,original_rag,
-302,microsoft/deberta-v3-large,"Meat, chicken, breast",productQA,,original_rag,
-303,microsoft/deberta-v3-large,"Beef cattle, bull",productQA,1.0000,original_rag,
-304,microsoft/deberta-v3-large,"Offal, pigs",productQA,,original_rag,
-305,microsoft/deberta-v3-large,"Cream, cow, raw",productQA,,original_rag,
-306,microsoft/deberta-v3-large,"Broiler chicken, hen",productQA,1.0000,original_rag,
-307,microsoft/deberta-v3-large,"Broiler chicken, chick",productQA,1.0000,original_rag,
-308,microsoft/deberta-v3-large,"Sheep, lamb (weaned)",productQA,1.0000,original_rag,
-309,microsoft/deberta-v3-large,"Meat, dairy cattle (liveweight)",productQA,1.0000,original_rag,
-310,microsoft/deberta-v3-large,"Layer chicken, pullet",productQA,1.0000,original_rag,
-311,microsoft/deberta-v3-large,Broiler chicken,productQA,1.0000,original_rag,
-312,microsoft/deberta-v3-large,Beef cattle,productQA,1.0000,original_rag,
-313,microsoft/deberta-v3-large,"Cheese, cow",productQA,1.0000,original_rag,
-314,microsoft/deberta-v3-large,"Eggs, hen, in shell",productQA,1.0000,original_rag,
-315,microsoft/deberta-v3-large,"Cheese, sheep",productQA,,original_rag,
-316,microsoft/deberta-v3-large,Eggs,productQA,1.0000,original_rag,
-317,microsoft/deberta-v3-large,"Layer chicken, hen",productQA,,original_rag,
-318,microsoft/deberta-v3-large,"Sheep, lamb",productQA,1.0000,original_rag,
-319,microsoft/deberta-v3-large,"Milk, cow, raw",productQA,1.0000,original_rag,
-320,microsoft/deberta-v3-large,"Beef cattle, steer",productQA,1.0000,original_rag,
-321,microsoft/deberta-v3-large,Butter,productQA,,original_rag,
-322,microsoft/deberta-v3-large,Poultry by,productQA,,original_rag,
-323,microsoft/deberta-v3-large,"Dairy cattle, cow",productQA,1.0000,original_rag,
-324,microsoft/deberta-v3-large,"Pig, piglet",productQA,1.0000,original_rag,
-325,microsoft/deberta-v3-large,"Meat, chicken, leg",productQA,1.0000,original_rag,
-326,microsoft/deberta-v3-large,"Hides, dairy cattle, fresh",productQA,0.0096,original_rag,
-327,microsoft/deberta-v3-large,"Meat, chicken (cold carcass weight)",productQA,1.0000,original_rag,
-328,microsoft/deberta-v3-large,"Whey, powder",productQA,,original_rag,
-329,microsoft/deberta-v3-large,Cheese,productQA,1.0000,original_rag,
-330,microsoft/deberta-v3-large,Soft,productQA,1.0000,original_rag,
-331,microsoft/deberta-v3-large,"Eggs, hen, in shell (number)",productQA,1.0000,original_rag,
-332,microsoft/deberta-v3-large,Meat,productQA,1.0000,original_rag,
-333,microsoft/deberta-v3-large,"Meat, chicken (liveweight)",productQA,,original_rag,
-334,microsoft/deberta-v3-large,"Beef cattle, heifer",productQA,1.0000,original_rag,
-335,microsoft/deberta-v3-large,Ricotta,productQA,1.0000,original_rag,
-336,microsoft/deberta-v3-large,Ripened cheese,productQA,0.3333,original_rag,
-337,google-bert/bert-base-uncased,"Meat, beef cattle (cold carcass weight)",productQA,1.0000,original_rag,
-338,google-bert/bert-base-uncased,Layer chicken,productQA,1.0000,original_rag,
-339,google-bert/bert-base-uncased,Pig,productQA,1.0000,original_rag,
-340,google-bert/bert-base-uncased,"Meat, beef cattle (cold dressed carcass weight)",productQA,1.0000,original_rag,
-341,google-bert/bert-base-uncased,Hides,productQA,0.0096,original_rag,
-342,google-bert/bert-base-uncased,Dairy cattle,productQA,0.8333,original_rag,
-343,google-bert/bert-base-uncased,Milk,productQA,1.0000,original_rag,
+82,microsoft/deberta-v3-base,kg cold carcass weight/head,functionalUnitQA,0.8570,original_rag,23.0
+83,microsoft/deberta-v3-base,1 ha,functionalUnitQA,0.6192,original_rag,5.0
+84,microsoft/deberta-v3-base,kg cold dressed carcass weight/head,functionalUnitQA,,original_rag,
+85,microsoft/deberta-v3-base,days,functionalUnitQA,0.5142,original_rag,9.0
+86,microsoft/deberta-v3-base,relative,functionalUnitQA,0.9802,original_rag,99.0
+87,microsoft/deberta-v3-base,kg,functionalUnitQA,0.5000,original_rag,3.0
+88,microsoft/deberta-v3-base,unitless,functionalUnitQA,,original_rag,
+89,microsoft/deberta-v3-base,kg liveweight/head,functionalUnitQA,0.8730,original_rag,55.0
+90,microsoft/deberta-v3-base,%,functionalUnitQA,0.5000,original_rag,9.0
+91,microsoft/deberta-v3-base,kg ready-to-cook weight/head,functionalUnitQA,,original_rag,
+92,microsoft/deberta-v3-large,kg cold carcass weight/head,functionalUnitQA,0.8570,original_rag,23.0
+93,microsoft/deberta-v3-large,1 ha,functionalUnitQA,0.4692,original_rag,5.0
+94,microsoft/deberta-v3-large,kg cold dressed carcass weight/head,functionalUnitQA,,original_rag,
+95,microsoft/deberta-v3-large,days,functionalUnitQA,0.4380,original_rag,9.0
+96,microsoft/deberta-v3-large,relative,functionalUnitQA,0.9706,original_rag,99.0
+97,microsoft/deberta-v3-large,kg,functionalUnitQA,1.0000,original_rag,3.0
+98,microsoft/deberta-v3-large,unitless,functionalUnitQA,,original_rag,
+99,microsoft/deberta-v3-large,kg liveweight/head,functionalUnitQA,0.8998,original_rag,55.0
+100,microsoft/deberta-v3-large,%,functionalUnitQA,0.6000,original_rag,9.0
+101,microsoft/deberta-v3-large,kg ready-to-cook weight/head,functionalUnitQA,,original_rag,
+102,microsoft/deberta-v3-small,kg cold carcass weight/head,functionalUnitQA,0.8570,original_rag,23.0
+103,microsoft/deberta-v3-small,1 ha,functionalUnitQA,0.8096,original_rag,5.0
+104,microsoft/deberta-v3-small,kg cold dressed carcass weight/head,functionalUnitQA,,original_rag,
+105,microsoft/deberta-v3-small,days,functionalUnitQA,0.4729,original_rag,9.0
+106,microsoft/deberta-v3-small,relative,functionalUnitQA,0.9706,original_rag,99.0
+107,microsoft/deberta-v3-small,kg,functionalUnitQA,1.0000,original_rag,3.0
+108,microsoft/deberta-v3-small,unitless,functionalUnitQA,,original_rag,
+109,microsoft/deberta-v3-small,kg liveweight/head,functionalUnitQA,0.8998,original_rag,55.0
+110,microsoft/deberta-v3-small,%,functionalUnitQA,0.5637,original_rag,9.0
+111,microsoft/deberta-v3-small,kg ready-to-cook weight/head,functionalUnitQA,,original_rag,
+112,climatebert/distilroberta-base-climate-f,"Meat, beef cattle (cold carcass weight)",productQA,1.0000,original_rag,3.0
+113,climatebert/distilroberta-base-climate-f,Layer chicken,productQA,1.0000,original_rag,9.0
+114,climatebert/distilroberta-base-climate-f,Pig,productQA,1.0000,original_rag,18.0
+115,climatebert/distilroberta-base-climate-f,"Meat, beef cattle (cold dressed carcass weight)",productQA,1.0000,original_rag,2.0
+116,climatebert/distilroberta-base-climate-f,Hides,productQA,0.0096,original_rag,1.0
+117,climatebert/distilroberta-base-climate-f,Dairy cattle,productQA,0.8333,original_rag,5.0
+118,climatebert/distilroberta-base-climate-f,Milk,productQA,1.0000,original_rag,7.0
+119,climatebert/distilroberta-base-climate-f,Cream,productQA,,original_rag,
+120,climatebert/distilroberta-base-climate-f,"Beef cattle, calf (male, weaned)",productQA,1.0000,original_rag,3.0
+121,climatebert/distilroberta-base-climate-f,"Beef cattle, cow",productQA,1.0000,original_rag,1.0
+122,climatebert/distilroberta-base-climate-f,"Whey, liquid",productQA,,original_rag,
+123,climatebert/distilroberta-base-climate-f,Wastewater (kg mass),productQA,,original_rag,
+124,climatebert/distilroberta-base-climate-f,"Milk, cow, raw (FPCM)",productQA,1.0000,original_rag,6.0
+125,climatebert/distilroberta-base-climate-f,"Meat, chicken, wings",productQA,,original_rag,
+126,climatebert/distilroberta-base-climate-f,"Beef cattle, heifer and steer",productQA,,original_rag,
+127,climatebert/distilroberta-base-climate-f,"Meat, dairy cattle (cold carcass weight)",productQA,,original_rag,
+128,climatebert/distilroberta-base-climate-f,Buttermilk,productQA,,original_rag,
+129,climatebert/distilroberta-base-climate-f,"Pig, sow",productQA,1.0000,original_rag,3.0
+130,climatebert/distilroberta-base-climate-f,"Cattle, urine (kg mass)",productQA,,original_rag,
+131,climatebert/distilroberta-base-climate-f,"Beef cattle, calf (female, weaned)",productQA,1.0000,original_rag,2.0
+132,climatebert/distilroberta-base-climate-f,Yoghurt,productQA,,original_rag,
+133,climatebert/distilroberta-base-climate-f,"Meat, beef cattle (liveweight)",productQA,,original_rag,
+134,climatebert/distilroberta-base-climate-f,"Dairy cattle, heifer",productQA,0.5000,original_rag,1.0
+135,climatebert/distilroberta-base-climate-f,"Sheep, ram",productQA,,original_rag,
+136,climatebert/distilroberta-base-climate-f,Caciotta,productQA,0.0192,original_rag,4.0
+137,climatebert/distilroberta-base-climate-f,"Electricity, produced on",productQA,,original_rag,
+138,climatebert/distilroberta-base-climate-f,Fresh cheese,productQA,,original_rag,
+139,climatebert/distilroberta-base-climate-f,Electricity,productQA,,original_rag,
+140,climatebert/distilroberta-base-climate-f,"Sheep, ewe",productQA,1.0000,original_rag,6.0
+141,climatebert/distilroberta-base-climate-f,"Dairy cattle, calf (male, unweaned)",productQA,,original_rag,
+142,climatebert/distilroberta-base-climate-f,"Meat, pig (cold carcass weight)",productQA,,original_rag,
+143,climatebert/distilroberta-base-climate-f,"Beef cattle, calf (weaned)",productQA,,original_rag,
+144,climatebert/distilroberta-base-climate-f,"Meat, pig (cold dressed carcass weight)",productQA,1.0000,original_rag,4.0
+145,climatebert/distilroberta-base-climate-f,"Dairy cattle, calf (female, weaned)",productQA,,original_rag,
+146,climatebert/distilroberta-base-climate-f,Whey,productQA,,original_rag,
+147,climatebert/distilroberta-base-climate-f,Offal,productQA,,original_rag,
+148,climatebert/distilroberta-base-climate-f,Cattle,productQA,,original_rag,
+149,climatebert/distilroberta-base-climate-f,"Dairy cattle, calf (weaned)",productQA,,original_rag,
+150,climatebert/distilroberta-base-climate-f,"Dairy cattle, calf",productQA,0.0096,original_rag,1.0
+151,climatebert/distilroberta-base-climate-f,Sheep,productQA,1.0000,original_rag,13.0
+152,climatebert/distilroberta-base-climate-f,"Meat, chicken, breast",productQA,,original_rag,
+153,climatebert/distilroberta-base-climate-f,"Beef cattle, bull",productQA,1.0000,original_rag,1.0
+154,climatebert/distilroberta-base-climate-f,"Offal, pigs",productQA,,original_rag,
+155,climatebert/distilroberta-base-climate-f,"Cream, cow, raw",productQA,,original_rag,
+156,climatebert/distilroberta-base-climate-f,"Broiler chicken, hen",productQA,1.0000,original_rag,1.0
+157,climatebert/distilroberta-base-climate-f,"Broiler chicken, chick",productQA,1.0000,original_rag,1.0
+158,climatebert/distilroberta-base-climate-f,"Sheep, lamb (weaned)",productQA,1.0000,original_rag,4.0
+159,climatebert/distilroberta-base-climate-f,"Meat, dairy cattle (liveweight)",productQA,0.7500,original_rag,3.0
+160,climatebert/distilroberta-base-climate-f,"Layer chicken, pullet",productQA,1.0000,original_rag,3.0
+161,climatebert/distilroberta-base-climate-f,Broiler chicken,productQA,1.0000,original_rag,6.0
+162,climatebert/distilroberta-base-climate-f,Beef cattle,productQA,0.9655,original_rag,29.0
+163,climatebert/distilroberta-base-climate-f,"Cheese, cow",productQA,1.0000,original_rag,2.0
+164,climatebert/distilroberta-base-climate-f,"Eggs, hen, in shell",productQA,1.0000,original_rag,3.0
+165,climatebert/distilroberta-base-climate-f,"Cheese, sheep",productQA,,original_rag,
+166,climatebert/distilroberta-base-climate-f,Eggs,productQA,1.0000,original_rag,4.0
+167,climatebert/distilroberta-base-climate-f,"Layer chicken, hen",productQA,,original_rag,
+168,climatebert/distilroberta-base-climate-f,"Sheep, lamb",productQA,1.0000,original_rag,3.0
+169,climatebert/distilroberta-base-climate-f,"Milk, cow, raw",productQA,1.0000,original_rag,1.0
+170,climatebert/distilroberta-base-climate-f,"Beef cattle, steer",productQA,1.0000,original_rag,11.0
+171,climatebert/distilroberta-base-climate-f,Butter,productQA,,original_rag,
+172,climatebert/distilroberta-base-climate-f,Poultry by,productQA,,original_rag,
+173,climatebert/distilroberta-base-climate-f,"Dairy cattle, cow",productQA,0.7500,original_rag,3.0
+174,climatebert/distilroberta-base-climate-f,"Pig, piglet",productQA,1.0000,original_rag,7.0
+175,climatebert/distilroberta-base-climate-f,"Meat, chicken, leg",productQA,1.0000,original_rag,1.0
+176,climatebert/distilroberta-base-climate-f,"Hides, dairy cattle, fresh",productQA,0.0096,original_rag,1.0
+177,climatebert/distilroberta-base-climate-f,"Meat, chicken (cold carcass weight)",productQA,1.0000,original_rag,2.0
+178,climatebert/distilroberta-base-climate-f,"Whey, powder",productQA,,original_rag,
+179,climatebert/distilroberta-base-climate-f,Cheese,productQA,1.0000,original_rag,2.0
+180,climatebert/distilroberta-base-climate-f,Soft,productQA,1.0000,original_rag,2.0
+181,climatebert/distilroberta-base-climate-f,"Eggs, hen, in shell (number)",productQA,1.0000,original_rag,1.0
+182,climatebert/distilroberta-base-climate-f,Meat,productQA,0.9375,original_rag,15.0
+183,climatebert/distilroberta-base-climate-f,"Meat, chicken (liveweight)",productQA,,original_rag,
+184,climatebert/distilroberta-base-climate-f,"Beef cattle, heifer",productQA,1.0000,original_rag,9.0
+185,climatebert/distilroberta-base-climate-f,Ricotta,productQA,0.3333,original_rag,2.0
+186,climatebert/distilroberta-base-climate-f,Ripened cheese,productQA,0.3333,original_rag,2.0
+187,ESGBERT/EnvironmentalBERT-base,"Meat, beef cattle (cold carcass weight)",productQA,1.0000,original_rag,3.0
+188,ESGBERT/EnvironmentalBERT-base,Layer chicken,productQA,1.0000,original_rag,9.0
+189,ESGBERT/EnvironmentalBERT-base,Pig,productQA,1.0000,original_rag,18.0
+190,ESGBERT/EnvironmentalBERT-base,"Meat, beef cattle (cold dressed carcass weight)",productQA,1.0000,original_rag,2.0
+191,ESGBERT/EnvironmentalBERT-base,Hides,productQA,0.0096,original_rag,1.0
+192,ESGBERT/EnvironmentalBERT-base,Dairy cattle,productQA,0.8333,original_rag,5.0
+193,ESGBERT/EnvironmentalBERT-base,Milk,productQA,1.0000,original_rag,7.0
+194,ESGBERT/EnvironmentalBERT-base,Cream,productQA,,original_rag,
+195,ESGBERT/EnvironmentalBERT-base,"Beef cattle, calf (male, weaned)",productQA,1.0000,original_rag,3.0
+196,ESGBERT/EnvironmentalBERT-base,"Beef cattle, cow",productQA,1.0000,original_rag,1.0
+197,ESGBERT/EnvironmentalBERT-base,"Whey, liquid",productQA,,original_rag,
+198,ESGBERT/EnvironmentalBERT-base,Wastewater (kg mass),productQA,,original_rag,
+199,ESGBERT/EnvironmentalBERT-base,"Milk, cow, raw (FPCM)",productQA,1.0000,original_rag,6.0
+200,ESGBERT/EnvironmentalBERT-base,"Meat, chicken, wings",productQA,,original_rag,
+201,ESGBERT/EnvironmentalBERT-base,"Beef cattle, heifer and steer",productQA,,original_rag,
+202,ESGBERT/EnvironmentalBERT-base,"Meat, dairy cattle (cold carcass weight)",productQA,,original_rag,
+203,ESGBERT/EnvironmentalBERT-base,Buttermilk,productQA,,original_rag,
+204,ESGBERT/EnvironmentalBERT-base,"Pig, sow",productQA,1.0000,original_rag,3.0
+205,ESGBERT/EnvironmentalBERT-base,"Cattle, urine (kg mass)",productQA,,original_rag,
+206,ESGBERT/EnvironmentalBERT-base,"Beef cattle, calf (female, weaned)",productQA,1.0000,original_rag,2.0
+207,ESGBERT/EnvironmentalBERT-base,Yoghurt,productQA,,original_rag,
+208,ESGBERT/EnvironmentalBERT-base,"Meat, beef cattle (liveweight)",productQA,,original_rag,
+209,ESGBERT/EnvironmentalBERT-base,"Dairy cattle, heifer",productQA,1.0000,original_rag,1.0
+210,ESGBERT/EnvironmentalBERT-base,"Sheep, ram",productQA,,original_rag,
+211,ESGBERT/EnvironmentalBERT-base,Caciotta,productQA,0.0192,original_rag,4.0
+212,ESGBERT/EnvironmentalBERT-base,"Electricity, produced on",productQA,,original_rag,
+213,ESGBERT/EnvironmentalBERT-base,Fresh cheese,productQA,,original_rag,
+214,ESGBERT/EnvironmentalBERT-base,Electricity,productQA,,original_rag,
+215,ESGBERT/EnvironmentalBERT-base,"Sheep, ewe",productQA,1.0000,original_rag,6.0
+216,ESGBERT/EnvironmentalBERT-base,"Dairy cattle, calf (male, unweaned)",productQA,,original_rag,
+217,ESGBERT/EnvironmentalBERT-base,"Meat, pig (cold carcass weight)",productQA,,original_rag,
+218,ESGBERT/EnvironmentalBERT-base,"Beef cattle, calf (weaned)",productQA,,original_rag,
+219,ESGBERT/EnvironmentalBERT-base,"Meat, pig (cold dressed carcass weight)",productQA,1.0000,original_rag,4.0
+220,ESGBERT/EnvironmentalBERT-base,"Dairy cattle, calf (female, weaned)",productQA,,original_rag,
+221,ESGBERT/EnvironmentalBERT-base,Whey,productQA,,original_rag,
+222,ESGBERT/EnvironmentalBERT-base,Offal,productQA,,original_rag,
+223,ESGBERT/EnvironmentalBERT-base,Cattle,productQA,,original_rag,
+224,ESGBERT/EnvironmentalBERT-base,"Dairy cattle, calf (weaned)",productQA,,original_rag,
+225,ESGBERT/EnvironmentalBERT-base,"Dairy cattle, calf",productQA,0.0096,original_rag,1.0
+226,ESGBERT/EnvironmentalBERT-base,Sheep,productQA,1.0000,original_rag,13.0
+227,ESGBERT/EnvironmentalBERT-base,"Meat, chicken, breast",productQA,,original_rag,
+228,ESGBERT/EnvironmentalBERT-base,"Beef cattle, bull",productQA,1.0000,original_rag,1.0
+229,ESGBERT/EnvironmentalBERT-base,"Offal, pigs",productQA,,original_rag,
+230,ESGBERT/EnvironmentalBERT-base,"Cream, cow, raw",productQA,,original_rag,
+231,ESGBERT/EnvironmentalBERT-base,"Broiler chicken, hen",productQA,1.0000,original_rag,1.0
+232,ESGBERT/EnvironmentalBERT-base,"Broiler chicken, chick",productQA,1.0000,original_rag,1.0
+233,ESGBERT/EnvironmentalBERT-base,"Sheep, lamb (weaned)",productQA,1.0000,original_rag,4.0
+234,ESGBERT/EnvironmentalBERT-base,"Meat, dairy cattle (liveweight)",productQA,0.7500,original_rag,3.0
+235,ESGBERT/EnvironmentalBERT-base,"Layer chicken, pullet",productQA,1.0000,original_rag,3.0
+236,ESGBERT/EnvironmentalBERT-base,Broiler chicken,productQA,1.0000,original_rag,6.0
+237,ESGBERT/EnvironmentalBERT-base,Beef cattle,productQA,1.0000,original_rag,29.0
+238,ESGBERT/EnvironmentalBERT-base,"Cheese, cow",productQA,1.0000,original_rag,2.0
+239,ESGBERT/EnvironmentalBERT-base,"Eggs, hen, in shell",productQA,1.0000,original_rag,3.0
+240,ESGBERT/EnvironmentalBERT-base,"Cheese, sheep",productQA,,original_rag,
+241,ESGBERT/EnvironmentalBERT-base,Eggs,productQA,1.0000,original_rag,4.0
+242,ESGBERT/EnvironmentalBERT-base,"Layer chicken, hen",productQA,,original_rag,
+243,ESGBERT/EnvironmentalBERT-base,"Sheep, lamb",productQA,1.0000,original_rag,3.0
+244,ESGBERT/EnvironmentalBERT-base,"Milk, cow, raw",productQA,1.0000,original_rag,1.0
+245,ESGBERT/EnvironmentalBERT-base,"Beef cattle, steer",productQA,1.0000,original_rag,11.0
+246,ESGBERT/EnvironmentalBERT-base,Butter,productQA,,original_rag,
+247,ESGBERT/EnvironmentalBERT-base,Poultry by,productQA,,original_rag,
+248,ESGBERT/EnvironmentalBERT-base,"Dairy cattle, cow",productQA,0.6000,original_rag,3.0
+249,ESGBERT/EnvironmentalBERT-base,"Pig, piglet",productQA,0.8750,original_rag,7.0
+250,ESGBERT/EnvironmentalBERT-base,"Meat, chicken, leg",productQA,1.0000,original_rag,1.0
+251,ESGBERT/EnvironmentalBERT-base,"Hides, dairy cattle, fresh",productQA,0.0096,original_rag,1.0
+252,ESGBERT/EnvironmentalBERT-base,"Meat, chicken (cold carcass weight)",productQA,1.0000,original_rag,2.0
+253,ESGBERT/EnvironmentalBERT-base,"Whey, powder",productQA,,original_rag,
+254,ESGBERT/EnvironmentalBERT-base,Cheese,productQA,1.0000,original_rag,2.0
+255,ESGBERT/EnvironmentalBERT-base,Soft,productQA,1.0000,original_rag,2.0
+256,ESGBERT/EnvironmentalBERT-base,"Eggs, hen, in shell (number)",productQA,1.0000,original_rag,1.0
+257,ESGBERT/EnvironmentalBERT-base,Meat,productQA,0.9375,original_rag,15.0
+258,ESGBERT/EnvironmentalBERT-base,"Meat, chicken (liveweight)",productQA,,original_rag,
+259,ESGBERT/EnvironmentalBERT-base,"Beef cattle, heifer",productQA,1.0000,original_rag,9.0
+260,ESGBERT/EnvironmentalBERT-base,Ricotta,productQA,0.3333,original_rag,2.0
+261,ESGBERT/EnvironmentalBERT-base,Ripened cheese,productQA,1.0000,original_rag,2.0
+262,FacebookAI/roberta-large,"Meat, beef cattle (cold carcass weight)",productQA,1.0000,original_rag,3.0
+263,FacebookAI/roberta-large,Layer chicken,productQA,1.0000,original_rag,9.0
+264,FacebookAI/roberta-large,Pig,productQA,1.0000,original_rag,18.0
+265,FacebookAI/roberta-large,"Meat, beef cattle (cold dressed carcass weight)",productQA,1.0000,original_rag,2.0
+266,FacebookAI/roberta-large,Hides,productQA,0.0096,original_rag,1.0
+267,FacebookAI/roberta-large,Dairy cattle,productQA,0.8333,original_rag,5.0
+268,FacebookAI/roberta-large,Milk,productQA,1.0000,original_rag,7.0
+269,FacebookAI/roberta-large,Cream,productQA,,original_rag,
+270,FacebookAI/roberta-large,"Beef cattle, calf (male, weaned)",productQA,1.0000,original_rag,3.0
+271,FacebookAI/roberta-large,"Beef cattle, cow",productQA,1.0000,original_rag,1.0
+272,FacebookAI/roberta-large,"Whey, liquid",productQA,,original_rag,
+273,FacebookAI/roberta-large,Wastewater (kg mass),productQA,,original_rag,
+274,FacebookAI/roberta-large,"Milk, cow, raw (FPCM)",productQA,1.0000,original_rag,6.0
+275,FacebookAI/roberta-large,"Meat, chicken, wings",productQA,,original_rag,
+276,FacebookAI/roberta-large,"Beef cattle, heifer and steer",productQA,,original_rag,
+277,FacebookAI/roberta-large,"Meat, dairy cattle (cold carcass weight)",productQA,,original_rag,
+278,FacebookAI/roberta-large,Buttermilk,productQA,,original_rag,
+279,FacebookAI/roberta-large,"Pig, sow",productQA,0.7500,original_rag,3.0
+280,FacebookAI/roberta-large,"Cattle, urine (kg mass)",productQA,,original_rag,
+281,FacebookAI/roberta-large,"Beef cattle, calf (female, weaned)",productQA,1.0000,original_rag,2.0
+282,FacebookAI/roberta-large,Yoghurt,productQA,,original_rag,
+283,FacebookAI/roberta-large,"Meat, beef cattle (liveweight)",productQA,,original_rag,
+284,FacebookAI/roberta-large,"Dairy cattle, heifer",productQA,1.0000,original_rag,1.0
+285,FacebookAI/roberta-large,"Sheep, ram",productQA,,original_rag,
+286,FacebookAI/roberta-large,Caciotta,productQA,0.0192,original_rag,4.0
+287,FacebookAI/roberta-large,"Electricity, produced on",productQA,,original_rag,
+288,FacebookAI/roberta-large,Fresh cheese,productQA,,original_rag,
+289,FacebookAI/roberta-large,Electricity,productQA,,original_rag,
+290,FacebookAI/roberta-large,"Sheep, ewe",productQA,1.0000,original_rag,6.0
+291,FacebookAI/roberta-large,"Dairy cattle, calf (male, unweaned)",productQA,,original_rag,
+292,FacebookAI/roberta-large,"Meat, pig (cold carcass weight)",productQA,,original_rag,
+293,FacebookAI/roberta-large,"Beef cattle, calf (weaned)",productQA,,original_rag,
+294,FacebookAI/roberta-large,"Meat, pig (cold dressed carcass weight)",productQA,1.0000,original_rag,4.0
+295,FacebookAI/roberta-large,"Dairy cattle, calf (female, weaned)",productQA,,original_rag,
+296,FacebookAI/roberta-large,Whey,productQA,,original_rag,
+297,FacebookAI/roberta-large,Offal,productQA,,original_rag,
+298,FacebookAI/roberta-large,Cattle,productQA,,original_rag,
+299,FacebookAI/roberta-large,"Dairy cattle, calf (weaned)",productQA,,original_rag,
+300,FacebookAI/roberta-large,"Dairy cattle, calf",productQA,0.0096,original_rag,1.0
+301,FacebookAI/roberta-large,Sheep,productQA,1.0000,original_rag,13.0
+302,FacebookAI/roberta-large,"Meat, chicken, breast",productQA,,original_rag,
+303,FacebookAI/roberta-large,"Beef cattle, bull",productQA,1.0000,original_rag,1.0
+304,FacebookAI/roberta-large,"Offal, pigs",productQA,,original_rag,
+305,FacebookAI/roberta-large,"Cream, cow, raw",productQA,,original_rag,
+306,FacebookAI/roberta-large,"Broiler chicken, hen",productQA,1.0000,original_rag,1.0
+307,FacebookAI/roberta-large,"Broiler chicken, chick",productQA,1.0000,original_rag,1.0
+308,FacebookAI/roberta-large,"Sheep, lamb (weaned)",productQA,1.0000,original_rag,4.0
+309,FacebookAI/roberta-large,"Meat, dairy cattle (liveweight)",productQA,1.0000,original_rag,3.0
+310,FacebookAI/roberta-large,"Layer chicken, pullet",productQA,1.0000,original_rag,3.0
+311,FacebookAI/roberta-large,Broiler chicken,productQA,1.0000,original_rag,6.0
+312,FacebookAI/roberta-large,Beef cattle,productQA,1.0000,original_rag,29.0
+313,FacebookAI/roberta-large,"Cheese, cow",productQA,1.0000,original_rag,2.0
+314,FacebookAI/roberta-large,"Eggs, hen, in shell",productQA,1.0000,original_rag,3.0
+315,FacebookAI/roberta-large,"Cheese, sheep",productQA,,original_rag,
+316,FacebookAI/roberta-large,Eggs,productQA,1.0000,original_rag,4.0
+317,FacebookAI/roberta-large,"Layer chicken, hen",productQA,,original_rag,
+318,FacebookAI/roberta-large,"Sheep, lamb",productQA,1.0000,original_rag,3.0
+319,FacebookAI/roberta-large,"Milk, cow, raw",productQA,1.0000,original_rag,1.0
+320,FacebookAI/roberta-large,"Beef cattle, steer",productQA,1.0000,original_rag,11.0
+321,FacebookAI/roberta-large,Butter,productQA,,original_rag,
+322,FacebookAI/roberta-large,Poultry by,productQA,,original_rag,
+323,FacebookAI/roberta-large,"Dairy cattle, cow",productQA,0.6000,original_rag,3.0
+324,FacebookAI/roberta-large,"Pig, piglet",productQA,0.8750,original_rag,7.0
+325,FacebookAI/roberta-large,"Meat, chicken, leg",productQA,1.0000,original_rag,1.0
+326,FacebookAI/roberta-large,"Hides, dairy cattle, fresh",productQA,0.0096,original_rag,1.0
+327,FacebookAI/roberta-large,"Meat, chicken (cold carcass weight)",productQA,1.0000,original_rag,2.0
+328,FacebookAI/roberta-large,"Whey, powder",productQA,,original_rag,
+329,FacebookAI/roberta-large,Cheese,productQA,1.0000,original_rag,2.0
+330,FacebookAI/roberta-large,Soft,productQA,1.0000,original_rag,2.0
+331,FacebookAI/roberta-large,"Eggs, hen, in shell (number)",productQA,1.0000,original_rag,1.0
+332,FacebookAI/roberta-large,Meat,productQA,1.0000,original_rag,15.0
+333,FacebookAI/roberta-large,"Meat, chicken (liveweight)",productQA,,original_rag,
+334,FacebookAI/roberta-large,"Beef cattle, heifer",productQA,1.0000,original_rag,9.0
+335,FacebookAI/roberta-large,Ricotta,productQA,0.3333,original_rag,2.0
+336,FacebookAI/roberta-large,Ripened cheese,productQA,1.0000,original_rag,2.0
+337,google-bert/bert-base-uncased,"Meat, beef cattle (cold carcass weight)",productQA,1.0000,original_rag,3.0
+338,google-bert/bert-base-uncased,Layer chicken,productQA,1.0000,original_rag,9.0
+339,google-bert/bert-base-uncased,Pig,productQA,1.0000,original_rag,18.0
+340,google-bert/bert-base-uncased,"Meat, beef cattle (cold dressed carcass weight)",productQA,1.0000,original_rag,2.0
+341,google-bert/bert-base-uncased,Hides,productQA,0.0096,original_rag,1.0
+342,google-bert/bert-base-uncased,Dairy cattle,productQA,0.8333,original_rag,5.0
+343,google-bert/bert-base-uncased,Milk,productQA,1.0000,original_rag,7.0
 344,google-bert/bert-base-uncased,Cream,productQA,,original_rag,
-345,google-bert/bert-base-uncased,"Beef cattle, calf (male, weaned)",productQA,1.0000,original_rag,
-346,google-bert/bert-base-uncased,"Beef cattle, cow",productQA,1.0000,original_rag,
+345,google-bert/bert-base-uncased,"Beef cattle, calf (male, weaned)",productQA,1.0000,original_rag,3.0
+346,google-bert/bert-base-uncased,"Beef cattle, cow",productQA,1.0000,original_rag,1.0
 347,google-bert/bert-base-uncased,"Whey, liquid",productQA,,original_rag,
 348,google-bert/bert-base-uncased,Wastewater (kg mass),productQA,,original_rag,
-349,google-bert/bert-base-uncased,"Milk, cow, raw (FPCM)",productQA,1.0000,original_rag,
+349,google-bert/bert-base-uncased,"Milk, cow, raw (FPCM)",productQA,1.0000,original_rag,6.0
 350,google-bert/bert-base-uncased,"Meat, chicken, wings",productQA,,original_rag,
 351,google-bert/bert-base-uncased,"Beef cattle, heifer and steer",productQA,,original_rag,
 352,google-bert/bert-base-uncased,"Meat, dairy cattle (cold carcass weight)",productQA,,original_rag,
 353,google-bert/bert-base-uncased,Buttermilk,productQA,,original_rag,
-354,google-bert/bert-base-uncased,"Pig, sow",productQA,1.0000,original_rag,
+354,google-bert/bert-base-uncased,"Pig, sow",productQA,1.0000,original_rag,3.0
 355,google-bert/bert-base-uncased,"Cattle, urine (kg mass)",productQA,,original_rag,
-356,google-bert/bert-base-uncased,"Beef cattle, calf (female, weaned)",productQA,1.0000,original_rag,
+356,google-bert/bert-base-uncased,"Beef cattle, calf (female, weaned)",productQA,1.0000,original_rag,2.0
 357,google-bert/bert-base-uncased,Yoghurt,productQA,,original_rag,
 358,google-bert/bert-base-uncased,"Meat, beef cattle (liveweight)",productQA,,original_rag,
-359,google-bert/bert-base-uncased,"Dairy cattle, heifer",productQA,1.0000,original_rag,
+359,google-bert/bert-base-uncased,"Dairy cattle, heifer",productQA,1.0000,original_rag,1.0
 360,google-bert/bert-base-uncased,"Sheep, ram",productQA,,original_rag,
-361,google-bert/bert-base-uncased,Caciotta,productQA,0.0192,original_rag,
+361,google-bert/bert-base-uncased,Caciotta,productQA,0.0192,original_rag,4.0
 362,google-bert/bert-base-uncased,"Electricity, produced on",productQA,,original_rag,
 363,google-bert/bert-base-uncased,Fresh cheese,productQA,,original_rag,
 364,google-bert/bert-base-uncased,Electricity,productQA,,original_rag,
-365,google-bert/bert-base-uncased,"Sheep, ewe",productQA,1.0000,original_rag,
+365,google-bert/bert-base-uncased,"Sheep, ewe",productQA,1.0000,original_rag,6.0
 366,google-bert/bert-base-uncased,"Dairy cattle, calf (male, unweaned)",productQA,,original_rag,
 367,google-bert/bert-base-uncased,"Meat, pig (cold carcass weight)",productQA,,original_rag,
 368,google-bert/bert-base-uncased,"Beef cattle, calf (weaned)",productQA,,original_rag,
-369,google-bert/bert-base-uncased,"Meat, pig (cold dressed carcass weight)",productQA,1.0000,original_rag,
+369,google-bert/bert-base-uncased,"Meat, pig (cold dressed carcass weight)",productQA,1.0000,original_rag,4.0
 370,google-bert/bert-base-uncased,"Dairy cattle, calf (female, weaned)",productQA,,original_rag,
 371,google-bert/bert-base-uncased,Whey,productQA,,original_rag,
 372,google-bert/bert-base-uncased,Offal,productQA,,original_rag,
 373,google-bert/bert-base-uncased,Cattle,productQA,,original_rag,
 374,google-bert/bert-base-uncased,"Dairy cattle, calf (weaned)",productQA,,original_rag,
-375,google-bert/bert-base-uncased,"Dairy cattle, calf",productQA,0.0096,original_rag,
-376,google-bert/bert-base-uncased,Sheep,productQA,1.0000,original_rag,
+375,google-bert/bert-base-uncased,"Dairy cattle, calf",productQA,0.0096,original_rag,1.0
+376,google-bert/bert-base-uncased,Sheep,productQA,1.0000,original_rag,13.0
 377,google-bert/bert-base-uncased,"Meat, chicken, breast",productQA,,original_rag,
-378,google-bert/bert-base-uncased,"Beef cattle, bull",productQA,1.0000,original_rag,
+378,google-bert/bert-base-uncased,"Beef cattle, bull",productQA,1.0000,original_rag,1.0
 379,google-bert/bert-base-uncased,"Offal, pigs",productQA,,original_rag,
 380,google-bert/bert-base-uncased,"Cream, cow, raw",productQA,,original_rag,
-381,google-bert/bert-base-uncased,"Broiler chicken, hen",productQA,1.0000,original_rag,
-382,google-bert/bert-base-uncased,"Broiler chicken, chick",productQA,1.0000,original_rag,
-383,google-bert/bert-base-uncased,"Sheep, lamb (weaned)",productQA,1.0000,original_rag,
-384,google-bert/bert-base-uncased,"Meat, dairy cattle (liveweight)",productQA,0.7500,original_rag,
-385,google-bert/bert-base-uncased,"Layer chicken, pullet",productQA,1.0000,original_rag,
-386,google-bert/bert-base-uncased,Broiler chicken,productQA,1.0000,original_rag,
-387,google-bert/bert-base-uncased,Beef cattle,productQA,1.0000,original_rag,
-388,google-bert/bert-base-uncased,"Cheese, cow",productQA,1.0000,original_rag,
-389,google-bert/bert-base-uncased,"Eggs, hen, in shell",productQA,1.0000,original_rag,
+381,google-bert/bert-base-uncased,"Broiler chicken, hen",productQA,1.0000,original_rag,1.0
+382,google-bert/bert-base-uncased,"Broiler chicken, chick",productQA,1.0000,original_rag,1.0
+383,google-bert/bert-base-uncased,"Sheep, lamb (weaned)",productQA,1.0000,original_rag,4.0
+384,google-bert/bert-base-uncased,"Meat, dairy cattle (liveweight)",productQA,0.7500,original_rag,3.0
+385,google-bert/bert-base-uncased,"Layer chicken, pullet",productQA,1.0000,original_rag,3.0
+386,google-bert/bert-base-uncased,Broiler chicken,productQA,1.0000,original_rag,6.0
+387,google-bert/bert-base-uncased,Beef cattle,productQA,1.0000,original_rag,29.0
+388,google-bert/bert-base-uncased,"Cheese, cow",productQA,1.0000,original_rag,2.0
+389,google-bert/bert-base-uncased,"Eggs, hen, in shell",productQA,1.0000,original_rag,3.0
 390,google-bert/bert-base-uncased,"Cheese, sheep",productQA,,original_rag,
-391,google-bert/bert-base-uncased,Eggs,productQA,1.0000,original_rag,
+391,google-bert/bert-base-uncased,Eggs,productQA,1.0000,original_rag,4.0
 392,google-bert/bert-base-uncased,"Layer chicken, hen",productQA,,original_rag,
-393,google-bert/bert-base-uncased,"Sheep, lamb",productQA,1.0000,original_rag,
-394,google-bert/bert-base-uncased,"Milk, cow, raw",productQA,1.0000,original_rag,
-395,google-bert/bert-base-uncased,"Beef cattle, steer",productQA,1.0000,original_rag,
+393,google-bert/bert-base-uncased,"Sheep, lamb",productQA,1.0000,original_rag,3.0
+394,google-bert/bert-base-uncased,"Milk, cow, raw",productQA,1.0000,original_rag,1.0
+395,google-bert/bert-base-uncased,"Beef cattle, steer",productQA,1.0000,original_rag,11.0
 396,google-bert/bert-base-uncased,Butter,productQA,,original_rag,
 397,google-bert/bert-base-uncased,Poultry by,productQA,,original_rag,
-398,google-bert/bert-base-uncased,"Dairy cattle, cow",productQA,0.6000,original_rag,
-399,google-bert/bert-base-uncased,"Pig, piglet",productQA,0.8750,original_rag,
-400,google-bert/bert-base-uncased,"Meat, chicken, leg",productQA,1.0000,original_rag,
-401,google-bert/bert-base-uncased,"Hides, dairy cattle, fresh",productQA,0.0096,original_rag,
-402,google-bert/bert-base-uncased,"Meat, chicken (cold carcass weight)",productQA,1.0000,original_rag,
+398,google-bert/bert-base-uncased,"Dairy cattle, cow",productQA,0.6000,original_rag,3.0
+399,google-bert/bert-base-uncased,"Pig, piglet",productQA,0.8750,original_rag,7.0
+400,google-bert/bert-base-uncased,"Meat, chicken, leg",productQA,1.0000,original_rag,1.0
+401,google-bert/bert-base-uncased,"Hides, dairy cattle, fresh",productQA,0.0096,original_rag,1.0
+402,google-bert/bert-base-uncased,"Meat, chicken (cold carcass weight)",productQA,1.0000,original_rag,2.0
 403,google-bert/bert-base-uncased,"Whey, powder",productQA,,original_rag,
-404,google-bert/bert-base-uncased,Cheese,productQA,1.0000,original_rag,
-405,google-bert/bert-base-uncased,Soft,productQA,1.0000,original_rag,
-406,google-bert/bert-base-uncased,"Eggs, hen, in shell (number)",productQA,1.0000,original_rag,
-407,google-bert/bert-base-uncased,Meat,productQA,1.0000,original_rag,
+404,google-bert/bert-base-uncased,Cheese,productQA,1.0000,original_rag,2.0
+405,google-bert/bert-base-uncased,Soft,productQA,1.0000,original_rag,2.0
+406,google-bert/bert-base-uncased,"Eggs, hen, in shell (number)",productQA,1.0000,original_rag,1.0
+407,google-bert/bert-base-uncased,Meat,productQA,1.0000,original_rag,15.0
 408,google-bert/bert-base-uncased,"Meat, chicken (liveweight)",productQA,,original_rag,
-409,google-bert/bert-base-uncased,"Beef cattle, heifer",productQA,1.0000,original_rag,
-410,google-bert/bert-base-uncased,Ricotta,productQA,0.3333,original_rag,
-411,google-bert/bert-base-uncased,Ripened cheese,productQA,0.3333,original_rag,
-412,FacebookAI/roberta-large,"Meat, beef cattle (cold carcass weight)",productQA,1.0000,original_rag,
-413,FacebookAI/roberta-large,Layer chicken,productQA,1.0000,original_rag,
-414,FacebookAI/roberta-large,Pig,productQA,1.0000,original_rag,
-415,FacebookAI/roberta-large,"Meat, beef cattle (cold dressed carcass weight)",productQA,1.0000,original_rag,
-416,FacebookAI/roberta-large,Hides,productQA,0.0096,original_rag,
-417,FacebookAI/roberta-large,Dairy cattle,productQA,0.8333,original_rag,
-418,FacebookAI/roberta-large,Milk,productQA,1.0000,original_rag,
-419,FacebookAI/roberta-large,Cream,productQA,,original_rag,
-420,FacebookAI/roberta-large,"Beef cattle, calf (male, weaned)",productQA,1.0000,original_rag,
-421,FacebookAI/roberta-large,"Beef cattle, cow",productQA,1.0000,original_rag,
-422,FacebookAI/roberta-large,"Whey, liquid",productQA,,original_rag,
-423,FacebookAI/roberta-large,Wastewater (kg mass),productQA,,original_rag,
-424,FacebookAI/roberta-large,"Milk, cow, raw (FPCM)",productQA,1.0000,original_rag,
-425,FacebookAI/roberta-large,"Meat, chicken, wings",productQA,,original_rag,
-426,FacebookAI/roberta-large,"Beef cattle, heifer and steer",productQA,,original_rag,
-427,FacebookAI/roberta-large,"Meat, dairy cattle (cold carcass weight)",productQA,,original_rag,
-428,FacebookAI/roberta-large,Buttermilk,productQA,,original_rag,
-429,FacebookAI/roberta-large,"Pig, sow",productQA,0.7500,original_rag,
-430,FacebookAI/roberta-large,"Cattle, urine (kg mass)",productQA,,original_rag,
-431,FacebookAI/roberta-large,"Beef cattle, calf (female, weaned)",productQA,1.0000,original_rag,
-432,FacebookAI/roberta-large,Yoghurt,productQA,,original_rag,
-433,FacebookAI/roberta-large,"Meat, beef cattle (liveweight)",productQA,,original_rag,
-434,FacebookAI/roberta-large,"Dairy cattle, heifer",productQA,1.0000,original_rag,
-435,FacebookAI/roberta-large,"Sheep, ram",productQA,,original_rag,
-436,FacebookAI/roberta-large,Caciotta,productQA,0.0192,original_rag,
-437,FacebookAI/roberta-large,"Electricity, produced on",productQA,,original_rag,
-438,FacebookAI/roberta-large,Fresh cheese,productQA,,original_rag,
-439,FacebookAI/roberta-large,Electricity,productQA,,original_rag,
-440,FacebookAI/roberta-large,"Sheep, ewe",productQA,1.0000,original_rag,
-441,FacebookAI/roberta-large,"Dairy cattle, calf (male, unweaned)",productQA,,original_rag,
-442,FacebookAI/roberta-large,"Meat, pig (cold carcass weight)",productQA,,original_rag,
-443,FacebookAI/roberta-large,"Beef cattle, calf (weaned)",productQA,,original_rag,
-444,FacebookAI/roberta-large,"Meat, pig (cold dressed carcass weight)",productQA,1.0000,original_rag,
-445,FacebookAI/roberta-large,"Dairy cattle, calf (female, weaned)",productQA,,original_rag,
-446,FacebookAI/roberta-large,Whey,productQA,,original_rag,
-447,FacebookAI/roberta-large,Offal,productQA,,original_rag,
-448,FacebookAI/roberta-large,Cattle,productQA,,original_rag,
-449,FacebookAI/roberta-large,"Dairy cattle, calf (weaned)",productQA,,original_rag,
-450,FacebookAI/roberta-large,"Dairy cattle, calf",productQA,0.0096,original_rag,
-451,FacebookAI/roberta-large,Sheep,productQA,1.0000,original_rag,
-452,FacebookAI/roberta-large,"Meat, chicken, breast",productQA,,original_rag,
-453,FacebookAI/roberta-large,"Beef cattle, bull",productQA,1.0000,original_rag,
-454,FacebookAI/roberta-large,"Offal, pigs",productQA,,original_rag,
-455,FacebookAI/roberta-large,"Cream, cow, raw",productQA,,original_rag,
-456,FacebookAI/roberta-large,"Broiler chicken, hen",productQA,1.0000,original_rag,
-457,FacebookAI/roberta-large,"Broiler chicken, chick",productQA,1.0000,original_rag,
-458,FacebookAI/roberta-large,"Sheep, lamb (weaned)",productQA,1.0000,original_rag,
-459,FacebookAI/roberta-large,"Meat, dairy cattle (liveweight)",productQA,1.0000,original_rag,
-460,FacebookAI/roberta-large,"Layer chicken, pullet",productQA,1.0000,original_rag,
-461,FacebookAI/roberta-large,Broiler chicken,productQA,1.0000,original_rag,
-462,FacebookAI/roberta-large,Beef cattle,productQA,1.0000,original_rag,
-463,FacebookAI/roberta-large,"Cheese, cow",productQA,1.0000,original_rag,
-464,FacebookAI/roberta-large,"Eggs, hen, in shell",productQA,1.0000,original_rag,
-465,FacebookAI/roberta-large,"Cheese, sheep",productQA,,original_rag,
-466,FacebookAI/roberta-large,Eggs,productQA,1.0000,original_rag,
-467,FacebookAI/roberta-large,"Layer chicken, hen",productQA,,original_rag,
-468,FacebookAI/roberta-large,"Sheep, lamb",productQA,1.0000,original_rag,
-469,FacebookAI/roberta-large,"Milk, cow, raw",productQA,1.0000,original_rag,
-470,FacebookAI/roberta-large,"Beef cattle, steer",productQA,1.0000,original_rag,
-471,FacebookAI/roberta-large,Butter,productQA,,original_rag,
-472,FacebookAI/roberta-large,Poultry by,productQA,,original_rag,
-473,FacebookAI/roberta-large,"Dairy cattle, cow",productQA,0.6000,original_rag,
-474,FacebookAI/roberta-large,"Pig, piglet",productQA,0.8750,original_rag,
-475,FacebookAI/roberta-large,"Meat, chicken, leg",productQA,1.0000,original_rag,
-476,FacebookAI/roberta-large,"Hides, dairy cattle, fresh",productQA,0.0096,original_rag,
-477,FacebookAI/roberta-large,"Meat, chicken (cold carcass weight)",productQA,1.0000,original_rag,
-478,FacebookAI/roberta-large,"Whey, powder",productQA,,original_rag,
-479,FacebookAI/roberta-large,Cheese,productQA,1.0000,original_rag,
-480,FacebookAI/roberta-large,Soft,productQA,1.0000,original_rag,
-481,FacebookAI/roberta-large,"Eggs, hen, in shell (number)",productQA,1.0000,original_rag,
-482,FacebookAI/roberta-large,Meat,productQA,1.0000,original_rag,
-483,FacebookAI/roberta-large,"Meat, chicken (liveweight)",productQA,,original_rag,
-484,FacebookAI/roberta-large,"Beef cattle, heifer",productQA,1.0000,original_rag,
-485,FacebookAI/roberta-large,Ricotta,productQA,0.3333,original_rag,
-486,FacebookAI/roberta-large,Ripened cheese,productQA,1.0000,original_rag,
-487,climatebert/distilroberta-base-climate-f,"Meat, beef cattle (cold carcass weight)",productQA,1.0000,original_rag,
-488,climatebert/distilroberta-base-climate-f,Layer chicken,productQA,1.0000,original_rag,
-489,climatebert/distilroberta-base-climate-f,Pig,productQA,1.0000,original_rag,
-490,climatebert/distilroberta-base-climate-f,"Meat, beef cattle (cold dressed carcass weight)",productQA,1.0000,original_rag,
-491,climatebert/distilroberta-base-climate-f,Hides,productQA,0.0096,original_rag,
-492,climatebert/distilroberta-base-climate-f,Dairy cattle,productQA,0.8333,original_rag,
-493,climatebert/distilroberta-base-climate-f,Milk,productQA,1.0000,original_rag,
-494,climatebert/distilroberta-base-climate-f,Cream,productQA,,original_rag,
-495,climatebert/distilroberta-base-climate-f,"Beef cattle, calf (male, weaned)",productQA,1.0000,original_rag,
-496,climatebert/distilroberta-base-climate-f,"Beef cattle, cow",productQA,1.0000,original_rag,
-497,climatebert/distilroberta-base-climate-f,"Whey, liquid",productQA,,original_rag,
-498,climatebert/distilroberta-base-climate-f,Wastewater (kg mass),productQA,,original_rag,
-499,climatebert/distilroberta-base-climate-f,"Milk, cow, raw (FPCM)",productQA,1.0000,original_rag,
-500,climatebert/distilroberta-base-climate-f,"Meat, chicken, wings",productQA,,original_rag,
-501,climatebert/distilroberta-base-climate-f,"Beef cattle, heifer and steer",productQA,,original_rag,
-502,climatebert/distilroberta-base-climate-f,"Meat, dairy cattle (cold carcass weight)",productQA,,original_rag,
-503,climatebert/distilroberta-base-climate-f,Buttermilk,productQA,,original_rag,
-504,climatebert/distilroberta-base-climate-f,"Pig, sow",productQA,1.0000,original_rag,
-505,climatebert/distilroberta-base-climate-f,"Cattle, urine (kg mass)",productQA,,original_rag,
-506,climatebert/distilroberta-base-climate-f,"Beef cattle, calf (female, weaned)",productQA,1.0000,original_rag,
-507,climatebert/distilroberta-base-climate-f,Yoghurt,productQA,,original_rag,
-508,climatebert/distilroberta-base-climate-f,"Meat, beef cattle (liveweight)",productQA,,original_rag,
-509,climatebert/distilroberta-base-climate-f,"Dairy cattle, heifer",productQA,0.5000,original_rag,
-510,climatebert/distilroberta-base-climate-f,"Sheep, ram",productQA,,original_rag,
-511,climatebert/distilroberta-base-climate-f,Caciotta,productQA,0.0192,original_rag,
-512,climatebert/distilroberta-base-climate-f,"Electricity, produced on",productQA,,original_rag,
-513,climatebert/distilroberta-base-climate-f,Fresh cheese,productQA,,original_rag,
-514,climatebert/distilroberta-base-climate-f,Electricity,productQA,,original_rag,
-515,climatebert/distilroberta-base-climate-f,"Sheep, ewe",productQA,1.0000,original_rag,
-516,climatebert/distilroberta-base-climate-f,"Dairy cattle, calf (male, unweaned)",productQA,,original_rag,
-517,climatebert/distilroberta-base-climate-f,"Meat, pig (cold carcass weight)",productQA,,original_rag,
-518,climatebert/distilroberta-base-climate-f,"Beef cattle, calf (weaned)",productQA,,original_rag,
-519,climatebert/distilroberta-base-climate-f,"Meat, pig (cold dressed carcass weight)",productQA,1.0000,original_rag,
-520,climatebert/distilroberta-base-climate-f,"Dairy cattle, calf (female, weaned)",productQA,,original_rag,
-521,climatebert/distilroberta-base-climate-f,Whey,productQA,,original_rag,
-522,climatebert/distilroberta-base-climate-f,Offal,productQA,,original_rag,
-523,climatebert/distilroberta-base-climate-f,Cattle,productQA,,original_rag,
-524,climatebert/distilroberta-base-climate-f,"Dairy cattle, calf (weaned)",productQA,,original_rag,
-525,climatebert/distilroberta-base-climate-f,"Dairy cattle, calf",productQA,0.0096,original_rag,
-526,climatebert/distilroberta-base-climate-f,Sheep,productQA,1.0000,original_rag,
-527,climatebert/distilroberta-base-climate-f,"Meat, chicken, breast",productQA,,original_rag,
-528,climatebert/distilroberta-base-climate-f,"Beef cattle, bull",productQA,1.0000,original_rag,
-529,climatebert/distilroberta-base-climate-f,"Offal, pigs",productQA,,original_rag,
-530,climatebert/distilroberta-base-climate-f,"Cream, cow, raw",productQA,,original_rag,
-531,climatebert/distilroberta-base-climate-f,"Broiler chicken, hen",productQA,1.0000,original_rag,
-532,climatebert/distilroberta-base-climate-f,"Broiler chicken, chick",productQA,1.0000,original_rag,
-533,climatebert/distilroberta-base-climate-f,"Sheep, lamb (weaned)",productQA,1.0000,original_rag,
-534,climatebert/distilroberta-base-climate-f,"Meat, dairy cattle (liveweight)",productQA,0.7500,original_rag,
-535,climatebert/distilroberta-base-climate-f,"Layer chicken, pullet",productQA,1.0000,original_rag,
-536,climatebert/distilroberta-base-climate-f,Broiler chicken,productQA,1.0000,original_rag,
-537,climatebert/distilroberta-base-climate-f,Beef cattle,productQA,0.9655,original_rag,
-538,climatebert/distilroberta-base-climate-f,"Cheese, cow",productQA,1.0000,original_rag,
-539,climatebert/distilroberta-base-climate-f,"Eggs, hen, in shell",productQA,1.0000,original_rag,
-540,climatebert/distilroberta-base-climate-f,"Cheese, sheep",productQA,,original_rag,
-541,climatebert/distilroberta-base-climate-f,Eggs,productQA,1.0000,original_rag,
-542,climatebert/distilroberta-base-climate-f,"Layer chicken, hen",productQA,,original_rag,
-543,climatebert/distilroberta-base-climate-f,"Sheep, lamb",productQA,1.0000,original_rag,
-544,climatebert/distilroberta-base-climate-f,"Milk, cow, raw",productQA,1.0000,original_rag,
-545,climatebert/distilroberta-base-climate-f,"Beef cattle, steer",productQA,1.0000,original_rag,
-546,climatebert/distilroberta-base-climate-f,Butter,productQA,,original_rag,
-547,climatebert/distilroberta-base-climate-f,Poultry by,productQA,,original_rag,
-548,climatebert/distilroberta-base-climate-f,"Dairy cattle, cow",productQA,0.7500,original_rag,
-549,climatebert/distilroberta-base-climate-f,"Pig, piglet",productQA,1.0000,original_rag,
-550,climatebert/distilroberta-base-climate-f,"Meat, chicken, leg",productQA,1.0000,original_rag,
-551,climatebert/distilroberta-base-climate-f,"Hides, dairy cattle, fresh",productQA,0.0096,original_rag,
-552,climatebert/distilroberta-base-climate-f,"Meat, chicken (cold carcass weight)",productQA,1.0000,original_rag,
-553,climatebert/distilroberta-base-climate-f,"Whey, powder",productQA,,original_rag,
-554,climatebert/distilroberta-base-climate-f,Cheese,productQA,1.0000,original_rag,
-555,climatebert/distilroberta-base-climate-f,Soft,productQA,1.0000,original_rag,
-556,climatebert/distilroberta-base-climate-f,"Eggs, hen, in shell (number)",productQA,1.0000,original_rag,
-557,climatebert/distilroberta-base-climate-f,Meat,productQA,0.9375,original_rag,
-558,climatebert/distilroberta-base-climate-f,"Meat, chicken (liveweight)",productQA,,original_rag,
-559,climatebert/distilroberta-base-climate-f,"Beef cattle, heifer",productQA,1.0000,original_rag,
-560,climatebert/distilroberta-base-climate-f,Ricotta,productQA,0.3333,original_rag,
-561,climatebert/distilroberta-base-climate-f,Ripened cheese,productQA,0.3333,original_rag,
-562,ESGBERT/EnvironmentalBERT-base,"Meat, beef cattle (cold carcass weight)",productQA,1.0000,original_rag,
-563,ESGBERT/EnvironmentalBERT-base,Layer chicken,productQA,1.0000,original_rag,
-564,ESGBERT/EnvironmentalBERT-base,Pig,productQA,1.0000,original_rag,
-565,ESGBERT/EnvironmentalBERT-base,"Meat, beef cattle (cold dressed carcass weight)",productQA,1.0000,original_rag,
-566,ESGBERT/EnvironmentalBERT-base,Hides,productQA,0.0096,original_rag,
-567,ESGBERT/EnvironmentalBERT-base,Dairy cattle,productQA,0.8333,original_rag,
-568,ESGBERT/EnvironmentalBERT-base,Milk,productQA,1.0000,original_rag,
-569,ESGBERT/EnvironmentalBERT-base,Cream,productQA,,original_rag,
-570,ESGBERT/EnvironmentalBERT-base,"Beef cattle, calf (male, weaned)",productQA,1.0000,original_rag,
-571,ESGBERT/EnvironmentalBERT-base,"Beef cattle, cow",productQA,1.0000,original_rag,
-572,ESGBERT/EnvironmentalBERT-base,"Whey, liquid",productQA,,original_rag,
-573,ESGBERT/EnvironmentalBERT-base,Wastewater (kg mass),productQA,,original_rag,
-574,ESGBERT/EnvironmentalBERT-base,"Milk, cow, raw (FPCM)",productQA,1.0000,original_rag,
-575,ESGBERT/EnvironmentalBERT-base,"Meat, chicken, wings",productQA,,original_rag,
-576,ESGBERT/EnvironmentalBERT-base,"Beef cattle, heifer and steer",productQA,,original_rag,
-577,ESGBERT/EnvironmentalBERT-base,"Meat, dairy cattle (cold carcass weight)",productQA,,original_rag,
-578,ESGBERT/EnvironmentalBERT-base,Buttermilk,productQA,,original_rag,
-579,ESGBERT/EnvironmentalBERT-base,"Pig, sow",productQA,1.0000,original_rag,
-580,ESGBERT/EnvironmentalBERT-base,"Cattle, urine (kg mass)",productQA,,original_rag,
-581,ESGBERT/EnvironmentalBERT-base,"Beef cattle, calf (female, weaned)",productQA,1.0000,original_rag,
-582,ESGBERT/EnvironmentalBERT-base,Yoghurt,productQA,,original_rag,
-583,ESGBERT/EnvironmentalBERT-base,"Meat, beef cattle (liveweight)",productQA,,original_rag,
-584,ESGBERT/EnvironmentalBERT-base,"Dairy cattle, heifer",productQA,1.0000,original_rag,
-585,ESGBERT/EnvironmentalBERT-base,"Sheep, ram",productQA,,original_rag,
-586,ESGBERT/EnvironmentalBERT-base,Caciotta,productQA,0.0192,original_rag,
-587,ESGBERT/EnvironmentalBERT-base,"Electricity, produced on",productQA,,original_rag,
-588,ESGBERT/EnvironmentalBERT-base,Fresh cheese,productQA,,original_rag,
-589,ESGBERT/EnvironmentalBERT-base,Electricity,productQA,,original_rag,
-590,ESGBERT/EnvironmentalBERT-base,"Sheep, ewe",productQA,1.0000,original_rag,
-591,ESGBERT/EnvironmentalBERT-base,"Dairy cattle, calf (male, unweaned)",productQA,,original_rag,
-592,ESGBERT/EnvironmentalBERT-base,"Meat, pig (cold carcass weight)",productQA,,original_rag,
-593,ESGBERT/EnvironmentalBERT-base,"Beef cattle, calf (weaned)",productQA,,original_rag,
-594,ESGBERT/EnvironmentalBERT-base,"Meat, pig (cold dressed carcass weight)",productQA,1.0000,original_rag,
-595,ESGBERT/EnvironmentalBERT-base,"Dairy cattle, calf (female, weaned)",productQA,,original_rag,
-596,ESGBERT/EnvironmentalBERT-base,Whey,productQA,,original_rag,
-597,ESGBERT/EnvironmentalBERT-base,Offal,productQA,,original_rag,
-598,ESGBERT/EnvironmentalBERT-base,Cattle,productQA,,original_rag,
-599,ESGBERT/EnvironmentalBERT-base,"Dairy cattle, calf (weaned)",productQA,,original_rag,
-600,ESGBERT/EnvironmentalBERT-base,"Dairy cattle, calf",productQA,0.0096,original_rag,
-601,ESGBERT/EnvironmentalBERT-base,Sheep,productQA,1.0000,original_rag,
-602,ESGBERT/EnvironmentalBERT-base,"Meat, chicken, breast",productQA,,original_rag,
-603,ESGBERT/EnvironmentalBERT-base,"Beef cattle, bull",productQA,1.0000,original_rag,
-604,ESGBERT/EnvironmentalBERT-base,"Offal, pigs",productQA,,original_rag,
-605,ESGBERT/EnvironmentalBERT-base,"Cream, cow, raw",productQA,,original_rag,
-606,ESGBERT/EnvironmentalBERT-base,"Broiler chicken, hen",productQA,1.0000,original_rag,
-607,ESGBERT/EnvironmentalBERT-base,"Broiler chicken, chick",productQA,1.0000,original_rag,
-608,ESGBERT/EnvironmentalBERT-base,"Sheep, lamb (weaned)",productQA,1.0000,original_rag,
-609,ESGBERT/EnvironmentalBERT-base,"Meat, dairy cattle (liveweight)",productQA,0.7500,original_rag,
-610,ESGBERT/EnvironmentalBERT-base,"Layer chicken, pullet",productQA,1.0000,original_rag,
-611,ESGBERT/EnvironmentalBERT-base,Broiler chicken,productQA,1.0000,original_rag,
-612,ESGBERT/EnvironmentalBERT-base,Beef cattle,productQA,1.0000,original_rag,
-613,ESGBERT/EnvironmentalBERT-base,"Cheese, cow",productQA,1.0000,original_rag,
-614,ESGBERT/EnvironmentalBERT-base,"Eggs, hen, in shell",productQA,1.0000,original_rag,
-615,ESGBERT/EnvironmentalBERT-base,"Cheese, sheep",productQA,,original_rag,
-616,ESGBERT/EnvironmentalBERT-base,Eggs,productQA,1.0000,original_rag,
-617,ESGBERT/EnvironmentalBERT-base,"Layer chicken, hen",productQA,,original_rag,
-618,ESGBERT/EnvironmentalBERT-base,"Sheep, lamb",productQA,1.0000,original_rag,
-619,ESGBERT/EnvironmentalBERT-base,"Milk, cow, raw",productQA,1.0000,original_rag,
-620,ESGBERT/EnvironmentalBERT-base,"Beef cattle, steer",productQA,1.0000,original_rag,
-621,ESGBERT/EnvironmentalBERT-base,Butter,productQA,,original_rag,
-622,ESGBERT/EnvironmentalBERT-base,Poultry by,productQA,,original_rag,
-623,ESGBERT/EnvironmentalBERT-base,"Dairy cattle, cow",productQA,0.6000,original_rag,
-624,ESGBERT/EnvironmentalBERT-base,"Pig, piglet",productQA,0.8750,original_rag,
-625,ESGBERT/EnvironmentalBERT-base,"Meat, chicken, leg",productQA,1.0000,original_rag,
-626,ESGBERT/EnvironmentalBERT-base,"Hides, dairy cattle, fresh",productQA,0.0096,original_rag,
-627,ESGBERT/EnvironmentalBERT-base,"Meat, chicken (cold carcass weight)",productQA,1.0000,original_rag,
-628,ESGBERT/EnvironmentalBERT-base,"Whey, powder",productQA,,original_rag,
-629,ESGBERT/EnvironmentalBERT-base,Cheese,productQA,1.0000,original_rag,
-630,ESGBERT/EnvironmentalBERT-base,Soft,productQA,1.0000,original_rag,
-631,ESGBERT/EnvironmentalBERT-base,"Eggs, hen, in shell (number)",productQA,1.0000,original_rag,
-632,ESGBERT/EnvironmentalBERT-base,Meat,productQA,0.9375,original_rag,
-633,ESGBERT/EnvironmentalBERT-base,"Meat, chicken (liveweight)",productQA,,original_rag,
-634,ESGBERT/EnvironmentalBERT-base,"Beef cattle, heifer",productQA,1.0000,original_rag,
-635,ESGBERT/EnvironmentalBERT-base,Ricotta,productQA,0.3333,original_rag,
-636,ESGBERT/EnvironmentalBERT-base,Ripened cheese,productQA,1.0000,original_rag,
-637,microsoft/deberta-v3-small,True_liveAnimalInput,systemBoundaryQA,0.9496,original_rag,
-638,microsoft/deberta-v3-small,True_cropResidue,systemBoundaryQA,0.9118,original_rag,
-639,microsoft/deberta-v3-small,True_seed,systemBoundaryQA,0.9479,original_rag,
-640,microsoft/deberta-v3-small,True_product,systemBoundaryQA,0.9881,original_rag,
-641,microsoft/deberta-v3-small,True_pesticideVeterinaryDrug,systemBoundaryQA,0.8849,original_rag,
-642,microsoft/deberta-v3-small,True_excreta,systemBoundaryQA,0.8733,original_rag,
-643,microsoft/deberta-v3-small,True_freshForage,systemBoundaryQA,0.9365,original_rag,
-644,microsoft/deberta-v3-small,True_transport,systemBoundaryQA,0.5481,original_rag,
-645,microsoft/deberta-v3-small,True_animalFeed,systemBoundaryQA,0.9693,original_rag,
-646,microsoft/deberta-v3-small,True_waste,systemBoundaryQA,0.4885,original_rag,
-647,microsoft/deberta-v3-small,True_ingredient,systemBoundaryQA,1.0000,original_rag,
-648,microsoft/deberta-v3-small,True_operation,systemBoundaryQA,0.8967,original_rag,
-649,microsoft/deberta-v3-small,True_soilAmendment,systemBoundaryQA,1.0000,original_rag,
-650,microsoft/deberta-v3-small,True_material,systemBoundaryQA,0.2596,original_rag,
-651,microsoft/deberta-v3-small,True_animalPopulation,systemBoundaryQA,0.9417,original_rag,
-652,microsoft/deberta-v3-small,True_otherChemical,systemBoundaryQA,0.9388,original_rag,
-653,microsoft/deberta-v3-small,True_electricityFuel,systemBoundaryQA,0.9638,original_rag,
-654,microsoft/deberta-v3-small,True_water,systemBoundaryQA,0.8556,original_rag,
-655,microsoft/deberta-v3-small,True_fertiliser,systemBoundaryQA,0.9604,original_rag,
-656,microsoft/deberta-v3-base,True_liveAnimalInput,systemBoundaryQA,0.9604,original_rag,
-657,microsoft/deberta-v3-base,True_cropResidue,systemBoundaryQA,0.9254,original_rag,
-658,microsoft/deberta-v3-base,True_seed,systemBoundaryQA,0.9383,original_rag,
-659,microsoft/deberta-v3-base,True_product,systemBoundaryQA,1.0000,original_rag,
-660,microsoft/deberta-v3-base,True_pesticideVeterinaryDrug,systemBoundaryQA,0.9483,original_rag,
-661,microsoft/deberta-v3-base,True_excreta,systemBoundaryQA,0.9215,original_rag,
-662,microsoft/deberta-v3-base,True_freshForage,systemBoundaryQA,0.9074,original_rag,
-663,microsoft/deberta-v3-base,True_transport,systemBoundaryQA,0.4487,original_rag,
-664,microsoft/deberta-v3-base,True_animalFeed,systemBoundaryQA,0.9700,original_rag,
-665,microsoft/deberta-v3-base,True_waste,systemBoundaryQA,0.5733,original_rag,
-666,microsoft/deberta-v3-base,True_ingredient,systemBoundaryQA,1.0000,original_rag,
-667,microsoft/deberta-v3-base,True_operation,systemBoundaryQA,0.9487,original_rag,
-668,microsoft/deberta-v3-base,True_soilAmendment,systemBoundaryQA,1.0000,original_rag,
-669,microsoft/deberta-v3-base,True_material,systemBoundaryQA,0.6667,original_rag,
-670,microsoft/deberta-v3-base,True_animalPopulation,systemBoundaryQA,0.9417,original_rag,
-671,microsoft/deberta-v3-base,True_otherChemical,systemBoundaryQA,0.9376,original_rag,
-672,microsoft/deberta-v3-base,True_electricityFuel,systemBoundaryQA,0.9673,original_rag,
-673,microsoft/deberta-v3-base,True_water,systemBoundaryQA,0.9333,original_rag,
-674,microsoft/deberta-v3-base,True_fertiliser,systemBoundaryQA,0.9700,original_rag,
-675,microsoft/deberta-v3-large,True_liveAnimalInput,systemBoundaryQA,0.9604,original_rag,
-676,microsoft/deberta-v3-large,True_cropResidue,systemBoundaryQA,0.9776,original_rag,
-677,microsoft/deberta-v3-large,True_seed,systemBoundaryQA,0.9882,original_rag,
-678,microsoft/deberta-v3-large,True_product,systemBoundaryQA,1.0000,original_rag,
-679,microsoft/deberta-v3-large,True_pesticideVeterinaryDrug,systemBoundaryQA,0.9649,original_rag,
-680,microsoft/deberta-v3-large,True_excreta,systemBoundaryQA,0.9652,original_rag,
-681,microsoft/deberta-v3-large,True_freshForage,systemBoundaryQA,0.9833,original_rag,
-682,microsoft/deberta-v3-large,True_transport,systemBoundaryQA,0.9231,original_rag,
-683,microsoft/deberta-v3-large,True_animalFeed,systemBoundaryQA,0.9898,original_rag,
-684,microsoft/deberta-v3-large,True_waste,systemBoundaryQA,0.7460,original_rag,
-685,microsoft/deberta-v3-large,True_ingredient,systemBoundaryQA,1.0000,original_rag,
-686,microsoft/deberta-v3-large,True_operation,systemBoundaryQA,0.9737,original_rag,
-687,microsoft/deberta-v3-large,True_soilAmendment,systemBoundaryQA,1.0000,original_rag,
-688,microsoft/deberta-v3-large,True_material,systemBoundaryQA,1.0000,original_rag,
-689,microsoft/deberta-v3-large,True_animalPopulation,systemBoundaryQA,1.0000,original_rag,
-690,microsoft/deberta-v3-large,True_otherChemical,systemBoundaryQA,0.9892,original_rag,
-691,microsoft/deberta-v3-large,True_electricityFuel,systemBoundaryQA,1.0000,original_rag,
-692,microsoft/deberta-v3-large,True_water,systemBoundaryQA,0.9395,original_rag,
-693,microsoft/deberta-v3-large,True_fertiliser,systemBoundaryQA,1.0000,original_rag,
-694,google-bert/bert-base-uncased,True_liveAnimalInput,systemBoundaryQA,0.9604,original_rag,
-695,google-bert/bert-base-uncased,True_cropResidue,systemBoundaryQA,0.9394,original_rag,
-696,google-bert/bert-base-uncased,True_seed,systemBoundaryQA,0.9778,original_rag,
-697,google-bert/bert-base-uncased,True_product,systemBoundaryQA,0.9897,original_rag,
-698,google-bert/bert-base-uncased,True_pesticideVeterinaryDrug,systemBoundaryQA,0.9649,original_rag,
-699,google-bert/bert-base-uncased,True_excreta,systemBoundaryQA,0.9563,original_rag,
-700,google-bert/bert-base-uncased,True_freshForage,systemBoundaryQA,0.9833,original_rag,
-701,google-bert/bert-base-uncased,True_transport,systemBoundaryQA,0.8571,original_rag,
-702,google-bert/bert-base-uncased,True_animalFeed,systemBoundaryQA,0.9798,original_rag,
-703,google-bert/bert-base-uncased,True_waste,systemBoundaryQA,0.6846,original_rag,
-704,google-bert/bert-base-uncased,True_ingredient,systemBoundaryQA,1.0000,original_rag,
-705,google-bert/bert-base-uncased,True_operation,systemBoundaryQA,0.9487,original_rag,
-706,google-bert/bert-base-uncased,True_soilAmendment,systemBoundaryQA,1.0000,original_rag,
-707,google-bert/bert-base-uncased,True_material,systemBoundaryQA,1.0000,original_rag,
-708,google-bert/bert-base-uncased,True_animalPopulation,systemBoundaryQA,0.9700,original_rag,
-709,google-bert/bert-base-uncased,True_otherChemical,systemBoundaryQA,0.9787,original_rag,
-710,google-bert/bert-base-uncased,True_electricityFuel,systemBoundaryQA,0.9870,original_rag,
-711,google-bert/bert-base-uncased,True_water,systemBoundaryQA,0.9074,original_rag,
-712,google-bert/bert-base-uncased,True_fertiliser,systemBoundaryQA,0.9700,original_rag,
-713,FacebookAI/roberta-large,True_liveAnimalInput,systemBoundaryQA,0.9700,original_rag,
-714,FacebookAI/roberta-large,True_cropResidue,systemBoundaryQA,0.9394,original_rag,
-715,FacebookAI/roberta-large,True_seed,systemBoundaryQA,0.9882,original_rag,
-716,FacebookAI/roberta-large,True_product,systemBoundaryQA,1.0000,original_rag,
-717,FacebookAI/roberta-large,True_pesticideVeterinaryDrug,systemBoundaryQA,0.9821,original_rag,
-718,FacebookAI/roberta-large,True_excreta,systemBoundaryQA,0.9478,original_rag,
-719,FacebookAI/roberta-large,True_freshForage,systemBoundaryQA,0.9833,original_rag,
-720,FacebookAI/roberta-large,True_transport,systemBoundaryQA,0.7853,original_rag,
-721,FacebookAI/roberta-large,True_animalFeed,systemBoundaryQA,0.9700,original_rag,
-722,FacebookAI/roberta-large,True_waste,systemBoundaryQA,0.6010,original_rag,
-723,FacebookAI/roberta-large,True_ingredient,systemBoundaryQA,1.0000,original_rag,
-724,FacebookAI/roberta-large,True_operation,systemBoundaryQA,1.0000,original_rag,
-725,FacebookAI/roberta-large,True_soilAmendment,systemBoundaryQA,1.0000,original_rag,
-726,FacebookAI/roberta-large,True_material,systemBoundaryQA,1.0000,original_rag,
-727,FacebookAI/roberta-large,True_animalPopulation,systemBoundaryQA,0.9798,original_rag,
-728,FacebookAI/roberta-large,True_otherChemical,systemBoundaryQA,0.9892,original_rag,
-729,FacebookAI/roberta-large,True_electricityFuel,systemBoundaryQA,0.9673,original_rag,
-730,FacebookAI/roberta-large,True_water,systemBoundaryQA,0.8613,original_rag,
-731,FacebookAI/roberta-large,True_fertiliser,systemBoundaryQA,0.9898,original_rag,
-732,climatebert/distilroberta-base-climate-f,True_liveAnimalInput,systemBoundaryQA,0.9604,original_rag,
-733,climatebert/distilroberta-base-climate-f,True_cropResidue,systemBoundaryQA,0.9254,original_rag,
-734,climatebert/distilroberta-base-climate-f,True_seed,systemBoundaryQA,0.9576,original_rag,
-735,climatebert/distilroberta-base-climate-f,True_product,systemBoundaryQA,0.9897,original_rag,
-736,climatebert/distilroberta-base-climate-f,True_pesticideVeterinaryDrug,systemBoundaryQA,0.9821,original_rag,
-737,climatebert/distilroberta-base-climate-f,True_excreta,systemBoundaryQA,0.9304,original_rag,
-738,climatebert/distilroberta-base-climate-f,True_freshForage,systemBoundaryQA,0.9672,original_rag,
-739,climatebert/distilroberta-base-climate-f,True_transport,systemBoundaryQA,0.5913,original_rag,
-740,climatebert/distilroberta-base-climate-f,True_animalFeed,systemBoundaryQA,0.9898,original_rag,
-741,climatebert/distilroberta-base-climate-f,True_waste,systemBoundaryQA,0.5188,original_rag,
-742,climatebert/distilroberta-base-climate-f,True_ingredient,systemBoundaryQA,1.0000,original_rag,
-743,climatebert/distilroberta-base-climate-f,True_operation,systemBoundaryQA,0.9737,original_rag,
-744,climatebert/distilroberta-base-climate-f,True_soilAmendment,systemBoundaryQA,1.0000,original_rag,
-745,climatebert/distilroberta-base-climate-f,True_material,systemBoundaryQA,0.6667,original_rag,
-746,climatebert/distilroberta-base-climate-f,True_animalPopulation,systemBoundaryQA,0.9510,original_rag,
-747,climatebert/distilroberta-base-climate-f,True_otherChemical,systemBoundaryQA,0.9672,original_rag,
-748,climatebert/distilroberta-base-climate-f,True_electricityFuel,systemBoundaryQA,0.9799,original_rag,
-749,climatebert/distilroberta-base-climate-f,True_water,systemBoundaryQA,0.9395,original_rag,
-750,climatebert/distilroberta-base-climate-f,True_fertiliser,systemBoundaryQA,0.9798,original_rag,
-751,ESGBERT/EnvironmentalBERT-base,True_liveAnimalInput,systemBoundaryQA,0.9700,original_rag,
-752,ESGBERT/EnvironmentalBERT-base,True_cropResidue,systemBoundaryQA,0.9538,original_rag,
-753,ESGBERT/EnvironmentalBERT-base,True_seed,systemBoundaryQA,0.9989,original_rag,
-754,ESGBERT/EnvironmentalBERT-base,True_product,systemBoundaryQA,1.0000,original_rag,
-755,ESGBERT/EnvironmentalBERT-base,True_pesticideVeterinaryDrug,systemBoundaryQA,0.9564,original_rag,
-756,ESGBERT/EnvironmentalBERT-base,True_excreta,systemBoundaryQA,0.9652,original_rag,
-757,ESGBERT/EnvironmentalBERT-base,True_freshForage,systemBoundaryQA,0.9526,original_rag,
-758,ESGBERT/EnvironmentalBERT-base,True_transport,systemBoundaryQA,0.6603,original_rag,
-759,ESGBERT/EnvironmentalBERT-base,True_animalFeed,systemBoundaryQA,0.9798,original_rag,
-760,ESGBERT/EnvironmentalBERT-base,True_waste,systemBoundaryQA,0.8196,original_rag,
-761,ESGBERT/EnvironmentalBERT-base,True_ingredient,systemBoundaryQA,1.0000,original_rag,
-762,ESGBERT/EnvironmentalBERT-base,True_operation,systemBoundaryQA,0.9024,original_rag,
-763,ESGBERT/EnvironmentalBERT-base,True_soilAmendment,systemBoundaryQA,0.9996,original_rag,
-764,ESGBERT/EnvironmentalBERT-base,True_material,systemBoundaryQA,0.6667,original_rag,
-765,ESGBERT/EnvironmentalBERT-base,True_animalPopulation,systemBoundaryQA,0.9798,original_rag,
-766,ESGBERT/EnvironmentalBERT-base,True_otherChemical,systemBoundaryQA,0.9787,original_rag,
-767,ESGBERT/EnvironmentalBERT-base,True_electricityFuel,systemBoundaryQA,0.9965,original_rag,
-768,ESGBERT/EnvironmentalBERT-base,True_water,systemBoundaryQA,0.9395,original_rag,
-769,ESGBERT/EnvironmentalBERT-base,True_fertiliser,systemBoundaryQA,0.9898,original_rag,
+409,google-bert/bert-base-uncased,"Beef cattle, heifer",productQA,1.0000,original_rag,9.0
+410,google-bert/bert-base-uncased,Ricotta,productQA,0.3333,original_rag,2.0
+411,google-bert/bert-base-uncased,Ripened cheese,productQA,0.3333,original_rag,2.0
+412,microsoft/deberta-v3-base,"Meat, beef cattle (cold carcass weight)",productQA,1.0000,original_rag,3.0
+413,microsoft/deberta-v3-base,Layer chicken,productQA,1.0000,original_rag,9.0
+414,microsoft/deberta-v3-base,Pig,productQA,1.0000,original_rag,18.0
+415,microsoft/deberta-v3-base,"Meat, beef cattle (cold dressed carcass weight)",productQA,1.0000,original_rag,2.0
+416,microsoft/deberta-v3-base,Hides,productQA,0.0096,original_rag,1.0
+417,microsoft/deberta-v3-base,Dairy cattle,productQA,0.8333,original_rag,5.0
+418,microsoft/deberta-v3-base,Milk,productQA,1.0000,original_rag,7.0
+419,microsoft/deberta-v3-base,Cream,productQA,,original_rag,
+420,microsoft/deberta-v3-base,"Beef cattle, calf (male, weaned)",productQA,1.0000,original_rag,3.0
+421,microsoft/deberta-v3-base,"Beef cattle, cow",productQA,1.0000,original_rag,1.0
+422,microsoft/deberta-v3-base,"Whey, liquid",productQA,,original_rag,
+423,microsoft/deberta-v3-base,Wastewater (kg mass),productQA,,original_rag,
+424,microsoft/deberta-v3-base,"Milk, cow, raw (FPCM)",productQA,1.0000,original_rag,6.0
+425,microsoft/deberta-v3-base,"Meat, chicken, wings",productQA,,original_rag,
+426,microsoft/deberta-v3-base,"Beef cattle, heifer and steer",productQA,,original_rag,
+427,microsoft/deberta-v3-base,"Meat, dairy cattle (cold carcass weight)",productQA,,original_rag,
+428,microsoft/deberta-v3-base,Buttermilk,productQA,,original_rag,
+429,microsoft/deberta-v3-base,"Pig, sow",productQA,1.0000,original_rag,3.0
+430,microsoft/deberta-v3-base,"Cattle, urine (kg mass)",productQA,,original_rag,
+431,microsoft/deberta-v3-base,"Beef cattle, calf (female, weaned)",productQA,1.0000,original_rag,2.0
+432,microsoft/deberta-v3-base,Yoghurt,productQA,,original_rag,
+433,microsoft/deberta-v3-base,"Meat, beef cattle (liveweight)",productQA,,original_rag,
+434,microsoft/deberta-v3-base,"Dairy cattle, heifer",productQA,1.0000,original_rag,1.0
+435,microsoft/deberta-v3-base,"Sheep, ram",productQA,,original_rag,
+436,microsoft/deberta-v3-base,Caciotta,productQA,0.0192,original_rag,4.0
+437,microsoft/deberta-v3-base,"Electricity, produced on",productQA,,original_rag,
+438,microsoft/deberta-v3-base,Fresh cheese,productQA,,original_rag,
+439,microsoft/deberta-v3-base,Electricity,productQA,,original_rag,
+440,microsoft/deberta-v3-base,"Sheep, ewe",productQA,1.0000,original_rag,6.0
+441,microsoft/deberta-v3-base,"Dairy cattle, calf (male, unweaned)",productQA,,original_rag,
+442,microsoft/deberta-v3-base,"Meat, pig (cold carcass weight)",productQA,,original_rag,
+443,microsoft/deberta-v3-base,"Beef cattle, calf (weaned)",productQA,,original_rag,
+444,microsoft/deberta-v3-base,"Meat, pig (cold dressed carcass weight)",productQA,1.0000,original_rag,4.0
+445,microsoft/deberta-v3-base,"Dairy cattle, calf (female, weaned)",productQA,,original_rag,
+446,microsoft/deberta-v3-base,Whey,productQA,,original_rag,
+447,microsoft/deberta-v3-base,Offal,productQA,,original_rag,
+448,microsoft/deberta-v3-base,Cattle,productQA,,original_rag,
+449,microsoft/deberta-v3-base,"Dairy cattle, calf (weaned)",productQA,,original_rag,
+450,microsoft/deberta-v3-base,"Dairy cattle, calf",productQA,0.0096,original_rag,1.0
+451,microsoft/deberta-v3-base,Sheep,productQA,1.0000,original_rag,13.0
+452,microsoft/deberta-v3-base,"Meat, chicken, breast",productQA,,original_rag,
+453,microsoft/deberta-v3-base,"Beef cattle, bull",productQA,1.0000,original_rag,1.0
+454,microsoft/deberta-v3-base,"Offal, pigs",productQA,,original_rag,
+455,microsoft/deberta-v3-base,"Cream, cow, raw",productQA,,original_rag,
+456,microsoft/deberta-v3-base,"Broiler chicken, hen",productQA,1.0000,original_rag,1.0
+457,microsoft/deberta-v3-base,"Broiler chicken, chick",productQA,1.0000,original_rag,1.0
+458,microsoft/deberta-v3-base,"Sheep, lamb (weaned)",productQA,1.0000,original_rag,4.0
+459,microsoft/deberta-v3-base,"Meat, dairy cattle (liveweight)",productQA,0.7500,original_rag,3.0
+460,microsoft/deberta-v3-base,"Layer chicken, pullet",productQA,1.0000,original_rag,3.0
+461,microsoft/deberta-v3-base,Broiler chicken,productQA,1.0000,original_rag,6.0
+462,microsoft/deberta-v3-base,Beef cattle,productQA,1.0000,original_rag,29.0
+463,microsoft/deberta-v3-base,"Cheese, cow",productQA,1.0000,original_rag,2.0
+464,microsoft/deberta-v3-base,"Eggs, hen, in shell",productQA,1.0000,original_rag,3.0
+465,microsoft/deberta-v3-base,"Cheese, sheep",productQA,,original_rag,
+466,microsoft/deberta-v3-base,Eggs,productQA,1.0000,original_rag,4.0
+467,microsoft/deberta-v3-base,"Layer chicken, hen",productQA,,original_rag,
+468,microsoft/deberta-v3-base,"Sheep, lamb",productQA,1.0000,original_rag,3.0
+469,microsoft/deberta-v3-base,"Milk, cow, raw",productQA,1.0000,original_rag,1.0
+470,microsoft/deberta-v3-base,"Beef cattle, steer",productQA,1.0000,original_rag,11.0
+471,microsoft/deberta-v3-base,Butter,productQA,,original_rag,
+472,microsoft/deberta-v3-base,Poultry by,productQA,,original_rag,
+473,microsoft/deberta-v3-base,"Dairy cattle, cow",productQA,0.7500,original_rag,3.0
+474,microsoft/deberta-v3-base,"Pig, piglet",productQA,1.0000,original_rag,7.0
+475,microsoft/deberta-v3-base,"Meat, chicken, leg",productQA,1.0000,original_rag,1.0
+476,microsoft/deberta-v3-base,"Hides, dairy cattle, fresh",productQA,0.0096,original_rag,1.0
+477,microsoft/deberta-v3-base,"Meat, chicken (cold carcass weight)",productQA,1.0000,original_rag,2.0
+478,microsoft/deberta-v3-base,"Whey, powder",productQA,,original_rag,
+479,microsoft/deberta-v3-base,Cheese,productQA,1.0000,original_rag,2.0
+480,microsoft/deberta-v3-base,Soft,productQA,1.0000,original_rag,2.0
+481,microsoft/deberta-v3-base,"Eggs, hen, in shell (number)",productQA,1.0000,original_rag,1.0
+482,microsoft/deberta-v3-base,Meat,productQA,0.9375,original_rag,15.0
+483,microsoft/deberta-v3-base,"Meat, chicken (liveweight)",productQA,,original_rag,
+484,microsoft/deberta-v3-base,"Beef cattle, heifer",productQA,1.0000,original_rag,9.0
+485,microsoft/deberta-v3-base,Ricotta,productQA,1.0000,original_rag,2.0
+486,microsoft/deberta-v3-base,Ripened cheese,productQA,1.0000,original_rag,2.0
+487,microsoft/deberta-v3-large,"Meat, beef cattle (cold carcass weight)",productQA,1.0000,original_rag,3.0
+488,microsoft/deberta-v3-large,Layer chicken,productQA,1.0000,original_rag,9.0
+489,microsoft/deberta-v3-large,Pig,productQA,1.0000,original_rag,18.0
+490,microsoft/deberta-v3-large,"Meat, beef cattle (cold dressed carcass weight)",productQA,1.0000,original_rag,2.0
+491,microsoft/deberta-v3-large,Hides,productQA,0.0096,original_rag,1.0
+492,microsoft/deberta-v3-large,Dairy cattle,productQA,1.0000,original_rag,5.0
+493,microsoft/deberta-v3-large,Milk,productQA,1.0000,original_rag,7.0
+494,microsoft/deberta-v3-large,Cream,productQA,,original_rag,
+495,microsoft/deberta-v3-large,"Beef cattle, calf (male, weaned)",productQA,1.0000,original_rag,3.0
+496,microsoft/deberta-v3-large,"Beef cattle, cow",productQA,1.0000,original_rag,1.0
+497,microsoft/deberta-v3-large,"Whey, liquid",productQA,,original_rag,
+498,microsoft/deberta-v3-large,Wastewater (kg mass),productQA,,original_rag,
+499,microsoft/deberta-v3-large,"Milk, cow, raw (FPCM)",productQA,1.0000,original_rag,6.0
+500,microsoft/deberta-v3-large,"Meat, chicken, wings",productQA,,original_rag,
+501,microsoft/deberta-v3-large,"Beef cattle, heifer and steer",productQA,,original_rag,
+502,microsoft/deberta-v3-large,"Meat, dairy cattle (cold carcass weight)",productQA,,original_rag,
+503,microsoft/deberta-v3-large,Buttermilk,productQA,,original_rag,
+504,microsoft/deberta-v3-large,"Pig, sow",productQA,1.0000,original_rag,3.0
+505,microsoft/deberta-v3-large,"Cattle, urine (kg mass)",productQA,,original_rag,
+506,microsoft/deberta-v3-large,"Beef cattle, calf (female, weaned)",productQA,1.0000,original_rag,2.0
+507,microsoft/deberta-v3-large,Yoghurt,productQA,,original_rag,
+508,microsoft/deberta-v3-large,"Meat, beef cattle (liveweight)",productQA,,original_rag,
+509,microsoft/deberta-v3-large,"Dairy cattle, heifer",productQA,0.5000,original_rag,1.0
+510,microsoft/deberta-v3-large,"Sheep, ram",productQA,,original_rag,
+511,microsoft/deberta-v3-large,Caciotta,productQA,0.0192,original_rag,4.0
+512,microsoft/deberta-v3-large,"Electricity, produced on",productQA,,original_rag,
+513,microsoft/deberta-v3-large,Fresh cheese,productQA,,original_rag,
+514,microsoft/deberta-v3-large,Electricity,productQA,,original_rag,
+515,microsoft/deberta-v3-large,"Sheep, ewe",productQA,1.0000,original_rag,6.0
+516,microsoft/deberta-v3-large,"Dairy cattle, calf (male, unweaned)",productQA,,original_rag,
+517,microsoft/deberta-v3-large,"Meat, pig (cold carcass weight)",productQA,,original_rag,
+518,microsoft/deberta-v3-large,"Beef cattle, calf (weaned)",productQA,,original_rag,
+519,microsoft/deberta-v3-large,"Meat, pig (cold dressed carcass weight)",productQA,1.0000,original_rag,4.0
+520,microsoft/deberta-v3-large,"Dairy cattle, calf (female, weaned)",productQA,,original_rag,
+521,microsoft/deberta-v3-large,Whey,productQA,,original_rag,
+522,microsoft/deberta-v3-large,Offal,productQA,,original_rag,
+523,microsoft/deberta-v3-large,Cattle,productQA,,original_rag,
+524,microsoft/deberta-v3-large,"Dairy cattle, calf (weaned)",productQA,,original_rag,
+525,microsoft/deberta-v3-large,"Dairy cattle, calf",productQA,0.0096,original_rag,1.0
+526,microsoft/deberta-v3-large,Sheep,productQA,1.0000,original_rag,13.0
+527,microsoft/deberta-v3-large,"Meat, chicken, breast",productQA,,original_rag,
+528,microsoft/deberta-v3-large,"Beef cattle, bull",productQA,1.0000,original_rag,1.0
+529,microsoft/deberta-v3-large,"Offal, pigs",productQA,,original_rag,
+530,microsoft/deberta-v3-large,"Cream, cow, raw",productQA,,original_rag,
+531,microsoft/deberta-v3-large,"Broiler chicken, hen",productQA,1.0000,original_rag,1.0
+532,microsoft/deberta-v3-large,"Broiler chicken, chick",productQA,1.0000,original_rag,1.0
+533,microsoft/deberta-v3-large,"Sheep, lamb (weaned)",productQA,1.0000,original_rag,4.0
+534,microsoft/deberta-v3-large,"Meat, dairy cattle (liveweight)",productQA,1.0000,original_rag,3.0
+535,microsoft/deberta-v3-large,"Layer chicken, pullet",productQA,1.0000,original_rag,3.0
+536,microsoft/deberta-v3-large,Broiler chicken,productQA,1.0000,original_rag,6.0
+537,microsoft/deberta-v3-large,Beef cattle,productQA,1.0000,original_rag,29.0
+538,microsoft/deberta-v3-large,"Cheese, cow",productQA,1.0000,original_rag,2.0
+539,microsoft/deberta-v3-large,"Eggs, hen, in shell",productQA,1.0000,original_rag,3.0
+540,microsoft/deberta-v3-large,"Cheese, sheep",productQA,,original_rag,
+541,microsoft/deberta-v3-large,Eggs,productQA,1.0000,original_rag,4.0
+542,microsoft/deberta-v3-large,"Layer chicken, hen",productQA,,original_rag,
+543,microsoft/deberta-v3-large,"Sheep, lamb",productQA,1.0000,original_rag,3.0
+544,microsoft/deberta-v3-large,"Milk, cow, raw",productQA,1.0000,original_rag,1.0
+545,microsoft/deberta-v3-large,"Beef cattle, steer",productQA,1.0000,original_rag,11.0
+546,microsoft/deberta-v3-large,Butter,productQA,,original_rag,
+547,microsoft/deberta-v3-large,Poultry by,productQA,,original_rag,
+548,microsoft/deberta-v3-large,"Dairy cattle, cow",productQA,1.0000,original_rag,3.0
+549,microsoft/deberta-v3-large,"Pig, piglet",productQA,1.0000,original_rag,7.0
+550,microsoft/deberta-v3-large,"Meat, chicken, leg",productQA,1.0000,original_rag,1.0
+551,microsoft/deberta-v3-large,"Hides, dairy cattle, fresh",productQA,0.0096,original_rag,1.0
+552,microsoft/deberta-v3-large,"Meat, chicken (cold carcass weight)",productQA,1.0000,original_rag,2.0
+553,microsoft/deberta-v3-large,"Whey, powder",productQA,,original_rag,
+554,microsoft/deberta-v3-large,Cheese,productQA,1.0000,original_rag,2.0
+555,microsoft/deberta-v3-large,Soft,productQA,1.0000,original_rag,2.0
+556,microsoft/deberta-v3-large,"Eggs, hen, in shell (number)",productQA,1.0000,original_rag,1.0
+557,microsoft/deberta-v3-large,Meat,productQA,1.0000,original_rag,15.0
+558,microsoft/deberta-v3-large,"Meat, chicken (liveweight)",productQA,,original_rag,
+559,microsoft/deberta-v3-large,"Beef cattle, heifer",productQA,1.0000,original_rag,9.0
+560,microsoft/deberta-v3-large,Ricotta,productQA,1.0000,original_rag,2.0
+561,microsoft/deberta-v3-large,Ripened cheese,productQA,0.3333,original_rag,2.0
+562,microsoft/deberta-v3-small,"Meat, beef cattle (cold carcass weight)",productQA,1.0000,original_rag,3.0
+563,microsoft/deberta-v3-small,Layer chicken,productQA,1.0000,original_rag,9.0
+564,microsoft/deberta-v3-small,Pig,productQA,1.0000,original_rag,18.0
+565,microsoft/deberta-v3-small,"Meat, beef cattle (cold dressed carcass weight)",productQA,1.0000,original_rag,2.0
+566,microsoft/deberta-v3-small,Hides,productQA,0.0096,original_rag,1.0
+567,microsoft/deberta-v3-small,Dairy cattle,productQA,0.8333,original_rag,5.0
+568,microsoft/deberta-v3-small,Milk,productQA,1.0000,original_rag,7.0
+569,microsoft/deberta-v3-small,Cream,productQA,,original_rag,
+570,microsoft/deberta-v3-small,"Beef cattle, calf (male, weaned)",productQA,1.0000,original_rag,3.0
+571,microsoft/deberta-v3-small,"Beef cattle, cow",productQA,1.0000,original_rag,1.0
+572,microsoft/deberta-v3-small,"Whey, liquid",productQA,,original_rag,
+573,microsoft/deberta-v3-small,Wastewater (kg mass),productQA,,original_rag,
+574,microsoft/deberta-v3-small,"Milk, cow, raw (FPCM)",productQA,1.0000,original_rag,6.0
+575,microsoft/deberta-v3-small,"Meat, chicken, wings",productQA,,original_rag,
+576,microsoft/deberta-v3-small,"Beef cattle, heifer and steer",productQA,,original_rag,
+577,microsoft/deberta-v3-small,"Meat, dairy cattle (cold carcass weight)",productQA,,original_rag,
+578,microsoft/deberta-v3-small,Buttermilk,productQA,,original_rag,
+579,microsoft/deberta-v3-small,"Pig, sow",productQA,1.0000,original_rag,3.0
+580,microsoft/deberta-v3-small,"Cattle, urine (kg mass)",productQA,,original_rag,
+581,microsoft/deberta-v3-small,"Beef cattle, calf (female, weaned)",productQA,1.0000,original_rag,2.0
+582,microsoft/deberta-v3-small,Yoghurt,productQA,,original_rag,
+583,microsoft/deberta-v3-small,"Meat, beef cattle (liveweight)",productQA,,original_rag,
+584,microsoft/deberta-v3-small,"Dairy cattle, heifer",productQA,1.0000,original_rag,1.0
+585,microsoft/deberta-v3-small,"Sheep, ram",productQA,,original_rag,
+586,microsoft/deberta-v3-small,Caciotta,productQA,0.0192,original_rag,4.0
+587,microsoft/deberta-v3-small,"Electricity, produced on",productQA,,original_rag,
+588,microsoft/deberta-v3-small,Fresh cheese,productQA,,original_rag,
+589,microsoft/deberta-v3-small,Electricity,productQA,,original_rag,
+590,microsoft/deberta-v3-small,"Sheep, ewe",productQA,1.0000,original_rag,6.0
+591,microsoft/deberta-v3-small,"Dairy cattle, calf (male, unweaned)",productQA,,original_rag,
+592,microsoft/deberta-v3-small,"Meat, pig (cold carcass weight)",productQA,,original_rag,
+593,microsoft/deberta-v3-small,"Beef cattle, calf (weaned)",productQA,,original_rag,
+594,microsoft/deberta-v3-small,"Meat, pig (cold dressed carcass weight)",productQA,1.0000,original_rag,4.0
+595,microsoft/deberta-v3-small,"Dairy cattle, calf (female, weaned)",productQA,,original_rag,
+596,microsoft/deberta-v3-small,Whey,productQA,,original_rag,
+597,microsoft/deberta-v3-small,Offal,productQA,,original_rag,
+598,microsoft/deberta-v3-small,Cattle,productQA,,original_rag,
+599,microsoft/deberta-v3-small,"Dairy cattle, calf (weaned)",productQA,,original_rag,
+600,microsoft/deberta-v3-small,"Dairy cattle, calf",productQA,0.0096,original_rag,1.0
+601,microsoft/deberta-v3-small,Sheep,productQA,1.0000,original_rag,13.0
+602,microsoft/deberta-v3-small,"Meat, chicken, breast",productQA,,original_rag,
+603,microsoft/deberta-v3-small,"Beef cattle, bull",productQA,1.0000,original_rag,1.0
+604,microsoft/deberta-v3-small,"Offal, pigs",productQA,,original_rag,
+605,microsoft/deberta-v3-small,"Cream, cow, raw",productQA,,original_rag,
+606,microsoft/deberta-v3-small,"Broiler chicken, hen",productQA,1.0000,original_rag,1.0
+607,microsoft/deberta-v3-small,"Broiler chicken, chick",productQA,1.0000,original_rag,1.0
+608,microsoft/deberta-v3-small,"Sheep, lamb (weaned)",productQA,1.0000,original_rag,4.0
+609,microsoft/deberta-v3-small,"Meat, dairy cattle (liveweight)",productQA,1.0000,original_rag,3.0
+610,microsoft/deberta-v3-small,"Layer chicken, pullet",productQA,1.0000,original_rag,3.0
+611,microsoft/deberta-v3-small,Broiler chicken,productQA,1.0000,original_rag,6.0
+612,microsoft/deberta-v3-small,Beef cattle,productQA,1.0000,original_rag,29.0
+613,microsoft/deberta-v3-small,"Cheese, cow",productQA,1.0000,original_rag,2.0
+614,microsoft/deberta-v3-small,"Eggs, hen, in shell",productQA,1.0000,original_rag,3.0
+615,microsoft/deberta-v3-small,"Cheese, sheep",productQA,,original_rag,
+616,microsoft/deberta-v3-small,Eggs,productQA,1.0000,original_rag,4.0
+617,microsoft/deberta-v3-small,"Layer chicken, hen",productQA,,original_rag,
+618,microsoft/deberta-v3-small,"Sheep, lamb",productQA,1.0000,original_rag,3.0
+619,microsoft/deberta-v3-small,"Milk, cow, raw",productQA,1.0000,original_rag,1.0
+620,microsoft/deberta-v3-small,"Beef cattle, steer",productQA,1.0000,original_rag,11.0
+621,microsoft/deberta-v3-small,Butter,productQA,,original_rag,
+622,microsoft/deberta-v3-small,Poultry by,productQA,,original_rag,
+623,microsoft/deberta-v3-small,"Dairy cattle, cow",productQA,0.6000,original_rag,3.0
+624,microsoft/deberta-v3-small,"Pig, piglet",productQA,0.8750,original_rag,7.0
+625,microsoft/deberta-v3-small,"Meat, chicken, leg",productQA,1.0000,original_rag,1.0
+626,microsoft/deberta-v3-small,"Hides, dairy cattle, fresh",productQA,0.0096,original_rag,1.0
+627,microsoft/deberta-v3-small,"Meat, chicken (cold carcass weight)",productQA,1.0000,original_rag,2.0
+628,microsoft/deberta-v3-small,"Whey, powder",productQA,,original_rag,
+629,microsoft/deberta-v3-small,Cheese,productQA,1.0000,original_rag,2.0
+630,microsoft/deberta-v3-small,Soft,productQA,1.0000,original_rag,2.0
+631,microsoft/deberta-v3-small,"Eggs, hen, in shell (number)",productQA,1.0000,original_rag,1.0
+632,microsoft/deberta-v3-small,Meat,productQA,1.0000,original_rag,15.0
+633,microsoft/deberta-v3-small,"Meat, chicken (liveweight)",productQA,,original_rag,
+634,microsoft/deberta-v3-small,"Beef cattle, heifer",productQA,1.0000,original_rag,9.0
+635,microsoft/deberta-v3-small,Ricotta,productQA,0.3333,original_rag,2.0
+636,microsoft/deberta-v3-small,Ripened cheese,productQA,0.3333,original_rag,2.0
+637,climatebert/distilroberta-base-climate-f,True_liveAnimalInput,systemBoundaryQA,0.9604,original_rag,97.0
+638,climatebert/distilroberta-base-climate-f,True_cropResidue,systemBoundaryQA,0.9254,original_rag,62.0
+639,climatebert/distilroberta-base-climate-f,True_seed,systemBoundaryQA,0.9576,original_rag,93.0
+640,climatebert/distilroberta-base-climate-f,True_product,systemBoundaryQA,0.9897,original_rag,96.0
+641,climatebert/distilroberta-base-climate-f,True_pesticideVeterinaryDrug,systemBoundaryQA,0.9821,original_rag,55.0
+642,climatebert/distilroberta-base-climate-f,True_excreta,systemBoundaryQA,0.9304,original_rag,37.0
+643,climatebert/distilroberta-base-climate-f,True_freshForage,systemBoundaryQA,0.9672,original_rag,59.0
+644,climatebert/distilroberta-base-climate-f,True_transport,systemBoundaryQA,0.5913,original_rag,12.0
+645,climatebert/distilroberta-base-climate-f,True_animalFeed,systemBoundaryQA,0.9898,original_rag,97.0
+646,climatebert/distilroberta-base-climate-f,True_waste,systemBoundaryQA,0.5188,original_rag,10.0
+647,climatebert/distilroberta-base-climate-f,True_ingredient,systemBoundaryQA,1.0000,original_rag,104.0
+648,climatebert/distilroberta-base-climate-f,True_operation,systemBoundaryQA,0.9737,original_rag,37.0
+649,climatebert/distilroberta-base-climate-f,True_soilAmendment,systemBoundaryQA,1.0000,original_rag,100.0
+650,climatebert/distilroberta-base-climate-f,True_material,systemBoundaryQA,0.6667,original_rag,2.0
+651,climatebert/distilroberta-base-climate-f,True_animalPopulation,systemBoundaryQA,0.9510,original_rag,97.0
+652,climatebert/distilroberta-base-climate-f,True_otherChemical,systemBoundaryQA,0.9672,original_rag,92.0
+653,climatebert/distilroberta-base-climate-f,True_electricityFuel,systemBoundaryQA,0.9799,original_rag,76.0
+654,climatebert/distilroberta-base-climate-f,True_water,systemBoundaryQA,0.9395,original_rag,28.0
+655,climatebert/distilroberta-base-climate-f,True_fertiliser,systemBoundaryQA,0.9798,original_rag,97.0
+656,ESGBERT/EnvironmentalBERT-base,True_liveAnimalInput,systemBoundaryQA,0.9700,original_rag,97.0
+657,ESGBERT/EnvironmentalBERT-base,True_cropResidue,systemBoundaryQA,0.9538,original_rag,62.0
+658,ESGBERT/EnvironmentalBERT-base,True_seed,systemBoundaryQA,0.9989,original_rag,93.0
+659,ESGBERT/EnvironmentalBERT-base,True_product,systemBoundaryQA,1.0000,original_rag,96.0
+660,ESGBERT/EnvironmentalBERT-base,True_pesticideVeterinaryDrug,systemBoundaryQA,0.9564,original_rag,55.0
+661,ESGBERT/EnvironmentalBERT-base,True_excreta,systemBoundaryQA,0.9652,original_rag,37.0
+662,ESGBERT/EnvironmentalBERT-base,True_freshForage,systemBoundaryQA,0.9526,original_rag,59.0
+663,ESGBERT/EnvironmentalBERT-base,True_transport,systemBoundaryQA,0.6603,original_rag,12.0
+664,ESGBERT/EnvironmentalBERT-base,True_animalFeed,systemBoundaryQA,0.9798,original_rag,97.0
+665,ESGBERT/EnvironmentalBERT-base,True_waste,systemBoundaryQA,0.8196,original_rag,10.0
+666,ESGBERT/EnvironmentalBERT-base,True_ingredient,systemBoundaryQA,1.0000,original_rag,104.0
+667,ESGBERT/EnvironmentalBERT-base,True_operation,systemBoundaryQA,0.9024,original_rag,37.0
+668,ESGBERT/EnvironmentalBERT-base,True_soilAmendment,systemBoundaryQA,0.9996,original_rag,100.0
+669,ESGBERT/EnvironmentalBERT-base,True_material,systemBoundaryQA,0.6667,original_rag,2.0
+670,ESGBERT/EnvironmentalBERT-base,True_animalPopulation,systemBoundaryQA,0.9798,original_rag,97.0
+671,ESGBERT/EnvironmentalBERT-base,True_otherChemical,systemBoundaryQA,0.9787,original_rag,92.0
+672,ESGBERT/EnvironmentalBERT-base,True_electricityFuel,systemBoundaryQA,0.9965,original_rag,76.0
+673,ESGBERT/EnvironmentalBERT-base,True_water,systemBoundaryQA,0.9395,original_rag,28.0
+674,ESGBERT/EnvironmentalBERT-base,True_fertiliser,systemBoundaryQA,0.9898,original_rag,97.0
+675,FacebookAI/roberta-large,True_liveAnimalInput,systemBoundaryQA,0.9700,original_rag,97.0
+676,FacebookAI/roberta-large,True_cropResidue,systemBoundaryQA,0.9394,original_rag,62.0
+677,FacebookAI/roberta-large,True_seed,systemBoundaryQA,0.9882,original_rag,93.0
+678,FacebookAI/roberta-large,True_product,systemBoundaryQA,1.0000,original_rag,96.0
+679,FacebookAI/roberta-large,True_pesticideVeterinaryDrug,systemBoundaryQA,0.9821,original_rag,55.0
+680,FacebookAI/roberta-large,True_excreta,systemBoundaryQA,0.9478,original_rag,37.0
+681,FacebookAI/roberta-large,True_freshForage,systemBoundaryQA,0.9833,original_rag,59.0
+682,FacebookAI/roberta-large,True_transport,systemBoundaryQA,0.7853,original_rag,12.0
+683,FacebookAI/roberta-large,True_animalFeed,systemBoundaryQA,0.9700,original_rag,97.0
+684,FacebookAI/roberta-large,True_waste,systemBoundaryQA,0.6010,original_rag,10.0
+685,FacebookAI/roberta-large,True_ingredient,systemBoundaryQA,1.0000,original_rag,104.0
+686,FacebookAI/roberta-large,True_operation,systemBoundaryQA,1.0000,original_rag,37.0
+687,FacebookAI/roberta-large,True_soilAmendment,systemBoundaryQA,1.0000,original_rag,100.0
+688,FacebookAI/roberta-large,True_material,systemBoundaryQA,1.0000,original_rag,2.0
+689,FacebookAI/roberta-large,True_animalPopulation,systemBoundaryQA,0.9798,original_rag,97.0
+690,FacebookAI/roberta-large,True_otherChemical,systemBoundaryQA,0.9892,original_rag,92.0
+691,FacebookAI/roberta-large,True_electricityFuel,systemBoundaryQA,0.9673,original_rag,76.0
+692,FacebookAI/roberta-large,True_water,systemBoundaryQA,0.8613,original_rag,28.0
+693,FacebookAI/roberta-large,True_fertiliser,systemBoundaryQA,0.9898,original_rag,97.0
+694,google-bert/bert-base-uncased,True_liveAnimalInput,systemBoundaryQA,0.9604,original_rag,97.0
+695,google-bert/bert-base-uncased,True_cropResidue,systemBoundaryQA,0.9394,original_rag,62.0
+696,google-bert/bert-base-uncased,True_seed,systemBoundaryQA,0.9778,original_rag,93.0
+697,google-bert/bert-base-uncased,True_product,systemBoundaryQA,0.9897,original_rag,96.0
+698,google-bert/bert-base-uncased,True_pesticideVeterinaryDrug,systemBoundaryQA,0.9649,original_rag,55.0
+699,google-bert/bert-base-uncased,True_excreta,systemBoundaryQA,0.9563,original_rag,37.0
+700,google-bert/bert-base-uncased,True_freshForage,systemBoundaryQA,0.9833,original_rag,59.0
+701,google-bert/bert-base-uncased,True_transport,systemBoundaryQA,0.8571,original_rag,12.0
+702,google-bert/bert-base-uncased,True_animalFeed,systemBoundaryQA,0.9798,original_rag,97.0
+703,google-bert/bert-base-uncased,True_waste,systemBoundaryQA,0.6846,original_rag,10.0
+704,google-bert/bert-base-uncased,True_ingredient,systemBoundaryQA,1.0000,original_rag,104.0
+705,google-bert/bert-base-uncased,True_operation,systemBoundaryQA,0.9487,original_rag,37.0
+706,google-bert/bert-base-uncased,True_soilAmendment,systemBoundaryQA,1.0000,original_rag,100.0
+707,google-bert/bert-base-uncased,True_material,systemBoundaryQA,1.0000,original_rag,2.0
+708,google-bert/bert-base-uncased,True_animalPopulation,systemBoundaryQA,0.9700,original_rag,97.0
+709,google-bert/bert-base-uncased,True_otherChemical,systemBoundaryQA,0.9787,original_rag,92.0
+710,google-bert/bert-base-uncased,True_electricityFuel,systemBoundaryQA,0.9870,original_rag,76.0
+711,google-bert/bert-base-uncased,True_water,systemBoundaryQA,0.9074,original_rag,28.0
+712,google-bert/bert-base-uncased,True_fertiliser,systemBoundaryQA,0.9700,original_rag,97.0
+713,microsoft/deberta-v3-base,True_liveAnimalInput,systemBoundaryQA,0.9604,original_rag,97.0
+714,microsoft/deberta-v3-base,True_cropResidue,systemBoundaryQA,0.9254,original_rag,62.0
+715,microsoft/deberta-v3-base,True_seed,systemBoundaryQA,0.9383,original_rag,93.0
+716,microsoft/deberta-v3-base,True_product,systemBoundaryQA,1.0000,original_rag,96.0
+717,microsoft/deberta-v3-base,True_pesticideVeterinaryDrug,systemBoundaryQA,0.9483,original_rag,55.0
+718,microsoft/deberta-v3-base,True_excreta,systemBoundaryQA,0.9215,original_rag,37.0
+719,microsoft/deberta-v3-base,True_freshForage,systemBoundaryQA,0.9074,original_rag,59.0
+720,microsoft/deberta-v3-base,True_transport,systemBoundaryQA,0.4487,original_rag,12.0
+721,microsoft/deberta-v3-base,True_animalFeed,systemBoundaryQA,0.9700,original_rag,97.0
+722,microsoft/deberta-v3-base,True_waste,systemBoundaryQA,0.5733,original_rag,10.0
+723,microsoft/deberta-v3-base,True_ingredient,systemBoundaryQA,1.0000,original_rag,104.0
+724,microsoft/deberta-v3-base,True_operation,systemBoundaryQA,0.9487,original_rag,37.0
+725,microsoft/deberta-v3-base,True_soilAmendment,systemBoundaryQA,1.0000,original_rag,100.0
+726,microsoft/deberta-v3-base,True_material,systemBoundaryQA,0.6667,original_rag,2.0
+727,microsoft/deberta-v3-base,True_animalPopulation,systemBoundaryQA,0.9417,original_rag,97.0
+728,microsoft/deberta-v3-base,True_otherChemical,systemBoundaryQA,0.9376,original_rag,92.0
+729,microsoft/deberta-v3-base,True_electricityFuel,systemBoundaryQA,0.9673,original_rag,76.0
+730,microsoft/deberta-v3-base,True_water,systemBoundaryQA,0.9333,original_rag,28.0
+731,microsoft/deberta-v3-base,True_fertiliser,systemBoundaryQA,0.9700,original_rag,97.0
+732,microsoft/deberta-v3-large,True_liveAnimalInput,systemBoundaryQA,0.9604,original_rag,97.0
+733,microsoft/deberta-v3-large,True_cropResidue,systemBoundaryQA,0.9776,original_rag,62.0
+734,microsoft/deberta-v3-large,True_seed,systemBoundaryQA,0.9882,original_rag,93.0
+735,microsoft/deberta-v3-large,True_product,systemBoundaryQA,1.0000,original_rag,96.0
+736,microsoft/deberta-v3-large,True_pesticideVeterinaryDrug,systemBoundaryQA,0.9649,original_rag,55.0
+737,microsoft/deberta-v3-large,True_excreta,systemBoundaryQA,0.9652,original_rag,37.0
+738,microsoft/deberta-v3-large,True_freshForage,systemBoundaryQA,0.9833,original_rag,59.0
+739,microsoft/deberta-v3-large,True_transport,systemBoundaryQA,0.9231,original_rag,12.0
+740,microsoft/deberta-v3-large,True_animalFeed,systemBoundaryQA,0.9898,original_rag,97.0
+741,microsoft/deberta-v3-large,True_waste,systemBoundaryQA,0.7460,original_rag,10.0
+742,microsoft/deberta-v3-large,True_ingredient,systemBoundaryQA,1.0000,original_rag,104.0
+743,microsoft/deberta-v3-large,True_operation,systemBoundaryQA,0.9737,original_rag,37.0
+744,microsoft/deberta-v3-large,True_soilAmendment,systemBoundaryQA,1.0000,original_rag,100.0
+745,microsoft/deberta-v3-large,True_material,systemBoundaryQA,1.0000,original_rag,2.0
+746,microsoft/deberta-v3-large,True_animalPopulation,systemBoundaryQA,1.0000,original_rag,97.0
+747,microsoft/deberta-v3-large,True_otherChemical,systemBoundaryQA,0.9892,original_rag,92.0
+748,microsoft/deberta-v3-large,True_electricityFuel,systemBoundaryQA,1.0000,original_rag,76.0
+749,microsoft/deberta-v3-large,True_water,systemBoundaryQA,0.9395,original_rag,28.0
+750,microsoft/deberta-v3-large,True_fertiliser,systemBoundaryQA,1.0000,original_rag,97.0
+751,microsoft/deberta-v3-small,True_liveAnimalInput,systemBoundaryQA,0.9496,original_rag,97.0
+752,microsoft/deberta-v3-small,True_cropResidue,systemBoundaryQA,0.9118,original_rag,62.0
+753,microsoft/deberta-v3-small,True_seed,systemBoundaryQA,0.9479,original_rag,93.0
+754,microsoft/deberta-v3-small,True_product,systemBoundaryQA,0.9881,original_rag,96.0
+755,microsoft/deberta-v3-small,True_pesticideVeterinaryDrug,systemBoundaryQA,0.8849,original_rag,55.0
+756,microsoft/deberta-v3-small,True_excreta,systemBoundaryQA,0.8733,original_rag,37.0
+757,microsoft/deberta-v3-small,True_freshForage,systemBoundaryQA,0.9365,original_rag,59.0
+758,microsoft/deberta-v3-small,True_transport,systemBoundaryQA,0.5481,original_rag,12.0
+759,microsoft/deberta-v3-small,True_animalFeed,systemBoundaryQA,0.9693,original_rag,97.0
+760,microsoft/deberta-v3-small,True_waste,systemBoundaryQA,0.4885,original_rag,10.0
+761,microsoft/deberta-v3-small,True_ingredient,systemBoundaryQA,1.0000,original_rag,104.0
+762,microsoft/deberta-v3-small,True_operation,systemBoundaryQA,0.8967,original_rag,37.0
+763,microsoft/deberta-v3-small,True_soilAmendment,systemBoundaryQA,1.0000,original_rag,100.0
+764,microsoft/deberta-v3-small,True_material,systemBoundaryQA,0.2596,original_rag,2.0
+765,microsoft/deberta-v3-small,True_animalPopulation,systemBoundaryQA,0.9417,original_rag,97.0
+766,microsoft/deberta-v3-small,True_otherChemical,systemBoundaryQA,0.9388,original_rag,92.0
+767,microsoft/deberta-v3-small,True_electricityFuel,systemBoundaryQA,0.9638,original_rag,76.0
+768,microsoft/deberta-v3-small,True_water,systemBoundaryQA,0.8556,original_rag,28.0
+769,microsoft/deberta-v3-small,True_fertiliser,systemBoundaryQA,0.9604,original_rag,97.0

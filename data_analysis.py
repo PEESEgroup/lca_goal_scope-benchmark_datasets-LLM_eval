@@ -290,7 +290,7 @@ def label_precision():
         flattened_test_labels = list(itertools.chain.from_iterable(test_labels))
         counts = Counter(flattened_test_labels)
         counts = pd.DataFrame.from_dict(counts, orient='index', columns=['count'])
-        counts["dataset"] = dataset_name
+        counts["dataset"] = dataset_name if "_" not in dataset_name else dataset_name.split("_")[1]
         counts = counts.reset_index(names='label')
 
         # save the label information to the appropriate place
@@ -322,21 +322,6 @@ def label_precision():
             y = plotting_df['precision']
             # plot scatter plot
             ax.scatter(x, y, c=plotting_df["color"], label=dataset, alpha=0.7)
-
-            # calculate trend lines
-            sort_idx = np.argsort(x)
-            x_sorted = x.iloc[sort_idx]
-            y_sorted = y.iloc[sort_idx]
-
-            # --- LINEAR FIT & R2 ---
-            linear_coefs = np.polyfit(x, y, 1)
-            linear_fit = np.poly1d(linear_coefs)
-            # Calculate R2 using all points
-            r2_lin = calculate_r2(y, linear_fit(x))
-
-            ax.plot(x_sorted, linear_fit(x_sorted), color=plotting_df["color"].iloc[0],
-                    linestyle='--', alpha=0.8,
-                    label=f'{dataset} Linear ($R^2$={r2_lin:.2f})')
 
         plt.xlabel('Frequency of Label')
         plt.ylabel('Dataset Precision')
