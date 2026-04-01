@@ -18,14 +18,14 @@ def main():
     # map_tables()
 
     # plot number of labels versus precision for each of the four categories
-    label_precision()
+    # label_precision()
     # parameter_precision()
     
     # collate errors for each dataset based on RAG
     # collect_rag_error_rates()
 
     # identify occurence of errors and the extent to which models and ground truths agree
-    # inter_reviewer_alignment()
+    inter_reviewer_alignment()  # TODO: Krippendorf alpha or similar...
     
 
 def inter_reviewer_alignment():
@@ -92,6 +92,9 @@ def inter_reviewer_alignment():
                     # remove duplicates (ensemble is treated as 1 model, so look for identical sample indexes, datasets, and RAG)
                     analysis_df = analysis_df.drop_duplicates(subset=['sample_index', 'dataset'])
                     analysis_df["model"] = "ensemble"
+                    analysis_df = analysis_df.sort_values(by='sample_index')
+                    analysis_df = analysis_df.reset_index()
+                    analysis_df.to_csv(f"./data/qa_dataset/results/ensemble_errors_{rag}_{dataset_type}.csv", index=False)
 
                 # group by unique sample identifiers of the sample, the model, and whether or not it is rag
                 error_counts = analysis_df.groupby(['sample_index', 'model'])['dataset'].nunique()
@@ -190,6 +193,7 @@ def collect_rag_error_rates():
             if len(models) < 7:  # if we are doing an ensemble estimate, apply it only to the case with fewer models
                 # keep errors if they appear in the majority of models
                 analysis_df = analysis_df.groupby(['sample_index', 'dataset']).filter(lambda x: len(x) >= math.ceil(len(models)/2))
+                print(analysis_df)
 
             # find the percentage of rows that are in only rag, only no rag, or both
             # a row is defined as a row number and a dataset
@@ -411,14 +415,6 @@ def map_color(df, col):
     color_d = dict(zip(df[col].unique(), sns.color_palette("hls", df[col].nunique())))
     df['color'] = df[col].map(color_d)
     return df
-
-
-def calculate_r2(y, y_pred):
-    """Helper function to calculate R-squared"""
-    residuals = y - y_pred
-    ss_res = np.sum(residuals**2)
-    ss_tot = np.sum((y - np.mean(y))**2)
-    return 1 - (ss_res / ss_tot)
 
 
 def map_tables():
