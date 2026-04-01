@@ -321,10 +321,10 @@ def label_precision():
             x = plotting_df['count']
             y = plotting_df['precision']
             # plot scatter plot
-            ax.scatter(x, y, c=plotting_df["color"], label=dataset, alpha=0.7)
+            ax.scatter(x, y, c=plotting_df["color"], label=dataset.strip("QA"), alpha=0.7)
 
         plt.xlabel('Frequency of Label')
-        plt.ylabel('Dataset Precision')
+        plt.ylabel('mean Average Precision')
         plt.title('Sample size effect for dataset' + str(df["category"].unique()[0]))
         plt.legend()
         plt.grid(True)
