@@ -19,6 +19,7 @@ def main():
 
     # plot number of labels versus precision for each of the four categories
     label_precision()
+    # parameter_precision()
     
     # collate errors for each dataset based on RAG
     # collect_rag_error_rates()
@@ -210,6 +211,72 @@ def collect_rag_error_rates():
     df.to_csv(f"./data/qa_dataset/results/error_location.csv", index=False)
 
 
+def parameter_precision():
+    root_directory = Path("./data/qa_dataset/results")
+    df_list = []
+
+    model_parameters = {
+        "climatebert/distilroberta-base-climate-f": 82.4,
+        "ESGBERT/EnvironmentalBERT-base": 82.8,
+        "FacebookAI/roberta-large": 304,
+        "google-bert/bert-base-uncased": 110,
+        "microsoft/deberta-v3-base": 86,
+        "microsoft/deberta-v3-large": 304,
+        "microsoft/deberta-v3-small": 44
+    }
+
+    # Use rglob to recursively find all files matching the pattern
+    for file_path in root_directory.rglob('test_metrics.csv'):
+        rag = "" if "no" in str(file_path).split("_") else "_rag"
+        dataset_type = "original" if "original" in str(file_path).split("_") else "recalculated"
+        dataset_category = dataset_type + rag
+
+        # read in data and extract label precision, dataset name, and model name
+        data = pd.read_csv(file_path, header=None)
+        language_model = "/".join(str(file_path).split("\\")[4:6])
+        print(language_model)
+        data = data[data[0].str.contains("Mean Average Precision")]
+        data["mAP"] = data[1]
+        data["model"] = language_model
+        data["parameters"] = model_parameters[language_model]
+        dataset_name = str(file_path).split("\\")[3].split("_")[-1]
+        data["dataset"] = dataset_name
+        data["category"] = dataset_category
+        data = data[["model", "dataset", "parameters", "mAP", "category"]]  # clean columns
+        df_list.append(data)
+
+    df = pd.concat(df_list)
+
+    # plotting parameters vs mAP
+    fig, ax = plt.subplots()
+    df['mAP'] = df['mAP'].astype(float) # handle nan
+    df['parameters'] = df['parameters'].astype(int)
+    df = map_color(df, "dataset")
+    for dataset in df["dataset"].unique():
+        plotting_df = df[df["dataset"] == dataset]
+        x = plotting_df['parameters']
+        y = plotting_df['mAP']
+        # plot scatter plot
+        ax.scatter(x, y, c=plotting_df["color"], label=dataset.strip("QA"), alpha=0.7)
+
+        # add best fit line
+        sort_idx = np.argsort(x)
+        x_sorted = x.iloc[sort_idx]
+        lin_coeffs = np.polyfit(x, y, 1)
+        lin_fn = np.poly1d(lin_coeffs)
+        ax.plot(x_sorted, lin_fn(x_sorted), color=plotting_df["color"].unique()[0], linestyle='--',
+                alpha=0.6, label=f'{dataset} best fit line')
+
+    plt.xlabel('Number of Model Parameters (Million)')
+    plt.ylabel('mean Average Precision')
+    plt.title('Effect of Number of Parameters')
+    plt.legend()
+    plt.grid(True)
+    plt.savefig("./data/qa_dataset/results/num_params.png", dpi=300)
+    plt.show()
+    print("dataset num parameters plot saved")
+
+
 def label_precision():
     root_directory = Path("./data/qa_dataset/results")
 
@@ -283,11 +350,12 @@ def label_precision():
         train_testvalid = dataset['train'].train_test_split(test_size=0.2, seed=42)
         # Split the 10% test + valid in half test, half valid
         test_valid = train_testvalid['test'].train_test_split(test_size=0.5, seed=42)
+        train_valid = train_testvalid['train']['labels']
         test = test_valid['test']
         test_labels = test["labels"] # get the test labels
         
-        # flatten and count the occurence of labels
-        flattened_test_labels = list(itertools.chain.from_iterable(test_labels))
+        # flatten and count the occurence of labels in the training dataset
+        flattened_test_labels = list(itertools.chain.from_iterable(train_valid))
         counts = Counter(flattened_test_labels)
         counts = pd.DataFrame.from_dict(counts, orient='index', columns=['count'])
         counts["dataset"] = dataset_name if "_" not in dataset_name else dataset_name.split("_")[1]
