@@ -70,8 +70,8 @@ def explain_discrepancies(df):
                 line = f"ML model predicted {a_val} but the humans predicted {b_val}."
 
                 # save data to a pd Series
-                data = [line, freq, row["sample_index"], row["dataset"], row["dataset_type"], row["rag"]]
-                labels = ["Sentence", "Frequency", "Sample Index", "Dataset", "Dataset Type", "RAG"]
+                data = [row["context_for_errors"], line, freq, row["sample_index"], row["dataset"], row["dataset_type"], row["rag"]]
+                labels = ["Context", "Sentence", "Frequency", "Sample Index", "Dataset", "Dataset Type", "RAG"]
                 s = pd.Series(data, index=labels)
                 discrepancy_lines.append(s.to_frame().T)
 
