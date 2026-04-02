@@ -39,7 +39,8 @@ def explain_discrepancies(df):
         preds = row['predicted_labels'].replace("\"", "").replace("[", "").replace("]", "").replace("'", "").split(", ")
         trues = row['true_labels'].replace("\"", "").replace("[", "").replace("]", "").replace("'", "").split(", ")
         class_names = row['classes']
-        class_names = class_names.replace("\"", "").replace("[", "").replace("]", "").replace("'", "").split(", ")
+        class_names = class_names.split("',")
+        class_names = [i.replace("\"", "").replace("[", "").replace("]", "").replace(" '", "").replace("'", "") for i in class_names]
 
         # Iterate through the labels for the current row
         # Using zip to compare predictions and true labels side-by-side
@@ -49,11 +50,26 @@ def explain_discrepancies(df):
                 label_name = class_names[i]
 
                 # represent the mismatch
-                a_val = label_name if p == 1 else f"No {label_name}"
-                b_val = label_name if t == 1 else f"No {label_name}"
+                a_val = label_name if p == str(1) else f"No {label_name}"
+                b_val = label_name if t == str(1) else f"No {label_name}"
 
                 # lookup the frequency of the ground_truth in the training dataset
-                freq = counts[(counts["label"] == label_name) & (counts["category"] == row["dataset_type"])]["percentage"].values[0]
+                if len(counts[counts['label'] == label_name]) == 0:
+                    freq = 0  # there's an off chance the label is not found in the training dataset
+                    print(f"ML model predicted {a_val} but the humans predicted {b_val}. This label is missing in the training dataset.")
+                else:
+                    right_label = counts[counts['label'] == label_name]
+                    right_dataset = right_label[right_label["category"] == row["dataset_type"]]
+                    if len(right_label) == 1:
+                        if row["dataset"] != "allocationQA":
+                            freq = 0  # there's an off chance the label is not found in the training dataset
+                            # but is in the other type of dataset (standardized/recalculated). This is, of course,
+                            # always the case for allocation, so those pings are excluded
+                            print(f"ML model predicted {a_val} but the humans predicted {b_val}. This exists as a label in the other type of dataset.")
+                        else:
+                            freq = right_dataset["percentage"].values[0]
+                    else:
+                        freq = right_dataset["percentage"].values[0]
                 line = f"ML model predicted {a_val} but the humans predicted {b_val}."
 
                 # save data to a pd Series
@@ -64,8 +80,8 @@ def explain_discrepancies(df):
 
     # output results to .csv
     discrepancies = pd.concat(discrepancy_lines)
-    discrepancies = discrepancies.sort_values(by=['Sample Index', 'Dataset', "RAG"], ascending=[True, False, False])
-
+    discrepancies = discrepancies.sort_values(by=['Sample Index'], ascending=[True])
+    return discrepancies
 
 
 def train_label_frequency():
@@ -176,7 +192,9 @@ def inter_reviewer_alignment():
 
                     # TODO: send this dataframe to a new method to 1) find the frequency the wrong labels appear in the dataset
                     # and 2) write a generic sentence describing the mistake made - i.e. machine did x when human did y
-                    analysis_df = explain_discrepancies(analysis_df)
+                    discrepancies = explain_discrepancies(analysis_df)
+                    discrepancies.to_csv(f"./data/qa_dataset/results/discrepancies_{rag}_{dataset_type}.csv",
+                                       index=False)
                     analysis_df = analysis_df.sort_values(by='sample_index')
                     analysis_df = analysis_df.reset_index()
                     analysis_df.to_csv(f"./data/qa_dataset/results/ensemble_errors_{rag}_{dataset_type}.csv", index=False)
