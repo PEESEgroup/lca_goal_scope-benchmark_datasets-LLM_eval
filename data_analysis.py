@@ -1,5 +1,4 @@
 import math
-import os
 from pathlib import Path
 import pandas as pd
 from collections import Counter
@@ -7,10 +6,8 @@ from datasets import load_dataset
 import itertools
 import matplotlib.pyplot as plt
 import seaborn as sns
-import matplotlib.cm as cm
-import matplotlib.colors
-import csv
 import numpy as np
+import simpledorff
 
 
 def main():
@@ -25,7 +22,7 @@ def main():
     # collect_rag_error_rates()
 
     # identify occurence of errors and the extent to which models and ground truths agree
-    inter_reviewer_alignment()  # TODO: Krippendorf alpha or similar...
+    inter_reviewer_alignment()
 
 
 def explain_discrepancies(df):
@@ -125,7 +122,60 @@ def train_label_frequency():
     return df_list
 
 
+def k_alpha():
+    root_directory = Path("./data/qa_dataset/results")
+
+    # all data
+    df = pd.DataFrame()
+
+    # Use rglob to recursively find all files matching the pattern
+    for file_path in root_directory.rglob('predictions.csv'):
+        rag = "no rag" if "no" in str(file_path).split("_") else "rag"
+        dataset_type = "original" if "original" in str(file_path).split("_") else "recalculated"
+
+        # read in data and extract label precision, dataset name, and model name
+        data = pd.read_csv(file_path)
+        language_model = "/".join(str(file_path).split("\\")[4:6])
+        data["model"] = language_model
+        dataset_name = str(file_path).split("\\")[3].split("_")[-1]
+        data["dataset"] = dataset_name
+        data["dataset_type"] = dataset_type
+        data["rag"] = rag
+
+        # assign data to appropriate dataframe if there is data
+        if len(data) > 0:
+            df = pd.concat([df, data])
+
+    # 1. Prepare the data
+    # We need to turn your list-based rows into individual rating rows
+    rows = []
+    for idx, row in df.iterrows():
+        # Combine all 8 raters (7 predicted + 1 true)
+        all_raters = row['predicted_labels'] + [row['true_labels']]
+
+        for rater_id, label in enumerate(all_raters):
+            rows.append({
+                'unit_id': idx,  # The unique ID of the item being reviewed
+                'rater_id': rater_id,  # ID 0-6 are predicted, ID 7 is true
+                'label': label  # The 0 or 1 value
+            })
+
+    # 2. Create the long-form DataFrame
+    tidy_df = pd.DataFrame(rows)
+
+    # 3. Calculate Alpha
+    alpha = simpledorff.calculate_krippendorffs_alpha_for_df(
+        tidy_df,
+        experiment_col='unit_id',
+        annotator_col='rater_id',
+        class_col='label'
+    )
+
+    print(f"Krippendorff's Alpha: {alpha:.4f}")
+
+
 def inter_reviewer_alignment():
+    k_alpha()
     root_directory = Path("./data/qa_dataset/results")
 
     # two dataframes for two different dataset types
