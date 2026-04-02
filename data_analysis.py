@@ -35,9 +35,11 @@ def explain_discrepancies(df):
     discrepancy_lines = []
 
     for index, row in df.iterrows():
-        preds = row['predicted_labels']
-        trues = row['true_labels']
+        # extract relevant labels and convert from string to list
+        preds = row['predicted_labels'].replace("\"", "").replace("[", "").replace("]", "").replace("'", "").split(", ")
+        trues = row['true_labels'].replace("\"", "").replace("[", "").replace("]", "").replace("'", "").split(", ")
         class_names = row['classes']
+        class_names = class_names.replace("\"", "").replace("[", "").replace("]", "").replace("'", "").split(", ")
 
         # Iterate through the labels for the current row
         # Using zip to compare predictions and true labels side-by-side
@@ -51,14 +53,19 @@ def explain_discrepancies(df):
                 b_val = label_name if t == 1 else f"No {label_name}"
 
                 # lookup the frequency of the ground_truth in the training dataset
-                freq = counts[counts["D"]]
+                freq = counts[(counts["label"] == label_name) & (counts["category"] == row["dataset_type"])]["percentage"].values[0]
+                line = f"ML model predicted {a_val} but the humans predicted {b_val}."
 
-                line = f"ML model predicted {a_val} but the humans predicted {b_val}"
-                discrepancy_lines.append(line)
+                # save data to a pd Series
+                data = [line, freq, row["sample_index"], row["dataset"], row["dataset_type"], row["rag"]]
+                labels = ["Sentence", "Frequency", "Sample Index", "Dataset", "Dataset Type", "RAG"]
+                s = pd.Series(data, index=labels)
+                discrepancy_lines.append(s.to_frame().T)
 
-    # Print the results
-    for line in discrepancy_lines:
-        print(line)
+    # output results to .csv
+    discrepancies = pd.concat(discrepancy_lines)
+    discrepancies = discrepancies.sort_values(by=['Sample Index', 'Dataset', "RAG"], ascending=[True, False, False])
+
 
 
 def train_label_frequency():
