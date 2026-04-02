@@ -26,7 +26,81 @@ def main():
 
     # identify occurence of errors and the extent to which models and ground truths agree
     inter_reviewer_alignment()  # TODO: Krippendorf alpha or similar...
-    
+
+
+def explain_discrepancies(df):
+    counts = train_label_frequency()
+
+    # for each error in the dataframe, prepare an explanation.
+    discrepancy_lines = []
+
+    for index, row in df.iterrows():
+        preds = row['predicted_labels']
+        trues = row['true_labels']
+        class_names = row['classes']
+
+        # Iterate through the labels for the current row
+        # Using zip to compare predictions and true labels side-by-side
+        for i, (p, t) in enumerate(zip(preds, trues)):
+            if p != t:
+                # identify the human-readable labels
+                label_name = class_names[i]
+
+                # represent the mismatch
+                a_val = label_name if p == 1 else f"No {label_name}"
+                b_val = label_name if t == 1 else f"No {label_name}"
+
+                # lookup the frequency of the ground_truth in the training dataset
+                freq = counts[counts["D"]]
+
+                line = f"ML model predicted {a_val} but the humans predicted {b_val}"
+                discrepancy_lines.append(line)
+
+    # Print the results
+    for line in discrepancy_lines:
+        print(line)
+
+
+def train_label_frequency():
+    # read in datasets and extract number of labels in the test set
+    filenames = ["data/qa_dataset/original/no_rag/systemBoundaryQA.jsonl",
+                 "data/qa_dataset/original/no_rag/allocationQA.jsonl",
+                 "data/qa_dataset/original/no_rag/functionalUnitQA.jsonl",
+                 "data/qa_dataset/original/no_rag/productQA.jsonl",
+                 "data/qa_dataset/recalculated/no_rag/functionalUnitQA.jsonl",
+                 "data/qa_dataset/recalculated/no_rag/productQA.jsonl",
+                 "data/qa_dataset/recalculated/no_rag/systemBoundaryQA.jsonl",
+                 ] # rag and no_rag datasets will be the same
+    df_list = []
+    for k in filenames:
+        # load the dataset
+        dataset_rag = "" if "no_rag" in str(k).split("/") else "_rag"
+        dataset_dataset_type = "original" if "original" in str(k).split("/") else "recalculated"
+        dataset_dataset_category = dataset_dataset_type + dataset_rag
+        dataset_name = k.split("/")[-1].split(".")[0]
+        dataset = load_dataset('json', data_files=k)  # shuffle dataset before splitting
+        dataset = dataset.shuffle(seed=42)
+
+        # 80% train, 20% test + validation
+        train_testvalid = dataset['train'].train_test_split(test_size=0.2, seed=42)
+        # Split the 10% test + valid in half test, half valid
+        train_valid = train_testvalid['train']['labels']
+
+        # flatten and count the occurence of labels in the training dataset
+        flattened_test_labels = list(itertools.chain.from_iterable(train_valid))
+        counts = Counter(flattened_test_labels)
+        counts = pd.DataFrame.from_dict(counts, orient='index', columns=['count'])
+
+        # add in more identifying information
+        counts["dataset"] = dataset_name if "_" not in dataset_name else dataset_name.split("_")[1]
+        counts = counts.reset_index(names='label')
+        counts["percentage"] = 100 * counts["count"]/len(train_valid)
+        counts["category"] = dataset_dataset_category
+        df_list.append(counts)
+
+    df_list = pd.concat(df_list)
+    return df_list
+
 
 def inter_reviewer_alignment():
     root_directory = Path("./data/qa_dataset/results")
@@ -92,6 +166,10 @@ def inter_reviewer_alignment():
                     # remove duplicates (ensemble is treated as 1 model, so look for identical sample indexes, datasets, and RAG)
                     analysis_df = analysis_df.drop_duplicates(subset=['sample_index', 'dataset'])
                     analysis_df["model"] = "ensemble"
+
+                    # TODO: send this dataframe to a new method to 1) find the frequency the wrong labels appear in the dataset
+                    # and 2) write a generic sentence describing the mistake made - i.e. machine did x when human did y
+                    analysis_df = explain_discrepancies(analysis_df)
                     analysis_df = analysis_df.sort_values(by='sample_index')
                     analysis_df = analysis_df.reset_index()
                     analysis_df.to_csv(f"./data/qa_dataset/results/ensemble_errors_{rag}_{dataset_type}.csv", index=False)
