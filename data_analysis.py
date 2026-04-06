@@ -32,27 +32,27 @@ def main():
 
 def plot_error_codes():
     df = pd.read_excel("./data/qa_dataset/results/All_Discrepancies_Coded.xlsx")
-    df["Code"] = df['Code'].astype('category')
+    df["Rationale"] = df['Rationale'].astype('category')
     group_cols = ["Dataset", "Dataset Type", "RAG"]
-    df_counts = df.groupby(group_cols + ["Code"]).size().reset_index(name='Count')
+    df_counts = df.groupby(group_cols + ["Rationale"]).size().reset_index(name='Count')
 
     # Create a consistent color map for all Codes
-    unique_codes = df['Code'].cat.categories.tolist()
+    unique_codes = df['Rationale'].cat.categories.tolist()
     base_hues = {
-        1: 0.0,  # Red
-        2: 0.08,  # Orange
-        3: 0.15,  # Yellow-Gold
-        4: 0.33,  # Green
-        5: 0.5,  # Cyan
-        6: 0.66,  # Blue
-        7: 0.75,  # Purple
-        8: 0.85  # Magenta/Pink
+        "A": 0.0,  # Red
+        "B": 0.08,  # Orange
+        "C": 0.15,  # Yellow-Gold
+        "D": 0.33,  # Green
+        "E": 0.5,  # Cyan
+        "F": 0.66,  # Blue
+        "G": 0.75,  # Purple
+        "H": 0.85  # Magenta/Pink
     }
     color_map = {}
     for code in sorted(unique_codes):
-        major = int(code)
+        major = str(code).split(".")[0]
         # Get all sub-codes for this major group to determine shade depth
-        subs = [c for c in unique_codes if int(c) == major]
+        subs = [c for c in unique_codes if str(c).split(".")[0] == major]
         rank = subs.index(code)
 
         # Calculate Lightness: starts dark and gets lighter
@@ -75,10 +75,10 @@ def plot_error_codes():
 
     for i, (name, group) in enumerate(groups):
         ax = axes[i]
-        group = group[group['Count'] > 0].sort_values('Code')
+        group = group[group['Count'] > 0].sort_values('Rationale')
 
         if not group.empty:
-            colors = [color_map[str(c)] for c in group['Code']]
+            colors = [color_map[str(c)] for c in group['Rationale']]
             wedges, texts = ax.pie(
                 group['Count'],
                 colors=colors,
@@ -91,8 +91,8 @@ def plot_error_codes():
 
     major_groups = defaultdict(list)
     # sort unique_codes to ensure the legend order is logical
-    for code in sorted(unique_codes, key=float):
-        major = int(float(code))
+    for code in sorted(unique_codes):
+        major = str(code).split(".")[0]
         major_groups[major].append(code)
 
     # Create the legend handles in "column order"
@@ -121,7 +121,7 @@ def plot_error_codes():
         loc='lower center',
         ncol=len(sorted_majors),
         title="Error Classifications",
-        bbox_to_anchor=(0.72, 0.78),
+        bbox_to_anchor=(0.72, 0.83),
         frameon=True
     )
     plt.tight_layout()
