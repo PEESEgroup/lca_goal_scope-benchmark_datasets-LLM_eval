@@ -7,7 +7,7 @@ import itertools
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
-import simpledorff
+import plotly.express as px
 
 
 def main():
@@ -22,7 +22,50 @@ def main():
     # collect_rag_error_rates()
 
     # identify occurence of errors and the extent to which models and ground truths agree
-    inter_reviewer_alignment()
+    # inter_reviewer_alignment()
+
+    # plot the frequency of error rates across 12 datasets
+    plot_error_codes()
+
+
+def plot_error_codes():
+    df = pd.read_excel("./data/qa_dataset/results/All_Discrepancies_Coded.xlsx")
+    df["Code"] = df['Code'].astype('category')
+    df_counts = df.groupby(["Dataset", "Dataset Type", "RAG"]).size().reset_index(name='Count')
+    df_counts['Frequency'] = df_counts.groupby(["Dataset", "Dataset Type", "RAG"])['Count'].transform(
+        lambda x: (x / x.sum()) * 360)  # will be doing rose plots in degrees, thus explaining this frequency
+    max_radius = df_counts['Count'].max()
+
+    # Create a consistent color map for all Codes
+    unique_codes = df["Code"].unique()
+    color_map = {code: color for code, color in zip(unique_codes, px.colors.qualitative.Plotly)}
+
+    # Grouping for multiple plots
+    groups = df_counts.groupby(["Dataset", "Dataset Type", "RAG"])
+
+    for name, group in groups:
+        fig = px.bar_polar(
+            group,
+            r="Count",
+            theta="Code",
+            color="Code",
+            width=800,
+            height=600,
+            color_discrete_map=color_map,
+            title=f"Rose Chart: {' | '.join(map(str, name))}",
+            template="plotly_dark"
+        )
+
+        # Apply the width logic and uniform radius
+        fig.update_traces(width=group['Frequency'].tolist())
+
+        fig.update_polars(
+            radialaxis=dict(range=[0, max_radius], showticklabels=True),
+            angularaxis=dict(direction="clockwise", period=360)
+        )
+
+        fig.show()
+
 
 
 def explain_discrepancies(df):
@@ -53,7 +96,6 @@ def explain_discrepancies(df):
                 # lookup the frequency of the ground_truth in the training dataset
                 if len(counts[counts['label'] == label_name]) == 0:
                     freq = 0  # there's an off chance the label is not found in the training dataset
-                    print(f"ML model predicted {a_val} but the humans predicted {b_val}. This label is missing in the training dataset.")
                 else:
                     right_label = counts[counts['label'] == label_name]
                     right_dataset = right_label[right_label["category"] == row["dataset_type"]]
@@ -62,11 +104,12 @@ def explain_discrepancies(df):
                             freq = 0  # there's an off chance the label is not found in the training dataset
                             # but is in the other type of dataset (standardized/recalculated). This is, of course,
                             # always the case for allocation, so those pings are excluded
-                            print(f"ML model predicted {a_val} but the humans predicted {b_val}. This exists as a label in the other type of dataset.")
                         else:
                             freq = right_dataset["percentage"].values[0]
                     else:
                         freq = right_dataset["percentage"].values[0]
+
+                # if the model never predicted a label of 1, include that information
                 line = f"ML model predicted {a_val} but the humans predicted {b_val}."
 
                 # save data to a pd Series
