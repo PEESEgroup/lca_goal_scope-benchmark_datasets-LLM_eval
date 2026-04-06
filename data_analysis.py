@@ -7,7 +7,8 @@ import itertools
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
-import plotly.express as px
+import colorsys
+from matplotlib.lines import Line2D
 
 
 def main():
@@ -31,40 +32,69 @@ def main():
 def plot_error_codes():
     df = pd.read_excel("./data/qa_dataset/results/All_Discrepancies_Coded.xlsx")
     df["Code"] = df['Code'].astype('category')
-    df_counts = df.groupby(["Dataset", "Dataset Type", "RAG"]).size().reset_index(name='Count')
-    df_counts['Frequency'] = df_counts.groupby(["Dataset", "Dataset Type", "RAG"])['Count'].transform(
-        lambda x: (x / x.sum()) * 360)  # will be doing rose plots in degrees, thus explaining this frequency
-    max_radius = df_counts['Count'].max()
+    group_cols = ["Dataset", "Dataset Type", "RAG"]
+    df_counts = df.groupby(group_cols + ["Code"]).size().reset_index(name='Count')
 
     # Create a consistent color map for all Codes
-    unique_codes = df["Code"].unique()
-    color_map = {code: color for code, color in zip(unique_codes, px.colors.qualitative.Plotly)}
+    unique_codes = df['Code'].cat.categories.tolist()
+    base_hues = {
+        1: 0.0,  # Red
+        2: 0.08,  # Orange
+        3: 0.15,  # Yellow-Gold
+        4: 0.33,  # Green
+        5: 0.5,  # Cyan
+        6: 0.66,  # Blue
+        7: 0.75,  # Purple
+        8: 0.85  # Magenta/Pink
+    }
+    color_map = {}
+    for code in sorted(unique_codes):
+        major = int(code)
+        # Get all sub-codes for this major group to determine shade depth
+        subs = [c for c in unique_codes if int(c) == major]
+        rank = subs.index(code)
 
-    # Grouping for multiple plots
-    groups = df_counts.groupby(["Dataset", "Dataset Type", "RAG"])
+        # Calculate Lightness: starts dark and gets lighter
+        # 0.3 is quite dark, 0.7 is lighter
+        lightness = 0.3 + (rank * (0.4 / max(len(subs), 1)))
 
-    for name, group in groups:
-        fig = px.bar_polar(
-            group,
-            r="Count",
-            theta="Code",
-            color="Code",
-            width=800,
-            height=600,
-            color_discrete_map=color_map,
-            title=f"Rose Chart: {' | '.join(map(str, name))}",
-            template="plotly_dark"
-        )
+        # Convert HLS to Hex
+        rgb = colorsys.hls_to_rgb(base_hues[major], lightness, 0.7)
+        hex_color = '#%02x%02x%02x' % tuple(int(x * 255) for x in rgb)
 
-        # Apply the width logic and uniform radius
-        fig.update_traces(width=group['Frequency'].tolist())
+        color_map[str(code)] = hex_color
 
-        fig.update_polars(
-            radialaxis=dict(range=[0, max_radius], showticklabels=True),
-            angularaxis=dict(direction="clockwise", period=360)
-        )
+    groups = list(df_counts.groupby(group_cols))
+    n_plots = len(groups)
+    cols = 4
+    rows = (n_plots + cols - 1) // cols
 
-        fig.show()
+    fig, axes = plt.subplots(rows, cols, figsize=(20, 5 * rows))
+    axes = axes.flatten()
+
+    for i, (name, group) in enumerate(groups):
+        ax = axes[i]
+        group = group[group['Count'] > 0].sort_values('Code')
+
+        if not group.empty:
+            colors = [color_map[str(c)] for c in group['Code']]
+            wedges, texts = ax.pie(
+                group['Count'],
+                colors=colors,
+                startangle=90,
+                counterclock=False
+            )
+            ax.set_title(f"{' | '.join(map(str, name))}", fontsize=10)
+        else:
+            fig.delaxes(ax)
+
+    # add legend
+    legend_elements = [Line2D([0], [0], marker='o', color='w', label=k,
+                              markerfacecolor=v, markersize=10) for k, v in color_map.items()]
+
+    fig.legend(handles=legend_elements, loc='upper right', title="Codes", bbox_to_anchor=(.8, .9))
+    plt.tight_layout()
+    plt.show()
 
 
 
