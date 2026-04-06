@@ -89,7 +89,6 @@ def plot_error_codes():
         else:
             fig.delaxes(ax)
 
-
     major_groups = defaultdict(list)
     # sort unique_codes to ensure the legend order is logical
     for code in sorted(unique_codes, key=float):
@@ -122,7 +121,7 @@ def plot_error_codes():
         loc='lower center',
         ncol=len(sorted_majors),
         title="Error Classifications",
-        bbox_to_anchor=(0.7, 0.8),
+        bbox_to_anchor=(0.72, 0.78),
         frameon=True
     )
     plt.tight_layout()
