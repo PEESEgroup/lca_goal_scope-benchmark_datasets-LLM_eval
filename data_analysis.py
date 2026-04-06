@@ -8,7 +8,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 import colorsys
-from matplotlib.lines import Line2D
+import matplotlib.patches as mpatches
+from collections import defaultdict
 
 
 def main():
@@ -88,11 +89,42 @@ def plot_error_codes():
         else:
             fig.delaxes(ax)
 
-    # add legend
-    legend_elements = [Line2D([0], [0], marker='o', color='w', label=k,
-                              markerfacecolor=v, markersize=10) for k, v in color_map.items()]
 
-    fig.legend(handles=legend_elements, loc='upper right', title="Codes", bbox_to_anchor=(.8, .9))
+    major_groups = defaultdict(list)
+    # sort unique_codes to ensure the legend order is logical
+    for code in sorted(unique_codes, key=float):
+        major = int(float(code))
+        major_groups[major].append(code)
+
+    # Create the legend handles in "column order"
+    # Matplotlib fills columns top-to-bottom, then left-to-right.
+    # To make each major category its own column, we find the max rows needed.
+    max_rows = max(len(v) for v in major_groups.values())
+    legend_elements = []
+
+    # Sort major keys and iterate
+    sorted_majors = sorted(major_groups.keys())
+    for major in sorted_majors:
+        # Add the items for this major group
+        for code in major_groups[major]:
+            label = str(code)
+            patch = mpatches.Patch(color=color_map[str(code)], label=label)
+            legend_elements.append(patch)
+
+        # Fill empty space with "invisible" patches to force the next major group
+        # into the next column if they have different lengths
+        for _ in range(max_rows - len(major_groups[major])):
+            legend_elements.append(mpatches.Patch(color='none', label=''))
+
+    # Set ncol to the number of major categories
+    fig.legend(
+        handles=legend_elements,
+        loc='lower center',
+        ncol=len(sorted_majors),
+        title="Error Classifications",
+        bbox_to_anchor=(0.7, 0.8),
+        frameon=True
+    )
     plt.tight_layout()
     plt.show()
 
