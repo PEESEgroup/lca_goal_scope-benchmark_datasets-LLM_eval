@@ -13,24 +13,32 @@ from collections import defaultdict
 
 
 def main():
+    """
+    A bunch of plotting functions for figures for manuscript and SI
+    :return: N/A
+    """
     # build mAP output tables for each of the four categories
-    # map_tables()
+    map_tables()
 
     # plot number of labels versus precision for each of the four categories
-    # label_precision()
-    # parameter_precision()
-    
+    label_precision()
+    parameter_precision()
+
     # collate errors for each dataset based on RAG
-    # collect_rag_error_rates()
+    collect_rag_error_rates()
 
     # identify occurence of errors and the extent to which models and ground truths agree
-    # inter_reviewer_alignment()
+    inter_reviewer_alignment()
 
     # plot the frequency of error rates across 12 datasets
     plot_error_codes()
 
 
 def plot_error_codes():
+    """
+    Plots manually coded discrepancies between AI labeling and human labels as pie charts
+    :return: saved .png image
+    """
     df = pd.read_excel("./data/qa_dataset/results/All_Discrepancies_Coded.xlsx")
     df["Rationale"] = df['Rationale'].astype('category')
     group_cols = ["Dataset", "Dataset Type", "RAG"]
@@ -128,8 +136,12 @@ def plot_error_codes():
     plt.show()
 
 
-
 def explain_discrepancies(df):
+    """
+    Preprocess data to give a simple textual description of the discrepancy so that I don't have to manually hunt for which position in the list the discrepancy occurs
+    :param df: df of discrepancies made by the ML model
+    :return: .csv sheet containing explanations of error codes
+    """
     counts = train_label_frequency()
 
     # for each error in the dataframe, prepare an explanation.
@@ -141,7 +153,8 @@ def explain_discrepancies(df):
         trues = row['true_labels'].replace("\"", "").replace("[", "").replace("]", "").replace("'", "").split(", ")
         class_names = row['classes']
         class_names = class_names.split("',")
-        class_names = [i.replace("\"", "").replace("[", "").replace("]", "").replace(" '", "").replace("'", "") for i in class_names]
+        class_names = [i.replace("\"", "").replace("[", "").replace("]", "").replace(" '", "").replace("'", "") for i in
+                       class_names]
 
         # Iterate through the labels for the current row
         # Using zip to compare predictions and true labels side-by-side
@@ -174,7 +187,8 @@ def explain_discrepancies(df):
                 line = f"ML model predicted {a_val} but the humans predicted {b_val}."
 
                 # save data to a pd Series
-                data = [row["context_for_errors"], line, freq, row["sample_index"], row["dataset"], row["dataset_type"], row["rag"]]
+                data = [row["context_for_errors"], line, freq, row["sample_index"], row["dataset"], row["dataset_type"],
+                        row["rag"]]
                 labels = ["Context", "Sentence", "Frequency", "Sample Index", "Dataset", "Dataset Type", "RAG"]
                 s = pd.Series(data, index=labels)
                 discrepancy_lines.append(s.to_frame().T)
@@ -186,6 +200,10 @@ def explain_discrepancies(df):
 
 
 def train_label_frequency():
+    """
+    Identifies how the frequency of the training label affects mAP
+    :return: .png graphs
+    """
     # read in datasets and extract number of labels in the test set
     filenames = ["data/qa_dataset/original/no_rag/systemBoundaryQA.jsonl",
                  "data/qa_dataset/original/no_rag/allocationQA.jsonl",
@@ -194,7 +212,7 @@ def train_label_frequency():
                  "data/qa_dataset/recalculated/no_rag/functionalUnitQA.jsonl",
                  "data/qa_dataset/recalculated/no_rag/productQA.jsonl",
                  "data/qa_dataset/recalculated/no_rag/systemBoundaryQA.jsonl",
-                 ] # rag and no_rag datasets will be the same
+                 ]  # rag and no_rag datasets will be the same
     df_list = []
     for k in filenames:
         # load the dataset
@@ -218,7 +236,7 @@ def train_label_frequency():
         # add in more identifying information
         counts["dataset"] = dataset_name if "_" not in dataset_name else dataset_name.split("_")[1]
         counts = counts.reset_index(names='label')
-        counts["percentage"] = 100 * counts["count"]/len(train_valid)
+        counts["percentage"] = 100 * counts["count"] / len(train_valid)
         counts["category"] = dataset_dataset_category
         df_list.append(counts)
 
@@ -227,6 +245,10 @@ def train_label_frequency():
 
 
 def inter_reviewer_alignment():
+    """
+    Calculates the extent to which the AI models differ from human labels and how frequently these labels differ
+    :return: .csv with the number of LCAs in which AI and humans agree, as well as the number of discrepancies
+    """
     root_directory = Path("./data/qa_dataset/results")
 
     # two dataframes for two different dataset types
@@ -295,10 +317,11 @@ def inter_reviewer_alignment():
                     # and 2) write a generic sentence describing the mistake made - i.e. machine did x when human did y
                     discrepancies = explain_discrepancies(analysis_df)
                     discrepancies.to_csv(f"./data/qa_dataset/results/discrepancies_{rag}_{dataset_type}.csv",
-                                       index=False)
+                                         index=False)
                     analysis_df = analysis_df.sort_values(by='sample_index')
                     analysis_df = analysis_df.reset_index()
-                    analysis_df.to_csv(f"./data/qa_dataset/results/ensemble_errors_{rag}_{dataset_type}.csv", index=False)
+                    analysis_df.to_csv(f"./data/qa_dataset/results/ensemble_errors_{rag}_{dataset_type}.csv",
+                                       index=False)
 
                 # group by unique sample identifiers of the sample, the model, and whether or not it is rag
                 error_counts = analysis_df.groupby(['sample_index', 'model'])['dataset'].nunique()
@@ -322,6 +345,10 @@ def inter_reviewer_alignment():
 
 
 def collect_rag_error_rates():
+    """
+    Identify the extent to which error rates appear in RAG and non-RAG models
+    :return: N/A
+    """
     root_directory = Path("./data/qa_dataset/results")
 
     # two dataframes for two different dataset types
@@ -348,7 +375,7 @@ def collect_rag_error_rates():
                 original = pd.concat([original, data])
             elif dataset_type == "recalculated":
                 recalculated = pd.concat([recalculated, data])
-            
+
     # build histograms for frequency of sample errors
     # for i in [original, recalculated]:
     #     # get the first indication of the frequency of error
@@ -388,7 +415,8 @@ def collect_rag_error_rates():
         for models in [["ESGBERT/EnvironmentalBERT-base", "FacebookAI/roberta-large",
                         "climatebert/distilroberta-base-climate-f", "google-bert/bert-base-uncased",
                         "microsoft/deberta-v3-base", "microsoft/deberta-v3-large", "microsoft/deberta-v3-small"],
-                       ["google-bert/bert-base-uncased", "microsoft/deberta-v3-large", "ESGBERT/EnvironmentalBERT-base"]]:
+                       ["google-bert/bert-base-uncased", "microsoft/deberta-v3-large",
+                        "ESGBERT/EnvironmentalBERT-base"]]:
             dataset_type = df["dataset_type"].unique()[0]
 
             # subset df by the occurence of models
@@ -396,7 +424,8 @@ def collect_rag_error_rates():
 
             if len(models) < 7:  # if we are doing an ensemble estimate, apply it only to the case with fewer models
                 # keep errors if they appear in the majority of models
-                analysis_df = analysis_df.groupby(['sample_index', 'dataset']).filter(lambda x: len(x) >= math.ceil(len(models)/2))
+                analysis_df = analysis_df.groupby(['sample_index', 'dataset']).filter(
+                    lambda x: len(x) >= math.ceil(len(models) / 2))
                 print(analysis_df)
 
             # find the percentage of rows that are in only rag, only no rag, or both
@@ -408,7 +437,8 @@ def collect_rag_error_rates():
             total = len(presence)
 
             # write data out to series
-            data = [len(models), f"{only_rag_count / total:.1%}", f"{only_no_rag_count / total:.1%}", f"{both_count / total:.1%}"]
+            data = [len(models), f"{only_rag_count / total:.1%}", f"{only_no_rag_count / total:.1%}",
+                    f"{both_count / total:.1%}"]
             index_labels = ["Number of Models", 'RAG only', 'No RAG only', 'Both']
             s = pd.Series(data, index=index_labels)
             error_analysis[dataset_type + str(len(models))] = s
@@ -420,6 +450,10 @@ def collect_rag_error_rates():
 
 
 def parameter_precision():
+    """
+    Identify how mAP varies with the number of parameters in the LLM (millions)
+    :return: .png file with results
+    """
     root_directory = Path("./data/qa_dataset/results")
     df_list = []
 
@@ -457,7 +491,7 @@ def parameter_precision():
 
     # plotting parameters vs mAP
     fig, ax = plt.subplots()
-    df['mAP'] = df['mAP'].astype(float) # handle nan
+    df['mAP'] = df['mAP'].astype(float)  # handle nan
     df['parameters'] = df['parameters'].astype(int)
     df = map_color(df, "dataset")
     for dataset in df["dataset"].unique():
@@ -486,6 +520,10 @@ def parameter_precision():
 
 
 def label_precision():
+    """
+    Identify how mAP varies with the frequency of labels in the training dataset
+    :return: .png with results
+    """
     root_directory = Path("./data/qa_dataset/results")
 
     # four dataframes for four different dataset types
@@ -507,7 +545,7 @@ def label_precision():
         data["label"] = data[0].str.split(" ").str[4:].str.join(" ")
         data["model"] = language_model
         dataset_name = str(file_path).split("\\")[3].split("_")[-1]
-        data["precision"] = data[1] # relabel map column
+        data["precision"] = data[1]  # relabel map column
         data["dataset"] = dataset_name
         data["category"] = dataset_category
         data = data[["model", "label", "dataset", "precision", "category"]]  # clean columns
@@ -521,7 +559,7 @@ def label_precision():
             rag_original = pd.concat([rag_original, data])
         elif dataset_category == "recalculated_rag":
             rag_recalculated = pd.concat([rag_recalculated, data])
-    
+
     # read in datasets and extract number of labels in the test set
     filenames = ["data/qa_dataset/original/no_rag/systemBoundaryQA.jsonl",
                  "data/qa_dataset/original/no_rag/allocationQA.jsonl",
@@ -551,17 +589,17 @@ def label_precision():
         dataset_dataset_type = "original" if "original" in str(k).split("/") else "recalculated"
         dataset_dataset_category = dataset_dataset_type + dataset_rag
         dataset_name = k.split("/")[-1].split(".")[0]
-        dataset = load_dataset('json', data_files=k) # shuffle dataset before splitting
+        dataset = load_dataset('json', data_files=k)  # shuffle dataset before splitting
         dataset = dataset.shuffle(seed=42)
-        
+
         # 80% train, 20% test + validation
         train_testvalid = dataset['train'].train_test_split(test_size=0.2, seed=42)
         # Split the 10% test + valid in half test, half valid
         test_valid = train_testvalid['test'].train_test_split(test_size=0.5, seed=42)
         train_valid = train_testvalid['train']['labels']
         test = test_valid['test']
-        test_labels = test["labels"] # get the test labels
-        
+        test_labels = test["labels"]  # get the test labels
+
         # flatten and count the occurence of labels in the training dataset
         flattened_test_labels = list(itertools.chain.from_iterable(train_valid))
         counts = Counter(flattened_test_labels)
@@ -589,7 +627,7 @@ def label_precision():
     for i in [original, recalculated, rag_original, rag_recalculated]:
         fig, ax = plt.subplots()
         df = i.dropna().copy(deep=True)
-        df['precision'] = df['precision'].astype(float) # handle nan
+        df['precision'] = df['precision'].astype(float)  # handle nan
         df['count'] = df['count'].astype(int)
         df = map_color(df, "dataset")
         for dataset in df["dataset"].unique():
@@ -604,7 +642,8 @@ def label_precision():
         plt.title('Sample size effect for dataset' + str(df["category"].unique()[0]))
         plt.legend()
         plt.grid(True)
-        plt.savefig("./data/qa_dataset/results/" + str(df["category"].unique()[0])+ " " + str(df["dataset"].unique()[0])+".png", dpi=300)
+        plt.savefig("./data/qa_dataset/results/" + str(df["category"].unique()[0]) + " " + str(
+            df["dataset"].unique()[0]) + ".png", dpi=300)
         plt.show()
         print("dataset precision plot saved")
 
@@ -616,12 +655,22 @@ def label_precision():
 
 
 def map_color(df, col):
+    """
+    helper function to map colors for plots
+    :param df: dataframe of interest
+    :param col: column of interest
+    :return: dataframe with new column
+    """
     color_d = dict(zip(df[col].unique(), sns.color_palette("hls", df[col].nunique())))
     df['color'] = df[col].map(color_d)
     return df
 
 
 def map_tables():
+    """
+    Create .csv files summarizing mAP results
+    :return: 4 .csv files
+    """
     # get all the results files
     root_directory = Path("./data/qa_dataset/results")
 
@@ -640,10 +689,10 @@ def map_tables():
         # read in data and extract mean average precision, dataset name, and model name
         data = pd.read_csv(file_path, header=None)
         language_model = "/".join(str(file_path).split("\\")[4:6])
-        data = data[data[0] == "Mean Average Precision (mAP)"] 
+        data = data[data[0] == "Mean Average Precision (mAP)"]
         data["model"] = language_model
         dataset_name = str(file_path).split("\\")[3].split("_")[-1]
-        data["mAP"] = data[1] # relabel map column
+        data["mAP"] = data[1]  # relabel map column
         data["dataset"] = dataset_name
         data = data[["model", "mAP", "dataset"]]  # clean columns
 
@@ -671,7 +720,7 @@ def map_tables():
     recalculated = recalculated.pivot(index='dataset', columns='model', values='mAP')
     rag_original = rag_original.pivot(index='dataset', columns='model', values='mAP')
     rag_recalculated = rag_recalculated.pivot(index='dataset', columns='model', values='mAP')
-    
+
     # print out dataframes
     original.to_csv("./data/qa_dataset/results/mAP_original.csv")
     recalculated.to_csv("./data/qa_dataset/results/mAP_recalculated.csv")

@@ -6,14 +6,22 @@ from langchain_community.vectorstores import FAISS
 import rag_retrieval
 from tqdm import tqdm
 import uuid
-import os
 
 
 def intendedApplication(row, RAG, vdb, reader, tokenizer):
+    """
+    generate the dataset for the intended application of LCA
+    :param row: row of data
+    :param RAG: boolean for whether or not RAG is implemented
+    :param vdb: vector database
+    :param reader: LLM pipeline
+    :param tokenizer: LLM tokenizer
+    :return: entry for json-ld dataset
+    """
     if len(row["intendedApplication"]) == 0:
         return ""
     else:
-        question = f"For the following production system, what is the intended application of the LCA study? Production system: {str(row["systemDescription"])}"
+        question = f"For the following production system, what is the intended application of the LCA study? Production system: {str(row['systemDescription'])}"
         if RAG:
             answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
             context = " Additional Context: " + str(answer)
@@ -26,10 +34,19 @@ def intendedApplication(row, RAG, vdb, reader, tokenizer):
 
 
 def studyReasons(row, RAG, vdb, reader, tokenizer):
+    """
+    generate the dataset for the study reasons of LCA
+    :param row: row of data
+    :param RAG: boolean for whether or not RAG is implemented
+    :param vdb: vector database
+    :param reader: LLM pipeline
+    :param tokenizer: LLM tokenizer
+    :return: entry for json-ld dataset
+    """
     if len(row["studyReasons"]) == 0:
         return ""
     else:
-        question = f"For the following production system, what are the reasons for carrying out the LCA study? Production system: {str(row["systemDescription"])}"
+        question = f"For the following production system, what are the reasons for carrying out the LCA study? Production system: {str(row['systemDescription'])}"
         if RAG:
             answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
             context = " Additional Context: " + str(answer)
@@ -42,10 +59,19 @@ def studyReasons(row, RAG, vdb, reader, tokenizer):
 
 
 def targetAudience(row, RAG, vdb, reader, tokenizer):
+    """
+    generate the dataset for the target audience of LCA
+    :param row: row of data
+    :param RAG: boolean for whether or not RAG is implemented
+    :param vdb: vector database
+    :param reader: LLM pipeline
+    :param tokenizer: LLM tokenizer
+    :return: entry for json-ld dataset
+    """
     if len(row["intendedAudience"]) == 0:
         return ""
     else:
-        question = f"For the following production system, what is the target audience of the LCA study? Production system: {str(row["systemDescription"])}"
+        question = f"For the following production system, what is the target audience of the LCA study? Production system: {str(row['systemDescription'])}"
         if RAG:
             answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
             context = " Additional Context: " + str(answer)
@@ -58,10 +84,19 @@ def targetAudience(row, RAG, vdb, reader, tokenizer):
 
 
 def comparativeAssertions(row, RAG, vdb, reader, tokenizer):
+    """
+    generate the dataset for the comparative assertions being made of LCA
+    :param row: row of data
+    :param RAG: boolean for whether or not RAG is implemented
+    :param vdb: vector database
+    :param reader: LLM pipeline
+    :param tokenizer: LLM tokenizer
+    :return: entry for json-ld dataset
+    """
     if len(row["comparativeAssertions"]) == 0:
         return ""
     else:
-        question = f"For the following production system, are these results to be used in comparative assertions? Production system: {str(row["systemDescription"])}"
+        question = f"For the following production system, are these results to be used in comparative assertions? Production system: {str(row['systemDescription'])}"
         if RAG:
             answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
             context = " Additional Context: " + str(answer)
@@ -74,7 +109,16 @@ def comparativeAssertions(row, RAG, vdb, reader, tokenizer):
 
 
 def actors(row, RAG, vdb, reader, tokenizer):
-    question = f"For the following production system, who are the important actors? Production system: {str(row["systemDescription"])}"
+    """
+    generate the dataset for the actors relevant to LCA
+    :param row: row of data
+    :param RAG: boolean for whether or not RAG is implemented
+    :param vdb: vector database
+    :param reader: LLM pipeline
+    :param tokenizer: LLM tokenizer
+    :return: entry for json-ld dataset
+    """
+    question = f"For the following production system, who are the important actors? Production system: {str(row['systemDescription'])}"
     if RAG:
         answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
         context = " Additional Context: " + str(answer)
@@ -95,10 +139,19 @@ def actors(row, RAG, vdb, reader, tokenizer):
 
 
 def product(row, RAG, vdb, reader, tokenizer):
+    """
+    generate the dataset for the product of interest in LCA
+    :param row: row of data
+    :param RAG: boolean for whether or not RAG is implemented
+    :param vdb: vector database
+    :param reader: LLM pipeline
+    :param tokenizer: LLM tokenizer
+    :return: entry for json-ld dataset
+    """
     if len(row["name"]) == 0:
         return ""
     else:
-        question = f"For the following production system, what product is the object of the assessment? Production system: {str(row["systemDescription"])}"
+        question = f"For the following production system, what product is the object of the assessment? Production system: {str(row['systemDescription'])}"
         if RAG:
             answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
             context = " Additional Context: " + str(answer)
@@ -117,10 +170,19 @@ def product(row, RAG, vdb, reader, tokenizer):
 
 
 def allocation(row, RAG, vdb, reader, tokenizer):
+    """
+    generate the dataset for the allocation method using in LCA
+    :param row: row of data
+    :param RAG: boolean for whether or not RAG is implemented
+    :param vdb: vector database
+    :param reader: LLM pipeline
+    :param tokenizer: LLM tokenizer
+    :return: entry for json-ld dataset
+    """
     if len(row["allocationMethod"]) == 0:
         return ""
     else:
-        question = f"For the following production system, what is the appropriate allocation method? If system expansion is used, the available choices are either mass, economic, energy, or biophysical. If system expansion is not necessary, answer \"none required\". If another allocation method is used, answer \"none\". Production system: {str(row["systemDescription"])}"
+        question = f"For the following production system, what is the appropriate allocation method? If system expansion is used, the available choices are either mass, economic, energy, or biophysical. If system expansion is not necessary, answer \"none required\". If another allocation method is used, answer \"none\". Production system: {str(row['systemDescription'])}"
         if RAG:
             answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
             context = " Additional Context: " + str(answer)
@@ -134,7 +196,16 @@ def allocation(row, RAG, vdb, reader, tokenizer):
 
 
 def systemBoundary(row, RAG, vdb, reader, tokenizer):
-    question = f"What is included in the system boundary of this production system? Production system: {str(row["systemDescription"])}"
+    """
+    generate the dataset for the system boundary completeness of LCA
+    :param row: row of data
+    :param RAG: boolean for whether or not RAG is implemented
+    :param vdb: vector database
+    :param reader: LLM pipeline
+    :param tokenizer: LLM tokenizer
+    :return: entry for json-ld dataset
+    """
+    question = f"What is included in the system boundary of this production system? Production system: {str(row['systemDescription'])}"
     if RAG:
         answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
         context = " Additional Context: " + str(answer)
@@ -143,7 +214,6 @@ def systemBoundary(row, RAG, vdb, reader, tokenizer):
     data = []
     labels = []
     # get all of the system boundary items and put them in the labels
-    counter = 0
     for i in row.index.to_list():
         if "systemBoundaryCompleteness" in i:
             # standard output of questions
@@ -153,16 +223,25 @@ def systemBoundary(row, RAG, vdb, reader, tokenizer):
                 if str(row[str(i)]).capitalize() == "True":
                     # unique true label for each type of system boundary
                     labels.append(str(row[str(i)]).capitalize() + "_" + str(i).split(".")[1])
-    
+
     # return the data object
-    data.append({"labels": labels, 
-                    "title": "System Boundary Completeness",
-                    "id": str(uuid.uuid4()),
-                    "context": row["systemDescription"] + " What is in the system boundary?" + context})
+    data.append({"labels": labels,
+                 "title": "System Boundary Completeness",
+                 "id": str(uuid.uuid4()),
+                 "context": row["systemDescription"] + " What is in the system boundary?" + context})
     return data
 
 
 def functionalUnit(row, RAG, vdb, reader, tokenizer):
+    """
+    generate the dataset for the functional unit of an LCA product/process
+    :param row: row of data
+    :param RAG: boolean for whether or not RAG is implemented
+    :param vdb: vector database
+    :param reader: LLM pipeline
+    :param tokenizer: LLM tokenizer
+    :return: entry for json-ld dataset
+    """
     fUnit = []
     if len(row["functionalUnit"]) != 0:
         fUnit.append(row["functionalUnit"])
@@ -181,7 +260,7 @@ def functionalUnit(row, RAG, vdb, reader, tokenizer):
     if len(fUnit) == 0:
         return ""
     else:
-        question = f"For the following production system, what is the functional unit? Production system: {str(row["systemDescription"])}"
+        question = f"For the following production system, what is the functional unit? Production system: {str(row['systemDescription'])}"
         if RAG:
             answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
             context = " Additional Context: " + str(answer)
@@ -195,15 +274,28 @@ def functionalUnit(row, RAG, vdb, reader, tokenizer):
 
 
 def systemDescription(row):
+    """
+    completes the system description for each LCA in HESTIA
+    :param row: row of dataframe
+    :return: sentence describing the LCA system
+    """
     names = row["name"].split('-')
     if len(row["cycleDescription"]) > 0:
         return row["siteType"] + " producing " + names[0].strip() + " in " + names[
             1].strip() + ". Additional description: " + row["cycleDescription"] + "."
     return row["siteType"] + " producing " + names[0].strip() + " in " + names[1].strip() + "."
 
-    
+
 def process_all_tasks(row, RAG, vdb, reader, tokenizer):
-    """Processes all columns for a single row in one go."""
+    """
+    driver function to create all datasets
+    :param row: row of data
+    :param RAG: boolean for whether or not RAG is implemented
+    :param vdb: vector database
+    :param reader: LLM pipeline
+    :param tokenizer: LLM tokenizer
+    :return: entry for json-ld dataset
+    """
     return pd.Series({
         "intendedApplicationQA": intendedApplication(row, RAG, vdb, reader, tokenizer),
         "studyReasonsQA": studyReasons(row, RAG, vdb, reader, tokenizer),
@@ -214,9 +306,16 @@ def process_all_tasks(row, RAG, vdb, reader, tokenizer):
         "systemBoundaryQA": systemBoundary(row, RAG, vdb, reader, tokenizer),
         "functionalUnitQA": functionalUnit(row, RAG, vdb, reader, tokenizer)
     })
-    
-    
+
+
 def main(output_directory, input_directory, RAG):
+    """
+    main method to convert input data into json-ld multi-label text classification dataset
+    :param output_directory: output directory
+    :param input_directory: input directory
+    :param RAG: boolean to include RAG or not
+    :return: N/A
+    """
     tqdm.pandas()
     # read in data
     df = pd.read_csv(input_directory + "input_data.csv")
@@ -225,8 +324,8 @@ def main(output_directory, input_directory, RAG):
 
     if RAG:
         embeddings = constants.EMBED_MODEL
-        vdb = FAISS.load_local("llm-goal-scope/" + 
-            constants.VDB_LOCATION, embeddings, allow_dangerous_deserialization=True)
+        vdb = FAISS.load_local("llm-goal-scope/" +
+                               constants.VDB_LOCATION, embeddings, allow_dangerous_deserialization=True)
     else:
         vdb = ""
 
@@ -307,4 +406,3 @@ if __name__ == "__main__":
     # DO NOT RERUN THESE WHEN UPDATING RAG FUNCTION - change uuid and is hard to track through git
     # main("llm-goal-scope/data/qa_dataset/recalculated/no_rag/", "llm-goal-scope/data/hestia/recalculated/",False)
     # main("llm-goal-scope/data/qa_dataset/original/no_rag/", "llm-goal-scope/data/hestia/",False)
-

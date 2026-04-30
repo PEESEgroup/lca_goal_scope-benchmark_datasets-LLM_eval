@@ -3,6 +3,11 @@ import json
 
 
 def main(directory_path):
+    """
+    main method to clean data
+    :param directory_path: path to location of HESTIA files
+    :return: N/A
+    """
     # for each file in the directory, iterate through
     for entry_name in os.listdir(directory_path+"ImpactAssessment/"):
         # get file path
@@ -15,7 +20,7 @@ def main(directory_path):
                 data = json.load(f)
             except UnicodeDecodeError:
                 print("cannot read the file, skipping")
-                continue # can't read the file, so skipping
+                continue  # can't read the file, so skipping
 
         # go through the list of available goal and scope tasks and find which ones are in Hestia
         # •	Intended application of results - in source
@@ -100,7 +105,8 @@ def main(directory_path):
         with open("llm-goal-scope/data/hestia/Source/{}".format(source) + extension, 'r', encoding='utf-8') as f_source:
             try:
                 data_source = json.load(f_source)
-                # while it would be nice to have a list of all the authors associated with the manuscript, getting actors from hestia isn't readily apparent
+                # while it would be nice to have a list of all the authors associated with the manuscript,
+                # getting actors from hestia isn't readily apparent
                 # it will be easiest to have the agent reply "authors of the study" or similar
                 if "bibliography" in data_source:
                     if "documentDOI" in data_source["bibliography"]:
@@ -149,8 +155,8 @@ def main(directory_path):
             lca_data['name'] = data['name']
         else:
             lca_data['name'] = ""
-        # •	LCI modelling framework and handling of multifunctional processes - allocationMethod, LCI modelling framework is
-        # recalculated to include all possible LCIA methods (107 midpoint methods at a count)
+        # •	LCI modelling framework and handling of multifunctional processes - allocationMethod, LCI modelling
+        # framework is recalculated to include all possible LCIA methods (107 midpoint methods at a count)
         if "allocationMethod" in data:
             lca_data['allocationMethod'] = data['allocationMethod']
         else:
@@ -192,4 +198,3 @@ def main(directory_path):
 if __name__ == "__main__":
     main("llm-goal-scope/data/hestia/")
     main("llm-goal-scope/data/hestia/recalculated/")
-

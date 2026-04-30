@@ -4,6 +4,11 @@ import json
 
 
 def main(directory):
+    """
+    Remove some of the unnecessary input data from HESTIA
+    :param directory: input directory of HESTIA data
+    :return: cleaned input.csv files for use in building the json.ld dataset
+    """
     # get the directory
     directory_path = directory + "cleaned/"
     df = pd.DataFrame()

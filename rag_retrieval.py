@@ -1,11 +1,10 @@
 from transformers import Pipeline, pipeline
 from typing import Any
 import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
+from transformers import AutoTokenizer
 from langchain_community.vectorstores import FAISS
 from sentence_transformers import CrossEncoder
 import constants
-import pprint
 import os
 
 
@@ -17,6 +16,16 @@ def answer_with_rag(
         num_retrieved_docs: int = 30,
         num_docs_final: int = 5,
 ) -> tuple[Any, list[str]]:
+    """
+    method to answer a given query using RAG data
+    :param question: input string query
+    :param llm: LLM pipeline
+    :param reading_tokenizer: tokenizer for dataset
+    :param knowledge_index: vector database
+    :param num_retrieved_docs: number of retrieved documents
+    :param num_docs_final: number of finalized retrieved documents sent to LLM
+    :return: the generated answer and the relevant documents
+    """
 
     # configure rag prompt
     prompt_in_chat_format = [
@@ -89,6 +98,11 @@ def answer_with_rag(
 
 
 def model_config(model_name="meta-llama/Llama-3.2-3B-Instruct"):
+    """
+    set up LLM model config for summarizing RAG results
+    :param model_name: name of the model - in our case Llama3.2-3B-Instruct
+    :return: the LLM pipeline and the tokenizer
+    """
     # "HuggingFaceH4/zephyr-7b-beta" for testing
     # "meta-llama/Llama-3.2-3B-Instruct" for actuality
     # initialize the tokenizer
@@ -115,6 +129,7 @@ if __name__ == "__main__":
     print("vdb loaded")
     reader, tokenizer = model_config()
     print("model configured")
+    # test question to make sure things are working
     question = "what is a functional unit for sheep production in the UK?"
     answer, docs = answer_with_rag(question, reader, tokenizer, vdb)
     print(answer)

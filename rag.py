@@ -1,5 +1,3 @@
-import datasets
-from datasets import load_dataset
 from tqdm import tqdm
 import pandas as pd
 from typing import List
@@ -22,6 +20,11 @@ def split_documents(
 ) -> List[LangchainDocument]:
     """
     Split documents into chunks of maximum size `chunk_size` tokens and return a list of documents.
+    :param chunk_size: size of the chunk
+    :param knowledge_base: knowledge base used
+    :param tokenizer_name: name of tokenizer model
+    :param markdown_separators: list of markdown separators
+    :return: list of langchain documents
     """
     text_splitter = RecursiveCharacterTextSplitter.from_huggingface_tokenizer(
         AutoTokenizer.from_pretrained(tokenizer_name),
@@ -50,6 +53,10 @@ def split_documents(
 
 
 def get_rag_json():
+    """
+    convert RAG text files to json for future manipulation
+    :return: rag input data for db
+    """
     file_path = "./data/RAG-textract/"
     # file_path = "./data/small_rag/"  # for testing
     rag_data = []
@@ -80,6 +87,13 @@ def get_rag_json():
 
 
 def vs_creation(filename, embedding_model, EMBEDDING_MODEL_NAME):
+    """
+    create vdb for RAG
+    :param filename: filename of database
+    :param embedding_model: embedding model
+    :param EMBEDDING_MODEL_NAME: name of embedding model
+    :return: N/A
+    """
     ds = get_rag_json()
     print("\ndataset loaded")
 

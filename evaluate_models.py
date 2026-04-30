@@ -1,5 +1,3 @@
-import constants
-import json
 import evaluate
 import numpy as np
 import csv
@@ -8,10 +6,9 @@ import matplotlib.pyplot as plt
 import torch.nn as nn
 import torch
 import gc
-import matplotlib as mpl
 from typing import Optional
 import os
-from datasets import Dataset, load_dataset, DatasetDict
+from datasets import load_dataset, DatasetDict
 from sklearn.metrics import average_precision_score, f1_score, hamming_loss
 from transformers import AutoModelForSequenceClassification, TrainingArguments, Trainer, DataCollatorWithPadding, \
     AutoTokenizer
@@ -19,12 +16,24 @@ from sklearn.metrics import multilabel_confusion_matrix, ConfusionMatrixDisplay
 
 
 class CustomLossTrainer(Trainer):
+    """
+    Custom loss trainer class wrapping the asymmetric loss function
+    """
+
     def __init__(self, *args, loss_fn=None, **kwargs):
         super().__init__(*args, **kwargs)
         # Use the loss_fn passed in, or default to a NEW instance
         self.loss_fn = loss_fn if loss_fn is not None else AsymmetricLossOptimized()
 
     def compute_loss(self, model, inputs, num_items_in_batch: Optional[torch.Tensor] = None, return_outputs=False):
+        """
+        computes the loss from logits and labels
+        :param model: model of interest
+        :param inputs: tensor inputs
+        :param num_items_in_batch: number of items in batch
+        :param return_outputs: outputs of the method, defaults to false
+        :return: loss, outputs is return_outputs is true
+        """
         # Assume your inputs include "labels" and your model returns logits.
         labels = inputs.get("labels")
         outputs = model(**inputs)
@@ -40,12 +49,23 @@ class CustomLossTrainer(Trainer):
 
 
 class AsymmetricLossOptimized(nn.Module):
+    """
+    Asymmetric Loss Function class
+    """
     ''' Notice - optimized version, minimizes memory allocation and gpu uploading,
     favors inplace operations'''
 
     # https://openaccess.thecvf.com/content/ICCV2021/papers/Ridnik_Asymmetric_Loss_for_Multi-Label_Classification_ICCV_2021_paper.pdf
     # https://github.com/Alibaba-MIIL/ASL/blob/main/src/loss_functions/losses.py
     def __init__(self, gamma_neg=4, gamma_pos=1, clip=0.05, eps=1e-8, disable_torch_grad_focal_loss=False):
+        """
+        Initialization function
+        :param gamma_neg: negative gamma value
+        :param gamma_pos: positive gamma value
+        :param clip: clip value
+        :param eps: epsilon value
+        :param disable_torch_grad_focal_loss: focal loss
+        """
         super(AsymmetricLossOptimized, self).__init__()
 
         self.gamma_neg = gamma_neg
@@ -86,16 +106,24 @@ class AsymmetricLossOptimized(nn.Module):
                 with torch.no_grad():
                     # Logic remains the same, just local variables
                     w = torch.pow(1 - (xs_pos * targets) - (xs_neg * anti_targets),
-                                self.gamma_pos * targets + self.gamma_neg * anti_targets)
+                                  self.gamma_pos * targets + self.gamma_neg * anti_targets)
             else:
                 w = torch.pow(1 - (xs_pos * targets) - (xs_neg * anti_targets),
-                            self.gamma_pos * targets + self.gamma_neg * anti_targets)
+                              self.gamma_pos * targets + self.gamma_neg * anti_targets)
             loss = loss * w
 
         return -loss.sum()
 
 
 def preprocess_function(example, classes, class2id, tokenizer):
+    """
+    preprocess data
+    :param example: a row of data
+    :param classes: list of classes
+    :param class2id: dict of classes and labels
+    :param tokenizer: tokenizer model
+    :return: return example with updated labels
+    """
     text = f"{example['title']}.\n{example['context']}"
     all_labels = example['labels']
     labels = [0. for i in range(len(classes))]
@@ -109,10 +137,20 @@ def preprocess_function(example, classes, class2id, tokenizer):
 
 
 def sigmoid(x):
+    """
+    Simple sigmoid function
+    :param x: predictions
+    :return: sigmoid of predictions
+    """
     return 1 / (1 + np.exp(-x))
 
 
 def compute_metrics(eval_pred):
+    """
+    compute metrics function
+    :param eval_pred: tuple of predictions and labels
+    :return: take the sigmoid of the predictions and then calculate model performance metrics
+    """
     predictions, labels = eval_pred
     predictions = sigmoid(predictions)
     predictions = (predictions > 0.5).astype(int).reshape(-1)
@@ -121,6 +159,16 @@ def compute_metrics(eval_pred):
 
 
 def train_model(model, tokenized_dataset, tokenizer, data_collator, dataset_name, model_path):
+    """
+    train the LLM models
+    :param model: LLM model
+    :param tokenized_dataset: tokenized dataset
+    :param tokenizer: tokenizer LLM
+    :param data_collator: data collator
+    :param dataset_name: name of the dataset
+    :param model_path: path to storage location of the LLM for checkpoints and trained models
+    :return: custom loss trainer
+    """
     # create necessary filepaths
     checkpoint_path = "llm-goal-scope/data/checkpoints/" + model_path + "/" + dataset_name
     final_model_path = "llm-goal-scope/data/trained_model/" + model_path + "/" + dataset_name
@@ -131,7 +179,7 @@ def train_model(model, tokenized_dataset, tokenizer, data_collator, dataset_name
         learning_rate=2e-5,
         per_device_train_batch_size=3,
         per_device_eval_batch_size=3,
-        num_train_epochs=15, # try 15
+        num_train_epochs=15,  # try 15
         weight_decay=0.01,
         eval_strategy="epoch",
         logging_strategy='epoch',
@@ -159,6 +207,15 @@ def train_model(model, tokenized_dataset, tokenizer, data_collator, dataset_name
 
 
 def eval_metrics(tokenized_dataset, trainer, classes, dataset_name, fpath):
+    """
+    evaluate trained model on dataset
+    :param tokenized_dataset: tokenized dataset
+    :param trainer: custom trainer
+    :param classes: list of all classes
+    :param dataset_name: name of dataset
+    :param fpath: path of output storage
+    :return: datasets of all predictions and errors
+    """
     # predict step
     predictions_output = trainer.predict(tokenized_dataset["test"])
 
@@ -185,7 +242,7 @@ def eval_metrics(tokenized_dataset, trainer, classes, dataset_name, fpath):
         else:
             ap = np.nan
         ap_scores.append(ap)
-        eval_metrics[f"Average Precision for Label {classes[i]}"] =  f"{ap:.4f}"
+        eval_metrics[f"Average Precision for Label {classes[i]}"] = f"{ap:.4f}"
     print("saved confusion matrices")
 
     # Calculate Mean Average Precision (mAP)
@@ -242,6 +299,12 @@ def eval_metrics(tokenized_dataset, trainer, classes, dataset_name, fpath):
 
 
 def eval_models(dataset, dataset_name):
+    """
+    evaluate model loop
+    :param dataset: dataset of interest
+    :param dataset_name: name of dataset
+    :return: N/A
+    """
     # from: https://huggingface.co/blog/Valerii-Knowledgator/multi-label-classification
     # bad practice, but because all the labels are in each row of the dataset, things can be trained
     if "all_labels" in dataset["train"][0]:
@@ -249,9 +312,10 @@ def eval_models(dataset, dataset_name):
         class2id = {class_: id for id, class_ in enumerate(classes)}
         id2class = {id: class_ for class_, id in class2id.items()}
 
-        model_paths = ['microsoft/deberta-v3-small','microsoft/deberta-v3-base', 'microsoft/deberta-v3-large',  # these models are confirmed to work
-        "google-bert/bert-base-uncased", "FacebookAI/roberta-large", 
-        "climatebert/distilroberta-base-climate-f", "ESGBERT/EnvironmentalBERT-base"]
+        model_paths = ['microsoft/deberta-v3-small', 'microsoft/deberta-v3-base', 'microsoft/deberta-v3-large',
+                       # these models are confirmed to work
+                       "google-bert/bert-base-uncased", "FacebookAI/roberta-large",
+                       "climatebert/distilroberta-base-climate-f", "ESGBERT/EnvironmentalBERT-base"]
 
         # train and eval loop
         for model_path in model_paths:
@@ -285,27 +349,34 @@ def eval_models(dataset, dataset_name):
             errors, predictions = eval_metrics(tokenized_dataset, trainer, classes, dataset_path, fpath)
 
             # write out the errors and predictions to a .csv file for future use
-            errors.to_csv(fpath+"/errors.csv", index=False)
-            predictions.to_csv(fpath+"/predictions.csv", index=False)
+            errors.to_csv(fpath + "/errors.csv", index=False)
+            predictions.to_csv(fpath + "/predictions.csv", index=False)
 
             # cleaning up after model
             print(f"Cleaning up after {model_path}...")
-            
+
             # delete the big GPU objects and force garbage collection
             del model
             del trainer
             gc.collect()
-            
+
             # clear CUDA cache
             if torch.cuda.is_available():
                 torch.cuda.empty_cache()
-            
+
     # else there is no data in the datset
     else:
-        print("dataset missing:", str(dataset_path))
+        print("dataset missing:", str(dataset_name))
 
 
 def plotting(log_history_df, dataset_name, model_name):
+    """
+    Plot model loss function
+    :param log_history_df: dataframe containing the history of training
+    :param dataset_name: name of the dataset
+    :param model_name: name of the model
+    :return: N/A loss plot
+    """
     train_logs = log_history_df[log_history_df['loss'].notna()]
     eval_logs = log_history_df[log_history_df['eval_loss'].notna()]
     # list filepath and create directory to store the image
@@ -332,28 +403,28 @@ if __name__ == "__main__":
 
     # ignoring comparative assertion, intended application, study reasons, and target audience as Hestia does not have that data
     # ignoring recalculated allocation because it only uses the economic label
-    filenames = [# "llm-goal-scope/data/qa_dataset/original/no_rag/systemBoundaryQA.jsonl",
-                #  "llm-goal-scope/data/qa_dataset/original/no_rag/allocationQA.jsonl",  
-                #  "llm-goal-scope/data/qa_dataset/original/no_rag/functionalUnitQA.jsonl", 
-                #  "llm-goal-scope/data/qa_dataset/original/no_rag/productQA.jsonl", 
-                #  "llm-goal-scope/data/qa_dataset/recalculated/no_rag/functionalUnitQA.jsonl",
-                #  "llm-goal-scope/data/qa_dataset/recalculated/no_rag/productQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/recalculated/no_rag/systemBoundaryQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/original/rag/rag_allocationQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/original/rag/rag_functionalUnitQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/original/rag/rag_productQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/original/rag/rag_systemBoundaryQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_functionalUnitQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_productQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_systemBoundaryQA.jsonl",
-                 ]
+    filenames = [  # "llm-goal-scope/data/qa_dataset/original/no_rag/systemBoundaryQA.jsonl",
+        #  "llm-goal-scope/data/qa_dataset/original/no_rag/allocationQA.jsonl",
+        #  "llm-goal-scope/data/qa_dataset/original/no_rag/functionalUnitQA.jsonl",
+        #  "llm-goal-scope/data/qa_dataset/original/no_rag/productQA.jsonl",
+        #  "llm-goal-scope/data/qa_dataset/recalculated/no_rag/functionalUnitQA.jsonl",
+        #  "llm-goal-scope/data/qa_dataset/recalculated/no_rag/productQA.jsonl",
+        "llm-goal-scope/data/qa_dataset/recalculated/no_rag/systemBoundaryQA.jsonl",
+        "llm-goal-scope/data/qa_dataset/original/rag/rag_allocationQA.jsonl",
+        "llm-goal-scope/data/qa_dataset/original/rag/rag_functionalUnitQA.jsonl",
+        "llm-goal-scope/data/qa_dataset/original/rag/rag_productQA.jsonl",
+        "llm-goal-scope/data/qa_dataset/original/rag/rag_systemBoundaryQA.jsonl",
+        "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_functionalUnitQA.jsonl",
+        "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_productQA.jsonl",
+        "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_systemBoundaryQA.jsonl",
+    ]
 
     # for each dataset
     for k in filenames:
         # load the dataset
-        dataset = load_dataset('json', data_files=k) # shuffle dataset before splitting
+        dataset = load_dataset('json', data_files=k)  # shuffle dataset before splitting
         dataset = dataset.shuffle(seed=42)
-        
+
         # 80% train, 20% test + validation
         train_testvalid = dataset['train'].train_test_split(test_size=0.2, seed=42)
         # Split the 10% test + valid in half test, half valid
