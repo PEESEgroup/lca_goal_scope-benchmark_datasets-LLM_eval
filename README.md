@@ -3,7 +3,7 @@
 This study creates Goal and Scope LLM benchmarks as a multi-label text classification task, then evaluates LLMs on this benchmark for livestock LCA. The main folders include
     data
 
-## Files overview
+## Files Overview
 
 The root folder contains the Python scripts used in the study. There are eleven Python scripts and one folder. Details of each file or folder is provided below:
 
