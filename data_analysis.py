@@ -18,7 +18,7 @@ def main():
     :return: N/A
     """
     # build mAP output tables for each of the four categories
-    map_tables()
+    # map_tables()
 
     # plot number of labels versus precision for each of the four categories
     label_precision()
@@ -622,30 +622,30 @@ def label_precision():
     recalculated = pd.merge(recalculated, recalculated_test, "left", ["dataset", "label"])
     rag_original = pd.merge(rag_original, rag_original_test, "left", ["dataset", "label"])
     rag_recalculated = pd.merge(rag_recalculated, rag_recalculated_test, "left", ["dataset", "label"])
+    df = pd.concat([rag_original, rag_recalculated, original, recalculated])
 
     # plot scatterplot
-    for i in [original, recalculated, rag_original, rag_recalculated]:
-        fig, ax = plt.subplots()
-        df = i.dropna().copy(deep=True)
-        df['precision'] = df['precision'].astype(float)  # handle nan
-        df['count'] = df['count'].astype(int)
-        df = map_color(df, "dataset")
-        for dataset in df["dataset"].unique():
-            plotting_df = df[df["dataset"] == dataset]
-            x = plotting_df['count']
-            y = plotting_df['precision']
-            # plot scatter plot
-            ax.scatter(x, y, c=plotting_df["color"], label=dataset.strip("QA"), alpha=0.7)
+    fig, ax = plt.subplots()
+    df = df.dropna()
+    df['precision'] = df['precision'].astype(float)  # handle nan
+    df['count'] = df['count'].astype(int)
+    df = map_color(df, "dataset")
+    for dataset in df["dataset"].unique():
+        plotting_df = df[df["dataset"] == dataset]
+        x = plotting_df['count']
+        y = plotting_df['precision']
+        # plot scatter plot
+        ax.scatter(x, y, c=plotting_df["color"], label="Allocation" if dataset == "allocationQA" else "System Boundary"
+                   if dataset == "systemBoundaryQA" else "Product" if dataset=="productQA" else "Functional Unit", alpha=0.7)
 
-        plt.xlabel('Frequency of Label')
-        plt.ylabel('mean Average Precision')
-        plt.title('Sample size effect for dataset' + str(df["category"].unique()[0]))
-        plt.legend()
-        plt.grid(True)
-        plt.savefig("./data/qa_dataset/results/" + str(df["category"].unique()[0]) + " " + str(
-            df["dataset"].unique()[0]) + ".png", dpi=300)
-        plt.show()
-        print("dataset precision plot saved")
+    plt.xlabel('Frequency of Label')
+    plt.ylabel('Precision')
+    plt.title('Sample size effect for all datasets')
+    plt.legend()
+    plt.grid(True)
+    plt.savefig("./data/qa_dataset/results/sample-size_mAP.png", dpi=300)
+    plt.show()
+    print("dataset precision plot saved")
 
     # save data
     original.to_csv("./data/qa_dataset/results/labels_original.csv")
