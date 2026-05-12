@@ -21,14 +21,14 @@ def main():
     # map_tables()
 
     # plot number of labels versus precision for each of the four categories
-    label_precision()
-    parameter_precision()
+    #label_precision()
+    #parameter_precision()
 
     # collate errors for each dataset based on RAG
-    collect_rag_error_rates()
+    #collect_rag_error_rates()
 
     # identify occurence of errors and the extent to which models and ground truths agree
-    inter_reviewer_alignment()
+    #inter_reviewer_alignment()
 
     # plot the frequency of error rates across 12 datasets
     plot_error_codes()
@@ -73,29 +73,33 @@ def plot_error_codes():
 
         color_map[str(code)] = hex_color
 
-    groups = list(df_counts.groupby(group_cols))
-    n_plots = len(groups)
-    cols = 4
-    rows = (n_plots + cols - 1) // cols
+    # Create a single label for the x-axis by joining the group columns
+    df_counts['Group'] = df_counts[group_cols].astype(str).agg(' | '.join, axis=1)
+    df_counts = df_counts[df_counts['Count'] > 0]  # keep rationales that occur more than 0 times
 
-    fig, axes = plt.subplots(rows, cols, figsize=(20, 5 * rows))
-    axes = axes.flatten()
+    # Pivot the data: Rows = Groups, Columns = Rationale, Values = Count
+    pivot_df = df_counts.pivot(index='Group', columns='Rationale', values='Count').fillna(0)
 
-    for i, (name, group) in enumerate(groups):
-        ax = axes[i]
-        group = group[group['Count'] > 0].sort_values('Rationale')
+    fig, ax = plt.subplots(figsize=(14, 8))
+    bottom = None
+    for rationale in pivot_df.columns:
+        counts = pivot_df[rationale]
+        color = color_map.get(str(rationale), "#CCCCCC")  # Fallback to grey if missing
+        ax.bar(
+            pivot_df.index,
+            counts,
+            bottom=bottom,
+            label=rationale,
+            color=color,
+            edgecolor='white',
+            linewidth=0.5
+        )
 
-        if not group.empty:
-            colors = [color_map[str(c)] for c in group['Rationale']]
-            wedges, texts = ax.pie(
-                group['Count'],
-                colors=colors,
-                startangle=90,
-                counterclock=False
-            )
-            ax.set_title(f"{' | '.join(map(str, name))}", fontsize=10)
+        # Update the bottom for the next rationale layer
+        if bottom is None:
+            bottom = counts
         else:
-            fig.delaxes(ax)
+            bottom += counts
 
     major_groups = defaultdict(list)
     # sort unique_codes to ensure the legend order is logical
@@ -129,10 +133,14 @@ def plot_error_codes():
         loc='lower center',
         ncol=len(sorted_majors),
         title="Error Classifications",
-        bbox_to_anchor=(0.72, 0.83),
+        bbox_to_anchor=(0.32, 0.8),
         frameon=True
     )
+    ax.set_ylabel('Count')
+    ax.set_title('Discrepancy Rationales by Dataset Group')
+    plt.xticks(rotation=45, ha='right')
     plt.tight_layout()
+    plt.savefig("./data/qa_dataset/results/errors-code-plot.png", dpi=300)
     plt.show()
 
 
