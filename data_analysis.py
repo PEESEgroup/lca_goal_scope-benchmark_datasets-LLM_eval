@@ -132,7 +132,7 @@ def plot_error_codes():
         handles=legend_elements,
         loc='lower center',
         ncol=len(sorted_majors),
-        title="Error Classifications",
+        title="Discrepancy Classifications",
         bbox_to_anchor=(0.32, 0.8),
         frameon=True
     )
