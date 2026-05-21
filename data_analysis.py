@@ -69,19 +69,17 @@ def prediction_threshold():
         mAP_results = []
         mAP_scores = []
         preds_logits = data['logits'].apply(
-            lambda x: [int((1 / (1 + np.exp(-float(item))))) for item in x])
+            lambda x: [(1 / (1 + np.exp(-item))) for item in x])
+        preds_logits = np.array(preds_logits.tolist())
 
         # if there are no positive class in y_true, then precision is undefined and not included in the mean calculation
-        for i in range(len(ground_truth)):
+        for i in range(len(ground_truth[0])):
             if max(ground_truth[:, i]) > 0:
                 ap = average_precision_score(ground_truth[:, i], preds_logits[:, i])
             else:
                 ap = np.nan
             mAP_scores.append(ap)
-        mAP_results.append(np.nanmean(mAP_scores))
-        mAP_series = pd.DataFrame(pd.Series(mAP_results, index="mAP")).transpose()
-        mAP_results_df = pd.concat([mAP_results_df, mAP_series], axis=1)
-
+        mAP_results_df["mAP"] = np.nanmean(mAP_scores)
         # assign data to appropriate dataframe if there is data
         mAP_df = pd.concat([mAP_df, mAP_results_df]).copy(deep=True)
 
@@ -116,18 +114,17 @@ def prediction_threshold():
     dft = dft[3:]  # keep only the numbers to plot
 
     for col in dft.columns:
-        ax.scatter(x=dft.index, y=dft[col], label=f"{col}")
+        ax.scatter(x=[i/100 for i in dft.index], y=dft[col], label=f"{col}")
 
     plt.xlabel('Threshold')
-    plt.ylabel('Precision')
+    plt.ylabel('Macro-averaged Precision')
     plt.title('Effect of Threshold')
     plt.legend()
     plt.grid(True)
     plt.savefig("./data/qa_dataset/results/threshold_sensitivity.png", dpi=300)
     plt.show()
 
-    mAP_df.to_csv(f"./data/qa_dataset/results/mAP-no-thresholds-recalculated.csv",
-            index=False)
+    mAP_df.to_csv(f"./data/qa_dataset/results/mAP-no-thresholds-recalculated.csv",index=False)
 
 
 def plot_error_codes():
