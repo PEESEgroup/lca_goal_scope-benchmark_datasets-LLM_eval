@@ -221,7 +221,7 @@ def eval_metrics(tokenized_dataset, trainer, classes, dataset_name, fpath):
 
     # confusion matrix converts probabilities based on a threshold value and then take the sigmoid of the outputs
     eval_metrics = predictions_output.metrics
-    multilabel_indicators = ((1 / (1 + np.exp(-predictions_output.predictions))) > 0.5).astype(int)
+    multilabel_indicators = (1 / (1 + np.exp(-predictions_output.predictions)))
     plt.clf()
     plt.hist((1 / (1 + np.exp(-predictions_output.predictions))))
     plt.savefig(fpath + f'/Raw Logit Predictions for {dataset_name}.png', dpi=300)

@@ -10,6 +10,8 @@ import numpy as np
 import colorsys
 import matplotlib.patches as mpatches
 from collections import defaultdict
+from sklearn.metrics import average_precision_score, precision_score
+import ast
 
 
 def main():
@@ -17,6 +19,9 @@ def main():
     A bunch of plotting functions for figures for manuscript and SI
     :return: N/A
     """
+    # build SI figure on prediction threshold
+    prediction_threshold()
+
     # build mAP output tables for each of the four categories
     # map_tables()
 
@@ -32,6 +37,97 @@ def main():
 
     # plot the frequency of error rates across 12 datasets
     plot_error_codes()
+
+
+def prediction_threshold():
+    """
+        Calculates the extent to which the prediction threshold affects mAP
+        :return: N/A
+        """
+    root_directory = Path("./data/qa_dataset/results")
+    df = pd.DataFrame()
+    mAP_df = pd.DataFrame()
+
+    # Use rglob to recursively find all files matching the pattern
+    for file_path in root_directory.rglob('predictions.csv'):
+        rag = "no rag" if "no" in str(file_path).split("_") else "rag"
+        dataset_type = "original" if "original" in str(file_path).split("_") else "recalculated"
+        results_df = pd.DataFrame(index=[0])
+        # read in data and extract label precision, dataset name, and model name
+        data = pd.read_csv(file_path)
+        language_model = "/".join(str(file_path).split("\\")[4:6])
+
+        results_df["model"] = language_model
+        dataset_name = str(file_path).split("\\")[3].split("_")[-1]
+        results_df["dataset"] = dataset_name.replace("QA", "") + " " + dataset_type
+        results_df["dataset_type"] = dataset_type
+        data["logits"] = data["logits"].apply(ast.literal_eval)  # convert to literal lists
+        ground_truth = np.array(data["true_labels"].apply(ast.literal_eval).tolist())
+        mAP_results_df = results_df.copy(deep=True)
+
+        # store calculations in lists
+        mAP_results = []
+        mAP_scores = []
+        preds_logits = data['logits'].apply(
+            lambda x: [int((1 / (1 + np.exp(-float(item))))) for item in x])
+
+        # if there are no positive class in y_true, then precision is undefined and not included in the mean calculation
+        for i in range(len(ground_truth)):
+            if max(ground_truth[:, i]) > 0:
+                ap = average_precision_score(ground_truth[:, i], preds_logits[:, i])
+            else:
+                ap = np.nan
+            mAP_scores.append(ap)
+        mAP_results.append(np.nanmean(mAP_scores))
+        mAP_series = pd.DataFrame(pd.Series(mAP_results, index="mAP")).transpose()
+        mAP_results_df = pd.concat([mAP_results_df, mAP_series], axis=1)
+
+        # assign data to appropriate dataframe if there is data
+        mAP_df = pd.concat([mAP_df, mAP_results_df]).copy(deep=True)
+
+        # calculate effects of precision threshold for the BERT model in no RAG
+        P_results = []
+        if rag == "no rag":
+            if language_model == "google-bert/bert-base-uncased":
+                for i in range(0, 101):
+                    # calculate the predictions given a threshold
+                    preds = data['logits'].apply(
+                        lambda x: [int((1 / (1 + np.exp(-float(item)))) > (i/100)) for item in x])
+
+                    # constructs to save results
+                    p_scores = []
+                    threshold_preds = np.array(preds.tolist())
+
+                    # calculate the precision
+                    p = precision_score(ground_truth, threshold_preds, average="macro")
+                    p_scores.append(p)
+
+                    # Calculate Mean Average Precision (mAP) for the threshold value
+                    P_results.append(np.nanmean(p_scores))
+                P_series = pd.DataFrame(pd.Series(P_results, index=range(0, 101))).transpose()
+                results_df = pd.concat([results_df, P_series], axis=1)
+
+                # assign data to appropriate dataframe if there is data
+                df = pd.concat([df, results_df]).copy(deep=True)
+
+    fig, ax = plt.subplots()
+    dft = df.T
+    dft.columns = dft.loc["dataset"]  # make column headers important dataset name
+    dft = dft[3:]  # keep only the numbers to plot
+
+    for col in dft.columns:
+        ax.scatter(x=dft.index, y=dft[col], label=f"{col}")
+
+    plt.xlabel('Threshold')
+    plt.ylabel('Precision')
+    plt.title('Effect of Threshold')
+    plt.legend()
+    plt.grid(True)
+    plt.savefig("./data/qa_dataset/results/threshold_sensitivity.png", dpi=300)
+    plt.show()
+
+    mAP_df.to_csv(f"./data/qa_dataset/results/mAP-no-thresholds-recalculated.csv",
+            index=False)
 
 
 def plot_error_codes():
