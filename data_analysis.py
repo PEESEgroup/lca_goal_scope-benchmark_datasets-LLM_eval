@@ -102,7 +102,7 @@ def prediction_threshold():
         for i in range(0, 101):
             # calculate the predictions given a threshold
             preds = data['logits'].apply(
-                lambda x: [int((1 / (1 + np.exp(-float(item)))) > (i/100)) for item in x])
+                lambda x: [int((1 / (1 + np.exp(-float(item)))) > (i / 100)) for item in x])
             threshold_preds = np.array(preds.tolist())
 
             # calculate precision score and save it
@@ -128,7 +128,7 @@ def prediction_threshold():
         dft = df.T
 
         # make the model name, dataset type, and RAG info part of the column names
-        header_rows = dft.iloc[1:4] # exclude model name
+        header_rows = dft.iloc[1:4]  # exclude model name
         new_column_names = header_rows.apply(lambda x: '_'.join(x.astype(str)))
         dft.columns = new_column_names  # make column headers important identifying info
         dft = dft[4:]  # keep only the numbers to plot
@@ -153,10 +153,10 @@ def prediction_threshold():
                 rag_color = 0
             elif col_colors[2] == "rag":
                 rag_color = 1
-            color_num = 4*cat_color+2*dat_color+rag_color
+            color_num = 4 * cat_color + 2 * dat_color + rag_color
             cmap = plt.get_cmap('tab20c')
 
-            ax.scatter(x=[i/100 for i in dft.index], y=dft[col], c=cmap(color_num), label=f"{col}")
+            ax.scatter(x=[i / 100 for i in dft.index], y=dft[col], c=cmap(color_num), label=f"{col}")
 
         plt.xlabel('Threshold')
         plt.ylabel('Macro-weighted Precision')
@@ -504,7 +504,23 @@ def collect_rag_error_rates():
 
     # Use rglob to recursively find all files matching the pattern
     for file_path in root_directory.rglob('predictions.csv'):
-        df = get_label_precision(file_path)
+        df = pd.read_csv(file_path)
+        # get incorrect labels
+        df['all_correct'] = df['true_labels'] == df['preds_70']
+        df = df.reset_index(names="sample index")
+        df = df[~df['all_correct']]
+
+        # add appropriate info to the dataframe
+        df = df[["context", "true_labels", "preds_70", "classes", "sample index"]]
+        rag = "no rag" if "no" in str(file_path).split("_") else "rag"
+        dataset_type = "original" if "original" in str(file_path).split("_") else "recalculated"
+        language_model = "/".join(str(file_path).split("\\")[4:6])
+        dataset_name = str(file_path).split("\\")[3].split("_")[-1]
+        # update df with parameters
+        df["model"] = language_model
+        df["dataset"] = dataset_name.replace("QA", "")
+        df["dataset_type"] = dataset_type
+        df["RAG"] = rag
 
         # assign data to appropriate dataframe if there is data
         if len(df) > 0:
@@ -520,36 +536,23 @@ def collect_rag_error_rates():
     # Identify incidence of all/persistent errors in RAG
     error_analysis = {}
     for df in [original, recalculated]:
-        for models in [["ESGBERT/EnvironmentalBERT-base", "FacebookAI/roberta-large",
-                        "climatebert/distilroberta-base-climate-f", "google-bert/bert-base-uncased",
-                        "microsoft/deberta-v3-base", "microsoft/deberta-v3-large", "microsoft/deberta-v3-small"],
-                       ["google-bert/bert-base-uncased", "microsoft/deberta-v3-large",
-                        "ESGBERT/EnvironmentalBERT-base"]]:
-            dataset_type = df["dataset_type"].unique()[0]
-
-            # subset df by the occurence of models
-            analysis_df = df[df["model"].isin(models)]
-
-            if len(models) < 7:  # if we are doing an ensemble estimate, apply it only to the case with fewer models
-                # keep errors if they appear in the majority of models
-                analysis_df = analysis_df.groupby(['sample_index', 'dataset']).filter(
-                    lambda x: len(x) >= math.ceil(len(models) / 2))
-                print(analysis_df)
-
+        for dataset in df["dataset"].unique():
+            data = df[df["dataset"] == dataset]
             # find the percentage of rows that are in only rag, only no rag, or both
             # a row is defined as a row number and a dataset
-            presence = pd.crosstab([analysis_df['sample_index'], analysis_df['dataset']], analysis_df['rag']).gt(0)
-            only_rag_count = ((presence['rag'] == True) & (presence['no rag'] == False)).sum()
-            only_no_rag_count = ((presence['no rag'] == True) & (presence['rag'] == False)).sum()
-            both_count = ((presence['rag'] == True) & (presence['no rag'] == True)).sum()
+            dataset_type = data["dataset_type"].unique()[0]
+            presence = pd.crosstab([data['sample index'], data['dataset'], data["model"]], data['RAG']).gt(0)
+            only_rag_count = ((presence['rag']) & (~presence['no rag'])).sum()
+            only_no_rag_count = ((presence['no rag']) & (~presence['rag'])).sum()
+            both_count = ((presence['rag']) & (presence['no rag'])).sum()
             total = len(presence)
 
             # write data out to series
-            data = [len(models), f"{only_rag_count / total:.1%}", f"{only_no_rag_count / total:.1%}",
+            data = [f"{only_rag_count / total:.1%}", f"{only_no_rag_count / total:.1%}",
                     f"{both_count / total:.1%}"]
-            index_labels = ["Number of Models", 'RAG only', 'No RAG only', 'Both']
+            index_labels = ['RAG only', 'No RAG only', 'Both']
             s = pd.Series(data, index=index_labels)
-            error_analysis[dataset_type + str(len(models))] = s
+            error_analysis[dataset_type + " "+ str(dataset)] = s
 
     # save error statistics
     df = pd.DataFrame(error_analysis)
