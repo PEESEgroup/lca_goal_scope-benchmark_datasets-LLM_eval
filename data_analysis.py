@@ -27,10 +27,10 @@ def main():
     # parameter_precision()
 
     # collate errors for each dataset based on RAG
-    # collect_rag_error_rates()
+    collect_rag_error_rates()
 
     # identify occurence of errors and the extent to which models and ground truths agree
-    inter_reviewer_alignment()
+    # inter_reviewer_alignment()
 
     # plot the frequency of error rates across 12 datasets
     # plot_error_codes()
@@ -476,6 +476,12 @@ def collect_rag_error_rates():
     # save data
     original.to_csv("./data/qa_dataset/results/all_errors_original.csv")
     recalculated.to_csv("./data/qa_dataset/results/all_errors_recalculated.csv")
+
+    master_discrepancies = pd.concat([original, recalculated])
+
+    # get master table of unique errors as well as count of how many times they occured
+    master_discrepancies = master_discrepancies.groupby(['true_labels', 'preds_70', "classes", "sample index", "dataset", "dataset_type", "RAG"]).size().reset_index(name='Number of Models with Error')
+    master_discrepancies.to_csv("./data/qa_dataset/results/master_list_discrepancies.csv", index=False)
 
     # Identify incidence of all/persistent errors in RAG
     error_analysis = {}
