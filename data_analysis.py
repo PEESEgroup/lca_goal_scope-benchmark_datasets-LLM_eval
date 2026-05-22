@@ -23,11 +23,11 @@ def main():
     # prediction_threshold()
 
     # plot number of labels versus precision for each of the four categories
-    label_precision()
-    #parameter_precision()
+    # label_precision()
+    # parameter_precision()
 
     # collate errors for each dataset based on RAG
-    #collect_rag_error_rates()
+    collect_rag_error_rates()
 
     # identify occurence of errors and the extent to which models and ground truths agree
     #inter_reviewer_alignment()
@@ -73,7 +73,6 @@ def prediction_threshold():
         :return: N/A
         """
     root_directory = Path("./data/qa_dataset/results")
-    mAP_df = pd.DataFrame()
     mWP_df = pd.DataFrame()
     mWP_csv_df = pd.DataFrame()
 
@@ -97,23 +96,6 @@ def prediction_threshold():
         results_df["RAG"] = rag
         # mAP_results_df = results_df.copy(deep=True)
         mWP_results_df = results_df.copy(deep=True)
-
-        # # store calculations in lists
-        # mAP_scores = []
-        # preds_logits = data['logits'].apply(
-        #     lambda x: [(1 / (1 + np.exp(-item))) for item in x])
-        # preds_logits = np.array(preds_logits.tolist())
-        #
-        # # if there are no positive class in y_true, then precision is undefined and not included in the mean calculation
-        # for i in range(len(ground_truth[0])):
-        #     if max(ground_truth[:, i]) > 0:
-        #         ap = average_precision_score(ground_truth[:, i], preds_logits[:, i])
-        #     else:
-        #         ap = np.nan
-        #     mAP_scores.append(ap)
-        # mAP_results_df["mAP"] = np.nanmean(mAP_scores)
-        # # assign data to appropriate dataframe if there is data
-        # mAP_df = pd.concat([mAP_df, mAP_results_df]).copy(deep=True)
 
         # calculate effects of precision threshold for the BERT model in no RAG
         P_results = []
@@ -521,54 +503,15 @@ def collect_rag_error_rates():
     recalculated = pd.DataFrame()
 
     # Use rglob to recursively find all files matching the pattern
-    for file_path in root_directory.rglob('errors.csv'):
-        rag = "no rag" if "no" in str(file_path).split("_") else "rag"
-        dataset_type = "original" if "original" in str(file_path).split("_") else "recalculated"
-
-        # read in data and extract label precision, dataset name, and model name
-        data = pd.read_csv(file_path)
-        language_model = "/".join(str(file_path).split("\\")[4:6])
-        data["model"] = language_model
-        dataset_name = str(file_path).split("\\")[3].split("_")[-1]
-        data["dataset"] = dataset_name
-        data["dataset_type"] = dataset_type
-        data["rag"] = rag
+    for file_path in root_directory.rglob('predictions.csv'):
+        df = get_label_precision(file_path)
 
         # assign data to appropriate dataframe if there is data
-        if len(data) > 0:
-            if dataset_type == "original":
-                original = pd.concat([original, data])
-            elif dataset_type == "recalculated":
-                recalculated = pd.concat([recalculated, data])
-
-    # build histograms for frequency of sample errors
-    # for i in [original, recalculated]:
-    #     # get the first indication of the frequency of error
-    #     counts = i[['sample_index', 'dataset', 'rag']].value_counts().reset_index()
-    #
-    #     # pivot the dataframe
-    #     counts = counts.pivot(columns=["dataset", "rag"], values="count")
-    #
-    #     # get colors
-    #     cmap = cm.get_cmap('tab20')
-    #     colors_rgba = [cmap(j) for j in range(20)]
-    #     colors_hex = [matplotlib.colors.to_hex(c) for c in colors_rgba]
-    #
-    #     # plot df
-    #     counts.plot.hist(
-    #         bins=7,
-    #         stacked=True,
-    #         color=colors_hex,
-    #         title='Stacked Histogram by Category (Pivoted Data)'
-    #     )
-    #
-    #     plt.title("Histogram of Sample Data")
-    #     plt.xlabel("Number of Models in Which a Sample is Labeled Incorrectly")
-    #     plt.ylabel("Frequency")
-    #
-    #     plt.savefig("data/qa_dataset/results/" + str(i["dataset_type"].unique()[0]) +".png", dpi=300)
-    #     plt.show()
-    #     print("dataset precision plot saved")
+        if len(df) > 0:
+            if df["dataset_type"].unique()[0] == "original":
+                original = pd.concat([original, df])
+            elif df["dataset_type"].unique()[0] == "recalculated":
+                recalculated = pd.concat([recalculated, df])
 
     # save data
     original.to_csv("./data/qa_dataset/results/all_errors_original.csv")
@@ -619,50 +562,29 @@ def parameter_precision():
     Identify how mAP varies with the number of parameters in the LLM (millions)
     :return: .png file with results
     """
-    root_directory = Path("./data/qa_dataset/results")
-    df_list = []
+    model_parameters = {"model": ["climatebert/distilroberta-base-climate-f",
+                                  "ESGBERT/EnvironmentalBERT-base",
+                                  "FacebookAI/roberta-large",
+                                  "google-bert/bert-base-uncased",
+                                  "microsoft/deberta-v3-base",
+                                  "microsoft/deberta-v3-large",
+                                  "microsoft/deberta-v3-small"],
+                        "parameters": [82.4, 82.8, 304, 110, 86, 304, 44]}
 
-    model_parameters = {
-        "climatebert/distilroberta-base-climate-f": 82.4,
-        "ESGBERT/EnvironmentalBERT-base": 82.8,
-        "FacebookAI/roberta-large": 304,
-        "google-bert/bert-base-uncased": 110,
-        "microsoft/deberta-v3-base": 86,
-        "microsoft/deberta-v3-large": 304,
-        "microsoft/deberta-v3-small": 44
-    }
-
-    # Use rglob to recursively find all files matching the pattern
-    for file_path in root_directory.rglob('test_metrics.csv'):
-        rag = "" if "no" in str(file_path).split("_") else "_rag"
-        dataset_type = "original" if "original" in str(file_path).split("_") else "recalculated"
-        dataset_category = dataset_type + rag
-
-        # read in data and extract label precision, dataset name, and model name
-        data = pd.read_csv(file_path, header=None)
-        language_model = "/".join(str(file_path).split("\\")[4:6])
-        print(language_model)
-        data = data[data[0].str.contains("Mean Average Precision")]
-        data["mAP"] = data[1]
-        data["model"] = language_model
-        data["parameters"] = model_parameters[language_model]
-        dataset_name = str(file_path).split("\\")[3].split("_")[-1]
-        data["dataset"] = dataset_name
-        data["category"] = dataset_category
-        data = data[["model", "dataset", "parameters", "mAP", "category"]]  # clean columns
-        df_list.append(data)
-
-    df = pd.concat(df_list)
+    df = pd.read_csv(f"./data/qa_dataset/results/mWP.csv")
+    df = pd.melt(df, id_vars=['dataset', 'dataset_type', 'RAG'], var_name='model', value_name='mWP')
+    mp = pd.DataFrame(model_parameters)
+    df = pd.merge(df, mp, "left", on="model")
 
     # plotting parameters vs mAP
     fig, ax = plt.subplots()
-    df['mAP'] = df['mAP'].astype(float)  # handle nan
+    df['mWP'] = df['mWP'].astype(float)  # handle nan
     df['parameters'] = df['parameters'].astype(int)
     df = map_color(df, "dataset")
     for dataset in df["dataset"].unique():
         plotting_df = df[df["dataset"] == dataset]
         x = plotting_df['parameters']
-        y = plotting_df['mAP']
+        y = plotting_df['mWP']
         # plot scatter plot
         ax.scatter(x, y, c=plotting_df["color"], label=dataset.strip("QA"), alpha=0.7)
 
