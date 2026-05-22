@@ -734,8 +734,7 @@ def label_precision():
         x = plotting_df['count']
         y = plotting_df['precision']
         # plot scatter plot
-        ax.scatter(x, y, c=plotting_df["color"], label="Allocation" if dataset == "allocationQA" else "System Boundary"
-                   if dataset == "systemBoundaryQA" else "Product" if dataset=="productQA" else "Functional Unit", alpha=0.7)
+        ax.scatter(x, y, c=plotting_df["color"], label=dataset, alpha=0.7)
 
     plt.xlabel('Frequency of Label')
     plt.ylabel('Precision')
