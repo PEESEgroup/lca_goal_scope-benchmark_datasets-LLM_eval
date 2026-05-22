@@ -27,7 +27,8 @@ def main():
     # parameter_precision()
 
     # collate errors for each dataset based on RAG
-    collect_rag_error_rates()
+    # collect_rag_error_rates()
+    explain_discrepancies()
 
     # identify occurence of errors and the extent to which models and ground truths agree
     # inter_reviewer_alignment()
@@ -283,20 +284,30 @@ def plot_error_codes():
     plt.show()
 
 
-def explain_discrepancies(df):
+def explain_discrepancies():
     """
     Preprocess data to give a simple textual description of the discrepancy so that I don't have to manually hunt for which position in the list the discrepancy occurs
     :param df: df of discrepancies made by the ML model
     :return: .csv sheet containing explanations of error codes
     """
+    df = pd.read_csv("./data/qa_dataset/results/master_list_discrepancies.csv")
     counts = train_label_frequency()
+    original_test, rag_original_test, rag_recalculated_test, recalculated_test, context = get_test_samples()
+
+    # get context for each error
+    context = context.reset_index(names="sample index")
+    df["dataset_category"] = df["dataset_type"] + "_" + df["RAG"]
+
+    df = pd.merge(df, context, on=["dataset_category", "sample index"], how="left")
+    df = df[["true_labels", "preds_70", "classes", "sample index", "dataset", "dataset_type", "RAG",
+             "Number of Models with Error", "context"]]
 
     # for each error in the dataframe, prepare an explanation.
     discrepancy_lines = []
 
     for index, row in df.iterrows():
         # extract relevant labels and convert from string to list
-        preds = row['predicted_labels'].replace("\"", "").replace("[", "").replace("]", "").replace("'", "").split(", ")
+        preds = row['preds_70'].replace("\"", "").replace("[", "").replace("]", "").replace("'", "").split(", ")
         trues = row['true_labels'].replace("\"", "").replace("[", "").replace("]", "").replace("'", "").split(", ")
         class_names = row['classes']
         class_names = class_names.split("',")
@@ -305,6 +316,8 @@ def explain_discrepancies(df):
 
         # Iterate through the labels for the current row
         # Using zip to compare predictions and true labels side-by-side
+        count_dict = Counter(zip(preds, trues))
+        num_pos = count_dict[('1', '1')]
         for i, (p, t) in enumerate(zip(preds, trues)):
             if p != t:
                 # identify the human-readable labels
@@ -316,34 +329,30 @@ def explain_discrepancies(df):
 
                 # lookup the frequency of the ground_truth in the training dataset
                 if len(counts[counts['label'] == label_name]) == 0:
-                    freq = 0  # there's an off chance the label is not found in the training dataset
+                    freq = "Not in Training Dataset"  # there's an off chance the label is not found in the training dataset
                 else:
-                    right_label = counts[counts['label'] == label_name]
-                    right_dataset = right_label[right_label["category"] == row["dataset_type"]]
-                    if len(right_label) == 1:
-                        if row["dataset"] != "allocationQA":
-                            freq = 0  # there's an off chance the label is not found in the training dataset
-                            # but is in the other type of dataset (standardized/recalculated). This is, of course,
-                            # always the case for allocation, so those pings are excluded
-                        else:
-                            freq = right_dataset["percentage"].values[0]
-                    else:
+                    right_label = counts[counts['label'] == label_name] # get the label name
+                    right_dataset = right_label[right_label["category"] == row["dataset_type"]]  # from the correct dataset
+                    if len(right_dataset) > 0:
                         freq = right_dataset["percentage"].values[0]
+                    else:
+                        freq = "Not in Training Dataset"  # it might not be there
 
                 # if the model never predicted a label of 1, include that information
-                line = f"ML model predicted {a_val} but the humans predicted {b_val}."
+                line = f"ML model predicted {a_val} but the humans predicted {b_val}. Total number of matching positives in this prediction string {num_pos}."
+                pos_location = "Human" if t == str(1) else "AI"
 
                 # save data to a pd Series
-                data = [row["context_for_errors"], line, freq, row["sample_index"], row["dataset"], row["dataset_type"],
-                        row["rag"]]
-                labels = ["Context", "Sentence", "Frequency", "Sample Index", "Dataset", "Dataset Type", "RAG"]
+                data = [row["context"], row["true_labels"], row["preds_70"], row["classes"], line, freq, row["sample index"], row["dataset"], row["dataset_type"],
+                        row["RAG"], pos_location, row["Number of Models with Error"]]
+                labels = ["Context", "True Labels", "Predicted Labels", "List of Classes", "Sentence", "Frequency", "Sample Index", "Dataset", "Dataset Type", "RAG", "Location of Positive", "Number of Models with Error"]
                 s = pd.Series(data, index=labels)
                 discrepancy_lines.append(s.to_frame().T)
 
     # output results to .csv
     discrepancies = pd.concat(discrepancy_lines)
     discrepancies = discrepancies.sort_values(by=['Sample Index'], ascending=[True])
-    return discrepancies
+    discrepancies.to_csv("./data/qa_dataset/results/all_discrepancies_to_code.csv")
 
 
 def train_label_frequency():
@@ -585,7 +594,7 @@ def label_precision():
         elif df["dataset_type"].unique()[0] == "recalculated":
             recalculated = pd.concat([recalculated, df])
 
-    original_test, rag_original_test, rag_recalculated_test, recalculated_test = get_test_samples()
+    original_test, rag_original_test, rag_recalculated_test, recalculated_test, test = get_test_samples()
     original_test["RAG"] = "no rag"
     recalculated_test["RAG"] = "no rag"
     rag_original_test["RAG"] = "rag"
@@ -649,6 +658,7 @@ def get_test_samples():
     rag_recalculated_test = pd.DataFrame()
     original_test = pd.DataFrame()
     recalculated_test = pd.DataFrame()
+    test_samples = pd.DataFrame()
     for k in filenames:
         # load the dataset
         dataset_rag = "" if "no_rag" in str(k).split("/") else "_rag"
@@ -664,6 +674,9 @@ def get_test_samples():
         test_valid = train_testvalid['test'].train_test_split(test_size=0.5, seed=42)
         train_valid = train_testvalid['train']['labels']
         test = test_valid['test']
+        # turn test samples in pd.Dataframe
+        test = pd.DataFrame(test)
+        test["dataset_category"] = dataset_dataset_type + "_no rag" if "no_rag" in str(k).split("/") else dataset_dataset_type + "_rag"
 
         # flatten and count the occurence of labels in the training dataset
         flattened_test_labels = list(itertools.chain.from_iterable(train_valid))
@@ -681,7 +694,9 @@ def get_test_samples():
             rag_original_test = pd.concat([rag_original_test, counts])
         elif dataset_dataset_category == "recalculated_rag":
             rag_recalculated_test = pd.concat([rag_recalculated_test, counts])
-    return original_test, rag_original_test, rag_recalculated_test, recalculated_test
+        if test["title"].unique()[0] == "System Boundary Completeness":  # context is same for all, so only need a subset of samples
+            test_samples = pd.concat([test_samples, test])
+    return original_test, rag_original_test, rag_recalculated_test, recalculated_test, test_samples
 
 
 def map_color(df, col):
