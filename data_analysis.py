@@ -46,24 +46,28 @@ def prediction_threshold():
         """
     root_directory = Path("./data/qa_dataset/results")
     mAP_df = pd.DataFrame()
-    mWP_df = pd.DataFrame
+    mWP_df = pd.DataFrame()
+    mWP_csv_df = pd.DataFrame()
 
     # Use rglob to recursively find all files matching the pattern
     for file_path in root_directory.rglob('predictions.csv'):
         rag = "no rag" if "no" in str(file_path).split("_") else "rag"
         dataset_type = "original" if "original" in str(file_path).split("_") else "recalculated"
+        language_model = "/".join(str(file_path).split("\\")[4:6])
+        dataset_name = str(file_path).split("\\")[3].split("_")[-1]
         results_df = pd.DataFrame(index=[0])
+
         # read in data and extract label precision, dataset name, and model name
         data = pd.read_csv(file_path)
-        language_model = "/".join(str(file_path).split("\\")[4:6])
-
-        results_df["model"] = language_model
-        dataset_name = str(file_path).split("\\")[3].split("_")[-1]
-        results_df["dataset"] = dataset_name.replace("QA", "")
-        results_df["dataset_type"] = dataset_type
         data["logits"] = data["logits"].apply(ast.literal_eval)  # convert to literal lists
         ground_truth = np.array(data["true_labels"].apply(ast.literal_eval).tolist())
-        mAP_results_df = results_df.copy(deep=True)
+
+        # update df with parameters
+        results_df["model"] = language_model
+        results_df["dataset"] = dataset_name.replace("QA", "")
+        results_df["dataset_type"] = dataset_type
+        results_df["RAG"] = rag
+        # mAP_results_df = results_df.copy(deep=True)
         mWP_results_df = results_df.copy(deep=True)
 
         # # store calculations in lists
@@ -89,41 +93,72 @@ def prediction_threshold():
             # calculate the predictions given a threshold
             preds = data['logits'].apply(
                 lambda x: [int((1 / (1 + np.exp(-float(item)))) > (i/100)) for item in x])
-
-            # calculate the precision
             threshold_preds = np.array(preds.tolist())
-            p = precision_score(ground_truth, threshold_preds, average="macro", zero_division=np.nan)
+
+            # calculate precision score and save it
+            p = precision_score(ground_truth, threshold_preds, average="macro", zero_division=0)
             if i == 50:  # 50 is the threshold, so we save the mWP value to a df
                 mWP_results_df["mWP"] = p
 
             # Calculate Mean Average Precision (mAP) for the threshold value
             P_results.append(p)
+
+        # aggregate data together at the end of the loop iteration
         P_series = pd.DataFrame(pd.Series(P_results, index=range(0, 101))).transpose()
         results_df = pd.concat([results_df, P_series], axis=1)
+        mWP_csv_df = pd.concat([mWP_csv_df, mWP_results_df])
         mWP_df = pd.concat([mWP_df, results_df])
 
-        # make a plot, one for each language model
-        for j in language_model:
-            fig, ax = plt.subplots()
-            df = results_df[results_df["model"] == j]
-            dft = df.T
-            dft.columns = dft.loc["dataset"]  # make column headers important dataset name
-            dft = dft[3:]  # keep only the numbers to plot
+    # make a plot, one for each language model
+    for j in mWP_df["model"].unique():
+        fig, ax = plt.subplots(figsize=(14, 8))
+        df = mWP_df[mWP_df["model"] == j]
+        dft = df.T
 
-            for col in dft.columns:
-                ax.plot(x=[i/100 for i in dft.index], y=dft[col], label=f"{col}")
+        # make the model name, dataset type, and RAG info part of the column names
+        header_rows = dft.iloc[1:4] # exclude model name
+        new_column_names = header_rows.apply(lambda x: '_'.join(x.astype(str)))
+        dft.columns = new_column_names  # make column headers important identifying info
+        dft = dft[4:]  # keep only the numbers to plot
 
-            plt.xlabel('Threshold')
-            plt.ylabel('Macro-averaged Precision')
-            plt.title('Effect of Threshold')
-            plt.legend()
-            plt.grid(True)
-            plt.savefig(f"./data/qa_dataset/results/threshold_sensitivity_{j}.png", dpi=300)
-            plt.show()
+        # plot the data
+        for col in dft.columns:
+            # get color
+            col_colors = col.split("_")
+            if col_colors[0] == "allocation":
+                cat_color = 0
+            elif col_colors[0] == "functionalUnit":
+                cat_color = 1
+            elif col_colors[0] == "product":
+                cat_color = 2
+            elif col_colors[0] == "systemBoundary":
+                cat_color = 3
+            if col_colors[1] == "original":
+                dat_color = 0
+            elif col_colors[1] == "recalculated":
+                dat_color = 1
+            if col_colors[2] == "no rag":
+                rag_color = 0
+            elif col_colors[2] == "rag":
+                rag_color = 1
+            color_num = 4*cat_color+2*dat_color+rag_color
+            cmap = plt.get_cmap('tab20c')
+
+            ax.scatter(x=[i/100 for i in dft.index], y=dft[col], c=cmap(color_num), label=f"{col}")
+
+        plt.xlabel('Threshold')
+        plt.ylabel('Macro-weighted Precision')
+        plt.title(f'{j}')
+        plt.legend(fontsize=8)
+        plt.grid(True)
+        plt.savefig(f"./data/qa_dataset/results/threshold_sensitivity_{j.split('/')[1]}.png", dpi=300)
+        plt.show()
 
     # write out datasets to .csv
-    mAP_df.to_csv(f"./data/qa_dataset/results/mAP-no-thresholds.csv",index=False)
-    mWP_df.to_csv(f"./data/qa_dataset/results/mWP-50.csv",index=False)
+    # mAP_df = mAP_df.pivot(index=["dataset", "dataset_type"], columns="model", values="mWP").reset_index()
+    mWP_csv_df = mWP_csv_df.pivot(index=["dataset", "dataset_type", "RAG"], columns="model", values="mWP").reset_index()
+    # mAP_df.to_csv(f"./data/qa_dataset/results/mAP-no-thresholds.csv",index=False)
+    mWP_csv_df.to_csv(f"./data/qa_dataset/results/mWP-50.csv",index=False)
 
 
 def plot_error_codes():
