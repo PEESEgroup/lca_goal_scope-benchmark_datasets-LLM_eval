@@ -45,8 +45,8 @@ def prediction_threshold():
         :return: N/A
         """
     root_directory = Path("./data/qa_dataset/results")
-    df = pd.DataFrame()
     mAP_df = pd.DataFrame()
+    mWP_df = pd.DataFrame
 
     # Use rglob to recursively find all files matching the pattern
     for file_path in root_directory.rglob('predictions.csv'):
@@ -59,72 +59,71 @@ def prediction_threshold():
 
         results_df["model"] = language_model
         dataset_name = str(file_path).split("\\")[3].split("_")[-1]
-        results_df["dataset"] = dataset_name.replace("QA", "") + " " + dataset_type
+        results_df["dataset"] = dataset_name.replace("QA", "")
         results_df["dataset_type"] = dataset_type
         data["logits"] = data["logits"].apply(ast.literal_eval)  # convert to literal lists
         ground_truth = np.array(data["true_labels"].apply(ast.literal_eval).tolist())
         mAP_results_df = results_df.copy(deep=True)
+        mWP_results_df = results_df.copy(deep=True)
 
-        # store calculations in lists
-        mAP_results = []
-        mAP_scores = []
-        preds_logits = data['logits'].apply(
-            lambda x: [(1 / (1 + np.exp(-item))) for item in x])
-        preds_logits = np.array(preds_logits.tolist())
-
-        # if there are no positive class in y_true, then precision is undefined and not included in the mean calculation
-        for i in range(len(ground_truth[0])):
-            if max(ground_truth[:, i]) > 0:
-                ap = average_precision_score(ground_truth[:, i], preds_logits[:, i])
-            else:
-                ap = np.nan
-            mAP_scores.append(ap)
-        mAP_results_df["mAP"] = np.nanmean(mAP_scores)
-        # assign data to appropriate dataframe if there is data
-        mAP_df = pd.concat([mAP_df, mAP_results_df]).copy(deep=True)
+        # # store calculations in lists
+        # mAP_scores = []
+        # preds_logits = data['logits'].apply(
+        #     lambda x: [(1 / (1 + np.exp(-item))) for item in x])
+        # preds_logits = np.array(preds_logits.tolist())
+        #
+        # # if there are no positive class in y_true, then precision is undefined and not included in the mean calculation
+        # for i in range(len(ground_truth[0])):
+        #     if max(ground_truth[:, i]) > 0:
+        #         ap = average_precision_score(ground_truth[:, i], preds_logits[:, i])
+        #     else:
+        #         ap = np.nan
+        #     mAP_scores.append(ap)
+        # mAP_results_df["mAP"] = np.nanmean(mAP_scores)
+        # # assign data to appropriate dataframe if there is data
+        # mAP_df = pd.concat([mAP_df, mAP_results_df]).copy(deep=True)
 
         # calculate effects of precision threshold for the BERT model in no RAG
         P_results = []
-        if rag == "no rag":
-            if language_model == "google-bert/bert-base-uncased":
-                for i in range(0, 101):
-                    # calculate the predictions given a threshold
-                    preds = data['logits'].apply(
-                        lambda x: [int((1 / (1 + np.exp(-float(item)))) > (i/100)) for item in x])
+        for i in range(0, 101):
+            # calculate the predictions given a threshold
+            preds = data['logits'].apply(
+                lambda x: [int((1 / (1 + np.exp(-float(item)))) > (i/100)) for item in x])
 
-                    # constructs to save results
-                    p_scores = []
-                    threshold_preds = np.array(preds.tolist())
+            # calculate the precision
+            threshold_preds = np.array(preds.tolist())
+            p = precision_score(ground_truth, threshold_preds, average="macro", zero_division=np.nan)
+            if i == 50:  # 50 is the threshold, so we save the mWP value to a df
+                mWP_results_df["mWP"] = p
 
-                    # calculate the precision
-                    p = precision_score(ground_truth, threshold_preds, average="macro")
-                    p_scores.append(p)
+            # Calculate Mean Average Precision (mAP) for the threshold value
+            P_results.append(p)
+        P_series = pd.DataFrame(pd.Series(P_results, index=range(0, 101))).transpose()
+        results_df = pd.concat([results_df, P_series], axis=1)
+        mWP_df = pd.concat([mWP_df, results_df])
 
-                    # Calculate Mean Average Precision (mAP) for the threshold value
-                    P_results.append(np.nanmean(p_scores))
-                P_series = pd.DataFrame(pd.Series(P_results, index=range(0, 101))).transpose()
-                results_df = pd.concat([results_df, P_series], axis=1)
+        # make a plot, one for each language model
+        for j in language_model:
+            fig, ax = plt.subplots()
+            df = results_df[results_df["model"] == j]
+            dft = df.T
+            dft.columns = dft.loc["dataset"]  # make column headers important dataset name
+            dft = dft[3:]  # keep only the numbers to plot
 
-                # assign data to appropriate dataframe if there is data
-                df = pd.concat([df, results_df]).copy(deep=True)
+            for col in dft.columns:
+                ax.plot(x=[i/100 for i in dft.index], y=dft[col], label=f"{col}")
 
-    fig, ax = plt.subplots()
-    dft = df.T
-    dft.columns = dft.loc["dataset"]  # make column headers important dataset name
-    dft = dft[3:]  # keep only the numbers to plot
+            plt.xlabel('Threshold')
+            plt.ylabel('Macro-averaged Precision')
+            plt.title('Effect of Threshold')
+            plt.legend()
+            plt.grid(True)
+            plt.savefig(f"./data/qa_dataset/results/threshold_sensitivity_{j}.png", dpi=300)
+            plt.show()
 
-    for col in dft.columns:
-        ax.scatter(x=[i/100 for i in dft.index], y=dft[col], label=f"{col}")
-
-    plt.xlabel('Threshold')
-    plt.ylabel('Macro-averaged Precision')
-    plt.title('Effect of Threshold')
-    plt.legend()
-    plt.grid(True)
-    plt.savefig("./data/qa_dataset/results/threshold_sensitivity.png", dpi=300)
-    plt.show()
-
-    mAP_df.to_csv(f"./data/qa_dataset/results/mAP-no-thresholds-recalculated.csv",index=False)
+    # write out datasets to .csv
+    mAP_df.to_csv(f"./data/qa_dataset/results/mAP-no-thresholds.csv",index=False)
+    mWP_df.to_csv(f"./data/qa_dataset/results/mWP-50.csv",index=False)
 
 
 def plot_error_codes():
