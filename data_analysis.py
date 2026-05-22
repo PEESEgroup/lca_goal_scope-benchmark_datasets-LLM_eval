@@ -10,7 +10,7 @@ import numpy as np
 import colorsys
 import matplotlib.patches as mpatches
 from collections import defaultdict
-from sklearn.metrics import average_precision_score, precision_score
+from sklearn.metrics import precision_score
 import ast
 
 
@@ -22,12 +22,9 @@ def main():
     # build SI figure on prediction threshold
     prediction_threshold()
 
-    # build mAP output tables for each of the four categories
-    # map_tables()
-
     # plot number of labels versus precision for each of the four categories
-    #label_precision()
-    #parameter_precision()
+    label_precision()
+    parameter_precision()
 
     # collate errors for each dataset based on RAG
     #collect_rag_error_rates()
@@ -37,6 +34,7 @@ def main():
 
     # plot the frequency of error rates across 12 datasets
     plot_error_codes()
+
 
 
 def prediction_threshold():
@@ -97,8 +95,10 @@ def prediction_threshold():
 
             # calculate precision score and save it
             p = precision_score(ground_truth, threshold_preds, average="macro", zero_division=0)
-            if i == 50:  # 50 is the threshold, so we save the mWP value to a df
+            if i == 70:  # 70 is the threshold, so we save the mWP value to a df
                 mWP_results_df["mWP"] = p
+                data["preds_70"] = preds
+                data.to_csv(file_path)
 
             # Calculate Mean Average Precision (mAP) for the threshold value
             P_results.append(p)
@@ -158,7 +158,7 @@ def prediction_threshold():
     # mAP_df = mAP_df.pivot(index=["dataset", "dataset_type"], columns="model", values="mWP").reset_index()
     mWP_csv_df = mWP_csv_df.pivot(index=["dataset", "dataset_type", "RAG"], columns="model", values="mWP").reset_index()
     # mAP_df.to_csv(f"./data/qa_dataset/results/mAP-no-thresholds.csv",index=False)
-    mWP_csv_df.to_csv(f"./data/qa_dataset/results/mWP-50.csv",index=False)
+    mWP_csv_df.to_csv(f"./data/qa_dataset/results/mWP.csv", index=False)
 
 
 def plot_error_codes():
