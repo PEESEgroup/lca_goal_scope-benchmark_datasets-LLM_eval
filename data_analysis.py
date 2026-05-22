@@ -20,11 +20,11 @@ def main():
     :return: N/A
     """
     # build SI figure on prediction threshold
-    prediction_threshold()
+    # prediction_threshold()
 
     # plot number of labels versus precision for each of the four categories
     label_precision()
-    parameter_precision()
+    #parameter_precision()
 
     # collate errors for each dataset based on RAG
     #collect_rag_error_rates()
@@ -35,6 +35,36 @@ def main():
     # plot the frequency of error rates across 12 datasets
     plot_error_codes()
 
+
+def get_label_precision(file_path):
+    rag = "no rag" if "no" in str(file_path).split("_") else "rag"
+    dataset_type = "original" if "original" in str(file_path).split("_") else "recalculated"
+    language_model = "/".join(str(file_path).split("\\")[4:6])
+    dataset_name = str(file_path).split("\\")[3].split("_")[-1]
+    results_df = pd.DataFrame(index=[0])
+
+    # read in data and extract label precision, dataset name, and model name
+    data = pd.read_csv(file_path)
+    ground_truth = np.array(data["true_labels"].apply(ast.literal_eval).tolist())
+    predictions = np.array(data["preds_70"].apply(ast.literal_eval).tolist())
+
+    # update df with parameters
+    results_df["model"] = language_model
+    results_df["dataset"] = dataset_name.replace("QA", "")
+    results_df["dataset_type"] = dataset_type
+    results_df["RAG"] = rag
+    P_results = []
+    index = data["classes"].apply(ast.literal_eval).tolist()[0]
+
+    # calculate precision score and save it
+    for j in range(len(ground_truth[0])):
+        p = precision_score(ground_truth[:, j], predictions[:, j], zero_division=0)
+        P_results.append(p)
+
+    # aggregate data together at the end of the loop iteration
+    P_series = pd.DataFrame(pd.Series(P_results, index=index)).transpose()
+    results_df = pd.concat([results_df, P_series], axis=1)
+    return results_df
 
 
 def prediction_threshold():
@@ -98,7 +128,7 @@ def prediction_threshold():
             if i == 70:  # 70 is the threshold, so we save the mWP value to a df
                 mWP_results_df["mWP"] = p
                 data["preds_70"] = preds
-                data.to_csv(file_path)
+                data.to_csv(file_path, index=False)
 
             # Calculate Mean Average Precision (mAP) for the threshold value
             P_results.append(p)
@@ -668,96 +698,30 @@ def label_precision():
     recalculated = pd.DataFrame()
 
     # Use rglob to recursively find all files matching the pattern
-    for file_path in root_directory.rglob('test_metrics.csv'):
-        rag = "" if "no" in str(file_path).split("_") else "_rag"
-        dataset_type = "original" if "original" in str(file_path).split("_") else "recalculated"
-        dataset_category = dataset_type + rag
+    for file_path in root_directory.rglob('predictions.csv'):
+        df = get_label_precision(file_path)
 
-        # read in data and extract label precision, dataset name, and model name
-        data = pd.read_csv(file_path, header=None)
-        language_model = "/".join(str(file_path).split("\\")[4:6])
-        data = data[data[0].str.contains("Average Precision for Label ")]
-        data["label"] = data[0].str.split(" ").str[4:].str.join(" ")
-        data["model"] = language_model
-        dataset_name = str(file_path).split("\\")[3].split("_")[-1]
-        data["precision"] = data[1]  # relabel map column
-        data["dataset"] = dataset_name
-        data["category"] = dataset_category
-        data = data[["model", "label", "dataset", "precision", "category"]]  # clean columns
+        # make the df long
+        df = pd.melt(df, id_vars=['model', 'dataset', 'dataset_type', 'RAG'], var_name='label', value_name='precision')
 
         # assign data to appropriate dataframe
-        if dataset_category == "original":
-            original = pd.concat([original, data])
-        elif dataset_category == "recalculated":
-            recalculated = pd.concat([recalculated, data])
-        elif dataset_category == "original_rag":
-            rag_original = pd.concat([rag_original, data])
-        elif dataset_category == "recalculated_rag":
-            rag_recalculated = pd.concat([rag_recalculated, data])
+        if df["dataset_type"].unique()[0] == "original":
+            original = pd.concat([original, df])
+        elif df["dataset_type"].unique()[0] == "recalculated":
+            recalculated = pd.concat([recalculated, df])
 
-    # read in datasets and extract number of labels in the test set
-    filenames = ["data/qa_dataset/original/no_rag/systemBoundaryQA.jsonl",
-                 "data/qa_dataset/original/no_rag/allocationQA.jsonl",
-                 "data/qa_dataset/original/no_rag/functionalUnitQA.jsonl",
-                 "data/qa_dataset/original/no_rag/productQA.jsonl",
-                 "data/qa_dataset/recalculated/no_rag/functionalUnitQA.jsonl",
-                 "data/qa_dataset/recalculated/no_rag/productQA.jsonl",
-                 "data/qa_dataset/recalculated/no_rag/systemBoundaryQA.jsonl",
-                 "data/qa_dataset/original/rag/rag_allocationQA.jsonl",
-                 "data/qa_dataset/original/rag/rag_functionalUnitQA.jsonl",
-                 "data/qa_dataset/original/rag/rag_productQA.jsonl",
-                 "data/qa_dataset/original/rag/rag_systemBoundaryQA.jsonl",
-                 "data/qa_dataset/recalculated/rag/rag_functionalUnitQA.jsonl",
-                 "data/qa_dataset/recalculated/rag/rag_productQA.jsonl",
-                 "data/qa_dataset/recalculated/rag/rag_systemBoundaryQA.jsonl",
-                 ]
-
-    # for each dataset
-    rag_original_test = pd.DataFrame()
-    rag_recalculated_test = pd.DataFrame()
-    original_test = pd.DataFrame()
-    recalculated_test = pd.DataFrame()
-
-    for k in filenames:
-        # load the dataset
-        dataset_rag = "" if "no_rag" in str(k).split("/") else "_rag"
-        dataset_dataset_type = "original" if "original" in str(k).split("/") else "recalculated"
-        dataset_dataset_category = dataset_dataset_type + dataset_rag
-        dataset_name = k.split("/")[-1].split(".")[0]
-        dataset = load_dataset('json', data_files=k)  # shuffle dataset before splitting
-        dataset = dataset.shuffle(seed=42)
-
-        # 80% train, 20% test + validation
-        train_testvalid = dataset['train'].train_test_split(test_size=0.2, seed=42)
-        # Split the 10% test + valid in half test, half valid
-        test_valid = train_testvalid['test'].train_test_split(test_size=0.5, seed=42)
-        train_valid = train_testvalid['train']['labels']
-        test = test_valid['test']
-        test_labels = test["labels"]  # get the test labels
-
-        # flatten and count the occurence of labels in the training dataset
-        flattened_test_labels = list(itertools.chain.from_iterable(train_valid))
-        counts = Counter(flattened_test_labels)
-        counts = pd.DataFrame.from_dict(counts, orient='index', columns=['count'])
-        counts["dataset"] = dataset_name if "_" not in dataset_name else dataset_name.split("_")[1]
-        counts = counts.reset_index(names='label')
-
-        # save the label information to the appropriate place
-        if dataset_dataset_category == "original":
-            original_test = pd.concat([original_test, counts])
-        elif dataset_dataset_category == "recalculated":
-            recalculated_test = pd.concat([recalculated_test, counts])
-        elif dataset_dataset_category == "original_rag":
-            rag_original_test = pd.concat([rag_original_test, counts])
-        elif dataset_dataset_category == "recalculated_rag":
-            rag_recalculated_test = pd.concat([rag_recalculated_test, counts])
+    original_test, rag_original_test, rag_recalculated_test, recalculated_test = get_test_samples()
+    original_test["RAG"] = "no rag"
+    recalculated_test["RAG"] = "no rag"
+    rag_original_test["RAG"] = "rag"
+    rag_recalculated_test["RAG"] = "rag"
+    original_test = pd.concat([original_test, rag_original_test])
+    recalculated_test = pd.concat([rag_recalculated_test, rag_original_test])
 
     # merge datatables
-    original = pd.merge(original, original_test, "left", ["dataset", "label"])
-    recalculated = pd.merge(recalculated, recalculated_test, "left", ["dataset", "label"])
-    rag_original = pd.merge(rag_original, rag_original_test, "left", ["dataset", "label"])
-    rag_recalculated = pd.merge(rag_recalculated, rag_recalculated_test, "left", ["dataset", "label"])
-    df = pd.concat([rag_original, rag_recalculated, original, recalculated])
+    original = pd.merge(original, original_test, "left", ["dataset", "label", "RAG"])
+    recalculated = pd.merge(recalculated, recalculated_test, "left", ["dataset", "label", "RAG"])
+    df = pd.concat([original, recalculated])
 
     # plot scatterplot
     fig, ax = plt.subplots()
@@ -787,6 +751,63 @@ def label_precision():
     recalculated.to_csv("./data/qa_dataset/results/labels_recalculated.csv")
     rag_original.to_csv("./data/qa_dataset/results/labels_rag_original.csv")
     rag_recalculated.to_csv("./data/qa_dataset/results/labels_rag_recalculated.csv")
+
+
+def get_test_samples():
+    # read in datasets and extract number of labels in the test set
+    filenames = ["data/qa_dataset/original/no_rag/systemBoundaryQA.jsonl",
+                 "data/qa_dataset/original/no_rag/allocationQA.jsonl",
+                 "data/qa_dataset/original/no_rag/functionalUnitQA.jsonl",
+                 "data/qa_dataset/original/no_rag/productQA.jsonl",
+                 "data/qa_dataset/recalculated/no_rag/functionalUnitQA.jsonl",
+                 "data/qa_dataset/recalculated/no_rag/productQA.jsonl",
+                 "data/qa_dataset/recalculated/no_rag/systemBoundaryQA.jsonl",
+                 "data/qa_dataset/original/rag/rag_allocationQA.jsonl",
+                 "data/qa_dataset/original/rag/rag_functionalUnitQA.jsonl",
+                 "data/qa_dataset/original/rag/rag_productQA.jsonl",
+                 "data/qa_dataset/original/rag/rag_systemBoundaryQA.jsonl",
+                 "data/qa_dataset/recalculated/rag/rag_functionalUnitQA.jsonl",
+                 "data/qa_dataset/recalculated/rag/rag_productQA.jsonl",
+                 "data/qa_dataset/recalculated/rag/rag_systemBoundaryQA.jsonl",
+                 ]
+    # for each dataset
+    rag_original_test = pd.DataFrame()
+    rag_recalculated_test = pd.DataFrame()
+    original_test = pd.DataFrame()
+    recalculated_test = pd.DataFrame()
+    for k in filenames:
+        # load the dataset
+        dataset_rag = "" if "no_rag" in str(k).split("/") else "_rag"
+        dataset_dataset_type = "original" if "original" in str(k).split("/") else "recalculated"
+        dataset_dataset_category = dataset_dataset_type + dataset_rag
+        dataset_name = k.split("/")[-1].split(".")[0].replace("QA", "")
+        dataset = load_dataset('json', data_files=k)  # shuffle dataset before splitting
+        dataset = dataset.shuffle(seed=42)
+
+        # 80% train, 20% test + validation
+        train_testvalid = dataset['train'].train_test_split(test_size=0.2, seed=42)
+        # Split the 10% test + valid in half test, half valid
+        test_valid = train_testvalid['test'].train_test_split(test_size=0.5, seed=42)
+        train_valid = train_testvalid['train']['labels']
+        test = test_valid['test']
+
+        # flatten and count the occurence of labels in the training dataset
+        flattened_test_labels = list(itertools.chain.from_iterable(train_valid))
+        counts = Counter(flattened_test_labels)
+        counts = pd.DataFrame.from_dict(counts, orient='index', columns=['count'])
+        counts["dataset"] = dataset_name if "_" not in dataset_name else dataset_name.split("_")[1]
+        counts = counts.reset_index(names='label')
+
+        # save the label information to the appropriate place
+        if dataset_dataset_category == "original":
+            original_test = pd.concat([original_test, counts])
+        elif dataset_dataset_category == "recalculated":
+            recalculated_test = pd.concat([recalculated_test, counts])
+        elif dataset_dataset_category == "original_rag":
+            rag_original_test = pd.concat([rag_original_test, counts])
+        elif dataset_dataset_category == "recalculated_rag":
+            rag_recalculated_test = pd.concat([rag_recalculated_test, counts])
+    return original_test, rag_original_test, rag_recalculated_test, recalculated_test
 
 
 def map_color(df, col):
