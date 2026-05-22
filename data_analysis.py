@@ -27,13 +27,13 @@ def main():
     # parameter_precision()
 
     # collate errors for each dataset based on RAG
-    collect_rag_error_rates()
+    # collect_rag_error_rates()
 
     # identify occurence of errors and the extent to which models and ground truths agree
-    #inter_reviewer_alignment()
+    inter_reviewer_alignment()
 
     # plot the frequency of error rates across 12 datasets
-    plot_error_codes()
+    # plot_error_codes()
 
 
 def get_label_precision(file_path):
@@ -396,99 +396,43 @@ def inter_reviewer_alignment():
     Calculates the extent to which the AI models differ from human labels and how frequently these labels differ
     :return: .csv with the number of LCAs in which AI and humans agree, as well as the number of discrepancies
     """
-    root_directory = Path("./data/qa_dataset/results")
-
-    # two dataframes for two different dataset types
-    original = pd.DataFrame()
-    recalculated = pd.DataFrame()
-
-    # Use rglob to recursively find all files matching the pattern
-    for file_path in root_directory.rglob('errors.csv'):
-        rag = "no rag" if "no" in str(file_path).split("_") else "rag"
-        dataset_type = "original" if "original" in str(file_path).split("_") else "recalculated"
-
-        # read in data and extract label precision, dataset name, and model name
-        data = pd.read_csv(file_path)
-        language_model = "/".join(str(file_path).split("\\")[4:6])
-        data["model"] = language_model
-        dataset_name = str(file_path).split("\\")[3].split("_")[-1]
-        data["dataset"] = dataset_name
-        data["dataset_type"] = dataset_type
-        data["rag"] = rag
-
-        # assign data to appropriate dataframe if there is data
-        if len(data) > 0:
-            if dataset_type == "original":
-                original = pd.concat([original, data])
-            elif dataset_type == "recalculated":
-                recalculated = pd.concat([recalculated, data])
+    # get all errors
+    original = pd.read_csv("./data/qa_dataset/results/all_errors_original.csv")
+    recalculated= pd.read_csv("./data/qa_dataset/results/all_errors_recalculated.csv")
 
     # Identify the percentage of samples of LCA that have 0, 1, 2+ errors
-    error_analysis = {}
+    error_analysis = pd.DataFrame()
     for df in [original, recalculated]:
-        for rag in ["rag", "no rag"]:
-            rag_df = df[df["rag"] == rag]
-            for models in [["ESGBERT/EnvironmentalBERT-base", "FacebookAI/roberta-large",
-                            "climatebert/distilroberta-base-climate-f", "google-bert/bert-base-uncased",
-                            "microsoft/deberta-v3-base", "microsoft/deberta-v3-large", "microsoft/deberta-v3-small"],
-                           ["google-bert/bert-base-uncased", "microsoft/deberta-v3-large",
-                            "ESGBERT/EnvironmentalBERT-base"]]:
-                dataset_type = rag_df["dataset_type"].unique()[0]
-
-                # treating the ensemble prediction as a single model (see below)
-                if len(models) == 7:
-                    num_models = len(models)
-                else:
-                    num_models = 1
-                num_rag_datasets = 2
+        for rag in df["RAG"].unique():
+            rag_df = df[df["RAG"] == rag]
+            for model in rag_df["model"].unique():
+                model_df = rag_df[rag_df["model"] == model]
+                dataset_type = model_df["dataset_type"].unique()[0]
 
                 # calculate the total number of available samples based on the number of models
                 if dataset_type == "original":
-                    total_samples = 104 * num_models * num_rag_datasets
+                    total_samples = 104
                 else:
-                    total_samples = 99 * num_models * num_rag_datasets
-
-                # subset df by the occurence of models
-                analysis_df = rag_df[rag_df["model"].isin(models)]
-
-                if len(models) < 7:  # if we are doing an ensemble estimate, apply it only to the case with fewer models
-                    # keep errors if they appear in the majority of models
-                    analysis_df = analysis_df.groupby(['sample_index', 'dataset']).filter(
-                        lambda x: len(x) >= math.ceil(len(models) / 2))
-
-                    # remove duplicates (ensemble is treated as 1 model, so look for identical sample indexes, datasets, and RAG)
-                    analysis_df = analysis_df.drop_duplicates(subset=['sample_index', 'dataset'])
-                    analysis_df["model"] = "ensemble"
-
-                    # TODO: send this dataframe to a new method to 1) find the frequency the wrong labels appear in the dataset
-                    # and 2) write a generic sentence describing the mistake made - i.e. machine did x when human did y
-                    discrepancies = explain_discrepancies(analysis_df)
-                    discrepancies.to_csv(f"./data/qa_dataset/results/discrepancies_{rag}_{dataset_type}.csv",
-                                         index=False)
-                    analysis_df = analysis_df.sort_values(by='sample_index')
-                    analysis_df = analysis_df.reset_index()
-                    analysis_df.to_csv(f"./data/qa_dataset/results/ensemble_errors_{rag}_{dataset_type}.csv",
-                                       index=False)
+                    total_samples = 99
 
                 # group by unique sample identifiers of the sample, the model, and whether or not it is rag
-                error_counts = analysis_df.groupby(['sample_index', 'model'])['dataset'].nunique()
+                error_counts = model_df.groupby(['sample index', 'model'])['dataset'].nunique()
 
                 # count how many samples have exactly 1 error, 2+ errors, or 0 errors
                 s_1_error = (error_counts == 1).sum()
-                s_2_plus_errors = (error_counts >= 2).sum()
+                s_2_errors = (error_counts == 2).sum()
+                s_3plus_errors = (error_counts >= 3).sum()
                 s_0_errors = total_samples - len(error_counts)
 
                 # write data out to series
-                data = [num_models, rag, f"{s_0_errors / total_samples:.1%}", f"{s_1_error / total_samples:.1%}",
-                        f"{s_2_plus_errors / total_samples:.1%}"]
-                index_labels = ["Number of Models", "RAG", '0 Errors', '1 Error', '2+ Errors']
-                s = pd.Series(data, index=index_labels)
-                error_analysis[dataset_type + str(rag) + str(len(models))] = s
+                data = [dataset_type, rag, model, f"{s_0_errors / total_samples:.1%}", f"{s_1_error / total_samples:.1%}",
+                        f"{s_2_errors / total_samples:.1%}", f"{s_3plus_errors / total_samples:.1%}"]
+                index_labels = ["Dataset Type", "RAG", "Model", '0 Errors', '1 Error', '2 Errors', '3+ Errors']
+                s = pd.DataFrame(data, index=index_labels)
+                error_analysis = pd.concat([error_analysis, s.T])
 
     # save error statistics
-    df = pd.DataFrame(error_analysis)
-    df = df.reset_index()
-    df.to_csv(f"./data/qa_dataset/results/num_correct_LCA.csv", index=False)
+    error_analysis.to_csv(f"./data/qa_dataset/results/num_correct_LCA.csv", index=False)
 
 
 def collect_rag_error_rates():
