@@ -24,14 +24,14 @@ def main():
 
     # plot number of labels versus precision for each of the four categories
     # label_precision()
-    # parameter_precision()
+    parameter_precision()
 
     # collate errors for each dataset based on RAG
-    # collect_rag_error_rates()
+    collect_rag_error_rates()
     explain_discrepancies()
 
     # identify occurence of errors and the extent to which models and ground truths agree
-    # inter_reviewer_alignment()
+    inter_reviewer_alignment()
 
     # plot the frequency of error rates across 12 datasets
     # plot_error_codes()
@@ -559,7 +559,7 @@ def parameter_precision():
                 alpha=0.6, label=f'{dataset} best fit line')
 
     plt.xlabel('Number of Model Parameters (Million)')
-    plt.ylabel('mean Average Precision')
+    plt.ylabel('macro-weighted Precision')
     plt.title('Effect of Number of Parameters')
     plt.legend()
     plt.grid(True)

@@ -80,11 +80,7 @@ true_labels,preds_70,classes,sample index,dataset,dataset_type,RAG,Number of Mod
 "[0, 0, 0, 0, 0, 1, 1, 0, 0, 1]","[0, 0, 0, 0, 0, 1, 1, 0, 0, 0]","['days', '1 ha', 'kg', 'kg cold dressed carcass weight/head', 'kg cold carcass weight/head', 'kg liveweight/head', 'relative', 'unitless', 'kg ready-to-cook weight/head', '%']",68,functionalUnit,original,no rag,1
 "[0, 0, 0, 0, 0, 1, 1, 0, 0, 1]","[1, 0, 0, 0, 0, 0, 1, 0, 0, 0]","['days', '1 ha', 'kg', 'kg cold dressed carcass weight/head', 'kg cold carcass weight/head', 'kg liveweight/head', 'relative', 'unitless', 'kg ready-to-cook weight/head', '%']",68,functionalUnit,original,no rag,1
 "[0, 0, 0, 0, 0, 1, 1, 0, 0, 1]","[1, 0, 0, 0, 0, 1, 1, 0, 0, 0]","['days', '1 ha', 'kg', 'kg cold dressed carcass weight/head', 'kg cold carcass weight/head', 'kg liveweight/head', 'relative', 'unitless', 'kg ready-to-cook weight/head', '%']",68,functionalUnit,original,no rag,5
-"[0, 0, 0, 0, 0, 1]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",3,allocation,original,rag,1
 "[0, 0, 0, 0, 0, 1]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",46,allocation,original,rag,3
-"[0, 0, 0, 0, 0, 1]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",62,allocation,original,rag,1
-"[0, 0, 0, 0, 0, 1]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",69,allocation,original,rag,1
-"[0, 0, 0, 0, 0, 1]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",72,allocation,original,rag,1
 "[0, 0, 0, 0, 0, 1]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",73,allocation,original,rag,7
 "[0, 0, 0, 0, 0, 1]","[0, 0, 0, 0, 1, 1]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",46,allocation,original,rag,1
 "[0, 0, 0, 0, 0, 1]","[0, 0, 0, 0, 1, 1]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",69,allocation,original,rag,1
@@ -145,6 +141,8 @@ true_labels,preds_70,classes,sample index,dataset,dataset_type,RAG,Number of Mod
 "[0, 0, 0, 0, 1, 0, 0, 1, 1, 0]","[0, 0, 0, 1, 1, 0, 0, 1, 1, 0]","['kg cold carcass weight/head', '1 ha', 'kg cold dressed carcass weight/head', 'days', 'relative', 'kg', 'unitless', 'kg liveweight/head', '%', 'kg ready-to-cook weight/head']",68,functionalUnit,original,rag,1
 "[0, 0, 0, 0, 1, 0]","[0, 0, 1, 0, 0, 0]","['none required', 'mass', 'economic', 'energy', 'biophysical', 'none']",46,allocation,original,no rag,2
 "[0, 0, 0, 0, 1, 0]","[0, 0, 1, 0, 0, 0]","['none required', 'mass', 'economic', 'energy', 'biophysical', 'none']",73,allocation,original,no rag,6
+"[0, 0, 0, 0, 1, 0]","[1, 0, 0, 0, 0, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",14,allocation,original,rag,1
+"[0, 0, 0, 0, 1, 0]","[1, 0, 0, 0, 0, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",89,allocation,original,rag,1
 "[0, 0, 0, 0, 1, 1, 0, 0, 0, 0]","[0, 0, 0, 0, 1, 0, 0, 0, 0, 0]","['kg cold carcass weight/head', '1 ha', 'kg cold dressed carcass weight/head', 'days', 'relative', 'kg', 'unitless', 'kg liveweight/head', '%', 'kg ready-to-cook weight/head']",3,functionalUnit,original,rag,1
 "[0, 0, 0, 0, 1, 1, 0, 0, 0, 0]","[0, 0, 0, 0, 1, 0, 0, 0, 0, 0]","['kg cold carcass weight/head', '1 ha', 'kg cold dressed carcass weight/head', 'days', 'relative', 'kg', 'unitless', 'kg liveweight/head', '%', 'kg ready-to-cook weight/head']",30,functionalUnit,original,rag,1
 "[0, 0, 0, 0, 1, 1, 0, 0, 0, 0]","[0, 0, 0, 0, 1, 0, 0, 0, 0, 0]","['kg cold carcass weight/head', '1 ha', 'kg cold dressed carcass weight/head', 'days', 'relative', 'kg', 'unitless', 'kg liveweight/head', '%', 'kg ready-to-cook weight/head']",34,functionalUnit,recalculated,rag,1
@@ -155,23 +153,10 @@ true_labels,preds_70,classes,sample index,dataset,dataset_type,RAG,Number of Mod
 "[0, 0, 0, 0, 1, 1, 1, 0, 0, 0]","[0, 0, 0, 0, 0, 1, 1, 0, 0, 0]","['days', '1 ha', 'kg', 'kg cold dressed carcass weight/head', 'kg cold carcass weight/head', 'kg liveweight/head', 'relative', 'unitless', 'kg ready-to-cook weight/head', '%']",94,functionalUnit,recalculated,no rag,7
 "[0, 0, 0, 1, 0, 0]","[0, 0, 0, 0, 0, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",34,allocation,original,rag,1
 "[0, 0, 0, 1, 0, 0]","[0, 0, 0, 0, 0, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",48,allocation,original,rag,1
-"[0, 0, 0, 1, 0, 0]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",1,allocation,original,rag,1
-"[0, 0, 0, 1, 0, 0]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",22,allocation,original,rag,1
-"[0, 0, 0, 1, 0, 0]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",24,allocation,original,rag,1
-"[0, 0, 0, 1, 0, 0]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",26,allocation,original,rag,1
-"[0, 0, 0, 1, 0, 0]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",27,allocation,original,rag,1
-"[0, 0, 0, 1, 0, 0]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",28,allocation,original,rag,1
-"[0, 0, 0, 1, 0, 0]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",30,allocation,original,rag,1
-"[0, 0, 0, 1, 0, 0]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",34,allocation,original,rag,1
-"[0, 0, 0, 1, 0, 0]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",48,allocation,original,rag,2
-"[0, 0, 0, 1, 0, 0]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",51,allocation,original,rag,1
-"[0, 0, 0, 1, 0, 0]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",53,allocation,original,rag,1
-"[0, 0, 0, 1, 0, 0]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",60,allocation,original,rag,3
+"[0, 0, 0, 1, 0, 0]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",48,allocation,original,rag,1
+"[0, 0, 0, 1, 0, 0]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",60,allocation,original,rag,2
 "[0, 0, 0, 1, 0, 0]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",61,allocation,original,rag,1
-"[0, 0, 0, 1, 0, 0]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",83,allocation,original,rag,1
 "[0, 0, 0, 1, 0, 0]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",95,allocation,original,rag,7
-"[0, 0, 0, 1, 0, 0]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",100,allocation,original,rag,1
-"[0, 0, 0, 1, 0, 0]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",103,allocation,original,rag,1
 "[0, 0, 0, 1, 0, 0]","[0, 0, 0, 1, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",60,allocation,original,rag,1
 "[0, 0, 0, 1, 0, 0]","[0, 0, 1, 0, 0, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",48,allocation,original,rag,1
 "[0, 0, 0, 1, 0, 0]","[1, 0, 0, 0, 0, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",1,allocation,original,rag,1
@@ -283,24 +268,17 @@ true_labels,preds_70,classes,sample index,dataset,dataset_type,RAG,Number of Mod
 "[1, 0, 0, 0, 0, 0]","[0, 0, 0, 0, 0, 1]","['none required', 'mass', 'economic', 'energy', 'biophysical', 'none']",1,allocation,original,no rag,1
 "[1, 0, 0, 0, 0, 0]","[0, 0, 0, 0, 0, 1]","['none required', 'mass', 'economic', 'energy', 'biophysical', 'none']",22,allocation,original,no rag,2
 "[1, 0, 0, 0, 0, 0]","[0, 0, 0, 0, 0, 1]","['none required', 'mass', 'economic', 'energy', 'biophysical', 'none']",48,allocation,original,no rag,2
-"[1, 0, 0, 0, 0, 0]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",11,allocation,original,rag,1
-"[1, 0, 0, 0, 0, 0]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",16,allocation,original,rag,1
-"[1, 0, 0, 0, 0, 0]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",19,allocation,original,rag,2
-"[1, 0, 0, 0, 0, 0]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",23,allocation,original,rag,1
-"[1, 0, 0, 0, 0, 0]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",41,allocation,original,rag,2
-"[1, 0, 0, 0, 0, 0]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",47,allocation,original,rag,2
-"[1, 0, 0, 0, 0, 0]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",57,allocation,original,rag,1
+"[1, 0, 0, 0, 0, 0]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",19,allocation,original,rag,1
+"[1, 0, 0, 0, 0, 0]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",41,allocation,original,rag,1
+"[1, 0, 0, 0, 0, 0]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",47,allocation,original,rag,1
 "[1, 0, 0, 0, 0, 0]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",68,allocation,original,rag,4
-"[1, 0, 0, 0, 0, 0]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",84,allocation,original,rag,1
-"[1, 0, 0, 0, 0, 0]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",96,allocation,original,rag,1
-"[1, 0, 0, 0, 0, 0]","[0, 0, 0, 0, 1, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",99,allocation,original,rag,1
 "[1, 0, 0, 0, 0, 0]","[0, 0, 0, 1, 0, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",41,allocation,original,rag,1
 "[1, 0, 0, 0, 0, 0]","[0, 0, 0, 1, 0, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",68,allocation,original,rag,1
 "[1, 0, 0, 0, 0, 0]","[0, 0, 0, 1, 0, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",84,allocation,original,rag,1
 "[1, 0, 0, 0, 0, 0]","[0, 0, 1, 0, 0, 0]","['none required', 'mass', 'economic', 'energy', 'biophysical', 'none']",60,allocation,original,no rag,5
 "[1, 0, 0, 0, 0, 0]","[0, 0, 1, 0, 0, 0]","['none required', 'mass', 'economic', 'energy', 'biophysical', 'none']",95,allocation,original,no rag,7
 "[1, 0, 0, 0, 0, 0]","[0, 0, 1, 0, 0, 0]","['none required', 'mass', 'economic', 'energy', 'biophysical', 'none']",100,allocation,original,no rag,4
-"[1, 0, 0, 0, 0, 0]","[1, 0, 0, 1, 0, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",41,allocation,original,rag,1
+"[1, 0, 0, 0, 0, 0]","[1, 0, 0, 1, 0, 0]","['none', 'energy', 'mass', 'none required', 'economic', 'biophysical']",41,allocation,original,rag,2
 "[1, 0, 0, 0, 0, 1, 1, 0, 0, 0]","[0, 0, 0, 0, 0, 0, 1, 0, 0, 0]","['days', '1 ha', 'kg', 'kg cold dressed carcass weight/head', 'kg cold carcass weight/head', 'kg liveweight/head', 'relative', 'unitless', 'kg ready-to-cook weight/head', '%']",85,functionalUnit,original,no rag,1
 "[1, 0, 0, 0, 0, 1, 1, 0, 0, 0]","[0, 0, 0, 0, 0, 1, 1, 0, 0, 0]","['days', '1 ha', 'kg', 'kg cold dressed carcass weight/head', 'kg cold carcass weight/head', 'kg liveweight/head', 'relative', 'unitless', 'kg ready-to-cook weight/head', '%']",60,functionalUnit,original,no rag,6
 "[1, 0, 0, 0, 0, 1, 1, 0, 0, 0]","[0, 0, 0, 0, 0, 1, 1, 0, 0, 0]","['days', '1 ha', 'kg', 'kg cold dressed carcass weight/head', 'kg cold carcass weight/head', 'kg liveweight/head', 'relative', 'unitless', 'kg ready-to-cook weight/head', '%']",82,functionalUnit,recalculated,no rag,2
