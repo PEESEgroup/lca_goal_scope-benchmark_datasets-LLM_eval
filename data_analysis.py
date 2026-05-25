@@ -24,10 +24,10 @@ def main():
 
     # plot number of labels versus precision for each of the four categories
     # label_precision()
-    parameter_precision()
+    # parameter_precision()
 
     # collate errors for each dataset based on RAG
-    collect_rag_error_rates()
+    # collect_rag_error_rates()
     explain_discrepancies()
 
     # identify occurence of errors and the extent to which models and ground truths agree
@@ -296,9 +296,13 @@ def explain_discrepancies():
 
     # get context for each error
     context = context.reset_index(names="sample index")
+    # update the dataset name for the context to support the merge
+    context["dataset"] = context['title'].apply(lambda x: "systemBoundary" if x == "System Boundary Completeness" else "product" if x == "Object of Assessment"
+                                                else "functionalUnit" if x=="Functional Unit" else "allocation")
+
     df["dataset_category"] = df["dataset_type"] + "_" + df["RAG"]
 
-    df = pd.merge(df, context, on=["dataset_category", "sample index"], how="left")
+    df = pd.merge(df, context, on=["dataset_category", "sample index", "dataset"], how="left")
     df = df[["true_labels", "preds_70", "classes", "sample index", "dataset", "dataset_type", "RAG",
              "Number of Models with Error", "context"]]
 
@@ -339,13 +343,14 @@ def explain_discrepancies():
                         freq = "Not in Training Dataset"  # it might not be there
 
                 # if the model never predicted a label of 1, include that information
-                line = f"ML model predicted {a_val} but the humans predicted {b_val}. Total number of matching positives in this prediction string {num_pos}."
+                line = f"ML model predicted {a_val} but the humans predicted {b_val}."
+                matching_pos = f"Total number of matching positives in this prediction string {num_pos}."
                 pos_location = "Human" if t == str(1) else "AI"
 
                 # save data to a pd Series
-                data = [row["context"], row["true_labels"], row["preds_70"], row["classes"], line, freq, row["sample index"], row["dataset"], row["dataset_type"],
+                data = [row["context"], row["true_labels"], row["preds_70"], row["classes"], line, matching_pos, freq, row["sample index"], row["dataset"], row["dataset_type"],
                         row["RAG"], pos_location, row["Number of Models with Error"]]
-                labels = ["Context", "True Labels", "Predicted Labels", "List of Classes", "Sentence", "Frequency", "Sample Index", "Dataset", "Dataset Type", "RAG", "Location of Positive", "Number of Models with Error"]
+                labels = ["Context", "True Labels", "Predicted Labels", "List of Classes", "Sentence", "Number of Correct Preds", "Frequency", "Sample Index", "Dataset", "Dataset Type", "RAG", "Location of Positive", "Number of Models with Error"]
                 s = pd.Series(data, index=labels)
                 discrepancy_lines.append(s.to_frame().T)
 
@@ -694,8 +699,7 @@ def get_test_samples():
             rag_original_test = pd.concat([rag_original_test, counts])
         elif dataset_dataset_category == "recalculated_rag":
             rag_recalculated_test = pd.concat([rag_recalculated_test, counts])
-        if test["title"].unique()[0] == "System Boundary Completeness":  # context is same for all, so only need a subset of samples
-            test_samples = pd.concat([test_samples, test])
+        test_samples = pd.concat([test_samples, test])
     return original_test, rag_original_test, rag_recalculated_test, recalculated_test, test_samples
 
 
