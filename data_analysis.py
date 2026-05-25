@@ -28,13 +28,13 @@ def main():
 
     # collate errors for each dataset based on RAG
     # collect_rag_error_rates()
-    explain_discrepancies()
+    # explain_discrepancies()
 
     # identify occurence of errors and the extent to which models and ground truths agree
-    inter_reviewer_alignment()
+    # inter_reviewer_alignment()
 
     # plot the frequency of error rates across 12 datasets
-    # plot_error_codes()
+    plot_error_codes()
 
 
 def get_label_precision(file_path):
@@ -179,22 +179,21 @@ def plot_error_codes():
     Plots manually coded discrepancies between AI labeling and human labels as pie charts
     :return: saved .png image
     """
-    df = pd.read_excel("./data/qa_dataset/results/All_Discrepancies_Coded.xlsx")
-    df["Rationale"] = df['Rationale'].astype('category')
+    df = pd.read_excel("./data/qa_dataset/results/all_models_discrepancies_coded.xlsx")
+    df["Discrepancy Code"] = df['Discrepancy Code'].astype('category')
     group_cols = ["Dataset", "Dataset Type", "RAG"]
-    df_counts = df.groupby(group_cols + ["Rationale"]).size().reset_index(name='Count')
+    df_counts = df.groupby(group_cols + ["Discrepancy Code"])['Number of Models with Error'].sum().reset_index()
 
     # Create a consistent color map for all Codes
-    unique_codes = df['Rationale'].cat.categories.tolist()
+    unique_codes = df['Discrepancy Code'].cat.categories.tolist()
     base_hues = {
-        "A": 0.0,  # Red
+        "A": 0.00,  # Red
         "B": 0.08,  # Orange
         "C": 0.15,  # Yellow-Gold
         "D": 0.33,  # Green
-        "E": 0.5,  # Cyan
-        "F": 0.66,  # Blue
-        "G": 0.75,  # Purple
-        "H": 0.85  # Magenta/Pink
+        "E": 0.52,  # Cyan
+        "F": 0.68,  # Blue
+        "G": 0.80,  # Purple
     }
     color_map = {}
     for code in sorted(unique_codes):
@@ -215,10 +214,8 @@ def plot_error_codes():
 
     # Create a single label for the x-axis by joining the group columns
     df_counts['Group'] = df_counts[group_cols].astype(str).agg(' | '.join, axis=1)
-    df_counts = df_counts[df_counts['Count'] > 0]  # keep rationales that occur more than 0 times
-
-    # Pivot the data: Rows = Groups, Columns = Rationale, Values = Count
-    pivot_df = df_counts.pivot(index='Group', columns='Rationale', values='Count').fillna(0)
+    df_counts = df_counts[df_counts['Number of Models with Error'] > 0]  # keep rationales that occur more than 0 times
+    pivot_df = df_counts.pivot(index='Group', columns='Discrepancy Code', values='Number of Models with Error').fillna(0)
 
     fig, ax = plt.subplots(figsize=(14, 8))
     bottom = None
