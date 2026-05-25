@@ -222,12 +222,13 @@ def eval_metrics(tokenized_dataset, trainer, classes, dataset_name, fpath):
     # confusion matrix converts probabilities based on a threshold value and then take the sigmoid of the outputs
     eval_metrics = predictions_output.metrics
     multilabel_indicators = (1 / (1 + np.exp(-predictions_output.predictions)))
+    multilabel_preds = multilabel_indicators > 0/7
     plt.clf()
     plt.hist((1 / (1 + np.exp(-predictions_output.predictions))))
     plt.savefig(fpath + f'/Raw Logit Predictions for {dataset_name}.png', dpi=300)
     plt.show()
 
-    cm = multilabel_confusion_matrix(predictions_output.label_ids, multilabel_indicators)
+    cm = multilabel_confusion_matrix(predictions_output.label_ids, multilabel_preds)
     ap_scores = []
     for i, cm in enumerate(cm):
         disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=['Negative', 'Positive'])
@@ -238,7 +239,7 @@ def eval_metrics(tokenized_dataset, trainer, classes, dataset_name, fpath):
 
         # if there are no positive class in y_true, then precision is undefined and not included in the mean calculation
         if max(predictions_output.label_ids[:, i]) > 0:
-            ap = average_precision_score(predictions_output.label_ids[:, i], multilabel_indicators[:, i])
+            ap = average_precision_score(predictions_output.label_ids[:, i], multilabel_preds[:, i])
         else:
             ap = np.nan
         ap_scores.append(ap)
@@ -252,11 +253,11 @@ def eval_metrics(tokenized_dataset, trainer, classes, dataset_name, fpath):
     eval_metrics["fpath"] = f"{fpath}"
 
     # calculate micro-f1
-    f1_micro = f1_score(predictions_output.label_ids, multilabel_indicators, average='micro')
+    f1_micro = f1_score(predictions_output.label_ids, multilabel_preds, average='micro')
     eval_metrics["micro-f1"] = f"{f1_micro:.4f}"
 
     # calculate hamming accuracy
-    h_loss = hamming_loss(predictions_output.label_ids, multilabel_indicators)
+    h_loss = hamming_loss(predictions_output.label_ids, multilabel_preds)
     hamming_score = 1 - h_loss
     eval_metrics["accuracy (hamming loss)"] = f"{hamming_score:.4f}"
 
@@ -269,7 +270,7 @@ def eval_metrics(tokenized_dataset, trainer, classes, dataset_name, fpath):
 
     # identify errors
     # create an error mask
-    is_correct = (multilabel_indicators == predictions_output.label_ids).all(axis=1)
+    is_correct = (multilabel_preds == predictions_output.label_ids).all(axis=1)
     error_indices = np.where(~is_correct)[0]
 
     # get the contexts
@@ -281,7 +282,7 @@ def eval_metrics(tokenized_dataset, trainer, classes, dataset_name, fpath):
         'sample_index': error_indices,
         'context_for_errors': error_texts,
         'logits': [list(p) for p in predictions_output.predictions[~is_correct]],
-        'predicted_labels': [list(l) for l in multilabel_indicators[~is_correct]],
+        'predicted_labels': [list(l) for l in multilabel_preds[~is_correct]],
         'true_labels': [l.astype(int).tolist() for l in predictions_output.label_ids[~is_correct]],
         'classes': [classes for l in predictions_output.label_ids[~is_correct]]
     })
@@ -290,7 +291,7 @@ def eval_metrics(tokenized_dataset, trainer, classes, dataset_name, fpath):
     prediction_df = pd.DataFrame({
         'context': [test_dataset[int(i)]['context'] for i in range(len(test_dataset))],
         'logits': [list(p) for p in predictions_output.predictions],
-        'predicted_labels': [list(m) for m in multilabel_indicators],
+        'predicted_labels': [list(m) for m in multilabel_preds],
         'true_labels': [p.astype(int).tolist() for p in predictions_output.label_ids],
         'classes': [classes for l in predictions_output.label_ids]
     })
@@ -312,10 +313,11 @@ def eval_models(dataset, dataset_name):
         class2id = {class_: id for id, class_ in enumerate(classes)}
         id2class = {id: class_ for class_, id in class2id.items()}
 
-        model_paths = ['microsoft/deberta-v3-small', 'microsoft/deberta-v3-base', 'microsoft/deberta-v3-large',
+        model_paths = [#'microsoft/deberta-v3-small', 'microsoft/deberta-v3-base', 
+                        'microsoft/deberta-v3-large'] # ,
                        # these models are confirmed to work
-                       "google-bert/bert-base-uncased", "FacebookAI/roberta-large",
-                       "climatebert/distilroberta-base-climate-f", "ESGBERT/EnvironmentalBERT-base"]
+                       #"google-bert/bert-base-uncased", "FacebookAI/roberta-large",
+                       #"climatebert/distilroberta-base-climate-f", "ESGBERT/EnvironmentalBERT-base"]
 
         # train and eval loop
         for model_path in model_paths:
@@ -409,14 +411,14 @@ if __name__ == "__main__":
         #  "llm-goal-scope/data/qa_dataset/original/no_rag/productQA.jsonl",
         #  "llm-goal-scope/data/qa_dataset/recalculated/no_rag/functionalUnitQA.jsonl",
         #  "llm-goal-scope/data/qa_dataset/recalculated/no_rag/productQA.jsonl",
-        "llm-goal-scope/data/qa_dataset/recalculated/no_rag/systemBoundaryQA.jsonl",
+        # "llm-goal-scope/data/qa_dataset/recalculated/no_rag/systemBoundaryQA.jsonl",
         "llm-goal-scope/data/qa_dataset/original/rag/rag_allocationQA.jsonl",
-        "llm-goal-scope/data/qa_dataset/original/rag/rag_functionalUnitQA.jsonl",
-        "llm-goal-scope/data/qa_dataset/original/rag/rag_productQA.jsonl",
-        "llm-goal-scope/data/qa_dataset/original/rag/rag_systemBoundaryQA.jsonl",
-        "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_functionalUnitQA.jsonl",
-        "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_productQA.jsonl",
-        "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_systemBoundaryQA.jsonl",
+        #"llm-goal-scope/data/qa_dataset/original/rag/rag_functionalUnitQA.jsonl",
+        #"llm-goal-scope/data/qa_dataset/original/rag/rag_productQA.jsonl",
+        #"llm-goal-scope/data/qa_dataset/original/rag/rag_systemBoundaryQA.jsonl",
+        #"llm-goal-scope/data/qa_dataset/recalculated/rag/rag_functionalUnitQA.jsonl",
+        #"llm-goal-scope/data/qa_dataset/recalculated/rag/rag_productQA.jsonl",
+        #"llm-goal-scope/data/qa_dataset/recalculated/rag/rag_systemBoundaryQA.jsonl",
     ]
 
     # for each dataset
