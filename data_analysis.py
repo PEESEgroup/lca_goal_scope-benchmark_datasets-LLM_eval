@@ -23,7 +23,7 @@ def main():
     # prediction_threshold()
 
     # plot number of labels versus precision for each of the four categories
-    # label_precision()
+    label_precision()
     # parameter_precision()
 
     # collate errors for each dataset based on RAG
@@ -181,6 +181,10 @@ def plot_error_codes():
     """
     df = pd.read_excel("./data/qa_dataset/results/all_models_discrepancies_coded.xlsx")
     df["Discrepancy Code"] = df['Discrepancy Code'].astype('category')
+    df["Dataset"] = df["Dataset"].apply(lambda x: "Functional Unit" if x == "functionalUnit" else "System Boundary" if x == "systemBoundary"
+                                        else "Product" if x== "product" else "Allocation")
+    df["Dataset Type"] = df["Dataset Type"].apply(lambda x: "Standardized" if x == "recalculated" else "Original")
+    df["RAG"] = df["RAG"].apply(lambda x: "RAG" if x == "rag" else "No RAG")
     group_cols = ["Dataset", "Dataset Type", "RAG"]
     df_counts = df.groupby(group_cols + ["Discrepancy Code"])['Number of Models with Error'].sum().reset_index()
 
@@ -608,6 +612,9 @@ def label_precision():
     original = pd.merge(original, original_test, "left", ["dataset", "label", "RAG"])
     recalculated = pd.merge(recalculated, recalculated_test, "left", ["dataset", "label", "RAG"])
     df = pd.concat([original, recalculated])
+    df["dataset"] = df["dataset"].apply(
+        lambda x: "Functional Unit" if x == "functionalUnit" else "System Boundary" if x == "systemBoundary"
+        else "Product" if x == "product" else "Allocation")
 
     # plot scatterplot
     fig, ax = plt.subplots()
