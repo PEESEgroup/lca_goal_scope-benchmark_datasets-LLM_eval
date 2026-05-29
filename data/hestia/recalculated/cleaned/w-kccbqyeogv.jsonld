@@ -79,51 +79,5 @@
     "IAproduct_primary": true,
     "IAmethodClassification": "",
     "IAproductName": "",
-    "IAproductUnits": "",
-    "LCIA": {
-        "0": {
-            "term": {
-                "@type": "Term",
-                "termType": "characterisedIndicator",
-                "name": "GWP100",
-                "units": "kg CO2 eq",
-                "@id": "gwp100"
-            },
-            "value": 0.77,
-            "methodModel": {
-                "@type": "Term",
-                "name": "IPCC (2013) excluding feedbacks",
-                "termType": "model",
-                "@id": "ipcc2013ExcludingFeedbacks"
-            },
-            "@type": "Indicator"
-        },
-        "1": {
-            "@type": "Indicator",
-            "term": {
-                "@type": "Term",
-                "@id": "soilQualityIndexLandTransformation",
-                "name": "Soil quality index, land transformation",
-                "termType": "characterisedIndicator",
-                "units": "points"
-            },
-            "methodModel": {
-                "@type": "Term",
-                "@id": "environmentalFootprintV3",
-                "name": "Environmental Footprint v3",
-                "termType": "model"
-            },
-            "value": 0,
-            "added": [
-                "term",
-                "methodModel",
-                "value"
-            ],
-            "addedVersion": [
-                "0.65.11",
-                "0.65.11",
-                "0.65.11"
-            ]
-        }
-    }
+    "IAproductUnits": ""
 }

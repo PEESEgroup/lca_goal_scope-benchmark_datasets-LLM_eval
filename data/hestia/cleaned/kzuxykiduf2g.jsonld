@@ -72,27 +72,5 @@
     "product_primary": "",
     "IAmethodClassification": "",
     "IAproductName": "",
-    "IAproductUnits": "",
-    "LCIA": {
-        "0": {
-            "term": {
-                "@type": "Term",
-                "termType": "characterisedIndicator",
-                "name": "GWP100",
-                "units": "kg CO2 eq",
-                "@id": "gwp100"
-            },
-            "value": 2.2,
-            "min": 1.1,
-            "max": 7.9,
-            "statsDefinition": "cycles",
-            "methodModel": {
-                "@type": "Term",
-                "name": "IPCC (2013) excluding feedbacks",
-                "termType": "model",
-                "@id": "ipcc2013ExcludingFeedbacks"
-            },
-            "@type": "Indicator"
-        }
-    }
+    "IAproductUnits": ""
 }

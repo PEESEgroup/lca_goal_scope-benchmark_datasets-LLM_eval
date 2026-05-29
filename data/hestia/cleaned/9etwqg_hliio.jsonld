@@ -47,25 +47,5 @@
     "IAproduct_primary": true,
     "IAmethodClassification": "",
     "IAproductName": "",
-    "IAproductUnits": "",
-    "LCIA": {
-        "0": {
-            "term": {
-                "@type": "Term",
-                "termType": "characterisedIndicator",
-                "name": "GWP100",
-                "units": "kg CO2 eq",
-                "@id": "gwp100"
-            },
-            "value": 0.17500000000000002,
-            "methodModel": {
-                "@type": "Term",
-                "name": "ReCiPe 2016 Hierarchist",
-                "termType": "model",
-                "@id": "recipe2016Hierarchist"
-            },
-            "methodModelDescription": "GWP is 3.5kg CO2e per kg of egg. This was multiplied by 0.05 to work out the GWP per egg, assuming that each egg weighs 50g. This is an assumption and egg weight was not given in the study itself.",
-            "@type": "Indicator"
-        }
-    }
+    "IAproductUnits": ""
 }

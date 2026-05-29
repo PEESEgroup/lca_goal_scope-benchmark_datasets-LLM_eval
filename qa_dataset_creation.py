@@ -5,7 +5,6 @@ import constants
 from langchain_community.vectorstores import FAISS
 import rag_retrieval
 from tqdm import tqdm
-import uuid
 
 
 def intendedApplication(row, RAG, vdb, reader, tokenizer):
@@ -29,8 +28,13 @@ def intendedApplication(row, RAG, vdb, reader, tokenizer):
             context = ""
         return [{"labels": [row["intendedApplication"]],
                  "title": "Intended Application",
-                 "id": str(uuid.uuid4()),
-                 "context": row["systemDescription"] + context}]
+                 "context": row["systemDescription"] + context,
+                 "source": "",
+                 "study": "",
+                 "cycle": "",
+                 "site": "",
+                 "default method classification": "",
+                 "bibliography": ""}]
 
 
 def studyReasons(row, RAG, vdb, reader, tokenizer):
@@ -54,8 +58,13 @@ def studyReasons(row, RAG, vdb, reader, tokenizer):
             context = ""
         return [{"labels": [row["studyReasons"]],
                  "title": "Study Reasons",
-                 "id": str(uuid.uuid4()),
-                 "context": row["systemDescription"] + context}]
+                 "context": row["systemDescription"] + context,
+                 "source": "",
+                 "study": "",
+                 "cycle": "",
+                 "site": "",
+                 "default method classification": "",
+                 "bibliography": ""}]
 
 
 def targetAudience(row, RAG, vdb, reader, tokenizer):
@@ -79,8 +88,13 @@ def targetAudience(row, RAG, vdb, reader, tokenizer):
             context = ""
         return [{"labels": [row["intendedAudience"]],
                  "title": "Target Audience",
-                 "id": str(uuid.uuid4()),
-                 "context": row["systemDescription"] + context}]
+                 "context": row["systemDescription"] + context,
+                 "source": "",
+                 "study": "",
+                 "cycle": "",
+                 "site": "",
+                 "default method classification": "",
+                 "bibliography": ""}]
 
 
 def comparativeAssertions(row, RAG, vdb, reader, tokenizer):
@@ -104,8 +118,13 @@ def comparativeAssertions(row, RAG, vdb, reader, tokenizer):
             context = ""
         return [{"labels": [row["comparativeAssertions"]],
                  "title": "Comparative Assertion",
-                 "id": str(uuid.uuid4()),
-                 "context": row["systemDescription"] + context}]
+                 "context": row["systemDescription"] + context,
+                 "source": "",
+                 "study": "",
+                 "cycle": "",
+                 "site": "",
+                 "default method classification": "",
+                 "bibliography": ""}]
 
 
 def actors(row, RAG, vdb, reader, tokenizer):
@@ -128,14 +147,18 @@ def actors(row, RAG, vdb, reader, tokenizer):
         return [
             {"labels": ["authors of the study", "authors and their collaborators"],
              "title": "Actors",
-             "id": str(uuid.uuid4()),
              "context": row["systemDescription"] + context}]
     else:
         return [
             {"labels": [row["organization"], "authors of the study", "authors and their collaborators"],
              "title": "Actors",
-             "id": str(uuid.uuid4()),
-             "context": row["systemDescription"] + context}]
+             "context": row["systemDescription"] + context,
+                 "source": "",
+                 "study": "",
+                 "cycle": "",
+                 "site": "",
+                 "default method classification": "",
+                 "bibliography": ""}]
 
 
 def product(row, RAG, vdb, reader, tokenizer):
@@ -165,8 +188,13 @@ def product(row, RAG, vdb, reader, tokenizer):
             final_labels.append(category)
         return [{"labels": final_labels,
                  "title": "Object of Assessment",
-                 "id": str(uuid.uuid4()),
-                 "context": row["systemDescription"] + context}]
+                 "context": row["systemDescription"] + context,
+                 "source": "",
+                 "study": "",
+                 "cycle": "",
+                 "site": "",
+                 "default method classification": "",
+                 "bibliography": ""}]
 
 
 def allocation(row, RAG, vdb, reader, tokenizer):
@@ -191,9 +219,44 @@ def allocation(row, RAG, vdb, reader, tokenizer):
         return [{
             "labels": [row["allocationMethod"]],
             "title": "Allocation Method",
-            "id": str(uuid.uuid4()),
-            "context": row["systemDescription"] + context}]
+            "context": row["systemDescription"] + context,
+                 "source": "",
+                 "study": "",
+                 "cycle": "",
+                 "site": "",
+                 "default method classification": "",
+                 "bibliography": ""}]
 
+
+def LCIA(row, RAG, vdb, reader, tokenizer):
+    """
+    generate the dataset for the allocation method using in LCA
+    :param row: row of data
+    :param RAG: boolean for whether or not RAG is implemented
+    :param vdb: vector database
+    :param reader: LLM pipeline
+    :param tokenizer: LLM tokenizer
+    :return: entry for json-ld dataset
+    """
+    if len(row["allocationMethod"]) == 0:
+        return ""
+    else:
+        question = f"For the following production system, what is the appropriate basis for the life cycle impact assessment method? Production system: {str(row['systemDescription'])}"
+        if RAG:
+            answer, docs = rag_retrieval.answer_with_rag(question, reader, tokenizer, vdb)
+            context = " Additional Context: " + str(answer)
+        else:
+            context = ""
+        return [{
+            "labels": [row["test"]],
+            "title": "Basis of Impact Assessment",
+            "context": row["systemDescription"] + context,
+                 "source": "",
+                 "study": "",
+                 "cycle": "",
+                 "site": "",
+                 "default method classification": "",
+                 "bibliography": ""}]
 
 def systemBoundary(row, RAG, vdb, reader, tokenizer):
     """
@@ -227,8 +290,13 @@ def systemBoundary(row, RAG, vdb, reader, tokenizer):
     # return the data object
     data.append({"labels": labels,
                  "title": "System Boundary Completeness",
-                 "id": str(uuid.uuid4()),
-                 "context": row["systemDescription"] + " What is in the system boundary?" + context})
+                 "context": row["systemDescription"] + " What is in the system boundary?" + context,
+                 "source": "",
+                 "study": "",
+                 "cycle": "",
+                 "site": "",
+                 "default method classification": "",
+                 "bibliography": ""})
     return data
 
 
@@ -269,8 +337,13 @@ def functionalUnit(row, RAG, vdb, reader, tokenizer):
         return [
             {"labels": fUnit,
              "title": "Functional Unit",
-             "id": str(uuid.uuid4()),
-             "context": row["systemDescription"] + context}]
+             "context": row["systemDescription"] + context,
+                 "source": "",
+                 "study": "",
+                 "cycle": "",
+                 "site": "",
+                 "default method classification": "",
+                 "bibliography": ""}]
 
 
 def systemDescription(row):
@@ -297,14 +370,15 @@ def process_all_tasks(row, RAG, vdb, reader, tokenizer):
     :return: entry for json-ld dataset
     """
     return pd.Series({
-        "intendedApplicationQA": intendedApplication(row, RAG, vdb, reader, tokenizer),
-        "studyReasonsQA": studyReasons(row, RAG, vdb, reader, tokenizer),
-        "targetAudienceQA": targetAudience(row, RAG, vdb, reader, tokenizer),
-        "comparativeAssertionsQA": comparativeAssertions(row, RAG, vdb, reader, tokenizer),
-        "productQA": product(row, RAG, vdb, reader, tokenizer),
-        "allocationQA": allocation(row, RAG, vdb, reader, tokenizer),
-        "systemBoundaryQA": systemBoundary(row, RAG, vdb, reader, tokenizer),
-        "functionalUnitQA": functionalUnit(row, RAG, vdb, reader, tokenizer)
+        "Intended Application": intendedApplication(row, RAG, vdb, reader, tokenizer),
+        "Study Reasons": studyReasons(row, RAG, vdb, reader, tokenizer),
+        "Target Audience": targetAudience(row, RAG, vdb, reader, tokenizer),
+        "Comparative Assertions": comparativeAssertions(row, RAG, vdb, reader, tokenizer),
+        "Product": product(row, RAG, vdb, reader, tokenizer),
+        "Allocation": allocation(row, RAG, vdb, reader, tokenizer),
+        "System Boundary": systemBoundary(row, RAG, vdb, reader, tokenizer),
+        "Functional Unit": functionalUnit(row, RAG, vdb, reader, tokenizer),
+        "Basis of Impact Assessment": LCIA(row, RAG, vdb, reader, tokenizer)
     })
 
 
@@ -331,9 +405,6 @@ def main(output_directory, input_directory, RAG):
 
     # set up llm models
     reader, tokenizer = rag_retrieval.model_config()
-
-    # reference output format - add this string as a new column in pandas
-    # [{"question": <prompt>, "labels": {'text': [<answer>], "answer_start": [0]}, "title": <category>, "context": <systemDescription>}, "id": <uuid>]
 
     # List of goal and scope tasks
     # •	Intended application of results
@@ -365,9 +436,12 @@ def main(output_directory, input_directory, RAG):
     # Join the results back to your original dataframe
     df = pd.concat([df, new_cols], axis=1)
 
+    # deduplicate dataframe
+
+
     # output the data
     print("\n append all questions to list")
-    df = df[[col for col in df.columns if "QA" in col]]
+    df = df[[col for col in df.columns if "QA" in col]]  # TODO: fix
     for i in tqdm(df.columns):
         data = df[str(i)].tolist()
 
@@ -403,6 +477,6 @@ if __name__ == "__main__":
     main("llm-goal-scope/data/qa_dataset/recalculated/rag/", "llm-goal-scope/data/hestia/recalculated/", True)
     main("llm-goal-scope/data/qa_dataset/original/rag/", "llm-goal-scope/data/hestia/", True)
 
-    # DO NOT RERUN THESE WHEN UPDATING RAG FUNCTION - change uuid and is hard to track through git
+    # DO NOT RERUN THESE WHEN UPDATING RAG FUNCTION
     # main("llm-goal-scope/data/qa_dataset/recalculated/no_rag/", "llm-goal-scope/data/hestia/recalculated/",False)
     # main("llm-goal-scope/data/qa_dataset/original/no_rag/", "llm-goal-scope/data/hestia/",False)

@@ -84,41 +84,5 @@
     "IAproduct_primary": true,
     "IAmethodClassification": "",
     "IAproductName": "",
-    "IAproductUnits": "",
-    "LCIA": {
-        "0": {
-            "term": {
-                "@type": "Term",
-                "termType": "characterisedIndicator",
-                "name": "GWP100",
-                "units": "kg CO2 eq",
-                "@id": "gwp100"
-            },
-            "methodModel": {
-                "@type": "Term",
-                "name": "IPCC (2007)",
-                "termType": "model",
-                "@id": "ipcc2007"
-            },
-            "value": 333.5,
-            "@type": "Indicator"
-        },
-        "1": {
-            "term": {
-                "@type": "Term",
-                "termType": "characterisedIndicator",
-                "name": "Terrestrial acidification potential",
-                "units": "kg SO2 eq",
-                "@id": "terrestrialAcidificationPotential"
-            },
-            "methodModel": {
-                "@type": "Term",
-                "name": "EDIP (2003)",
-                "termType": "model",
-                "@id": "edip2003"
-            },
-            "value": 4.37,
-            "@type": "Indicator"
-        }
-    }
+    "IAproductUnits": ""
 }

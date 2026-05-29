@@ -76,58 +76,5 @@
     "IAproduct_primary": true,
     "IAmethodClassification": "",
     "IAproductName": "",
-    "IAproductUnits": "",
-    "LCIA": {
-        "0": {
-            "term": {
-                "@type": "Term",
-                "termType": "characterisedIndicator",
-                "name": "GWP100",
-                "units": "kg CO2 eq",
-                "@id": "gwp100"
-            },
-            "value": 1825.6,
-            "methodModel": {
-                "@type": "Term",
-                "name": "CML2001 Baseline",
-                "termType": "model",
-                "@id": "cml2001Baseline"
-            },
-            "@type": "Indicator"
-        },
-        "1": {
-            "term": {
-                "@type": "Term",
-                "termType": "characterisedIndicator",
-                "name": "Eutrophication potential, excluding fate",
-                "units": "kg PO43- eq",
-                "@id": "eutrophicationPotentialExcludingFate"
-            },
-            "value": 46.292,
-            "methodModel": {
-                "@type": "Term",
-                "name": "CML2001 Baseline",
-                "termType": "model",
-                "@id": "cml2001Baseline"
-            },
-            "@type": "Indicator"
-        },
-        "2": {
-            "term": {
-                "@type": "Term",
-                "termType": "characterisedIndicator",
-                "name": "Terrestrial acidification potential, including fate, average Europe",
-                "units": "kg SO2 eq",
-                "@id": "terrestrialAcidificationPotentialIncludingFateAverageEurope"
-            },
-            "value": 4.89,
-            "methodModel": {
-                "@type": "Term",
-                "name": "CML2001 Baseline",
-                "termType": "model",
-                "@id": "cml2001Baseline"
-            },
-            "@type": "Indicator"
-        }
-    }
+    "IAproductUnits": ""
 }

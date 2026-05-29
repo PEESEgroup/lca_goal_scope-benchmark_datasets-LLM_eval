@@ -47,58 +47,5 @@
     "IAproduct_primary": true,
     "IAmethodClassification": "",
     "IAproductName": "",
-    "IAproductUnits": "",
-    "LCIA": {
-        "0": {
-            "term": {
-                "@type": "Term",
-                "termType": "characterisedIndicator",
-                "name": "GWP100",
-                "units": "kg CO2 eq",
-                "@id": "gwp100"
-            },
-            "methodModel": {
-                "@type": "Term",
-                "name": "IPCC (2007)",
-                "termType": "model",
-                "@id": "ipcc2007"
-            },
-            "value": 2.2,
-            "@type": "Indicator"
-        },
-        "1": {
-            "term": {
-                "@type": "Term",
-                "name": "Total cumulative energy demand",
-                "termType": "characterisedIndicator",
-                "@id": "totalCumulativeEnergyDemand",
-                "units": "MJ"
-            },
-            "methodModel": {
-                "@type": "Term",
-                "name": "Cumulative Energy Demand (CED) method",
-                "termType": "model",
-                "@id": "cumulativeEnergyDemandCedMethod"
-            },
-            "value": 18.3,
-            "@type": "Indicator"
-        },
-        "2": {
-            "term": {
-                "@type": "Term",
-                "termType": "characterisedIndicator",
-                "name": "Stress weighted water footprint",
-                "units": "L eq",
-                "@id": "stressWeightedWaterFootprint"
-            },
-            "methodModel": {
-                "@type": "Term",
-                "name": "Ridoutt & Pfister (2010)",
-                "termType": "model",
-                "@id": "ridouttPfister2010"
-            },
-            "value": 21,
-            "@type": "Indicator"
-        }
-    }
+    "IAproductUnits": ""
 }

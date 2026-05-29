@@ -219,11 +219,11 @@ def main(directory_path):
             lca_data['IAproductName'] = ""
             lca_data['IAproductUnits'] = ""
         # •	Representativeness of LCI data - not available
-        # •	Preparation of the basis for impact assessment
-        if "impacts" in data:
-            lca_data['LCIA'] = json.loads(json.dumps(dict(enumerate(data["impacts"]))))
-        else:
-            lca_data["LCIA"] = ""
+        # •	Preparation of the basis for impact assessment - available but not required so no good data here
+        # if "impacts" in data:
+        #     lca_data['LCIA'] = json.loads(json.dumps(dict(enumerate(data["impacts"]))))
+        # else:
+        #     lca_data["LCIA"] = ""
 
         # •	Special requirements for system comparisons - not available in data
         # •	Needs for critical review - not available in data
