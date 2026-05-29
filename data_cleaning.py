@@ -110,6 +110,19 @@ def main(directory_path):
                     lca_data["systemBoundaryCompleteness"] = data_cycle["completeness"]
                 else:
                     lca_data['systemBoundaryCompleteness'] = ""
+                # could extract cycle product information, but this is likely recaptured in IA product information
+                # if "products" in data_cycle:
+                #     if "name" in data_cycle['products']:
+                #         lca_data['CycleproductName'] = data_cycle['products']['term']['name']
+                #     else:
+                #         lca_data['CycleproductName'] = ""
+                #     if "units" in data_cycle['products']:
+                #         lca_data['CycleproductUnits'] = data_cycle['products']['term']['units']
+                #     else:
+                #         lca_data['CycleproductUnits'] = ""
+                # else:
+                #     lca_data['CycleproductName'] = ""
+                #     lca_data['CycleproductUnits'] = ""
             except UnicodeDecodeError as e:
                 print(e, entry_name, "skipping cycle")
                 lca_data['cycleDescription'] = ""
@@ -206,14 +219,6 @@ def main(directory_path):
                 lca_data['IAmethodClassification'] = data['product']['methodClassification']
             else:
                 lca_data['IAmethodClassification'] = ""
-            if "name" in data['product']:
-                lca_data['IAproductName'] = data['product']['name']
-            else:
-                lca_data['IAproductName'] = ""
-            if "units" in data['product']:
-                lca_data['IAproductUnits'] = data['product']['units']
-            else:
-                lca_data['IAproductUnits'] = ""
         else:
             lca_data['IAproduct_fate'] = ""
             lca_data['IAproduct_properties'] = ""
