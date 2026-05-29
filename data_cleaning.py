@@ -94,7 +94,7 @@ def main(directory_path):
                 else:
                     lca_data['cycleDescription'] = ""
                 if "defaultMethodClassification" in data_cycle:
-                    lca_data['cycleMethodClassification'] = data_cycle["cycleMethodClassification"]
+                    lca_data['cycleMethodClassification'] = data_cycle["defaultMethodClassification"]
                 else:
                     lca_data['cycleMethodClassification'] = ""
                 if "functionalUnit" in data_cycle:
@@ -117,7 +117,7 @@ def main(directory_path):
         # •	Commissioner of the study and other influential actors - source
         source = data['source']["@id"]
         lca_data['sourceID'] = source
-        with open(directory_path + "Source/{}".format(cycle) + extension, 'r', encoding='utf-8') as f_source:
+        with open(directory_path + "Source/{}".format(source) + extension, 'r', encoding='utf-8') as f_source:
             try:
                 data_source = json.load(f_source)
                 # while it would be nice to have a list of all the authors associated with the manuscript,
@@ -167,32 +167,32 @@ def main(directory_path):
         # •	Deliverables - not included in present data
         # •	Object of the assessment - name
         if "name" in data:
-            lca_data['name'] = data['name']
+            lca_data['IAname'] = data['name']
         else:
-            lca_data['name'] = ""
+            lca_data['IAname'] = ""
         # •	LCI modelling framework and handling of multifunctional processes - allocationMethod, LCI modelling
         # framework is recalculated to include all possible LCIA methods (107 midpoint methods at a count)
         if "allocationMethod" in data:
-            lca_data['allocationMethod'] = data['allocationMethod']
+            lca_data['IAallocationMethod'] = data['allocationMethod']
         else:
-            lca_data['allocationMethod'] = ""
+            lca_data['IAallocationMethod'] = ""
         # •	System boundaries and completeness requirements - functional unit quantity, product, info in cycle.json
         if "functionalUnitQuantity" in data:
-            lca_data['functionalUnitQuantity'] = data['functionalUnitQuantity']
+            lca_data['IAfunctionalUnitQuantity'] = data['functionalUnitQuantity']
         else:
-            lca_data['functionalUnitQuantity'] = ""
+            lca_data['IAfunctionalUnitQuantity'] = ""
         if "product" in data:
             if "fate" in data["product"]:
-                lca_data["product_fate"] = data["product"]["fate"]
+                lca_data["IAproduct_fate"] = data["product"]["fate"]
             else:
-                lca_data['product_fate'] = ""
+                lca_data['IAproduct_fate'] = ""
             if "properties" in data["product"]:
                 # flattening handled when data table is made
-                lca_data["product_properties"] = json.loads(json.dumps(dict(enumerate(data["product"]["properties"]))))
+                lca_data["IAproduct_properties"] = json.loads(json.dumps(dict(enumerate(data["product"]["properties"]))))
             else:
                 lca_data['product_properties'] = ""
             if "primary" in data["product"]:
-                lca_data["product_primary"] = data["product"]["primary"]
+                lca_data["IAproduct_primary"] = data["product"]["primary"]
             else:
                 lca_data['product_primary'] = ""
             if "methodClassification" in data['product']:
@@ -200,37 +200,26 @@ def main(directory_path):
             else:
                 lca_data['IAmethodClassification'] = ""
             if "name" in data['product']:
-                lca_data['productName'] = data['product']['name']
+                lca_data['IAproductName'] = data['product']['name']
             else:
-                lca_data['productName'] = ""
+                lca_data['IAproductName'] = ""
             if "units" in data['product']:
-                lca_data['productUnits'] = data['product']['units']
+                lca_data['IAproductUnits'] = data['product']['units']
             else:
-                lca_data['productUnits'] = ""
+                lca_data['IAproductUnits'] = ""
         else:
-            lca_data['product_fate'] = ""
-            lca_data['product_properties'] = ""
-            lca_data['product_primary'] = ""
-            lca_data['IAmethodClassification'] = ""
-            lca_data['productName'] = ""
-            lca_data['productUnits'] = ""
+            lca_data['IAproduct_fate'] = ""
+            lca_data['IAproduct_properties'] = ""
+            lca_data['IAproduct_primary'] = ""
+            lca_data['IAIAmethodClassification'] = ""
+            lca_data['IAproductName'] = ""
+            lca_data['IAproductUnits'] = ""
         # •	Representativeness of LCI data - not available
         # •	Preparation of the basis for impact assessment
         if "impacts" in data:
-            if "methodModel" in data['impacts']:
-                lca_data["LCIAMethodModel"] = data['impacts']["methodModel"]['name']
-            else:
-                lca_data["LCIAMethodModel"] = ""
-            if "term" in data['impacts']:
-                lca_data["LCIAIndicator"] = data['impacts']["term"]['name']
-                lca_data["LCIAIndicatorUnits"] = data['impacts']["term"]['units']
-            else:
-                lca_data["LCIAIndicator"] = ""
-                lca_data["LCIAIndicatorUnits"] = ""
+            lca_data['LCIA'] = json.loads(json.dumps(dict(enumerate(data["impacts"]))))
         else:
-            lca_data["LCIAMethodModel"] = ""
-            lca_data["LCIAIndicator"] = ""
-            lca_data["LCIAIndicatorUnits"] = ""
+            lca_data["LCIA"] = ""
 
         # •	Special requirements for system comparisons - not available in data
         # •	Needs for critical review - not available in data

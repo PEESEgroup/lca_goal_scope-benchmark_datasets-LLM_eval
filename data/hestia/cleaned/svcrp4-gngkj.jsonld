@@ -1,0 +1,83 @@
+{
+    "siteID": "sxnkvclfga9p",
+    "siteDescription": "For 6 months, the herd was kept in a stable with access to an external paddock",
+    "siteName": "Permanent pasture - CISRA - Torino (Provincia), Piemonte, Italy - For 6 months, the herd was kep...",
+    "siteMethodClassification": "",
+    "siteType": "permanent pasture",
+    "siteLocation": "Italy - Torino (Provincia), Piemonte, Italy",
+    "cycleID": "2f6vhy0sxn-4",
+    "cycleDescription": "Semi-intensive sheep grazing cycle in Northern Italy.",
+    "cycleMethodClassification": "non-verified survey data",
+    "functionalUnit": "relative",
+    "systemBoundaryCompleteness": {
+        "electricityFuel": false,
+        "transport": false,
+        "material": false,
+        "fertiliser": false,
+        "seed": true,
+        "pesticideVeterinaryDrug": false,
+        "soilAmendment": true,
+        "water": false,
+        "product": true,
+        "cropResidue": true,
+        "excreta": false,
+        "animalFeed": true,
+        "animalPopulation": true,
+        "waste": false,
+        "operation": false,
+        "freshForage": false,
+        "ingredient": true,
+        "liveAnimalInput": true,
+        "otherChemical": true,
+        "@type": "Completeness"
+    },
+    "sourceID": "dy6dujvbj6x0",
+    "DOI": "10.3389/fvets.2020.00651",
+    "title": "A New Approach to LCA Evaluation of Lamb Meat Production in Two Different Breeding Systems in Northern Italy",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
+    "name": "Sheep, lamb (weaned) - Italy - 2019",
+    "allocationMethod": "none required",
+    "functionalUnitQuantity": 1,
+    "product_fate": "",
+    "product_properties": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "name": "Age",
+                "termType": "property",
+                "@id": "age",
+                "units": "days"
+            },
+            "value": 155.4,
+            "methodClassification": "estimated with assumptions",
+            "methodClassificationDescription": "It appears that part of the supplementary document is missing, therefore the same age has been assumed for both systems",
+            "share": 100,
+            "@type": "Property"
+        },
+        "1": {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 32.6,
+            "methodClassification": "estimated with assumptions",
+            "methodClassificationDescription": "It appears that part of the supplementary document is missing, therefore the same slaughter weight has been assumed for both systems",
+            "share": 100,
+            "@type": "Property"
+        }
+    },
+    "product_primary": true,
+    "IAmethodClassification": "",
+    "productName": "",
+    "productUnits": "",
+    "LCIAMethodModel": "",
+    "LCIAIndicator": "",
+    "LCIAIndicatorUnits": ""
+}
