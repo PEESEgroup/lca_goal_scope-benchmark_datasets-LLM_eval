@@ -10,20 +10,13 @@ import evaluate_models
 
 
 def main():
-    filenames = ["llm-goal-scope/data/qa_dataset/original/no_rag/systemBoundaryQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/original/no_rag/allocationQA.jsonl",  
-                 "llm-goal-scope/data/qa_dataset/original/no_rag/functionalUnitQA.jsonl", 
-                 "llm-goal-scope/data/qa_dataset/original/no_rag/productQA.jsonl", 
-                 "llm-goal-scope/data/qa_dataset/recalculated/no_rag/functionalUnitQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/recalculated/no_rag/productQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/recalculated/no_rag/systemBoundaryQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/original/rag/rag_allocationQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/original/rag/rag_functionalUnitQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/original/rag/rag_productQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/original/rag/rag_systemBoundaryQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_functionalUnitQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_productQA.jsonl",
-                 "llm-goal-scope/data/qa_dataset/recalculated/rag/rag_systemBoundaryQA.jsonl"
+    filenames = ["./data/dataset/original/no_rag/System Boundary.jsonl",
+                 "./data/dataset/original/no_rag/Allocation.jsonl",
+                 "./data/dataset/original/no_rag/Functional Unit.jsonl",
+                 "./data/dataset/original/no_rag/Product.jsonl",
+                 "./data/dataset/standardized/no_rag/Functional Unit.jsonl",
+                 "./data/dataset/standardized/no_rag/Product.jsonl",
+                 "./data/dataset/standardized/no_rag/System Boundary.jsonl",
                  ]
 
     # for each dataset
