@@ -1,4 +1,6 @@
 import json
+import os
+
 import pandas as pd
 import itertools
 import constants
@@ -18,12 +20,12 @@ def intendedApplication(row):
         return [{"labels": [row["intendedApplication"]],
                  "title": "Intended Application",
                  "context": row["systemDescription"],
-                 "source": "",
-                 "study": "",
-                 "cycle": "",
-                 "site": "",
-                 "default method classification": "",
-                 "bibliography": ""}]
+                 "source": row['sourceID'],
+                 "DOI": row['DOI'],
+                 "cycle": row['cycleID'],
+                 "site": row['siteID'],
+                 "default method classification": row['cycleMethodClassification'],
+                 "original study title": row['title']}]
 
 
 def studyReasons(row):
@@ -38,12 +40,12 @@ def studyReasons(row):
         return [{"labels": [row["studyReasons"]],
                  "title": "Study Reasons",
                  "context": row["systemDescription"],
-                 "source": "",
-                 "study": "",
-                 "cycle": "",
-                 "site": "",
-                 "default method classification": "",
-                 "bibliography": ""}]
+                 "source": row['sourceID'],
+                 "DOI": row['DOI'],
+                 "cycle": row['cycleID'],
+                 "site": row['siteID'],
+                 "default method classification": row['cycleMethodClassification'],
+                 "original study title": row['title']}]
 
 
 def targetAudience(row):
@@ -58,12 +60,12 @@ def targetAudience(row):
         return [{"labels": [row["intendedAudience"]],
                  "title": "Target Audience",
                  "context": row["systemDescription"],
-                 "source": "",
-                 "study": "",
-                 "cycle": "",
-                 "site": "",
-                 "default method classification": "",
-                 "bibliography": ""}]
+                 "source": row['sourceID'],
+                 "DOI": row['DOI'],
+                 "cycle": row['cycleID'],
+                 "site": row['siteID'],
+                 "default method classification": row['cycleMethodClassification'],
+                 "original study title": row['title']}]
 
 
 def comparativeAssertions(row):
@@ -79,12 +81,12 @@ def comparativeAssertions(row):
         return [{"labels": [row["comparativeAssertions"]],
                  "title": "Comparative Assertion",
                  "context": row["systemDescription"],
-                 "source": "",
-                 "study": "",
-                 "cycle": "",
-                 "site": "",
-                 "default method classification": "",
-                 "bibliography": ""}]
+                 "source": row['sourceID'],
+                 "DOI": row['DOI'],
+                 "cycle": row['cycleID'],
+                 "site": row['siteID'],
+                 "default method classification": row['cycleMethodClassification'],
+                 "original study title": row['title']}]
 
 
 def actors(row):
@@ -103,12 +105,12 @@ def actors(row):
             {"labels": [row["organization"], "authors of the study", "authors and their collaborators"],
              "title": "Actors",
              "context": row["systemDescription"],
-                 "source": "",
-                 "study": "",
-                 "cycle": "",
-                 "site": "",
-                 "default method classification": "",
-                 "bibliography": ""}]
+                 "source": row['sourceID'],
+                 "DOI": row['DOI'],
+                 "cycle": row['cycleID'],
+                 "site": row['siteID'],
+                 "default method classification": row['cycleMethodClassification'],
+                 "original study title": row['title']}]
 
 
 def product(row):
@@ -117,24 +119,21 @@ def product(row):
     :param row: row of data
     :return: entry for json-ld dataset
     """
-    if len(row["name"]) == 0:
+    if len(row["IA_productName"]) == 0:
         return ""
     else:
-        labels = [row["name"].split('-')[0].strip()]
-        final_labels = []
-        for j in labels:
-            category = j.split(",")[0].strip()
-            final_labels.append(j)
-            final_labels.append(category)
+        label = row["IA_productName"]
+        category = label.split(",")[0].strip()
+        final_labels = list({label, category})
         return [{"labels": final_labels,
-                 "title": "Object of Assessment",
+                 "title": "Product of Assessment",
                  "context": row["systemDescription"],
-                 "source": "",
-                 "study": "",
-                 "cycle": "",
-                 "site": "",
-                 "default method classification": "",
-                 "bibliography": ""}]
+                 "source": row['sourceID'],
+                 "DOI": row['DOI'],
+                 "cycle": row['cycleID'],
+                 "site": row['siteID'],
+                 "default method classification": row['cycleMethodClassification'],
+                 "original study title": row['title']}]
 
 
 def allocation(row):
@@ -143,19 +142,19 @@ def allocation(row):
     :param row: row of data
     :return: entry for json-ld dataset
     """
-    if len(row["allocationMethod"]) == 0:
+    if len(row["IAallocationMethod"]) == 0:
         return ""
     else:
         return [{
-            "labels": [row["allocationMethod"]],
+            "labels": [row["IAallocationMethod"]],
             "title": "Allocation Method",
             "context": row["systemDescription"],
-                 "source": "",
-                 "study": "",
-                 "cycle": "",
-                 "site": "",
-                 "default method classification": "",
-                 "bibliography": ""}]
+                 "source": row['sourceID'],
+                 "DOI": row['DOI'],
+                 "cycle": row['cycleID'],
+                 "site": row['siteID'],
+                 "default method classification": row['cycleMethodClassification'],
+                 "original study title": row['title']}]
 
 
 def systemBoundary(row):
@@ -181,12 +180,12 @@ def systemBoundary(row):
     data.append({"labels": labels,
                  "title": "System Boundary Completeness",
                  "context": row["systemDescription"] + " What is in the system boundary?",
-                 "source": "",
-                 "study": "",
-                 "cycle": "",
-                 "site": "",
-                 "default method classification": "",
-                 "bibliography": ""})
+                 "source": row['sourceID'],
+                 "DOI": row['DOI'],
+                 "cycle": row['cycleID'],
+                 "site": row['siteID'],
+                 "default method classification": row['cycleMethodClassification'],
+                 "original study title": row['title']})
     return data
 
 
@@ -197,33 +196,19 @@ def functionalUnit(row):
     :return: entry for json-ld dataset
     """
     fUnit = []
-    if len(row["functionalUnit"]) != 0:
-        fUnit.append(row["functionalUnit"])
-    if len(row["product_properties.0.term.functionalUnit"]) != 0:
-        fUnit.append(row["product_properties.0.term.functionalUnit"])
-    if len(row["product_properties.1.term.functionalUnit"]) != 0:
-        fUnit.append(row["product_properties.1.term.functionalUnit"])
-    if len(row["product_properties.2.term.functionalUnit"]) != 0:
-        fUnit.append(row["product_properties.2.term.functionalUnit"])
-    if len(row["product_properties.3.term.functionalUnit"]) != 0:
-        fUnit.append(row["product_properties.3.term.functionalUnit"])
-
-    fUnit = [i.replace("/ ", "/").replace(" /", "/") for i in fUnit]
-    fUnit = list(set(fUnit))  # remove duplicates
-
-    if len(fUnit) == 0:
+    if len(row["IA_productUnit"]) == 0:
         return ""
     else:
         return [
-            {"labels": fUnit,
+            {"labels": row["IA_productUnit"],
              "title": "Functional Unit",
              "context": row["systemDescription"],
-                 "source": "",
-                 "study": "",
-                 "cycle": "",
-                 "site": "",
-                 "default method classification": "",
-                 "bibliography": ""}]
+                 "source": row['sourceID'],
+                 "DOI": row['DOI'],
+                 "cycle": row['cycleID'],
+                 "site": row['siteID'],
+                 "default method classification": row['cycleMethodClassification'],
+                 "original study title": row['title']}]
 
 
 def systemDescription(row):
@@ -232,11 +217,36 @@ def systemDescription(row):
     :param row: row of dataframe
     :return: sentence describing the LCA system
     """
-    names = row["name"].split('-')
+    names = row["IAname"].split('-')
     if len(row["cycleDescription"]) > 0:
-        return row["siteType"] + " producing " + names[0].strip() + " in " + names[
-            1].strip() + ". Additional description: " + row["cycleDescription"] + "."
-    return row["siteType"] + " producing " + names[0].strip() + " in " + names[1].strip() + "."
+        if len(row['siteType']) > 0:
+            if len(row['siteDescription']) > 0:
+                string_to_return = row["siteType"] + " producing " + names[0].strip() + " in " + names[
+                    1].strip() + ". Cycle description: " + row["cycleDescription"] + ". Site description: " + row["siteDescription"]
+            else:
+                string_to_return = row["siteType"] + " producing " + names[0].strip() + " in " + names[
+                    1].strip() + ". Cycle description: " + row["cycleDescription"] + "."
+        else:
+            if len(row['siteDescription']) > 0:
+                string_to_return = names[0].strip() + " produced in " + names[
+                    1].strip() + ". Cycle description: " + row["cycleDescription"] + ". Site description: " + row["siteDescription"]
+            else:
+                string_to_return = names[0].strip() + " produced in " + names[
+                    1].strip() + ". Cycle description: " + row["cycleDescription"] + "."
+    else:
+        if len(row['siteType']) > 0:
+            if len(row['siteDescription']) > 0:
+                string_to_return = row["siteType"] + " producing " + names[0].strip() + " in " + names[1].strip() + ". Site description: " + row["siteDescription"]
+            else:
+                string_to_return = row["siteType"] + " producing " + names[0].strip() + " in " + names[1].strip() + "."
+        else:
+            if len(row['siteDescription']) > 0:
+                string_to_return = names[0].strip() + " produced in " + names[1].strip() + ". Site description: " + row["siteDescription"]
+            else:
+                string_to_return = names[0].strip() + " produced in " + names[1].strip() + "."
+
+    string_to_return = string_to_return.strip().replace("..", ".").capitalize()
+    return string_to_return
 
 
 def RAG_questions(row):
@@ -288,7 +298,6 @@ def main(output_directory, input_directory, RAG):
     df = df.fillna('')
 
     # if it is RAG, the deduplicated tables already exist, so much of data processing is not necessary
-
     if RAG:
         embeddings = constants.EMBED_MODEL
         vdb = FAISS.load_local("llm-goal-scope/" +
@@ -329,7 +338,7 @@ def main(output_directory, input_directory, RAG):
         df = pd.concat([df, new_cols], axis=1)
 
         # deduplicate dataframe
-        subset_cols = []
+        subset_cols = ['systemDescription', 'Product', 'Allocation', 'System Boundary', 'Functional Unit']
         old_len = len(df)
         df.drop_duplicates(subset=subset_cols)
         print(f'removed duplicates{len(df)-old_len}')
@@ -365,9 +374,10 @@ def main(output_directory, input_directory, RAG):
 
 
 if __name__ == "__main__":
-    main("llm-goal-scope/data/qa_dataset/recalculated/rag/", "llm-goal-scope/data/hestia/recalculated/", False)
-    main("llm-goal-scope/data/qa_dataset/original/rag/", "llm-goal-scope/data/hestia/", False)
+    prefix = "./data/hestia/"
+    print(os.getcwd())
+    main("dataset/standardized/no_rag/", prefix + "recalculated/",False)
+    main("dataset/original/no_rag/", prefix,False)
 
-    # DO NOT RERUN THESE WHEN UPDATING RAG FUNCTION
-    # main("llm-goal-scope/data/qa_dataset/recalculated/no_rag/", "llm-goal-scope/data/hestia/recalculated/",False)
-    # main("llm-goal-scope/data/qa_dataset/original/no_rag/", "llm-goal-scope/data/hestia/",False)
+    main("dataset/standardized/rag/", prefix + "recalculated/", True)
+    main("dataset/original/rag/", prefix, True)
