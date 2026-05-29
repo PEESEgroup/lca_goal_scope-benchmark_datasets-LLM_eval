@@ -44,9 +44,11 @@ def main(directory):
     # drop rows with non-livestock products
     print(df['IA_productName'].unique())
     to_drop = ['Deer', 'Domestic duck', 'Electricity, produced on-site, solar PV', 'Meat, deer (cold carcass weight)',
-               'Meat, deer (liveweight)', 'Meat, game (cold carcass weight)', 'Meat, oyster (without shell)',
-               'Meat, rabbit (cold carcass weight)', 'Offal, deer', 'Rabbit', 'Rabbit, doe', 'Rabbit, kit (weaned)',
-               'Rice, grain (in husk), flooded', 'Shell, freshwater snails', 'Wastewater (kg mass)', 'Wheat, grain']
+               'Meat, deer (liveweight)', 'Meat, freshwater snails (with shell)', 'Meat, game (cold carcass weight)',
+               'Meat, oyster (without shell)', 'Meat, rabbit (cold carcass weight)', 'Offal, deer', 'Rabbit',
+               'Rabbit, doe', 'Rabbit, kit (weaned)', 'Rice, grain (in husk), flooded', 'Shell, freshwater snails',
+               'Shell, oyster', 'Snail meal, without shells', 'Wastewater (kg mass)', 'Wheat, grain']
+
     # list of products that are not livestock or livestock adjacent
     print('Number of records dropped: ' + str(len(df[df['IA_productName'].isin(to_drop)])))
     df = df[~df['IA_productName'].isin(to_drop)]
