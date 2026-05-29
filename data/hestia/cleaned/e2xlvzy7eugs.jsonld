@@ -42,37 +42,8 @@
     "IAname": "Beef cattle, heifer and steer - Spain - 2019",
     "IAallocationMethod": "economic",
     "IAfunctionalUnitQuantity": 1,
-    "IAproduct_fate": "",
-    "IAproduct_properties": {
-        "0": {
-            "term": {
-                "@type": "Term",
-                "name": "Age",
-                "termType": "property",
-                "@id": "age",
-                "units": "days"
-            },
-            "value": 456,
-            "sd": 127.67999999999999,
-            "statsDefinition": "cycles",
-            "share": 100,
-            "@type": "Property"
-        },
-        "1": {
-            "term": {
-                "@type": "Term",
-                "name": "Liveweight per head",
-                "termType": "property",
-                "@id": "liveweightPerHead",
-                "units": "kg liveweight / head"
-            },
-            "value": 462.5,
-            "sd": 17.7,
-            "statsDefinition": "cycles",
-            "share": 100,
-            "@type": "Property"
-        }
-    },
-    "IAproduct_primary": true,
+    "IAproductFate": "",
+    "IA_productName": "Beef cattle, heifer and steer",
+    "IA_productUnit": "number",
     "IAmethodClassification": ""
 }

@@ -42,36 +42,8 @@
     "IAname": "Pig - Australia - 2008",
     "IAallocationMethod": "economic",
     "IAfunctionalUnitQuantity": 1,
-    "IAproduct_fate": "",
-    "IAproduct_properties": {
-        "0": {
-            "term": {
-                "@type": "Term",
-                "name": "Liveweight per head",
-                "termType": "property",
-                "@id": "liveweightPerHead",
-                "units": "kg liveweight / head"
-            },
-            "value": 95,
-            "share": 100,
-            "@type": "Property"
-        },
-        "1": {
-            "term": {
-                "@type": "Term",
-                "name": "Processing conversion, liveweight to cold carcass weight",
-                "termType": "property",
-                "@id": "processingConversionLiveweightToColdCarcassWeight",
-                "units": "%"
-            },
-            "value": 76,
-            "min": 72,
-            "max": 80,
-            "statsDefinition": "other observations",
-            "share": 100,
-            "@type": "Property"
-        }
-    },
-    "IAproduct_primary": true,
+    "IAproductFate": "",
+    "IA_productName": "Pig",
+    "IA_productUnit": "number",
     "IAmethodClassification": ""
 }

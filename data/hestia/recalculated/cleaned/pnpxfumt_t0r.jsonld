@@ -42,33 +42,8 @@
     "IAname": "Dairy cattle, calf (weaned) - France - 2011",
     "IAallocationMethod": "economic",
     "IAfunctionalUnitQuantity": 1,
-    "IAproduct_fate": "sold",
-    "IAproduct_properties": {
-        "0": {
-            "term": {
-                "@type": "Term",
-                "name": "Liveweight per head",
-                "termType": "property",
-                "@id": "liveweightPerHead",
-                "units": "kg liveweight / head"
-            },
-            "value": 56.25,
-            "share": 100,
-            "@type": "Property"
-        },
-        "1": {
-            "term": {
-                "@type": "Term",
-                "name": "Age",
-                "termType": "property",
-                "@id": "age",
-                "units": "days"
-            },
-            "value": 14,
-            "share": 100,
-            "@type": "Property"
-        }
-    },
-    "product_primary": "",
+    "IAproductFate": "sold",
+    "IA_productName": "Dairy cattle, calf (weaned)",
+    "IA_productUnit": "number",
     "IAmethodClassification": ""
 }

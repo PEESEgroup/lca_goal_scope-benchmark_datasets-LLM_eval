@@ -42,21 +42,8 @@
     "IAname": "Milk, cow, raw (FPCM) - France - 2011",
     "IAallocationMethod": "economic",
     "IAfunctionalUnitQuantity": 1,
-    "IAproduct_fate": "sold",
-    "IAproduct_properties": {
-        "0": {
-            "term": {
-                "@type": "Term",
-                "termType": "property",
-                "name": "Fat content",
-                "units": "%",
-                "@id": "fatContent"
-            },
-            "value": 4,
-            "share": 100,
-            "@type": "Property"
-        }
-    },
-    "IAproduct_primary": true,
+    "IAproductFate": "sold",
+    "IA_productName": "Milk, cow, raw (FPCM)",
+    "IA_productUnit": "kg FPCM",
     "IAmethodClassification": "estimated with assumptions"
 }

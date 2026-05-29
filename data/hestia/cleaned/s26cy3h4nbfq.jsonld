@@ -42,37 +42,8 @@
     "IAname": "Beef cattle, calf (weaned) - Spain - 2019",
     "IAallocationMethod": "economic",
     "IAfunctionalUnitQuantity": 1,
-    "IAproduct_fate": "",
-    "IAproduct_properties": {
-        "0": {
-            "term": {
-                "@type": "Term",
-                "name": "Age",
-                "termType": "property",
-                "@id": "age",
-                "units": "days"
-            },
-            "value": 179.36,
-            "sd": 27.36,
-            "statsDefinition": "cycles",
-            "share": 100,
-            "@type": "Property"
-        },
-        "1": {
-            "term": {
-                "@type": "Term",
-                "name": "Liveweight per head",
-                "termType": "property",
-                "@id": "liveweightPerHead",
-                "units": "kg liveweight / head"
-            },
-            "value": 228.6,
-            "sd": 19.5,
-            "statsDefinition": "cycles",
-            "share": 100,
-            "@type": "Property"
-        }
-    },
-    "IAproduct_primary": true,
+    "IAproductFate": "",
+    "IA_productName": "Beef cattle, calf (weaned)",
+    "IA_productUnit": "number",
     "IAmethodClassification": ""
 }

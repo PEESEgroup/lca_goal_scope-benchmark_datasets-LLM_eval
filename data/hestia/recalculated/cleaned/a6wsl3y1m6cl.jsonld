@@ -42,47 +42,8 @@
     "IAname": "Meat, beef cattle (cold dressed carcass weight) - Ireland - 2015",
     "IAallocationMethod": "economic",
     "IAfunctionalUnitQuantity": 1,
-    "IAproduct_fate": "",
-    "IAproduct_properties": {
-        "0": {
-            "term": {
-                "@type": "Term",
-                "termType": "property",
-                "name": "True protein content",
-                "units": "%",
-                "@id": "trueProteinContent"
-            },
-            "value": 23,
-            "description": "Measured on  M. longissimus",
-            "share": 100,
-            "@type": "Property"
-        },
-        "1": {
-            "term": {
-                "@type": "Term",
-                "name": "Processing conversion, hot carcass weight to cold carcass weight",
-                "termType": "property",
-                "@id": "processingConversionHotCarcassWeightToColdCarcassWeight",
-                "units": "%"
-            },
-            "value": 98,
-            "share": 100,
-            "@type": "Property"
-        },
-        "2": {
-            "term": {
-                "@type": "Term",
-                "name": "Ash content",
-                "termType": "property",
-                "@id": "ashContent",
-                "units": "%"
-            },
-            "value": 1.1,
-            "description": "Measured on  M. longissimus",
-            "share": 100,
-            "@type": "Property"
-        }
-    },
-    "IAproduct_primary": true,
+    "IAproductFate": "",
+    "IA_productName": "Meat, beef cattle (cold dressed carcass weight)",
+    "IA_productUnit": "kg cold dressed carcass weight",
     "IAmethodClassification": ""
 }

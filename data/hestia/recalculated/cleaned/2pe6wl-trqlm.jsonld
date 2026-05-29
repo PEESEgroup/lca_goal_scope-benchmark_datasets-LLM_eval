@@ -42,35 +42,8 @@
     "IAname": "Beef cattle, bull - Ireland - 2015",
     "IAallocationMethod": "economic",
     "IAfunctionalUnitQuantity": 1,
-    "IAproduct_fate": "",
-    "IAproduct_properties": {
-        "0": {
-            "term": {
-                "@type": "Term",
-                "name": "Liveweight per head",
-                "termType": "property",
-                "@id": "liveweightPerHead",
-                "units": "kg liveweight / head"
-            },
-            "value": 555.5,
-            "min": 553,
-            "max": 560,
-            "share": 100,
-            "@type": "Property"
-        },
-        "1": {
-            "term": {
-                "@type": "Term",
-                "name": "Age",
-                "termType": "property",
-                "@id": "age",
-                "units": "days"
-            },
-            "value": 510,
-            "share": 100,
-            "@type": "Property"
-        }
-    },
-    "IAproduct_primary": true,
+    "IAproductFate": "",
+    "IA_productName": "Beef cattle, bull",
+    "IA_productUnit": "number",
     "IAmethodClassification": ""
 }

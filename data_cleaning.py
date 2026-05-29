@@ -203,29 +203,25 @@ def main(directory_path):
             lca_data['IAfunctionalUnitQuantity'] = ""
         if "product" in data:
             if "fate" in data["product"]:
-                lca_data["IAproduct_fate"] = data["product"]["fate"]
+                lca_data["IAproductFate"] = data["product"]["fate"]
             else:
-                lca_data['IAproduct_fate'] = ""
-            if "properties" in data["product"]:
+                lca_data['IAproductFate'] = ""
+            if "term" in data["product"]:
                 # flattening handled when data table is made
-                lca_data["IAproduct_properties"] = json.loads(json.dumps(dict(enumerate(data["product"]["properties"]))))
+                lca_data['IA_productName'] = data['product']['term']['name']
+                lca_data['IA_productUnit'] = data['product']['term']['units']
             else:
-                lca_data['product_properties'] = ""
-            if "primary" in data["product"]:
-                lca_data["IAproduct_primary"] = data["product"]["primary"]
-            else:
-                lca_data['product_primary'] = ""
+                lca_data['IA_productName'] = ""
+                lca_data['IA_productUnit'] = ""
             if "methodClassification" in data['product']:
                 lca_data['IAmethodClassification'] = data['product']['methodClassification']
             else:
                 lca_data['IAmethodClassification'] = ""
         else:
-            lca_data['IAproduct_fate'] = ""
-            lca_data['IAproduct_properties'] = ""
-            lca_data['IAproduct_primary'] = ""
-            lca_data['IAIAmethodClassification'] = ""
-            lca_data['IAproductName'] = ""
-            lca_data['IAproductUnits'] = ""
+            lca_data['IAproductFate'] = ""
+            lca_data['IA_productName'] = ""
+            lca_data['IA_productUnit'] = ""
+            lca_data['IAmethodClassification'] = ""
         # •	Representativeness of LCI data - not available
         # •	Preparation of the basis for impact assessment - available but not required so no good data here
         # if "impacts" in data:

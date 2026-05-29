@@ -42,37 +42,8 @@
     "IAname": "Sheep, lamb (weaned) - Italy - 2019",
     "IAallocationMethod": "economic",
     "IAfunctionalUnitQuantity": 1,
-    "IAproduct_fate": "",
-    "IAproduct_properties": {
-        "0": {
-            "term": {
-                "@type": "Term",
-                "name": "Age",
-                "termType": "property",
-                "@id": "age",
-                "units": "days"
-            },
-            "value": 155.4,
-            "methodClassification": "estimated with assumptions",
-            "methodClassificationDescription": "It appears that part of the supplementary document is missing, therefore the same age has been assumed for both systems",
-            "share": 100,
-            "@type": "Property"
-        },
-        "1": {
-            "term": {
-                "@type": "Term",
-                "name": "Liveweight per head",
-                "termType": "property",
-                "@id": "liveweightPerHead",
-                "units": "kg liveweight / head"
-            },
-            "value": 32.6,
-            "methodClassification": "estimated with assumptions",
-            "methodClassificationDescription": "It appears that part of the supplementary document is missing, therefore the same slaughter weight has been assumed for both systems",
-            "share": 100,
-            "@type": "Property"
-        }
-    },
-    "IAproduct_primary": true,
+    "IAproductFate": "",
+    "IA_productName": "Sheep, lamb (weaned)",
+    "IA_productUnit": "number",
     "IAmethodClassification": ""
 }

@@ -42,33 +42,8 @@
     "IAname": "Milk, cow, raw - Italy - 2015",
     "IAallocationMethod": "biophysical",
     "IAfunctionalUnitQuantity": 1,
-    "IAproduct_fate": "",
-    "IAproduct_properties": {
-        "0": {
-            "term": {
-                "@type": "Term",
-                "termType": "property",
-                "name": "Fat content",
-                "units": "%",
-                "@id": "fatContent"
-            },
-            "value": 3.54,
-            "share": 100,
-            "@type": "Property"
-        },
-        "1": {
-            "term": {
-                "@type": "Term",
-                "name": "Crude protein content",
-                "termType": "property",
-                "@id": "crudeProteinContent",
-                "units": "%"
-            },
-            "value": 3.09,
-            "share": 100,
-            "@type": "Property"
-        }
-    },
-    "IAproduct_primary": true,
+    "IAproductFate": "",
+    "IA_productName": "Milk, cow, raw",
+    "IA_productUnit": "kg",
     "IAmethodClassification": ""
 }

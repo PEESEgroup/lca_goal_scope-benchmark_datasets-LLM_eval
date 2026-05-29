@@ -42,33 +42,8 @@
     "IAname": "Pig, sow - Denmark - 2010",
     "IAallocationMethod": "economic",
     "IAfunctionalUnitQuantity": 1,
-    "IAproduct_fate": "breeding",
-    "IAproduct_properties": {
-        "0": {
-            "term": {
-                "@type": "Term",
-                "name": "Weight at maturity",
-                "termType": "property",
-                "@id": "weightAtMaturity",
-                "units": "kg liveweight / head"
-            },
-            "value": 180,
-            "share": 100,
-            "@type": "Property"
-        },
-        "1": {
-            "term": {
-                "@type": "Term",
-                "name": "Liveweight per head",
-                "termType": "property",
-                "@id": "liveweightPerHead",
-                "units": "kg liveweight / head"
-            },
-            "value": 180,
-            "share": 100,
-            "@type": "Property"
-        }
-    },
-    "product_primary": "",
+    "IAproductFate": "breeding",
+    "IA_productName": "Pig, sow",
+    "IA_productUnit": "number",
     "IAmethodClassification": ""
 }
