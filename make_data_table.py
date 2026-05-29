@@ -25,53 +25,20 @@ def main(directory):
 
     # drop unnecessary columns
     if "recalculated" in directory:
-        df = df.drop(columns=['systemBoundaryCompleteness.@type', 'systemBoundaryCompleteness.updatedVersion',
-                              "IAproduct_properties.0.term.@type",
-                              "IAproduct_properties.0.term.termType", "IAproduct_properties.0.term.@id",
-                              "IAproduct_properties.0.@type",
-                              "IAproduct_properties.1.term.@type", "IAproduct_properties.1.min", "IAproduct_properties.1.sd",
-                              "IAproduct_properties.1.term.termType", "IAproduct_properties.1.term.@id",
-                              "IAproduct_properties.2.term.@id",
-                              "IAproduct_properties.1.@type", "IAproduct_properties", "IAproduct_properties.0.date",
-                              "IAproduct_properties.2.@type",
-                              "IAproduct_properties.0.min", "IAproduct_properties.0.max",
-                              "IAproduct_properties.2.methodClassification",
-                              "IAproduct_properties.2.methodClassificationDescription",
-                              "IAproduct_properties.0.statsDefinition",
-                              "IAproduct_properties.1.max", "IAproduct_properties.1.statsDefinition",
-                              "IAproduct_properties.0.sd", "IAproduct_properties.1.methodClassification",
-                              "IAproduct_properties.1.methodClassificationDescription",
-                              "IAproduct_properties.0.methodClassification",
-                              "IAproduct_properties.0.methodClassificationDescription", "IAproduct_properties.3.term.@type",
-                              "IAproduct_properties.3.term.termType",
-                              "IAproduct_properties.3.term.@id", "IAproduct_properties.3.@type",
-                              "IAproduct_properties.0.methodModelDescription",
-                              "IAproduct_properties.1.methodModelDescription", "IAproduct_properties.2.term.@type",
-                              "IAproduct_properties.2.term.termType"
+        df = df.drop(columns=['systemBoundaryCompleteness.@type',  # no real data
+                              'systemBoundaryCompleteness.updated',   # unnecessary, what was recalcualted compared to original
+                              'systemBoundaryCompleteness.updatedVersion',  # unnecessary, what was recalcualted compared to original
+                              'IAmethodClassification',  # mostly empty
+                              'IAproductFate',  # mostly empty
+                              'IAfunctionalUnitQuantity',  # all 1
+                              'siteMethodClassification'  # mostly empty
                               ])
     else:
-        df = df.drop(columns=['systemBoundaryCompleteness.@type', "IAproduct_properties.0.term.@type",
-                              "IAproduct_properties.0.term.termType", "IAproduct_properties.0.term.@id",
-                              "IAproduct_properties.0.@type",
-                              "IAproduct_properties.1.term.@type", "IAproduct_properties.1.min", "IAproduct_properties.1.sd",
-                              "IAproduct_properties.1.term.termType", "IAproduct_properties.1.term.@id",
-                              "IAproduct_properties.2.term.@id",
-                              "IAproduct_properties.1.@type", "IAproduct_properties", "IAproduct_properties.0.date",
-                              "IAproduct_properties.2.@type",
-                              "IAproduct_properties.0.min", "IAproduct_properties.0.max",
-                              "IAproduct_properties.2.methodClassification",
-                              "IAproduct_properties.2.methodClassificationDescription",
-                              "IAproduct_properties.0.statsDefinition",
-                              "IAproduct_properties.1.max", "IAproduct_properties.1.statsDefinition",
-                              "IAproduct_properties.0.sd", "IAproduct_properties.1.methodClassification",
-                              "IAproduct_properties.1.methodClassificationDescription",
-                              "IAproduct_properties.0.methodClassification",
-                              "IAproduct_properties.0.methodClassificationDescription", "IAproduct_properties.3.term.@type",
-                              "IAproduct_properties.3.term.termType",
-                              "IAproduct_properties.3.term.@id", "IAproduct_properties.3.@type",
-                              "IAproduct_properties.0.methodModelDescription",
-                              "IAproduct_properties.1.methodModelDescription", "IAproduct_properties.2.term.@type",
-                              "IAproduct_properties.2.term.termType"
+        df = df.drop(columns=['systemBoundaryCompleteness.@type',  # no data
+                              'IAmethodClassification', # mostly empty
+                              'IAproductFate',  # mostly empty
+                              'IAfunctionalUnitQuantity',  # all 1
+                              'siteMethodClassification'  # mostly empty
                               ])
 
     # relabel columns - Hestia says FU are given by the term of the product (units)
