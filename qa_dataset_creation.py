@@ -326,6 +326,17 @@ def main(output_directory, input_directory, RAG):
         # •	Representativeness of LCI data, not available, skipping
         # •	Preparation of the basis for impact assessment - LCIA method not included in base ImpactAssessment, too many versions in recalculated
 
+        # deduplicate by an a-priori knowledge of what columns are referenced throughout
+        old_len = len(df)
+        subset_columns = []
+        for i in df.columns.to_list():
+            if "systemBoundaryCompleteness" in i:
+                subset_columns.append(i)
+        subset_columns.extend(['IA_productName', "IAallocationMethod", "IA_productUnit", "IAname",
+                               "cycleDescription", "siteType", "siteDescription"])
+        df = df.drop_duplicates(subset=subset_columns)
+        print(f'removed duplicates {old_len - len(df)}')
+
         # system description needs to be created before other data
         tqdm.pandas(desc="Creating System Description")
         df["systemDescription"] = df.progress_apply(lambda row: systemDescription(row), axis=1)
@@ -338,11 +349,7 @@ def main(output_directory, input_directory, RAG):
         df = pd.concat([df, new_cols], axis=1)
 
         # deduplicate dataframe
-        subset_cols = ['systemDescription', 'Product', 'Allocation', 'System Boundary', 'Functional Unit']
-        old_len = len(df)
-        df.drop_duplicates(subset=subset_cols)
-        print(f'removed duplicates{len(df)-old_len}')
-
+        subset_cols = ['Product', 'Allocation', 'System Boundary', 'Functional Unit']
         # output the data
         df = df[subset_cols]
         for i in tqdm(df.columns):
@@ -376,8 +383,8 @@ def main(output_directory, input_directory, RAG):
 if __name__ == "__main__":
     prefix = "./data/hestia/"
     print(os.getcwd())
-    main("dataset/standardized/no_rag/", prefix + "recalculated/",False)
-    main("dataset/original/no_rag/", prefix,False)
+    main("./data/dataset/standardized/no_rag/", prefix + "recalculated/", False)
+    main("./data/dataset/original/no_rag/", prefix, False)
 
-    main("dataset/standardized/rag/", prefix + "recalculated/", True)
-    main("dataset/original/rag/", prefix, True)
+    # main("dataset/standardized/rag/", prefix + "recalculated/", True)
+    # main("dataset/original/rag/", prefix, True)
