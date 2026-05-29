@@ -82,8 +82,7 @@ def main(directory_path):
                 lca_data['siteMethodClassification'] = "missing site"
                 # lca_data['organization'] = ""
         else:
-            print("site not crossreferenced in Impact Assessment data, skipping")
-            continue
+            print("site not crossreferenced in Impact Assessment data")
 
         # •	Comparative studies to be disclosed to the public - some studies have comparative studies,
         # which I think are called cycles
