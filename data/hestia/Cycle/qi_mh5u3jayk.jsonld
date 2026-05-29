@@ -1,0 +1,413 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2023-10-20",
+  "updatedAt": "2025-01-08",
+  "@id": "qi_mh5u3jayk",
+  "@type": "Cycle",
+  "endDate": "2011",
+  "functionalUnit": "1 ha",
+  "site": {
+    "@id": "o-9hx6qnuqbs",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "hjjvya1xvrsc",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "modelled",
+  "defaultMethodClassificationDescription": "Linear programming models applied at farm level allows integrate economic, production and environmental issues based on micro accounting data and technical knowledge of farming systems",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Single Super Phosphate (kg P2O5)",
+        "termType": "inorganicFertiliser",
+        "@id": "singleSuperPhosphateKgP2O5",
+        "units": "kg P2O5"
+      },
+      "value": [
+        44
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Ryegrass, hay",
+        "units": "kg",
+        "@id": "ryegrassHay"
+      },
+      "isAnimalFeed": true,
+      "impactAssessment": {
+        "@id": "pv7ic8cya-4a",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Common vetch, hay",
+        "units": "kg",
+        "@id": "commonVetchHay"
+      },
+      "isAnimalFeed": true,
+      "impactAssessment": {
+        "@id": "kh3tuhra-nkx",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Oat, grain",
+        "units": "kg",
+        "@id": "oatGrain"
+      },
+      "isAnimalFeed": true,
+      "impactAssessment": {
+        "@id": "1a4qhrwuwacu",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Wheat, straw",
+        "units": "kg",
+        "@id": "wheatStraw"
+      },
+      "isAnimalFeed": true,
+      "impactAssessment": {
+        "@id": "ym6n_ruskwyp",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Durum wheat, straw",
+        "units": "kg",
+        "@id": "durumWheatStraw"
+      },
+      "isAnimalFeed": true,
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Charolais",
+        "termType": "animalBreed",
+        "@id": "charolais",
+        "units": "%"
+      },
+      "value": [
+        98.93617021276596
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Limousin",
+        "termType": "animalBreed",
+        "@id": "limousin",
+        "units": "%"
+      },
+      "value": [
+        1.0638297872340425
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "operation",
+        "name": "Fertilising, machine unspecified",
+        "units": "hour",
+        "@id": "fertilisingMachineUnspecified"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Rainfed",
+        "termType": "waterRegime",
+        "@id": "rainfed",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "system",
+        "name": "Silvopasture system",
+        "units": "% area",
+        "@id": "silvopastureSystem"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "system",
+        "name": "Confined pasture system",
+        "units": "%",
+        "@id": "confinedPastureSystem"
+      },
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, cow",
+        "units": "number",
+        "@id": "beefCattleCow"
+      },
+      "animalId": "Cows",
+      "referencePeriod": "average",
+      "value": 1.0165184243964422,
+      "description": "Crossbred cows with similar characteristics to Charolasie cows.",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "property",
+            "name": "Conception rate, natural breeding",
+            "units": "%",
+            "@id": "conceptionRateNaturalBreeding"
+          },
+          "value": 90,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, heifer",
+        "units": "number",
+        "@id": "beefCattleHeifer"
+      },
+      "animalId": "Heifers",
+      "referencePeriod": "average",
+      "value": 0.15247776365946633,
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, bull",
+        "units": "number",
+        "@id": "beefCattleBull"
+      },
+      "animalId": "Bulls",
+      "referencePeriod": "average",
+      "value": 0.025412960609911054,
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, calf (male, unweaned)",
+        "units": "number",
+        "@id": "beefCattleCalfMaleUnweaned"
+      },
+      "animalId": "Male Unweaned Calves",
+      "referencePeriod": "average",
+      "value": 0.44472681067344344,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Mortality rate",
+            "termType": "property",
+            "@id": "mortalityRate",
+            "units": "%"
+          },
+          "value": 3,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, calf (female, unweaned)",
+        "units": "number",
+        "@id": "beefCattleCalfFemaleUnweaned"
+      },
+      "animalId": "Female Unweaned Calves",
+      "referencePeriod": "average",
+      "value": 0.44472681067344344,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Mortality rate",
+            "termType": "property",
+            "@id": "mortalityRate",
+            "units": "%"
+          },
+          "value": 3,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, calf (male, weaned)",
+        "units": "number",
+        "@id": "beefCattleCalfMaleWeaned"
+      },
+      "value": [
+        0.43138500635324006
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 245,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "fate": "sold",
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, calf (female, weaned)",
+        "units": "number",
+        "@id": "beefCattleCalfFemaleWeaned"
+      },
+      "value": [
+        0.29224904701397714
+      ],
+      "primary": false,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 220,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "fate": "sold",
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, beef cattle, except feedlot fed (kg mass)",
+        "units": "kg",
+        "@id": "excretaBeefCattleExceptFeedlotFedKgMass"
+      },
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "transformationId": "1",
+      "term": {
+        "@type": "Term",
+        "name": "Pasture/Range/Paddock (excreta management)",
+        "termType": "excretaManagement",
+        "@id": "pastureRangePaddockExcretaManagement"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, beef cattle, except feedlot fed (kg mass)",
+            "units": "kg",
+            "@id": "excretaBeefCattleExceptFeedlotFedKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "@type": "Transformation"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "otherChemical": true,
+    "ingredient": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": false,
+    "excreta": false,
+    "animalFeed": true,
+    "freshForage": false,
+    "animalPopulation": true,
+    "liveAnimalInput": true,
+    "waste": false,
+    "operation": false,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Beef cattle, calf (male, weaned) - Ferreira do Alentejo, Portugal - 2011",
+  "siteArea": 1,
+  "schemaVersion": "30.5.0",
+  "originalId": "Livestock"
+}

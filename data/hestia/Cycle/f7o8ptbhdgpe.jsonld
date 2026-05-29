@@ -1,0 +1,125 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-02-09",
+  "updatedAt": "2025-01-23",
+  "@id": "f7o8ptbhdgpe",
+  "@type": "Cycle",
+  "description": "Conversion of animals to meat",
+  "endDate": "2014",
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "ciyzy5vihc_o",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "bjlulokiutoa",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "physical measurement",
+  "defaultMethodClassificationDescription": "Experimental study with data collected throughout for inputs and outputs",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, bull",
+        "units": "number",
+        "@id": "beefCattleBull"
+      },
+      "value": [
+        29.25
+      ],
+      "impactAssessment": {
+        "@id": "br6gb3yf6owv",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Transport, unspecified",
+            "termType": "transport",
+            "@id": "transportUnspecified",
+            "units": "tkm"
+          },
+          "distance": 63,
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Indoor animal system",
+        "termType": "system",
+        "@id": "indoorAnimalSystem",
+        "units": "%"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, beef cattle (cold carcass weight)",
+        "units": "kg cold carcass weight",
+        "@id": "meatBeefCattleColdCarcassWeight"
+      },
+      "value": [
+        9009
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Processing conversion, hot carcass weight to cold carcass weight",
+            "termType": "property",
+            "@id": "processingConversionHotCarcassWeightToColdCarcassWeight",
+            "units": "%"
+          },
+          "value": 0.98,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "primary": true,
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": true,
+    "soilAmendment": true,
+    "water": true,
+    "product": false,
+    "cropResidue": true,
+    "excreta": true,
+    "animalFeed": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "freshForage": true,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Meat, beef cattle (cold carcass weight) - Ireland - 2014 - Conversion of animals to meat",
+  "schemaVersion": "30.5.0",
+  "originalId": "(19AL) Beef to meat cycle"
+}

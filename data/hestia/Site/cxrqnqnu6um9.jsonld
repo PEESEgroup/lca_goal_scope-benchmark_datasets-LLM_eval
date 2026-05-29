@@ -1,0 +1,28 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Site.jsonld",
+  "createdAt": "2024-05-08",
+  "updatedAt": "2024-12-06",
+  "@id": "cxrqnqnu6um9",
+  "@type": "Site",
+  "defaultSource": {
+    "@id": "zbwr_kpj1nsn",
+    "@type": "Source"
+  },
+  "siteType": "agri-food processor",
+  "country": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Ireland",
+    "@id": "GADM-IRL"
+  },
+  "organisation": {
+    "@id": "kteg_pqjkyxd",
+    "@type": "Organisation"
+  },
+  "defaultMethodClassification": "modelled",
+  "defaultMethodClassificationDescription": "An established bio-economic model of Irish lowland sheep flock, the Teagasc Lamb Production Model (TLPM; Bohan et al., 2016) was used. Key model inputs included animal production data, market prices for sheep and wool sales, market prices for variable and fixed costs, stocking rate, and fertiliser use. Production values assumed for animals divergent in genetic merit in this study were derived from the Irish national sheep production data- base, using 387,580 production records from animals born between 2018 and 2020 in commericial flocks in the Irish Central Progeny Test programme (McHugh et al., 2022). Key model outputs included stock inventories, production at a whole farm level, total income and expenses, farm gross margin, and net profit expressed on either a whole farm, per ha, per ewe, or per lamb born basis.",
+  "dataPrivate": false,
+  "name": "Agri-food processor - Irish lowland sheep farm - Ireland",
+  "schemaVersion": "30.4.0",
+  "originalId": "4"
+}

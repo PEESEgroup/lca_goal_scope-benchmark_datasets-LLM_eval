@@ -1,0 +1,267 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-02-09",
+  "updatedAt": "2024-12-03",
+  "@id": "jwxc-r6kdjoi",
+  "@type": "Cycle",
+  "description": "Sow and piglets",
+  "endDate": "2009",
+  "numberOfCycles": 63,
+  "site": {
+    "@id": "iedczbv1mwc4",
+    "@type": "Site"
+  },
+  "functionalUnit": "relative",
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Dutch FADN data. Collects data on pig fattening units on a randomly selected stratified sample.",
+  "defaultSource": {
+    "@id": "wrmscfgrhpfy",
+    "@type": "Source"
+  },
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed blend",
+        "termType": "processedFood",
+        "@id": "concentrateFeedBlend",
+        "units": "kg"
+      },
+      "isAnimalFeed": true,
+      "value": [
+        5711.472
+      ],
+      "impactAssessment": {
+        "@id": "qbjechu6rc5x",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Food processing waste",
+        "termType": "waste",
+        "@id": "foodProcessingWaste",
+        "units": "kg"
+      },
+      "isAnimalFeed": true,
+      "description": "Wer by-products from the food producing industry.",
+      "value": [
+        1073.952
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig, piglet",
+        "units": "number",
+        "@id": "pigPiglet"
+      },
+      "isAnimalFeed": false,
+      "value": [
+        2795.8762886597938
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Total animal population",
+        "termType": "animalManagement",
+        "@id": "totalAnimalPopulation",
+        "units": "number"
+      },
+      "value": [
+        2712
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Human labour",
+        "termType": "operation",
+        "@id": "humanLabour",
+        "units": "hour"
+      },
+      "description": "2340",
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "I have assumed the number of hours worked in a week = 1800 based on: https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Glossary:Annual_work_unit_(AWU)#:~:text=If%20these%20do%20not%20indicate,represent%20more%20than%20one%20AWU.",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Overall mortality rate",
+        "termType": "animalManagement",
+        "@id": "overallMortalityRate",
+        "units": "%"
+      },
+      "value": [
+        3
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig, piglet",
+        "units": "number",
+        "@id": "pigPiglet"
+      },
+      "animalId": "dolman-2012-sow-piglets-Pig, piglet",
+      "referencePeriod": "average",
+      "value": 43.71330387825233,
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig",
+        "units": "number",
+        "@id": "pig"
+      },
+      "animalId": "dolman-2012-sow-piglets-Pig",
+      "referencePeriod": "average",
+      "value": 2710.224840451645,
+      "@type": "Animal"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig",
+        "units": "number",
+        "@id": "pig"
+      },
+      "value": [
+        2712
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 116.05905426711423,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Weight at slaughter",
+            "termType": "property",
+            "@id": "weightAtSlaughter",
+            "units": "kg liveweight / head"
+          },
+          "value": 92.4,
+          "sd": 2.1,
+          "statsDefinition": "cycles",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, pigs (kg N)",
+        "units": "kg N",
+        "@id": "excretaPigsKgN"
+      },
+      "value": [
+        11527.0848
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, pigs (kg mass)",
+        "units": "kg",
+        "@id": "excretaPigsKgMass"
+      },
+      "primary": false,
+      "value": [
+        1481742.4695652174
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "I have assumed the % of Tan is that from the glossary.",
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "operation": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": true,
+    "animalFeed": true,
+    "waste": false,
+    "liveAnimalInput": false,
+    "transport": false,
+    "otherChemical": true,
+    "ingredient": true,
+    "freshForage": true,
+    "animalPopulation": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Pig - Netherlands - 2009 - Sow and piglets",
+  "schemaVersion": "30.3.2",
+  "originalId": "dolman-2012-sow-piglets"
+}

@@ -1,0 +1,105 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Site.jsonld",
+  "createdAt": "2024-04-19",
+  "updatedAt": "2024-12-06",
+  "@id": "ejsv9lwhdg4b",
+  "@type": "Site",
+  "defaultSource": {
+    "@id": "pz-kq6igrzw5",
+    "@type": "Source"
+  },
+  "siteType": "other natural vegetation",
+  "description": "3 ha of a former swamp area is used as Timor deer captive breeding area. The deer range on meadowland.",
+  "country": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Indonesia",
+    "@id": "GADM-IDN"
+  },
+  "region": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Rancabali",
+    "@id": "GADM-IDN.9.2.28_1"
+  },
+  "numberOfSites": 1,
+  "area": 3,
+  "organisation": {
+    "@id": "z8_82zsbig59",
+    "@type": "Organisation"
+  },
+  "latitude": -7.136427775,
+  "longitude": 107.391768055,
+  "measurements": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Altitude",
+        "termType": "measurement",
+        "@id": "altitude",
+        "units": "meters"
+      },
+      "value": [
+        1550
+      ],
+      "methodClassification": "geospatial dataset",
+      "@type": "Measurement"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "measurement",
+        "name": "Rainfall (annual)",
+        "units": "mm / year",
+        "@id": "rainfallAnnual"
+      },
+      "min": [
+        2400
+      ],
+      "max": [
+        3000
+      ],
+      "statsDefinition": "time",
+      "methodClassification": "physical measurement on nearby site",
+      "@type": "Measurement"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Temperature (annual)",
+        "termType": "measurement",
+        "@id": "temperatureAnnual",
+        "units": "°C"
+      },
+      "min": [
+        15
+      ],
+      "max": [
+        17
+      ],
+      "statsDefinition": "time",
+      "methodClassification": "physical measurement on nearby site",
+      "@type": "Measurement"
+    }
+  ],
+  "management": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Native pasture",
+        "units": "% area",
+        "@id": "nativePasture"
+      },
+      "value": 100,
+      "endDate": "2017",
+      "@type": "Management"
+    }
+  ],
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "The data were collected from a number of studies, interviews, and direct obser- vations in the field. Infrastructure inputs were calculated based on the Indonesian National Standard year 2008 (Badan Standardisasi Nasional, 2008).",
+  "dataPrivate": false,
+  "name": "Other natural vegetation - Ranca Upas Timor deer captivity - Rancabali, Indonesia - 3 ha of a former swamp area is...",
+  "schemaVersion": "30.4.0",
+  "originalId": "RanchSystem"
+}

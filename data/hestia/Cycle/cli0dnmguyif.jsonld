@@ -1,0 +1,876 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-04-17",
+  "updatedAt": "2025-01-08",
+  "@id": "cli0dnmguyif",
+  "@type": "Cycle",
+  "description": "Aggregate cycle representing data from 4 farms in Zona da mata, Minas Gerais in 2019, all producing milk under a semi-confinement system, where animals spend part of each day on pasture, and the remainder confined",
+  "endDate": "2019",
+  "functionalUnit": "relative",
+  "functionalUnitDetails": "1 kg FPCM",
+  "site": {
+    "@id": "suiath2bgsqr",
+    "@type": "Site"
+  },
+  "otherSites": [
+    {
+      "@id": "uncoi5gmnahs",
+      "@type": "Site"
+    }
+  ],
+  "defaultSource": {
+    "@id": "v9neu-ph4e_r",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "verified survey data",
+  "defaultMethodClassificationDescription": "A structured questionnaire was created. The questionnaire was previously tested through interviews with specialists in the area to certify the consistency of the questions and the compliance with the data quality criteria.  Most of the data provided in the inventories is primary, collected in the field, through on-site interviews with farm owners and managers and expert technical consultants from the agro-industrial cooperative. After completion, the three inventories were sent for external review, where 5 specialists critically provided feedback on the inventories. After such review, the inventories were submitted to the SICV/Brazil. The external review was carried out by five professionals trained in both LCA and milk production who do not belong to the team who conducted this study and the reviewers did not report any known conflict of interest related to reviewing those inventories.",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        0.023624979020784267
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        0.04414492008264847
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, river/stream",
+        "units": "m3",
+        "@id": "waterRiverStream"
+      },
+      "value": [
+        0.007430923397932817
+      ],
+      "operation": {
+        "@type": "Term",
+        "name": "Providing animals with water",
+        "termType": "operation",
+        "@id": "providingAnimalsWithWater",
+        "units": "hour"
+      },
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Maize, silage",
+        "units": "kg",
+        "@id": "maizeSilage"
+      },
+      "value": [
+        0.7571524492183322
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Elephant grass, silage",
+        "units": "kg",
+        "@id": "elephantGrassSilage"
+      },
+      "value": [
+        0.20280869175491045
+      ],
+      "description": "\"Capiaçu\" silage",
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Maize, gluten meal",
+        "units": "kg",
+        "@id": "maizeGlutenMeal"
+      },
+      "value": [
+        0.3008932312085118
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Soybean, meal",
+        "units": "kg",
+        "@id": "soybeanMeal"
+      },
+      "value": [
+        0.13234640989066634
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Sodium chloride",
+        "termType": "feedFoodAdditive",
+        "@id": "sodiumChloride",
+        "units": "kg"
+      },
+      "value": [
+        0.005318819982773471
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Cotton, meal (unspecified)",
+        "units": "kg",
+        "@id": "cottonMealUnspecified"
+      },
+      "value": [
+        0.04266799392143675
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Inorganic Nitrogen fertiliser, unspecified (kg N)",
+        "termType": "inorganicFertiliser",
+        "@id": "inorganicNitrogenFertiliserUnspecifiedKgN",
+        "units": "kg N"
+      },
+      "value": [
+        0.00837218404120208
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Inorganic Phosphorus fertiliser, unspecified (kg P2O5)",
+        "termType": "inorganicFertiliser",
+        "@id": "inorganicPhosphorusFertiliserUnspecifiedKgP2O5",
+        "units": "kg P2O5"
+      },
+      "value": [
+        0.00227491030901561
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Inorganic Potassium fertiliser, unspecified (kg K2O)",
+        "termType": "inorganicFertiliser",
+        "@id": "inorganicPotassiumFertiliserUnspecifiedKgK2O",
+        "units": "kg K2O"
+      },
+      "value": [
+        0.008299352637711938
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Urea (kg N)",
+        "termType": "inorganicFertiliser",
+        "@id": "ureaKgN",
+        "units": "kg N"
+      },
+      "isAnimalFeed": true,
+      "value": [
+        0.0068968482971694224
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, river/stream",
+        "units": "m3",
+        "@id": "waterRiverStream"
+      },
+      "value": [
+        0.0056113550818260105
+      ],
+      "operation": {
+        "@type": "Term",
+        "name": "Cleaning animal housing",
+        "termType": "operation",
+        "@id": "cleaningAnimalHousing",
+        "units": "hour"
+      },
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "otherOrganicChemical",
+        "name": "Neutral detergent unspecified (AI)",
+        "units": "kg active ingredient",
+        "@id": "neutralDetergentUnspecifiedAi"
+      },
+      "value": [
+        0.0006908894288663042
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "otherOrganicChemical",
+        "name": "Alkaline detergent unspecified (AI)",
+        "units": "kg active ingredient",
+        "@id": "alkalineDetergentUnspecifiedAi"
+      },
+      "value": [
+        0.0006548686979595994
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "otherOrganicChemical",
+        "name": "Acid detergent unspecified (AI)",
+        "units": "kg active ingredient",
+        "@id": "acidDetergentUnspecifiedAi"
+      },
+      "value": [
+        0.0002662552995405565
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Disinfectant unspecified (AI)",
+        "termType": "otherOrganicChemical",
+        "@id": "disinfectantUnspecifiedAi",
+        "units": "kg active ingredient"
+      },
+      "value": [
+        0.0002616312739310364
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "feedFoodAdditive",
+        "name": "Minerals, unspecified",
+        "units": "kg",
+        "@id": "mineralsUnspecified"
+      },
+      "value": [
+        0.01670392344952565
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Girolando",
+        "termType": "animalBreed",
+        "@id": "girolando",
+        "units": "%"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Artificial insemination",
+        "termType": "animalManagement",
+        "@id": "artificialInsemination",
+        "units": "%"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture grass",
+        "termType": "landUseManagement",
+        "@id": "pastureGrass",
+        "units": "% area"
+      },
+      "key": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Elephant grass plant",
+        "units": "% area",
+        "@id": "elephantGrassPlant"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Stocking density, permanent pasture (average)",
+        "termType": "animalManagement",
+        "@id": "stockingDensityPermanentPastureAverage",
+        "units": "animals / m2"
+      },
+      "value": [
+        0.0003020111111111111
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Only data on the numbers milking cows was provided (not other cateogories of the herd that may be present). Therefore the stocking density only includes these milking cows and so in an underestimate. The area value is also for the whole production system and so likely includes both housing, grazing land and potentially cropland.",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Indoor animal system",
+        "termType": "system",
+        "@id": "indoorAnimalSystem",
+        "units": "%"
+      },
+      "value": [
+        50
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "system",
+        "name": "Confined pasture system",
+        "units": "%",
+        "@id": "confinedPastureSystem"
+      },
+      "value": [
+        50
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow (lactating)",
+        "units": "number",
+        "@id": "dairyCattleCowLactating"
+      },
+      "animalId": "LactatingCows",
+      "referencePeriod": "average",
+      "min": 70,
+      "value": 110,
+      "max": 150,
+      "statsDefinition": "cycles",
+      "practices": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "animalManagement",
+            "name": "Milk yield per cow (raw)",
+            "units": "kg / day",
+            "@id": "milkYieldPerCowRaw"
+          },
+          "value": [
+            18.54
+          ],
+          "@type": "Practice"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow (dry)",
+        "units": "number",
+        "@id": "dairyCattleCowDry"
+      },
+      "animalId": "DryCows",
+      "referencePeriod": "average",
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, heifer",
+        "units": "number",
+        "@id": "dairyCattleHeifer"
+      },
+      "animalId": "Heifers",
+      "referencePeriod": "average",
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, calf (female, weaned)",
+        "units": "number",
+        "@id": "dairyCattleCalfFemaleWeaned"
+      },
+      "animalId": "FemaleWeanedCalves",
+      "referencePeriod": "average",
+      "@type": "Animal"
+    }
+  ],
+  "transformations": [
+    {
+      "transformationId": "1",
+      "term": {
+        "@type": "Term",
+        "name": "Pasture/Range/Paddock (excreta management)",
+        "termType": "excretaManagement",
+        "@id": "pastureRangePaddockExcretaManagement"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 50,
+      "@type": "Transformation"
+    },
+    {
+      "transformationId": "2",
+      "term": {
+        "@type": "Term",
+        "name": "Uncovered anaerobic lagoon",
+        "termType": "excretaManagement",
+        "@id": "uncoveredAnaerobicLagoon"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 50,
+      "products": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "@type": "Product"
+        }
+      ],
+      "@type": "Transformation"
+    },
+    {
+      "transformationId": "3",
+      "previousTransformationId": "2",
+      "term": {
+        "@type": "Term",
+        "name": "Daily spread",
+        "termType": "excretaManagement",
+        "@id": "dailySpread"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "@type": "Transformation"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Milk, cow, raw (FPCM)",
+        "units": "kg FPCM",
+        "@id": "milkCowRawFpcm"
+      },
+      "value": [
+        1
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, dairy cattle (liveweight)",
+        "units": "kg liveweight",
+        "@id": "meatDairyCattleLiveweight"
+      },
+      "value": [
+        0.014572109541845126
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, dairy cattle (kg mass)",
+        "units": "kg",
+        "@id": "excretaDairyCattleKgMass"
+      },
+      "value": [
+        0.0062910919487047245
+      ],
+      "methodClassification": "modelled",
+      "methodClassificationDescription": "LIC states this data point is 'calculated' and that 'when it was not possible to obtain primary data, secondary data was obtained and calculated based on scientific literature and methodologies', however no more specific information was given than this.",
+      "@type": "Product"
+    }
+  ],
+  "emissions": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CO2, to air, fuel combustion",
+        "termType": "emission",
+        "@id": "co2ToAirFuelCombustion",
+        "units": "kg CO2"
+      },
+      "value": [
+        0.02750048512737012
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2019)",
+        "termType": "model",
+        "@id": "ipcc2019"
+      },
+      "methodTier": "tier 2",
+      "@type": "Emission"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CH4, to air, fuel combustion",
+        "termType": "emission",
+        "@id": "ch4ToAirFuelCombustion",
+        "units": "kg CH4"
+      },
+      "value": [
+        0.0000014572109541845127
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2019)",
+        "termType": "model",
+        "@id": "ipcc2019"
+      },
+      "methodTier": "tier 2",
+      "@type": "Emission"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "N2O, to air, fuel combustion, direct",
+        "termType": "emission",
+        "@id": "n2OToAirFuelCombustionDirect",
+        "units": "kg N2O"
+      },
+      "value": [
+        0.0000014572109541845127
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2019)",
+        "termType": "model",
+        "@id": "ipcc2019"
+      },
+      "methodTier": "tier 2",
+      "@type": "Emission"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CH4, to air, enteric fermentation",
+        "termType": "emission",
+        "@id": "ch4ToAirEntericFermentation",
+        "units": "kg CH4"
+      },
+      "value": [
+        0.0353082149918463
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2019)",
+        "termType": "model",
+        "@id": "ipcc2019"
+      },
+      "methodTier": "tier 2",
+      "@type": "Emission"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CH4, to air, excreta",
+        "termType": "emission",
+        "@id": "ch4ToAirExcreta",
+        "units": "kg CH4"
+      },
+      "value": [
+        0.0005121621685410615
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2019)",
+        "termType": "model",
+        "@id": "ipcc2019"
+      },
+      "methodTier": "tier 2",
+      "@type": "Emission"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "N2O, to air, excreta, direct",
+        "termType": "emission",
+        "@id": "n2OToAirExcretaDirect",
+        "units": "kg N2O"
+      },
+      "value": [
+        0.0000733576775458876
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2019)",
+        "termType": "model",
+        "@id": "ipcc2019"
+      },
+      "methodTier": "tier 2",
+      "@type": "Emission"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "N2O, to air, excreta, indirect",
+        "termType": "emission",
+        "@id": "n2OToAirExcretaIndirect",
+        "units": "kg N2O"
+      },
+      "value": [
+        0.00010270074856424263
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2019)",
+        "termType": "model",
+        "@id": "ipcc2019"
+      },
+      "methodTier": "tier 2",
+      "@type": "Emission"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "NH3, to air, inorganic fertiliser",
+        "termType": "emission",
+        "@id": "nh3ToAirInorganicFertiliser",
+        "units": "kg NH3"
+      },
+      "value": [
+        0.0035483082071317827
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2019)",
+        "termType": "model",
+        "@id": "ipcc2019"
+      },
+      "methodTier": "tier 2",
+      "@type": "Emission"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "NOx, to air, inorganic fertiliser",
+        "termType": "emission",
+        "@id": "noxToAirInorganicFertiliser",
+        "units": "kg NOx"
+      },
+      "value": [
+        0.000044477943078315474
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2019)",
+        "termType": "model",
+        "@id": "ipcc2019"
+      },
+      "methodTier": "tier 2",
+      "@type": "Emission"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "N2O, to air, inorganic fertiliser, direct",
+        "termType": "emission",
+        "@id": "n2OToAirInorganicFertiliserDirect",
+        "units": "kg N2O"
+      },
+      "value": [
+        0.0002117997289443594
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2019)",
+        "termType": "model",
+        "@id": "ipcc2019"
+      },
+      "methodTier": "tier 2",
+      "@type": "Emission"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "NO3, to groundwater, inorganic fertiliser",
+        "termType": "emission",
+        "@id": "no3ToGroundwaterInorganicFertiliser",
+        "units": "kg NO3"
+      },
+      "value": [
+        0.0062560035754371185
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2019)",
+        "termType": "model",
+        "@id": "ipcc2019"
+      },
+      "methodTier": "tier 2",
+      "@type": "Emission"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "PO43-, to groundwater, inorganic fertiliser",
+        "termType": "emission",
+        "@id": "po43ToGroundwaterInorganicFertiliser",
+        "units": "kg PO43-"
+      },
+      "value": [
+        0.000006331724459750731
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2019)",
+        "termType": "model",
+        "@id": "ipcc2019"
+      },
+      "methodTier": "tier 2",
+      "@type": "Emission"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "PO43-, to surface water, inorganic fertiliser",
+        "termType": "emission",
+        "@id": "po43ToSurfaceWaterInorganicFertiliser",
+        "units": "kg PO43-"
+      },
+      "value": [
+        0.000016711874392510332
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2019)",
+        "termType": "model",
+        "@id": "ipcc2019"
+      },
+      "methodTier": "tier 2",
+      "@type": "Emission"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "otherChemical": true,
+    "seed": false,
+    "ingredient": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": true,
+    "product": true,
+    "cropResidue": true,
+    "excreta": true,
+    "animalFeed": true,
+    "freshForage": false,
+    "liveAnimalInput": true,
+    "animalPopulation": false,
+    "waste": false,
+    "operation": false,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Milk, cow, raw (FPCM) - Minas Gerais, Brazil - 2019 - Aggregate cycle representing d...",
+  "schemaVersion": "30.5.0",
+  "originalId": "MPS 1"
+}

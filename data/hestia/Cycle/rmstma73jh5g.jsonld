@@ -1,0 +1,96 @@
+{
+  "@context": "https://www.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2025-03-21",
+  "@id": "rmstma73jh5g",
+  "@type": "Cycle",
+  "description": "snail collection bangladesh",
+  "endDate": "2018-11-30",
+  "startDate": "2018-06-01",
+  "cycleDuration": 182,
+  "startDateDefinition": "start of wild harvest period",
+  "functionalUnit": "relative",
+  "defaultSource": {
+    "@type": "Source",
+    "@id": "ivkiyujgzf8r",
+    "name": "Henriksson et al (2015)"
+  },
+  "defaultMethodClassification": "verified survey data",
+  "defaultMethodClassificationDescription": "Field survey data that has been cleaned and triangulated for inconsistencies",
+  "dataPrivate": false,
+  "site": {
+    "@id": "ksehdhw4td3r",
+    "@type": "Site"
+  },
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        0.01008
+      ],
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, lorry",
+            "units": "tkm",
+            "@id": "freightLorry"
+          },
+          "returnLegIncluded": false,
+          "value": 180,
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Meat, freshwater snails (with shell)",
+        "termType": "animalProduct",
+        "@id": "meatFreshwaterSnailsWithShell",
+        "units": "kg"
+      },
+      "value": [
+        1
+      ],
+      "price": 0.21,
+      "currency": "USD",
+      "primary": true,
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "operation": true,
+    "electricityFuel": true,
+    "material": false,
+    "fertiliser": true,
+    "soilAmendment": true,
+    "pesticideVeterinaryDrug": true,
+    "water": true,
+    "animalFeed": true,
+    "seed": true,
+    "product": true,
+    "cropResidue": true,
+    "excreta": true,
+    "transport": true,
+    "liveAnimalInput": true,
+    "waste": true,
+    "otherChemical": true,
+    "ingredient": true,
+    "animalPopulation": true,
+    "freshForage": true,
+    "@type": "Completeness"
+  },
+  "name": "Meat, freshwater snails (with shell) - Bangladesh - 2018-11-30 - snail collection bangladesh",
+  "schemaVersion": "30.7.0",
+  "originalId": "snail_collection"
+}

@@ -1,0 +1,476 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-01-17",
+  "updatedAt": "2024-12-06",
+  "@id": "mjenb2rui79g",
+  "@type": "Cycle",
+  "description": "A representative sample of Irish suckler to beef farms.",
+  "numberOfCycles": 106,
+  "endDate": "2019",
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "moxxmog0thxa",
+    "@type": "Site"
+  },
+  "otherSites": [
+    {
+      "@id": "unpnqmmvs-ua",
+      "@type": "Site"
+    }
+  ],
+  "siteDuration": 219,
+  "otherSitesDuration": [
+    146
+  ],
+  "defaultSource": {
+    "@id": "oejuzzwezpby",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Teagasc national farm survey (NFS) was the primary dataset used to define agricultural parameters of cattle farms",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Inorganic Nitrogen fertiliser, unspecified (kg N)",
+        "termType": "inorganicFertiliser",
+        "@id": "inorganicNitrogenFertiliserUnspecifiedKgN",
+        "units": "kg N"
+      },
+      "value": [
+        2822
+      ],
+      "sd": [
+        1802
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Inorganic Phosphorus fertiliser, unspecified (kg P2O5)",
+        "termType": "inorganicFertiliser",
+        "@id": "inorganicPhosphorusFertiliserUnspecifiedKgP2O5",
+        "units": "kg P2O5"
+      },
+      "value": [
+        778.5999999999999
+      ],
+      "sd": [
+        1012.18
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        1522.8498
+      ],
+      "sd": [
+        698.3396
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "forage",
+        "name": "Ryegrass, fresh forage",
+        "units": "kg",
+        "@id": "ryegrassFreshForage"
+      },
+      "value": [
+        248
+      ],
+      "sd": [
+        84
+      ],
+      "statsDefinition": "cycles",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed blend",
+        "termType": "processedFood",
+        "@id": "concentrateFeedBlend",
+        "units": "kg"
+      },
+      "isAnimalFeed": true,
+      "value": [
+        7146.099999999999
+      ],
+      "sd": [
+        212.70470140549315
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Ryegrass, silage",
+        "units": "kg",
+        "@id": "ryegrassSilage"
+      },
+      "isAnimalFeed": true,
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Herd replacement rate",
+        "termType": "animalManagement",
+        "@id": "herdReplacementRate",
+        "units": "%"
+      },
+      "value": [
+        18
+      ],
+      "sd": [
+        10
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Cubicle use",
+        "termType": "animalManagement",
+        "@id": "cubicleUse",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Slatted flooring use",
+        "termType": "animalManagement",
+        "@id": "slattedFlooringUse",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Stocking density, permanent pasture (average)",
+        "termType": "animalManagement",
+        "@id": "stockingDensityPermanentPastureAverage",
+        "units": "animals / m2"
+      },
+      "value": [
+        0.0001848529411764706
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture grass",
+        "termType": "landUseManagement",
+        "@id": "pastureGrass",
+        "units": "% area"
+      },
+      "key": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Ryegrass plant",
+        "units": "% area",
+        "@id": "ryegrassPlant"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, cow",
+        "units": "number",
+        "@id": "beefCattleCow"
+      },
+      "referencePeriod": "average",
+      "animalId": "1",
+      "value": 23.9,
+      "sd": 17.3,
+      "statsDefinition": "cycles",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "property",
+            "name": "Age at first delivery",
+            "units": "days",
+            "@id": "ageAtFirstDelivery"
+          },
+          "value": 912,
+          "sd": 182.39999999999998,
+          "statsDefinition": "cycles",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, calf",
+        "units": "number",
+        "@id": "beefCattleCalf"
+      },
+      "referencePeriod": "average",
+      "animalId": "2",
+      "value": 21.8,
+      "sd": 17.1,
+      "statsDefinition": "cycles",
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, heifer",
+        "units": "number",
+        "@id": "beefCattleHeifer"
+      },
+      "referencePeriod": "average",
+      "animalId": "3",
+      "value": 17.15,
+      "sd": 6.15,
+      "statsDefinition": "cycles",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Slaughter age",
+            "termType": "property",
+            "@id": "slaughterAge",
+            "units": "days"
+          },
+          "value": 760,
+          "sd": 33.44,
+          "statsDefinition": "cycles",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Cold carcass weight per head",
+            "termType": "property",
+            "@id": "coldCarcassWeightPerHead",
+            "units": "kg cold carcass weight / head"
+          },
+          "value": 333,
+          "sd": 34,
+          "statsDefinition": "cycles",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, steer",
+        "units": "number",
+        "@id": "beefCattleSteer"
+      },
+      "referencePeriod": "average",
+      "animalId": "4",
+      "value": 17.15,
+      "sd": 6.15,
+      "statsDefinition": "cycles",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Slaughter age",
+            "termType": "property",
+            "@id": "slaughterAge",
+            "units": "days"
+          },
+          "value": 851.1999999999999,
+          "sd": 57.76,
+          "statsDefinition": "cycles",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Cold carcass weight per head",
+            "termType": "property",
+            "@id": "coldCarcassWeightPerHead",
+            "units": "kg cold carcass weight / head"
+          },
+          "value": 395,
+          "sd": 59,
+          "statsDefinition": "cycles",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture/Range/Paddock (excreta management)",
+        "termType": "excretaManagement",
+        "@id": "pastureRangePaddockExcretaManagement"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, beef cattle, except feedlot fed (kg mass)",
+            "units": "kg",
+            "@id": "excretaBeefCattleExceptFeedlotFedKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 60,
+      "transformationId": "1",
+      "@type": "Transformation"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, beef cattle (cold carcass weight)",
+        "units": "kg cold carcass weight",
+        "@id": "meatBeefCattleColdCarcassWeight"
+      },
+      "value": [
+        8194
+      ],
+      "sd": [
+        106.41564734567939
+      ],
+      "statsDefinition": "cycles",
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, beef cattle, feedlot fed (kg mass)",
+        "units": "kg",
+        "@id": "excretaBeefCattleFeedlotFedKgMass"
+      },
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, beef cattle, except feedlot fed (kg mass)",
+        "units": "kg",
+        "@id": "excretaBeefCattleExceptFeedlotFedKgMass"
+      },
+      "@type": "Product"
+    }
+  ],
+  "emissions": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CH4, to air, enteric fermentation",
+        "termType": "emission",
+        "@id": "ch4ToAirEntericFermentation",
+        "units": "kg CH4"
+      },
+      "value": [
+        1815.5562857142859
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2019)",
+        "termType": "model",
+        "@id": "ipcc2019"
+      },
+      "methodTier": "tier 2",
+      "@type": "Emission"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": false,
+    "animalPopulation": false,
+    "waste": false,
+    "operation": false,
+    "freshForage": true,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Meat, beef cattle (cold carcass weight) - Ireland - 2019 - A representative sample of Iri...",
+  "schemaVersion": "30.4.0",
+  "originalId": "suckler_to_beef"
+}

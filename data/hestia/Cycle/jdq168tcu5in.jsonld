@@ -1,0 +1,1199 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2023-09-28",
+  "updatedAt": "2025-01-22",
+  "@id": "jdq168tcu5in",
+  "@type": "Cycle",
+  "description": "North Italy Representative Farms - embodying the average dairy farms in Northern Italy present in the Po plain that make milk for Grana Padano cheese production. The cattle feed was based on silage feed (primarily corn silage), forage, protein ingredients (such as soybean meal), corn cereals, alfalfa, and compound feed. In this farm system, cattle were not allowed to graze.",
+  "endDate": "2019",
+  "cycleDuration": 365,
+  "startDateDefinition": "one year prior",
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "otrdoo430x42",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "jix42tsxvioy",
+    "@type": "Source"
+  },
+  "dataPrivate": false,
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "The surveys were conducted by compiling a questionnaire with farmers, and data collected referred to one year of production. The questionnaire for the Dairy Farm collected activity data on farm characteristics, input, milk productivity and feed management system, including crop production and feed choices (type and quantity of crop cultivated, type and quantity of purchased feed, presence of silage).",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        56308
+      ],
+      "min": [
+        5063
+      ],
+      "max": [
+        308087
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        22837.569
+      ],
+      "min": [
+        1525.784
+      ],
+      "max": [
+        82341.419
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Liquefied petroleum gases (LPG)",
+        "units": "kg",
+        "@id": "liquefiedPetroleumGasesLpg"
+      },
+      "value": [
+        1022.497
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        37406.026
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Methane",
+        "units": "m3",
+        "@id": "methane"
+      },
+      "value": [
+        42
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        981
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, source unspecified",
+        "units": "m3",
+        "@id": "waterSourceUnspecified"
+      },
+      "value": [
+        7528
+      ],
+      "min": [
+        661
+      ],
+      "max": [
+        50979
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, source unspecified",
+        "units": "m3",
+        "@id": "waterSourceUnspecified"
+      },
+      "value": [
+        128638
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        1490326
+      ],
+      "operation": {
+        "@type": "Term",
+        "name": "Irrigating",
+        "termType": "operation",
+        "@id": "irrigating",
+        "units": "hour"
+      },
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pesticide unspecified (AI)",
+        "termType": "pesticideAI",
+        "@id": "pesticideUnspecifiedAi",
+        "units": "kg active ingredient"
+      },
+      "value": [
+        162
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        547
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Inorganic Nitrogen fertiliser, unspecified (kg N)",
+        "termType": "inorganicFertiliser",
+        "@id": "inorganicNitrogenFertiliserUnspecifiedKgN",
+        "units": "kg N"
+      },
+      "value": [
+        4226
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        53195
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, fresh forage",
+        "termType": "forage",
+        "@id": "genericGrassFreshForage",
+        "units": "kg"
+      },
+      "value": [
+        39018.96
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        136566.36
+      ],
+      "isAnimalFeed": true,
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Alfalfa, hay",
+        "units": "kg",
+        "@id": "alfalfaHay"
+      },
+      "value": [
+        39018.96
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        143069.52
+      ],
+      "isAnimalFeed": true,
+      "statsDefinition": "cycles",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Wheat, flour (whole)",
+        "units": "kg",
+        "@id": "wheatFlourWhole"
+      },
+      "value": [
+        583.0428865
+      ],
+      "isAnimalFeed": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Maize, grain",
+        "units": "kg",
+        "@id": "maizeGrain"
+      },
+      "value": [
+        110553.72
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        331661.16
+      ],
+      "isAnimalFeed": true,
+      "statsDefinition": "cycles",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Maize, silage",
+        "units": "kg",
+        "@id": "maizeSilage"
+      },
+      "value": [
+        71534.76
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        390189.6
+      ],
+      "isAnimalFeed": true,
+      "statsDefinition": "cycles",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, silage",
+        "termType": "crop",
+        "@id": "genericGrassSilage",
+        "units": "kg"
+      },
+      "value": [
+        19509.48
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        221107.44
+      ],
+      "isAnimalFeed": true,
+      "statsDefinition": "cycles",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Soybean, seed (whole)",
+        "units": "kg",
+        "@id": "soybeanSeedWhole"
+      },
+      "value": [
+        78037.92
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        500743.32
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Assumed all protein ingredients to be soybean",
+      "isAnimalFeed": true,
+      "statsDefinition": "cycles",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, fresh forage",
+        "termType": "forage",
+        "@id": "genericGrassFreshForage",
+        "units": "kg"
+      },
+      "value": [
+        163420.52
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        163420.52
+      ],
+      "producedInCycle": true,
+      "isAnimalFeed": true,
+      "statsDefinition": "cycles",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Alfalfa, hay",
+        "units": "kg",
+        "@id": "alfalfaHay"
+      },
+      "value": [
+        71052.4
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        440524.88
+      ],
+      "producedInCycle": true,
+      "isAnimalFeed": true,
+      "statsDefinition": "cycles",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Maize, grain",
+        "units": "kg",
+        "@id": "maizeGrain"
+      },
+      "value": [
+        21315.72
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        149210.04
+      ],
+      "producedInCycle": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "isAnimalFeed": true,
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Maize, silage",
+        "units": "kg",
+        "@id": "maizeSilage"
+      },
+      "value": [
+        369472.48
+      ],
+      "min": [
+        0
+      ],
+      "producedInCycle": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "isAnimalFeed": true,
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, silage",
+        "termType": "crop",
+        "@id": "genericGrassSilage",
+        "units": "kg"
+      },
+      "value": [
+        85262.88
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        504472.04
+      ],
+      "producedInCycle": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "isAnimalFeed": true,
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Cereal, straw",
+        "units": "kg",
+        "@id": "cerealStraw"
+      },
+      "value": [
+        56273.14
+      ],
+      "isAnimalFeed": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Calcium carbonate (feed food additive)",
+        "termType": "feedFoodAdditive",
+        "@id": "calciumCarbonateFeedFoodAdditive",
+        "units": "kg"
+      },
+      "value": [
+        1702.59
+      ],
+      "isAnimalFeed": false,
+      "description": "bedding",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Lime",
+        "termType": "soilAmendment",
+        "@id": "lime",
+        "units": "kg CaCO3"
+      },
+      "value": [
+        525.45
+      ],
+      "isAnimalFeed": false,
+      "description": "bedding",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Maize, straw",
+        "units": "kg",
+        "@id": "maizeStraw"
+      },
+      "value": [
+        11217.53
+      ],
+      "isAnimalFeed": false,
+      "description": "bedding",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Coconut, coir",
+        "units": "kg",
+        "@id": "coconutCoir"
+      },
+      "value": [
+        491.19
+      ],
+      "isAnimalFeed": false,
+      "description": "bedding",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "material",
+        "name": "Sawdust (material)",
+        "units": "kg",
+        "@id": "sawdustMaterial"
+      },
+      "value": [
+        2381.79
+      ],
+      "isAnimalFeed": false,
+      "description": "bedding",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Rapeseed, meal",
+        "units": "kg",
+        "@id": "rapeseedMeal"
+      },
+      "value": [
+        389.8251857
+      ],
+      "isAnimalFeed": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Barley, flour (whole)",
+        "termType": "processedFood",
+        "@id": "barleyFlourWhole",
+        "units": "kg"
+      },
+      "value": [
+        2056.469096
+      ],
+      "isAnimalFeed": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Wheat, bran",
+        "units": "kg",
+        "@id": "wheatBran"
+      },
+      "value": [
+        3507.296744
+      ],
+      "isAnimalFeed": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Barley, grain (whole)",
+        "units": "kg",
+        "@id": "barleyGrainWhole"
+      },
+      "value": [
+        145.7607216
+      ],
+      "isAnimalFeed": true,
+      "producedInCycle": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Wheat, grain",
+        "units": "kg",
+        "@id": "wheatGrain"
+      },
+      "value": [
+        273.4425941
+      ],
+      "isAnimalFeed": true,
+      "producedInCycle": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "soilAmendment",
+        "name": "Wood chip",
+        "units": "kg",
+        "@id": "woodChip"
+      },
+      "value": [
+        3211.32
+      ],
+      "isAnimalFeed": false,
+      "description": "bedding",
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalManagement",
+        "name": "Milk yield per cow (FPCM)",
+        "units": "kg / day",
+        "@id": "milkYieldPerCowFpcm"
+      },
+      "value": [
+        29.89
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Indoor animal system",
+        "termType": "system",
+        "@id": "indoorAnimalSystem",
+        "units": "%"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow (lactating)",
+        "units": "number",
+        "@id": "dairyCattleCowLactating"
+      },
+      "animalId": "1",
+      "referencePeriod": "average",
+      "value": 135,
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Concentrate feed blend",
+            "termType": "processedFood",
+            "@id": "concentrateFeedBlend",
+            "units": "kg"
+          },
+          "value": [
+            185951.4949
+          ],
+          "impactAssessment": {
+            "@id": "pyinnamko21_",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": true,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow (dry)",
+        "units": "number",
+        "@id": "dairyCattleCowDry"
+      },
+      "animalId": "2",
+      "referencePeriod": "average",
+      "value": 21,
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Concentrate feed blend",
+            "termType": "processedFood",
+            "@id": "concentrateFeedBlend",
+            "units": "kg"
+          },
+          "value": [
+            5798.056426
+          ],
+          "impactAssessment": {
+            "@id": "8zp6awxqul6z",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": true,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, heifer",
+        "units": "number",
+        "@id": "dairyCattleHeifer"
+      },
+      "animalId": "3",
+      "referencePeriod": "average",
+      "value": 110,
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Concentrate feed blend",
+            "termType": "processedFood",
+            "@id": "concentrateFeedBlend",
+            "units": "kg"
+          },
+          "value": [
+            12596.64156
+          ],
+          "impactAssessment": {
+            "@id": "zxgruiuz0htp",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": true,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Concentrate feed blend",
+            "termType": "processedFood",
+            "@id": "concentrateFeedBlend",
+            "units": "kg"
+          },
+          "value": [
+            3539.494253
+          ],
+          "impactAssessment": {
+            "@id": "ngfaoxcpplrr",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": true,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, calf (female)",
+        "units": "number",
+        "@id": "dairyCattleCalfFemale"
+      },
+      "animalId": "4",
+      "referencePeriod": "average",
+      "value": 22,
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Concentrate feed blend",
+            "termType": "processedFood",
+            "@id": "concentrateFeedBlend",
+            "units": "kg"
+          },
+          "value": [
+            9433.046341
+          ],
+          "impactAssessment": {
+            "@id": "r8yubawd0lry",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": true,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pit storage below animal confinements",
+        "termType": "excretaManagement",
+        "@id": "pitStorageBelowAnimalConfinements"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "value": [
+            5758970
+          ],
+          "@type": "Input"
+        }
+      ],
+      "transformationId": "1",
+      "transformationDuration": 99.47310022,
+      "products": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "@type": "Product"
+        }
+      ],
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Periodic spread",
+        "termType": "excretaManagement",
+        "@id": "periodicSpread"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "transformationId": "2",
+      "previousTransformationId": "1",
+      "@type": "Transformation"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Milk, cow, raw (FPCM)",
+        "units": "kg FPCM",
+        "@id": "milkCowRawFpcm"
+      },
+      "value": [
+        1475000
+      ],
+      "primary": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Crude protein content",
+            "termType": "property",
+            "@id": "crudeProteinContent",
+            "units": "%"
+          },
+          "value": 3.42,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "property",
+            "name": "Fat content",
+            "units": "%",
+            "@id": "fatContent"
+          },
+          "value": 3.94,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, dairy cattle (liveweight)",
+        "units": "kg liveweight",
+        "@id": "meatDairyCattleLiveweight"
+      },
+      "value": [
+        29386
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, dairy cattle (kg mass)",
+        "units": "kg",
+        "@id": "excretaDairyCattleKgMass"
+      },
+      "value": [
+        5758970
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, dairy cattle (kg mass)",
+        "units": "kg",
+        "@id": "excretaDairyCattleKgMass"
+      },
+      "value": [
+        3689790
+      ],
+      "fate": "sold",
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": true,
+    "product": true,
+    "cropResidue": true,
+    "excreta": true,
+    "animalFeed": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "freshForage": true,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "name": "Milk, cow, raw (FPCM) - Italy - 2019 - North Italy Representative Far...",
+  "schemaVersion": "30.5.0",
+  "originalId": "NIRF"
+}

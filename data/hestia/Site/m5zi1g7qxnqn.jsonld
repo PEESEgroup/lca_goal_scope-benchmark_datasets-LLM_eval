@@ -1,0 +1,60 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Site.jsonld",
+  "createdAt": "2024-12-03",
+  "updatedAt": "2024-12-06",
+  "@id": "m5zi1g7qxnqn",
+  "@type": "Site",
+  "defaultSource": {
+    "@id": "_hx1rkzual0i",
+    "@type": "Source"
+  },
+  "description": "Field trial",
+  "siteType": "permanent pasture",
+  "numberOfSites": 3,
+  "country": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Brazil",
+    "@id": "GADM-BRA"
+  },
+  "region": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Itabela (Município), Bahia, Brazil",
+    "@id": "GADM-BRA.5.176_1"
+  },
+  "measurements": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Precipitation (annual)",
+        "termType": "measurement",
+        "@id": "precipitationAnnual",
+        "units": "mm / year"
+      },
+      "value": [
+        1311
+      ],
+      "methodClassification": "physical measurement on nearby site",
+      "@type": "Measurement"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Temperature (annual)",
+        "termType": "measurement",
+        "@id": "temperatureAnnual",
+        "units": "°C"
+      },
+      "value": [
+        25
+      ],
+      "methodClassification": "physical measurement on nearby site",
+      "@type": "Measurement"
+    }
+  ],
+  "dataPrivate": false,
+  "name": "Permanent pasture - Itabela (Município), Bahia, Brazil - Field trial",
+  "schemaVersion": "30.4.0",
+  "originalId": "t5"
+}

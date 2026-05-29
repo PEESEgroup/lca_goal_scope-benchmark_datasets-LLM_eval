@@ -1,0 +1,2636 @@
+{
+  "@context": "https://contribute.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-02-09",
+  "updatedAt": "2025-03-10",
+  "@id": "lyprmumr2wpt",
+  "@type": "Cycle",
+  "description": "Annual cycle of an alternative cow-calf production system in the Charolais basin, in which cattle are fed wrapped grass silage, in order to increase their omega-3 fatty acid intake. This consists of three components: 1) Reproduction, output of which = weaned male calves, weaned female calves not used for replacement cull cows, cull cows and a breeding bull. 2) Rearing female calves from weaning (9 months) to finishing at 33 months. 3) Finishing of cull cows, i.e. fattened before sending to the slaughterhouse. Both St and O3 are classified as extensive systems with 7.5 months grazing from April to November. The grazed area consists of 88% permanent versus 12% temporary grassland - this has been used to calculate the relative time spent on permanent versus temporary grassland during those 7.5 months of grazing.",
+  "startDateDefinition": "one year prior",
+  "endDate": "2010",
+  "cycleDuration": 365,
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "rtrs8u9-j8xd",
+    "@type": "Site"
+  },
+  "siteDuration": 201,
+  "siteUnusedDuration": 164,
+  "siteArea": 45.1,
+  "otherSites": [
+    {
+      "@id": "jz7lt-giovpn",
+      "@type": "Site"
+    },
+    {
+      "@id": "fnngfxdbpga9",
+      "@type": "Site"
+    }
+  ],
+  "otherSitesDuration": [
+    137,
+    27
+  ],
+  "otherSitesUnusedDuration": [
+    228,
+    338
+  ],
+  "defaultSource": {
+    "@id": "2uaxgmjzmtai",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "modelled",
+  "defaultMethodClassificationDescription": "As suckler-cow farming practices in the Charolais basin are highly diverse, our systems were modelled based on “Charolais Beef Cattle Farm Networks” of the French Livestock Institute (Réseaux d'élevage Charolais, 2009) in consultation with beef researchers and experts.",
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Charolais",
+        "termType": "animalBreed",
+        "@id": "charolais",
+        "units": "%"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Stocking density, permanent pasture (average)",
+        "termType": "animalManagement",
+        "@id": "stockingDensityPermanentPastureAverage",
+        "units": "animals / m2"
+      },
+      "value": [
+        0.000401330376940133
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Study gives 1.2 LU/ha and that 1 LU consumed 5t fresh forage per year. Used these to work out the DMI/hectare of forage per year. Using the DMI of forage per year (total of values provided for each category of animals), we worked out the no. hectares grazing area. Then separately totalled all of the average no.s of animals in each category in the herd, and divided this total by the no. hectares. Assumption is that the 5t DMI intake per year is referring only to the grazed grass (and not the total of all types of feeds). If the latter, the calculated stocking density would be lower (see tab 3 of upload file to compare).",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture grass",
+        "termType": "landUseManagement",
+        "@id": "pastureGrass",
+        "units": "% area"
+      },
+      "key": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Generic grass plant",
+        "units": "% area",
+        "@id": "genericGrassPlant"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Confined pasture system",
+        "termType": "system",
+        "@id": "confinedPastureSystem",
+        "units": "% area"
+      },
+      "value": [
+        62.465753424657535
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Indoor animal system",
+        "termType": "system",
+        "@id": "indoorAnimalSystem",
+        "units": "% area"
+      },
+      "value": [
+        37.534246575342465
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, cow",
+        "units": "number",
+        "@id": "beefCattleCow"
+      },
+      "animalId": "Cows",
+      "value": 70,
+      "referencePeriod": "average",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, fresh forage",
+            "termType": "forage",
+            "@id": "genericGrassFreshForage",
+            "units": "kg"
+          },
+          "value": [
+            179343.08256577782
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "pbgy_kkymhda",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, fresh forage",
+            "termType": "forage",
+            "@id": "genericGrassFreshForage",
+            "units": "kg"
+          },
+          "value": [
+            11656.917434222163
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "d0uwfq8vdtuz",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, hay",
+            "termType": "crop",
+            "@id": "genericGrassHay",
+            "units": "kg"
+          },
+          "value": [
+            32369.221767115272
+          ],
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "vlw3lx9ifzg6",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, hay",
+            "termType": "crop",
+            "@id": "genericGrassHay",
+            "units": "kg"
+          },
+          "value": [
+            21130.778232884728
+          ],
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "viutbczfzk0u",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, silage",
+            "termType": "crop",
+            "@id": "genericGrassSilage",
+            "units": "kg"
+          },
+          "value": [
+            29767.583382094792
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "bgm5hyh5mdz0",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, silage",
+            "termType": "crop",
+            "@id": "genericGrassSilage",
+            "units": "kg"
+          },
+          "value": [
+            19432.416617905208
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "akzdusvikcs7",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Barley, grain (whole)",
+            "units": "kg",
+            "@id": "barleyGrainWhole"
+          },
+          "value": [
+            14000
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "gkm4o7zzb0ak",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Wheat, grain",
+            "units": "kg",
+            "@id": "wheatGrain"
+          },
+          "value": [
+            14200
+          ],
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "2z6navz6vxnn",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Concentrate feed blend",
+            "termType": "processedFood",
+            "@id": "concentrateFeedBlend",
+            "units": "kg"
+          },
+          "value": [
+            200
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "xcbacuw1cayp",
+            "@type": "ImpactAssessment"
+          },
+          "isAnimalFeed": true,
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, heifer",
+        "units": "number",
+        "@id": "beefCattleHeifer"
+      },
+      "animalId": "Heifer",
+      "referencePeriod": "average",
+      "value": 12.493150684931507,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "min": 729.5999999999999,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, fresh forage",
+            "termType": "forage",
+            "@id": "genericGrassFreshForage",
+            "units": "kg"
+          },
+          "value": [
+            2844.2739520958085
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "pbgy_kkymhda",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, fresh forage",
+            "termType": "forage",
+            "@id": "genericGrassFreshForage",
+            "units": "kg"
+          },
+          "value": [
+            1355.7260479041915
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "d0uwfq8vdtuz",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, hay",
+            "termType": "crop",
+            "@id": "genericGrassHay",
+            "units": "kg"
+          },
+          "value": [
+            1779.7794117647059
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "isAnimalFeed": true,
+          "impactAssessment": {
+            "@id": "vlw3lx9ifzg6",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, hay",
+            "termType": "crop",
+            "@id": "genericGrassHay",
+            "units": "kg"
+          },
+          "value": [
+            8520.220588235294
+          ],
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "viutbczfzk0u",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, silage",
+            "termType": "crop",
+            "@id": "genericGrassSilage",
+            "units": "kg"
+          },
+          "value": [
+            1779.7794117647059
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "bgm5hyh5mdz0",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, silage",
+            "termType": "crop",
+            "@id": "genericGrassSilage",
+            "units": "kg"
+          },
+          "value": [
+            8520.220588235294
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "akzdusvikcs7",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Barley, grain (whole)",
+            "units": "kg",
+            "@id": "barleyGrainWhole"
+          },
+          "value": [
+            1500
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "gkm4o7zzb0ak",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Wheat, grain",
+            "units": "kg",
+            "@id": "wheatGrain"
+          },
+          "value": [
+            1500
+          ],
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "2z6navz6vxnn",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, heifer",
+        "units": "number",
+        "@id": "beefCattleHeifer"
+      },
+      "animalId": "OlderHeifer",
+      "value": 31,
+      "referencePeriod": "average",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "min": 364.79999999999995,
+          "value": 547.1999999999999,
+          "max": 729.5999999999999,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, fresh forage",
+            "termType": "forage",
+            "@id": "genericGrassFreshForage",
+            "units": "kg"
+          },
+          "value": [
+            30948.409431137723
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "pbgy_kkymhda",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, fresh forage",
+            "termType": "forage",
+            "@id": "genericGrassFreshForage",
+            "units": "kg"
+          },
+          "value": [
+            14751.590568862275
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "d0uwfq8vdtuz",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, hay",
+            "termType": "crop",
+            "@id": "genericGrassHay",
+            "units": "kg"
+          },
+          "value": [
+            2246.323529411765
+          ],
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "vlw3lx9ifzg6",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, hay",
+            "termType": "crop",
+            "@id": "genericGrassHay",
+            "units": "kg"
+          },
+          "value": [
+            10753.676470588234
+          ],
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "viutbczfzk0u",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, silage",
+            "termType": "crop",
+            "@id": "genericGrassSilage",
+            "units": "kg"
+          },
+          "value": [
+            2211.7647058823527
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "bgm5hyh5mdz0",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, silage",
+            "termType": "crop",
+            "@id": "genericGrassSilage",
+            "units": "kg"
+          },
+          "value": [
+            10588.235294117647
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "akzdusvikcs7",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Barley, grain (whole)",
+            "units": "kg",
+            "@id": "barleyGrainWhole"
+          },
+          "value": [
+            2100
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "gkm4o7zzb0ak",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Wheat, grain",
+            "units": "kg",
+            "@id": "wheatGrain"
+          },
+          "value": [
+            2100
+          ],
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "2z6navz6vxnn",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, calf (female, weaned)",
+        "units": "number",
+        "@id": "beefCattleCalfFemaleWeaned"
+      },
+      "animalId": "FemaleWeanedCalves",
+      "value": 7.813698630136987,
+      "referencePeriod": "average",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "min": 273.59999999999997,
+          "value": 319.19999999999993,
+          "max": 364.79999999999995,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, fresh forage",
+            "termType": "forage",
+            "@id": "genericGrassFreshForage",
+            "units": "kg"
+          },
+          "value": [
+            5146.781437125748
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "pbgy_kkymhda",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, fresh forage",
+            "termType": "forage",
+            "@id": "genericGrassFreshForage",
+            "units": "kg"
+          },
+          "value": [
+            2453.2185628742513
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "d0uwfq8vdtuz",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, hay",
+            "termType": "crop",
+            "@id": "genericGrassHay",
+            "units": "kg"
+          },
+          "value": [
+            362.86764705882354
+          ],
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "vlw3lx9ifzg6",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, hay",
+            "termType": "crop",
+            "@id": "genericGrassHay",
+            "units": "kg"
+          },
+          "value": [
+            1737.1323529411764
+          ],
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "viutbczfzk0u",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, silage",
+            "termType": "crop",
+            "@id": "genericGrassSilage",
+            "units": "kg"
+          },
+          "value": [
+            380.1470588235294
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "bgm5hyh5mdz0",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, silage",
+            "termType": "crop",
+            "@id": "genericGrassSilage",
+            "units": "kg"
+          },
+          "value": [
+            1819.8529411764705
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "akzdusvikcs7",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Barley, grain (whole)",
+            "units": "kg",
+            "@id": "barleyGrainWhole"
+          },
+          "value": [
+            1900
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "gkm4o7zzb0ak",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Wheat, grain",
+            "units": "kg",
+            "@id": "wheatGrain"
+          },
+          "value": [
+            1900
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "isAnimalFeed": true,
+          "impactAssessment": {
+            "@id": "2z6navz6vxnn",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, bull",
+        "units": "number",
+        "@id": "beefCattleBull"
+      },
+      "animalId": "OlderBull",
+      "value": 3,
+      "referencePeriod": "average",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "min": 729.5999999999999,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, fresh forage",
+            "termType": "forage",
+            "@id": "genericGrassFreshForage",
+            "units": "kg"
+          },
+          "value": [
+            3927.806886227545
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "pbgy_kkymhda",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, fresh forage",
+            "termType": "forage",
+            "@id": "genericGrassFreshForage",
+            "units": "kg"
+          },
+          "value": [
+            1872.193113772455
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "d0uwfq8vdtuz",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, hay",
+            "termType": "crop",
+            "@id": "genericGrassHay",
+            "units": "kg"
+          },
+          "value": [
+            587.5
+          ],
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "vlw3lx9ifzg6",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, hay",
+            "termType": "crop",
+            "@id": "genericGrassHay",
+            "units": "kg"
+          },
+          "value": [
+            2812.5
+          ],
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "viutbczfzk0u",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, silage",
+            "termType": "crop",
+            "@id": "genericGrassSilage",
+            "units": "kg"
+          },
+          "value": [
+            656.6176470588235
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "bgm5hyh5mdz0",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, silage",
+            "termType": "crop",
+            "@id": "genericGrassSilage",
+            "units": "kg"
+          },
+          "value": [
+            3143.382352941176
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "akzdusvikcs7",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Barley, grain (whole)",
+            "units": "kg",
+            "@id": "barleyGrainWhole"
+          },
+          "value": [
+            400
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "gkm4o7zzb0ak",
+            "@type": "ImpactAssessment"
+          },
+          "isAnimalFeed": true,
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Wheat, grain",
+            "units": "kg",
+            "@id": "wheatGrain"
+          },
+          "value": [
+            400
+          ],
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "2z6navz6vxnn",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, bull",
+        "units": "number",
+        "@id": "beefCattleBull"
+      },
+      "animalId": "Bull",
+      "value": 1,
+      "referencePeriod": "average",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "min": 364.79999999999995,
+          "value": 547.1999999999999,
+          "max": 729.5999999999999,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, fresh forage",
+            "termType": "forage",
+            "@id": "genericGrassFreshForage",
+            "units": "kg"
+          },
+          "value": [
+            1760.741017964072
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "pbgy_kkymhda",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, fresh forage",
+            "termType": "forage",
+            "@id": "genericGrassFreshForage",
+            "units": "kg"
+          },
+          "value": [
+            839.2589820359282
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "isAnimalFeed": true,
+          "impactAssessment": {
+            "@id": "d0uwfq8vdtuz",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, hay",
+            "termType": "crop",
+            "@id": "genericGrassHay",
+            "units": "kg"
+          },
+          "value": [
+            86.3970588235294
+          ],
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "vlw3lx9ifzg6",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, hay",
+            "termType": "crop",
+            "@id": "genericGrassHay",
+            "units": "kg"
+          },
+          "value": [
+            413.60294117647055
+          ],
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "viutbczfzk0u",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, silage",
+            "termType": "crop",
+            "@id": "genericGrassSilage",
+            "units": "kg"
+          },
+          "value": [
+            86.3970588235294
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "isAnimalFeed": true,
+          "impactAssessment": {
+            "@id": "bgm5hyh5mdz0",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, silage",
+            "termType": "crop",
+            "@id": "genericGrassSilage",
+            "units": "kg"
+          },
+          "value": [
+            413.60294117647055
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "isAnimalFeed": true,
+          "impactAssessment": {
+            "@id": "akzdusvikcs7",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Barley, grain (whole)",
+            "units": "kg",
+            "@id": "barleyGrainWhole"
+          },
+          "value": [
+            300
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "isAnimalFeed": true,
+          "impactAssessment": {
+            "@id": "gkm4o7zzb0ak",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Wheat, grain",
+            "units": "kg",
+            "@id": "wheatGrain"
+          },
+          "value": [
+            300
+          ],
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "2z6navz6vxnn",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, calf (unweaned)",
+        "units": "number",
+        "@id": "beefCattleCalfUnweaned"
+      },
+      "animalId": "UnweanedCalves",
+      "value": 46.54246575342466,
+      "referencePeriod": "average",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "min": 1,
+          "max": 273.59999999999997,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Barley, grain (whole)",
+            "units": "kg",
+            "@id": "barleyGrainWhole"
+          },
+          "value": [
+            4200
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "isAnimalFeed": true,
+          "impactAssessment": {
+            "@id": "gkm4o7zzb0ak",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Wheat, grain",
+            "units": "kg",
+            "@id": "wheatGrain"
+          },
+          "value": [
+            9300
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "isAnimalFeed": true,
+          "impactAssessment": {
+            "@id": "2z6navz6vxnn",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Concentrate feed blend",
+            "termType": "processedFood",
+            "@id": "concentrateFeedBlend",
+            "units": "kg"
+          },
+          "value": [
+            4200
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "isAnimalFeed": true,
+          "impactAssessment": {
+            "@id": "xcbacuw1cayp",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, cow",
+        "units": "number",
+        "@id": "beefCattleCow"
+      },
+      "animalId": "CullCows",
+      "description": "Cull cows - assumed to be over 6 years old",
+      "value": 4.471232876712329,
+      "referencePeriod": "average",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "min": 2188.7999999999997,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, silage",
+            "termType": "crop",
+            "@id": "genericGrassSilage",
+            "units": "kg"
+          },
+          "value": [
+            2246.323529411765
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "isAnimalFeed": true,
+          "impactAssessment": {
+            "@id": "bgm5hyh5mdz0",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, silage",
+            "termType": "crop",
+            "@id": "genericGrassSilage",
+            "units": "kg"
+          },
+          "value": [
+            10753.676470588234
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "isAnimalFeed": true,
+          "impactAssessment": {
+            "@id": "akzdusvikcs7",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Barley, grain (whole)",
+            "units": "kg",
+            "@id": "barleyGrainWhole"
+          },
+          "value": [
+            5000
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "isAnimalFeed": true,
+          "impactAssessment": {
+            "@id": "gkm4o7zzb0ak",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Wheat, grain",
+            "units": "kg",
+            "@id": "wheatGrain"
+          },
+          "value": [
+            5100
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "isAnimalFeed": true,
+          "impactAssessment": {
+            "@id": "2z6navz6vxnn",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, heifer",
+        "units": "number",
+        "@id": "beefCattleHeifer"
+      },
+      "animalId": "GrowingHeifers",
+      "description": "Growing heifers from weaned calf to finished heifer (9months to 33months old)",
+      "value": 4.67945205479452,
+      "referencePeriod": "average",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "min": 273.59999999999997,
+          "value": 638.4,
+          "max": 1003.1999999999999,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, fresh forage",
+            "termType": "forage",
+            "@id": "genericGrassFreshForage",
+            "units": "kg"
+          },
+          "value": [
+            9277.750748502995
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "isAnimalFeed": true,
+          "impactAssessment": {
+            "@id": "pbgy_kkymhda",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, fresh forage",
+            "termType": "forage",
+            "@id": "genericGrassFreshForage",
+            "units": "kg"
+          },
+          "value": [
+            4422.249251497006
+          ],
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "d0uwfq8vdtuz",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Barley, grain (whole)",
+            "units": "kg",
+            "@id": "barleyGrainWhole"
+          },
+          "value": [
+            1300
+          ],
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "gkm4o7zzb0ak",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Wheat, grain",
+            "units": "kg",
+            "@id": "wheatGrain"
+          },
+          "value": [
+            1300
+          ],
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "2z6navz6vxnn",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, heifer",
+        "units": "number",
+        "@id": "beefCattleHeifer"
+      },
+      "value": [
+        14
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "value": 1003.1999999999999,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 701,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Processing conversion, liveweight to cold carcass weight",
+            "termType": "property",
+            "@id": "processingConversionLiveweightToColdCarcassWeight",
+            "units": "%"
+          },
+          "value": 56,
+          "methodClassification": "consistent external sources",
+          "methodClassificationDescription": "Expert knowledge and the slaughterhouse database of the INRA/Vet Agro Sup Herbivore Research Unit.",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, bull",
+        "units": "number",
+        "@id": "beefCattleBull"
+      },
+      "value": [
+        1
+      ],
+      "price": 1287,
+      "currency": "EUR",
+      "description": "Breeding bull. Price is the average between 2004-2007.",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 990,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Processing conversion, liveweight to cold carcass weight",
+            "termType": "property",
+            "@id": "processingConversionLiveweightToColdCarcassWeight",
+            "units": "%"
+          },
+          "value": 57,
+          "methodClassification": "consistent external sources",
+          "methodClassificationDescription": "Expert knowledge and the slaughterhouse database of the INRA/Vet Agro Sup Herbivore Research Unit.",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, calf (male, weaned)",
+        "units": "number",
+        "@id": "beefCattleCalfMaleWeaned"
+      },
+      "value": [
+        30
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "value": 273.59999999999997,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 350,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, cow",
+        "units": "number",
+        "@id": "beefCattleCow"
+      },
+      "value": [
+        16
+      ],
+      "price": 1363.3999999999999,
+      "currency": "EUR",
+      "description": "Finished cull cows. Price is the average between 2004-2007.",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 802,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Processing conversion, liveweight to cold carcass weight",
+            "termType": "property",
+            "@id": "processingConversionLiveweightToColdCarcassWeight",
+            "units": "%"
+          },
+          "value": 54,
+          "methodClassification": "consistent external sources",
+          "methodClassificationDescription": "Expert knowledge and the slaughterhouse database of the INRA/Vet Agro Sup Herbivore Research Unit.",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, beef cattle, except feedlot fed (kg mass)",
+        "units": "kg",
+        "@id": "excretaBeefCattleExceptFeedlotFedKgMass"
+      },
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "transformationId": "1",
+      "term": {
+        "@type": "Term",
+        "name": "Pasture/Range/Paddock (excreta management)",
+        "termType": "excretaManagement",
+        "@id": "pastureRangePaddockExcretaManagement"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, beef cattle, except feedlot fed (kg mass)",
+            "units": "kg",
+            "@id": "excretaBeefCattleExceptFeedlotFedKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 44.93150684931507,
+      "@type": "Transformation"
+    },
+    {
+      "transformationId": "2",
+      "term": {
+        "@type": "Term",
+        "name": "Deep bedding",
+        "termType": "excretaManagement",
+        "@id": "deepBedding"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, beef cattle, except feedlot fed (kg mass)",
+            "units": "kg",
+            "@id": "excretaBeefCattleExceptFeedlotFedKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 55.06849315068493,
+      "@type": "Transformation"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "ingredient": true,
+    "otherChemical": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "freshForage": true,
+    "animalPopulation": true,
+    "liveAnimalInput": true,
+    "waste": false,
+    "operation": false,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Beef cattle, heifer - Charolles (Sous-préfecture), Charolles, Charolles, Saône-et-Loire, Bourgogne-Franche-Comté, France - 2010 - Annual cycle of an alternative...",
+  "schemaVersion": "30.4.0",
+  "originalId": "O3 Cow-Calf"
+}

@@ -1,0 +1,290 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-01-18",
+  "updatedAt": "2024-12-03",
+  "@id": "udmi39_qo6sp",
+  "@type": "Cycle",
+  "description": "Kipster-Female chicks",
+  "startDateDefinition": "stocking date",
+  "endDate": "2017",
+  "cycleDuration": 119,
+  "numberOfCycles": 1,
+  "site": {
+    "@id": "oviiuw4q7335",
+    "@type": "Site"
+  },
+  "functionalUnit": "relative",
+  "defaultMethodClassification": "consistent external sources",
+  "defaultMethodClassificationDescription": "There are multiple sources used in this study. They are consistent with the farming type - kipster and location - Netherlands.",
+  "defaultSource": {
+    "@id": "j2jbf7nfmep-",
+    "@type": "Source"
+  },
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed blend",
+        "termType": "processedFood",
+        "@id": "concentrateFeedBlend",
+        "units": "kg"
+      },
+      "value": [
+        5.6
+      ],
+      "operation": {
+        "@type": "Term",
+        "name": "Feeding animals, machine unspecified",
+        "termType": "operation",
+        "@id": "feedingAnimalsMachineUnspecified",
+        "units": "hour"
+      },
+      "impactAssessment": {
+        "@id": "6jlr9sz10uzo",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Animal bedding, unspecified",
+        "termType": "material",
+        "@id": "animalBeddingUnspecified",
+        "units": "kg"
+      },
+      "value": [
+        0.015
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Natural gas",
+        "units": "m3",
+        "@id": "naturalGas"
+      },
+      "value": [
+        0.15
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        2.35
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        25.89
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Layer chicken, chick",
+        "units": "number",
+        "@id": "layerChickenChick"
+      },
+      "value": [
+        1.035
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Mortality rate",
+            "termType": "property",
+            "@id": "mortalityRate",
+            "units": "%"
+          },
+          "value": 3.5,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "value": 1,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Total animal population",
+        "termType": "animalManagement",
+        "@id": "totalAnimalPopulation",
+        "units": "number"
+      },
+      "value": [
+        24840
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Stocking density, animal housing (average)",
+        "termType": "animalManagement",
+        "@id": "stockingDensityAnimalHousingAverage",
+        "units": "animals / m2"
+      },
+      "value": [
+        10.5
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Feeding animals, machine unspecified",
+        "termType": "operation",
+        "@id": "feedingAnimalsMachineUnspecified",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "system",
+        "name": "Barn system",
+        "units": "% area",
+        "@id": "barnSystem"
+      },
+      "@type": "Practice"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Layer chicken, hen",
+        "units": "number",
+        "@id": "layerChickenHen"
+      },
+      "description": "Of laying age",
+      "value": [
+        1
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, poultry (kg mass)",
+        "units": "kg",
+        "@id": "excretaPoultryKgMass"
+      },
+      "primary": false,
+      "value": [
+        2.48
+      ],
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Poultry manure with litter",
+        "termType": "excretaManagement",
+        "@id": "poultryManureWithLitter"
+      },
+      "transformationId": "excreta-management-1",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, poultry (kg mass)",
+            "units": "kg",
+            "@id": "excretaPoultryKgMass"
+          },
+          "value": [
+            2.48
+          ],
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "products": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Processed excreta (kg mass)",
+            "termType": "excreta",
+            "@id": "processedExcretaKgMass",
+            "units": "kg"
+          },
+          "value": [
+            2.48
+          ],
+          "@type": "Product"
+        }
+      ],
+      "@type": "Transformation"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "operation": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": true,
+    "animalFeed": true,
+    "waste": false,
+    "liveAnimalInput": true,
+    "transport": false,
+    "ingredient": true,
+    "otherChemical": true,
+    "freshForage": true,
+    "animalPopulation": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Layer chicken, hen - Netherlands - 2017 - Kipster-Female chicks",
+  "schemaVersion": "30.3.2",
+  "originalId": "female-chicks"
+}

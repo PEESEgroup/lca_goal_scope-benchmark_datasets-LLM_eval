@@ -1,0 +1,465 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-02-05",
+  "updatedAt": "2025-01-23",
+  "@id": "mkekbvl3xhc5",
+  "@type": "Cycle",
+  "startDate": "2014-10-01",
+  "startDateDefinition": "stocking date",
+  "endDate": "2015-04-06",
+  "cycleDuration": 187,
+  "numberOfCycles": 1,
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "cjhqtplyra0m",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "nke6buknxiap",
+    "@type": "Source"
+  },
+  "siteDuration": 157,
+  "otherSites": [
+    {
+      "@id": "xhrtypm4pdlh",
+      "@type": "Site"
+    }
+  ],
+  "otherSitesDuration": [
+    30
+  ],
+  "defaultMethodClassification": "physical measurement",
+  "defaultMethodClassificationDescription": "Experiment, where animals and feeds weighed on-site",
+  "treatment": "Backgrounding",
+  "commercialPracticeTreatment": true,
+  "otherSitesArea": [
+    13.2
+  ],
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, calf (uncastrated male, weaned)",
+        "units": "number",
+        "@id": "beefCattleCalfUncastratedMaleWeaned"
+      },
+      "value": [
+        80
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "value": 323,
+          "sd": 35.2,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 437,
+          "sd": 37.4,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Ryegrass, silage",
+        "units": "kg",
+        "@id": "ryegrassSilage"
+      },
+      "isAnimalFeed": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Ad libitum feeding",
+            "termType": "property",
+            "@id": "adLibitumFeeding",
+            "units": "boolean"
+          },
+          "value": true,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Crude protein content",
+            "termType": "property",
+            "@id": "crudeProteinContent",
+            "units": "%"
+          },
+          "value": 12.8,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "property",
+            "name": "Digestible dry matter",
+            "units": "%",
+            "@id": "digestibleDryMatter"
+          },
+          "value": 69.5,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed blend",
+        "termType": "processedFood",
+        "@id": "concentrateFeedBlend",
+        "units": "kg"
+      },
+      "isAnimalFeed": true,
+      "value": [
+        21352
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, calf (uncastrated male, weaned)",
+        "units": "number",
+        "@id": "beefCattleCalfUncastratedMaleWeaned"
+      },
+      "animalId": "1",
+      "value": 17.96791444,
+      "referencePeriod": "average",
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, bull",
+        "units": "number",
+        "@id": "beefCattleBull"
+      },
+      "animalId": "2",
+      "value": 62.03208556,
+      "referencePeriod": "average",
+      "@type": "Animal"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Animal vaccination",
+        "termType": "operation",
+        "@id": "animalVaccination",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Rotational grazing",
+        "termType": "landUseManagement",
+        "@id": "rotationalGrazing",
+        "units": "% area"
+      },
+      "key": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Ryegrass plant",
+        "units": "% area",
+        "@id": "ryegrassPlant"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Slatted flooring use",
+        "termType": "animalManagement",
+        "@id": "slattedFlooringUse",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Limousin",
+        "termType": "animalBreed",
+        "@id": "limousin",
+        "units": "%"
+      },
+      "value": [
+        50
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Charolais",
+        "termType": "animalBreed",
+        "@id": "charolais",
+        "units": "%"
+      },
+      "value": [
+        50
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Stocking density, permanent pasture (average)",
+        "termType": "animalManagement",
+        "@id": "stockingDensityPermanentPastureAverage",
+        "units": "animals / m2"
+      },
+      "value": [
+        0.000202020202
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "We assumed calves graze in the same area where they then graze during the following season.",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Indoor animal system",
+        "termType": "system",
+        "@id": "indoorAnimalSystem",
+        "units": "%"
+      },
+      "value": [
+        83.95721925
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "system",
+        "name": "Confined pasture system",
+        "units": "%",
+        "@id": "confinedPastureSystem"
+      },
+      "value": [
+        16.04278075
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, bull",
+        "units": "number",
+        "@id": "beefCattleBull"
+      },
+      "value": [
+        80
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 555.5,
+          "min": 553,
+          "max": 560,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "value": 510,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, beef cattle, except feedlot fed (kg mass)",
+        "units": "kg",
+        "@id": "excretaBeefCattleExceptFeedlotFedKgMass"
+      },
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture/Range/Paddock (excreta management)",
+        "termType": "excretaManagement",
+        "@id": "pastureRangePaddockExcretaManagement"
+      },
+      "transformationId": "1",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, beef cattle, except feedlot fed (kg mass)",
+            "units": "kg",
+            "@id": "excretaBeefCattleExceptFeedlotFedKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 16.04278075,
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Liquid/Slurry",
+        "termType": "excretaManagement",
+        "@id": "liquidSlurry"
+      },
+      "transformationId": "2",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, beef cattle, except feedlot fed (kg mass)",
+            "units": "kg",
+            "@id": "excretaBeefCattleExceptFeedlotFedKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 83.95721925,
+      "products": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, beef cattle, except feedlot fed (kg mass)",
+            "units": "kg",
+            "@id": "excretaBeefCattleExceptFeedlotFedKgMass"
+          },
+          "@type": "Product"
+        }
+      ],
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Periodic spread",
+        "termType": "excretaManagement",
+        "@id": "periodicSpread"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, beef cattle, except feedlot fed (kg mass)",
+            "units": "kg",
+            "@id": "excretaBeefCattleExceptFeedlotFedKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformationId": "3",
+      "previousTransformationId": "2",
+      "transformedShare": 100,
+      "@type": "Transformation"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "transport": false,
+    "material": false,
+    "fertiliser": false,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": false,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "freshForage": false,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Beef cattle, bull - Meath, Ireland - 2015-04-06 - Backgrounding",
+  "schemaVersion": "30.5.0",
+  "originalId": "Backgrounding"
+}

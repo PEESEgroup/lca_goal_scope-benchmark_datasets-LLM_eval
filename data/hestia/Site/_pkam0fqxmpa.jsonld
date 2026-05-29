@@ -1,0 +1,45 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Site.jsonld",
+  "createdAt": "2024-11-20",
+  "updatedAt": "2024-12-03",
+  "@id": "_pkam0fqxmpa",
+  "@type": "Site",
+  "defaultSource": {
+    "@id": "c3c-fbwxy2mp",
+    "@type": "Source"
+  },
+  "siteType": "permanent pasture",
+  "country": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Australia",
+    "@id": "GADM-AUS"
+  },
+  "region": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Victoria (State), Australia",
+    "@id": "GADM-AUS.10_1"
+  },
+  "area": 438,
+  "defaultMethodClassification": "verified survey data",
+  "defaultMethodClassificationDescription": "Four case study farms were selected from the Livestock Farm Monitor Project (DPI 2011) based on lamb sale weight (>45kg) and breeds to suit the export market. Production data were accessed from detailed farm records, and verified through discussions with farmers at each CSF.",
+  "management": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Improved pasture",
+        "units": "% area",
+        "@id": "improvedPasture"
+      },
+      "value": 100,
+      "endDate": "2012",
+      "@type": "Management"
+    }
+  ],
+  "dataPrivate": false,
+  "name": "Permanent pasture - Victoria (State), Australia",
+  "schemaVersion": "30.3.2",
+  "originalId": "Vic._CSF_Pastureland"
+}

@@ -1,0 +1,703 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-01-15",
+  "updatedAt": "2025-01-08",
+  "@id": "5i9oleqtchra",
+  "@type": "Cycle",
+  "description": "Pluriparous ewes chosen for assessment, lambing concentrated in mid-November. Separated system with low supplementation (SS-LS), in which mothers were not followed by suckling lambs during the grazing time (suckling lambs remained indoors) and they received a low dose of supplement (200 g/d of concentrate).",
+  "numberOfCycles": 1,
+  "endDate": "2017-12-13",
+  "cycleDuration": 28,
+  "startDateDefinition": "stocking date",
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "k_kngrcge6jg",
+    "@type": "Site"
+  },
+  "otherSites": [
+    {
+      "@id": "vzgu21459fmm",
+      "@type": "Site"
+    }
+  ],
+  "otherSitesDuration": [
+    24.5
+  ],
+  "siteDuration": 3.5,
+  "defaultSource": {
+    "@id": "mmjqpffwvz8g",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "physical measurement",
+  "defaultMethodClassificationDescription": "Experimental study - data collected from farm",
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Sarda",
+        "termType": "animalBreed",
+        "@id": "sarda",
+        "units": "%"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Indoor animal system",
+        "termType": "system",
+        "@id": "indoorAnimalSystem",
+        "units": "%"
+      },
+      "value": [
+        12.5
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "system",
+        "name": "Confined pasture system",
+        "units": "%",
+        "@id": "confinedPastureSystem"
+      },
+      "value": [
+        87.5
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Sheep, ewe (lactating)",
+        "units": "number",
+        "@id": "sheepEweLactating"
+      },
+      "animalId": "1",
+      "referencePeriod": "average",
+      "value": 24,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 46.33,
+          "statsDefinition": "other observations",
+          "observations": 96,
+          "sd": 3.919183588453085,
+          "description": "Average liveweight calculated on a sample size of 96 nursing ewes (the total number of ewes involved in the experiment).",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Concentrate feed blend",
+            "termType": "processedFood",
+            "@id": "concentrateFeedBlend",
+            "units": "kg"
+          },
+          "value": [
+            134.4
+          ],
+          "isAnimalFeed": false,
+          "impactAssessment": {
+            "@id": "kydxulsxvf4f",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, hay",
+            "termType": "crop",
+            "@id": "genericGrassHay",
+            "units": "kg"
+          },
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Ad libitum feeding",
+                "termType": "property",
+                "@id": "adLibitumFeeding",
+                "units": "boolean"
+              },
+              "value": true,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 91,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Crude protein content",
+                "termType": "property",
+                "@id": "crudeProteinContent",
+                "units": "%"
+              },
+              "value": 4.55,
+              "methodModel": {
+                "@type": "Term",
+                "name": "Kjeldahl method",
+                "termType": "methodMeasurement",
+                "@id": "kjeldahlMethod"
+              },
+              "methodModelDescription": "Feed samples were ground with a Hammer mill by using a 1 mm screen, and then analyzed using method 988.05 - AOAC International. Official Method of Analysis, 17th ed.; AOAC International: Arlington, VA, USA, 2000.",
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Neutral detergent fibre content",
+                "termType": "property",
+                "@id": "neutralDetergentFibreContent",
+                "units": "%"
+              },
+              "value": 55.51,
+              "methodModel": {
+                "@type": "Term",
+                "name": "Van Soest method",
+                "termType": "methodMeasurement",
+                "@id": "vanSoestMethod"
+              },
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "Acid detergent fibre content",
+                "units": "%",
+                "@id": "acidDetergentFibreContent"
+              },
+              "value": 45.5,
+              "methodModel": {
+                "@type": "Term",
+                "name": "Van Soest method",
+                "termType": "methodMeasurement",
+                "@id": "vanSoestMethod"
+              },
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "Acid detergent lignin content",
+                "units": "%",
+                "@id": "acidDetergentLigninContent"
+              },
+              "value": 4.55,
+              "methodModel": {
+                "@type": "Term",
+                "name": "Van Soest method",
+                "termType": "methodMeasurement",
+                "@id": "vanSoestMethod"
+              },
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Ash content",
+                "termType": "property",
+                "@id": "ashContent",
+                "units": "%"
+              },
+              "value": 7.189,
+              "methodModel": {
+                "@type": "Term",
+                "name": "AOAC Official Method 942.05",
+                "termType": "methodMeasurement",
+                "@id": "aoacOfficialMethod94205"
+              },
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Total lipid content",
+                "termType": "property",
+                "@id": "totalLipidContent",
+                "units": "%"
+              },
+              "value": 1.7289999999999999,
+              "methodModel": {
+                "@type": "Term",
+                "name": "Soxhlet extraction method",
+                "termType": "methodMeasurement",
+                "@id": "soxhletExtractionMethod"
+              },
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, fresh forage",
+            "termType": "forage",
+            "@id": "genericGrassFreshForage",
+            "units": "kg"
+          },
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 22.3,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Crude protein content",
+                "termType": "property",
+                "@id": "crudeProteinContent",
+                "units": "%"
+              },
+              "value": 4.0586,
+              "methodModel": {
+                "@type": "Term",
+                "name": "Kjeldahl method",
+                "termType": "methodMeasurement",
+                "@id": "kjeldahlMethod"
+              },
+              "methodModelDescription": "Feed samples were ground with a Hammer mill by using a 1 mm screen, and then analyzed using method 988.05 - AOAC International. Official Method of Analysis, 17th ed.; AOAC International: Arlington, VA, USA, 2000.",
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Neutral detergent fibre content",
+                "termType": "property",
+                "@id": "neutralDetergentFibreContent",
+                "units": "%"
+              },
+              "value": 9.477500000000001,
+              "methodModel": {
+                "@type": "Term",
+                "name": "Van Soest method",
+                "termType": "methodMeasurement",
+                "@id": "vanSoestMethod"
+              },
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "Acid detergent fibre content",
+                "units": "%",
+                "@id": "acidDetergentFibreContent"
+              },
+              "value": 5.6196,
+              "methodModel": {
+                "@type": "Term",
+                "name": "Van Soest method",
+                "termType": "methodMeasurement",
+                "@id": "vanSoestMethod"
+              },
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "Acid detergent lignin content",
+                "units": "%",
+                "@id": "acidDetergentLigninContent"
+              },
+              "value": 0.669,
+              "methodModel": {
+                "@type": "Term",
+                "name": "Van Soest method",
+                "termType": "methodMeasurement",
+                "@id": "vanSoestMethod"
+              },
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Ash content",
+                "termType": "property",
+                "@id": "ashContent",
+                "units": "%"
+              },
+              "value": 2.3192,
+              "methodModel": {
+                "@type": "Term",
+                "name": "AOAC Official Method 942.05",
+                "termType": "methodMeasurement",
+                "@id": "aoacOfficialMethod94205"
+              },
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Total lipid content",
+                "termType": "property",
+                "@id": "totalLipidContent",
+                "units": "%"
+              },
+              "value": 0.3345,
+              "methodModel": {
+                "@type": "Term",
+                "name": "Soxhlet extraction method",
+                "termType": "methodMeasurement",
+                "@id": "soxhletExtractionMethod"
+              },
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Sheep, lamb (female, unweaned)",
+        "units": "number",
+        "@id": "sheepLambFemaleUnweaned"
+      },
+      "animalId": "2",
+      "referencePeriod": "average",
+      "value": 11,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "min": 1,
+          "max": 28,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Weight at birth",
+            "termType": "property",
+            "@id": "weightAtBirth",
+            "units": "kg liveweight / head"
+          },
+          "value": 4.09,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight gain",
+            "termType": "property",
+            "@id": "liveweightGain",
+            "units": "kg liveweight / head / day"
+          },
+          "value": 0.19,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Sheep, lamb (male, unweaned)",
+        "units": "number",
+        "@id": "sheepLambMaleUnweaned"
+      },
+      "animalId": "3",
+      "referencePeriod": "average",
+      "value": 13,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "value": 1,
+          "max": 28,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Weight at birth",
+            "termType": "property",
+            "@id": "weightAtBirth",
+            "units": "kg liveweight / head"
+          },
+          "value": 4.09,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight gain",
+            "termType": "property",
+            "@id": "liveweightGain",
+            "units": "kg liveweight / head / day"
+          },
+          "value": 0.19,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture/Range/Paddock (excreta management)",
+        "termType": "excretaManagement",
+        "@id": "pastureRangePaddockExcretaManagement"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, sheep (kg mass)",
+            "units": "kg",
+            "@id": "excretaSheepKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 12.5,
+      "transformationId": "1",
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Excreta management, unspecified",
+        "termType": "excretaManagement",
+        "@id": "excretaManagementUnspecified"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, sheep (kg mass)",
+            "units": "kg",
+            "@id": "excretaSheepKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 87.5,
+      "transformationId": "2",
+      "@type": "Transformation"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Sheep, lamb (female, unweaned)",
+        "units": "number",
+        "@id": "sheepLambFemaleUnweaned"
+      },
+      "value": [
+        11
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "value": 28,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 9.99,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Sheep, lamb (male, unweaned)",
+        "units": "number",
+        "@id": "sheepLambMaleUnweaned"
+      },
+      "value": [
+        13
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "value": 28,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 9.99,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, sheep (kg mass)",
+        "units": "kg",
+        "@id": "excretaSheepKgMass"
+      },
+      "@type": "Product"
+    }
+  ],
+  "emissions": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CH4, to air, enteric fermentation",
+        "termType": "emission",
+        "@id": "ch4ToAirEntericFermentation",
+        "units": "kg CH4"
+      },
+      "value": [
+        39.53472000000001
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2019)",
+        "termType": "model",
+        "@id": "ipcc2019"
+      },
+      "methodTier": "tier 2",
+      "@type": "Emission"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": true,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": false,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "freshForage": false,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Sheep, lamb (female, unweaned) - Sardegna, Italy - 2017-12-13 - Pluriparous ewes chosen for as...",
+  "schemaVersion": "30.5.0",
+  "originalId": "SS-LS"
+}

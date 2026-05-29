@@ -1,0 +1,266 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-02-09",
+  "updatedAt": "2024-12-03",
+  "@id": "o3lobvmlmvrx",
+  "@type": "Cycle",
+  "description": "Sow England Conventional",
+  "startDateDefinition": "start of year",
+  "endDate": "2007",
+  "cycleDuration": 365,
+  "site": {
+    "@id": "xgg78xjbdj0n",
+    "@type": "Site"
+  },
+  "functionalUnit": "relative",
+  "defaultMethodClassification": "consistent external sources",
+  "defaultMethodClassificationDescription": "Data collected from multiple peer reviewed studies in line with the conventional and organic production systems of each country.",
+  "defaultSource": {
+    "@id": "w3hq1dphy7wy",
+    "@type": "Source"
+  },
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed blend",
+        "termType": "processedFood",
+        "@id": "concentrateFeedBlend",
+        "units": "kg"
+      },
+      "isAnimalFeed": true,
+      "value": [
+        2483
+      ],
+      "impactAssessment": {
+        "@id": "ugwqakxqnahs",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig, sow",
+        "units": "number",
+        "@id": "pigSow"
+      },
+      "isAnimalFeed": false,
+      "value": [
+        0.42272727272727273
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Total animal population",
+        "termType": "animalManagement",
+        "@id": "totalAnimalPopulation",
+        "units": "number"
+      },
+      "value": [
+        2279.6931506849314
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Indoor animal system",
+        "termType": "system",
+        "@id": "indoorAnimalSystem",
+        "units": "% area"
+      },
+      "description": "100",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Slatted flooring use",
+        "termType": "animalManagement",
+        "@id": "slattedFlooringUse",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Farrowing crate system",
+        "termType": "system",
+        "@id": "farrowingCrateSystem",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig, sow",
+        "units": "number",
+        "@id": "pigSow"
+      },
+      "animalId": "kool-sow-england-conventional-Pig, sow",
+      "referencePeriod": "average",
+      "value": 1,
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig, piglet",
+        "units": "number",
+        "@id": "pigPiglet"
+      },
+      "animalId": "kool-sow-england-conventional-Pig, piglet",
+      "referencePeriod": "average",
+      "value": 5.063013698630137,
+      "@type": "Animal"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig, sow",
+        "units": "number",
+        "@id": "pigSow"
+      },
+      "description": "Sows sent for slaughter",
+      "value": [
+        0.42272727272727273
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 220,
+          "methodClassification": "expert opinion",
+          "methodClassificationDescription": "Data provided by Harriet Bartlett.",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "price": 0.89,
+      "currency": "EUR",
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig, piglet",
+        "units": "number",
+        "@id": "pigPiglet"
+      },
+      "value": [
+        26.4
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 35.4,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "currency": "EUR",
+      "price": 60,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, pigs (kg mass)",
+        "units": "kg",
+        "@id": "excretaPigsKgMass"
+      },
+      "primary": false,
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pit storage below animal confinements",
+        "termType": "excretaManagement",
+        "@id": "pitStorageBelowAnimalConfinements"
+      },
+      "transformationId": "kool-england-conventional-sow-pit",
+      "description": "Pit storage",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, pigs (kg mass)",
+            "units": "kg",
+            "@id": "excretaPigsKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "transformationDuration": 180,
+      "@type": "Transformation"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "operation": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "waste": false,
+    "liveAnimalInput": true,
+    "transport": false,
+    "otherChemical": false,
+    "ingredient": true,
+    "freshForage": true,
+    "animalPopulation": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Pig, sow - United Kingdom - 2007 - Sow England Conventional",
+  "schemaVersion": "30.3.2",
+  "originalId": "kool-sow-england-conventional"
+}

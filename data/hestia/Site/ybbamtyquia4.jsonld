@@ -1,0 +1,51 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Site.jsonld",
+  "createdAt": "2024-01-18",
+  "updatedAt": "2024-12-06",
+  "@id": "ybbamtyquia4",
+  "@type": "Site",
+  "defaultSource": {
+    "@id": "bvshcy6gt-fy",
+    "@type": "Source"
+  },
+  "siteType": "permanent pasture",
+  "country": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Canada",
+    "@id": "GADM-CAN"
+  },
+  "region": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Ontario (Province), Canada",
+    "@id": "GADM-CAN.9_1"
+  },
+  "numberOfSites": 23,
+  "area": 16.42595782,
+  "management": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Improved pasture",
+        "units": "% area",
+        "@id": "improvedPasture"
+      },
+      "endDate": "2022",
+      "methodClassification": "non-verified survey data",
+      "methodClassificationDescription": "Data on sheep farming practices was collected via surveys. Responses from 23 surveys were used to create sample datapoints for each parameter",
+      "@type": "Management"
+    }
+  ],
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Data on sheep farming practices was collected via surveys. Responses from 23 surveys were used to create sample datapoints for each parameter",
+  "organisation": {
+    "@id": "fugmmtgr1bje",
+    "@type": "Organisation"
+  },
+  "dataPrivate": false,
+  "name": "Permanent pasture - Ontario (Province), Canada",
+  "schemaVersion": "30.4.0",
+  "originalId": "sheep_farming_pasture"
+}

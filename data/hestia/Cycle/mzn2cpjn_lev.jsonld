@@ -1,0 +1,86 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2023-11-27",
+  "updatedAt": "2024-12-06",
+  "@id": "mzn2cpjn_lev",
+  "@type": "Cycle",
+  "description": "Meat, beef (carcass-weight) - Mate Grosso country (Acroizal, Agua Boa, Brasnorte, Canarana, Chapada dos Guimaraes, Colider, Cuiaba, Gaucha do Norte, Nobres, Pedra Preta, Rondonopolis)",
+  "startDate": "2011-01",
+  "startDateDefinition": "start of year",
+  "endDate": "2011-12",
+  "cycleDuration": 365,
+  "site": {
+    "@id": "o9reemqbgtt9",
+    "@type": "Site"
+  },
+  "functionalUnit": "relative",
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "It is not specify, we assume that data is from farms survey",
+  "defaultSource": {
+    "@id": "vzffcjoouhcg",
+    "@type": "Source"
+  },
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, beef cattle (liveweight)",
+        "units": "kg liveweight",
+        "@id": "meatBeefCattleLiveweight"
+      },
+      "value": [
+        1
+      ],
+      "impactAssessment": {
+        "@id": "_qmwmaalhyot",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "@type": "Input"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, beef cattle (cold carcass weight)",
+        "units": "kg cold carcass weight",
+        "@id": "meatBeefCattleColdCarcassWeight"
+      },
+      "description": "Carcass weight was assumed to be 53% of live weight.",
+      "value": [
+        0.53
+      ],
+      "primary": true,
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "animalFeed": true,
+    "animalPopulation": false,
+    "cropResidue": true,
+    "electricityFuel": true,
+    "excreta": true,
+    "fertiliser": true,
+    "freshForage": true,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "material": true,
+    "operation": true,
+    "otherChemical": true,
+    "pesticideVeterinaryDrug": true,
+    "product": true,
+    "seed": true,
+    "soilAmendment": true,
+    "transport": false,
+    "waste": false,
+    "water": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Meat, beef cattle (cold carcass weight) - Mato Grosso (Estado), Brazil - 2011-12 - Meat, beef (carcass-weight) - ...",
+  "schemaVersion": "30.4.0",
+  "originalId": "beef-meat-production-2016"
+}

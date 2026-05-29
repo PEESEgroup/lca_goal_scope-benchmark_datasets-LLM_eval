@@ -1,0 +1,399 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-02-09",
+  "updatedAt": "2024-12-06",
+  "@id": "dd_wobla0rwy",
+  "@type": "Cycle",
+  "description": "Clover pasture plot, grazed by 15 lambs",
+  "numberOfCycles": 1,
+  "startDate": "2007-03-01",
+  "startDateDefinition": "stocking date",
+  "endDate": "2008-02-01",
+  "functionalUnit": "1 ha",
+  "site": {
+    "@id": "tfslp1wpxaw6",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "qjv9ii1cnmsr",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "physical measurement",
+  "defaultMethodClassificationDescription": "Onfarm activities were based on a 12-month field study conducted at the Department of Primary Industries site in Hamilton, Victoria (March 2007 - February 2008).",
+  "treatment": "Clover pasture grazed by lambs throughout the cycle.",
+  "commercialPracticeTreatment": true,
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Single Super Phosphate (kg P2O5)",
+        "termType": "inorganicFertiliser",
+        "@id": "singleSuperPhosphateKgP2O5",
+        "units": "kg P2O5"
+      },
+      "value": [
+        64.8
+      ],
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, lorry, light commercial vehicle",
+            "units": "tkm",
+            "@id": "freightLorryLightCommercialVehicle"
+          },
+          "distance": 234,
+          "returnLegIncluded": false,
+          "description": "30 tonne articulated truck",
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "pesticideAI",
+        "name": "Glyphosate",
+        "units": "kg active ingredient",
+        "@id": "CAS-1071-83-6"
+      },
+      "value": [
+        1.2
+      ],
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, lorry, light commercial vehicle",
+            "units": "tkm",
+            "@id": "freightLorryLightCommercialVehicle"
+          },
+          "distance": 284,
+          "returnLegIncluded": false,
+          "description": "30 tonne articulated truck",
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        0.56095
+      ],
+      "operation": {
+        "@type": "Term",
+        "termType": "operation",
+        "name": "Fertilising, with sprayer",
+        "units": "hour",
+        "@id": "fertilisingWithSprayer"
+      },
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        0.69903
+      ],
+      "operation": {
+        "@type": "Term",
+        "name": "Top dressing, machine unspecified",
+        "termType": "operation",
+        "@id": "topDressingMachineUnspecified",
+        "units": "hour"
+      },
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        0.53506
+      ],
+      "operation": {
+        "@type": "Term",
+        "name": "Shearing, with machine shears",
+        "termType": "operation",
+        "@id": "shearingWithMachineShears",
+        "units": "hour"
+      },
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Machinery infrastructure, depreciated amount per Cycle",
+        "termType": "material",
+        "@id": "machineryInfrastructureDepreciatedAmountPerCycle",
+        "units": "kg/functional unit/Cycle"
+      },
+      "cost": 0.0087,
+      "currency": "AUD",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        0.6
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture grass",
+        "termType": "landUseManagement",
+        "@id": "pastureGrass",
+        "units": "% area"
+      },
+      "key": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Clover plant",
+        "units": "% area",
+        "@id": "cloverPlant"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Shearing, with machine shears",
+        "termType": "operation",
+        "@id": "shearingWithMachineShears",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Stocking density, permanent pasture (average)",
+        "termType": "animalManagement",
+        "@id": "stockingDensityPermanentPastureAverage",
+        "units": "animals / m2"
+      },
+      "value": [
+        0.2
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Confined pasture system",
+        "termType": "system",
+        "@id": "confinedPastureSystem",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Sheep, lamb (weaned)",
+        "units": "number",
+        "@id": "sheepLambWeaned"
+      },
+      "animalId": "1",
+      "referencePeriod": "average",
+      "value": 15,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Weight at slaughter",
+            "termType": "property",
+            "@id": "weightAtSlaughter",
+            "units": "kg liveweight / head"
+          },
+          "value": 35,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture/Range/Paddock (excreta management)",
+        "termType": "excretaManagement",
+        "@id": "pastureRangePaddockExcretaManagement"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, sheep (kg mass)",
+            "units": "kg",
+            "@id": "excretaSheepKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "transformationId": "1",
+      "@type": "Transformation"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Wool, sheep (greasy)",
+        "units": "kg",
+        "@id": "woolSheepGreasy"
+      },
+      "value": [
+        75
+      ],
+      "methodClassification": "consistent external sources",
+      "methodClassificationDescription": "The information on the average amount of sheep meat and wool per lamb was obtained from MLA (Meat and Livestock Australia, 2007) and DPI Hamilton.",
+      "revenue": 390,
+      "currency": "AUD",
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, sheep (liveweight)",
+        "units": "kg liveweight",
+        "@id": "meatSheepLiveweight"
+      },
+      "value": [
+        525
+      ],
+      "primary": true,
+      "methodClassification": "consistent external sources",
+      "methodClassificationDescription": "The information on the average amount of sheep meat and wool per lamb was obtained from MLA (Meat and Livestock Australia, 2007) and DPI Hamilton.",
+      "revenue": 900,
+      "currency": "AUD",
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, sheep (kg mass)",
+        "units": "kg",
+        "@id": "excretaSheepKgMass"
+      },
+      "@type": "Product"
+    }
+  ],
+  "emissions": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CH4, to air, enteric fermentation",
+        "termType": "emission",
+        "@id": "ch4ToAirEntericFermentation",
+        "units": "kg CH4"
+      },
+      "value": [
+        164.25
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "Other model",
+        "termType": "model",
+        "@id": "otherModel"
+      },
+      "methodTier": "tier 2",
+      "methodModelDescription": "CH4 emissions from manure have been calculated using the methodology for the estimation of greenhouse gas emissions and sinks, developed by the National Greenhouse Gas Inventory Committee (Department of Climate Change, 2006).",
+      "@type": "Emission"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CH4, to air, excreta",
+        "termType": "emission",
+        "@id": "ch4ToAirExcreta",
+        "units": "kg CH4"
+      },
+      "value": [
+        0.027
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "Other model",
+        "termType": "model",
+        "@id": "otherModel"
+      },
+      "methodTier": "tier 2",
+      "methodModelDescription": "CH4 emissions from manure have been calculated using the methodology for the estimation of greenhouse gas emissions and sinks, developed by the National Greenhouse Gas Inventory Committee (Department of Climate Change, 2006).",
+      "@type": "Emission"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "transport": true,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": true,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": true,
+    "freshForage": false,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Meat, sheep (liveweight) - Victoria (State), Australia - 2008-02-01 - Clover pasture graze... - Clover pasture plot, grazed by...",
+  "siteArea": 1,
+  "schemaVersion": "30.4.0",
+  "originalId": "Sub_clover"
+}

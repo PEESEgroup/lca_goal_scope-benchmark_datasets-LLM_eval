@@ -1,0 +1,316 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2023-10-12",
+  "updatedAt": "2024-12-04",
+  "@id": "lbayx87tei1y",
+  "@type": "Cycle",
+  "description": "CB5-Hatchery 1",
+  "startDateDefinition": "stocking date",
+  "endDate": "2011",
+  "cycleDuration": 23,
+  "site": {
+    "@id": "w9ubo-nzl9od",
+    "@type": "Site"
+  },
+  "functionalUnit": "relative",
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Primary data collected from chicken feed manufacturing plant. Field surveys and questionnaires. Secondary data including chemical production, fertiliser production, electricity, and fuel production were collected from the Thailand National Life Cycle Inventories Database and the life cycle assessment database in the Ecoinvent.",
+  "defaultSource": {
+    "@id": "jwwfj8vmju7j",
+    "@type": "Source"
+  },
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Eggs, hen, in shell (number)",
+        "units": "number",
+        "@id": "eggsHenInShellNumber"
+      },
+      "value": [
+        1000
+      ],
+      "impactAssessment": {
+        "@id": "de3kxo7iyxt3",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "isAnimalFeed": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Fuel oil",
+        "units": "kg",
+        "@id": "fuelOil"
+      },
+      "value": [
+        0.6601851851851851
+      ],
+      "methodClassification": "unsourced assumption",
+      "methodClassificationDescription": "I have assumed they mean fuel oil when they discuss \"energy\" in the study.",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, source unspecified",
+        "units": "m3",
+        "@id": "waterSourceUnspecified"
+      },
+      "value": [
+        0.11
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        77.99
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "pesticideAI",
+        "name": "Chlorine",
+        "units": "kg active ingredient",
+        "@id": "CAS-7782-50-5"
+      },
+      "value": [
+        0.08
+      ],
+      "operation": {
+        "@type": "Term",
+        "name": "Surface disinfection, machine unspecified",
+        "termType": "operation",
+        "@id": "surfaceDisinfectionMachineUnspecified",
+        "units": "hour"
+      },
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Incubating",
+        "termType": "operation",
+        "@id": "incubating",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Number of egg turns",
+        "termType": "animalManagement",
+        "@id": "numberOfEggTurns",
+        "units": "number"
+      },
+      "value": [
+        6
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "system",
+        "name": "Barn system",
+        "units": "% area",
+        "@id": "barnSystem"
+      },
+      "@type": "Practice"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Broiler chicken, chick",
+        "units": "number",
+        "@id": "broilerChickenChick"
+      },
+      "value": [
+        1000
+      ],
+      "primary": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 0.0415,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "value": 1,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Waste water",
+        "termType": "waste",
+        "@id": "wasteWater",
+        "units": "kg"
+      },
+      "primary": false,
+      "value": [
+        100
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, poultry (kg mass)",
+        "units": "kg",
+        "@id": "excretaPoultryKgMass"
+      },
+      "primary": false,
+      "value": [
+        6.31
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "waste",
+        "name": "Other waste",
+        "units": "kg",
+        "@id": "otherWaste"
+      },
+      "description": "Egg shell",
+      "primary": false,
+      "value": [
+        3.27
+      ],
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Poultry manure with litter",
+        "termType": "excretaManagement",
+        "@id": "poultryManureWithLitter"
+      },
+      "transformationId": "Usubharatana-transformation-19",
+      "description": "Excreta management",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, poultry (kg mass)",
+            "units": "kg",
+            "@id": "excretaPoultryKgMass"
+          },
+          "value": [
+            6.31
+          ],
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "products": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Processed excreta (kg mass)",
+            "termType": "excreta",
+            "@id": "processedExcretaKgMass",
+            "units": "kg"
+          },
+          "value": [
+            6.31
+          ],
+          "@type": "Product"
+        }
+      ],
+      "@type": "Transformation"
+    }
+  ],
+  "emissions": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CO2, to air, fuel combustion",
+        "termType": "emission",
+        "@id": "co2ToAirFuelCombustion",
+        "units": "kg CO2"
+      },
+      "value": [
+        2.12
+      ],
+      "methodTier": "tier 1",
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2006)",
+        "termType": "model",
+        "@id": "ipcc2006"
+      },
+      "@type": "Emission"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "operation": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": true,
+    "soilAmendment": true,
+    "water": true,
+    "product": true,
+    "cropResidue": true,
+    "excreta": true,
+    "animalFeed": true,
+    "waste": true,
+    "liveAnimalInput": true,
+    "transport": false,
+    "ingredient": true,
+    "otherChemical": true,
+    "animalPopulation": true,
+    "freshForage": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Broiler chicken, chick - Thailand - 2011 - CB5-Hatchery 1",
+  "schemaVersion": "30.3.2",
+  "originalId": "CB5-Hatchery 1"
+}

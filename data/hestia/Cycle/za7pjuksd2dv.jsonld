@@ -1,0 +1,96 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-01-10",
+  "updatedAt": "2024-12-06",
+  "@id": "za7pjuksd2dv",
+  "@type": "Cycle",
+  "description": "Slaughter Cycle for High Genetic Merit Lambs",
+  "endDate": "2020",
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "j6av9a1kroz7",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "zbwr_kpj1nsn",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "modelled",
+  "defaultMethodClassificationDescription": "An established bio-economic model of Irish lowland sheep flock, the Teagasc Lamb Production Model (TLPM; Bohan et al., 2016) was used. Key model inputs included animal production data, market prices for sheep and wool sales, market prices for variable and fixed costs, stocking rate, and fertiliser use. Production values assumed for animals divergent in genetic merit in this study were derived from the Irish national sheep production data- base, using 387,580 production records from animals born between 2018 and 2020 in commericial flocks in the Irish Central Progeny Test programme (McHugh et al., 2022). Key model outputs included stock inventories, production at a whole farm level, total income and expenses, farm gross margin, and net profit expressed on either a whole farm, per ha, per ewe, or per lamb born basis.",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Sheep, lamb",
+        "units": "number",
+        "@id": "sheepLamb"
+      },
+      "value": [
+        248
+      ],
+      "impactAssessment": {
+        "@id": "rrw8po2cfrsn",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 43,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, sheep (cold carcass weight)",
+        "units": "kg cold carcass weight",
+        "@id": "meatSheepColdCarcassWeight"
+      },
+      "value": [
+        5084
+      ],
+      "primary": true,
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "ingredient": false,
+    "otherChemical": false,
+    "seed": true,
+    "pesticideVeterinaryDrug": true,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "freshForage": true,
+    "liveAnimalInput": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Meat, sheep (cold carcass weight) - Ireland - 2020 - Slaughter Cycle for High Genet...",
+  "schemaVersion": "30.4.0",
+  "originalId": "High Merit - Slaughter"
+}

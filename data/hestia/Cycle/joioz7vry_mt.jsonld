@@ -1,0 +1,171 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-03-23",
+  "updatedAt": "2025-01-16",
+  "@id": "joioz7vry_mt",
+  "@type": "Cycle",
+  "site": {
+    "@id": "pz6af4fidsos",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "jux68qintvla",
+    "@type": "Source"
+  },
+  "functionalUnit": "relative",
+  "endDate": "2014",
+  "description": "Slaughterhouse",
+  "defaultMethodClassification": "consistent external sources",
+  "defaultMethodClassificationDescription": "\"Based on data obtained on the farms of the educational facility \"Mumovskoye\" in Saratov region, complex data obtained through LAMP field experiments in Kursk region as well as on information received through LISSOZ program application.\"",
+  "completeness": {
+    "electricityFuel": true,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": true,
+    "otherChemical": true,
+    "soilAmendment": true,
+    "water": true,
+    "product": true,
+    "cropResidue": true,
+    "excreta": true,
+    "animalFeed": true,
+    "liveAnimalInput": true,
+    "waste": false,
+    "operation": true,
+    "transport": true,
+    "freshForage": true,
+    "animalPopulation": true,
+    "ingredient": true,
+    "@type": "Completeness"
+  },
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Broiler chicken",
+        "units": "number",
+        "@id": "broilerChicken"
+      },
+      "value": [
+        1
+      ],
+      "impactAssessment": {
+        "@id": "rtd2tdzdof-e",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, lorry, light commercial vehicle",
+            "units": "tkm",
+            "@id": "freightLorryLightCommercialVehicle"
+          },
+          "value": 0.1,
+          "description": "Transport of chickens in trailers pulled by diesel lorries. Standard dimensions of trailers for animal transport are the following: length 13.60 meters, width 2.60 meters and height 2.90 meters.",
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, municipal tap",
+        "units": "m3",
+        "@id": "waterMunicipalTap"
+      },
+      "value": [
+        0.0040999999999999995
+      ],
+      "min": [
+        0.0038
+      ],
+      "max": [
+        0.0044
+      ],
+      "statsDefinition": "other observations",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Natural gas",
+        "units": "m3",
+        "@id": "naturalGas"
+      },
+      "value": [
+        0.024804999999999997
+      ],
+      "min": [
+        0.02299
+      ],
+      "max": [
+        0.02662
+      ],
+      "statsDefinition": "other observations",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "processingAid",
+        "name": "Steam (1 bar pressure)",
+        "units": "m3",
+        "@id": "steam1BarPressure"
+      },
+      "value": [
+        0.00045
+      ],
+      "min": [
+        0.0004
+      ],
+      "max": [
+        0.0005
+      ],
+      "statsDefinition": "other observations",
+      "@type": "Input"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, chicken (liveweight)",
+        "units": "kg liveweight",
+        "@id": "meatChickenLiveweight"
+      },
+      "value": [
+        1.44
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "processedFood",
+        "name": "Poultry by-product meal",
+        "units": "kg",
+        "@id": "poultryByProductMeal"
+      },
+      "value": [
+        0.365
+      ],
+      "primary": false,
+      "@type": "Product"
+    }
+  ],
+  "dataPrivate": false,
+  "name": "Meat, chicken (liveweight) - Russia - 2014 - Slaughterhouse",
+  "schemaVersion": "30.3.2",
+  "originalId": "6"
+}

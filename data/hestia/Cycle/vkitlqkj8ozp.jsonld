@@ -1,0 +1,232 @@
+{
+  "@context": "https://contribute.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-04-19",
+  "updatedAt": "2025-03-11",
+  "@id": "vkitlqkj8ozp",
+  "@type": "Cycle",
+  "description": "Kosterhedens vildt abbatoir production of Red Deer",
+  "numberOfCycles": 1,
+  "endDate": "2011",
+  "cycleDuration": 365,
+  "startDateDefinition": "one year prior",
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "duyy-evuvi81",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "jcvrqantlqhz",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Questionnaires and interviews provided to various stakeholders in the supply chain",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Deer",
+        "units": "number",
+        "@id": "deer"
+      },
+      "value": [
+        180
+      ],
+      "isAnimalFeed": false,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Weight at slaughter",
+            "termType": "property",
+            "@id": "weightAtSlaughter",
+            "units": "kg liveweight / head"
+          },
+          "value": 47,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Transport, unspecified",
+            "termType": "transport",
+            "@id": "transportUnspecified",
+            "units": "tkm"
+          },
+          "distance": 1873,
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "impactAssessment": {
+        "@id": "aj_ys4xnr_tp",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Deer",
+        "units": "number",
+        "@id": "deer"
+      },
+      "value": [
+        180
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Weight at slaughter",
+            "termType": "property",
+            "@id": "weightAtSlaughter",
+            "units": "kg liveweight / head"
+          },
+          "value": 47,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Transport, unspecified",
+            "termType": "transport",
+            "@id": "transportUnspecified",
+            "units": "tkm"
+          },
+          "distance": 3840,
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "impactAssessment": {
+        "@id": "axn0xlzl0qfs",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Deer",
+        "units": "number",
+        "@id": "deer"
+      },
+      "value": [
+        240
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Weight at slaughter",
+            "termType": "property",
+            "@id": "weightAtSlaughter",
+            "units": "kg liveweight / head"
+          },
+          "value": 47,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Transport, unspecified",
+            "termType": "transport",
+            "@id": "transportUnspecified",
+            "units": "tkm"
+          },
+          "distance": 1200,
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "impactAssessment": {
+        "@id": "waotqs5f0sta",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Deer",
+        "units": "number",
+        "@id": "deer"
+      },
+      "value": [
+        174
+      ],
+      "@type": "Input"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, deer (cold carcass weight)",
+        "units": "kg cold carcass weight",
+        "@id": "meatDeerColdCarcassWeight"
+      },
+      "value": [
+        25465
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Offal, deer",
+        "units": "kg",
+        "@id": "offalDeer"
+      },
+      "value": [
+        10913
+      ],
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "transport": true,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": true,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": true,
+    "animalFeed": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "freshForage": true,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Meat, deer (cold carcass weight) - Denmark - 2011 - Kosterhedens vildt abbatoir pr...",
+  "schemaVersion": "30.7.0",
+  "originalId": "Abbatoir"
+}

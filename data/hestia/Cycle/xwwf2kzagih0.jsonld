@@ -1,0 +1,222 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-02-09",
+  "updatedAt": "2024-12-03",
+  "@id": "xwwf2kzagih0",
+  "@type": "Cycle",
+  "description": "Slaughtering",
+  "startDate": "2009",
+  "startDateDefinition": "start of year",
+  "endDate": "2009",
+  "cycleDuration": 365,
+  "site": {
+    "@id": "av5xirnkflmf",
+    "@type": "Site"
+  },
+  "functionalUnit": "relative",
+  "defaultMethodClassification": "consistent external sources",
+  "defaultMethodClassificationDescription": "Data collected from multiple peer reviewed studies in line with production practices.",
+  "defaultSource": {
+    "@id": "hexpjzv6s6l7",
+    "@type": "Source"
+  },
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig",
+        "units": "number",
+        "@id": "pig"
+      },
+      "isAnimalFeed": false,
+      "value": [
+        1
+      ],
+      "impactAssessment": {
+        "@id": "blwzz4fu0j9l",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Weight at slaughter",
+            "termType": "property",
+            "@id": "weightAtSlaughter",
+            "units": "kg liveweight / head"
+          },
+          "value": 120,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Transport, unspecified",
+            "termType": "transport",
+            "@id": "transportUnspecified",
+            "units": "tkm"
+          },
+          "distance": 350,
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        26.8
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, municipal tap",
+        "units": "m3",
+        "@id": "waterMunicipalTap"
+      },
+      "value": [
+        0.4
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        0.8
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Slaughtering",
+        "termType": "operation",
+        "@id": "slaughtering",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig",
+        "units": "number",
+        "@id": "pig"
+      },
+      "animalId": "reckman-slaughter-Pig",
+      "referencePeriod": "start of Cycle",
+      "value": 1,
+      "@type": "Animal"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, pig (cold dressed carcass weight)",
+        "units": "kg cold dressed carcass weight",
+        "@id": "meatPigColdDressedCarcassWeight"
+      },
+      "value": [
+        94.7
+      ],
+      "primary": true,
+      "@type": "Product"
+    }
+  ],
+  "emissions": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "BOD5, to water, industrial processes",
+        "termType": "emission",
+        "@id": "bod5ToWaterIndustrialProcesses",
+        "units": "kg BOD5"
+      },
+      "value": [
+        0.0947
+      ],
+      "methodTier": "tier 1",
+      "methodModel": {
+        "@type": "Term",
+        "name": "CML2001 Baseline",
+        "termType": "model",
+        "@id": "cml2001Baseline"
+      },
+      "@type": "Emission"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "COD, to water, industrial processes",
+        "termType": "emission",
+        "@id": "codToWaterIndustrialProcesses",
+        "units": "kg COD"
+      },
+      "value": [
+        2.462
+      ],
+      "methodTier": "tier 1",
+      "methodModel": {
+        "@type": "Term",
+        "name": "CML2001 Baseline",
+        "termType": "model",
+        "@id": "cml2001Baseline"
+      },
+      "@type": "Emission"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "operation": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": true,
+    "soilAmendment": true,
+    "water": true,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "waste": false,
+    "liveAnimalInput": true,
+    "transport": true,
+    "otherChemical": true,
+    "ingredient": true,
+    "freshForage": true,
+    "animalPopulation": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Meat, pig (cold dressed carcass weight) - Germany - 2009 - Slaughtering",
+  "schemaVersion": "30.3.2",
+  "originalId": "reckman-slaughter"
+}

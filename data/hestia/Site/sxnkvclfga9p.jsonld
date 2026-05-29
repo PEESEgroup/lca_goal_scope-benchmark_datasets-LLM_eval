@@ -1,0 +1,51 @@
+{
+  "@context": "https://contribute.hestia.earth/schema/Site.jsonld",
+  "createdAt": "2025-03-10",
+  "updatedAt": "2025-03-11",
+  "@id": "sxnkvclfga9p",
+  "@type": "Site",
+  "description": "For 6 months, the herd was kept in a stable with access to an external paddock",
+  "defaultSource": {
+    "@id": "dy6dujvbj6x0",
+    "@type": "Source"
+  },
+  "siteType": "permanent pasture",
+  "country": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Italy",
+    "@id": "GADM-ITA"
+  },
+  "region": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Torino (Provincia), Piemonte, Italy",
+    "@id": "GADM-ITA.13.6_1"
+  },
+  "numberOfSites": 1,
+  "organisation": {
+    "@id": "ksdepxmqelur",
+    "@type": "Organisation"
+  },
+  "management": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Native pasture",
+        "units": "% area",
+        "@id": "nativePasture"
+      },
+      "endDate": "2019-02-14",
+      "methodClassification": "non-verified survey data",
+      "methodClassificationDescription": "Non-verified survey data is assumed for this study, given they were visting the farm to collect and measure samples of wool too as part of the study.",
+      "@type": "Management"
+    }
+  ],
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Non-verified survey data is assumed for this study, given they were visting the farm to collect and measure samples of wool too as part of the study.",
+  "dataPrivate": false,
+  "name": "Permanent pasture - CISRA - Torino (Provincia), Piemonte, Italy - For 6 months, the herd was kep...",
+  "schemaVersion": "30.7.0",
+  "originalId": "continental_semi-intensive site_pasture"
+}

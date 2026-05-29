@@ -1,0 +1,84 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Site.jsonld",
+  "createdAt": "2024-12-04",
+  "updatedAt": "2024-12-06",
+  "@id": "pk04kix7x07y",
+  "@type": "Site",
+  "defaultSource": {
+    "@id": "419nmdictgxz",
+    "@type": "Source"
+  },
+  "description": "Beef cattle feedlot - open air, concrete floor plus bedding.",
+  "siteType": "animal housing",
+  "numberOfSites": 1,
+  "organisation": {
+    "@id": "h3vimbjkrida",
+    "@type": "Organisation"
+  },
+  "latitude": -23.29075,
+  "longitude": -47.44338,
+  "country": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Brazil",
+    "@id": "GADM-BRA"
+  },
+  "region": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "São Paulo",
+    "@id": "GADM-BRA.25_1"
+  },
+  "measurements": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "measurement",
+        "name": "Rainfall (annual)",
+        "units": "mm / year",
+        "@id": "rainfallAnnual"
+      },
+      "value": [
+        1352
+      ],
+      "methodClassification": "on-site physical measurement",
+      "@type": "Measurement"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Temperature (annual)",
+        "termType": "measurement",
+        "@id": "temperatureAnnual",
+        "units": "°C"
+      },
+      "value": [
+        24
+      ],
+      "sd": [
+        10
+      ],
+      "statsDefinition": "time",
+      "methodClassification": "on-site physical measurement",
+      "@type": "Measurement"
+    }
+  ],
+  "infrastructure": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Animal enclosure",
+        "termType": "building",
+        "@id": "animalEnclosure"
+      },
+      "area": 0.084,
+      "@type": "Infrastructure"
+    }
+  ],
+  "defaultMethodClassification": "physical measurement",
+  "defaultMethodClassificationDescription": "It is not super clear how they collected the data - they carried out physical testing of the emissions from excreta.",
+  "dataPrivate": false,
+  "name": "Animal housing - Sítio Gramado - São Paulo, Brazil - Beef cattle feedlot - open air...",
+  "schemaVersion": "30.4.0",
+  "originalId": "costa-feedlot"
+}

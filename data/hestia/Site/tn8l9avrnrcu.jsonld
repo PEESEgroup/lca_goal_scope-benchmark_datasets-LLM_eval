@@ -1,0 +1,53 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Site.jsonld",
+  "createdAt": "2024-05-02",
+  "updatedAt": "2024-12-06",
+  "@id": "tn8l9avrnrcu",
+  "@type": "Site",
+  "defaultSource": {
+    "@id": "av57dkzgzdv6",
+    "@type": "Source"
+  },
+  "siteType": "forest",
+  "country": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Spain",
+    "@id": "GADM-ESP"
+  },
+  "region": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Ciudad Real (Provincia), Castilla-La Mancha, Spain",
+    "@id": "GADM-ESP.4.2_1"
+  },
+  "measurements": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Altitude",
+        "termType": "measurement",
+        "@id": "altitude",
+        "units": "meters"
+      },
+      "methodClassification": "physical measurement on nearby site",
+      "min": [
+        600
+      ],
+      "max": [
+        1100
+      ],
+      "statsDefinition": "spatial",
+      "@type": "Measurement"
+    }
+  ],
+  "area": 686200,
+  "organisation": {
+    "@id": "whn-pqspaz-b",
+    "@type": "Organisation"
+  },
+  "dataPrivate": false,
+  "name": "Forest - Quintos de Mora Hunting Reserve - Ciudad Real (Provincia), Castilla-La Mancha, Spain",
+  "schemaVersion": "30.4.0",
+  "originalId": "Hunting_Reserve"
+}

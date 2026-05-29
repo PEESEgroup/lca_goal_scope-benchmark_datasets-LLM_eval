@@ -1,0 +1,83 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-01-17",
+  "updatedAt": "2025-01-23",
+  "@id": "g2w-emjmkq0q",
+  "@type": "Cycle",
+  "description": "Cycle describing the average conversion of Sheep meat to carcass in 115 lowland farms.",
+  "numberOfCycles": 115,
+  "endDate": "2013",
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "zhe46terus0n",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "othg_d-xdppv",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "National Farm Dataset (Hennessy et al. 2014). The NFS is collected as part of the farm accountancy data network (FADN) of the EU, providing a representative national sample of Irish farms.",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, sheep (liveweight)",
+        "units": "kg liveweight",
+        "@id": "meatSheepLiveweight"
+      },
+      "value": [
+        419
+      ],
+      "impactAssessment": {
+        "@id": "slvhxqhewemt",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "@type": "Input"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, sheep (cold carcass weight)",
+        "units": "kg cold carcass weight",
+        "@id": "meatSheepColdCarcassWeight"
+      },
+      "value": [
+        189
+      ],
+      "primary": true,
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": true,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": true,
+    "animalFeed": true,
+    "liveAnimalInput": true,
+    "waste": false,
+    "operation": false,
+    "freshForage": true,
+    "otherChemical": false,
+    "ingredient": true,
+    "animalPopulation": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Meat, sheep (cold carcass weight) - Ireland - 2013 - Cycle describing the average c...",
+  "schemaVersion": "30.5.0",
+  "originalId": "meat_to_carcass_lowland"
+}

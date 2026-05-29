@@ -1,0 +1,202 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2023-11-06",
+  "updatedAt": "2025-01-22",
+  "@id": "qbav4f3rr0b6",
+  "@type": "Cycle",
+  "description": "Chicks are reared until young hens (pullets)",
+  "endDate": "2020",
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "j--qoejd_6vm",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "s1krqknyo6_b",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "consistent external sources",
+  "defaultMethodClassificationDescription": "Hatchery and rearing (in battery and barn systems), as well as battery, barn, free-range laying hen house data, and feed composition for these three laying systems were taken from the Czech Environmental Information Agency (CENIA) portal, which indexes farms emitting more than five tons of ammonia annually.",
+  "dataPrivate": false,
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, source unspecified",
+        "units": "m3",
+        "@id": "waterSourceUnspecified"
+      },
+      "value": [
+        2727.4
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        182900
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Natural gas",
+        "units": "m3",
+        "@id": "naturalGas"
+      },
+      "value": [
+        1521.072797
+      ],
+      "operation": {
+        "@type": "Term",
+        "name": "Heating buildings, machine unspecified",
+        "termType": "operation",
+        "@id": "heatingBuildingsMachineUnspecified",
+        "units": "hour"
+      },
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Calculated using the higher energy content of natural gas (52.2MJ/kg)",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed blend",
+        "termType": "processedFood",
+        "@id": "concentrateFeedBlend",
+        "units": "kg"
+      },
+      "value": [
+        352700
+      ],
+      "isAnimalFeed": false,
+      "impactAssessment": {
+        "@id": "9cbntnfh5ik2",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Layer chicken, pullet",
+        "units": "number",
+        "@id": "layerChickenPullet"
+      },
+      "value": [
+        25920
+      ],
+      "isAnimalFeed": false,
+      "impactAssessment": {
+        "@id": "22awkui81qt7",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Transport, unspecified",
+            "termType": "transport",
+            "@id": "transportUnspecified",
+            "units": "tkm"
+          },
+          "distance": 50,
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Layer chicken, pullet",
+        "units": "number",
+        "@id": "layerChickenPullet"
+      },
+      "animalId": "1",
+      "value": 25920,
+      "referencePeriod": "average",
+      "@type": "Animal"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Layer chicken, pullet",
+        "units": "number",
+        "@id": "layerChickenPullet"
+      },
+      "value": [
+        25920
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "organicFertiliser",
+        "name": "Wastewater (kg mass)",
+        "units": "kg",
+        "@id": "wastewaterKgMass"
+      },
+      "value": [
+        16.9
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, poultry (kg mass)",
+        "units": "kg",
+        "@id": "excretaPoultryKgMass"
+      },
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": true,
+    "product": false,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "freshForage": true,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "name": "Layer chicken, pullet - Czech Republic - 2020 - Chicks are reared until young ...",
+  "schemaVersion": "30.5.0",
+  "originalId": "Rearing (barn)"
+}

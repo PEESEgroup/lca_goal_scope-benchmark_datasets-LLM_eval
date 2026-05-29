@@ -1,0 +1,187 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-05-02",
+  "updatedAt": "2024-12-06",
+  "@id": "z24pqc2o2wqt",
+  "@type": "Cycle",
+  "description": "Data to represent wild deer living in the Quintos de Mora public hunting reserve in Spain.",
+  "endDate": "2015",
+  "startDateDefinition": "one year prior",
+  "cycleDuration": 365,
+  "functionalUnit": "1 ha",
+  "site": {
+    "@id": "tn8l9avrnrcu",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "av57dkzgzdv6",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "consistent external sources",
+  "defaultMethodClassificationDescription": "Used the red deer population density reported from Quintos de Mora public preserve (Carpio Comargo et al., 2021)",
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture grass",
+        "termType": "landUseManagement",
+        "@id": "pastureGrass",
+        "units": "% area"
+      },
+      "key": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Generic grass plant",
+        "units": "% area",
+        "@id": "genericGrassPlant"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Stocking density, permanent pasture (average)",
+        "termType": "animalManagement",
+        "@id": "stockingDensityPermanentPastureAverage",
+        "units": "animals / m2"
+      },
+      "value": [
+        0.0000329
+      ],
+      "description": "Value is an average population, considering fluctuations observed in livestock numbers in the area along 25 years (1989-2015)",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Hilly pasture system",
+        "termType": "system",
+        "@id": "hillyPastureSystem",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Deer",
+        "units": "number",
+        "@id": "deer"
+      },
+      "animalId": "Deer",
+      "value": 0.32899999999999996,
+      "referencePeriod": "average",
+      "@type": "Animal"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Deer",
+        "units": "number",
+        "@id": "deer"
+      },
+      "value": [
+        0.32899999999999996
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, deer (kg mass)",
+        "units": "kg",
+        "@id": "excretaDeerKgMass"
+      },
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "transformationId": "1",
+      "term": {
+        "@type": "Term",
+        "name": "Pasture/Range/Paddock (excreta management)",
+        "termType": "excretaManagement",
+        "@id": "pastureRangePaddockExcretaManagement"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, deer (kg mass)",
+            "units": "kg",
+            "@id": "excretaDeerKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "@type": "Transformation"
+    }
+  ],
+  "emissions": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CH4, to air, excreta",
+        "termType": "emission",
+        "@id": "ch4ToAirExcreta",
+        "units": "kg CH4"
+      },
+      "value": [
+        0.11029411764705882
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2019)",
+        "termType": "model",
+        "@id": "ipcc2019"
+      },
+      "methodTier": "tier 1",
+      "@type": "Emission"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "transport": true,
+    "material": true,
+    "fertiliser": true,
+    "ingredient": true,
+    "otherChemical": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": true,
+    "soilAmendment": true,
+    "water": true,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": false,
+    "freshForage": false,
+    "liveAnimalInput": true,
+    "animalPopulation": false,
+    "waste": true,
+    "operation": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Deer - Ciudad Real (Provincia), Castilla-La Mancha, Spain - 2015 - Data to represent wild deer li...",
+  "siteArea": 1,
+  "schemaVersion": "30.4.0",
+  "originalId": "Wild_Deer"
+}

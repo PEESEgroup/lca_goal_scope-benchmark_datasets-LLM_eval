@@ -1,0 +1,1056 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2023-10-16",
+  "updatedAt": "2024-12-06",
+  "@id": "71rqzxkebhkt",
+  "@type": "Cycle",
+  "description": "Aggregate cycle representing all 75 dairy farms sampled",
+  "startDateDefinition": "one year prior",
+  "endDate": "2019",
+  "cycleDuration": 365,
+  "functionalUnit": "relative",
+  "functionalUnitDetails": "Per year of production from farms",
+  "site": {
+    "@id": "pbcn9hpkm_hz",
+    "@type": "Site"
+  },
+  "siteDuration": 272,
+  "siteUnusedDuration": 93,
+  "otherSites": [
+    {
+      "@id": "e1wdlb_oqa6s",
+      "@type": "Site"
+    },
+    {
+      "@id": "wxyfbh4jgm_p",
+      "@type": "Site"
+    }
+  ],
+  "otherSitesDuration": [
+    46.5,
+    46.5
+  ],
+  "otherSitesUnusedDuration": [
+    318.5,
+    318.5
+  ],
+  "otherSitesArea": [
+    26.7,
+    4.5
+  ],
+  "defaultSource": {
+    "@id": "3tmw64utoxmb",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Each farm was visited once by the same trained operator in a given region, each of whom used the same standardised questionnaire and procedure to minimize any operator-associated bias. The data collected to describe farm structure and management regarded housing (tie vs loose), manure management (slurry vs solid manure), manure storage (covered vs uncovered tank), calving management (seasonal vs non-seasonal), feeding (total mixed rations (TMR) vs traditional, i.e., forages administered ad libitum and concentrate supplements or part of forages administered in different amounts to each animal). We also recorded whether or not the farms used lowland pastures and practiced transhumance (i.e., movement of livestock to temporary units at high altitudes in summer to graze on Alpine grasslands), and, where relevant, the length of the grazing period. Off-farm feedstuffs were purchased, so the amount of each purchased feedstuff was known from the commercial invoices.",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        24358
+      ],
+      "min": [
+        1634
+      ],
+      "max": [
+        63992
+      ],
+      "sd": [
+        391
+      ],
+      "statsDefinition": "sites",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        6156
+      ],
+      "min": [
+        1748
+      ],
+      "max": [
+        18164
+      ],
+      "sd": [
+        87
+      ],
+      "statsDefinition": "sites",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Wheat, straw",
+        "units": "kg",
+        "@id": "wheatStraw"
+      },
+      "value": [
+        950
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        25118
+      ],
+      "sd": [
+        97
+      ],
+      "statsDefinition": "sites",
+      "isAnimalFeed": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Soybean, meal",
+        "units": "kg",
+        "@id": "soybeanMeal"
+      },
+      "value": [
+        912
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        21622
+      ],
+      "sd": [
+        111
+      ],
+      "statsDefinition": "sites",
+      "isAnimalFeed": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed, unspecified",
+        "termType": "processedFood",
+        "@id": "concentrateFeedUnspecified",
+        "units": "kg"
+      },
+      "isAnimalFeed": true,
+      "value": [
+        18278
+      ],
+      "min": [
+        304
+      ],
+      "max": [
+        100852
+      ],
+      "sd": [
+        602
+      ],
+      "statsDefinition": "sites",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Concentrates, alfalfa hay and maize silage were totally purchased (when farm used maize silage, it was either totally purchase or totally self-produced), and their share on the animal feed intake was available from the animal rations. Consequently, we calculated the annual amount of concentrates and alfalfa hay as the sum of estimated dry matter intake * feedstuff share (dry matter basis) * days * number of animal, for each livestock category and each period (winter, summer pasture at permanent farm and/or at summer farm). Afterwards, we checked that the calculated amount of each off-farm feedstuff was within the amount recorded in the commercial invoices, assuming the storehouse constant.",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Maize, flour",
+        "units": "kg",
+        "@id": "maizeFlour"
+      },
+      "value": [
+        6118
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        66614
+      ],
+      "sd": [
+        323
+      ],
+      "isAnimalFeed": true,
+      "statsDefinition": "sites",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Alfalfa, hay",
+        "units": "kg",
+        "@id": "alfalfaHay"
+      },
+      "value": [
+        8018
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        54454
+      ],
+      "sd": [
+        357
+      ],
+      "statsDefinition": "sites",
+      "isAnimalFeed": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Concentrates, alfalfa hay and maize silage were totally purchased (when farm used maize silage, it was either totally purchase or totally self-produced), and their share on the animal feed intake was available from the animal rations. Consequently, we calculated the annual amount of concentrates and alfalfa hay as the sum of estimated dry matter intake * feedstuff share (dry matter basis) * days * number of animal, for each livestock category and each period (winter, summer pasture at permanent farm and/or at summer farm). Afterwards, we checked that the calculated amount of each off-farm feedstuff was within the amount recorded in the commercial invoices, assuming the storehouse constant.",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Maize, silage",
+        "units": "kg",
+        "@id": "maizeSilage"
+      },
+      "value": [
+        4940
+      ],
+      "methodClassification": "modelled",
+      "methodClassificationDescription": "Farms using on-farm maize silage did not purchase off-farm maize silage, and their maize silage production was known, since farmers had available data on the annual production, and the animal rations reported the precise quantity of maize silage fed to each livestock category during the winter period. Consequently, the computation was equal to that used for off-farm silage.",
+      "isAnimalFeed": true,
+      "min": [
+        0
+      ],
+      "max": [
+        63574
+      ],
+      "sd": [
+        367
+      ],
+      "statsDefinition": "sites",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, hay",
+        "termType": "crop",
+        "@id": "genericGrassHay",
+        "units": "kg"
+      },
+      "value": [
+        30932
+      ],
+      "isAnimalFeed": true,
+      "impactAssessmentIsProxy": true,
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Off-farm hay and grass silage were year-to-year variable, depending on the variation of on-farm production. For this reason, we calculated off-farm hay and grass silage separately after estimating on-farm production.",
+      "min": [
+        0
+      ],
+      "max": [
+        175104
+      ],
+      "sd": [
+        1228
+      ],
+      "statsDefinition": "sites",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, silage",
+        "termType": "crop",
+        "@id": "genericGrassSilage",
+        "units": "kg"
+      },
+      "value": [
+        342
+      ],
+      "isAnimalFeed": true,
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Off-farm hay and grass silage were year-to-year variable, depending on the variation of on-farm production. For this reason, we calculated off-farm hay and grass silage separately after estimating on-farm production.",
+      "min": [
+        0
+      ],
+      "max": [
+        19494
+      ],
+      "sd": [
+        61
+      ],
+      "statsDefinition": "sites",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, hay",
+        "termType": "crop",
+        "@id": "genericGrassHay",
+        "units": "kg"
+      },
+      "value": [
+        79078
+      ],
+      "isAnimalFeed": true,
+      "methodClassification": "modelled",
+      "methodClassificationDescription": "Consumption of grassland-derived feedstuffs was only roughly known, because of year-to-year variability and lack of available data in farms with a traditional feeding system based on hay consumption ad-libitum. \nSo, we recorded the total permanent farm agricultural area (perm_FAA), its proportion destined to each crop, and the types and quantities of fertilizers (organic and chemical) in order to estimate the grassland production. We estimated the grassland production (GRASSLAND_model) on the basis of the area and of N fertilization rate (Scotton et al., 2005). Afterwards, we compared GRASSLAND_model with the feed intake calculation (i.e., the sum of hay, grass silage and grass at pasture amounts as obtained from feed rations and animal NE requirements, GRASSLAND_intake), subtracted the field losses (losses factors derived from Bretscher, 2010), assuming that GRASSLAND_intake amount was covered by the GRASSLAND_model. When a deficit was found, we implicitly assumed that a deficit-correspondent amount of hay (first marginal feedstuff) and secondly of grass silage (second marginal feedstuff) were purchased.",
+      "min": [
+        0
+      ],
+      "max": [
+        192508
+      ],
+      "sd": [
+        1212
+      ],
+      "statsDefinition": "sites",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Transport, unspecified",
+            "termType": "transport",
+            "@id": "transportUnspecified",
+            "units": "tkm"
+          },
+          "value": 0,
+          "returnLegIncluded": true,
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Maize, silage",
+        "units": "kg",
+        "@id": "maizeSilage"
+      },
+      "value": [
+        11172
+      ],
+      "methodClassification": "modelled",
+      "isAnimalFeed": true,
+      "methodClassificationDescription": "Farms using on-farm maize silage did not purchase off-farm maize silage, and their maize silage production was known, since farmers had available data on the annual production, and the animal rations reported the precise quantity of maize silage fed to each livestock category during the winter period. Consequently, the computation was equal to that used for off-farm silage.",
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Transport, unspecified",
+            "termType": "transport",
+            "@id": "transportUnspecified",
+            "units": "tkm"
+          },
+          "value": 0,
+          "returnLegIncluded": true,
+          "@type": "Transport"
+        }
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        101536
+      ],
+      "sd": [
+        605
+      ],
+      "statsDefinition": "sites",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, silage",
+        "termType": "crop",
+        "@id": "genericGrassSilage",
+        "units": "kg"
+      },
+      "value": [
+        22800
+      ],
+      "isAnimalFeed": true,
+      "methodClassification": "modelled",
+      "methodClassificationDescription": "Consumption of grassland-derived feedstuffs was only roughly known, because of year-to-year variability and lack of available data in farms with a traditional feeding system based on hay consumption ad-libitum. \nSo, we recorded the total permanent farm agricultural area (perm_FAA), its proportion destined to each crop, and the types and quantities of fertilizers (organic and chemical) in order to estimate the grassland production. We estimated the grassland production (GRASSLAND_model) on the basis of the area and of N fertilization rate (Scotton et al., 2005). Afterwards, we compared GRASSLAND_model with the feed intake calculation (i.e., the sum of hay, grass silage and grass at pasture amounts as obtained from feed rations and animal NE requirements, GRASSLAND_intake), subtracted the field losses (losses factors derived from Bretscher, 2010), assuming that GRASSLAND_intake amount was covered by the GRASSLAND_model. When a deficit was found, we implicitly assumed that a deficit-correspondent amount of hay (first marginal feedstuff) and secondly of grass silage (second marginal feedstuff) were purchased.",
+      "min": [
+        0
+      ],
+      "max": [
+        117724
+      ],
+      "sd": [
+        840
+      ],
+      "statsDefinition": "sites",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Transport, unspecified",
+            "termType": "transport",
+            "@id": "transportUnspecified",
+            "units": "tkm"
+          },
+          "value": 0,
+          "returnLegIncluded": true,
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "soilAmendment",
+        "name": "Sawdust",
+        "units": "kg",
+        "@id": "sawdust"
+      },
+      "description": "Bedding",
+      "isAnimalFeed": false,
+      "value": [
+        5852
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        57646
+      ],
+      "sd": [
+        387
+      ],
+      "statsDefinition": "sites",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, fresh forage",
+        "termType": "forage",
+        "@id": "genericGrassFreshForage",
+        "units": "kg"
+      },
+      "value": [
+        48336
+      ],
+      "isAnimalFeed": true,
+      "producedInCycle": true,
+      "min": [
+        0
+      ],
+      "max": [
+        210368
+      ],
+      "statsDefinition": "sites",
+      "description": "Combination of both pasture grass at permanent farm and pasture grass at summer farm, averaged across all of the farms (some farms didn't practice transhumance to summer farm)",
+      "methodClassification": "modelled",
+      "methodClassificationDescription": "We estimated the grassland production (GRASSLAND_model) on the basis of the area and of N fertilization rate (Scotton et al., 2005). Afterwards, we compared GRASSLAND_model with the feed intake calculation (i.e., the sum of hay, grass silage and grass at pasture amounts as obtained from feed rations and animal NE requirements, GRASSLAND_intake), subtracted the field losses (losses factors derived from Bretscher, 2010), assuming that GRASSLAND_intake amount was covered by the GRASSLAND_model. When a deficit was found, we implicitly assumed that a deficit-correspondent amount of hay (first marginal feedstuff) and secondly of grass silage (second marginal feedstuff) were purchased.",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Wheat, straw",
+        "units": "kg",
+        "@id": "wheatStraw"
+      },
+      "value": [
+        15580
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        179816
+      ],
+      "sd": [
+        617
+      ],
+      "statsDefinition": "sites",
+      "isAnimalFeed": false,
+      "description": "Bedding",
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalManagement",
+        "name": "Milk yield per cow (FPCM)",
+        "units": "kg / day",
+        "@id": "milkYieldPerCowFpcm"
+      },
+      "value": [
+        17.534246575342465
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Stocking density, permanent pasture (average)",
+        "termType": "animalManagement",
+        "@id": "stockingDensityPermanentPastureAverage",
+        "units": "animals / m2"
+      },
+      "value": [
+        0.00014423076923076924
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Not given directly in the study (only in LU/ha). So have added up the mean no. of animals in the herd and divided by the area of both winter and summer pasture areas.",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Indoor animal system",
+        "termType": "system",
+        "@id": "indoorAnimalSystem",
+        "units": "% area"
+      },
+      "value": [
+        74.52054794520548
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Hilly pasture system",
+        "termType": "system",
+        "@id": "hillyPastureSystem",
+        "units": "% area"
+      },
+      "value": [
+        12.73972602739726
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Confined pasture system",
+        "termType": "system",
+        "@id": "confinedPastureSystem",
+        "units": "% area"
+      },
+      "value": [
+        12.73972602739726
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "animalId": "Cows",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow",
+        "units": "number",
+        "@id": "dairyCattleCow"
+      },
+      "referencePeriod": "average",
+      "value": 24,
+      "methodClassification": "modelled",
+      "methodClassificationDescription": "The herd size and composition were modelled on the basis of the mean number of cows, number of lactations (LacN), calving interval (CI), age at first calving and dry period length (DP). Derived from Berton et al., 2020",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 587,
+          "methodClassification": "modelled",
+          "methodClassificationDescription": "The body weight (BW) of replacement heifers and dairy cows was computed as follows: BW of the heifers at the age of first calving was assumed as 82% of mean culled cows’ BW (NRC, 2001), which was collected during the farm visit. Consequently, mean dairy cows BW was computed as the mean between culled cows and heifers at the age of first calving, weighed by the number of primiparous and dairy cows. Number of primiparous cows was equal to the number of culled cows, assuming a constant herd size.",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "animalId": "DryCows",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow (dry)",
+        "units": "number",
+        "@id": "dairyCattleCowDry"
+      },
+      "referencePeriod": "average",
+      "value": 4,
+      "methodClassification": "modelled",
+      "methodClassificationDescription": "The herd size and composition were modelled on the basis of the mean number of cows, number of lactations (LacN), calving interval (CI), age at first calving and dry period length (DP). Derived from Berton et al., 2020",
+      "@type": "Animal"
+    },
+    {
+      "animalId": "OlderHeifers",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, heifer",
+        "units": "number",
+        "@id": "dairyCattleHeifer"
+      },
+      "referencePeriod": "average",
+      "value": 3,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 280,
+          "methodClassification": "modelled",
+          "methodClassificationDescription": "The body weight (BW) of replacement heifers and dairy cows was computed as follows: BW of the heifers at the age of first calving was assumed as 82% of mean culled cows’ BW (NRC, 2001), which was collected during the farm visit. The BW of the calf at birth was assumed 40 kg, and the mean BW of the replacement heifers was obtained as the mean between the BW at birth and the BW at the age of first calving",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "min": 730,
+          "statsDefinition": "other observations",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "methodClassification": "modelled",
+      "methodClassificationDescription": "The herd size and composition were modelled on the basis of the mean number of cows, number of lactations (LacN), calving interval (CI), age at first calving and dry period length (DP). Derived from Berton et al., 2020",
+      "@type": "Animal"
+    },
+    {
+      "animalId": "YoungerHeifers",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, heifer",
+        "units": "number",
+        "@id": "dairyCattleHeifer"
+      },
+      "referencePeriod": "average",
+      "value": 7,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "min": 182.39999999999998,
+          "max": 730,
+          "statsDefinition": "other observations",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "methodClassification": "modelled",
+      "methodClassificationDescription": "The herd size and composition were modelled on the basis of the mean number of cows, number of lactations (LacN), calving interval (CI), age at first calving and dry period length (DP). Derived from Berton et al., 2020",
+      "@type": "Animal"
+    },
+    {
+      "animalId": "FemaleUnweanedCalves",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, calf (female, unweaned)",
+        "units": "number",
+        "@id": "dairyCattleCalfFemaleUnweaned"
+      },
+      "referencePeriod": "average",
+      "value": 7,
+      "methodClassification": "modelled",
+      "methodClassificationDescription": "The herd size and composition were modelled on the basis of the mean number of cows, number of lactations (LacN), calving interval (CI), age at first calving and dry period length (DP). Derived from Berton et al., 2020",
+      "@type": "Animal"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture/Range/Paddock (excreta management)",
+        "termType": "excretaManagement",
+        "@id": "pastureRangePaddockExcretaManagement"
+      },
+      "transformationId": "1",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 25,
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Liquid/Slurry",
+        "termType": "excretaManagement",
+        "@id": "liquidSlurry"
+      },
+      "transformationId": "2",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 33.75,
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Solid storage",
+        "termType": "excretaManagement",
+        "@id": "solidStorage"
+      },
+      "transformationId": "3",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 41.25,
+      "@type": "Transformation"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Milk, cow, raw (FPCM)",
+        "units": "kg FPCM",
+        "@id": "milkCowRawFpcm"
+      },
+      "value": [
+        180462
+      ],
+      "min": [
+        79610
+      ],
+      "max": [
+        291232
+      ],
+      "sd": [
+        1250
+      ],
+      "statsDefinition": "sites",
+      "primary": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "property",
+            "name": "Fat content",
+            "units": "%",
+            "@id": "fatContent"
+          },
+          "value": 4,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Crude protein content",
+            "termType": "property",
+            "@id": "crudeProteinContent",
+            "units": "%"
+          },
+          "value": 3.3,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow",
+        "units": "number",
+        "@id": "dairyCattleCow"
+      },
+      "value": [
+        8
+      ],
+      "description": "Cull cows",
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, calf (male, unweaned)",
+        "units": "number",
+        "@id": "dairyCattleCalfMaleUnweaned"
+      },
+      "value": [
+        25
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, calf (female, weaned)",
+        "units": "number",
+        "@id": "dairyCattleCalfFemaleWeaned"
+      },
+      "value": [
+        6
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, dairy cattle (kg mass)",
+        "units": "kg",
+        "@id": "excretaDairyCattleKgMass"
+      },
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "transport": false,
+    "material": false,
+    "fertiliser": false,
+    "otherChemical": true,
+    "seed": false,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "ingredient": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "freshForage": true,
+    "liveAnimalInput": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Milk, cow, raw (FPCM) - Southern Europe - 2019 - Aggregate cycle representing a...",
+  "schemaVersion": "30.4.0",
+  "originalId": "Dairy farm milk production, aggregate cycle"
+}

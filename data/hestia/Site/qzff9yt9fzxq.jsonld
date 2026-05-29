@@ -1,0 +1,60 @@
+{
+  "@context": "https://contribute.hestia.earth/schema/Site.jsonld",
+  "createdAt": "2025-03-10",
+  "updatedAt": "2025-03-11",
+  "@id": "qzff9yt9fzxq",
+  "@type": "Site",
+  "defaultSource": {
+    "@id": "dy6dujvbj6x0",
+    "@type": "Source"
+  },
+  "siteType": "permanent pasture",
+  "country": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Italy",
+    "@id": "GADM-ITA"
+  },
+  "numberOfSites": 1,
+  "measurements": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Altitude",
+        "termType": "measurement",
+        "@id": "altitude",
+        "units": "meters"
+      },
+      "min": [
+        1700
+      ],
+      "max": [
+        2000
+      ],
+      "methodClassification": "unsourced assumption",
+      "statsDefinition": "spatial",
+      "@type": "Measurement"
+    }
+  ],
+  "management": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Native pasture",
+        "units": "% area",
+        "@id": "nativePasture"
+      },
+      "endDate": "2018-10-03",
+      "methodClassification": "non-verified survey data",
+      "methodClassificationDescription": "Non-verified survey data is assumed for this study, given they were visting the farm to collect and measure samples of wool too as part of the study.",
+      "@type": "Management"
+    }
+  ],
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Non-verified survey data is assumed for this study, given they were visting the farm to collect and measure samples of wool too as part of the study.",
+  "dataPrivate": false,
+  "name": "Permanent pasture - Italy",
+  "schemaVersion": "30.7.0",
+  "originalId": "semi-extensive site_pasture"
+}

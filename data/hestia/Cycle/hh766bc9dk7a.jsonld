@@ -1,0 +1,307 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-02-09",
+  "updatedAt": "2024-12-03",
+  "@id": "hh766bc9dk7a",
+  "@type": "Cycle",
+  "description": "Sow Netherlands Organic",
+  "startDateDefinition": "start of year",
+  "endDate": "2007",
+  "cycleDuration": 365,
+  "site": {
+    "@id": "ei1rhu-dgtbt",
+    "@type": "Site"
+  },
+  "functionalUnit": "relative",
+  "defaultMethodClassification": "consistent external sources",
+  "defaultMethodClassificationDescription": "Data collected from multiple peer reviewed studies in line with the conventional and organic production systems of each country.",
+  "defaultSource": {
+    "@id": "w3hq1dphy7wy",
+    "@type": "Source"
+  },
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed blend",
+        "termType": "processedFood",
+        "@id": "concentrateFeedBlend",
+        "units": "kg"
+      },
+      "isAnimalFeed": true,
+      "value": [
+        2498
+      ],
+      "impactAssessment": {
+        "@id": "77qz_mhlu6xz",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig, sow",
+        "units": "number",
+        "@id": "pigSow"
+      },
+      "isAnimalFeed": false,
+      "value": [
+        0.38
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Total animal population",
+        "termType": "animalManagement",
+        "@id": "totalAnimalPopulation",
+        "units": "number"
+      },
+      "value": [
+        688.7506849315068
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Organic",
+        "termType": "standardsLabels",
+        "@id": "organic",
+        "units": "boolean"
+      },
+      "description": "100",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Free range system",
+        "termType": "system",
+        "@id": "freeRangeSystem",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig, sow",
+        "units": "number",
+        "@id": "pigSow"
+      },
+      "animalId": "kool-sow-netherlands-organic-Pig, sow",
+      "referencePeriod": "average",
+      "value": 1,
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig, piglet",
+        "units": "number",
+        "@id": "pigPiglet"
+      },
+      "animalId": "kool-sow-netherlands-organic-Pig, piglet",
+      "referencePeriod": "average",
+      "value": 3.8164383561643835,
+      "@type": "Animal"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig, sow",
+        "units": "number",
+        "@id": "pigSow"
+      },
+      "description": "Sows sent for slaughter",
+      "value": [
+        0.38
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 200,
+          "methodClassification": "expert opinion",
+          "methodClassificationDescription": "Data provided by Harriet Bartlett.",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "price": 0.85,
+      "currency": "EUR",
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig, piglet",
+        "units": "number",
+        "@id": "pigPiglet"
+      },
+      "value": [
+        19.9
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 29,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "currency": "EUR",
+      "price": 102,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, pigs (kg mass)",
+        "units": "kg",
+        "@id": "excretaPigsKgMass"
+      },
+      "primary": false,
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Solid storage",
+        "termType": "excretaManagement",
+        "@id": "solidStorage"
+      },
+      "transformationId": "kool-netherlands-organic-sow-solid",
+      "description": "Uncovered manure outside",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, pigs (kg mass)",
+            "units": "kg",
+            "@id": "excretaPigsKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 12.5,
+      "transformationDuration": 365,
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pit storage below animal confinements",
+        "termType": "excretaManagement",
+        "@id": "pitStorageBelowAnimalConfinements"
+      },
+      "transformationId": "kool-netherlands-organic-sow-pit",
+      "description": "Pit below pig house",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, pigs (kg mass)",
+            "units": "kg",
+            "@id": "excretaPigsKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 43.75,
+      "transformationDuration": 180,
+      "previousTransformationId": "kool-netherlands-organic-sow-solid",
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Liquid/Slurry, with cover",
+        "termType": "excretaManagement",
+        "@id": "liquidSlurryWithCover"
+      },
+      "transformationId": "kool-netherlands-organic-sow-silo",
+      "description": "Outdoor silo",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, pigs (kg mass)",
+            "units": "kg",
+            "@id": "excretaPigsKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 43.75,
+      "transformationDuration": 180,
+      "previousTransformationId": "kool-netherlands-organic-sow-pit",
+      "@type": "Transformation"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "operation": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "waste": false,
+    "liveAnimalInput": true,
+    "transport": false,
+    "otherChemical": false,
+    "ingredient": true,
+    "freshForage": true,
+    "animalPopulation": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Pig, sow - Netherlands - 2007 - Sow Netherlands Organic",
+  "schemaVersion": "30.3.2",
+  "originalId": "kool-sow-netherlands-organic"
+}

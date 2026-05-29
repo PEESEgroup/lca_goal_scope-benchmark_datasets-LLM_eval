@@ -1,0 +1,76 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Site.jsonld",
+  "createdAt": "2024-02-09",
+  "updatedAt": "2024-12-06",
+  "@id": "swasa9ws7jma",
+  "@type": "Site",
+  "defaultSource": {
+    "@id": "qjv9ii1cnmsr",
+    "@type": "Source"
+  },
+  "siteType": "cropland",
+  "country": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Australia",
+    "@id": "GADM-AUS"
+  },
+  "region": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Victoria (State), Australia",
+    "@id": "GADM-AUS.10_1"
+  },
+  "numberOfSites": 1,
+  "measurements": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Precipitation (annual)",
+        "termType": "measurement",
+        "@id": "precipitationAnnual",
+        "units": "mm / year"
+      },
+      "value": [
+        727
+      ],
+      "methodClassification": "on-site physical measurement",
+      "@type": "Measurement"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Precipitation (long-term annual mean)",
+        "termType": "measurement",
+        "@id": "precipitationLongTermAnnualMean",
+        "units": "mm / year"
+      },
+      "value": [
+        685
+      ],
+      "methodClassification": "unsourced assumption",
+      "@type": "Measurement"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Altitude",
+        "termType": "measurement",
+        "@id": "altitude",
+        "units": "meters"
+      },
+      "value": [
+        205
+      ],
+      "methodClassification": "unsourced assumption",
+      "@type": "Measurement"
+    }
+  ],
+  "latitude": -37.816667,
+  "longitude": 142.066667,
+  "area": 0.0075,
+  "dataPrivate": false,
+  "name": "Cropland - Victoria (State), Australia",
+  "schemaVersion": "30.4.0",
+  "originalId": "wheat_field"
+}

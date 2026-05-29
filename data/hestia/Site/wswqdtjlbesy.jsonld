@@ -1,0 +1,42 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Site.jsonld",
+  "createdAt": "2024-01-16",
+  "updatedAt": "2024-12-06",
+  "@id": "wswqdtjlbesy",
+  "@type": "Site",
+  "defaultSource": {
+    "@id": "mroy2usjfur5",
+    "@type": "Source"
+  },
+  "siteType": "permanent pasture",
+  "country": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "United Kingdom",
+    "@id": "GADM-GBR"
+  },
+  "numberOfSites": 21,
+  "area": 163.4,
+  "areaMin": 16,
+  "areaMax": 518,
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Data provided by farmers in face to face interviews for a single year between 2010 and 2011. Written farm records such as stock movement books were used to verify important data elements.",
+  "management": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Improved pasture",
+        "units": "% area",
+        "@id": "improvedPasture"
+      },
+      "value": 100,
+      "endDate": "2011",
+      "@type": "Management"
+    }
+  ],
+  "dataPrivate": false,
+  "name": "Permanent pasture - United Kingdom",
+  "schemaVersion": "30.4.0",
+  "originalId": "Hill"
+}

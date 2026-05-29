@@ -1,0 +1,105 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Site.jsonld",
+  "createdAt": "2024-04-19",
+  "updatedAt": "2024-12-06",
+  "@id": "3p5yqk9fxpfo",
+  "@type": "Site",
+  "defaultSource": {
+    "@id": "pz-kq6igrzw5",
+    "@type": "Source"
+  },
+  "siteType": "animal housing",
+  "description": "0.5ha of ‘physical buildings’ (cages, warehouses, waste managements), with several different ‘captive breeding enclosures’ used: yards, breeding cages, individual cages.",
+  "country": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Indonesia",
+    "@id": "GADM-IDN"
+  },
+  "region": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Bogor Barat",
+    "@id": "GADM-IDN.9.16.1_1"
+  },
+  "numberOfSites": 1,
+  "area": 0.5,
+  "organisation": {
+    "@id": "8ww8to62_bwv",
+    "@type": "Organisation"
+  },
+  "latitude": -6.55180833,
+  "longitude": 106.741625,
+  "measurements": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Altitude",
+        "termType": "measurement",
+        "@id": "altitude",
+        "units": "meters"
+      },
+      "value": [
+        244
+      ],
+      "methodClassification": "geospatial dataset",
+      "@type": "Measurement"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "measurement",
+        "name": "Rainfall (annual)",
+        "units": "mm / year",
+        "@id": "rainfallAnnual"
+      },
+      "value": [
+        3552
+      ],
+      "methodClassification": "physical measurement on nearby site",
+      "@type": "Measurement"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Temperature (annual)",
+        "termType": "measurement",
+        "@id": "temperatureAnnual",
+        "units": "°C"
+      },
+      "min": [
+        22.4
+      ],
+      "max": [
+        32.8
+      ],
+      "statsDefinition": "time",
+      "methodClassification": "physical measurement on nearby site",
+      "@type": "Measurement"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Humidity (annual)",
+        "termType": "measurement",
+        "@id": "humidityAnnual",
+        "units": "%"
+      },
+      "value": [
+        84.17
+      ],
+      "sd": [
+        4.32
+      ],
+      "statsDefinition": "spatial",
+      "methodClassification": "physical measurement on nearby site",
+      "@type": "Measurement"
+    }
+  ],
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "The data were collected from a number of studies, interviews, and direct obser- vations in the field. Infrastructure inputs were calculated based on the Indonesian National Standard year 2008 (Badan Standardisasi Nasional, 2008).",
+  "dataPrivate": false,
+  "name": "Animal housing - Dramaga Research Forest - Bogor Barat, Indonesia - 0.5ha of ‘physical buildings’ ...",
+  "schemaVersion": "30.4.0",
+  "originalId": "FarmSystem"
+}

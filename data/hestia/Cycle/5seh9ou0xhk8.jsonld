@@ -1,0 +1,481 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-04-19",
+  "updatedAt": "2025-01-22",
+  "@id": "5seh9ou0xhk8",
+  "@type": "Cycle",
+  "description": "Northern Alpine hunting district",
+  "numberOfCycles": 1,
+  "startDate": "2015-10-18",
+  "startDateDefinition": "start of year",
+  "endDate": "2015-11-29",
+  "cycleDuration": 42,
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "2ydw2k9_cbyp",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "sscfxvvatgmr",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "inconsistent external sources",
+  "defaultMethodClassificationDescription": "A mix of primary and secondary data, with secondary data being from different sources",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Deer, doe",
+        "units": "number",
+        "@id": "deerDoe"
+      },
+      "value": [
+        31
+      ],
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Transport, unspecified",
+            "termType": "transport",
+            "@id": "transportUnspecified",
+            "units": "tkm"
+          },
+          "value": 105139,
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, municipal tap",
+        "units": "m3",
+        "@id": "waterMunicipalTap"
+      },
+      "value": [
+        3.69819
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        973.67
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Paper",
+        "termType": "material",
+        "@id": "paper",
+        "units": "kg"
+      },
+      "value": [
+        6.87
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Synthetic rubber",
+        "termType": "material",
+        "@id": "syntheticRubber",
+        "units": "kg"
+      },
+      "value": [
+        4.2
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "material",
+        "name": "Polystyrene",
+        "units": "kg",
+        "@id": "polystyrene"
+      },
+      "value": [
+        0.252
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "pesticideAI",
+        "name": "Sodium hypochlorite",
+        "units": "kg active ingredient",
+        "@id": "CAS-7681-52-9"
+      },
+      "value": [
+        1.9729
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "material",
+        "name": "Brass",
+        "units": "kg",
+        "@id": "brass"
+      },
+      "value": [
+        0.9555
+      ],
+      "description": "Used to make bullets for rifle used in hunting",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Steel",
+        "termType": "material",
+        "@id": "steel",
+        "units": "kg"
+      },
+      "value": [
+        0.494325
+      ],
+      "description": "Used to make bullets for rifle used in hunting",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "material",
+        "name": "Lead",
+        "units": "kg",
+        "@id": "lead"
+      },
+      "value": [
+        0.773175
+      ],
+      "description": "Used to make bullets for rifle used in hunting",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Antimony(3+)",
+        "termType": "otherInorganicChemical",
+        "@id": "CAS-23713-48-6",
+        "units": "kg"
+      },
+      "value": [
+        0.012675
+      ],
+      "description": "Used to make bullets for rifle used in hunting",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Cardboard",
+        "termType": "material",
+        "@id": "cardboard",
+        "units": "kg"
+      },
+      "value": [
+        0.0624
+      ],
+      "description": "Used to make bullets for rifle used in hunting",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Natural gas",
+        "units": "m3",
+        "@id": "naturalGas"
+      },
+      "value": [
+        46.8
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "material",
+        "name": "Nylon",
+        "units": "kg",
+        "@id": "nylon"
+      },
+      "value": [
+        0.279825
+      ],
+      "description": "Used to make bullets for rifle used in hunting",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "material",
+        "name": "Copper (material)",
+        "units": "kg",
+        "@id": "copperMaterial"
+      },
+      "value": [
+        0.06825
+      ],
+      "description": "Used to make bullets for rifle used in hunting",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Deer, yearling",
+        "units": "number",
+        "@id": "deerYearling"
+      },
+      "value": [
+        41
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Deer, fawn",
+        "units": "number",
+        "@id": "deerFawn"
+      },
+      "value": [
+        34
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Deer, buck",
+        "units": "number",
+        "@id": "deerBuck"
+      },
+      "value": [
+        34
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Red deer",
+        "termType": "animalBreed",
+        "@id": "redDeer",
+        "units": "%"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Incinerated (waste management)",
+        "termType": "wasteManagement",
+        "@id": "incineratedWasteManagement"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Paper",
+            "termType": "material",
+            "@id": "paper",
+            "units": "kg"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Synthetic rubber",
+            "termType": "material",
+            "@id": "syntheticRubber",
+            "units": "kg"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Food processing waste",
+            "termType": "waste",
+            "@id": "foodProcessingWaste",
+            "units": "kg"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "transformationId": "1",
+      "@type": "Transformation"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, game (cold carcass weight)",
+        "units": "kg cold carcass weight",
+        "@id": "meatGameColdCarcassWeight"
+      },
+      "value": [
+        8394.46
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Processing conversion, liveweight to cold carcass weight",
+            "termType": "property",
+            "@id": "processingConversionLiveweightToColdCarcassWeight",
+            "units": "%"
+          },
+          "value": 96.1390722,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "fate": "home consumption",
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, game (cold carcass weight)",
+        "units": "kg cold carcass weight",
+        "@id": "meatGameColdCarcassWeight"
+      },
+      "value": [
+        683.27
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Processing conversion, liveweight to cold carcass weight",
+            "termType": "property",
+            "@id": "processingConversionLiveweightToColdCarcassWeight",
+            "units": "%"
+          },
+          "value": 96.1390722,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "fate": "sold to domestic market",
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Food processing waste",
+        "termType": "waste",
+        "@id": "foodProcessingWaste",
+        "units": "kg"
+      },
+      "value": [
+        585.66
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Offal, deer",
+        "units": "kg",
+        "@id": "offalDeer"
+      },
+      "value": [
+        770
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Paper",
+        "termType": "material",
+        "@id": "paper",
+        "units": "kg"
+      },
+      "value": [
+        6.87
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Synthetic rubber",
+        "termType": "material",
+        "@id": "syntheticRubber",
+        "units": "kg"
+      },
+      "value": [
+        4.2
+      ],
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "transport": true,
+    "material": true,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": true,
+    "soilAmendment": true,
+    "water": true,
+    "product": true,
+    "cropResidue": true,
+    "excreta": true,
+    "animalFeed": true,
+    "animalPopulation": true,
+    "waste": true,
+    "operation": false,
+    "freshForage": true,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Meat, game (cold carcass weight) - Verbano-Cusio-Ossola, Italy - 2015-11-29 - Northern Alpine hunting distri...",
+  "schemaVersion": "30.5.0",
+  "originalId": "Hunting_season_2015"
+}

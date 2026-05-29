@@ -1,0 +1,426 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2023-10-12",
+  "updatedAt": "2024-12-04",
+  "@id": "lmodf9zebz1f",
+  "@type": "Cycle",
+  "description": "Broiler chicken farm 15-20wks",
+  "startDateDefinition": "stocking date",
+  "endDate": "2019",
+  "cycleDuration": 35,
+  "numberOfCycles": 1,
+  "site": {
+    "@id": "ehirpofblmxa",
+    "@type": "Site"
+  },
+  "functionalUnit": "relative",
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "The empirical data analyzed in this study came from the filtered and completed questionnaires gathered from the samples.",
+  "defaultSource": {
+    "@id": "6x8shn-j0lez",
+    "@type": "Source"
+  },
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Broiler chicken",
+        "units": "number",
+        "@id": "broilerChicken"
+      },
+      "value": [
+        1
+      ],
+      "impactAssessment": {
+        "@id": "dqrmo1rb9bhs",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 1.73,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight gain",
+            "termType": "property",
+            "@id": "liveweightGain",
+            "units": "kg liveweight / head / day"
+          },
+          "value": 0.014000000000000005,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "pesticideAI",
+        "name": "Carbaryl",
+        "units": "kg active ingredient",
+        "@id": "CAS-63-25-2"
+      },
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed, unspecified",
+        "termType": "processedFood",
+        "@id": "concentrateFeedUnspecified",
+        "units": "kg"
+      },
+      "value": [
+        0.56
+      ],
+      "operation": {
+        "@type": "Term",
+        "name": "Feeding animals, machine unspecified",
+        "termType": "operation",
+        "@id": "feedingAnimalsMachineUnspecified",
+        "units": "hour"
+      },
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "It is unclear in the study the amount they have used, I think they have got these values wrong, I have assumed they continued to feed the final value for the other 3 weeks where no value is provided.",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Energy digestibility, other animals",
+            "termType": "property",
+            "@id": "energyDigestibilityOtherAnimals",
+            "units": "%"
+          },
+          "value": 12.1336,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Calcium content",
+            "termType": "property",
+            "@id": "calciumContent",
+            "units": "%"
+          },
+          "value": 0.6,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Phosphorus content (as P)",
+            "termType": "property",
+            "@id": "phosphorusContentAsP",
+            "units": "%"
+          },
+          "value": 0.35,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Sodium content",
+            "termType": "property",
+            "@id": "sodiumContent",
+            "units": "%"
+          },
+          "value": 0.55,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Crude protein content",
+            "termType": "property",
+            "@id": "crudeProteinContent",
+            "units": "%"
+          },
+          "value": 12,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "startDate": "2019-04-08",
+      "endDate": "2019-04-15",
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed, unspecified",
+        "termType": "processedFood",
+        "@id": "concentrateFeedUnspecified",
+        "units": "kg"
+      },
+      "value": [
+        0.5810000000000001
+      ],
+      "isAnimalFeed": true,
+      "startDate": "2019-04-15",
+      "endDate": "2019-04-22",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed, unspecified",
+        "termType": "processedFood",
+        "@id": "concentrateFeedUnspecified",
+        "units": "kg"
+      },
+      "value": [
+        0.602
+      ],
+      "isAnimalFeed": true,
+      "startDate": "2019-04-22",
+      "endDate": "2019-04-29",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed, unspecified",
+        "termType": "processedFood",
+        "@id": "concentrateFeedUnspecified",
+        "units": "kg"
+      },
+      "value": [
+        0.63
+      ],
+      "isAnimalFeed": true,
+      "startDate": "2019-04-29",
+      "endDate": "2019-05-06",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed, unspecified",
+        "termType": "processedFood",
+        "@id": "concentrateFeedUnspecified",
+        "units": "kg"
+      },
+      "value": [
+        0.665
+      ],
+      "isAnimalFeed": true,
+      "startDate": "2019-05-06",
+      "endDate": "2019-05-13",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed, unspecified",
+        "termType": "processedFood",
+        "@id": "concentrateFeedUnspecified",
+        "units": "kg"
+      },
+      "isAnimalFeed": true,
+      "value": [
+        0.6930000000000001
+      ],
+      "startDate": "2019-05-13",
+      "endDate": "2019-05-20",
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Cleaning animal housing",
+        "termType": "operation",
+        "@id": "cleaningAnimalHousing",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Total animal population",
+        "termType": "animalManagement",
+        "@id": "totalAnimalPopulation",
+        "units": "number"
+      },
+      "value": [
+        125
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Feeding animals, machine unspecified",
+        "termType": "operation",
+        "@id": "feedingAnimalsMachineUnspecified",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Lighting, machine unspecified",
+        "termType": "operation",
+        "@id": "lightingMachineUnspecified",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Beak trimming, machine unspecified",
+        "termType": "operation",
+        "@id": "beakTrimmingMachineUnspecified",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Animal vaccination",
+        "termType": "operation",
+        "@id": "animalVaccination",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "system",
+        "name": "Barn system",
+        "units": "% area",
+        "@id": "barnSystem"
+      },
+      "@type": "Practice"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Broiler chicken",
+        "units": "number",
+        "@id": "broilerChicken"
+      },
+      "value": [
+        1
+      ],
+      "primary": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 2.22,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, poultry (kg mass)",
+        "units": "kg",
+        "@id": "excretaPoultryKgMass"
+      },
+      "primary": false,
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Poultry manure with litter",
+        "termType": "excretaManagement",
+        "@id": "poultryManureWithLitter"
+      },
+      "transformationId": "suwanbupha-transformation-3",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, poultry (kg mass)",
+            "units": "kg",
+            "@id": "excretaPoultryKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "products": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Processed excreta (kg mass)",
+            "termType": "excreta",
+            "@id": "processedExcretaKgMass",
+            "units": "kg"
+          },
+          "@type": "Product"
+        }
+      ],
+      "@type": "Transformation"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "operation": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "waste": false,
+    "liveAnimalInput": true,
+    "transport": false,
+    "ingredient": true,
+    "otherChemical": true,
+    "animalPopulation": true,
+    "freshForage": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Broiler chicken - Nong Ta Taem, Thailand - 2019 - Broiler chicken farm 15-20wks",
+  "schemaVersion": "30.3.2",
+  "originalId": "Suwanbupha-15-20wks"
+}

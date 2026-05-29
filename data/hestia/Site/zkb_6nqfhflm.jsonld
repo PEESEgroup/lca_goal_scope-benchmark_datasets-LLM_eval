@@ -1,0 +1,40 @@
+{
+  "@context": "https://contribute.hestia.earth/schema/Site.jsonld",
+  "createdAt": "2024-04-19",
+  "updatedAt": "2025-03-11",
+  "@id": "zkb_6nqfhflm",
+  "@type": "Site",
+  "defaultSource": {
+    "@id": "jcvrqantlqhz",
+    "@type": "Source"
+  },
+  "siteType": "other natural vegetation",
+  "country": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Denmark",
+    "@id": "GADM-DNK"
+  },
+  "numberOfSites": 1,
+  "management": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Native pasture",
+        "units": "% area",
+        "@id": "nativePasture"
+      },
+      "endDate": "2011",
+      "methodClassification": "non-verified survey data",
+      "methodClassificationDescription": "Questionnaires and interviews provided to various stakeholders in the supply chain",
+      "@type": "Management"
+    }
+  ],
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Questionnaires and interviews provided to various stakeholders in the supply chain",
+  "dataPrivate": false,
+  "name": "Other natural vegetation - Denmark",
+  "schemaVersion": "30.7.0",
+  "originalId": "Ulfborg/Klosterhede"
+}

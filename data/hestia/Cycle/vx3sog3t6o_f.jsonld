@@ -1,0 +1,250 @@
+{
+  "@context": "https://contribute.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-04-19",
+  "updatedAt": "2025-03-10",
+  "@id": "vx3sog3t6o_f",
+  "@type": "Cycle",
+  "description": "Production of rabbits - fattening stage (modelled)",
+  "numberOfCycles": 1,
+  "endDate": "2016-01-01",
+  "cycleDuration": 49,
+  "startDateDefinition": "stocking date",
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "jvhr1r6syqeu",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "nsbaboglzahm",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "inconsistent external sources",
+  "defaultMethodClassificationDescription": "Various sources used for parameters from different locations and timings",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        2792.450348
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Rabbit, kit (weaned)",
+        "units": "number",
+        "@id": "rabbitKitWeaned"
+      },
+      "value": [
+        62000
+      ],
+      "impactAssessment": {
+        "@id": "9x6mhzrjbgfa",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "value": 30,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 0.7,
+          "methodClassification": "estimated with assumptions",
+          "methodClassificationDescription": "Assumption for 0.7kg taken from Chelminksa and Kowalska (http://dx.doi.org/10.2478/aoas-2013-0032)",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed blend",
+        "termType": "processedFood",
+        "@id": "concentrateFeedBlend",
+        "units": "kg"
+      },
+      "value": [
+        317618.25
+      ],
+      "impactAssessment": {
+        "@id": "dzuutikev8zc",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Feed conversion ratio (fed weight)",
+        "termType": "animalManagement",
+        "@id": "feedConversionRatioFedWeight",
+        "units": "kg feed (fed weight) / kg liveweight"
+      },
+      "value": [
+        2.85
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Indoor animal system",
+        "termType": "system",
+        "@id": "indoorAnimalSystem",
+        "units": "%"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Rabbit, kit (weaned)",
+        "units": "number",
+        "@id": "rabbitKitWeaned"
+      },
+      "animalId": "1",
+      "referencePeriod": "end of Cycle",
+      "value": 55800,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Weight at slaughter",
+            "termType": "property",
+            "@id": "weightAtSlaughter",
+            "units": "kg liveweight / head"
+          },
+          "value": 2.7,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Slaughter age",
+            "termType": "property",
+            "@id": "slaughterAge",
+            "units": "days"
+          },
+          "value": 79,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Periodic spread",
+        "termType": "excretaManagement",
+        "@id": "periodicSpread"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, rabbits (kg mass)",
+            "units": "kg",
+            "@id": "excretaRabbitsKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "transformationId": "1",
+      "@type": "Transformation"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Rabbit, kit (weaned)",
+        "units": "number",
+        "@id": "rabbitKitWeaned"
+      },
+      "value": [
+        55800
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, rabbits (kg mass)",
+        "units": "kg",
+        "@id": "excretaRabbitsKgMass"
+      },
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "transport": false,
+    "material": true,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": true,
+    "freshForage": true,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Rabbit, kit (weaned) - Europe - 2016-01-01 - Production of rabbits - fatten...",
+  "schemaVersion": "30.7.0",
+  "originalId": "rabbit_production_fattening"
+}

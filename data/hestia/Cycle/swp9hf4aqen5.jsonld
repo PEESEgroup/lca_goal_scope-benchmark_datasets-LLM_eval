@@ -1,0 +1,558 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-04-17",
+  "updatedAt": "2025-01-08",
+  "@id": "swp9hf4aqen5",
+  "@type": "Cycle",
+  "description": "Aggregate cycle representing data from 4 farms in the Central-East mesoregion on Parana in 2019, all producing milk under a full confinement system",
+  "endDate": "2019",
+  "functionalUnit": "relative",
+  "functionalUnitDetails": "1 kg FPCM",
+  "site": {
+    "@id": "1-ri-v_qqxe_",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "v9neu-ph4e_r",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "verified survey data",
+  "defaultMethodClassificationDescription": "A structured questionnaire was created. The questionnaire was previously tested through interviews with specialists in the area to certify the consistency of the questions and the compliance with the data quality criteria.  Most of the data provided in the inventories is primary, collected in the field, through on-site interviews with farm owners and managers and expert technical consultants from the agro-industrial cooperative. After completion, the three inventories were sent for external review, where 5 specialists critically provided feedback on the inventories. After such review, the inventories were submitted to the SICV/Brazil. The external review was carried out by five professionals trained in both LCA and milk production who do not belong to the team who conducted this study and the reviewers did not report any known conflict of interest related to reviewing those inventories.",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        0.06872209565961362
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, river/stream",
+        "units": "m3",
+        "@id": "waterRiverStream"
+      },
+      "value": [
+        0.00383686487329661
+      ],
+      "operation": {
+        "@type": "Term",
+        "name": "Providing animals with water",
+        "termType": "operation",
+        "@id": "providingAnimalsWithWater",
+        "units": "hour"
+      },
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Maize, silage",
+        "units": "kg",
+        "@id": "maizeSilage"
+      },
+      "value": [
+        0.350149942370461
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "forage",
+        "name": "Ryegrass, fresh forage",
+        "units": "kg",
+        "@id": "ryegrassFreshForage"
+      },
+      "value": [
+        0.07791864647082822
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "forage",
+        "name": "Danthonia, fresh forage",
+        "units": "kg",
+        "@id": "danthoniaFreshForage"
+      },
+      "value": [
+        0.03339370563035496
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Soybean, meal",
+        "units": "kg",
+        "@id": "soybeanMeal"
+      },
+      "value": [
+        0.04353280900652796
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Sodium chloride",
+        "termType": "feedFoodAdditive",
+        "@id": "sodiumChloride",
+        "units": "kg"
+      },
+      "value": [
+        0.004036282680538556
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, hay",
+        "termType": "crop",
+        "@id": "genericGrassHay",
+        "units": "kg"
+      },
+      "value": [
+        0.01572891931864545
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Soybean, hull",
+        "units": "kg",
+        "@id": "soybeanHull"
+      },
+      "value": [
+        0.05057452519379845
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed, unspecified",
+        "termType": "processedFood",
+        "@id": "concentrateFeedUnspecified",
+        "units": "kg"
+      },
+      "value": [
+        0.18463863809771522
+      ],
+      "description": "0.183 for cattle feed concentrate plus 0.00145 for newborn cow feed concentrate",
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, river/stream",
+        "units": "m3",
+        "@id": "waterRiverStream"
+      },
+      "value": [
+        0.001482995108374136
+      ],
+      "operation": {
+        "@type": "Term",
+        "name": "Cleaning animal housing",
+        "termType": "operation",
+        "@id": "cleaningAnimalHousing",
+        "units": "hour"
+      },
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "otherOrganicChemical",
+        "name": "Neutral detergent unspecified (AI)",
+        "units": "kg active ingredient",
+        "@id": "neutralDetergentUnspecifiedAi"
+      },
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "otherOrganicChemical",
+        "name": "Alkaline detergent unspecified (AI)",
+        "units": "kg active ingredient",
+        "@id": "alkalineDetergentUnspecifiedAi"
+      },
+      "value": [
+        0.00008021260005493903
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "otherOrganicChemical",
+        "name": "Acid detergent unspecified (AI)",
+        "units": "kg active ingredient",
+        "@id": "acidDetergentUnspecifiedAi"
+      },
+      "value": [
+        0.000046375348797397976
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Disinfectant unspecified (AI)",
+        "termType": "otherOrganicChemical",
+        "@id": "disinfectantUnspecifiedAi",
+        "units": "kg active ingredient"
+      },
+      "value": [
+        0.00004728636833520805
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Sodium bicarbonate",
+        "termType": "feedFoodAdditive",
+        "@id": "sodiumBicarbonate",
+        "units": "kg"
+      },
+      "value": [
+        0.006049584353325173
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Dutch Friesian",
+        "termType": "animalBreed",
+        "@id": "dutchFriesian",
+        "units": "%"
+      },
+      "value": [
+        100
+      ],
+      "description": "Dutch black-and-white",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Stocking density, animal housing (average)",
+        "termType": "animalManagement",
+        "@id": "stockingDensityAnimalHousingAverage",
+        "units": "animals / m2"
+      },
+      "value": [
+        0.002471
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Only data on the numbers milking cows was provided (not other cateogories of the herd that may be present). Therefore the stocking density only includes these milking cows and so in an underestimate. The area value is also for the whole production system and so likely includes both housing and potentially cropland.",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Indoor animal system",
+        "termType": "system",
+        "@id": "indoorAnimalSystem",
+        "units": "%"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow (lactating)",
+        "units": "number",
+        "@id": "dairyCattleCowLactating"
+      },
+      "animalId": "LactatingCows",
+      "referencePeriod": "average",
+      "min": 200,
+      "statsDefinition": "cycles",
+      "practices": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "animalManagement",
+            "name": "Milk yield per cow (raw)",
+            "units": "kg / day",
+            "@id": "milkYieldPerCowRaw"
+          },
+          "value": [
+            39.14
+          ],
+          "@type": "Practice"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow (dry)",
+        "units": "number",
+        "@id": "dairyCattleCowDry"
+      },
+      "animalId": "DryCows",
+      "referencePeriod": "average",
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, heifer",
+        "units": "number",
+        "@id": "dairyCattleHeifer"
+      },
+      "animalId": "Heifers",
+      "referencePeriod": "average",
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, calf (female, weaned)",
+        "units": "number",
+        "@id": "dairyCattleCalfFemaleWeaned"
+      },
+      "animalId": "FemaleWeanedCalves",
+      "referencePeriod": "average",
+      "@type": "Animal"
+    }
+  ],
+  "transformations": [
+    {
+      "transformationId": "1",
+      "term": {
+        "@type": "Term",
+        "name": "Uncovered anaerobic lagoon",
+        "termType": "excretaManagement",
+        "@id": "uncoveredAnaerobicLagoon"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "products": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "@type": "Product"
+        }
+      ],
+      "@type": "Transformation"
+    },
+    {
+      "transformationId": "2",
+      "previousTransformationId": "1",
+      "term": {
+        "@type": "Term",
+        "name": "Daily spread",
+        "termType": "excretaManagement",
+        "@id": "dailySpread"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "@type": "Transformation"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Milk, cow, raw (FPCM)",
+        "units": "kg FPCM",
+        "@id": "milkCowRawFpcm"
+      },
+      "value": [
+        1
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, dairy cattle (liveweight)",
+        "units": "kg liveweight",
+        "@id": "meatDairyCattleLiveweight"
+      },
+      "value": [
+        0.016006343234968405
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, dairy cattle (kg mass)",
+        "units": "kg",
+        "@id": "excretaDairyCattleKgMass"
+      },
+      "value": [
+        1.8760366038096699
+      ],
+      "methodClassification": "modelled",
+      "methodClassificationDescription": "LIC states this data point is 'calculated' and that 'when it was not possible to obtain primary data, sec- ondary data was obtained and calculated based on scientific literature and methodologies', however no more specific information was given than this.",
+      "@type": "Product"
+    }
+  ],
+  "emissions": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CH4, to air, enteric fermentation",
+        "termType": "emission",
+        "@id": "ch4ToAirEntericFermentation",
+        "units": "kg CH4"
+      },
+      "value": [
+        0.01552678345137914
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2019)",
+        "termType": "model",
+        "@id": "ipcc2019"
+      },
+      "methodTier": "tier 2",
+      "@type": "Emission"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CH4, to air, excreta",
+        "termType": "emission",
+        "@id": "ch4ToAirExcreta",
+        "units": "kg CH4"
+      },
+      "value": [
+        0.00034218342275980045
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2019)",
+        "termType": "model",
+        "@id": "ipcc2019"
+      },
+      "methodTier": "tier 2",
+      "@type": "Emission"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "N2O, to air, excreta, indirect",
+        "termType": "emission",
+        "@id": "n2OToAirExcretaIndirect",
+        "units": "kg N2O"
+      },
+      "value": [
+        0.00007793384210526314
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2019)",
+        "termType": "model",
+        "@id": "ipcc2019"
+      },
+      "methodTier": "tier 2",
+      "@type": "Emission"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "otherChemical": true,
+    "seed": false,
+    "ingredient": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": true,
+    "product": true,
+    "cropResidue": true,
+    "excreta": true,
+    "animalFeed": true,
+    "freshForage": true,
+    "liveAnimalInput": true,
+    "animalPopulation": false,
+    "waste": false,
+    "operation": false,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Milk, cow, raw (FPCM) - Paraná (Estado), Brazil - 2019 - Aggregate cycle representing d...",
+  "schemaVersion": "30.5.0",
+  "originalId": "MPS 3"
+}

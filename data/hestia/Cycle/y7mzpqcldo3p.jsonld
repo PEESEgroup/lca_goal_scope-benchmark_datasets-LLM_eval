@@ -1,0 +1,148 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-12-05",
+  "updatedAt": "2024-12-06",
+  "@id": "y7mzpqcldo3p",
+  "@type": "Cycle",
+  "description": "Rabbit slaughter in Scenario 1 (Traditional rabbit breeding)",
+  "endDate": "2018",
+  "numberOfCycles": 3,
+  "functionalUnit": "relative",
+  "functionalUnitDetails": "An average rex rabbit following 140 days of breeding and subsequent slaughter",
+  "site": {
+    "@id": "gvjyxduqxbuc",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "aiati9y81sll",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Primary data provided by the rabbit breeding company",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Rabbit",
+        "units": "number",
+        "@id": "rabbit"
+      },
+      "value": [
+        1
+      ],
+      "impactAssessment": {
+        "@id": "b1x3mlb3btsq",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": true,
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Transport, unspecified",
+            "termType": "transport",
+            "@id": "transportUnspecified",
+            "units": "tkm"
+          },
+          "value": 0.0104,
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        0.35
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, source unspecified",
+        "units": "m3",
+        "@id": "waterSourceUnspecified"
+      },
+      "value": [
+        0.000002
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Cardboard",
+        "termType": "material",
+        "@id": "cardboard",
+        "units": "kg"
+      },
+      "value": [
+        0.03
+      ],
+      "@type": "Input"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, rabbit (cold carcass weight)",
+        "units": "kg cold carcass weight",
+        "@id": "meatRabbitColdCarcassWeight"
+      },
+      "value": [
+        1.5
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Skins, rabbit, fresh",
+        "units": "kg",
+        "@id": "skinsRabbitFresh"
+      },
+      "description": "Quantity of fur product not given as during the field investigation, the fur garment processing stage was suspended because of market impact.",
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "transport": true,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "otherChemical": true,
+    "pesticideVeterinaryDrug": true,
+    "soilAmendment": true,
+    "water": true,
+    "product": false,
+    "cropResidue": true,
+    "excreta": true,
+    "freshForage": true,
+    "animalFeed": true,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Meat, rabbit (cold carcass weight) - Ordos, China - 2018 - Rabbit slaughter in Scenario 1...",
+  "schemaVersion": "30.4.0",
+  "originalId": "S1_RabbitSlaughter"
+}

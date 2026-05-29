@@ -1,0 +1,584 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-11-04",
+  "updatedAt": "2024-11-26",
+  "@id": "fxfiu9ewjcnv",
+  "@type": "Cycle",
+  "description": "Average Organic",
+  "endDate": "2008",
+  "functionalUnit": "1 ha",
+  "site": {
+    "@id": "d20_ffckdtjo",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "hg1ssv50ixfb",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "physical measurement",
+  "defaultMethodClassificationDescription": "An on farm trial between a farmer who owns a paddy field and several agricultural specialists. Two organic plots were used in the assessment.",
+  "treatment": "organic - this means that the farming is free from sythetic fertilisers and pesticides. Organic farming uses mechanical weeding or rip-ducks. At this side mechanical weeding was used in the first year and rip ducks thereafter.",
+  "commercialPracticeTreatment": true,
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Phosphate Rock (kg P2O5)",
+        "termType": "inorganicFertiliser",
+        "@id": "phosphateRockKgP2O5",
+        "units": "kg P2O5"
+      },
+      "value": [
+        64
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "organicFertiliser",
+        "name": "Compost (kg mass)",
+        "units": "kg",
+        "@id": "compostKgMass"
+      },
+      "value": [
+        5529
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "organicFertiliser",
+        "name": "Poultry, solid manure, dry (kg mass)",
+        "units": "kg",
+        "@id": "poultrySolidManureDryKgMass"
+      },
+      "value": [
+        550
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "organicFertiliser",
+        "name": "Rapeseed, meal (organic fertiliser) (kg mass)",
+        "units": "kg",
+        "@id": "rapeseedMealOrganicFertiliserKgMass"
+      },
+      "value": [
+        40
+      ],
+      "isAnimalFeed": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "organicFertiliser",
+        "name": "Rice, bran (organic fertiliser) (kg mass)",
+        "units": "kg",
+        "@id": "riceBranOrganicFertiliserKgMass"
+      },
+      "value": [
+        161
+      ],
+      "isAnimalFeed": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "organicFertiliser",
+        "name": "Soybean, meal (organic fertiliser) (kg mass)",
+        "units": "kg",
+        "@id": "soybeanMealOrganicFertiliserKgMass"
+      },
+      "value": [
+        109
+      ],
+      "isAnimalFeed": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Seed",
+        "termType": "seed",
+        "@id": "seed",
+        "units": "kg"
+      },
+      "value": [
+        14.2
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Domestic duck",
+        "units": "number",
+        "@id": "domesticDuck"
+      },
+      "value": [
+        148
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Machinery infrastructure, depreciated amount per Cycle",
+        "termType": "material",
+        "@id": "machineryInfrastructureDepreciatedAmountPerCycle",
+        "units": "kg/functional unit/Cycle"
+      },
+      "value": [
+        24.82
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Light fuel oil",
+        "units": "kg",
+        "@id": "lightFuelOil"
+      },
+      "value": [
+        203.82
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Petrol",
+        "units": "kg",
+        "@id": "petrol"
+      },
+      "value": [
+        38.148
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        1.5315694458817708
+      ],
+      "operation": {
+        "@type": "Term",
+        "name": "Germinating seeds in a germination chamber",
+        "termType": "operation",
+        "@id": "germinatingSeedsInAGerminationChamber",
+        "units": "hour"
+      },
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Calculated by multiplying the total electricity consumption by the fraction of time required for germinating seeds (see Table 2, hour/kg seed) over the total time required for all operations that use electricity. This assumes each operation consumes the same amount of electricity per hour.",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        4.9830572508669615
+      ],
+      "operation": {
+        "@type": "Term",
+        "name": "Drying, machine unspecified",
+        "termType": "operation",
+        "@id": "dryingMachineUnspecified",
+        "units": "hour"
+      },
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Calculated by multiplying the total electricity consumption by the fraction of time required for drying the rice (see Table 2, hour/kg) over the total time required for all operations that use electricity. This assumes each operation consumes the same amount of electricity per hour. We don't know the weight of the rice before drying or the original moisture content at harvest, so we used the kg of dried rice (at 85% moisture) for calculating total drying time.",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Other kerosene",
+        "units": "kg",
+        "@id": "otherKerosene"
+      },
+      "value": [
+        60.6
+      ],
+      "operation": {
+        "@type": "Term",
+        "name": "Drying, machine unspecified",
+        "termType": "operation",
+        "@id": "dryingMachineUnspecified",
+        "units": "hour"
+      },
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Organic",
+        "termType": "standardsLabels",
+        "@id": "organic",
+        "units": "boolean"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "cropResidueManagement",
+        "name": "Residue incorporated, less than 30 days before cultivation",
+        "units": "%",
+        "@id": "residueIncorporatedLessThan30DaysBeforeCultivation"
+      },
+      "value": [
+        80
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "The paper states that \"a drop in methane emissions in 2006 was caused by incorporating rice straw earlier than the normal years\". I assumed that this meant residue was incorporated less than 30 days before cultivation in four out of five years (aka 80%).",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "cropResidueManagement",
+        "name": "Residue incorporated, more than 30 days before cultivation",
+        "units": "%",
+        "@id": "residueIncorporatedMoreThan30DaysBeforeCultivation"
+      },
+      "value": [
+        20
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "The paper states that \"a drop in methane emissions in 2006 was caused by incorporating rice straw earlier than the normal years\". I assumed that this meant residue was incorporated more than 30 days before cultivation in one out of five years (aka 20%).",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "waterRegime",
+        "name": "Irrigated, surface irrigation, single drainage period",
+        "units": "% area",
+        "@id": "irrigatedSurfaceIrrigationSingleDrainagePeriod"
+      },
+      "value": [
+        100
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "The first aeration was skipped because of the rice ducks. I assumed that this therefore meant one aeration once the ducks have been sold.",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Non flooded pre-season (less than 180 days)",
+        "termType": "landUseManagement",
+        "@id": "nonFloodedPreSeasonLessThan180Days",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "operation",
+        "name": "Soil preparation, with rotary tiller",
+        "units": "hour",
+        "@id": "soilPreparationWithRotaryTiller"
+      },
+      "value": [
+        4.2
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "operation",
+        "name": "Puddling, machine unspecified",
+        "units": "hour",
+        "@id": "puddlingMachineUnspecified"
+      },
+      "value": [
+        1
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "operation",
+        "name": "Fertilising, solid manure or compost, with spreader",
+        "units": "hour",
+        "@id": "fertilisingSolidManureOrCompostWithSpreader"
+      },
+      "value": [
+        1.5
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "operation",
+        "name": "Fertilising, broadcasting",
+        "units": "hour",
+        "@id": "fertilisingBroadcasting"
+      },
+      "value": [
+        0.5
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "operation",
+        "name": "Fertilising, with sprayer",
+        "units": "hour",
+        "@id": "fertilisingWithSprayer"
+      },
+      "value": [
+        1.3
+      ],
+      "description": "Described as \"Fertilizing or application of agriculture chemicals, by backpack sprayer\"",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Transplanting, machine unspecified",
+        "termType": "operation",
+        "@id": "transplantingMachineUnspecified",
+        "units": "hour"
+      },
+      "value": [
+        3.7
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "operation",
+        "name": "Weeding, with cutter",
+        "units": "hour",
+        "@id": "weedingWithCutter"
+      },
+      "value": [
+        12
+      ],
+      "description": "Combined three different weeding methods (paddy transplanter, paddy weeder and weed cutter)",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "operation",
+        "name": "Harvesting crops, with combine harvester",
+        "units": "hour",
+        "@id": "harvestingCropsWithCombineHarvester"
+      },
+      "value": [
+        3.4
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Machinery use, operation unspecified",
+        "termType": "operation",
+        "@id": "machineryUseOperationUnspecified",
+        "units": "hour"
+      },
+      "value": [
+        0.37
+      ],
+      "description": "Here the paddy fields are being maintained for submerged conditions",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Germinating seeds in a germination chamber",
+        "termType": "operation",
+        "@id": "germinatingSeedsInAGerminationChamber",
+        "units": "hour"
+      },
+      "value": [
+        1.0465399999999998
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "operation",
+        "name": "Ploughing, machine unspecified",
+        "units": "hour",
+        "@id": "ploughingMachineUnspecified"
+      },
+      "value": [
+        0.37
+      ],
+      "description": "Plow soiler",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Drying, machine unspecified",
+        "termType": "operation",
+        "@id": "dryingMachineUnspecified",
+        "units": "hour"
+      },
+      "value": [
+        2.7980857142857145
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "We have the drying time as hours per kg of rice. To get the total time we multiplied by the yield after drying, as we only know the quantity of rice after drying (and this is in turn an assumption based on 0.7 brown rice to paddy ratio)",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "operation",
+        "name": "Transporting products within site, machine unspecified",
+        "units": "hour",
+        "@id": "transportingProductsWithinSiteMachineUnspecified"
+      },
+      "value": [
+        0.3377
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "We have the transport time as hours per kg of rice. To get the total time we multiplied by the yield after drying, as we only know the quantity of rice after drying (and this is in turn an assumption based on 0.7 brown rice to paddy ratio)",
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "animalId": "1",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Domestic duck",
+        "units": "number",
+        "@id": "domesticDuck"
+      },
+      "value": 148,
+      "referencePeriod": "average",
+      "@type": "Animal"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Rice, grain (in husk), flooded",
+        "units": "kg",
+        "@id": "riceGrainInHuskFlooded"
+      },
+      "value": [
+        4824.285714285715
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Note from P&N dataset: \"Yield measured in brown rice equivalents at field (Hayashi, K., personal communication, 08/08/2015), and converted to paddy rice equivalents using 0.7 here.\" The dry matter of brown rice is 85%, so we assumed the dry matter of paddy rice is also 85% after drying.",
+      "economicValueShare": 90,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 85,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Domestic duck",
+        "units": "number",
+        "@id": "domesticDuck"
+      },
+      "value": [
+        148
+      ],
+      "economicValueShare": 10,
+      "description": "Ducks are present and sold for meat.",
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, ducks (kg mass)",
+        "units": "kg",
+        "@id": "excretaDucksKgMass"
+      },
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "animalFeed": true,
+    "animalPopulation": true,
+    "cropResidue": false,
+    "electricityFuel": true,
+    "excreta": false,
+    "fertiliser": true,
+    "freshForage": true,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "material": true,
+    "operation": true,
+    "otherChemical": true,
+    "pesticideVeterinaryDrug": true,
+    "product": true,
+    "seed": true,
+    "soilAmendment": true,
+    "transport": false,
+    "waste": false,
+    "water": false,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Rice, grain (in husk), flooded - Tomioka (Machi), Fukushima, Japan - 2008 - organic - this means... - Average Organic",
+  "siteArea": 1,
+  "schemaVersion": "30.3.2",
+  "originalId": "3"
+}

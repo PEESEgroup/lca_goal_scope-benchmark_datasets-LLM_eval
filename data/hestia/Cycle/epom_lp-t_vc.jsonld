@@ -1,0 +1,385 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-02-09",
+  "updatedAt": "2025-01-23",
+  "@id": "epom_lp-t_vc",
+  "@type": "Cycle",
+  "description": "24MO treatment where Steers are offered grass silage ad libitum plus 1.5 kg DM of concentrate per head daily over the winter period, turned out to pasture for 210 days, and finished indoors on grass silage ad libitum plus 5 kg DM of concentrate per head daily and slaughtered at 24 months of age - (this is the 2nd pasture stage)",
+  "endDate": "2014",
+  "numberOfCycles": 1,
+  "cycleDuration": 225,
+  "startDateDefinition": "stocking date",
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "lgn0oj2ryuqx",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "bjlulokiutoa",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "physical measurement",
+  "defaultMethodClassificationDescription": "Experimental study with data collected throughout for inputs and outputs",
+  "treatment": "24MO treatment where Steers are offered grass silage ad libitum plus 1.5 kg DM of concentrate per head daily over the winter period, turned out to pasture for 210 days, and finished indoors on grass silage ad libitum plus 5 kg DM of concentrate per head daily and slaughtered at 24 months of age - (this is the 2nd pasture stage)",
+  "commercialPracticeTreatment": true,
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, steer",
+        "units": "number",
+        "@id": "beefCattleSteer"
+      },
+      "animalId": "1",
+      "value": 29.25,
+      "referencePeriod": "start of Cycle",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 325,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight gain",
+            "termType": "property",
+            "@id": "liveweightGain",
+            "units": "kg liveweight / head / day"
+          },
+          "value": 0.93,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "value": 412,
+          "description": "Have back calculated the age at which calves start the experiment, using cycleDurations for each segment of the cycle",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    }
+  ],
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed blend",
+        "termType": "processedFood",
+        "@id": "concentrateFeedBlend",
+        "units": "kg"
+      },
+      "value": [
+        1462.5
+      ],
+      "isAnimalFeed": true,
+      "impactAssessment": {
+        "@id": "vc6onnvuuggd",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Ryegrass, silage",
+        "units": "kg",
+        "@id": "ryegrassSilage"
+      },
+      "isAnimalFeed": true,
+      "value": [
+        151320
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 26.1,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Neutral detergent fibre content",
+            "termType": "property",
+            "@id": "neutralDetergentFibreContent",
+            "units": "%"
+          },
+          "value": 13.7547,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Crude protein content",
+            "termType": "property",
+            "@id": "crudeProteinContent",
+            "units": "%"
+          },
+          "value": 2.9232,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Ash content",
+            "termType": "property",
+            "@id": "ashContent",
+            "units": "%"
+          },
+          "value": 2.0358,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "property",
+            "name": "Digestible dry matter",
+            "units": "%",
+            "@id": "digestibleDryMatter"
+          },
+          "value": 18.27,
+          "methodModel": {
+            "@type": "Term",
+            "name": "In vitro",
+            "termType": "methodMeasurement",
+            "@id": "inVitro"
+          },
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "property",
+            "name": "Digestible organic matter",
+            "units": "%",
+            "@id": "digestibleOrganicMatter"
+          },
+          "value": 18.0351,
+          "methodModel": {
+            "@type": "Term",
+            "name": "In vitro",
+            "termType": "methodMeasurement",
+            "@id": "inVitro"
+          },
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, steer",
+        "units": "number",
+        "@id": "beefCattleSteer"
+      },
+      "value": [
+        29.25
+      ],
+      "impactAssessment": {
+        "@id": "db_ijowbbcg8",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture grass",
+        "termType": "landUseManagement",
+        "@id": "pastureGrass",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "key": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Ryegrass plant",
+        "units": "% area",
+        "@id": "ryegrassPlant"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Rotational grazing",
+        "termType": "landUseManagement",
+        "@id": "rotationalGrazing",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Stocking density, permanent pasture (average)",
+        "termType": "animalManagement",
+        "@id": "stockingDensityPermanentPastureAverage",
+        "units": "animals / m2"
+      },
+      "value": [
+        0.00024458177
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "system",
+        "name": "Confined pasture system",
+        "units": "%",
+        "@id": "confinedPastureSystem"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, steer",
+        "units": "number",
+        "@id": "beefCattleSteer"
+      },
+      "value": [
+        29.25
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 527,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, beef cattle, except feedlot fed (kg mass)",
+        "units": "kg",
+        "@id": "excretaBeefCattleExceptFeedlotFedKgMass"
+      },
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture/Range/Paddock (excreta management)",
+        "termType": "excretaManagement",
+        "@id": "pastureRangePaddockExcretaManagement"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, beef cattle, except feedlot fed (kg mass)",
+            "units": "kg",
+            "@id": "excretaBeefCattleExceptFeedlotFedKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "transformationId": "1",
+      "@type": "Transformation"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "transport": true,
+    "material": false,
+    "fertiliser": false,
+    "seed": false,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": false,
+    "water": false,
+    "product": true,
+    "cropResidue": false,
+    "excreta": false,
+    "animalFeed": false,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": true,
+    "freshForage": false,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Beef cattle, steer - Ireland - 2014 - 24MO treatment where... - 24MO treatment where Steers ar...",
+  "schemaVersion": "30.5.0",
+  "originalId": "(24MO) 2nd-pasture"
+}

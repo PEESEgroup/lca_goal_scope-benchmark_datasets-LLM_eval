@@ -1,0 +1,203 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/ImpactAssessment.jsonld",
+  "createdAt": "2024-01-17",
+  "updatedAt": "2024-12-06",
+  "@id": "kf37lxitctqk",
+  "@type": "ImpactAssessment",
+  "cycle": {
+    "@id": "mjenb2rui79g",
+    "@type": "Cycle"
+  },
+  "site": {
+    "@id": "moxxmog0thxa",
+    "@type": "Site"
+  },
+  "country": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Ireland",
+    "@id": "GADM-IRL"
+  },
+  "product": {
+    "term": {
+      "@type": "Term",
+      "termType": "animalProduct",
+      "name": "Meat, beef cattle (cold carcass weight)",
+      "units": "kg cold carcass weight",
+      "@id": "meatBeefCattleColdCarcassWeight"
+    },
+    "value": [
+      8194
+    ],
+    "sd": [
+      106.41564734567939
+    ],
+    "statsDefinition": "cycles",
+    "primary": true,
+    "@type": "Product"
+  },
+  "source": {
+    "@id": "oejuzzwezpby",
+    "@type": "Source"
+  },
+  "functionalUnitQuantity": 1,
+  "allocationMethod": "biophysical",
+  "endDate": "2019",
+  "dataPrivate": false,
+  "impacts": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "characterisedIndicator",
+        "name": "GWP100",
+        "units": "kg CO2 eq",
+        "@id": "gwp100"
+      },
+      "value": 9.4,
+      "sd": 3.3,
+      "statsDefinition": "cycles",
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2013) excluding feedbacks",
+        "termType": "model",
+        "@id": "ipcc2013ExcludingFeedbacks"
+      },
+      "@type": "Indicator"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "characterisedIndicator",
+        "name": "Freshwater eutrophication potential",
+        "units": "kg P eq",
+        "@id": "freshwaterEutrophicationPotential"
+      },
+      "value": 0.001404,
+      "sd": 0.000407,
+      "statsDefinition": "cycles",
+      "methodModel": {
+        "@type": "Term",
+        "name": "ReCiPe 2016 Hierarchist",
+        "termType": "model",
+        "@id": "recipe2016Hierarchist"
+      },
+      "@type": "Indicator"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "characterisedIndicator",
+        "name": "Marine eutrophication potential",
+        "units": "kg N eq",
+        "@id": "marineEutrophicationPotential"
+      },
+      "value": 0.1114,
+      "sd": 0.0313,
+      "statsDefinition": "cycles",
+      "methodModel": {
+        "@type": "Term",
+        "name": "ReCiPe 2016 Hierarchist",
+        "termType": "model",
+        "@id": "recipe2016Hierarchist"
+      },
+      "@type": "Indicator"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "characterisedIndicator",
+        "name": "Terrestrial acidification potential, accumulated exceedance",
+        "units": "mol H+ eq",
+        "@id": "terrestrialAcidificationPotentialAccumulatedExceedance"
+      },
+      "value": 0.15719999999999998,
+      "sd": 0.0494,
+      "statsDefinition": "cycles",
+      "methodModel": {
+        "@type": "Term",
+        "name": "Posch et al (2008)",
+        "termType": "model",
+        "@id": "poschEtAl2008"
+      },
+      "@type": "Indicator"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Cumulative renewable energy demand",
+        "termType": "characterisedIndicator",
+        "@id": "cumulativeRenewableEnergyDemand",
+        "units": "MJ"
+      },
+      "value": 51.9,
+      "sd": 21,
+      "statsDefinition": "cycles",
+      "methodModel": {
+        "@type": "Term",
+        "name": "Cumulative Energy Demand (CED) method",
+        "termType": "model",
+        "@id": "cumulativeEnergyDemandCedMethod"
+      },
+      "methodModelDescription": "Higher energy values taken from Frischknecht et al (2007)",
+      "@type": "Indicator"
+    }
+  ],
+  "emissionsResourceUse": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "resourceUse",
+        "name": "Land occupation, during Cycle",
+        "units": "m2*year",
+        "@id": "landOccupationDuringCycle"
+      },
+      "value": 41.527,
+      "sd": 25.995,
+      "statsDefinition": "cycles",
+      "landCover": {
+        "@type": "Term",
+        "name": "Permanent pasture",
+        "termType": "landCover",
+        "@id": "permanentPasture",
+        "units": "% area"
+      },
+      "methodModel": {
+        "@type": "Term",
+        "name": "Land occupation calculation, used duration only",
+        "termType": "model",
+        "@id": "landOccupationCalculationUsedDurationOnly"
+      },
+      "@type": "Indicator"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "resourceUse",
+        "name": "Land occupation, inputs production",
+        "units": "m2*year",
+        "@id": "landOccupationInputsProduction"
+      },
+      "value": 1.1910000000000025,
+      "landCover": {
+        "@type": "Term",
+        "name": "Cropland",
+        "termType": "landCover",
+        "@id": "cropland",
+        "units": "% area"
+      },
+      "methodModel": {
+        "@type": "Term",
+        "name": "Land occupation calculation, used duration only",
+        "termType": "model",
+        "@id": "landOccupationCalculationUsedDurationOnly"
+      },
+      "@type": "Indicator"
+    }
+  ],
+  "organic": false,
+  "irrigated": false,
+  "autoGenerated": false,
+  "name": "Meat, beef cattle (cold carcass weight) - Ireland - 2019",
+  "schemaVersion": "30.4.0",
+  "originalId": "suckler_to_beef_impact"
+}

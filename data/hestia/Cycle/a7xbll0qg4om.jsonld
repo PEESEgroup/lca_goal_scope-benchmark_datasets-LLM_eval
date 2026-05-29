@@ -1,0 +1,82 @@
+{
+  "@context": "https://contribute.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2025-03-10",
+  "updatedAt": "2025-03-11",
+  "@id": "a7xbll0qg4om",
+  "@type": "Cycle",
+  "description": "Meat production",
+  "endDate": "2017",
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "ah9u95bspjfz",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "evw50pucedpe",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "modelled",
+  "defaultMethodClassificationDescription": "Data were collected from eleven farms in the municipalities of Itaquiraí-MS, Naviraí-MS, Iguatemi-MS, Amambai-MS and Jateí-MS between November and December 2017. Due to variability and local characteristics that may directly affect the results, a modeling of the production systems was carried out so that it is possible to establish that the compared systems have the same area and the same soil and climatic characteristics.",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle",
+        "units": "number",
+        "@id": "beefCattle"
+      },
+      "value": [
+        302.8125
+      ],
+      "impactAssessment": {
+        "@id": "fez8hfiq653o",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "@type": "Input"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, beef cattle (liveweight)",
+        "units": "kg liveweight",
+        "@id": "meatBeefCattleLiveweight"
+      },
+      "value": [
+        157462.5
+      ],
+      "primary": true,
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": true,
+    "soilAmendment": true,
+    "water": true,
+    "product": true,
+    "cropResidue": true,
+    "excreta": true,
+    "animalFeed": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "freshForage": true,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Meat, beef cattle (liveweight) - Brazil - 2017 - Meat production",
+  "schemaVersion": "30.7.0",
+  "originalId": "CLR_MP"
+}

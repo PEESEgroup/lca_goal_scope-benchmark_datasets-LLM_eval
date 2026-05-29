@@ -1,0 +1,344 @@
+{
+  "@context": "https://contribute.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2023-12-18",
+  "updatedAt": "2025-03-11",
+  "@id": "enulvviva-8f",
+  "@type": "Cycle",
+  "description": "Chick breeding (6 weeks)",
+  "numberOfCycles": 1,
+  "startDate": "2016-06-01",
+  "startDateDefinition": "stocking date",
+  "endDate": "2016-07-13",
+  "cycleDuration": 42,
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "usppckx68wn5",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "slooumnhc8do",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Data taken from one farm studied",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed blend",
+        "termType": "processedFood",
+        "@id": "concentrateFeedBlend",
+        "units": "kg"
+      },
+      "value": [
+        30240
+      ],
+      "description": "Grain",
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, municipal tap",
+        "units": "m3",
+        "@id": "waterMunicipalTap"
+      },
+      "value": [
+        60.322
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Layer chicken, chick",
+        "units": "number",
+        "@id": "layerChickenChick"
+      },
+      "value": [
+        94752
+      ],
+      "isAnimalFeed": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        582.7
+      ],
+      "operation": {
+        "@type": "Term",
+        "name": "Lighting, machine unspecified",
+        "termType": "operation",
+        "@id": "lightingMachineUnspecified",
+        "units": "hour"
+      },
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        2960.9
+      ],
+      "operation": {
+        "@type": "Term",
+        "name": "Ventilating, machine unspecified",
+        "termType": "operation",
+        "@id": "ventilatingMachineUnspecified",
+        "units": "hour"
+      },
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        107.4
+      ],
+      "operation": {
+        "@type": "Term",
+        "name": "Pumping water, with pump",
+        "termType": "operation",
+        "@id": "pumpingWaterWithPump",
+        "units": "hour"
+      },
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        62.6
+      ],
+      "operation": {
+        "@type": "Term",
+        "name": "Transporting inputs within site, machine unspecified",
+        "termType": "operation",
+        "@id": "transportingInputsWithinSiteMachineUnspecified",
+        "units": "hour"
+      },
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Liquefied petroleum gases (LPG)",
+        "units": "kg",
+        "@id": "liquefiedPetroleumGasesLpg"
+      },
+      "value": [
+        2.8
+      ],
+      "operation": {
+        "@type": "Term",
+        "name": "Heating buildings, machine unspecified",
+        "termType": "operation",
+        "@id": "heatingBuildingsMachineUnspecified",
+        "units": "hour"
+      },
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Hy-Line W-36",
+        "termType": "animalBreed",
+        "@id": "hyLineW36",
+        "units": "%"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "system",
+        "name": "Battery cage system",
+        "units": "%",
+        "@id": "batteryCageSystem"
+      },
+      "value": [
+        100
+      ],
+      "description": "450 cm , or three birds/cage",
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Layer chicken, chick",
+        "units": "number",
+        "@id": "layerChickenChick"
+      },
+      "animalId": "1",
+      "value": 94752,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "value": 1,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "referencePeriod": "start of Cycle",
+      "@type": "Animal"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Composting, unspecified",
+        "termType": "excretaManagement",
+        "@id": "compostingUnspecified"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, poultry (kg mass)",
+            "units": "kg",
+            "@id": "excretaPoultryKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "transformationId": "1",
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Composted (waste management)",
+        "termType": "wasteManagement",
+        "@id": "compostedWasteManagement"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dead animal waste (kg mass)",
+            "termType": "waste",
+            "@id": "deadAnimalWasteKgMass",
+            "units": "kg"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "transformationId": "2",
+      "@type": "Transformation"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Layer chicken, pullet",
+        "units": "number",
+        "@id": "layerChickenPullet"
+      },
+      "value": [
+        94657
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, poultry (kg mass)",
+        "units": "kg",
+        "@id": "excretaPoultryKgMass"
+      },
+      "value": [
+        102.9
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Dead animal waste (kg mass)",
+        "termType": "waste",
+        "@id": "deadAnimalWasteKgMass",
+        "units": "kg"
+      },
+      "value": [
+        561.6
+      ],
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": true,
+    "product": true,
+    "cropResidue": true,
+    "excreta": true,
+    "animalFeed": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "freshForage": true,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Layer chicken, pullet - Tepatitlán de Morelos, Mexico - 2016-07-13 - Chick breeding (6 weeks)",
+  "schemaVersion": "30.7.0",
+  "originalId": "breeding_phase"
+}

@@ -1,0 +1,81 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Site.jsonld",
+  "createdAt": "2024-02-20",
+  "updatedAt": "2024-12-06",
+  "@id": "uxqf2tmy0pit",
+  "@type": "Site",
+  "defaultSource": {
+    "@id": "6yfrfaqhjdjb",
+    "@type": "Source"
+  },
+  "siteType": "permanent pasture",
+  "organisation": {
+    "@id": "c9aqpoij0xyz",
+    "@type": "Organisation"
+  },
+  "numberOfSites": 13,
+  "area": 37,
+  "country": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Netherlands",
+    "@id": "GADM-NLD"
+  },
+  "region": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Friesland (Provincie), Netherlands",
+    "@id": "GADM-NLD.3_1"
+  },
+  "measurements": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Sand content",
+        "termType": "measurement",
+        "@id": "sandContent",
+        "units": "%"
+      },
+      "value": [
+        75
+      ],
+      "methodClassification": "physical measurement on nearby site",
+      "methodClassificationDescription": "An average of 13 farms recorded in the Farm Accountancy Data Network (FADN).",
+      "@type": "Measurement"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Clay content",
+        "termType": "measurement",
+        "@id": "clayContent",
+        "units": "%"
+      },
+      "value": [
+        17
+      ],
+      "methodClassification": "physical measurement on nearby site",
+      "methodClassificationDescription": "An average of 13 farms recorded in the Farm Accountancy Data Network (FADN).",
+      "@type": "Measurement"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Histosol",
+        "termType": "soilType",
+        "@id": "histosol",
+        "units": "% area"
+      },
+      "value": [
+        8
+      ],
+      "methodClassification": "physical measurement on nearby site",
+      "methodClassificationDescription": "An average of 13 farms recorded in the Farm Accountancy Data Network (FADN).",
+      "@type": "Measurement"
+    }
+  ],
+  "dataPrivate": false,
+  "name": "Permanent pasture - CONO Kaasmakers - Friesland (Provincie), Netherlands",
+  "schemaVersion": "30.4.0",
+  "originalId": "Middelar-pasture"
+}

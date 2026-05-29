@@ -1,0 +1,901 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-01-18",
+  "updatedAt": "2024-12-06",
+  "@id": "r1efz66litmc",
+  "@type": "Cycle",
+  "description": "This cycle is an average of the 23 farms surveyed: 11 from small farms (15–100 ewes), 8 from mid-sized farms (101–500 ewes), and 4 from larger scale operations (> 500 ewes).",
+  "numberOfCycles": 23,
+  "endDate": "2022",
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "ybbamtyquia4",
+    "@type": "Site"
+  },
+  "otherSites": [
+    {
+      "@id": "8mjgan79zkg0",
+      "@type": "Site"
+    }
+  ],
+  "siteDuration": 139.795,
+  "otherSitesDuration": [
+    225.205
+  ],
+  "defaultSource": {
+    "@id": "bvshcy6gt-fy",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Data on sheep farming practices was collected via surveys. Responses from 23 surveys were used to create sample datapoints for each parameter",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        6214.038277
+      ],
+      "min": [
+        549.9148918
+      ],
+      "max": [
+        19357.00419
+      ],
+      "sd": [
+        8439.357355
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        47944.58636
+      ],
+      "min": [
+        8435.9976
+      ],
+      "max": [
+        168719.952
+      ],
+      "sd": [
+        59000.70053
+      ],
+      "statsDefinition": "cycles",
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Have assumed Diesel applies to \"Improved pasture\" and \"Arable cropland\" field areas only",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "material",
+        "name": "Low-density polyethylene",
+        "units": "kg",
+        "@id": "lowDensityPolyethylene"
+      },
+      "value": [
+        720.3885083
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        3959.387221
+      ],
+      "sd": [
+        1503.260529
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, source unspecified",
+        "units": "m3",
+        "@id": "waterSourceUnspecified"
+      },
+      "value": [
+        0.0633
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        0.3
+      ],
+      "sd": [
+        0.1716907685
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Inorganic Nitrogen fertiliser, unspecified (kg N)",
+        "termType": "inorganicFertiliser",
+        "@id": "inorganicNitrogenFertiliserUnspecifiedKgN",
+        "units": "kg N"
+      },
+      "value": [
+        7.02763566
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Inorganic Phosphorus fertiliser, unspecified (kg P2O5)",
+        "termType": "inorganicFertiliser",
+        "@id": "inorganicPhosphorusFertiliserUnspecifiedKgP2O5",
+        "units": "kg P2O5"
+      },
+      "value": [
+        4.4020984
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Inorganic Potassium fertiliser, unspecified (kg K2O)",
+        "termType": "inorganicFertiliser",
+        "@id": "inorganicPotassiumFertiliserUnspecifiedKgK2O",
+        "units": "kg K2O"
+      },
+      "value": [
+        3.6946183
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, silage",
+        "termType": "crop",
+        "@id": "genericGrassSilage",
+        "units": "kg"
+      },
+      "producedInCycle": true,
+      "description": "16.9% of total roughage/ grazing composition, calculated using the IPCC tier-2 methodology. Have assumed this is from the cycle - produced using the diesel and fertiliser included in this cycle.",
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, hay",
+        "termType": "crop",
+        "@id": "genericGrassHay",
+        "units": "kg"
+      },
+      "description": "58.3% of total roughage/ grazing composition, calculated using the IPCC tier-2 methodology",
+      "isAnimalFeed": true,
+      "producedInCycle": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, fresh forage",
+        "termType": "forage",
+        "@id": "genericGrassFreshForage",
+        "units": "kg"
+      },
+      "description": "25.6% of total roughage/ grazing composition, calculated using the IPCC tier-2 methodology",
+      "isAnimalFeed": true,
+      "producedInCycle": true,
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Stocking density, permanent pasture (average)",
+        "termType": "animalManagement",
+        "@id": "stockingDensityPermanentPastureAverage",
+        "units": "animals / m2"
+      },
+      "value": [
+        0.003347840643
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Stocking density, animal housing (average)",
+        "termType": "animalManagement",
+        "@id": "stockingDensityAnimalHousingAverage",
+        "units": "animals / m2"
+      },
+      "value": [
+        0.3333333333
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Hilly pasture system",
+        "termType": "system",
+        "@id": "hillyPastureSystem",
+        "units": "% area"
+      },
+      "value": [
+        4.322953709
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Confined pasture system",
+        "termType": "system",
+        "@id": "confinedPastureSystem",
+        "units": "% area"
+      },
+      "value": [
+        33.97841615
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Indoor animal system",
+        "termType": "system",
+        "@id": "indoorAnimalSystem",
+        "units": "% area"
+      },
+      "value": [
+        61.70136986
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Sheep, ewe",
+        "units": "number",
+        "@id": "sheepEwe"
+      },
+      "animalId": "1",
+      "referencePeriod": "average",
+      "value": 198.996,
+      "min": 2.976,
+      "max": 755.014,
+      "sd": 222.3731161,
+      "statsDefinition": "cycles",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Mortality rate",
+            "termType": "property",
+            "@id": "mortalityRate",
+            "units": "%"
+          },
+          "value": 3.4,
+          "sd": 1.918332609,
+          "statsDefinition": "cycles",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Deliveries per Cycle",
+            "termType": "property",
+            "@id": "deliveriesPerCycle",
+            "units": "number / head / Cycle"
+          },
+          "value": 2,
+          "min": 1,
+          "max": 6,
+          "sd": 1.438749457,
+          "statsDefinition": "cycles",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 72.4,
+          "sd": 6.714164133,
+          "min": 57.5,
+          "max": 92.7,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "water",
+            "name": "Water, source unspecified",
+            "units": "m3",
+            "@id": "waterSourceUnspecified"
+          },
+          "value": [
+            345.009315
+          ],
+          "min": [
+            0.868992
+          ],
+          "max": [
+            2755.8011
+          ],
+          "sd": [
+            215.9696969
+          ],
+          "statsDefinition": "cycles",
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Generic crop, straw",
+            "units": "kg",
+            "@id": "genericCropStraw"
+          },
+          "description": "Bedding",
+          "isAnimalFeed": false,
+          "value": [
+            45759.1302
+          ],
+          "min": [
+            6537.0186
+          ],
+          "max": [
+            181583.85
+          ],
+          "sd": [
+            45283.9687
+          ],
+          "statsDefinition": "cycles",
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Concentrate feed blend",
+            "termType": "processedFood",
+            "@id": "concentrateFeedBlend",
+            "units": "kg"
+          },
+          "value": [
+            21959.29815
+          ],
+          "isAnimalFeed": true,
+          "impactAssessment": {
+            "@id": "q_cu53-z_7i3",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Sheep, ram",
+        "units": "number",
+        "@id": "sheepRam"
+      },
+      "animalId": "2",
+      "referencePeriod": "average",
+      "description": "No mortality rate provided for rams and so the number of rams has not been adjusted",
+      "value": 6.023391813,
+      "min": 0.4109589041,
+      "max": 8.99889989,
+      "sd": 138.6584272,
+      "statsDefinition": "cycles",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 89.2,
+          "min": 70,
+          "max": 115.3,
+          "sd": 9.112079894,
+          "statsDefinition": "cycles",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "water",
+            "name": "Water, source unspecified",
+            "units": "m3",
+            "@id": "waterSourceUnspecified"
+          },
+          "value": [
+            10.44305556
+          ],
+          "min": [
+            0.12
+          ],
+          "max": [
+            32.8459846
+          ],
+          "sd": [
+            6.537167099
+          ],
+          "statsDefinition": "cycles",
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Generic crop, straw",
+            "units": "kg",
+            "@id": "genericCropStraw"
+          },
+          "description": "Bedding",
+          "isAnimalFeed": false,
+          "value": [
+            1385.078947
+          ],
+          "min": [
+            197.8684211
+          ],
+          "max": [
+            5496.345029
+          ],
+          "sd": [
+            1370.696327
+          ],
+          "statsDefinition": "cycles",
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Concentrate feed blend",
+            "termType": "processedFood",
+            "@id": "concentrateFeedBlend",
+            "units": "kg"
+          },
+          "value": [
+            447.6443246
+          ],
+          "isAnimalFeed": true,
+          "impactAssessment": {
+            "@id": "q_cu53-z_7i3",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Sheep, lamb",
+        "units": "number",
+        "@id": "sheepLamb"
+      },
+      "animalId": "3",
+      "referencePeriod": "average",
+      "value": 344.8955,
+      "min": 222.068,
+      "max": 460.2864,
+      "sd": 73.10765574,
+      "statsDefinition": "cycles",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Mortality rate",
+            "termType": "property",
+            "@id": "mortalityRate",
+            "units": "%"
+          },
+          "value": 7.5,
+          "min": 2,
+          "max": 21.6,
+          "sd": 4.316248371,
+          "statsDefinition": "cycles",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Weight at birth",
+            "termType": "property",
+            "@id": "weightAtBirth",
+            "units": "kg liveweight / head"
+          },
+          "value": 3.8,
+          "min": 2.2,
+          "max": 5,
+          "sd": 0.9591663047,
+          "statsDefinition": "cycles",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 38.7,
+          "min": 30,
+          "max": 47.3,
+          "sd": 4.795831523,
+          "statsDefinition": "cycles",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "water",
+            "name": "Water, source unspecified",
+            "units": "m3",
+            "@id": "waterSourceUnspecified"
+          },
+          "value": [
+            357.5186753
+          ],
+          "min": [
+            32.421928
+          ],
+          "max": [
+            1008.027216
+          ],
+          "sd": [
+            241.4928638
+          ],
+          "statsDefinition": "cycles",
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Generic crop, straw",
+            "units": "kg",
+            "@id": "genericCropStraw"
+          },
+          "description": "Bedding",
+          "isAnimalFeed": false,
+          "value": [
+            54131.34873
+          ],
+          "min": [
+            5035.4743
+          ],
+          "max": [
+            188830.2863
+          ],
+          "sd": [
+            48298.57277
+          ],
+          "statsDefinition": "cycles",
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Concentrate feed blend",
+            "termType": "processedFood",
+            "@id": "concentrateFeedBlend",
+            "units": "kg"
+          },
+          "value": [
+            39612.81745
+          ],
+          "isAnimalFeed": true,
+          "impactAssessment": {
+            "@id": "q_cu53-z_7i3",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture/Range/Paddock (excreta management)",
+        "termType": "excretaManagement",
+        "@id": "pastureRangePaddockExcretaManagement"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, sheep (kg mass)",
+            "units": "kg",
+            "@id": "excretaSheepKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 38.3,
+      "transformationId": "0",
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Solid storage",
+        "termType": "excretaManagement",
+        "@id": "solidStorage"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, sheep (kg mass)",
+            "units": "kg",
+            "@id": "excretaSheepKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 46.9,
+      "transformationId": "1",
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Dry lot",
+        "termType": "excretaManagement",
+        "@id": "dryLot"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, sheep (kg mass)",
+            "units": "kg",
+            "@id": "excretaSheepKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 13.5,
+      "transformationId": "2",
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Liquid/Slurry",
+        "termType": "excretaManagement",
+        "@id": "liquidSlurry"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, sheep (kg mass)",
+            "units": "kg",
+            "@id": "excretaSheepKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 1.3,
+      "transformationId": "3",
+      "@type": "Transformation"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, sheep (liveweight)",
+        "units": "kg liveweight",
+        "@id": "meatSheepLiveweight"
+      },
+      "value": [
+        13493.10139
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Wool, sheep (greasy)",
+        "units": "kg",
+        "@id": "woolSheepGreasy"
+      },
+      "value": [
+        589.9603281
+      ],
+      "min": [
+        290.6411836
+      ],
+      "max": [
+        894.7005251
+      ],
+      "statsDefinition": "cycles",
+      "economicValueShare": 5,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, sheep (kg mass)",
+        "units": "kg",
+        "@id": "excretaSheepKgMass"
+      },
+      "@type": "Product"
+    }
+  ],
+  "emissions": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CH4, to air, enteric fermentation",
+        "termType": "emission",
+        "@id": "ch4ToAirEntericFermentation",
+        "units": "kg CH4"
+      },
+      "value": [
+        2457.672039
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2006)",
+        "termType": "model",
+        "@id": "ipcc2006"
+      },
+      "methodTier": "tier 2",
+      "@type": "Emission"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CH4, to air, excreta",
+        "termType": "emission",
+        "@id": "ch4ToAirExcreta",
+        "units": "kg CH4"
+      },
+      "value": [
+        156.6163554
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2006)",
+        "termType": "model",
+        "@id": "ipcc2006"
+      },
+      "methodTier": "tier 2",
+      "@type": "Emission"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "N2O, to air, excreta, direct",
+        "termType": "emission",
+        "@id": "n2OToAirExcretaDirect",
+        "units": "kg N2O"
+      },
+      "value": [
+        39.71554371
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2006)",
+        "termType": "model",
+        "@id": "ipcc2006"
+      },
+      "methodTier": "tier 1",
+      "@type": "Emission"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "N2O, to air, excreta, indirect",
+        "termType": "emission",
+        "@id": "n2OToAirExcretaIndirect",
+        "units": "kg N2O"
+      },
+      "value": [
+        9.928885927
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2006)",
+        "termType": "model",
+        "@id": "ipcc2006"
+      },
+      "methodTier": "tier 1",
+      "@type": "Emission"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": true,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": false,
+    "animalPopulation": true,
+    "waste": true,
+    "operation": false,
+    "freshForage": false,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Meat, sheep (liveweight) - Ontario (Province), Canada - 2022 - This cycle is an average of th...",
+  "schemaVersion": "30.4.0",
+  "originalId": "ontario_sheep_farming"
+}

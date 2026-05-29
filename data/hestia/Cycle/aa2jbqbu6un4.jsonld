@@ -1,0 +1,122 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-02-09",
+  "updatedAt": "2024-12-03",
+  "@id": "aa2jbqbu6un4",
+  "@type": "Cycle",
+  "description": "Slaughter-2009",
+  "endDate": "2009",
+  "numberOfCycles": 849,
+  "site": {
+    "@id": "t3rypgie6gl5",
+    "@type": "Site"
+  },
+  "functionalUnit": "relative",
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Collected from AgroSoft and Cloudfarms in Denmark.",
+  "defaultSource": {
+    "@id": "wcfuerr47b3k",
+    "@type": "Source"
+  },
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig",
+        "units": "number",
+        "@id": "pig"
+      },
+      "isAnimalFeed": false,
+      "value": [
+        1
+      ],
+      "impactAssessment": {
+        "@id": "czbkdk7u9yev",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 106.6,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Total animal population",
+        "termType": "animalManagement",
+        "@id": "totalAnimalPopulation",
+        "units": "number"
+      },
+      "description": "6385",
+      "@type": "Practice"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, pig (cold dressed carcass weight)",
+        "units": "kg cold dressed carcass weight",
+        "@id": "meatPigColdDressedCarcassWeight"
+      },
+      "value": [
+        81.4
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, pigs (kg mass)",
+        "units": "kg",
+        "@id": "excretaPigsKgMass"
+      },
+      "primary": false,
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "operation": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": true,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "waste": false,
+    "liveAnimalInput": true,
+    "transport": false,
+    "otherChemical": true,
+    "ingredient": true,
+    "freshForage": true,
+    "animalPopulation": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Meat, pig (cold dressed carcass weight) - Denmark - 2009 - Slaughter-2009",
+  "schemaVersion": "30.3.2",
+  "originalId": "helverskov-slaughter-09"
+}

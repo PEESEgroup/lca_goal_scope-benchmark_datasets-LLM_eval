@@ -1,0 +1,396 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2023-10-12",
+  "updatedAt": "2024-12-04",
+  "@id": "kqdrgzhqtay5",
+  "@type": "Cycle",
+  "description": "Broiler chicken farm 7-14wks",
+  "startDateDefinition": "stocking date",
+  "endDate": "2019",
+  "cycleDuration": 49,
+  "numberOfCycles": 1,
+  "site": {
+    "@id": "lqpqqlvaga1g",
+    "@type": "Site"
+  },
+  "functionalUnit": "relative",
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "The empirical data analyzed in this study came from the filtered and completed questionnaires gathered from the samples.",
+  "defaultSource": {
+    "@id": "6x8shn-j0lez",
+    "@type": "Source"
+  },
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Broiler chicken",
+        "units": "number",
+        "@id": "broilerChicken"
+      },
+      "value": [
+        1
+      ],
+      "impactAssessment": {
+        "@id": "sjdx7sqzeosn",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 0.713,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight gain",
+            "termType": "property",
+            "@id": "liveweightGain",
+            "units": "kg liveweight / head / day"
+          },
+          "value": 0.01873469387755102,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Rice, husk",
+        "units": "kg",
+        "@id": "riceHusk"
+      },
+      "description": "Bedding animals",
+      "isAnimalFeed": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed, unspecified",
+        "termType": "processedFood",
+        "@id": "concentrateFeedUnspecified",
+        "units": "kg"
+      },
+      "value": [
+        0.266
+      ],
+      "operation": {
+        "@type": "Term",
+        "name": "Feeding animals, machine unspecified",
+        "termType": "operation",
+        "@id": "feedingAnimalsMachineUnspecified",
+        "units": "hour"
+      },
+      "startDate": "2019-02-11",
+      "endDate": "2019-02-18",
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed, unspecified",
+        "termType": "processedFood",
+        "@id": "concentrateFeedUnspecified",
+        "units": "kg"
+      },
+      "value": [
+        0.385
+      ],
+      "isAnimalFeed": true,
+      "startDate": "2019-02-18",
+      "endDate": "2019-02-25",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed, unspecified",
+        "termType": "processedFood",
+        "@id": "concentrateFeedUnspecified",
+        "units": "kg"
+      },
+      "value": [
+        0.35000000000000003
+      ],
+      "isAnimalFeed": true,
+      "startDate": "2019-02-25",
+      "endDate": "2019-03-04",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed, unspecified",
+        "termType": "processedFood",
+        "@id": "concentrateFeedUnspecified",
+        "units": "kg"
+      },
+      "value": [
+        0.385
+      ],
+      "isAnimalFeed": true,
+      "startDate": "2019-03-04",
+      "endDate": "2019-03-11",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed, unspecified",
+        "termType": "processedFood",
+        "@id": "concentrateFeedUnspecified",
+        "units": "kg"
+      },
+      "value": [
+        0.42
+      ],
+      "isAnimalFeed": true,
+      "startDate": "2019-03-11",
+      "endDate": "2019-03-18",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed, unspecified",
+        "termType": "processedFood",
+        "@id": "concentrateFeedUnspecified",
+        "units": "kg"
+      },
+      "isAnimalFeed": true,
+      "value": [
+        0.49000000000000005
+      ],
+      "startDate": "2019-03-18",
+      "endDate": "2019-03-25",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed, unspecified",
+        "termType": "processedFood",
+        "@id": "concentrateFeedUnspecified",
+        "units": "kg"
+      },
+      "value": [
+        0.504
+      ],
+      "isAnimalFeed": true,
+      "startDate": "2019-03-25",
+      "endDate": "2019-04-01",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed, unspecified",
+        "termType": "processedFood",
+        "@id": "concentrateFeedUnspecified",
+        "units": "kg"
+      },
+      "value": [
+        0.427
+      ],
+      "isAnimalFeed": true,
+      "startDate": "2019-04-01",
+      "endDate": "2019-04-08",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, source unspecified",
+        "units": "m3",
+        "@id": "waterSourceUnspecified"
+      },
+      "value": [
+        0.027440000000000003
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Cleaning animal housing",
+        "termType": "operation",
+        "@id": "cleaningAnimalHousing",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Feeding animals, machine unspecified",
+        "termType": "operation",
+        "@id": "feedingAnimalsMachineUnspecified",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Lighting, machine unspecified",
+        "termType": "operation",
+        "@id": "lightingMachineUnspecified",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Beak trimming, machine unspecified",
+        "termType": "operation",
+        "@id": "beakTrimmingMachineUnspecified",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Animal vaccination",
+        "termType": "operation",
+        "@id": "animalVaccination",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "system",
+        "name": "Barn system",
+        "units": "% area",
+        "@id": "barnSystem"
+      },
+      "@type": "Practice"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Broiler chicken",
+        "units": "number",
+        "@id": "broilerChicken"
+      },
+      "value": [
+        1
+      ],
+      "primary": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 1.631,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, poultry (kg mass)",
+        "units": "kg",
+        "@id": "excretaPoultryKgMass"
+      },
+      "primary": false,
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Poultry manure with litter",
+        "termType": "excretaManagement",
+        "@id": "poultryManureWithLitter"
+      },
+      "transformationId": "suwanbupha-transformation-2",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, poultry (kg mass)",
+            "units": "kg",
+            "@id": "excretaPoultryKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "products": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Processed excreta (kg mass)",
+            "termType": "excreta",
+            "@id": "processedExcretaKgMass",
+            "units": "kg"
+          },
+          "@type": "Product"
+        }
+      ],
+      "@type": "Transformation"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "operation": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": true,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "waste": false,
+    "liveAnimalInput": true,
+    "transport": false,
+    "ingredient": true,
+    "otherChemical": true,
+    "animalPopulation": true,
+    "freshForage": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Broiler chicken - Nong Ta Taem, Thailand - 2019 - Broiler chicken farm 7-14wks",
+  "schemaVersion": "30.3.2",
+  "originalId": "Suwanbupha-7-14wks"
+}

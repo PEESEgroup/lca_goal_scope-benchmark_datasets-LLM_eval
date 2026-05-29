@@ -1,0 +1,75 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Site.jsonld",
+  "createdAt": "2024-05-02",
+  "updatedAt": "2024-12-06",
+  "@id": "bflwivafsp9q",
+  "@type": "Site",
+  "defaultSource": {
+    "@id": "av57dkzgzdv6",
+    "@type": "Source"
+  },
+  "siteType": "permanent pasture",
+  "country": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Spain",
+    "@id": "GADM-ESP"
+  },
+  "region": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Albarracín",
+    "@id": "GADM-ESP.2.2.5.1_1"
+  },
+  "measurements": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Altitude",
+        "termType": "measurement",
+        "@id": "altitude",
+        "units": "meters"
+      },
+      "value": [
+        1519
+      ],
+      "methodClassification": "physical measurement on nearby site",
+      "@type": "Measurement"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Temperature (long-term annual mean)",
+        "termType": "measurement",
+        "@id": "temperatureLongTermAnnualMean",
+        "units": "°C"
+      },
+      "value": [
+        7.8
+      ],
+      "methodClassification": "physical measurement on nearby site",
+      "@type": "Measurement"
+    }
+  ],
+  "area": 39,
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "The selected farms were analyzed by field investigation, through several visits and personal interviews with farmers. Structured farmer surveys were conducted that allowed the quantification of main farm inputs, such as feeds and forages used, or fuel consumption, as well as the obtention of a precise description of the herd structure (animal classes), productivity parameters (e.g., replacement rate, lamb mortality rate), and main management practices (e.g., grazing practices, manure management, transhumance type, and period). Farm outputs such as lambs sold, culled sheep, or wool produced were registered from the information gathered in the survey, together with average price received by farmers from the different co-products.",
+  "management": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Native pasture",
+        "units": "% area",
+        "@id": "nativePasture"
+      },
+      "value": 100,
+      "endDate": "2009",
+      "@type": "Management"
+    }
+  ],
+  "dataPrivate": false,
+  "name": "Permanent pasture - Albarracín, Spain",
+  "schemaVersion": "30.4.0",
+  "originalId": "SED 6"
+}

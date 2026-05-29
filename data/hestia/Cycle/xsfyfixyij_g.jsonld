@@ -1,0 +1,278 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2023-10-19",
+  "updatedAt": "2024-12-06",
+  "@id": "xsfyfixyij_g",
+  "@type": "Cycle",
+  "site": {
+    "@id": "y_wmbs7iwtzi",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "pg0ta0g9e0ed",
+    "@type": "Source"
+  },
+  "functionalUnit": "relative",
+  "endDate": "2004",
+  "cycleDuration": 164.2857142857143,
+  "startDateDefinition": "stocking date",
+  "defaultMethodClassification": "inconsistent external sources",
+  "defaultMethodClassificationDescription": "Meta-analysis. National and international detailed studies referring to individual types of farm and individual production processes are presented in the unabridged version.",
+  "completeness": {
+    "electricityFuel": true,
+    "material": false,
+    "fertiliser": true,
+    "seed": false,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": false,
+    "excreta": true,
+    "animalFeed": true,
+    "transport": false,
+    "liveAnimalInput": false,
+    "operation": false,
+    "waste": false,
+    "otherChemical": false,
+    "ingredient": true,
+    "animalPopulation": true,
+    "freshForage": true,
+    "@type": "Completeness"
+  },
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Barley, grain (in husk)",
+        "units": "kg",
+        "@id": "barleyGrainInHusk"
+      },
+      "value": [
+        108
+      ],
+      "impactAssessment": {
+        "@id": "jtlyblcr85cq",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Wheat, grain",
+        "units": "kg",
+        "@id": "wheatGrain"
+      },
+      "value": [
+        94
+      ],
+      "impactAssessment": {
+        "@id": "l78gxdqruslo",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Soybean, meal",
+        "units": "kg",
+        "@id": "soybeanMeal"
+      },
+      "value": [
+        61
+      ],
+      "impactAssessment": {
+        "@id": "uiqvmv7g3z-z",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "feedFoodAdditive",
+        "name": "Minerals, unspecified",
+        "units": "kg",
+        "@id": "mineralsUnspecified"
+      },
+      "value": [
+        7
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        13.7
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Feed conversion ratio (fed weight)",
+        "termType": "animalManagement",
+        "@id": "feedConversionRatioFedWeight",
+        "units": "kg feed (fed weight) / kg liveweight"
+      },
+      "value": [
+        3
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Indoor animal system",
+        "termType": "system",
+        "@id": "indoorAnimalSystem",
+        "units": "% area"
+      },
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "animalId": "Pig",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig",
+        "units": "number",
+        "@id": "pig"
+      },
+      "value": 1000,
+      "referencePeriod": "average",
+      "@type": "Animal"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig",
+        "units": "number",
+        "@id": "pig"
+      },
+      "value": [
+        1
+      ],
+      "primary": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 115,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Processing conversion, liveweight to cold carcass weight",
+            "termType": "property",
+            "@id": "processingConversionLiveweightToColdCarcassWeight",
+            "units": "%"
+          },
+          "value": 79,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, pigs (kg N)",
+        "units": "kg N",
+        "@id": "excretaPigsKgN"
+      },
+      "value": [
+        64.50950302766817
+      ],
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "transformationId": "hirsch-1",
+      "term": {
+        "@type": "Term",
+        "name": "Pit storage below animal confinements",
+        "termType": "excretaManagement",
+        "@id": "pitStorageBelowAnimalConfinements"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, pigs (kg N)",
+            "units": "kg N",
+            "@id": "excretaPigsKgN"
+          },
+          "value": [
+            64.50950302766817
+          ],
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "emissions": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "N2O, to air, excreta, direct",
+            "termType": "emission",
+            "@id": "n2OToAirExcretaDirect",
+            "units": "kg N2O"
+          },
+          "methodModel": {
+            "@type": "Term",
+            "name": "IPCC (2006)",
+            "termType": "model",
+            "@id": "ipcc2006"
+          },
+          "methodTier": "tier 1",
+          "value": [
+            0.10135135135135134
+          ],
+          "@type": "Emission"
+        }
+      ],
+      "@type": "Transformation"
+    }
+  ],
+  "dataPrivate": false,
+  "name": "Pig - Germany - 2004",
+  "schemaVersion": "30.4.0",
+  "originalId": "Hirschfeld_11"
+}

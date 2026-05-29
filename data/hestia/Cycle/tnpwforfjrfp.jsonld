@@ -1,0 +1,925 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2023-11-13",
+  "updatedAt": "2024-12-06",
+  "@id": "tnpwforfjrfp",
+  "@type": "Cycle",
+  "numberOfCycles": 14,
+  "description": "Surveyed farms were ranked by the average milk yield per cow, per day. For the high performing herds, this was >32.6kg/cow/day",
+  "startDate": "2019",
+  "startDateDefinition": "start of year",
+  "endDate": "2020",
+  "cycleDuration": 365,
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "kjfliq7e7b2k",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "xmxf7n1ihnuu",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Operator visited each farm and filled out questionnaire with primary data for 1 year of activities",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Calf milk replacer, powder (unspecified)",
+        "termType": "processedFood",
+        "@id": "calfMilkReplacerPowderUnspecified",
+        "units": "kg"
+      },
+      "value": [
+        1851
+      ],
+      "sd": [
+        2847
+      ],
+      "statsDefinition": "cycles",
+      "methodClassification": "modelled",
+      "methodClassificationDescription": "The diet composition was recorded for each category of animals, and feed intake was estimated based on animal requirements.",
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Alfalfa, hay",
+        "units": "kg",
+        "@id": "alfalfaHay"
+      },
+      "value": [
+        73051
+      ],
+      "sd": [
+        116548
+      ],
+      "statsDefinition": "cycles",
+      "isAnimalFeed": true,
+      "methodClassification": "modelled",
+      "methodClassificationDescription": "The diet composition was recorded for each category of animals, and feed intake was estimated based on animal requirements.",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, hay",
+        "termType": "crop",
+        "@id": "genericGrassHay",
+        "units": "kg"
+      },
+      "value": [
+        15775
+      ],
+      "sd": [
+        30545
+      ],
+      "statsDefinition": "cycles",
+      "isAnimalFeed": true,
+      "methodClassification": "modelled",
+      "methodClassificationDescription": "The diet composition was recorded for each category of animals, and feed intake was estimated based on animal requirements.",
+      "description": "Alfalfa, cereal mix, ryegrass, meadow hay",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed, unspecified",
+        "termType": "processedFood",
+        "@id": "concentrateFeedUnspecified",
+        "units": "kg"
+      },
+      "value": [
+        143998
+      ],
+      "sd": [
+        209711
+      ],
+      "statsDefinition": "cycles",
+      "isAnimalFeed": true,
+      "methodClassification": "modelled",
+      "methodClassificationDescription": "The diet composition was recorded for each category of animals, and feed intake was estimated based on animal requirements.",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Maize, silage",
+        "units": "kg",
+        "@id": "maizeSilage"
+      },
+      "value": [
+        81071
+      ],
+      "sd": [
+        157664
+      ],
+      "statsDefinition": "cycles",
+      "isAnimalFeed": true,
+      "methodClassification": "modelled",
+      "methodClassificationDescription": "The diet composition was recorded for each category of animals, and feed intake was estimated based on animal requirements.",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Maize, flour",
+        "units": "kg",
+        "@id": "maizeFlour"
+      },
+      "value": [
+        127524
+      ],
+      "sd": [
+        181953
+      ],
+      "statsDefinition": "cycles",
+      "isAnimalFeed": true,
+      "methodClassification": "modelled",
+      "methodClassificationDescription": "The diet composition was recorded for each category of animals, and feed intake was estimated based on animal requirements.",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Maize, steam flaked",
+        "units": "kg",
+        "@id": "maizeSteamFlaked"
+      },
+      "value": [
+        436
+      ],
+      "sd": [
+        1630
+      ],
+      "statsDefinition": "cycles",
+      "isAnimalFeed": true,
+      "methodClassification": "modelled",
+      "methodClassificationDescription": "The diet composition was recorded for each category of animals, and feed intake was estimated based on animal requirements.",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Wheat, silage",
+        "units": "kg",
+        "@id": "wheatSilage"
+      },
+      "value": [
+        78833
+      ],
+      "sd": [
+        226531
+      ],
+      "statsDefinition": "cycles",
+      "isAnimalFeed": true,
+      "methodClassification": "modelled",
+      "methodClassificationDescription": "The diet composition was recorded for each category of animals, and feed intake was estimated based on animal requirements.",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Sorghum, silage",
+        "units": "kg",
+        "@id": "sorghumSilage"
+      },
+      "value": [
+        13116
+      ],
+      "sd": [
+        49074
+      ],
+      "statsDefinition": "cycles",
+      "isAnimalFeed": true,
+      "methodClassification": "modelled",
+      "methodClassificationDescription": "The diet composition was recorded for each category of animals, and feed intake was estimated based on animal requirements.",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Soybean, meal",
+        "units": "kg",
+        "@id": "soybeanMeal"
+      },
+      "value": [
+        65270
+      ],
+      "sd": [
+        115263
+      ],
+      "statsDefinition": "cycles",
+      "isAnimalFeed": true,
+      "methodClassification": "modelled",
+      "methodClassificationDescription": "The diet composition was recorded for each category of animals, and feed intake was estimated based on animal requirements.",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Soybean, grain (rolled)",
+        "termType": "processedFood",
+        "@id": "soybeanGrainRolled",
+        "units": "kg"
+      },
+      "value": [
+        8964
+      ],
+      "sd": [
+        33541
+      ],
+      "statsDefinition": "cycles",
+      "isAnimalFeed": true,
+      "methodClassification": "modelled",
+      "methodClassificationDescription": "The diet composition was recorded for each category of animals, and feed intake was estimated based on animal requirements.",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Cotton, seed (whole)",
+        "units": "kg",
+        "@id": "cottonSeedWhole"
+      },
+      "value": [
+        7650
+      ],
+      "sd": [
+        22123
+      ],
+      "statsDefinition": "cycles",
+      "isAnimalFeed": true,
+      "methodClassification": "modelled",
+      "methodClassificationDescription": "The diet composition was recorded for each category of animals, and feed intake was estimated based on animal requirements.",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Sugarcane, molasses",
+        "units": "kg",
+        "@id": "sugarcaneMolasses"
+      },
+      "value": [
+        933
+      ],
+      "sd": [
+        3490
+      ],
+      "statsDefinition": "cycles",
+      "isAnimalFeed": true,
+      "methodClassification": "modelled",
+      "methodClassificationDescription": "The diet composition was recorded for each category of animals, and feed intake was estimated based on animal requirements.",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, source unspecified",
+        "units": "m3",
+        "@id": "waterSourceUnspecified"
+      },
+      "value": [
+        99469
+      ],
+      "operation": {
+        "@type": "Term",
+        "name": "Irrigating",
+        "termType": "operation",
+        "@id": "irrigating",
+        "units": "hour"
+      },
+      "sd": [
+        96861
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Urea (kg N)",
+        "termType": "inorganicFertiliser",
+        "@id": "ureaKgN",
+        "units": "kg N"
+      },
+      "value": [
+        880.44
+      ],
+      "sd": [
+        2695
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Ammonium Nitrate (kg N)",
+        "termType": "inorganicFertiliser",
+        "@id": "ammoniumNitrateKgN",
+        "units": "kg N"
+      },
+      "value": [
+        39.69
+      ],
+      "sd": [
+        348
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "NPK Blend (kg N)",
+        "termType": "inorganicFertiliser",
+        "@id": "npkBlendKgN",
+        "units": "kg N"
+      },
+      "value": [
+        19.73
+      ],
+      "sd": [
+        65.6
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "NPK Blend (kg P2O5)",
+        "termType": "inorganicFertiliser",
+        "@id": "npkBlendKgP2O5",
+        "units": "kg P2O5"
+      },
+      "value": [
+        13.65
+      ],
+      "sd": [
+        43.2
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "NPK Blend (kg K2O)",
+        "termType": "inorganicFertiliser",
+        "@id": "npkBlendKgK2O",
+        "units": "kg K2O"
+      },
+      "value": [
+        17.07
+      ],
+      "sd": [
+        55.8
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "pesticideAI",
+        "name": "Fungicide unspecified (AI)",
+        "units": "kg active ingredient",
+        "@id": "fungicideUnspecifiedAi"
+      },
+      "value": [
+        55
+      ],
+      "sd": [
+        60
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "pesticideAI",
+        "name": "Herbicide unspecified (AI)",
+        "units": "kg active ingredient",
+        "@id": "herbicideUnspecifiedAi"
+      },
+      "value": [
+        90
+      ],
+      "sd": [
+        89
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "pesticideAI",
+        "name": "Insecticide unspecified (AI)",
+        "units": "kg active ingredient",
+        "@id": "insecticideUnspecifiedAi"
+      },
+      "value": [
+        9
+      ],
+      "sd": [
+        10
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Seed",
+        "termType": "seed",
+        "@id": "seed",
+        "units": "kg"
+      },
+      "value": [
+        1548
+      ],
+      "sd": [
+        1969
+      ],
+      "statsDefinition": "cycles",
+      "description": "Seed for Cereals, Maize, Polyphyte hay, Sorghum and Alfalfa",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        180783
+      ],
+      "sd": [
+        198901
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        15534
+      ],
+      "sd": [
+        16048
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Liquefied petroleum gases (LPG)",
+        "units": "kg",
+        "@id": "liquefiedPetroleumGasesLpg"
+      },
+      "value": [
+        269.5
+      ],
+      "sd": [
+        1153
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, source unspecified",
+        "units": "m3",
+        "@id": "waterSourceUnspecified"
+      },
+      "value": [
+        6401
+      ],
+      "sd": [
+        6230
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Cereal, straw",
+        "units": "kg",
+        "@id": "cerealStraw"
+      },
+      "value": [
+        75702
+      ],
+      "isAnimalFeed": false,
+      "sd": [
+        76876
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Calcium carbonate",
+        "termType": "pesticideAI",
+        "@id": "CAS-471-34-1",
+        "units": "kg active ingredient"
+      },
+      "value": [
+        2960
+      ],
+      "isAnimalFeed": false,
+      "sd": [
+        9949
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "material",
+        "name": "Sawdust (material)",
+        "units": "kg",
+        "@id": "sawdustMaterial"
+      },
+      "value": [
+        84
+      ],
+      "isAnimalFeed": false,
+      "sd": [
+        313
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Maize, silage",
+        "units": "kg",
+        "@id": "maizeSilage"
+      },
+      "value": [
+        324561
+      ],
+      "producedInCycle": true,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, hay",
+        "termType": "crop",
+        "@id": "genericGrassHay",
+        "units": "kg"
+      },
+      "value": [
+        74536
+      ],
+      "producedInCycle": true,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Sorghum, silage",
+        "units": "kg",
+        "@id": "sorghumSilage"
+      },
+      "value": [
+        359543
+      ],
+      "producedInCycle": true,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Alfalfa, hay",
+        "units": "kg",
+        "@id": "alfalfaHay"
+      },
+      "value": [
+        152023
+      ],
+      "producedInCycle": true,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Holstein Friesian (cattle breed)",
+        "termType": "animalBreed",
+        "@id": "holsteinFriesianCattleBreed",
+        "units": "%"
+      },
+      "value": [
+        98.6
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Value also includes the percentage of cross-bred holstein-fresian cattle",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Brown Swiss",
+        "termType": "animalBreed",
+        "@id": "brownSwiss",
+        "units": "%"
+      },
+      "value": [
+        0.7
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Red Holstein",
+        "termType": "animalBreed",
+        "@id": "redHolstein",
+        "units": "%"
+      },
+      "value": [
+        0.7
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Cross-breeding used",
+        "termType": "animalManagement",
+        "@id": "crossBreedingUsed",
+        "units": "boolean"
+      },
+      "value": [
+        true
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Cubicle use",
+        "termType": "animalManagement",
+        "@id": "cubicleUse",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Indoor animal system",
+        "termType": "system",
+        "@id": "indoorAnimalSystem",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow (lactating)",
+        "units": "number",
+        "@id": "dairyCattleCowLactating"
+      },
+      "animalId": "1",
+      "referencePeriod": "average",
+      "value": 142,
+      "sd": 79,
+      "statsDefinition": "cycles",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "property",
+            "name": "Age at first delivery",
+            "units": "days",
+            "@id": "ageAtFirstDelivery"
+          },
+          "value": 760,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow (dry)",
+        "units": "number",
+        "@id": "dairyCattleCowDry"
+      },
+      "animalId": "2",
+      "referencePeriod": "average",
+      "value": 23,
+      "sd": 15,
+      "statsDefinition": "cycles",
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, heifer",
+        "units": "number",
+        "@id": "dairyCattleHeifer"
+      },
+      "animalId": "3",
+      "referencePeriod": "average",
+      "value": 66,
+      "sd": 36,
+      "statsDefinition": "cycles",
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, calf (unweaned)",
+        "units": "number",
+        "@id": "dairyCattleCalfUnweaned"
+      },
+      "animalId": "4",
+      "referencePeriod": "average",
+      "value": 21,
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, calf (female, weaned)",
+        "units": "number",
+        "@id": "dairyCattleCalfFemaleWeaned"
+      },
+      "animalId": "5",
+      "referencePeriod": "average",
+      "value": 50,
+      "@type": "Animal"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Deep bedding",
+        "termType": "excretaManagement",
+        "@id": "deepBedding"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "value": [
+            1682000
+          ],
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "transformationId": "1",
+      "@type": "Transformation"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Milk, cow, raw (FPCM)",
+        "units": "kg FPCM",
+        "@id": "milkCowRawFpcm"
+      },
+      "value": [
+        1959100
+      ],
+      "primary": true,
+      "sd": [
+        952
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, dairy cattle (liveweight)",
+        "units": "kg liveweight",
+        "@id": "meatDairyCattleLiveweight"
+      },
+      "value": [
+        33900
+      ],
+      "sd": [
+        20
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, dairy cattle (kg mass)",
+        "units": "kg",
+        "@id": "excretaDairyCattleKgMass"
+      },
+      "value": [
+        1682000
+      ],
+      "sd": [
+        3004083.886977859
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": true,
+    "product": true,
+    "cropResidue": true,
+    "excreta": true,
+    "animalFeed": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "freshForage": true,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Milk, cow, raw (FPCM) - Italy - 2020 - Surveyed farms were ranked by ...",
+  "schemaVersion": "30.4.0",
+  "originalId": "high_performing"
+}

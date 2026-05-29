@@ -1,0 +1,731 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2023-11-09",
+  "updatedAt": "2024-12-06",
+  "@id": "dlqufawzjhbd",
+  "@type": "Cycle",
+  "endDate": "2016",
+  "startDateDefinition": "one year prior",
+  "cycleDuration": 365,
+  "functionalUnit": "1 ha",
+  "site": {
+    "@id": "ck3csc1se2um",
+    "@type": "Site"
+  },
+  "siteArea": 160,
+  "siteDuration": 365,
+  "siteUnusedDuration": 0,
+  "defaultSource": {
+    "@id": "a-zra9lig9k4",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "consistent external sources",
+  "numberOfCycles": 368,
+  "defaultMethodClassificationDescription": "The NZ dairy statistics for all farms (DairyNZ/LIC, 2018) and regional DairyNZ DairyBase data from DairyNZ based on a large survey of farms across NZ were the 2 main sources of data used (see sources node)",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Urea (kg N)",
+        "termType": "inorganicFertiliser",
+        "@id": "ureaKgN",
+        "units": "kg N"
+      },
+      "value": [
+        140
+      ],
+      "description": "Dairy NZ (2017) Facts and Figures: A quick reference guide for New Zealand dairy farmers",
+      "isAnimalFeed": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Inorganic Phosphorus fertiliser, unspecified (kg P2O5)",
+        "termType": "inorganicFertiliser",
+        "@id": "inorganicPhosphorusFertiliserUnspecifiedKgP2O5",
+        "units": "kg P2O5"
+      },
+      "value": [
+        45.80645161290323
+      ],
+      "description": "Dairy NZ (2017) Facts and Figures: A quick reference guide for New Zealand dairy farmers",
+      "isAnimalFeed": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Maize, silage",
+        "units": "kg",
+        "@id": "maizeSilage"
+      },
+      "value": [
+        376
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "description": "Dairy NZ (2017) Facts and Figures: A quick reference guide for New Zealand dairy farmers",
+      "impactAssessment": {
+        "@id": "kq8okzcmoldg",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": true,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, silage",
+        "termType": "crop",
+        "@id": "genericGrassSilage",
+        "units": "kg"
+      },
+      "value": [
+        426
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "description": "Dairy NZ (2017) Facts and Figures: A quick reference guide for New Zealand dairy farmers",
+      "impactAssessment": {
+        "@id": "p1khe3zayanc",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": true,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Barley, grain (whole)",
+        "units": "kg",
+        "@id": "barleyGrainWhole"
+      },
+      "value": [
+        160
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "description": "Dairy NZ (2017) Facts and Figures: A quick reference guide for New Zealand dairy farmers",
+      "impactAssessment": {
+        "@id": "w1y6wd5j432e",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": true,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed, unspecified",
+        "termType": "processedFood",
+        "@id": "concentrateFeedUnspecified",
+        "units": "kg"
+      },
+      "value": [
+        32
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "description": "Dairy NZ (2017) Facts and Figures: A quick reference guide for New Zealand dairy farmers",
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Oil palm, kernel meal",
+        "units": "kg",
+        "@id": "oilPalmKernelMeal"
+      },
+      "value": [
+        916
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "description": "Dairy NZ (2017) Facts and Figures: A quick reference guide for New Zealand dairy farmers",
+      "impactAssessment": {
+        "@id": "6freeobvupvh",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": true,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Molasses grass, hay",
+        "units": "kg",
+        "@id": "molassesGrassHay"
+      },
+      "value": [
+        29
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "description": "DairyNZ DairyBase",
+      "impactAssessment": {
+        "@id": "f41cgugqgubv",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": true,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic crop product",
+        "termType": "crop",
+        "@id": "genericCropProduct",
+        "units": "kg"
+      },
+      "value": [
+        242
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "description": "DairyNZ DairyBase. Waste fruit and vegetables (kiwifruit, carrots, and potatoes) and broll (wheat flour by-product).",
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "forage",
+        "name": "Grass-clover mixture, fresh forage",
+        "units": "kg",
+        "@id": "grassCloverMixtureFreshForage"
+      },
+      "isAnimalFeed": true,
+      "producedInCycle": true,
+      "value": [
+        11809
+      ],
+      "description": "Data extracted from Figure 4 using Quintessa Graph Grabber.",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "methodClassification": "modelled",
+      "methodClassificationDescription": "Total dry matter intake was calculated, dry matter in other feeds subtracted, with the remainder taken to be grazed grass.",
+      "model": {
+        "@type": "Term",
+        "name": "Other model",
+        "termType": "model",
+        "@id": "otherModel"
+      },
+      "modelDescription": "Dry matter intake was estimated by calculating the energy required for lactation, maintenance, growth, gestation, and activity (MJ of ME per day) and dividing this value by the energy concentration of the diet consumed (MJ of ME per kg of DM). The model is based on validated algorithms from “Feeding standards for Australian livestock: Ruminants” (CSIRO, 1990), which accounts for the energy requirements of grazing animals. The difference between the total animal energy requirements and that from brought-in feeds consumed was then used to calculate the energy derived from pasture.",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, heifer",
+        "units": "number",
+        "@id": "dairyCattleHeifer"
+      },
+      "description": "In absence of data for this year's replacement rearing cycle, impact assessment of the 2017/18 replacement rearing cycle is used.",
+      "value": [
+        0.6446000000000001
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Value estimated as the no. of lactating cows/ha for the milk farm * replacement rate",
+      "impactAssessment": {
+        "@id": "ogxbg1knxydw",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": true,
+      "isAnimalFeed": false,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 422,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "value": 700,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Confined pasture system",
+        "termType": "system",
+        "@id": "confinedPastureSystem",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Stocking density, permanent pasture (average)",
+        "termType": "animalManagement",
+        "@id": "stockingDensityPermanentPastureAverage",
+        "units": "animals / m2"
+      },
+      "value": [
+        0.000293
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Only includes the lactating cows, not the full herd",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture grass",
+        "termType": "landUseManagement",
+        "@id": "pastureGrass",
+        "units": "% area"
+      },
+      "key": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Ryegrass plant",
+        "units": "% area",
+        "@id": "ryegrassPlant"
+      },
+      "value": [
+        50
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture grass",
+        "termType": "landUseManagement",
+        "@id": "pastureGrass",
+        "units": "% area"
+      },
+      "key": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Clover plant",
+        "units": "% area",
+        "@id": "cloverPlant"
+      },
+      "value": [
+        50
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Herd replacement rate",
+        "termType": "animalManagement",
+        "@id": "herdReplacementRate",
+        "units": "%"
+      },
+      "value": [
+        22
+      ],
+      "description": "DairyNZ DairyBase",
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, calf (unweaned)",
+        "units": "number",
+        "@id": "dairyCattleCalfUnweaned"
+      },
+      "animalId": "UnweanedCalves",
+      "referencePeriod": "average",
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, heifer",
+        "units": "number",
+        "@id": "dairyCattleHeifer"
+      },
+      "animalId": "Heifers",
+      "referencePeriod": "average",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 422,
+          "description": "90% of mature weight",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow (lactating)",
+        "units": "number",
+        "@id": "dairyCattleCowLactating"
+      },
+      "animalId": "LactatingCows",
+      "value": 2.93,
+      "referencePeriod": "average",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 467,
+          "description": "DairyNZ DairyBase",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "description": "DairyNZ/LIC, 2018",
+      "@type": "Animal"
+    }
+  ],
+  "transformations": [
+    {
+      "transformationId": "1",
+      "term": {
+        "@type": "Term",
+        "name": "Pasture/Range/Paddock (excreta management)",
+        "termType": "excretaManagement",
+        "@id": "pastureRangePaddockExcretaManagement"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg N)",
+            "units": "kg N",
+            "@id": "excretaDairyCattleKgN"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 95,
+      "emissions": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "CH4, to air, excreta",
+            "termType": "emission",
+            "@id": "ch4ToAirExcreta",
+            "units": "kg CH4"
+          },
+          "value": [
+            2.557117117117117
+          ],
+          "methodModel": {
+            "@type": "Term",
+            "name": "Other model",
+            "termType": "model",
+            "@id": "otherModel"
+          },
+          "methodTier": "tier 2",
+          "methodModelDescription": "NZ GHG Inventory Model",
+          "description": "Only the methane emissions allocated to milk using IDF (2015) methodology",
+          "@type": "Emission"
+        }
+      ],
+      "@type": "Transformation"
+    },
+    {
+      "transformationId": "2",
+      "term": {
+        "@type": "Term",
+        "name": "Liquid/Slurry",
+        "termType": "excretaManagement",
+        "@id": "liquidSlurry"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg N)",
+            "units": "kg N",
+            "@id": "excretaDairyCattleKgN"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 5,
+      "emissions": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "CH4, to air, excreta",
+            "termType": "emission",
+            "@id": "ch4ToAirExcreta",
+            "units": "kg CH4"
+          },
+          "value": [
+            2.0456936936936936
+          ],
+          "methodModel": {
+            "@type": "Term",
+            "name": "Other model",
+            "termType": "model",
+            "@id": "otherModel"
+          },
+          "methodTier": "tier 2",
+          "methodModelDescription": "NZ GHG Inventory Model",
+          "description": "Only the methane emissions allocated to milk using IDF (2015) methodology",
+          "@type": "Emission"
+        }
+      ],
+      "@type": "Transformation"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Milk, cow, raw (FPCM)",
+        "units": "kg FPCM",
+        "@id": "milkCowRawFpcm"
+      },
+      "value": [
+        14192
+      ],
+      "primary": true,
+      "description": "DairyNZ/LIC, 2018",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Total solids content",
+            "termType": "property",
+            "@id": "totalSolidsContent",
+            "units": "%"
+          },
+          "value": 7.687429537767756,
+          "description": "(Milk solids/FPCM)*105",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "property",
+            "name": "True protein content",
+            "units": "%",
+            "@id": "trueProteinContent"
+          },
+          "value": 3.3,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "property",
+            "name": "Fat content",
+            "units": "%",
+            "@id": "fatContent"
+          },
+          "value": 4,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, dairy cattle (kg N)",
+        "units": "kg N",
+        "@id": "excretaDairyCattleKgN"
+      },
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow",
+        "units": "number",
+        "@id": "dairyCattleCow"
+      },
+      "value": [
+        0.6446000000000001
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Estimated using the replacement rate and the number of dairy cows per hectare. True product value missing from paper",
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "ingredient": true,
+    "otherChemical": true,
+    "seed": false,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "freshForage": true,
+    "liveAnimalInput": true,
+    "animalPopulation": false,
+    "waste": false,
+    "operation": false,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Milk, cow, raw (FPCM) - New Zealand - 2016",
+  "schemaVersion": "30.4.0",
+  "originalId": "2015/16 - On-site milk"
+}

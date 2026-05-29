@@ -1,0 +1,93 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Site.jsonld",
+  "createdAt": "2024-02-09",
+  "updatedAt": "2024-12-06",
+  "@id": "tfslp1wpxaw6",
+  "@type": "Site",
+  "defaultSource": {
+    "@id": "qjv9ii1cnmsr",
+    "@type": "Source"
+  },
+  "siteType": "permanent pasture",
+  "country": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Australia",
+    "@id": "GADM-AUS"
+  },
+  "region": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Victoria (State), Australia",
+    "@id": "GADM-AUS.10_1"
+  },
+  "numberOfSites": 1,
+  "measurements": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Precipitation (annual)",
+        "termType": "measurement",
+        "@id": "precipitationAnnual",
+        "units": "mm / year"
+      },
+      "value": [
+        727
+      ],
+      "methodClassification": "on-site physical measurement",
+      "@type": "Measurement"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Precipitation (long-term annual mean)",
+        "termType": "measurement",
+        "@id": "precipitationLongTermAnnualMean",
+        "units": "mm / year"
+      },
+      "value": [
+        685
+      ],
+      "methodClassification": "unsourced assumption",
+      "@type": "Measurement"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Altitude",
+        "termType": "measurement",
+        "@id": "altitude",
+        "units": "meters"
+      },
+      "value": [
+        205
+      ],
+      "methodClassification": "unsourced assumption",
+      "@type": "Measurement"
+    }
+  ],
+  "latitude": -37.816667,
+  "longitude": 142.066667,
+  "area": 0.0075,
+  "management": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Improved pasture",
+        "units": "% area",
+        "@id": "improvedPasture"
+      },
+      "methodClassification": "physical measurement",
+      "methodClassificationDescription": "Onfarm activities were based on a 12-month field study conducted at the Department of Primary Industries site in Hamilton, Victoria (March 2007 - February 2008).",
+      "endDate": "2008-02-01",
+      "@type": "Management"
+    }
+  ],
+  "defaultMethodClassification": "physical measurement",
+  "defaultMethodClassificationDescription": "Onfarm activities were based on a 12-month field study conducted at the Department of Primary Industries site in Hamilton, Victoria (March 2007 - February 2008).",
+  "dataPrivate": false,
+  "name": "Permanent pasture - Victoria (State), Australia",
+  "schemaVersion": "30.4.0",
+  "originalId": "clover_pasture"
+}

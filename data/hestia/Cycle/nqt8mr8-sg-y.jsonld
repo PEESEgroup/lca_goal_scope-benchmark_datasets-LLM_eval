@@ -1,0 +1,452 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-04-19",
+  "updatedAt": "2024-12-06",
+  "@id": "nqt8mr8-sg-y",
+  "@type": "Cycle",
+  "description": "All inputs, in the form of materials and energy needed during all processes in both infrastructure development and captive breeding/cultivation activities, were inventoried. One cycle of deer cultivation used in this analysis comprised several stages of i",
+  "startDateDefinition": "start of animal life",
+  "endDate": "2017",
+  "cycleDuration": 790,
+  "functionalUnit": "relative",
+  "functionalUnitDetails": "1kg of deer live weight in captivity",
+  "site": {
+    "@id": "ejsv9lwhdg4b",
+    "@type": "Site"
+  },
+  "siteArea": 3,
+  "siteDuration": 790,
+  "siteUnusedDuration": 0,
+  "defaultSource": {
+    "@id": "pz-kq6igrzw5",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "The data were collected from a number of studies, interviews, and direct obser- vations in the field. Infrastructure inputs were calculated based on the Indonesian National Standard year 2008 (Badan Standardisasi Nasional, 2008).",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, fresh forage",
+        "termType": "forage",
+        "@id": "genericGrassFreshForage",
+        "units": "kg"
+      },
+      "description": "Grazed",
+      "value": [
+        55.5736
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Maize, grain",
+        "units": "kg",
+        "@id": "maizeGrain"
+      },
+      "value": [
+        0.3123
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Cassava, chip",
+        "units": "kg",
+        "@id": "cassavaChip"
+      },
+      "value": [
+        0.3123
+      ],
+      "isAnimalFeed": true,
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "We do not know whether animals were fed the roots, chips or leaves of the cassava",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Carrot, root",
+        "units": "kg",
+        "@id": "carrotRoot"
+      },
+      "value": [
+        7.6948
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Kale, leaf",
+        "units": "kg",
+        "@id": "kaleLeaf"
+      },
+      "value": [
+        7.6948
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Rice, bran",
+        "units": "kg",
+        "@id": "riceBran"
+      },
+      "value": [
+        7.4098
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "feedFoodAdditive",
+        "name": "Minerals, unspecified",
+        "units": "kg",
+        "@id": "mineralsUnspecified"
+      },
+      "value": [
+        0.3748
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Petrol",
+        "units": "kg",
+        "@id": "petrol"
+      },
+      "value": [
+        0.0315
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        0.6156
+      ],
+      "operation": {
+        "@type": "Term",
+        "name": "Lighting, machine unspecified",
+        "termType": "operation",
+        "@id": "lightingMachineUnspecified",
+        "units": "hour"
+      },
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, lake or reservoir",
+        "units": "m3",
+        "@id": "waterLakeOrReservoir"
+      },
+      "value": [
+        0.004379500000000001
+      ],
+      "description": "3.8759L of water used during the cultivation stage (i.e animal drinking), 0.5036L used during infrastructure construction, per every 1kg LW produced",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Steel, depreciated amount per Cycle",
+        "termType": "material",
+        "@id": "steelDepreciatedAmountPerCycle",
+        "units": "kg/functional unit/Cycle"
+      },
+      "value": [
+        0.945
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Wood (material), depreciated amount per Cycle",
+        "termType": "material",
+        "@id": "woodMaterialDepreciatedAmountPerCycle",
+        "units": "kg/functional unit/Cycle"
+      },
+      "value": [
+        2.3199
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Wood input was given in m3, with no density. Assumed average density of 627 kg/m3, using this source https://matmatch.com/learn/property/density-of-wood",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "material",
+        "name": "Cement, depreciated amount per Cycle",
+        "units": "kg/functional unit/Cycle",
+        "@id": "cementDepreciatedAmountPerCycle"
+      },
+      "value": [
+        0.8835
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Sand (material)",
+        "termType": "material",
+        "@id": "sandMaterial",
+        "units": "kg"
+      },
+      "value": [
+        2.1097
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Crushed stone, depreciated amount per Cycle",
+        "termType": "material",
+        "@id": "crushedStoneDepreciatedAmountPerCycle",
+        "units": "kg/functional unit/Cycle"
+      },
+      "value": [
+        2.9514
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Tung, oil",
+        "units": "kg",
+        "@id": "tungOil"
+      },
+      "value": [
+        0.0033
+      ],
+      "description": "Wood Oil - assumed to be Tung oil",
+      "isAnimalFeed": false,
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Confined pasture system",
+        "termType": "system",
+        "@id": "confinedPastureSystem",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture grass",
+        "termType": "landUseManagement",
+        "@id": "pastureGrass",
+        "units": "% area"
+      },
+      "key": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Generic grass plant",
+        "units": "% area",
+        "@id": "genericGrassPlant"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalBreed",
+        "name": "Javan rusa",
+        "units": "%",
+        "@id": "javanRusa"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "animalId": "Deer",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Deer",
+        "units": "number",
+        "@id": "deer"
+      },
+      "value": 17,
+      "referencePeriod": "average",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 71.76,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Slaughter age",
+            "termType": "property",
+            "@id": "slaughterAge",
+            "units": "days"
+          },
+          "value": 547.1999999999999,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Deer, fawn",
+        "units": "number",
+        "@id": "deerFawn"
+      },
+      "animalId": "Fawns",
+      "referencePeriod": "average",
+      "value": 9,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 18.33,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, deer (liveweight)",
+        "units": "kg liveweight",
+        "@id": "meatDeerLiveweight"
+      },
+      "value": [
+        1
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, deer (kg mass)",
+        "units": "kg",
+        "@id": "excretaDeerKgMass"
+      },
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "transformationId": "1",
+      "term": {
+        "@type": "Term",
+        "name": "Pasture/Range/Paddock (excreta management)",
+        "termType": "excretaManagement",
+        "@id": "pastureRangePaddockExcretaManagement"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, deer (kg mass)",
+            "units": "kg",
+            "@id": "excretaDeerKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "@type": "Transformation"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "transport": false,
+    "material": true,
+    "fertiliser": true,
+    "seed": true,
+    "otherChemical": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": true,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "freshForage": true,
+    "animalFeed": true,
+    "ingredient": true,
+    "liveAnimalInput": false,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Meat, deer (liveweight) - Rancabali, Indonesia - 2017 - All inputs, in the form of mat...",
+  "schemaVersion": "30.4.0",
+  "originalId": "RanchSystem"
+}

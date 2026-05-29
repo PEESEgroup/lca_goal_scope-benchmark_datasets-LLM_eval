@@ -1,0 +1,840 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-02-16",
+  "updatedAt": "2024-12-16",
+  "@id": "oxruhn-issv5",
+  "@type": "Cycle",
+  "description": "Grass and high proportion maize silage in forage area, Holstein breed. Annual milk production cycle, including all grazing and animal housing components.",
+  "startDateDefinition": "one year prior",
+  "endDate": "2011",
+  "cycleDuration": 365,
+  "numberOfCycles": 1,
+  "functionalUnit": "relative",
+  "functionalUnitDetails": "Annual milk farm production",
+  "site": {
+    "@id": "zugv7pcewbkb",
+    "@type": "Site"
+  },
+  "siteDuration": 245,
+  "siteUnusedDuration": 120,
+  "otherSites": [
+    {
+      "@id": "qibo2rm40j0f",
+      "@type": "Site"
+    },
+    {
+      "@id": "1gok7ni8yrkr",
+      "@type": "Site"
+    },
+    {
+      "@id": "abxn5tjnhbqb",
+      "@type": "Site"
+    },
+    {
+      "@id": "_vcu4frlbd5d",
+      "@type": "Site"
+    },
+    {
+      "@id": "ahtsknzf_nyw",
+      "@type": "Site"
+    }
+  ],
+  "otherSitesDuration": [
+    29.4726268206931,
+    28.9301858362632,
+    28.9301858362632,
+    17.5991963837268,
+    15.0678051230537
+  ],
+  "otherSitesUnusedDuration": [
+    335.527373179307,
+    336.069814163737,
+    336.069814163737,
+    347.400803616273,
+    349.932194876946
+  ],
+  "otherSitesArea": [
+    8,
+    2,
+    1.8,
+    2.3,
+    3.7
+  ],
+  "defaultSource": {
+    "@id": "pusvmnivm1zy",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "modelled",
+  "defaultMethodClassificationDescription": "A dairy case-study farm in Normandy representing a typical high maize-silage dairy farm provided data on cow diets, productivity and herd characteristics, as reported in Pavie et al (2010), which were adjusted to conform to the milk production, on-farm area and grassland productivitiy of the other three farms",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Inorganic Nitrogen fertiliser, unspecified (kg N)",
+        "termType": "inorganicFertiliser",
+        "@id": "inorganicNitrogenFertiliserUnspecifiedKgN",
+        "units": "kg N"
+      },
+      "value": [
+        2495
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "organicFertiliser",
+        "name": "Dairy cattle, solid manure, fresh (kg N)",
+        "units": "kg N",
+        "@id": "dairyCattleSolidManureFreshKgN"
+      },
+      "description": "Not including manure deposited during grazing",
+      "value": [
+        664.5
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Seed",
+        "termType": "seed",
+        "@id": "seed",
+        "units": "kg"
+      },
+      "value": [
+        39
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pesticide unspecified (AI)",
+        "termType": "pesticideAI",
+        "@id": "pesticideUnspecifiedAi",
+        "units": "kg active ingredient"
+      },
+      "value": [
+        1.602
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        526.2
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Machinery infrastructure, depreciated amount per Cycle",
+        "termType": "material",
+        "@id": "machineryInfrastructureDepreciatedAmountPerCycle",
+        "units": "kg/functional unit/Cycle"
+      },
+      "value": [
+        118.9
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Plastic, type unspecified",
+        "termType": "material",
+        "@id": "plasticTypeUnspecified",
+        "units": "kg"
+      },
+      "value": [
+        162
+      ],
+      "description": "For silage",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "forage",
+        "name": "Ryegrass, fresh forage",
+        "units": "kg",
+        "@id": "ryegrassFreshForage"
+      },
+      "value": [
+        129199.99999999999
+      ],
+      "producedInCycle": true,
+      "isAnimalFeed": true,
+      "description": "Mixture of some pure ryegrass, and some ryegrass mixed with clover across both permanent and temporary grassland sites",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Ryegrass, hay",
+        "units": "kg",
+        "@id": "ryegrassHay"
+      },
+      "value": [
+        12400
+      ],
+      "isAnimalFeed": true,
+      "producedInCycle": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Ryegrass, silage",
+        "units": "kg",
+        "@id": "ryegrassSilage"
+      },
+      "value": [
+        28700
+      ],
+      "isAnimalFeed": true,
+      "producedInCycle": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Maize, silage",
+        "units": "kg",
+        "@id": "maizeSilage"
+      },
+      "isAnimalFeed": true,
+      "value": [
+        70350
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "impactAssessment": {
+        "@id": "epu1ketful0l",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Wheat, grain",
+        "units": "kg",
+        "@id": "wheatGrain"
+      },
+      "isAnimalFeed": true,
+      "value": [
+        11400
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "impactAssessment": {
+        "@id": "vidozdhqxdu8",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Soybean, meal",
+        "units": "kg",
+        "@id": "soybeanMeal"
+      },
+      "isAnimalFeed": true,
+      "value": [
+        29100
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "country": {
+        "@type": "Term",
+        "termType": "region",
+        "name": "Brazil",
+        "@id": "GADM-BRA"
+      },
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "feedFoodAdditive",
+        "name": "Minerals, unspecified",
+        "units": "kg",
+        "@id": "mineralsUnspecified"
+      },
+      "isAnimalFeed": true,
+      "value": [
+        3900
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "impactAssessment": {
+        "@id": "dt6fw72xqo0u",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Wheat, straw",
+        "units": "kg",
+        "@id": "wheatStraw"
+      },
+      "isAnimalFeed": true,
+      "value": [
+        37900
+      ],
+      "description": "For bedding",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Maize, silage",
+        "units": "kg",
+        "@id": "maizeSilage"
+      },
+      "isAnimalFeed": true,
+      "value": [
+        70350
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "impactAssessment": {
+        "@id": "105yyt83ezqr",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Holstein Friesian (cattle breed)",
+        "termType": "animalBreed",
+        "@id": "holsteinFriesianCattleBreed",
+        "units": "%"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Herd replacement rate",
+        "termType": "animalManagement",
+        "@id": "herdReplacementRate",
+        "units": "%"
+      },
+      "value": [
+        34
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture grass",
+        "termType": "landUseManagement",
+        "@id": "pastureGrass",
+        "units": "% area"
+      },
+      "key": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Ryegrass plant",
+        "units": "% area",
+        "@id": "ryegrassPlant"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalManagement",
+        "name": "Milk yield per cow (FPCM)",
+        "units": "kg / day",
+        "@id": "milkYieldPerCowFpcm"
+      },
+      "value": [
+        23.726027397260275
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Indoor animal system",
+        "termType": "system",
+        "@id": "indoorAnimalSystem",
+        "units": "% area"
+      },
+      "value": [
+        67.12328767123287
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Confined pasture system",
+        "termType": "system",
+        "@id": "confinedPastureSystem",
+        "units": "% area"
+      },
+      "value": [
+        32.87671232876713
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Stocking density, permanent pasture (average)",
+        "termType": "animalManagement",
+        "@id": "stockingDensityPermanentPastureAverage",
+        "units": "animals / m2"
+      },
+      "value": [
+        0.0003202247191011236
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "animalId": "1",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow",
+        "units": "number",
+        "@id": "dairyCattleCow"
+      },
+      "value": 32,
+      "referencePeriod": "average",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Culling rate",
+            "termType": "property",
+            "@id": "cullingRate",
+            "units": "%"
+          },
+          "value": 31,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "animalId": "2",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, calf",
+        "units": "number",
+        "@id": "dairyCattleCalf"
+      },
+      "value": 13,
+      "referencePeriod": "average",
+      "@type": "Animal"
+    },
+    {
+      "animalId": "3",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, heifer",
+        "units": "number",
+        "@id": "dairyCattleHeifer"
+      },
+      "value": 12,
+      "referencePeriod": "average",
+      "@type": "Animal"
+    }
+  ],
+  "transformations": [
+    {
+      "transformationId": "1",
+      "term": {
+        "@type": "Term",
+        "name": "Pasture/Range/Paddock (excreta management)",
+        "termType": "excretaManagement",
+        "@id": "pastureRangePaddockExcretaManagement"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg N)",
+            "units": "kg N",
+            "@id": "excretaDairyCattleKgN"
+          },
+          "fromCycle": true,
+          "value": [
+            2951.7
+          ],
+          "methodClassification": "modelled",
+          "methodClassificationDescription": "Quantity of excreta (kg N) on pasture was calculated by the authors as the difference between an animal’s total N intake in feed and the N retained for milk production and growth (meat production).",
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 32.87671232876712,
+      "@type": "Transformation"
+    },
+    {
+      "transformationId": "2",
+      "term": {
+        "@type": "Term",
+        "name": "Liquid/Slurry",
+        "termType": "excretaManagement",
+        "@id": "liquidSlurry"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg N)",
+            "units": "kg N",
+            "@id": "excretaDairyCattleKgN"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 33.56164383561644,
+      "description": "Assume 50/50 split between slurry and deep bedding transformationShare when in animal housing",
+      "@type": "Transformation"
+    },
+    {
+      "transformationId": "3",
+      "term": {
+        "@type": "Term",
+        "name": "Deep bedding",
+        "termType": "excretaManagement",
+        "@id": "deepBedding"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg N)",
+            "units": "kg N",
+            "@id": "excretaDairyCattleKgN"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 33.56164383561644,
+      "description": "Assume 50/50 split between slurry and deep bedding transformationShare when in animal housing",
+      "@type": "Transformation"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Milk, cow, raw (FPCM)",
+        "units": "kg FPCM",
+        "@id": "milkCowRawFpcm"
+      },
+      "value": [
+        254900
+      ],
+      "primary": true,
+      "description": "Assumed that 8% of the milk produced was not commercialised because it was fed to calves or lost to diseases such as mastisis.",
+      "fate": "sold",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "property",
+            "name": "Fat content",
+            "units": "%",
+            "@id": "fatContent"
+          },
+          "value": 4,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, calf (weaned)",
+        "units": "number",
+        "@id": "dairyCattleCalfWeaned"
+      },
+      "value": [
+        16
+      ],
+      "fate": "sold",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 56.25,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "value": 14,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow",
+        "units": "number",
+        "@id": "dairyCattleCow"
+      },
+      "description": "Cull Cows. Assumed 1 cull-cow died, the rest were fattened for two months before slaughter",
+      "value": [
+        8.92
+      ],
+      "fate": "sold",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 829.5964125560538,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, heifer",
+        "units": "number",
+        "@id": "dairyCattleHeifer"
+      },
+      "description": "Pregnant heifers",
+      "fate": "sold",
+      "value": [
+        1
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, dairy cattle (kg N)",
+        "units": "kg N",
+        "@id": "excretaDairyCattleKgN"
+      },
+      "value": [
+        8978.0875
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "We are given the amount of manure deposited on pasture, and we know the proportion of total excreta management which this direct deposition represents (based on the duration animals spend on pasture relative to the total cycle length). A back calculation was therefore done to estimate total excreta produced using these two data points.",
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "ingredient": true,
+    "otherChemical": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": true,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "freshForage": true,
+    "liveAnimalInput": true,
+    "animalPopulation": true,
+    "waste": true,
+    "operation": false,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Milk, cow, raw (FPCM) - Normandie, France - 2011 - Grass and high proportion maiz...",
+  "schemaVersion": "30.4.0",
+  "originalId": "G/HM-Ho"
+}

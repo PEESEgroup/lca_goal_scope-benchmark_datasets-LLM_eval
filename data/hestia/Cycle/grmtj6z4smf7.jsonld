@@ -1,0 +1,909 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2023-09-25",
+  "updatedAt": "2024-11-26",
+  "@id": "grmtj6z4smf7",
+  "@type": "Cycle",
+  "description": "Cycle for farm producing milk and meat, with an AD on-site",
+  "endDate": "2015",
+  "startDateDefinition": "one year prior",
+  "cycleDuration": 365,
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "btryccvelghk",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "flspquqcccfk",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Primary data regarding the case farm were collected by means of interviews with farmers and purchase invoices.",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Seed",
+        "termType": "seed",
+        "@id": "seed",
+        "units": "kg"
+      },
+      "value": [
+        250
+      ],
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, lorry, light commercial vehicle",
+            "units": "tkm",
+            "@id": "freightLorryLightCommercialVehicle"
+          },
+          "distance": 4,
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed, unspecified",
+        "termType": "processedFood",
+        "@id": "concentrateFeedUnspecified",
+        "units": "kg"
+      },
+      "value": [
+        1460180
+      ],
+      "isAnimalFeed": true,
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, lorry, light commercial vehicle",
+            "units": "tkm",
+            "@id": "freightLorryLightCommercialVehicle"
+          },
+          "distance": 4,
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Inorganic Nitrogen fertiliser, unspecified (kg N)",
+        "termType": "inorganicFertiliser",
+        "@id": "inorganicNitrogenFertiliserUnspecifiedKgN",
+        "units": "kg N"
+      },
+      "value": [
+        624
+      ],
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, lorry, light commercial vehicle",
+            "units": "tkm",
+            "@id": "freightLorryLightCommercialVehicle"
+          },
+          "distance": 4,
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        64725
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, produced on-site, solar PV",
+        "termType": "electricity",
+        "@id": "electricityProducedOnSiteSolarPv",
+        "units": "kWh"
+      },
+      "min": [
+        63000
+      ],
+      "max": [
+        67500
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, produced on-site, biogas",
+        "termType": "electricity",
+        "@id": "electricityProducedOnSiteBiogas",
+        "units": "kWh"
+      },
+      "value": [
+        985500
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Urea (kg N)",
+        "termType": "inorganicFertiliser",
+        "@id": "ureaKgN",
+        "units": "kg N"
+      },
+      "value": [
+        276
+      ],
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, lorry, light commercial vehicle",
+            "units": "tkm",
+            "@id": "freightLorryLightCommercialVehicle"
+          },
+          "distance": 4,
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pesticide unspecified (AI)",
+        "termType": "pesticideAI",
+        "@id": "pesticideUnspecifiedAi",
+        "units": "kg active ingredient"
+      },
+      "value": [
+        220
+      ],
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, lorry, light commercial vehicle",
+            "units": "tkm",
+            "@id": "freightLorryLightCommercialVehicle"
+          },
+          "distance": 4,
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Biogas from thermal processes",
+        "termType": "fuel",
+        "@id": "biogasFromThermalProcesses",
+        "units": "m3"
+      },
+      "value": [
+        15208.33333
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Have assumed 100% goes to heating animal housing",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "organicFertiliser",
+        "name": "Cattle, liquid manure (kg N)",
+        "units": "kg N",
+        "@id": "cattleLiquidManureKgN"
+      },
+      "value": [
+        65145.39
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Maize, silage",
+        "units": "kg",
+        "@id": "maizeSilage"
+      },
+      "value": [
+        1950000
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Estimated using yield data from feedipedia (15t DM/ha), https://www.feedipedia.org/node/13883 - multiplied by the area of land for Maize, silage and Corn moisture silage from Table 1",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "producedInCycle": true,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Alfalfa, silage",
+        "units": "kg",
+        "@id": "alfalfaSilage"
+      },
+      "value": [
+        360000
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Estimated using yield data from feedipedia (18t DM/ha) - https://www.feedipedia.org/node/275, multiplied by the area of land for Alfalfa silage from Table 1 (20 ha)",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "producedInCycle": true,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Sorghum, silage",
+        "units": "kg",
+        "@id": "sorghumSilage"
+      },
+      "value": [
+        800000
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Estimated using yield data from feedipedia (20t DM/ha) - https://www.feedipedia.org/node/379, multiplied by the area of land for Sorghum silage from Table 1",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "producedInCycle": true,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Ryegrass, hay",
+        "units": "kg",
+        "@id": "ryegrassHay"
+      },
+      "value": [
+        100000
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Estimated using yield data from feedipedia (5t DM/ha), - https://www.feedipedia.org/node/385, multiplied by the area of land for Ryegrass hay from Table 1 (20 ha)",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "producedInCycle": true,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Wheat, grain",
+        "units": "kg",
+        "@id": "wheatGrain"
+      },
+      "value": [
+        86700
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Estimated using yield data from Hestia aggregated cycle for Wheat, grain Northern Europe (2010 - 2019), multiplied by the cultivated land for Wheat from Table 1 (15 ha).",
+      "producedInCycle": true,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Herd replacement rate",
+        "termType": "animalManagement",
+        "@id": "herdReplacementRate",
+        "units": "%"
+      },
+      "value": [
+        30
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalManagement",
+        "name": "Milk yield per cow (raw)",
+        "units": "kg / day",
+        "@id": "milkYieldPerCowRaw"
+      },
+      "value": [
+        35
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Indoor animal system",
+        "termType": "system",
+        "@id": "indoorAnimalSystem",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow (lactating)",
+        "units": "number",
+        "@id": "dairyCattleCowLactating"
+      },
+      "animalId": "1",
+      "referencePeriod": "average",
+      "value": 460,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 650,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "practices": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Holstein Friesian (cattle breed)",
+            "termType": "animalBreed",
+            "@id": "holsteinFriesianCattleBreed",
+            "units": "%"
+          },
+          "value": [
+            100
+          ],
+          "@type": "Practice"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow (dry)",
+        "units": "number",
+        "@id": "dairyCattleCowDry"
+      },
+      "animalId": "2",
+      "referencePeriod": "average",
+      "value": 78,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 700,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "practices": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Holstein Friesian (cattle breed)",
+            "termType": "animalBreed",
+            "@id": "holsteinFriesianCattleBreed",
+            "units": "%"
+          },
+          "value": [
+            100
+          ],
+          "@type": "Practice"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, calf (female, weaned)",
+        "units": "number",
+        "@id": "dairyCattleCalfFemaleWeaned"
+      },
+      "animalId": "3",
+      "referencePeriod": "average",
+      "value": 292,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 235,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "practices": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Holstein Friesian (cattle breed)",
+            "termType": "animalBreed",
+            "@id": "holsteinFriesianCattleBreed",
+            "units": "%"
+          },
+          "value": [
+            100
+          ],
+          "@type": "Practice"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, heifer",
+        "units": "number",
+        "@id": "dairyCattleHeifer"
+      },
+      "animalId": "4",
+      "referencePeriod": "average",
+      "value": 100,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 540,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "min": 152,
+          "max": 364.8,
+          "methodClassification": "estimated with assumptions",
+          "methodClassificationDescription": "Assumed average month is 30.4 days (https://www.britannica.com/science/time/Lengths-of-years-and-months#:~:text=A%20calendar%20month%20may%20contain,New%20Moon%2C%20averages%2029.531%20d.)",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "practices": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Holstein Friesian (cattle breed)",
+            "termType": "animalBreed",
+            "@id": "holsteinFriesianCattleBreed",
+            "units": "%"
+          },
+          "value": [
+            100
+          ],
+          "@type": "Practice"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, calf (male, weaned)",
+        "units": "number",
+        "@id": "dairyCattleCalfMaleWeaned"
+      },
+      "animalId": "5",
+      "referencePeriod": "average",
+      "value": 187,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 365,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "practices": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Holstein Friesian (cattle breed)",
+            "termType": "animalBreed",
+            "@id": "holsteinFriesianCattleBreed",
+            "units": "%"
+          },
+          "value": [
+            100
+          ],
+          "@type": "Practice"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, calf (unweaned)",
+        "units": "number",
+        "@id": "dairyCattleCalfUnweaned"
+      },
+      "animalId": "6",
+      "referencePeriod": "average",
+      "value": 251,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "min": 91.2,
+          "max": 152,
+          "methodClassification": "estimated with assumptions",
+          "methodClassificationDescription": "Assumed average month is 30.4 days (https://www.britannica.com/science/time/Lengths-of-years-and-months#:~:text=A%20calendar%20month%20may%20contain,New%20Moon%2C%20averages%2029.531%20d.)",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "practices": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Holstein Friesian (cattle breed)",
+            "termType": "animalBreed",
+            "@id": "holsteinFriesianCattleBreed",
+            "units": "%"
+          },
+          "value": [
+            100
+          ],
+          "@type": "Practice"
+        }
+      ],
+      "@type": "Animal"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Anaerobic digester, unspecified",
+        "termType": "excretaManagement",
+        "@id": "anaerobicDigesterUnspecified"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "value": [
+            24163000
+          ],
+          "fromCycle": true,
+          "methodClassification": "estimated with assumptions",
+          "methodClassificationDescription": "Estimated using density of slurry as 1.02g/cm3, converted from https://lpelc.org/common-manure-test-results-conversions/#:~:text=Liquid%20manure%20density%20can%20vary,8.3%20to%208.5%20lb%2Fgal.",
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Electricity, produced on-site, biogas",
+            "termType": "electricity",
+            "@id": "electricityProducedOnSiteBiogas",
+            "units": "kWh"
+          },
+          "fromCycle": true,
+          "value": [
+            21420
+          ],
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Maize, silage",
+            "units": "kg",
+            "@id": "maizeSilage"
+          },
+          "fromCycle": true,
+          "value": [
+            73000
+          ],
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "feedFoodAdditive",
+            "name": "Minerals, unspecified",
+            "units": "kg",
+            "@id": "mineralsUnspecified"
+          },
+          "fromCycle": true,
+          "value": [
+            3000
+          ],
+          "@type": "Input"
+        }
+      ],
+      "transformationDuration": 180,
+      "transformationId": "1",
+      "products": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Electricity, produced on-site, biogas",
+            "termType": "electricity",
+            "@id": "electricityProducedOnSiteBiogas",
+            "units": "kWh"
+          },
+          "value": [
+            2190000
+          ],
+          "@type": "Product"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Biogas from thermal processes",
+            "termType": "fuel",
+            "@id": "biogasFromThermalProcesses",
+            "units": "m3"
+          },
+          "value": [
+            15208.33333
+          ],
+          "@type": "Product"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "organicFertiliser",
+            "name": "Digestate (kg mass)",
+            "units": "kg",
+            "@id": "digestateKgMass"
+          },
+          "@type": "Product"
+        }
+      ],
+      "@type": "Transformation"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Milk, cow, raw",
+        "units": "kg",
+        "@id": "milkCowRaw"
+      },
+      "value": [
+        5943159
+      ],
+      "primary": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "property",
+            "name": "Fat content",
+            "units": "%",
+            "@id": "fatContent"
+          },
+          "value": 3.54,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Crude protein content",
+            "termType": "property",
+            "@id": "crudeProteinContent",
+            "units": "%"
+          },
+          "value": 3.09,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, dairy cattle (liveweight)",
+        "units": "kg liveweight",
+        "@id": "meatDairyCattleLiveweight"
+      },
+      "value": [
+        120000
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, dairy cattle (kg mass)",
+        "units": "kg",
+        "@id": "excretaDairyCattleKgMass"
+      },
+      "value": [
+        24163000
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Have combined both slurry and manure terms, and slurry estimated using density of slurry as 1.02g/cm3, converted from https://lpelc.org/common-manure-test-results-conversions/#:~:text=Liquid%20manure%20density%20can%20vary,8.3%20to%208.5%20lb%2Fgal.",
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, produced on-site, solar PV",
+        "termType": "electricity",
+        "@id": "electricityProducedOnSiteSolarPv",
+        "units": "kWh"
+      },
+      "min": [
+        77000
+      ],
+      "max": [
+        82500
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "transport": true,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": true,
+    "animalFeed": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "freshForage": false,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Milk, cow, raw - Bergamo (Provincia), Lombardia, Italy - 2015 - Cycle for farm producing milk ...",
+  "schemaVersion": "30.3.2",
+  "originalId": "milk_production"
+}

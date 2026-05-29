@@ -1,0 +1,191 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@base": "https://www-dev.hestia.earth/cycle/",
+    "@vocab": "https://www-dev.hestia.earth/schema/Cycle#",
+    "Term": {
+      "@id": "https://www-dev.hestia.earth/schema/Term",
+      "@context": {
+        "@propagate": false,
+        "@vocab": "https://www-dev.hestia.earth/schema/Term#",
+        "ecoinventReferenceProductId": {
+          "@id": "https://www-dev.hestia.earth/schema/Term#ecoinventReferenceProductId",
+          "@type": "@id"
+        },
+        "website": {
+          "@id": "https://www-dev.hestia.earth/schema/Term#website",
+          "@type": "@id"
+        },
+        "agrovoc": {
+          "@id": "https://www-dev.hestia.earth/schema/Term#agrovoc",
+          "@type": "@id"
+        },
+        "aquastatSpeciesFactSheet": {
+          "@id": "https://www-dev.hestia.earth/schema/Term#aquastatSpeciesFactSheet",
+          "@type": "@id"
+        },
+        "cornellBiologicalControl": {
+          "@id": "https://www-dev.hestia.earth/schema/Term#cornellBiologicalControl",
+          "@type": "@id"
+        },
+        "ecolabelIndex": {
+          "@id": "https://www-dev.hestia.earth/schema/Term#ecolabelIndex",
+          "@type": "@id"
+        },
+        "feedipedia": {
+          "@id": "https://www-dev.hestia.earth/schema/Term#feedipedia",
+          "@type": "@id"
+        },
+        "fishbase": {
+          "@id": "https://www-dev.hestia.earth/schema/Term#fishbase",
+          "@type": "@id"
+        },
+        "pubchem": {
+          "@id": "https://www-dev.hestia.earth/schema/Term#pubchem",
+          "@type": "@id"
+        },
+        "wikipedia": {
+          "@id": "https://www-dev.hestia.earth/schema/Term#wikipedia",
+          "@type": "@id"
+        }
+      }
+    },
+    "Infrastructure": {
+      "@id": "https://www-dev.hestia.earth/schema/Infrastructure",
+      "@context": {
+        "@propagate": false,
+        "@vocab": "https://www-dev.hestia.earth/schema/Infrastructure#"
+      }
+    },
+    "Actor": {
+      "@id": "https://www-dev.hestia.earth/schema/Actor",
+      "@context": {
+        "@propagate": false,
+        "@vocab": "https://www-dev.hestia.earth/schema/Actor#",
+        "website": {
+          "@id": "https://www-dev.hestia.earth/schema/Actor#website",
+          "@type": "@id"
+        }
+      }
+    },
+    "Organisation": {
+      "@id": "https://www-dev.hestia.earth/schema/Organisation",
+      "@context": {
+        "@propagate": false,
+        "@vocab": "https://www-dev.hestia.earth/schema/Organisation#"
+      }
+    },
+    "Property": {
+      "@id": "https://www-dev.hestia.earth/schema/Property",
+      "@context": {
+        "@propagate": false,
+        "@vocab": "https://www-dev.hestia.earth/schema/Property#"
+      }
+    },
+    "Bibliography": {
+      "@id": "https://www-dev.hestia.earth/schema/Bibliography",
+      "@context": {
+        "@propagate": false,
+        "@vocab": "https://www-dev.hestia.earth/schema/Bibliography#"
+      }
+    },
+    "Source": {
+      "@id": "https://www-dev.hestia.earth/schema/Source",
+      "@context": {
+        "@propagate": false,
+        "@vocab": "https://www-dev.hestia.earth/schema/Source#"
+      }
+    },
+    "Measurement": {
+      "@id": "https://www-dev.hestia.earth/schema/Measurement",
+      "@context": {
+        "@propagate": false,
+        "@vocab": "https://www-dev.hestia.earth/schema/Measurement#"
+      }
+    },
+    "Management": {
+      "@id": "https://www-dev.hestia.earth/schema/Management",
+      "@context": {
+        "@propagate": false,
+        "@vocab": "https://www-dev.hestia.earth/schema/Management#"
+      }
+    },
+    "ImpactAssessment": {
+      "@id": "https://www-dev.hestia.earth/schema/ImpactAssessment",
+      "@context": {
+        "@propagate": false,
+        "@vocab": "https://www-dev.hestia.earth/schema/ImpactAssessment#"
+      }
+    },
+    "Input": {
+      "@id": "https://www-dev.hestia.earth/schema/Input",
+      "@context": {
+        "@propagate": false,
+        "@vocab": "https://www-dev.hestia.earth/schema/Input#"
+      }
+    },
+    "Transport": {
+      "@id": "https://www-dev.hestia.earth/schema/Transport",
+      "@context": {
+        "@propagate": false,
+        "@vocab": "https://www-dev.hestia.earth/schema/Transport#"
+      }
+    },
+    "Site": {
+      "@id": "https://www-dev.hestia.earth/schema/Site",
+      "@context": {
+        "@propagate": false,
+        "@vocab": "https://www-dev.hestia.earth/schema/Site#"
+      }
+    },
+    "Completeness": {
+      "@id": "https://www-dev.hestia.earth/schema/Completeness",
+      "@context": {
+        "@propagate": false,
+        "@vocab": "https://www-dev.hestia.earth/schema/Completeness#"
+      }
+    },
+    "Practice": {
+      "@id": "https://www-dev.hestia.earth/schema/Practice",
+      "@context": {
+        "@propagate": false,
+        "@vocab": "https://www-dev.hestia.earth/schema/Practice#"
+      }
+    },
+    "Animal": {
+      "@id": "https://www-dev.hestia.earth/schema/Animal",
+      "@context": {
+        "@propagate": false,
+        "@vocab": "https://www-dev.hestia.earth/schema/Animal#"
+      }
+    },
+    "Product": {
+      "@id": "https://www-dev.hestia.earth/schema/Product",
+      "@context": {
+        "@propagate": false,
+        "@vocab": "https://www-dev.hestia.earth/schema/Product#"
+      }
+    },
+    "Indicator": {
+      "@id": "https://www-dev.hestia.earth/schema/Indicator",
+      "@context": {
+        "@propagate": false,
+        "@vocab": "https://www-dev.hestia.earth/schema/Indicator#"
+      }
+    },
+    "Emission": {
+      "@id": "https://www-dev.hestia.earth/schema/Emission",
+      "@context": {
+        "@propagate": false,
+        "@vocab": "https://www-dev.hestia.earth/schema/Emission#"
+      }
+    },
+    "Transformation": {
+      "@id": "https://www-dev.hestia.earth/schema/Transformation",
+      "@context": {
+        "@propagate": false,
+        "@vocab": "https://www-dev.hestia.earth/schema/Transformation#"
+      }
+    }
+  }
+}

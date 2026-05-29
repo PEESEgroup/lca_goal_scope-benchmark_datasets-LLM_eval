@@ -1,0 +1,112 @@
+{
+  "@context": "https://contribute.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2025-03-10",
+  "updatedAt": "2025-03-10",
+  "@id": "4--t9zvwsirr",
+  "@type": "Cycle",
+  "description": "Slaughter of animal to meat",
+  "numberOfCycles": 1,
+  "endDate": "2016-03-01",
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "jvhr1r6syqeu",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "nsbaboglzahm",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "inconsistent external sources",
+  "defaultMethodClassificationDescription": "Various sources used for parameters from different locations and timings",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Rabbit, kit (weaned)",
+        "units": "number",
+        "@id": "rabbitKitWeaned"
+      },
+      "value": [
+        55800
+      ],
+      "impactAssessment": {
+        "@id": "fzhlabifqwg3",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Indoor animal system",
+        "termType": "system",
+        "@id": "indoorAnimalSystem",
+        "units": "%"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, rabbit (cold carcass weight)",
+        "units": "kg cold carcass weight",
+        "@id": "meatRabbitColdCarcassWeight"
+      },
+      "value": [
+        87382.8
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Processing conversion, liveweight to cold dressed carcass weight",
+            "termType": "property",
+            "@id": "processingConversionLiveweightToColdDressedCarcassWeight",
+            "units": "%"
+          },
+          "value": 58,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "primary": true,
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": true,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": true,
+    "animalFeed": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "freshForage": true,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Meat, rabbit (cold carcass weight) - Europe - 2016-03-01 - Slaughter of animal to meat",
+  "schemaVersion": "30.7.0",
+  "originalId": "rabbit_production_slaughter"
+}

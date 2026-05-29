@@ -1,0 +1,1667 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-02-09",
+  "updatedAt": "2024-12-06",
+  "@id": "7s6dgqb6tpsh",
+  "@type": "Cycle",
+  "description": "Annual production cycle of a grass-based UK dairy farm on a high sugar grass (HSG), increasingly used in UK livestock holdings.",
+  "startDateDefinition": "one year prior",
+  "endDate": "2016",
+  "cycleDuration": 365,
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "m1sgeuqku4ud",
+    "@type": "Site"
+  },
+  "siteArea": 105,
+  "siteDuration": 185,
+  "siteUnusedDuration": 180,
+  "otherSites": [
+    {
+      "@id": "xp3w1yflkhra",
+      "@type": "Site"
+    }
+  ],
+  "otherSitesDuration": [
+    180
+  ],
+  "otherSitesUnusedDuration": [
+    185
+  ],
+  "defaultSource": {
+    "@id": "dyejpjpyu9fe",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "consistent external sources",
+  "defaultMethodClassificationDescription": "Representative farm typologies were used to ensure that results relate to typical UK grazing-based dairy systems, using a variety of sources. Farm structure and inputs (excluding feed) were defined according to the major extensive, pasture-based dairy farm typology identified from statistical anlaysis of 14 years of UK dairy farm statistics (Gonzalez-Mejia et al., 2018). Feeding regime used information from a recent meta-analysis on HSG systems (Foskolos and Moorby, 2017) and outputs from the Cornell Net Carbohydrate and Protein System (CNCPS; Van Amburgh et al., 2015) feed model.",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        6343.049999999999
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Inorganic Nitrogen fertiliser, unspecified (kg N)",
+        "termType": "inorganicFertiliser",
+        "@id": "inorganicNitrogenFertiliserUnspecifiedKgN",
+        "units": "kg N"
+      },
+      "value": [
+        22155
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Inorganic Phosphorus fertiliser, unspecified (kg P2O5)",
+        "termType": "inorganicFertiliser",
+        "@id": "inorganicPhosphorusFertiliserUnspecifiedKgP2O5",
+        "units": "kg P2O5"
+      },
+      "value": [
+        252
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Inorganic Potassium fertiliser, unspecified (kg K2O)",
+        "termType": "inorganicFertiliser",
+        "@id": "inorganicPotassiumFertiliserUnspecifiedKgK2O",
+        "units": "kg K2O"
+      },
+      "value": [
+        5670
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Lime",
+        "termType": "soilAmendment",
+        "@id": "lime",
+        "units": "kg CaCO3"
+      },
+      "value": [
+        26250
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        46200
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "organicFertiliser",
+        "name": "Slurry and sludge (kg N)",
+        "units": "kg N",
+        "@id": "slurryAndSludgeKgN"
+      },
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Herd replacement rate",
+        "termType": "animalManagement",
+        "@id": "herdReplacementRate",
+        "units": "%"
+      },
+      "value": [
+        25
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Stocking density, permanent pasture (average)",
+        "termType": "animalManagement",
+        "@id": "stockingDensityPermanentPastureAverage",
+        "units": "animals / m2"
+      },
+      "value": [
+        0.00039923076923076924
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture grass",
+        "termType": "landUseManagement",
+        "@id": "pastureGrass",
+        "units": "% area"
+      },
+      "key": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Ryegrass plant",
+        "units": "% area",
+        "@id": "ryegrassPlant"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalManagement",
+        "name": "Milk yield per cow (raw)",
+        "units": "kg / day",
+        "@id": "milkYieldPerCowRaw"
+      },
+      "value": [
+        24.308000000000003
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Slatted flooring use",
+        "termType": "animalManagement",
+        "@id": "slattedFlooringUse",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "operation",
+        "name": "Fertilising, slurry, with tanker",
+        "units": "hour",
+        "@id": "fertilisingSlurryWithTanker"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Confined pasture system",
+        "termType": "system",
+        "@id": "confinedPastureSystem",
+        "units": "% area"
+      },
+      "value": [
+        50.68493150684932
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Indoor animal system",
+        "termType": "system",
+        "@id": "indoorAnimalSystem",
+        "units": "% area"
+      },
+      "value": [
+        49.31506849315068
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "animalId": "LactatingCows",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow (lactating)",
+        "units": "number",
+        "@id": "dairyCattleCowLactating"
+      },
+      "value": 110,
+      "referencePeriod": "average",
+      "min": 14,
+      "max": 132,
+      "statsDefinition": "time",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "forage",
+            "name": "Ryegrass, fresh forage",
+            "units": "kg",
+            "@id": "ryegrassFreshForage"
+          },
+          "value": [
+            1037257.281553398
+          ],
+          "producedInCycle": true,
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 20.6,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Crude protein content",
+                "termType": "property",
+                "@id": "crudeProteinContent",
+                "units": "%"
+              },
+              "value": 2.7192000000000003,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Water soluble carbohydrate content",
+                "termType": "property",
+                "@id": "waterSolubleCarbohydrateContent",
+                "units": "%"
+              },
+              "value": 4.3878,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "Fat content",
+                "units": "%",
+                "@id": "fatContent"
+              },
+              "value": 0.5768,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "Acid detergent fibre content",
+                "units": "%",
+                "@id": "acidDetergentFibreContent"
+              },
+              "value": 5.253000000000001,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Neutral detergent fibre content",
+                "termType": "property",
+                "@id": "neutralDetergentFibreContent",
+                "units": "%"
+              },
+              "value": 9.785,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Ash content",
+                "termType": "property",
+                "@id": "ashContent",
+                "units": "%"
+              },
+              "value": 1.5862,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Ryegrass, silage",
+            "units": "kg",
+            "@id": "ryegrassSilage"
+          },
+          "value": [
+            852049.1803278689
+          ],
+          "producedInCycle": true,
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 24.4,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Crude protein content",
+                "termType": "property",
+                "@id": "crudeProteinContent",
+                "units": "%"
+              },
+              "value": 3.3672,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Water soluble carbohydrate content",
+                "termType": "property",
+                "@id": "waterSolubleCarbohydrateContent",
+                "units": "%"
+              },
+              "value": 2.0984,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "Acid detergent fibre content",
+                "units": "%",
+                "@id": "acidDetergentFibreContent"
+              },
+              "value": 6.465999999999999,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Neutral detergent fibre content",
+                "termType": "property",
+                "@id": "neutralDetergentFibreContent",
+                "units": "%"
+              },
+              "value": 10.248,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Ash content",
+                "termType": "property",
+                "@id": "ashContent",
+                "units": "%"
+              },
+              "value": 0.8784000000000001,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Concentrate feed blend",
+            "termType": "processedFood",
+            "@id": "concentrateFeedBlend",
+            "units": "kg"
+          },
+          "isAnimalFeed": true,
+          "value": [
+            151677.77777777778
+          ],
+          "impactAssessment": {
+            "@id": "whks5eoytq83",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow (dry)",
+        "units": "number",
+        "@id": "dairyCattleCowDry"
+      },
+      "animalId": "DryCows",
+      "value": 22,
+      "referencePeriod": "average",
+      "min": 0,
+      "max": 118,
+      "statsDefinition": "time",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Ryegrass, silage",
+            "units": "kg",
+            "@id": "ryegrassSilage"
+          },
+          "value": [
+            345553.2786885246
+          ],
+          "producedInCycle": true,
+          "isAnimalFeed": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 24.4,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Crude protein content",
+                "termType": "property",
+                "@id": "crudeProteinContent",
+                "units": "%"
+              },
+              "value": 3.3672,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Water soluble carbohydrate content",
+                "termType": "property",
+                "@id": "waterSolubleCarbohydrateContent",
+                "units": "%"
+              },
+              "value": 2.0984,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "Acid detergent fibre content",
+                "units": "%",
+                "@id": "acidDetergentFibreContent"
+              },
+              "value": 6.465999999999999,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Neutral detergent fibre content",
+                "termType": "property",
+                "@id": "neutralDetergentFibreContent",
+                "units": "%"
+              },
+              "value": 10.248,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Ash content",
+                "termType": "property",
+                "@id": "ashContent",
+                "units": "%"
+              },
+              "value": 0.8784000000000001,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, calf (female, unweaned)",
+        "units": "number",
+        "@id": "dairyCattleCalfFemaleUnweaned"
+      },
+      "animalId": "FemaleUnweanedCalves",
+      "value": 4.75,
+      "referencePeriod": "average",
+      "min": 0,
+      "max": 40,
+      "statsDefinition": "time",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "min": 1,
+          "max": 60.8,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Weight at birth",
+            "termType": "property",
+            "@id": "weightAtBirth",
+            "units": "kg liveweight / head"
+          },
+          "value": 43.4,
+          "methodClassification": "estimated with assumptions",
+          "methodClassificationDescription": "Assuming an average BM at birth of 43.4 kg (Coffey et al., 2006).",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight gain",
+            "termType": "property",
+            "@id": "liveweightGain",
+            "units": "kg liveweight / head / day"
+          },
+          "value": 0.83,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Weight at weaning",
+            "termType": "property",
+            "@id": "weightAtWeaning",
+            "units": "kg liveweight / head"
+          },
+          "value": 92.6,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "min": 43.4,
+          "value": 68,
+          "max": 92.6,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, calf (female, weaned)",
+        "units": "number",
+        "@id": "dairyCattleCalfFemaleWeaned"
+      },
+      "animalId": "FemaleWeanedCalves",
+      "value": 23.75,
+      "referencePeriod": "average",
+      "min": 0,
+      "max": 57,
+      "statsDefinition": "time",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "min": 60.8,
+          "max": 182.39999999999998,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight gain",
+            "termType": "property",
+            "@id": "liveweightGain",
+            "units": "kg liveweight / head / day"
+          },
+          "min": 0.77,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Weight at weaning",
+            "termType": "property",
+            "@id": "weightAtWeaning",
+            "units": "kg liveweight / head"
+          },
+          "min": 92.6,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "min": 92.6,
+          "value": 138.8,
+          "max": 185,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "forage",
+            "name": "Ryegrass, fresh forage",
+            "units": "kg",
+            "@id": "ryegrassFreshForage"
+          },
+          "producedInCycle": true,
+          "isAnimalFeed": true,
+          "value": [
+            55231.72026699028
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 20.6,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Crude protein content",
+                "termType": "property",
+                "@id": "crudeProteinContent",
+                "units": "%"
+              },
+              "value": 2.7192000000000003,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Water soluble carbohydrate content",
+                "termType": "property",
+                "@id": "waterSolubleCarbohydrateContent",
+                "units": "%"
+              },
+              "value": 4.3878,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "Fat content",
+                "units": "%",
+                "@id": "fatContent"
+              },
+              "value": 0.5768,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "Acid detergent fibre content",
+                "units": "%",
+                "@id": "acidDetergentFibreContent"
+              },
+              "value": 5.253000000000001,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Neutral detergent fibre content",
+                "termType": "property",
+                "@id": "neutralDetergentFibreContent",
+                "units": "%"
+              },
+              "value": 9.785,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Ash content",
+                "termType": "property",
+                "@id": "ashContent",
+                "units": "%"
+              },
+              "value": 1.5862,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Ryegrass, silage",
+            "units": "kg",
+            "@id": "ryegrassSilage"
+          },
+          "value": [
+            46630.05891393443
+          ],
+          "isAnimalFeed": true,
+          "producedInCycle": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 24.4,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Crude protein content",
+                "termType": "property",
+                "@id": "crudeProteinContent",
+                "units": "%"
+              },
+              "value": 3.3672,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Water soluble carbohydrate content",
+                "termType": "property",
+                "@id": "waterSolubleCarbohydrateContent",
+                "units": "%"
+              },
+              "value": 2.0984,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "Acid detergent fibre content",
+                "units": "%",
+                "@id": "acidDetergentFibreContent"
+              },
+              "value": 6.465999999999999,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Neutral detergent fibre content",
+                "termType": "property",
+                "@id": "neutralDetergentFibreContent",
+                "units": "%"
+              },
+              "value": 10.248,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Ash content",
+                "termType": "property",
+                "@id": "ashContent",
+                "units": "%"
+              },
+              "value": 0.8784000000000001,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Concentrate feed blend",
+            "termType": "processedFood",
+            "@id": "concentrateFeedBlend",
+            "units": "kg"
+          },
+          "isAnimalFeed": true,
+          "value": [
+            11821.022727272728
+          ],
+          "impactAssessment": {
+            "@id": "_22jk8y4k9xv",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, heifer",
+        "units": "number",
+        "@id": "dairyCattleHeifer"
+      },
+      "animalId": "Heifers",
+      "value": 45.666666666666664,
+      "referencePeriod": "average",
+      "min": 4,
+      "max": 55,
+      "statsDefinition": "time",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "min": 182.39999999999998,
+          "max": 486.4,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "min": 185,
+          "value": 276.5,
+          "max": 368,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight gain",
+            "termType": "property",
+            "@id": "liveweightGain",
+            "units": "kg liveweight / head / day"
+          },
+          "value": 0.75,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "forage",
+            "name": "Ryegrass, fresh forage",
+            "units": "kg",
+            "@id": "ryegrassFreshForage"
+          },
+          "producedInCycle": true,
+          "isAnimalFeed": true,
+          "value": [
+            179831.8972491909
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 20.6,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Crude protein content",
+                "termType": "property",
+                "@id": "crudeProteinContent",
+                "units": "%"
+              },
+              "value": 2.7192000000000003,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Water soluble carbohydrate content",
+                "termType": "property",
+                "@id": "waterSolubleCarbohydrateContent",
+                "units": "%"
+              },
+              "value": 4.3878,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "Fat content",
+                "units": "%",
+                "@id": "fatContent"
+              },
+              "value": 0.5768,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "Acid detergent fibre content",
+                "units": "%",
+                "@id": "acidDetergentFibreContent"
+              },
+              "value": 5.253000000000001,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Neutral detergent fibre content",
+                "termType": "property",
+                "@id": "neutralDetergentFibreContent",
+                "units": "%"
+              },
+              "value": 9.785,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Ash content",
+                "termType": "property",
+                "@id": "ashContent",
+                "units": "%"
+              },
+              "value": 1.5862,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Ryegrass, silage",
+            "units": "kg",
+            "@id": "ryegrassSilage"
+          },
+          "value": [
+            151825.29030054642
+          ],
+          "isAnimalFeed": true,
+          "producedInCycle": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 24.4,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Crude protein content",
+                "termType": "property",
+                "@id": "crudeProteinContent",
+                "units": "%"
+              },
+              "value": 3.3672,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Water soluble carbohydrate content",
+                "termType": "property",
+                "@id": "waterSolubleCarbohydrateContent",
+                "units": "%"
+              },
+              "value": 2.0984,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "Acid detergent fibre content",
+                "units": "%",
+                "@id": "acidDetergentFibreContent"
+              },
+              "value": 6.465999999999999,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Neutral detergent fibre content",
+                "termType": "property",
+                "@id": "neutralDetergentFibreContent",
+                "units": "%"
+              },
+              "value": 10.248,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Ash content",
+                "termType": "property",
+                "@id": "ashContent",
+                "units": "%"
+              },
+              "value": 0.8784000000000001,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Concentrate feed blend",
+            "termType": "processedFood",
+            "@id": "concentrateFeedBlend",
+            "units": "kg"
+          },
+          "isAnimalFeed": true,
+          "value": [
+            31753.174999999996
+          ],
+          "impactAssessment": {
+            "@id": "_22jk8y4k9xv",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, heifer",
+        "units": "number",
+        "@id": "dairyCattleHeifer"
+      },
+      "animalId": "OlderHeifers",
+      "value": 43.333333333333336,
+      "referencePeriod": "average",
+      "min": 5,
+      "max": 52,
+      "statsDefinition": "time",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "min": 486.4,
+          "max": 802.56,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "min": 368,
+          "value": 456,
+          "max": 544,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight gain",
+            "termType": "property",
+            "@id": "liveweightGain",
+            "units": "kg liveweight / head / day"
+          },
+          "value": 0.75,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "forage",
+            "name": "Ryegrass, fresh forage",
+            "units": "kg",
+            "@id": "ryegrassFreshForage"
+          },
+          "producedInCycle": true,
+          "isAnimalFeed": true,
+          "value": [
+            355107.2006472492
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 20.6,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Crude protein content",
+                "termType": "property",
+                "@id": "crudeProteinContent",
+                "units": "%"
+              },
+              "value": 2.7192000000000003,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Water soluble carbohydrate content",
+                "termType": "property",
+                "@id": "waterSolubleCarbohydrateContent",
+                "units": "%"
+              },
+              "value": 4.3878,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "Fat content",
+                "units": "%",
+                "@id": "fatContent"
+              },
+              "value": 0.5768,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "Acid detergent fibre content",
+                "units": "%",
+                "@id": "acidDetergentFibreContent"
+              },
+              "value": 5.253000000000001,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Neutral detergent fibre content",
+                "termType": "property",
+                "@id": "neutralDetergentFibreContent",
+                "units": "%"
+              },
+              "value": 9.785,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Ash content",
+                "termType": "property",
+                "@id": "ashContent",
+                "units": "%"
+              },
+              "value": 1.5862,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Ryegrass, silage",
+            "units": "kg",
+            "@id": "ryegrassSilage"
+          },
+          "value": [
+            299803.62021857925
+          ],
+          "isAnimalFeed": true,
+          "producedInCycle": true,
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 24.4,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Crude protein content",
+                "termType": "property",
+                "@id": "crudeProteinContent",
+                "units": "%"
+              },
+              "value": 3.3672,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Water soluble carbohydrate content",
+                "termType": "property",
+                "@id": "waterSolubleCarbohydrateContent",
+                "units": "%"
+              },
+              "value": 2.0984,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "Acid detergent fibre content",
+                "units": "%",
+                "@id": "acidDetergentFibreContent"
+              },
+              "value": 6.465999999999999,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Neutral detergent fibre content",
+                "termType": "property",
+                "@id": "neutralDetergentFibreContent",
+                "units": "%"
+              },
+              "value": 10.248,
+              "share": 100,
+              "@type": "Property"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Ash content",
+                "termType": "property",
+                "@id": "ashContent",
+                "units": "%"
+              },
+              "value": 0.8784000000000001,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Milk, cow, raw",
+        "units": "kg",
+        "@id": "milkCowRaw"
+      },
+      "value": [
+        934589.04
+      ],
+      "primary": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "property",
+            "name": "Fat content",
+            "units": "%",
+            "@id": "fatContent"
+          },
+          "value": 4.21,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Crude protein content",
+            "termType": "property",
+            "@id": "crudeProteinContent",
+            "units": "%"
+          },
+          "value": 3.13,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow",
+        "units": "number",
+        "@id": "dairyCattleCow"
+      },
+      "value": [
+        52
+      ],
+      "description": "Both Surplus primiparous cows not needed to replace older cows leaving the herd (19) and cull cows (33)",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "value": 802.56,
+          "share": 36.53846153846153,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 544,
+          "share": 36.53846153846153,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, calf (male, unweaned)",
+        "units": "number",
+        "@id": "dairyCattleCalfMaleUnweaned"
+      },
+      "value": [
+        57
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Study says to assume 50/50 split between male and female calves born. Since 57 females calves are born during one year, assume 57 males. Study states that all male calves are sold at birth",
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, dairy cattle (kg mass)",
+        "units": "kg",
+        "@id": "excretaDairyCattleKgMass"
+      },
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "transformationId": "1",
+      "term": {
+        "@type": "Term",
+        "name": "Pasture/Range/Paddock (excreta management)",
+        "termType": "excretaManagement",
+        "@id": "pastureRangePaddockExcretaManagement"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 50,
+      "@type": "Transformation"
+    },
+    {
+      "transformationId": "2",
+      "term": {
+        "@type": "Term",
+        "name": "Liquid/Slurry",
+        "termType": "excretaManagement",
+        "@id": "liquidSlurry"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 50,
+      "@type": "Transformation"
+    }
+  ],
+  "emissions": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CH4, to air, enteric fermentation",
+        "termType": "emission",
+        "@id": "ch4ToAirEntericFermentation",
+        "units": "kg CH4"
+      },
+      "value": [
+        23357.743199999997
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "Other model",
+        "termType": "model",
+        "@id": "otherModel"
+      },
+      "methodTier": "tier 2",
+      "methodModelDescription": "Cornell Net Carbohydrate and Protein System (CNCPS) feed model (Van Amburgh et al., 2015) was used to calculate feed intak and methane emissions",
+      "@type": "Emission"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "transport": false,
+    "material": false,
+    "fertiliser": false,
+    "seed": false,
+    "otherChemical": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "ingredient": true,
+    "freshForage": true,
+    "animalFeed": true,
+    "liveAnimalInput": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Milk, cow, raw - United Kingdom - 2016 - Annual production cycle of a g...",
+  "schemaVersion": "30.4.0",
+  "originalId": "HighSugarGrass_Milk"
+}

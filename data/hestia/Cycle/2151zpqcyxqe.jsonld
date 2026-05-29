@@ -1,0 +1,411 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-01-17",
+  "updatedAt": "2024-12-06",
+  "@id": "2151zpqcyxqe",
+  "@type": "Cycle",
+  "description": "A representative sample of Irish dairy farms.",
+  "numberOfCycles": 314,
+  "endDate": "2019",
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "hr7nrm7zx4pn",
+    "@type": "Site"
+  },
+  "otherSites": [
+    {
+      "@id": "fbqxlep9-z0v",
+      "@type": "Site"
+    }
+  ],
+  "siteDuration": 236,
+  "otherSitesDuration": [
+    129
+  ],
+  "defaultSource": {
+    "@id": "oejuzzwezpby",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Teagasc national farm survey (NFS) was the primary dataset used to define agricultural parameters of cattle farms",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Inorganic Nitrogen fertiliser, unspecified (kg N)",
+        "termType": "inorganicFertiliser",
+        "@id": "inorganicNitrogenFertiliserUnspecifiedKgN",
+        "units": "kg N"
+      },
+      "value": [
+        7400
+      ],
+      "sd": [
+        2920
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Inorganic Phosphorus fertiliser, unspecified (kg P2O5)",
+        "termType": "inorganicFertiliser",
+        "@id": "inorganicPhosphorusFertiliserUnspecifiedKgP2O5",
+        "units": "kg P2O5"
+      },
+      "value": [
+        1099.2
+      ],
+      "sd": [
+        824.4
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        2792.6679999999997
+      ],
+      "sd": [
+        1629.344
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "forage",
+        "name": "Ryegrass, fresh forage",
+        "units": "kg",
+        "@id": "ryegrassFreshForage"
+      },
+      "value": [
+        324
+      ],
+      "sd": [
+        92
+      ],
+      "statsDefinition": "cycles",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed blend",
+        "termType": "processedFood",
+        "@id": "concentrateFeedBlend",
+        "units": "kg"
+      },
+      "isAnimalFeed": true,
+      "value": [
+        68982.5
+      ],
+      "sd": [
+        426.1950727073226
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Ryegrass, silage",
+        "units": "kg",
+        "@id": "ryegrassSilage"
+      },
+      "isAnimalFeed": true,
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Herd replacement rate",
+        "termType": "animalManagement",
+        "@id": "herdReplacementRate",
+        "units": "%"
+      },
+      "value": [
+        21
+      ],
+      "sd": [
+        13
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Rotational grazing",
+        "termType": "landUseManagement",
+        "@id": "rotationalGrazing",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "description": "Rotational grazing is common in dairy farms. The herd usually spends 24 to 36 h in a paddock. The rotation length ranges from 21–26 days between April and mid-August.",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Stocking density, permanent pasture (average)",
+        "termType": "animalManagement",
+        "@id": "stockingDensityPermanentPastureAverage",
+        "units": "animals / m2"
+      },
+      "value": [
+        0.00023699999999999996
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture grass",
+        "termType": "landUseManagement",
+        "@id": "pastureGrass",
+        "units": "% area"
+      },
+      "key": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Ryegrass plant",
+        "units": "% area",
+        "@id": "ryegrassPlant"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow",
+        "units": "number",
+        "@id": "dairyCattleCow"
+      },
+      "referencePeriod": "average",
+      "animalId": "1",
+      "value": 67.3,
+      "sd": 43.2,
+      "statsDefinition": "cycles",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "property",
+            "name": "Age at first delivery",
+            "units": "days",
+            "@id": "ageAtFirstDelivery"
+          },
+          "value": 729.5999999999999,
+          "sd": 91.19999999999999,
+          "statsDefinition": "cycles",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, calf",
+        "units": "number",
+        "@id": "dairyCattleCalf"
+      },
+      "referencePeriod": "average",
+      "animalId": "2",
+      "value": 19.9,
+      "sd": 9.1,
+      "statsDefinition": "cycles",
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, heifer",
+        "units": "number",
+        "@id": "dairyCattleHeifer"
+      },
+      "referencePeriod": "average",
+      "animalId": "3",
+      "value": 7.6,
+      "sd": 3.8,
+      "statsDefinition": "cycles",
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, steer",
+        "units": "number",
+        "@id": "dairyCattleSteer"
+      },
+      "referencePeriod": "average",
+      "animalId": "4",
+      "value": 7.6,
+      "sd": 3.8,
+      "statsDefinition": "cycles",
+      "@type": "Animal"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture/Range/Paddock (excreta management)",
+        "termType": "excretaManagement",
+        "@id": "pastureRangePaddockExcretaManagement"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 64.65753424657534,
+      "transformationId": "1",
+      "@type": "Transformation"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Milk, cow, raw (FPCM)",
+        "units": "kg FPCM",
+        "@id": "milkCowRawFpcm"
+      },
+      "value": [
+        386975
+      ],
+      "sd": [
+        1021.9135188458953
+      ],
+      "statsDefinition": "cycles",
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, dairy cattle (cold carcass weight)",
+        "units": "kg cold carcass weight",
+        "@id": "meatDairyCattleColdCarcassWeight"
+      },
+      "value": [
+        4520
+      ],
+      "sd": [
+        88.29065635728392
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, dairy cattle (kg mass)",
+        "units": "kg",
+        "@id": "excretaDairyCattleKgMass"
+      },
+      "@type": "Product"
+    }
+  ],
+  "emissions": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CH4, to air, enteric fermentation",
+        "termType": "emission",
+        "@id": "ch4ToAirEntericFermentation",
+        "units": "kg CH4"
+      },
+      "value": [
+        6346.39
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2019)",
+        "termType": "model",
+        "@id": "ipcc2019"
+      },
+      "methodTier": "tier 2",
+      "@type": "Emission"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": false,
+    "animalPopulation": false,
+    "waste": false,
+    "operation": false,
+    "freshForage": true,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Milk, cow, raw (FPCM) - Ireland - 2019 - A representative sample of Iri...",
+  "schemaVersion": "30.4.0",
+  "originalId": "dairy"
+}

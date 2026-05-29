@@ -1,0 +1,45 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Site.jsonld",
+  "createdAt": "2024-04-19",
+  "updatedAt": "2025-01-22",
+  "@id": "2ydw2k9_cbyp",
+  "@type": "Site",
+  "defaultSource": {
+    "@id": "sscfxvvatgmr",
+    "@type": "Source"
+  },
+  "siteType": "forest",
+  "country": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Italy",
+    "@id": "GADM-ITA"
+  },
+  "region": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Verbano-Cusio-Ossola",
+    "@id": "GADM-ITA.13.7_1"
+  },
+  "management": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Forest",
+        "termType": "landCover",
+        "@id": "forest",
+        "units": "% area"
+      },
+      "endDate": "2015-11-29",
+      "methodClassification": "inconsistent external sources",
+      "methodClassificationDescription": "A mix of primary and secondary data, with secondary data being from different sources",
+      "@type": "Management"
+    }
+  ],
+  "defaultMethodClassification": "inconsistent external sources",
+  "defaultMethodClassificationDescription": "A mix of primary and secondary data, with secondary data being from different sources",
+  "dataPrivate": false,
+  "name": "Forest - Verbano-Cusio-Ossola, Italy",
+  "schemaVersion": "30.5.0",
+  "originalId": "Northern_alpine_region"
+}

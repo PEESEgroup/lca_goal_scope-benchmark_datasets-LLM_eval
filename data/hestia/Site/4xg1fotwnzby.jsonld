@@ -1,0 +1,87 @@
+{
+  "@context": "https://contribute.hestia.earth/schema/Site.jsonld",
+  "createdAt": "2023-12-18",
+  "updatedAt": "2025-03-11",
+  "@id": "4xg1fotwnzby",
+  "@type": "Site",
+  "defaultSource": {
+    "@id": "slooumnhc8do",
+    "@type": "Source"
+  },
+  "siteType": "animal housing",
+  "country": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Mexico",
+    "@id": "GADM-MEX"
+  },
+  "region": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Tepatitlán de Morelos",
+    "@id": "GADM-MEX.14.95_1"
+  },
+  "numberOfSites": 1,
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Data taken from one farm studied",
+  "measurements": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Altitude",
+        "termType": "measurement",
+        "@id": "altitude",
+        "units": "meters"
+      },
+      "value": [
+        1880
+      ],
+      "methodClassification": "unsourced assumption",
+      "@type": "Measurement"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Temperature (annual)",
+        "termType": "measurement",
+        "@id": "temperatureAnnual",
+        "units": "°C"
+      },
+      "value": [
+        19.1
+      ],
+      "methodClassification": "unsourced assumption",
+      "@type": "Measurement"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Temperature, indoor (period)",
+        "termType": "measurement",
+        "@id": "temperatureIndoorPeriod",
+        "units": "°C"
+      },
+      "value": [
+        21.92
+      ],
+      "methodClassification": "unsourced assumption",
+      "@type": "Measurement"
+    }
+  ],
+  "infrastructure": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Barn",
+        "termType": "building",
+        "@id": "barn"
+      },
+      "description": "Dimensions are 10m x 3m x 100m - 3 barn used for all chickens",
+      "@type": "Infrastructure"
+    }
+  ],
+  "dataPrivate": false,
+  "name": "Animal housing - Tepatitlán de Morelos, Mexico",
+  "schemaVersion": "30.7.0",
+  "originalId": "egg_posture _site"
+}

@@ -1,0 +1,340 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2023-10-19",
+  "updatedAt": "2024-12-06",
+  "@id": "sjr8nm8roztd",
+  "@type": "Cycle",
+  "site": {
+    "@id": "0b5fo8tu0mp-",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "pg0ta0g9e0ed",
+    "@type": "Source"
+  },
+  "functionalUnit": "relative",
+  "endDate": "2004",
+  "cycleDuration": 177.41935483870967,
+  "startDateDefinition": "stocking date",
+  "defaultMethodClassification": "inconsistent external sources",
+  "defaultMethodClassificationDescription": "Meta-analysis. National and international detailed studies referring to individual types of farm and individual production processes are presented in the unabridged version.",
+  "completeness": {
+    "electricityFuel": true,
+    "material": false,
+    "fertiliser": true,
+    "seed": false,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": false,
+    "excreta": true,
+    "animalFeed": true,
+    "transport": false,
+    "liveAnimalInput": false,
+    "operation": false,
+    "waste": false,
+    "otherChemical": false,
+    "ingredient": true,
+    "animalPopulation": true,
+    "freshForage": true,
+    "@type": "Completeness"
+  },
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Barley, grain (in husk)",
+        "units": "kg",
+        "@id": "barleyGrainInHusk"
+      },
+      "value": [
+        101
+      ],
+      "impactAssessment": {
+        "@id": "uavxxys5u8f4",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Wheat, grain",
+        "units": "kg",
+        "@id": "wheatGrain"
+      },
+      "value": [
+        101
+      ],
+      "impactAssessment": {
+        "@id": "lkajxiu8q95n",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Pea, pod",
+        "units": "kg",
+        "@id": "peaPod"
+      },
+      "value": [
+        61
+      ],
+      "impactAssessment": {
+        "@id": "q2pydwzvzsqq",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Potato, tuber",
+        "units": "kg",
+        "@id": "potatoTuber"
+      },
+      "value": [
+        14
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "feedFoodAdditive",
+        "name": "Minerals, unspecified",
+        "units": "kg",
+        "@id": "mineralsUnspecified"
+      },
+      "value": [
+        7
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Wheat, straw",
+        "units": "kg",
+        "@id": "wheatStraw"
+      },
+      "value": [
+        137
+      ],
+      "impactAssessment": {
+        "@id": "qw2x1ad8i7xt",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "White clover, hay",
+        "units": "kg",
+        "@id": "whiteCloverHay"
+      },
+      "value": [
+        96
+      ],
+      "description": "Clover, fodder",
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        5.84
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Feed conversion ratio (fed weight)",
+        "termType": "animalManagement",
+        "@id": "feedConversionRatioFedWeight",
+        "units": "kg feed (fed weight) / kg liveweight"
+      },
+      "value": [
+        3.4
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Free range system",
+        "termType": "system",
+        "@id": "freeRangeSystem",
+        "units": "% area"
+      },
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "animalId": "Pig",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig",
+        "units": "number",
+        "@id": "pig"
+      },
+      "value": 110,
+      "referencePeriod": "average",
+      "@type": "Animal"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig",
+        "units": "number",
+        "@id": "pig"
+      },
+      "value": [
+        1
+      ],
+      "primary": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 110,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Processing conversion, liveweight to cold carcass weight",
+            "termType": "property",
+            "@id": "processingConversionLiveweightToColdCarcassWeight",
+            "units": "%"
+          },
+          "value": 79,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, pigs (kg N)",
+        "units": "kg N",
+        "@id": "excretaPigsKgN"
+      },
+      "value": [
+        68.81013656284605
+      ],
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "transformationId": "hirsch-3",
+      "term": {
+        "@type": "Term",
+        "name": "Deep bedding",
+        "termType": "excretaManagement",
+        "@id": "deepBedding"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, pigs (kg N)",
+            "units": "kg N",
+            "@id": "excretaPigsKgN"
+          },
+          "value": [
+            68.81013656284605
+          ],
+          "fromCycle": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Generic crop, straw",
+            "units": "kg",
+            "@id": "genericCropStraw"
+          },
+          "value": [
+            2.0402084884586746
+          ],
+          "fromCycle": false,
+          "@type": "Input"
+        }
+      ],
+      "emissions": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "N2O, to air, excreta, direct",
+            "termType": "emission",
+            "@id": "n2OToAirExcretaDirect",
+            "units": "kg N2O"
+          },
+          "methodModel": {
+            "@type": "Term",
+            "name": "IPCC (2006)",
+            "termType": "model",
+            "@id": "ipcc2006"
+          },
+          "methodTier": "tier 1",
+          "value": [
+            2.1621621621621623
+          ],
+          "@type": "Emission"
+        }
+      ],
+      "@type": "Transformation"
+    }
+  ],
+  "dataPrivate": false,
+  "name": "Pig - Germany - 2004",
+  "schemaVersion": "30.4.0",
+  "originalId": "Hirschfeld_13"
+}

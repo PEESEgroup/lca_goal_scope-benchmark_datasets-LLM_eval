@@ -1,0 +1,732 @@
+{
+  "@context": "https://contribute.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2025-03-10",
+  "updatedAt": "2025-03-11",
+  "@id": "8td870mkxk0q",
+  "@type": "Cycle",
+  "description": "No cows or heifers obtained feed through grazing in either season",
+  "numberOfCycles": 245,
+  "startDate": "2017",
+  "startDateDefinition": "start of year",
+  "endDate": "2018",
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "xtl1udsgt58g",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "4o85q6a1k0ih",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Farm survey conducted to collect data",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, fresh forage",
+        "termType": "forage",
+        "@id": "genericGrassFreshForage",
+        "units": "kg"
+      },
+      "value": [
+        13.3668
+      ],
+      "sd": [
+        48.8489
+      ],
+      "statsDefinition": "cycles",
+      "description": "Grazing (natural pasture)",
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "forage",
+        "name": "Elephant grass, fresh forage",
+        "units": "kg",
+        "@id": "elephantGrassFreshForage"
+      },
+      "value": [
+        920.824
+      ],
+      "sd": [
+        194.694
+      ],
+      "statsDefinition": "cycles",
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "forage",
+        "name": "Rhodes grass, fresh forage",
+        "units": "kg",
+        "@id": "rhodesGrassFreshForage"
+      },
+      "value": [
+        342.3386
+      ],
+      "sd": [
+        159.614
+      ],
+      "statsDefinition": "cycles",
+      "description": "Other grasses too, which include Kikuyu grass and Star grass",
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Maize, silage",
+        "units": "kg",
+        "@id": "maizeSilage"
+      },
+      "value": [
+        1128.752
+      ],
+      "sd": [
+        216.619
+      ],
+      "statsDefinition": "cycles",
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "forage",
+        "name": "Calliandra, fresh forage",
+        "units": "kg",
+        "@id": "calliandraFreshForage"
+      },
+      "value": [
+        1373.81
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Have split amount of 'protein supplement' equally between 3 different forages",
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed, unspecified",
+        "termType": "processedFood",
+        "@id": "concentrateFeedUnspecified",
+        "units": "kg"
+      },
+      "value": [
+        364.2453
+      ],
+      "sd": [
+        91.208
+      ],
+      "statsDefinition": "cycles",
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Maize, grain",
+        "units": "kg",
+        "@id": "maizeGrain"
+      },
+      "value": [
+        132.9254
+      ],
+      "sd": [
+        66.3889
+      ],
+      "statsDefinition": "cycles",
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "feedFoodAdditive",
+        "name": "Minerals, unspecified",
+        "units": "kg",
+        "@id": "mineralsUnspecified"
+      },
+      "value": [
+        188.9917
+      ],
+      "sd": [
+        84.192
+      ],
+      "statsDefinition": "cycles",
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Oat, bran",
+        "units": "kg",
+        "@id": "oatBran"
+      },
+      "description": "Mix of oat residue, sweet potato vine, banana residues, weeds etc.",
+      "value": [
+        590.367
+      ],
+      "sd": [
+        171.015
+      ],
+      "statsDefinition": "cycles",
+      "isAnimalFeed": true,
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Have modelled as oat residue but is a mixture of oat residue, sweet potato vine, banana residues, weeds etc.",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "forage",
+        "name": "Greenleaf desmodium, fresh forage",
+        "units": "kg",
+        "@id": "greenleafDesmodiumFreshForage"
+      },
+      "value": [
+        1373.8100000000002
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Have split amount of 'protein supplement' equally between 3 different forages",
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "forage",
+        "name": "Hedge lucerne, fresh forage",
+        "units": "kg",
+        "@id": "hedgeLucerneFreshForage"
+      },
+      "value": [
+        1373.8100000000002
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Have split amount of 'protein supplement' equally between 3 different forages",
+      "isAnimalFeed": true,
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Holstein Friesian (cattle breed)",
+        "termType": "animalBreed",
+        "@id": "holsteinFriesianCattleBreed",
+        "units": "%"
+      },
+      "value": [
+        74.03055229
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Ayrshire",
+        "termType": "animalBreed",
+        "@id": "ayrshire",
+        "units": "%"
+      },
+      "value": [
+        16.56874266
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Jersey (cattle breed)",
+        "termType": "animalBreed",
+        "@id": "jerseyCattleBreed",
+        "units": "%"
+      },
+      "value": [
+        2.937720329
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Guernsey (cattle breed)",
+        "termType": "animalBreed",
+        "@id": "guernseyCattleBreed",
+        "units": "%"
+      },
+      "value": [
+        2.467685076
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Sahiwal (cattle breed)",
+        "termType": "animalBreed",
+        "@id": "sahiwalCattleBreed",
+        "units": "%"
+      },
+      "value": [
+        0.1175088132
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Boran",
+        "termType": "animalBreed",
+        "@id": "boran",
+        "units": "%"
+      },
+      "value": [
+        0.1175088132
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Zebu",
+        "termType": "animalBreed",
+        "@id": "zebu",
+        "units": "%"
+      },
+      "value": [
+        0.3525264395
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Indoor animal system",
+        "termType": "system",
+        "@id": "indoorAnimalSystem",
+        "units": "%"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow (lactating)",
+        "units": "number",
+        "@id": "dairyCattleCowLactating"
+      },
+      "animalId": "1",
+      "referencePeriod": "average",
+      "value": 1.8,
+      "sd": 1.1,
+      "statsDefinition": "cycles",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 372,
+          "sd": 65.8,
+          "statsDefinition": "cycles",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "property",
+            "name": "Age at first delivery",
+            "units": "days",
+            "@id": "ageAtFirstDelivery"
+          },
+          "value": 810,
+          "sd": 120,
+          "statsDefinition": "cycles",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "practices": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "animalManagement",
+            "name": "Milk yield per cow (FPCM)",
+            "units": "kg / day",
+            "@id": "milkYieldPerCowFpcm"
+          },
+          "value": [
+            7.3
+          ],
+          "sd": [
+            4.1
+          ],
+          "statsDefinition": "cycles",
+          "@type": "Practice"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, heifer",
+        "units": "number",
+        "@id": "dairyCattleHeifer"
+      },
+      "animalId": "2",
+      "referencePeriod": "average",
+      "value": 0.6,
+      "sd": 0.8,
+      "statsDefinition": "cycles",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight gain",
+            "termType": "property",
+            "@id": "liveweightGain",
+            "units": "kg liveweight / head / day"
+          },
+          "value": 0.26,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, calf",
+        "units": "number",
+        "@id": "dairyCattleCalf"
+      },
+      "animalId": "3",
+      "referencePeriod": "average",
+      "value": 0.7,
+      "sd": 0.9,
+      "statsDefinition": "cycles",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight gain",
+            "termType": "property",
+            "@id": "liveweightGain",
+            "units": "kg liveweight / head / day"
+          },
+          "value": 0.38,
+          "methodClassification": "estimated with assumptions",
+          "methodClassificationDescription": "Average of male and female calf daily liveweight gain",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, steer",
+        "units": "number",
+        "@id": "dairyCattleSteer"
+      },
+      "animalId": "4",
+      "referencePeriod": "average",
+      "value": 0.1,
+      "sd": 0.4,
+      "statsDefinition": "cycles",
+      "@type": "Animal"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture/Range/Paddock (excreta management)",
+        "termType": "excretaManagement",
+        "@id": "pastureRangePaddockExcretaManagement"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 0.9,
+      "transformationId": "1",
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Solid storage",
+        "termType": "excretaManagement",
+        "@id": "solidStorage"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 62.8,
+      "transformationId": "2",
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Dry lot",
+        "termType": "excretaManagement",
+        "@id": "dryLot"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 4.8,
+      "transformationId": "3",
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Daily spread",
+        "termType": "excretaManagement",
+        "@id": "dailySpread"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 11.8,
+      "transformationId": "4",
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Composting, passive windrow, without runoff/leaching containment",
+        "termType": "excretaManagement",
+        "@id": "compostingPassiveWindrowWithoutRunoffLeachingContainment"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 12.5,
+      "transformationId": "5",
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Liquid/Slurry, with cover",
+        "termType": "excretaManagement",
+        "@id": "liquidSlurryWithCover"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 1.6,
+      "transformationId": "6",
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Anaerobic digester, unspecified",
+        "termType": "excretaManagement",
+        "@id": "anaerobicDigesterUnspecified"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 4.8,
+      "transformationId": "7",
+      "@type": "Transformation"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Milk, cow, raw (FPCM)",
+        "units": "kg FPCM",
+        "@id": "milkCowRawFpcm"
+      },
+      "value": [
+        4782.6
+      ],
+      "sd": [
+        94.74542065
+      ],
+      "statsDefinition": "cycles",
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, dairy cattle (kg mass)",
+        "units": "kg",
+        "@id": "excretaDairyCattleKgMass"
+      },
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, dairy cattle (liveweight)",
+        "units": "kg liveweight",
+        "@id": "meatDairyCattleLiveweight"
+      },
+      "value": [
+        380.0741722
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Estimated using AR equation from Thoma et al. for biophysical AR between meat and milk",
+      "@type": "Product"
+    }
+  ],
+  "emissions": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CH4, to air, enteric fermentation",
+        "termType": "emission",
+        "@id": "ch4ToAirEntericFermentation",
+        "units": "kg CH4"
+      },
+      "value": [
+        1.25466
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2006)",
+        "termType": "model",
+        "@id": "ipcc2006"
+      },
+      "methodTier": "tier 2",
+      "@type": "Emission"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "transport": false,
+    "material": false,
+    "fertiliser": false,
+    "seed": false,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": false,
+    "water": false,
+    "product": false,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "freshForage": true,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Milk, cow, raw (FPCM) - Kenya - 2018 - No cows or heifers obtained fe...",
+  "schemaVersion": "30.7.0",
+  "originalId": "zero_grazing"
+}

@@ -1,0 +1,648 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-02-22",
+  "updatedAt": "2025-01-22",
+  "@id": "dvqz7dqmrihh",
+  "@type": "Cycle",
+  "numberOfCycles": 25,
+  "endDate": "2016",
+  "cycleDuration": 365,
+  "startDateDefinition": "start of year",
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "qxnrlu27y2fk",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "vxjctf4iuqg3",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Data from 25 farms collected for one production year (2015-2016)",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed blend",
+        "termType": "processedFood",
+        "@id": "concentrateFeedBlend",
+        "units": "kg"
+      },
+      "value": [
+        644103
+      ],
+      "isAnimalFeed": true,
+      "sd": [
+        172.4622857
+      ],
+      "min": [
+        113421
+      ],
+      "max": [
+        7577600
+      ],
+      "statsDefinition": "cycles",
+      "impactAssessment": {
+        "@id": "8qy19imkujay",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": true,
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, lorry",
+            "units": "tkm",
+            "@id": "freightLorry"
+          },
+          "value": 19323.09,
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Maize, silage",
+        "units": "kg",
+        "@id": "maizeSilage"
+      },
+      "value": [
+        444447
+      ],
+      "isAnimalFeed": true,
+      "sd": [
+        135.0740538
+      ],
+      "min": [
+        75075
+      ],
+      "max": [
+        5905200
+      ],
+      "statsDefinition": "cycles",
+      "impactAssessment": {
+        "@id": "ek6jufpb3kuh",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": true,
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, lorry",
+            "units": "tkm",
+            "@id": "freightLorry"
+          },
+          "value": 3555.576,
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Maize, straw silage",
+        "units": "kg",
+        "@id": "maizeStrawSilage"
+      },
+      "value": [
+        18585
+      ],
+      "isAnimalFeed": true,
+      "sd": [
+        69.50453223
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        556850
+      ],
+      "statsDefinition": "cycles",
+      "impactAssessment": {
+        "@id": "ofeiwzektmfx",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Ash content",
+            "termType": "property",
+            "@id": "ashContent",
+            "units": "%"
+          },
+          "value": 7,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Crude protein content",
+            "termType": "property",
+            "@id": "crudeProteinContent",
+            "units": "%"
+          },
+          "value": 6,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Phosphorus content (as P)",
+            "termType": "property",
+            "@id": "phosphorusContentAsP",
+            "units": "%"
+          },
+          "value": 0.27,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Energy digestibility, ruminants",
+            "termType": "property",
+            "@id": "energyDigestibilityRuminants",
+            "units": "%"
+          },
+          "value": 67.7,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, lorry",
+            "units": "tkm",
+            "@id": "freightLorry"
+          },
+          "value": 1392.125,
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Alfalfa, hay",
+        "units": "kg",
+        "@id": "alfalfaHay"
+      },
+      "value": [
+        97173
+      ],
+      "isAnimalFeed": true,
+      "sd": [
+        70.91318636
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        789950
+      ],
+      "statsDefinition": "cycles",
+      "impactAssessment": {
+        "@id": "o2mf5qy_tu4u",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": true,
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, lorry",
+            "units": "tkm",
+            "@id": "freightLorry"
+          },
+          "value": 181130.472,
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "forage",
+        "name": "Chinese rye grass, fresh forage",
+        "units": "kg",
+        "@id": "chineseRyeGrassFreshForage"
+      },
+      "value": [
+        187443
+      ],
+      "isAnimalFeed": true,
+      "sd": [
+        81.90848552
+      ],
+      "min": [
+        21021
+      ],
+      "max": [
+        1633550
+      ],
+      "statsDefinition": "cycles",
+      "impactAssessment": {
+        "@id": "idtmk5f3zpy8",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": true,
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, lorry",
+            "units": "tkm",
+            "@id": "freightLorry"
+          },
+          "value": 400003.362,
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        156000
+      ],
+      "sd": [
+        85000
+      ],
+      "min": [
+        60000
+      ],
+      "max": [
+        329000
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Coal, unspecified",
+        "units": "kg",
+        "@id": "coalUnspecified"
+      },
+      "value": [
+        800
+      ],
+      "sd": [
+        2900
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        10000
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        5973.686
+      ],
+      "sd": [
+        2790.942
+      ],
+      "min": [
+        2132.473
+      ],
+      "max": [
+        13808
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, source unspecified",
+        "units": "m3",
+        "@id": "waterSourceUnspecified"
+      },
+      "value": [
+        24000
+      ],
+      "sd": [
+        2000
+      ],
+      "min": [
+        9000
+      ],
+      "max": [
+        70000
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Indoor animal system",
+        "termType": "system",
+        "@id": "indoorAnimalSystem",
+        "units": "%"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow (lactating)",
+        "units": "number",
+        "@id": "dairyCattleCowLactating"
+      },
+      "animalId": "1",
+      "value": 249.57,
+      "sd": 66.80000147,
+      "min": 80.85,
+      "max": 1128.5,
+      "statsDefinition": "cycles",
+      "referencePeriod": "average",
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle",
+        "units": "number",
+        "@id": "dairyCattle"
+      },
+      "animalId": "2",
+      "value": 281.43,
+      "referencePeriod": "average",
+      "@type": "Animal"
+    }
+  ],
+  "transformations": [
+    {
+      "transformationId": "1",
+      "term": {
+        "@type": "Term",
+        "name": "Composting, static pile, without runoff/leaching containment",
+        "termType": "excretaManagement",
+        "@id": "compostingStaticPileWithoutRunoffLeachingContainment"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "products": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "organicFertiliser",
+            "name": "Cattle, solid manure, fresh (kg mass)",
+            "units": "kg",
+            "@id": "cattleSolidManureFreshKgMass"
+          },
+          "methodClassification": "estimated with assumptions",
+          "methodClassificationDescription": "Have assumed the composting method to be Composting, static pile.",
+          "@type": "Product"
+        }
+      ],
+      "description": "40% of manure after composting is assumed to be discharged. This is not specifically captured in the transformation.",
+      "@type": "Transformation"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Milk, cow, raw (FPCM)",
+        "units": "kg FPCM",
+        "@id": "milkCowRawFpcm"
+      },
+      "value": [
+        1779933.24
+      ],
+      "primary": true,
+      "price": 3.8,
+      "currency": "CNY",
+      "economicValueShare": 95,
+      "sd": [
+        245.7634017
+      ],
+      "min": [
+        384280.05
+      ],
+      "max": [
+        10333674.5
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow",
+        "units": "number",
+        "@id": "dairyCattleCow"
+      },
+      "value": [
+        51
+      ],
+      "sd": [
+        47
+      ],
+      "min": [
+        12
+      ],
+      "max": [
+        200
+      ],
+      "price": 5500,
+      "currency": "CNY",
+      "economicValueShare": 5,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 550,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, calf",
+        "units": "number",
+        "@id": "dairyCattleCalf"
+      },
+      "value": [
+        124
+      ],
+      "sd": [
+        73
+      ],
+      "min": [
+        43
+      ],
+      "max": [
+        370
+      ],
+      "statsDefinition": "cycles",
+      "price": 500,
+      "currency": "CNY",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 38,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, dairy cattle (kg mass)",
+        "units": "kg",
+        "@id": "excretaDairyCattleKgMass"
+      },
+      "@type": "Product"
+    }
+  ],
+  "emissions": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CH4, to air, enteric fermentation",
+        "termType": "emission",
+        "@id": "ch4ToAirEntericFermentation",
+        "units": "kg CH4"
+      },
+      "value": [
+        47074.55016
+      ],
+      "methodTier": "tier 2",
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2006)",
+        "termType": "model",
+        "@id": "ipcc2006"
+      },
+      "description": "Calculated from the contribution of CH4 enteric to GWP100 (50-55% contribution).",
+      "@type": "Emission"
+    }
+  ],
+  "completeness": {
+    "transport": true,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": true,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "animalPopulation": false,
+    "waste": false,
+    "operation": false,
+    "freshForage": true,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": true,
+    "electricityFuel": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Milk, cow, raw (FPCM) - China - 2016",
+  "schemaVersion": "30.5.0",
+  "originalId": "milk_production"
+}

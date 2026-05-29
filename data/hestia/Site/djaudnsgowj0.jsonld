@@ -1,0 +1,45 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Site.jsonld",
+  "createdAt": "2024-01-17",
+  "updatedAt": "2024-12-03",
+  "@id": "djaudnsgowj0",
+  "@type": "Site",
+  "defaultSource": {
+    "@id": "c3c-fbwxy2mp",
+    "@type": "Source"
+  },
+  "siteType": "permanent pasture",
+  "country": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Australia",
+    "@id": "GADM-AUS"
+  },
+  "region": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "South Australia",
+    "@id": "GADM-AUS.8_1"
+  },
+  "area": 16056,
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "CSF data were obtained from three farms surveyed as part of the study, producing export weight first- or second-cross lambs from meat breed or Merino ewe flocks. Production data were accessed from detailed farm records, and verified through discussions with farmers at each CSF.",
+  "management": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Improved pasture",
+        "units": "% area",
+        "@id": "improvedPasture"
+      },
+      "value": 100,
+      "endDate": "2012",
+      "@type": "Management"
+    }
+  ],
+  "dataPrivate": false,
+  "name": "Permanent pasture - South Australia",
+  "schemaVersion": "30.3.2",
+  "originalId": "SA_CSF_Pastureland"
+}

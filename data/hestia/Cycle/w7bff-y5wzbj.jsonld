@@ -1,0 +1,556 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2023-09-28",
+  "updatedAt": "2025-01-22",
+  "@id": "w7bff-y5wzbj",
+  "@type": "Cycle",
+  "description": "Mountainous Farms - representative of farms located in Alpine mountain areas that produce milk destined for the Trentingrana cheese making. For this farm system, silage feed was not allowed. The cattle were fed without silage feed and protein ingredients, but mainly with forage and compound feed, with small amounts of alfalfa and corn feed. The herd grazed for four months during the summer season, except for the calves.",
+  "endDate": "2019",
+  "cycleDuration": 365,
+  "startDateDefinition": "one year prior",
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "dfhm030cs0b1",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "jix42tsxvioy",
+    "@type": "Source"
+  },
+  "dataPrivate": false,
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "The surveys were conducted by compiling a questionnaire with farmers, and data collected referred to one year of production. The questionnaire for the Dairy Farm collected activity data on farm characteristics, input, milk productivity and feed management system, including crop production and feed choices (type and quantity of crop cultivated, type and quantity of purchased feed, presence of silage).",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        6978
+      ],
+      "min": [
+        3869
+      ],
+      "max": [
+        9573
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        2740.025
+      ],
+      "min": [
+        881.986
+      ],
+      "max": [
+        6061.712
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Liquefied petroleum gases (LPG)",
+        "units": "kg",
+        "@id": "liquefiedPetroleumGasesLpg"
+      },
+      "value": [
+        86.821
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        347.837
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, source unspecified",
+        "units": "m3",
+        "@id": "waterSourceUnspecified"
+      },
+      "value": [
+        668
+      ],
+      "max": [
+        1100
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, fresh forage",
+        "termType": "forage",
+        "@id": "genericGrassFreshForage",
+        "units": "kg"
+      },
+      "value": [
+        3005.48
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        15027.4
+      ],
+      "isAnimalFeed": true,
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Alfalfa, hay",
+        "units": "kg",
+        "@id": "alfalfaHay"
+      },
+      "value": [
+        21038.36
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        33811.65
+      ],
+      "isAnimalFeed": true,
+      "statsDefinition": "cycles",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Maize, grain",
+        "units": "kg",
+        "@id": "maizeGrain"
+      },
+      "value": [
+        9016.44
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        30806.17
+      ],
+      "isAnimalFeed": true,
+      "statsDefinition": "cycles",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, fresh forage",
+        "termType": "forage",
+        "@id": "genericGrassFreshForage",
+        "units": "kg"
+      },
+      "value": [
+        55940
+      ],
+      "min": [
+        55940
+      ],
+      "max": [
+        55940
+      ],
+      "producedInCycle": true,
+      "isAnimalFeed": true,
+      "statsDefinition": "cycles",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Cereal, straw",
+        "units": "kg",
+        "@id": "cerealStraw"
+      },
+      "value": [
+        94568.51
+      ],
+      "isAnimalFeed": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Lime",
+        "termType": "soilAmendment",
+        "@id": "lime",
+        "units": "kg CaCO3"
+      },
+      "value": [
+        130.54
+      ],
+      "isAnimalFeed": false,
+      "description": "bedding",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "soilAmendment",
+        "name": "Wood chip",
+        "units": "kg",
+        "@id": "woodChip"
+      },
+      "value": [
+        2687.95
+      ],
+      "isAnimalFeed": false,
+      "description": "bedding",
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalManagement",
+        "name": "Milk yield per cow (FPCM)",
+        "units": "kg / day",
+        "@id": "milkYieldPerCowFpcm"
+      },
+      "value": [
+        18.64
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Indoor animal system",
+        "termType": "system",
+        "@id": "indoorAnimalSystem",
+        "units": "%"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow (lactating)",
+        "units": "number",
+        "@id": "dairyCattleCowLactating"
+      },
+      "animalId": "1",
+      "referencePeriod": "average",
+      "value": 20,
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Concentrate feed blend",
+            "termType": "processedFood",
+            "@id": "concentrateFeedBlend",
+            "units": "kg"
+          },
+          "value": [
+            43151.25365
+          ],
+          "impactAssessment": {
+            "@id": "pyinnamko21_",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": true,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow (dry)",
+        "units": "number",
+        "@id": "dairyCattleCowDry"
+      },
+      "animalId": "2",
+      "referencePeriod": "average",
+      "value": 5,
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, heifer",
+        "units": "number",
+        "@id": "dairyCattleHeifer"
+      },
+      "animalId": "3",
+      "referencePeriod": "average",
+      "value": 11,
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, calf (female)",
+        "units": "number",
+        "@id": "dairyCattleCalfFemale"
+      },
+      "animalId": "4",
+      "referencePeriod": "average",
+      "value": 2,
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Concentrate feed blend",
+            "termType": "processedFood",
+            "@id": "concentrateFeedBlend",
+            "units": "kg"
+          },
+          "value": [
+            770.4286857
+          ],
+          "impactAssessment": {
+            "@id": "r8yubawd0lry",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": true,
+          "isAnimalFeed": true,
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pit storage below animal confinements",
+        "termType": "excretaManagement",
+        "@id": "pitStorageBelowAnimalConfinements"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "value": [
+            770790
+          ],
+          "@type": "Input"
+        }
+      ],
+      "transformationId": "1",
+      "transformationDuration": 98.34215545,
+      "products": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "@type": "Product"
+        }
+      ],
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Periodic spread",
+        "termType": "excretaManagement",
+        "@id": "periodicSpread"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "transformationId": "2",
+      "previousTransformationId": "1",
+      "@type": "Transformation"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Milk, cow, raw (FPCM)",
+        "units": "kg FPCM",
+        "@id": "milkCowRawFpcm"
+      },
+      "value": [
+        134000
+      ],
+      "primary": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Crude protein content",
+            "termType": "property",
+            "@id": "crudeProteinContent",
+            "units": "%"
+          },
+          "value": 3.4,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "property",
+            "name": "Fat content",
+            "units": "%",
+            "@id": "fatContent"
+          },
+          "value": 3.99,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, dairy cattle (liveweight)",
+        "units": "kg liveweight",
+        "@id": "meatDairyCattleLiveweight"
+      },
+      "value": [
+        3451
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, dairy cattle (kg mass)",
+        "units": "kg",
+        "@id": "excretaDairyCattleKgMass"
+      },
+      "value": [
+        770790
+      ],
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": true,
+    "product": true,
+    "cropResidue": true,
+    "excreta": true,
+    "animalFeed": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "freshForage": true,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "name": "Milk, cow, raw (FPCM) - Italy - 2019 - Mountainous Farms - representa...",
+  "schemaVersion": "30.5.0",
+  "originalId": "MF"
+}

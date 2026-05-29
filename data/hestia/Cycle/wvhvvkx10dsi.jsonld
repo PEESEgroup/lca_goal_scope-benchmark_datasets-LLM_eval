@@ -1,0 +1,311 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-02-09",
+  "updatedAt": "2025-01-23",
+  "@id": "wvhvvkx10dsi",
+  "@type": "Cycle",
+  "description": "15MO treatment where at the end of their treatment, Bulls are finished indoors on a concentrate ad libitum diet for 200 days and slaughtered at 15 months of age - (this is the pre-treatment/ background phase before experiment starts)",
+  "endDate": "2013",
+  "numberOfCycles": 1,
+  "cycleDuration": 190,
+  "startDateDefinition": "stocking date",
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "mmr2rjw1zuxp",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "bjlulokiutoa",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "physical measurement",
+  "defaultMethodClassificationDescription": "Experimental study with data collected throughout for inputs and outputs",
+  "treatment": "15MO treatment where at the end of their treatment, Bulls are finished indoors on a concentrate ad libitum diet for 200 days and slaughtered at 15 months of age - (this is the pre-treatment/ background phase before experiment starts)",
+  "commercialPracticeTreatment": true,
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, calf (male, weaned)",
+        "units": "number",
+        "@id": "beefCattleCalfMaleWeaned"
+      },
+      "animalId": "1",
+      "value": 30,
+      "referencePeriod": "start of Cycle",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 94,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight gain",
+            "termType": "property",
+            "@id": "liveweightGain",
+            "units": "kg liveweight / head / day"
+          },
+          "value": 0.87,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "value": 84,
+          "sd": 31.7,
+          "statsDefinition": "cycles",
+          "description": "Have back calculated the age at which calves start the experiment, using cycleDurations for each segment of the cycle",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    }
+  ],
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed blend",
+        "termType": "processedFood",
+        "@id": "concentrateFeedBlend",
+        "units": "kg"
+      },
+      "value": [
+        5700
+      ],
+      "isAnimalFeed": true,
+      "impactAssessment": {
+        "@id": "vc6onnvuuggd",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, calf (male, weaned)",
+        "units": "number",
+        "@id": "beefCattleCalfMaleWeaned"
+      },
+      "value": [
+        30
+      ],
+      "description": "Calves were artificially weaned onsite for 50 days",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 80,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "value": 37,
+          "sd": 31.7,
+          "statsDefinition": "other observations",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture grass",
+        "termType": "landUseManagement",
+        "@id": "pastureGrass",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "key": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Ryegrass plant",
+        "units": "% area",
+        "@id": "ryegrassPlant"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Rotational grazing",
+        "termType": "landUseManagement",
+        "@id": "rotationalGrazing",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Stocking density, permanent pasture (average)",
+        "termType": "animalManagement",
+        "@id": "stockingDensityPermanentPastureAverage",
+        "units": "animals / m2"
+      },
+      "value": [
+        0.0008589671737
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "system",
+        "name": "Confined pasture system",
+        "units": "%",
+        "@id": "confinedPastureSystem"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, calf (male, weaned)",
+        "units": "number",
+        "@id": "beefCattleCalfMaleWeaned"
+      },
+      "value": [
+        30
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 246,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, beef cattle, except feedlot fed (kg mass)",
+        "units": "kg",
+        "@id": "excretaBeefCattleExceptFeedlotFedKgMass"
+      },
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture/Range/Paddock (excreta management)",
+        "termType": "excretaManagement",
+        "@id": "pastureRangePaddockExcretaManagement"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, beef cattle, except feedlot fed (kg mass)",
+            "units": "kg",
+            "@id": "excretaBeefCattleExceptFeedlotFedKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "transformationId": "1",
+      "@type": "Transformation"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "transport": true,
+    "material": false,
+    "fertiliser": true,
+    "seed": false,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": false,
+    "water": false,
+    "product": true,
+    "cropResidue": false,
+    "excreta": false,
+    "animalFeed": false,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": true,
+    "freshForage": false,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Beef cattle, calf (male, weaned) - Ireland - 2013 - 15MO treatment where... - 15MO treatment where at the en...",
+  "schemaVersion": "30.5.0",
+  "originalId": "(15MO) Pre-treatment (pasture)"
+}

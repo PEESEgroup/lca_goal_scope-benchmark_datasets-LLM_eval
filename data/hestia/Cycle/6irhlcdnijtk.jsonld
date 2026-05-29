@@ -1,0 +1,382 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-01-17",
+  "updatedAt": "2025-01-22",
+  "@id": "6irhlcdnijtk",
+  "@type": "Cycle",
+  "description": "Organic egg production cycle",
+  "numberOfCycles": 1,
+  "endDate": "2018",
+  "cycleDuration": 518,
+  "functionalUnit": "relative",
+  "startDateDefinition": "first bearing year",
+  "site": {
+    "@id": "bhcobp9ypbxd",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "cfp6wacgorql",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Data collected from farm by authors",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        7.535
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Paper",
+        "termType": "material",
+        "@id": "paper",
+        "units": "kg"
+      },
+      "value": [
+        718.2
+      ],
+      "description": "Egg bucket (pulped paper)",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Brick",
+        "termType": "material",
+        "@id": "brick",
+        "units": "kg"
+      },
+      "value": [
+        10
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, harvested rainfall",
+        "units": "m3",
+        "@id": "waterHarvestedRainfall"
+      },
+      "value": [
+        46.17341
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pesticide unspecified (AI)",
+        "termType": "pesticideAI",
+        "@id": "pesticideUnspecifiedAi",
+        "units": "kg active ingredient"
+      },
+      "value": [
+        109.5
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Cleaning products consisted of Aloe vera, ash extract, water, iodine",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "pesticideAI",
+        "name": "Iodine",
+        "units": "kg active ingredient",
+        "@id": "CAS-7553-56-2"
+      },
+      "value": [
+        0.38
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Barley, grain (whole)",
+        "units": "kg",
+        "@id": "barleyGrainWhole"
+      },
+      "value": [
+        1373.7
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "The birds' feed from the moment they arrive at the farm until they leave for the processing plant is made up of 20% concentrate (composed of corn, beans, fat, ash, salt, phosphorus, calcium) and 80% alternative feed. This alternative diet is the combination of several foods grown on the same farm in an agroecological way, such as balú, elderberry, green corn, grass and eggshells, which are fed into a chopping machine that runs on diesel.",
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Maize, grain",
+        "units": "kg",
+        "@id": "maizeGrain"
+      },
+      "value": [
+        686.8
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "The birds' feed from the moment they arrive at the farm until they leave for the processing plant is made up of 20% concentrate (composed of corn, beans, fat, ash, salt, phosphorus, calcium) and 80% alternative feed. This alternative diet is the combination of several foods grown on the same farm in an agroecological way, such as balú, elderberry, green corn, grass and eggshells, which are fed into a chopping machine that runs on diesel.",
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Cauliflower, head",
+        "units": "kg",
+        "@id": "cauliflowerHead"
+      },
+      "value": [
+        686.9
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Layer chicken, pullet",
+        "units": "number",
+        "@id": "layerChickenPullet"
+      },
+      "value": [
+        350
+      ],
+      "isAnimalFeed": false,
+      "impactAssessment": {
+        "@id": "dgszlrdpecin",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, produced on-site, solar PV",
+        "termType": "electricity",
+        "@id": "electricityProducedOnSiteSolarPv",
+        "units": "kWh"
+      },
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Hy-Line Brown",
+        "termType": "animalBreed",
+        "@id": "hyLineBrown",
+        "units": "%"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Free range system",
+        "termType": "system",
+        "@id": "freeRangeSystem",
+        "units": "%"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Organic",
+        "termType": "standardsLabels",
+        "@id": "organic",
+        "units": "boolean"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Layer chicken, pullet",
+        "units": "number",
+        "@id": "layerChickenPullet"
+      },
+      "animalId": "1",
+      "value": 33.10810811,
+      "referencePeriod": "average",
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Layer chicken, hen",
+        "units": "number",
+        "@id": "layerChickenHen"
+      },
+      "animalId": "2",
+      "value": 316.8918919,
+      "referencePeriod": "average",
+      "@type": "Animal"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Composting, unspecified",
+        "termType": "excretaManagement",
+        "@id": "compostingUnspecified"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, poultry (kg mass)",
+            "units": "kg",
+            "@id": "excretaPoultryKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "transformationId": "1",
+      "products": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "organicFertiliser",
+            "name": "Chicken (layers), solid manure, dry (kg mass)",
+            "units": "kg",
+            "@id": "chickenLayersSolidManureDryKgMass"
+          },
+          "@type": "Product"
+        }
+      ],
+      "@type": "Transformation"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Eggs, hen, in shell",
+        "units": "kg",
+        "@id": "eggsHenInShell"
+      },
+      "value": [
+        9979.02
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, poultry (kg mass)",
+        "units": "kg",
+        "@id": "excretaPoultryKgMass"
+      },
+      "value": [
+        1121
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Layer chicken",
+        "units": "number",
+        "@id": "layerChicken"
+      },
+      "value": [
+        350
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 2.028571429,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "value": 630,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": true,
+    "soilAmendment": true,
+    "water": true,
+    "product": true,
+    "cropResidue": true,
+    "excreta": true,
+    "animalFeed": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "freshForage": true,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Eggs, hen, in shell - Guaduas, Colombia - 2018 - Organic egg production cycle",
+  "schemaVersion": "30.5.0",
+  "originalId": "EP"
+}

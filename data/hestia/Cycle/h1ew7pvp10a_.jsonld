@@ -1,0 +1,511 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-05-02",
+  "updatedAt": "2024-12-06",
+  "@id": "h1ew7pvp10a_",
+  "@type": "Cycle",
+  "description": "Annual cycle of transhumant lamb farm in Albarracin (transhumance of herd to summer farm carried out on foot)",
+  "endDate": "2009",
+  "startDateDefinition": "one year prior",
+  "cycleDuration": 365,
+  "functionalUnit": "relative",
+  "functionalUnitDetails": "Annual production",
+  "site": {
+    "@id": "6azi0wxyas75",
+    "@type": "Site"
+  },
+  "siteArea": 568.1020733652313,
+  "defaultSource": {
+    "@id": "av57dkzgzdv6",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "The selected farms were analyzed by field investigation, through several visits and personal interviews with farmers, involving an accompanying walk during their journey in the case of herds that practiced transhumance on foot. The latter was done to make sure selected herds were actually migrating on foot. Building on such opportunities, structured farmer surveys were conducted that allowed the quantification of main farm inputs, such as feeds and forages used, or fuel consumption, as well as the obtention of a precise description of the herd structure (animal classes), productivity parameters (e.g., replacement rate, lamb mortality rate), and main management practices (e.g., grazing practices, manure management, transhumance type, and period). Farm outputs such as lambs sold, culled sheep, or wool produced were registered from the information gathered in the survey, together with average price received by farmers from the different co-products.",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        647.25
+      ],
+      "operation": {
+        "@type": "Term",
+        "name": "Machinery use, operation unspecified",
+        "termType": "operation",
+        "@id": "machineryUseOperationUnspecified",
+        "units": "hour"
+      },
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Herd replacement rate",
+        "termType": "animalManagement",
+        "@id": "herdReplacementRate",
+        "units": "%"
+      },
+      "value": [
+        13
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture grass",
+        "termType": "landUseManagement",
+        "@id": "pastureGrass",
+        "units": "% area"
+      },
+      "key": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Generic grass plant",
+        "units": "% area",
+        "@id": "genericGrassPlant"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Stocking density, permanent pasture (average)",
+        "termType": "animalManagement",
+        "@id": "stockingDensityPermanentPastureAverage",
+        "units": "animals / m2"
+      },
+      "value": [
+        0.00014986337219547276
+      ],
+      "description": "Value is an average across all sheep farms in the study",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Merino",
+        "termType": "animalBreed",
+        "@id": "merino",
+        "units": "%"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Hilly pasture system",
+        "termType": "system",
+        "@id": "hillyPastureSystem",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Sheep, ewe",
+        "units": "number",
+        "@id": "sheepEwe"
+      },
+      "animalId": "Ewes",
+      "value": 601,
+      "referencePeriod": "average",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Concentrate feed blend",
+            "termType": "processedFood",
+            "@id": "concentrateFeedBlend",
+            "units": "kg"
+          },
+          "isAnimalFeed": true,
+          "value": [
+            32454
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "ul-4fqzphnwx",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "crop",
+            "name": "Generic crop, straw",
+            "units": "kg",
+            "@id": "genericCropStraw"
+          },
+          "isAnimalFeed": true,
+          "value": [
+            6611
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, fresh forage",
+            "termType": "forage",
+            "@id": "genericGrassFreshForage",
+            "units": "kg"
+          },
+          "isAnimalFeed": true,
+          "producedInCycle": true,
+          "value": [
+            147846
+          ],
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "@type": "Input"
+        }
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Interbirth interval",
+            "termType": "property",
+            "@id": "interbirthInterval",
+            "units": "days"
+          },
+          "value": 243.33333333333334,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Sheep, lamb",
+        "units": "number",
+        "@id": "sheepLamb"
+      },
+      "animalId": "Lamb",
+      "value": 250.37692465753426,
+      "referencePeriod": "average",
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Estimated from the number of ewes given in study, using the replacement rate and the no. lambs sold/ewe. The lambs for slaughter are time-corrected using an estimated slaughter age (based on slaughter weight) of 90 days, whilst the lambs destined for replacement are assumed to live all year round. The final value has been adjusted for mortality (i.e. an average of the starting and ending number accounting for the deaths that occur inbetween).",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Mortality rate",
+            "termType": "property",
+            "@id": "mortalityRate",
+            "units": "%"
+          },
+          "value": 10,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Slaughter age",
+            "termType": "property",
+            "@id": "slaughterAge",
+            "units": "days"
+          },
+          "value": 90,
+          "methodClassification": "estimated with assumptions",
+          "methodClassificationDescription": "Estimated slaughter age of 90 days based on slaughter weight of 26kg.",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Concentrate feed blend",
+            "termType": "processedFood",
+            "@id": "concentrateFeedBlend",
+            "units": "kg"
+          },
+          "isAnimalFeed": true,
+          "value": [
+            1502.2615479452056
+          ],
+          "methodClassification": "estimated with assumptions",
+          "methodClassificationDescription": "For the lamb feeds (forage, straw and concentrate), we have assumed that the total annual intake values provided in the study are equal to what a lamb would consume if alive for a full year i.e. these values do not take into account that slaughter and mortality cut their lifespan shorter (these are taken into account in the average number of lambs, and therefore will be incorporated into total feed intake for all lambs).",
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "impactAssessment": {
+            "@id": "trkmej4_t6rh",
+            "@type": "ImpactAssessment"
+          },
+          "impactAssessmentIsProxy": false,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Generic grass, fresh forage",
+            "termType": "forage",
+            "@id": "genericGrassFreshForage",
+            "units": "kg"
+          },
+          "isAnimalFeed": true,
+          "producedInCycle": true,
+          "value": [
+            14772.238554794521
+          ],
+          "methodClassification": "estimated with assumptions",
+          "methodClassificationDescription": "For the lamb feeds (forage, straw and concentrate), we have assumed that the total annual intake values provided in the study are equal to what a lamb would consume if alive for a full year i.e. these values do not take into account that slaughter and mortality cut their lifespan shorter (these are taken into account in the average number of lambs, and therefore will be incorporated into total feed intake for all lambs).",
+          "properties": [
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Dry matter",
+                "termType": "property",
+                "@id": "dryMatter",
+                "units": "%"
+              },
+              "value": 100,
+              "share": 100,
+              "@type": "Property"
+            }
+          ],
+          "@type": "Input"
+        }
+      ],
+      "@type": "Animal"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Sheep, lamb",
+        "units": "number",
+        "@id": "sheepLamb"
+      },
+      "value": [
+        752
+      ],
+      "primary": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 26,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "price": 52,
+      "currency": "GBP",
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Sheep, ewe",
+        "units": "number",
+        "@id": "sheepEwe"
+      },
+      "value": [
+        60
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 55,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "price": 4,
+      "currency": "GBP",
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Wool, sheep (greasy)",
+        "units": "kg",
+        "@id": "woolSheepGreasy"
+      },
+      "value": [
+        1504
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, sheep (kg mass)",
+        "units": "kg",
+        "@id": "excretaSheepKgMass"
+      },
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "transformationId": "1",
+      "term": {
+        "@type": "Term",
+        "name": "Pasture/Range/Paddock (excreta management)",
+        "termType": "excretaManagement",
+        "@id": "pastureRangePaddockExcretaManagement"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, sheep (kg mass)",
+            "units": "kg",
+            "@id": "excretaSheepKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "@type": "Transformation"
+    }
+  ],
+  "emissions": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CH4, to air, excreta",
+        "termType": "emission",
+        "@id": "ch4ToAirExcreta",
+        "units": "kg CH4"
+      },
+      "value": [
+        0.07270588235294118
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2019)",
+        "termType": "model",
+        "@id": "ipcc2019"
+      },
+      "methodTier": "tier 1",
+      "@type": "Emission"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "ingredient": true,
+    "otherChemical": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": true,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "freshForage": true,
+    "liveAnimalInput": false,
+    "animalPopulation": false,
+    "waste": false,
+    "operation": false,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Sheep, lamb - Spain - 2009 - Annual cycle of transhumant la...",
+  "schemaVersion": "30.4.0",
+  "originalId": "THF 3"
+}

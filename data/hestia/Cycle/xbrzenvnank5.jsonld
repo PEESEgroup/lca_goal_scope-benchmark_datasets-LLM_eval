@@ -1,0 +1,693 @@
+{
+  "@context": "https://contribute.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-01-25",
+  "updatedAt": "2025-03-11",
+  "@id": "xbrzenvnank5",
+  "@type": "Cycle",
+  "treatment": "Background phase where weaned sucklers were fed on grass silage and supplementary barley-soybean meal-based concentrates during a 'background' phase before being assigned to one of two finishing stratergies.",
+  "commercialPracticeTreatment": true,
+  "startDate": "2014-10-01",
+  "startDateDefinition": "stocking date",
+  "endDate": "2015-04-06",
+  "cycleDuration": 187,
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "cook0stf33nt",
+    "@type": "Site"
+  },
+  "siteDuration": 126,
+  "otherSites": [
+    {
+      "@id": "nhhcddxbbhob",
+      "@type": "Site"
+    }
+  ],
+  "otherSitesDuration": [
+    61
+  ],
+  "defaultSource": {
+    "@id": "qprqdskyqqgi",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "physical measurement",
+  "defaultMethodClassificationDescription": "Data collected from Teagasc Grange Research Centre.",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed blend",
+        "termType": "processedFood",
+        "@id": "concentrateFeedBlend",
+        "units": "kg"
+      },
+      "value": [
+        12096
+      ],
+      "isAnimalFeed": true,
+      "impactAssessment": {
+        "@id": "grndojxiqxev",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, silage",
+        "termType": "crop",
+        "@id": "genericGrassSilage",
+        "units": "kg"
+      },
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Ad libitum feeding",
+            "termType": "property",
+            "@id": "adLibitumFeeding",
+            "units": "boolean"
+          },
+          "value": true,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, calf (weaned)",
+        "units": "number",
+        "@id": "beefCattleCalfWeaned"
+      },
+      "value": [
+        60
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 340,
+          "sd": 30.5,
+          "statsDefinition": "other observations",
+          "observations": 60,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "value": 212.8,
+          "methodClassification": "estimated with assumptions",
+          "methodClassificationDescription": "Born in March, they arrived at the farm in October.",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "dates": [
+        "2014-10-01"
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Charolais",
+        "termType": "animalBreed",
+        "@id": "charolais",
+        "units": "%"
+      },
+      "value": [
+        50
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Limousin",
+        "termType": "animalBreed",
+        "@id": "limousin",
+        "units": "%"
+      },
+      "value": [
+        50
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Stocking density, permanent pasture (average)",
+        "termType": "animalManagement",
+        "@id": "stockingDensityPermanentPastureAverage",
+        "units": "animals / m2"
+      },
+      "value": [
+        0.004054054054
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "We assumed calves graze in the same area where they then graze during the following season, when they are steers and bulls.",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Indoor animal system",
+        "termType": "system",
+        "@id": "indoorAnimalSystem",
+        "units": "%"
+      },
+      "value": [
+        67.37967914
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "system",
+        "name": "Confined pasture system",
+        "units": "%",
+        "@id": "confinedPastureSystem"
+      },
+      "value": [
+        32.62032086
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, calf (male, weaned)",
+        "units": "number",
+        "@id": "beefCattleCalfMaleWeaned"
+      },
+      "animalId": "1",
+      "value": 19.57219251,
+      "referencePeriod": "average",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "min": 212.8,
+          "max": 273.8,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "min": 340,
+          "max": 386,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight gain",
+            "termType": "property",
+            "@id": "liveweightGain",
+            "units": "kg liveweight / head / day"
+          },
+          "value": 0.7540983607,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, calf (uncastrated male, weaned)",
+        "units": "number",
+        "@id": "beefCattleCalfUncastratedMaleWeaned"
+      },
+      "animalId": "2",
+      "referencePeriod": "average",
+      "value": 14.63101604,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight gain",
+            "termType": "property",
+            "@id": "liveweightGain",
+            "units": "kg liveweight / head / day"
+          },
+          "value": 0.3962719298,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "min": 386,
+          "max": 422.14,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "min": 273.8,
+          "max": 365,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, calf (castrated male, weaned)",
+        "units": "number",
+        "@id": "beefCattleCalfCastratedMaleWeaned"
+      },
+      "animalId": "3",
+      "referencePeriod": "average",
+      "value": 14.63101604,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight gain",
+            "termType": "property",
+            "@id": "liveweightGain",
+            "units": "kg liveweight / head / day"
+          },
+          "value": 0.2561403509,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 386,
+          "max": 409.36,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "min": 273.8,
+          "max": 365,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, bull",
+        "units": "number",
+        "@id": "beefCattleBull"
+      },
+      "animalId": "4",
+      "referencePeriod": "average",
+      "value": 5.582887701,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight gain",
+            "termType": "property",
+            "@id": "liveweightGain",
+            "units": "kg liveweight / head / day"
+          },
+          "value": 0.7,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "min": 422.14,
+          "max": 446.5,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "min": 365,
+          "max": 399.8,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, steer",
+        "units": "number",
+        "@id": "beefCattleSteer"
+      },
+      "animalId": "5",
+      "referencePeriod": "average",
+      "value": 5.582887701,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight gain",
+            "termType": "property",
+            "@id": "liveweightGain",
+            "units": "kg liveweight / head / day"
+          },
+          "value": 0.55,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "min": 409.36,
+          "max": 428.5,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "min": 365,
+          "max": 399.8,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, steer",
+        "units": "number",
+        "@id": "beefCattleSteer"
+      },
+      "value": [
+        30
+      ],
+      "primary": true,
+      "economicValueShare": 50,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 428.5,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "value": 399.8,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, beef cattle, except feedlot fed (kg N)",
+        "units": "kg N",
+        "@id": "excretaBeefCattleExceptFeedlotFedKgN"
+      },
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, bull",
+        "units": "number",
+        "@id": "beefCattleBull"
+      },
+      "value": [
+        30
+      ],
+      "economicValueShare": 50,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "value": 399.8,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 446.5,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pit storage below animal confinements",
+        "termType": "excretaManagement",
+        "@id": "pitStorageBelowAnimalConfinements"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, beef cattle, except feedlot fed (kg N)",
+            "units": "kg N",
+            "@id": "excretaBeefCattleExceptFeedlotFedKgN"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 67.37967914,
+      "products": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, beef cattle, except feedlot fed (kg N)",
+            "units": "kg N",
+            "@id": "excretaBeefCattleExceptFeedlotFedKgN"
+          },
+          "@type": "Product"
+        }
+      ],
+      "transformationId": "1",
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Periodic spread",
+        "termType": "excretaManagement",
+        "@id": "periodicSpread"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, beef cattle, except feedlot fed (kg N)",
+            "units": "kg N",
+            "@id": "excretaBeefCattleExceptFeedlotFedKgN"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "transformationId": "2",
+      "previousTransformationId": "1",
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture/Range/Paddock (excreta management)",
+        "termType": "excretaManagement",
+        "@id": "pastureRangePaddockExcretaManagement"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, beef cattle, except feedlot fed (kg N)",
+            "units": "kg N",
+            "@id": "excretaBeefCattleExceptFeedlotFedKgN"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 32.62032086,
+      "transformationId": "3",
+      "@type": "Transformation"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": false,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "freshForage": false,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Beef cattle, steer - Meath, Ireland - 2015-04-06 - Background phase whe...",
+  "schemaVersion": "30.7.0",
+  "originalId": "Backgrounding_cycle"
+}

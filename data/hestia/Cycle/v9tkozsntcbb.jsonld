@@ -1,0 +1,321 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-02-09",
+  "updatedAt": "2024-12-03",
+  "@id": "v9tkozsntcbb",
+  "@type": "Cycle",
+  "description": "Sow and piglet",
+  "startDateDefinition": "stocking date",
+  "endDate": "2012",
+  "cycleDuration": 155.982905982906,
+  "numberOfCycles": 132,
+  "site": {
+    "@id": "2nk1hvqamldz",
+    "@type": "Site"
+  },
+  "functionalUnit": "relative",
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Recorded by us on the member farms and evaluated neutrally by the Schleswig-Holstein Chamber of Agriculture.",
+  "defaultSource": {
+    "@id": "zqnvvphzf99s",
+    "@type": "Source"
+  },
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig, sow",
+        "units": "number",
+        "@id": "pigSow"
+      },
+      "isAnimalFeed": false,
+      "value": [
+        0.43459800000000004
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Mortality rate",
+            "termType": "property",
+            "@id": "mortalityRate",
+            "units": "%"
+          },
+          "value": 7.7,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "property",
+            "name": "Live animals per birth",
+            "units": "number",
+            "@id": "liveAnimalsPerBirth"
+          },
+          "value": 13.9,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed blend",
+        "termType": "processedFood",
+        "@id": "concentrateFeedBlend",
+        "units": "kg"
+      },
+      "isAnimalFeed": true,
+      "value": [
+        2224
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Total animal population",
+        "termType": "animalManagement",
+        "@id": "totalAnimalPopulation",
+        "units": "number"
+      },
+      "value": [
+        1834.7776027397258
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Herd replacement rate",
+        "termType": "animalManagement",
+        "@id": "herdReplacementRate",
+        "units": "%"
+      },
+      "description": "45.2",
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig, sow",
+        "units": "number",
+        "@id": "pigSow"
+      },
+      "animalId": "ssb-sow-piglet-2012-Pig, sow",
+      "referencePeriod": "average",
+      "value": 0.9615,
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig, piglet",
+        "units": "number",
+        "@id": "pigPiglet"
+      },
+      "animalId": "ssb-sow-piglet-2012-Pig, piglet",
+      "referencePeriod": "average",
+      "value": 5.833972602739725,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Mortality rate",
+            "termType": "property",
+            "@id": "mortalityRate",
+            "units": "%"
+          },
+          "value": 12.949640287769796,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig, sow",
+        "units": "number",
+        "@id": "pigSow"
+      },
+      "value": [
+        0.401133954
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig, piglet",
+        "units": "number",
+        "@id": "pigPiglet"
+      },
+      "value": [
+        12.1
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 30.1,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "currency": "EUR",
+      "price": 62.25,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, pigs (kg mass)",
+        "units": "kg",
+        "@id": "excretaPigsKgMass"
+      },
+      "primary": false,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Dead animal waste (number of animals)",
+        "termType": "waste",
+        "@id": "deadAnimalWasteNumberOfAnimals",
+        "units": "number"
+      },
+      "description": "Mortality of pigs through the cycle.",
+      "value": [
+        0.0740355
+      ],
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pit storage below animal confinements",
+        "termType": "excretaManagement",
+        "@id": "pitStorageBelowAnimalConfinements"
+      },
+      "transformationId": "ssb-sow-piglet-2012",
+      "description": "Excreta management - initially stored beneath the animal housing for 1 month and then pumped to an external storage tank where a crust develops.",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, pigs (kg mass)",
+            "units": "kg",
+            "@id": "excretaPigsKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "transformationDuration": 30,
+      "products": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, pigs (kg mass)",
+            "units": "kg",
+            "@id": "excretaPigsKgMass"
+          },
+          "@type": "Product"
+        }
+      ],
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Liquid/Slurry, with natural crust cover",
+        "termType": "excretaManagement",
+        "@id": "liquidSlurryWithNaturalCrustCover"
+      },
+      "transformationId": "ssb-sow-piglet-2010-crust",
+      "description": "Excreta management - initially stored beneath the animal housing for 1 month and then pumped to an external storage tank where a crust develops.",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, pigs (kg mass)",
+            "units": "kg",
+            "@id": "excretaPigsKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "previousTransformationId": "ssb-sow-piglet-2012",
+      "products": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, pigs (kg mass)",
+            "units": "kg",
+            "@id": "excretaPigsKgMass"
+          },
+          "@type": "Product"
+        }
+      ],
+      "@type": "Transformation"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "operation": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "waste": false,
+    "liveAnimalInput": true,
+    "transport": false,
+    "otherChemical": true,
+    "ingredient": true,
+    "freshForage": true,
+    "animalPopulation": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Pig, sow - Schleswig-Holstein, Germany - 2012 - Sow and piglet",
+  "schemaVersion": "30.3.2",
+  "originalId": "ssb-sow-piglet-2012"
+}

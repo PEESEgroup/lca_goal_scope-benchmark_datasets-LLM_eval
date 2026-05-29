@@ -1,0 +1,298 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-01-17",
+  "updatedAt": "2025-01-22",
+  "@id": "l7ugnm9xaxgl",
+  "@type": "Cycle",
+  "description": "Bird growth cycle, from 16 weeks old, before egg production",
+  "numberOfCycles": 1,
+  "endDate": "2018",
+  "cycleDuration": 112,
+  "functionalUnit": "relative",
+  "startDateDefinition": "start of animal life",
+  "site": {
+    "@id": "lqgiy_nmikmg",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "cfp6wacgorql",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Data collected from farm by authors",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Layer chicken, chick",
+        "units": "number",
+        "@id": "layerChickenChick"
+      },
+      "value": [
+        350
+      ],
+      "isAnimalFeed": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Barley, grain (whole)",
+        "units": "kg",
+        "@id": "barleyGrainWhole"
+      },
+      "value": [
+        248.85
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Maize, grain",
+        "units": "kg",
+        "@id": "maizeGrain"
+      },
+      "value": [
+        124.425
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Cauliflower, head",
+        "units": "kg",
+        "@id": "cauliflowerHead"
+      },
+      "value": [
+        124.425
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "pesticideAI",
+        "name": "Iodine",
+        "units": "kg active ingredient",
+        "@id": "CAS-7553-56-2"
+      },
+      "value": [
+        0.02
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Disinfectant unspecified (AI)",
+        "termType": "otherOrganicChemical",
+        "@id": "disinfectantUnspecifiedAi",
+        "units": "kg active ingredient"
+      },
+      "value": [
+        3
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, harvested rainfall",
+        "units": "m3",
+        "@id": "waterHarvestedRainfall"
+      },
+      "value": [
+        843.25
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Hy-Line Brown",
+        "termType": "animalBreed",
+        "@id": "hyLineBrown",
+        "units": "%"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Free range system",
+        "termType": "system",
+        "@id": "freeRangeSystem",
+        "units": "%"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Organic",
+        "termType": "standardsLabels",
+        "@id": "organic",
+        "units": "boolean"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Layer chicken, pullet",
+        "units": "number",
+        "@id": "layerChickenPullet"
+      },
+      "animalId": "1",
+      "value": 65,
+      "referencePeriod": "average",
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Layer chicken, chick",
+        "units": "number",
+        "@id": "layerChickenChick"
+      },
+      "animalId": "2",
+      "value": 285,
+      "referencePeriod": "average",
+      "@type": "Animal"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Composting, unspecified",
+        "termType": "excretaManagement",
+        "@id": "compostingUnspecified"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, poultry (kg mass)",
+            "units": "kg",
+            "@id": "excretaPoultryKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "transformationId": "1",
+      "products": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "organicFertiliser",
+            "name": "Chicken (layers), solid manure, dry (kg mass)",
+            "units": "kg",
+            "@id": "chickenLayersSolidManureDryKgMass"
+          },
+          "@type": "Product"
+        }
+      ],
+      "@type": "Transformation"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Layer chicken, pullet",
+        "units": "number",
+        "@id": "layerChickenPullet"
+      },
+      "value": [
+        350
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 1.42,
+          "min": 1.4,
+          "max": 1.48,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, poultry (kg mass)",
+        "units": "kg",
+        "@id": "excretaPoultryKgMass"
+      },
+      "value": [
+        547
+      ],
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": true,
+    "soilAmendment": true,
+    "water": true,
+    "product": true,
+    "cropResidue": true,
+    "excreta": true,
+    "animalFeed": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "freshForage": true,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Layer chicken, pullet - Guaduas, Colombia - 2018 - Bird growth cycle, from 16 wee...",
+  "schemaVersion": "30.5.0",
+  "originalId": "GC"
+}

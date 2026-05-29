@@ -1,0 +1,170 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2023-10-12",
+  "updatedAt": "2024-12-04",
+  "@id": "waf5xvc68yw-",
+  "@type": "Cycle",
+  "description": "Slaughter - DRB",
+  "endDate": "2017",
+  "site": {
+    "@id": "c6yudehs_r_w",
+    "@type": "Site"
+  },
+  "functionalUnit": "relative",
+  "defaultMethodClassification": "consistent external sources",
+  "defaultMethodClassificationDescription": "Data of on-farm results were collected by consulting literature and visiting farms.",
+  "defaultSource": {
+    "@id": "j9vcbxofbrwg",
+    "@type": "Source"
+  },
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Broiler chicken",
+        "units": "number",
+        "@id": "broilerChicken"
+      },
+      "value": [
+        1
+      ],
+      "impactAssessment": {
+        "@id": "dldpe6e_1zz7",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 2.401,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Slaughter age",
+            "termType": "property",
+            "@id": "slaughterAge",
+            "units": "days"
+          },
+          "value": 49,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Slaughtering",
+        "termType": "operation",
+        "@id": "slaughtering",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Butchering",
+        "termType": "operation",
+        "@id": "butchering",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, chicken, breast",
+        "units": "kg ready-to-cook weight",
+        "@id": "meatChickenBreast"
+      },
+      "value": [
+        0.48019999999999996
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, chicken, wings",
+        "units": "kg ready-to-cook weight",
+        "@id": "meatChickenWings"
+      },
+      "value": [
+        0.20888699999999996
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, chicken, leg",
+        "units": "kg ready-to-cook weight",
+        "@id": "meatChickenLeg"
+      },
+      "value": [
+        0.547428
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Food processing waste",
+        "termType": "waste",
+        "@id": "foodProcessingWaste",
+        "units": "kg"
+      },
+      "description": "In the study this is described as chicken meat, other.",
+      "value": [
+        1.1644849999999998
+      ],
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "operation": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": true,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": true,
+    "animalFeed": true,
+    "waste": false,
+    "liveAnimalInput": true,
+    "transport": false,
+    "ingredient": true,
+    "otherChemical": true,
+    "animalPopulation": true,
+    "freshForage": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Meat, chicken, breast - Netherlands - 2017 - Slaughter - DRB",
+  "schemaVersion": "30.3.2",
+  "originalId": "2-slaughter-drb"
+}

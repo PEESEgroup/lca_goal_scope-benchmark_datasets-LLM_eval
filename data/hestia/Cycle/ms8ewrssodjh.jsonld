@@ -1,0 +1,329 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2023-10-16",
+  "updatedAt": "2024-12-19",
+  "@id": "ms8ewrssodjh",
+  "@type": "Cycle",
+  "description": "Brazil small-scale system",
+  "functionalUnit": "relative",
+  "defaultMethodClassification": "consistent external sources",
+  "defaultMethodClassificationDescription": "\"Data … are representative of certain areas, not on data from specific farms…\"",
+  "completeness": {
+    "fertiliser": true,
+    "soilAmendment": true,
+    "pesticideVeterinaryDrug": true,
+    "water": false,
+    "electricityFuel": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "seed": true,
+    "material": false,
+    "animalFeed": true,
+    "operation": false,
+    "waste": false,
+    "transport": false,
+    "liveAnimalInput": true,
+    "ingredient": true,
+    "freshForage": true,
+    "animalPopulation": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "endDate": "2011",
+  "cycleDuration": 57.03125,
+  "startDateDefinition": "stocking date",
+  "defaultSource": {
+    "@id": "d5kbxxbrujd0",
+    "@type": "Source"
+  },
+  "site": {
+    "@id": "wr85u-qzp98a",
+    "@type": "Site"
+  },
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Broiler chicken",
+        "units": "number",
+        "@id": "broilerChicken"
+      },
+      "value": [
+        0.5405171668252183
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Processing conversion, liveweight to cold carcass weight",
+            "termType": "property",
+            "@id": "processingConversionLiveweightToColdCarcassWeight",
+            "units": "%"
+          },
+          "value": 74.6,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 2.48,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Slaughter age",
+            "termType": "property",
+            "@id": "slaughterAge",
+            "units": "days"
+          },
+          "value": 42,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, poultry (kg mass)",
+        "units": "kg",
+        "@id": "excretaPoultryKgMass"
+      },
+      "@type": "Product"
+    }
+  ],
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Maize, grain",
+        "units": "kg",
+        "@id": "maizeGrain"
+      },
+      "value": [
+        1.0652220000000001
+      ],
+      "impactAssessment": {
+        "@id": "qpfrhcueom_6",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": true,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Soybean, meal",
+        "units": "kg",
+        "@id": "soybeanMeal"
+      },
+      "value": [
+        0.628866
+      ],
+      "impactAssessment": {
+        "@id": "xxzz-13tb6ga",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": true,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Soybean, oil (refined)",
+        "units": "kg",
+        "@id": "soybeanOilRefined"
+      },
+      "value": [
+        0.09393
+      ],
+      "impactAssessment": {
+        "@id": "gb2snqspne__",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": true,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Amino acids, unspecified",
+        "termType": "feedFoodAdditive",
+        "@id": "aminoAcidsUnspecified",
+        "units": "kg"
+      },
+      "value": [
+        0.005952000000000001
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Dicalcium Phosphate (kg P2O5)",
+        "termType": "inorganicFertiliser",
+        "@id": "dicalciumPhosphateKgP2O5",
+        "units": "kg P2O5"
+      },
+      "value": [
+        0.016921908
+      ],
+      "impactAssessment": {
+        "@id": "5byiez8ff0zl",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": true,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Sodium chloride",
+        "termType": "feedFoodAdditive",
+        "@id": "sodiumChloride",
+        "units": "kg"
+      },
+      "value": [
+        0.008742
+      ],
+      "impactAssessment": {
+        "@id": "q6tsvhfdwh8m",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": true,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Premix, unspecified",
+        "termType": "feedFoodAdditive",
+        "@id": "premixUnspecified",
+        "units": "kg"
+      },
+      "value": [
+        0.0029760000000000003
+      ],
+      "impactAssessment": {
+        "@id": "apy2cls1p6oc",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": true,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Burnt lime",
+        "termType": "soilAmendment",
+        "@id": "burntLime",
+        "units": "kg CaO"
+      },
+      "value": [
+        0.021575999999999998
+      ],
+      "impactAssessment": {
+        "@id": "kf08xmkeifhv",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": true,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Broiler chicken, chick",
+        "units": "number",
+        "@id": "broilerChickenChick"
+      },
+      "value": [
+        0.5642999221655279
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "value": 1,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalManagement",
+        "name": "Stocking density, animal housing (final)",
+        "units": "animals / m2",
+        "@id": "stockingDensityAnimalHousingFinal"
+      },
+      "value": [
+        11.7
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Overall mortality rate",
+        "termType": "animalManagement",
+        "@id": "overallMortalityRate",
+        "units": "%"
+      },
+      "value": [
+        4.4
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Feed conversion ratio (fed weight)",
+        "termType": "animalManagement",
+        "@id": "feedConversionRatioFedWeight",
+        "units": "kg feed (fed weight) / kg liveweight"
+      },
+      "value": [
+        1.86
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "dataPrivate": false,
+  "name": "Broiler chicken - Brazil - 2011 - Brazil small-scale system",
+  "schemaVersion": "30.3.2",
+  "originalId": "13"
+}

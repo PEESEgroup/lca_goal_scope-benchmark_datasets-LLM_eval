@@ -1,0 +1,765 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-11-21",
+  "updatedAt": "2024-12-06",
+  "@id": "ywuwnq9a6nm2",
+  "@type": "Cycle",
+  "description": "A free-range system is defined as either a single- or multi-tier system (hens live either directly on the floor or within an aviary structure, with access to perches, nest and scratch areas, and other enrichments) in which hens are provided with outdoor access.",
+  "numberOfCycles": 8,
+  "endDate": "2019",
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "2cl-y3lskrrk",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "suyept760iy4",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Some data collected during 2017 and also data from an online survey used - distributed in Summer/ Fall 2019",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Layer chicken, pullet",
+        "units": "number",
+        "@id": "layerChickenPullet"
+      },
+      "value": [
+        18.94153846
+      ],
+      "min": [
+        16.02692308
+      ],
+      "max": [
+        20.90423077
+      ],
+      "statsDefinition": "cycles",
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Transport, unspecified",
+            "termType": "transport",
+            "@id": "transportUnspecified",
+            "units": "tkm"
+          },
+          "value": 4.96,
+          "min": 0,
+          "max": 32.21,
+          "statsDefinition": "cycles",
+          "returnLegIncluded": false,
+          "source": {
+            "@type": "Source",
+            "@id": "5wkskew6jvfz",
+            "name": "Pelletier (2017)"
+          },
+          "@type": "Transport"
+        }
+      ],
+      "isAnimalFeed": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, source unspecified",
+        "units": "m3",
+        "@id": "waterSourceUnspecified"
+      },
+      "value": [
+        3.53
+      ],
+      "min": [
+        3.06
+      ],
+      "max": [
+        4.2
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        306.55
+      ],
+      "min": [
+        225.98
+      ],
+      "max": [
+        374.22
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        0.11219
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        1.07012
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Petrol",
+        "units": "kg",
+        "@id": "petrol"
+      },
+      "value": [
+        0.23188
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        3.35852
+      ],
+      "statsDefinition": "cycles",
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Have used density of 0.75 to convert between l and kg (from Cool Conversion)",
+      "source": {
+        "@type": "Source",
+        "@id": "5wkskew6jvfz",
+        "name": "Pelletier (2017)"
+      },
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Liquefied petroleum gases (LPG)",
+        "units": "kg",
+        "@id": "liquefiedPetroleumGasesLpg"
+      },
+      "value": [
+        0.9486
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        7.9254
+      ],
+      "statsDefinition": "cycles",
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Have used density of 0.51 to convert between l and kg (from supplementary information)",
+      "source": {
+        "@type": "Source",
+        "@id": "5wkskew6jvfz",
+        "name": "Pelletier (2017)"
+      },
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Natural gas",
+        "units": "m3",
+        "@id": "naturalGas"
+      },
+      "value": [
+        5.38
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        92.46
+      ],
+      "statsDefinition": "cycles",
+      "source": {
+        "@type": "Source",
+        "@id": "5wkskew6jvfz",
+        "name": "Pelletier (2017)"
+      },
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed blend",
+        "termType": "processedFood",
+        "@id": "concentrateFeedBlend",
+        "units": "kg"
+      },
+      "value": [
+        1210
+      ],
+      "min": [
+        660
+      ],
+      "max": [
+        1485
+      ],
+      "statsDefinition": "cycles",
+      "impactAssessment": {
+        "@id": "dewl5p_smsxf",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Have assumed equal split between pullet and layer concentrate feed",
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Transport, unspecified",
+            "termType": "transport",
+            "@id": "transportUnspecified",
+            "units": "tkm"
+          },
+          "value": 59.06,
+          "min": 41.675,
+          "max": 82.5,
+          "statsDefinition": "cycles",
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed blend",
+        "termType": "processedFood",
+        "@id": "concentrateFeedBlend",
+        "units": "kg"
+      },
+      "value": [
+        1210
+      ],
+      "min": [
+        660
+      ],
+      "max": [
+        1485
+      ],
+      "statsDefinition": "cycles",
+      "impactAssessment": {
+        "@id": "3vn34v_qly7r",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Have assumed equal split between pullet and layer concentrate feed",
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Transport, unspecified",
+            "termType": "transport",
+            "@id": "transportUnspecified",
+            "units": "tkm"
+          },
+          "value": 59.06,
+          "min": 41.675,
+          "max": 82.5,
+          "statsDefinition": "cycles",
+          "returnLegIncluded": false,
+          "@type": "Transport"
+        }
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Free range system",
+        "termType": "system",
+        "@id": "freeRangeSystem",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Layer chicken, pullet",
+        "units": "number",
+        "@id": "layerChickenPullet"
+      },
+      "animalId": "0",
+      "referencePeriod": "average",
+      "value": 18.94153846,
+      "min": 16.02692308,
+      "max": 20.90423077,
+      "statsDefinition": "cycles",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 1.71,
+          "min": 1.42,
+          "max": 1.8,
+          "statsDefinition": "cycles",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Mortality rate",
+            "termType": "property",
+            "@id": "mortalityRate",
+            "units": "%"
+          },
+          "value": 8.68,
+          "min": 2.01,
+          "max": 17.85,
+          "statsDefinition": "cycles",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Layer chicken, hen",
+        "units": "number",
+        "@id": "layerChickenHen"
+      },
+      "animalId": "1",
+      "referencePeriod": "average",
+      "value": 35.77846154,
+      "min": 30.27307692,
+      "max": 39.48576923,
+      "statsDefinition": "cycles",
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "The study does not specify how old the pullets are at the start of the laying cycle. We have assumed that they are young pullets and so do not start producing eggs until they are 18 weeks old. Therefore, we have calculated the number of hens using this assumption of the pullets, where of the total number of pullets in the laying cycle (which has been scaled to 1 year), 18/52*number of pullets in study is equal to the number of pullets in this upload. 34/52*number of pullets in the study is equal to the number of hens.",
+      "@type": "Animal"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Eggs, hen, in shell",
+        "units": "kg",
+        "@id": "eggsHenInShell"
+      },
+      "value": [
+        1000
+      ],
+      "primary": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Weight per item",
+            "termType": "property",
+            "@id": "weightPerItem",
+            "units": "kg"
+          },
+          "value": 60,
+          "description": "All eggs across each housing system were assumed to have an average mass of 60g. This mass represents a midpoint between “large” and “extra large” sized eggs, rounded up, as defined by the Canadian Food Inspection Agency (Canadian Food Inspection Agency, 2021).",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Dead animal waste (kg mass)",
+        "termType": "waste",
+        "@id": "deadAnimalWasteKgMass",
+        "units": "kg"
+      },
+      "value": [
+        31.524904
+      ],
+      "min": [
+        22.24492
+      ],
+      "max": [
+        38.359649
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, poultry (kg mass)",
+        "units": "kg",
+        "@id": "excretaPoultryKgMass"
+      },
+      "value": [
+        1270
+      ],
+      "min": [
+        690
+      ],
+      "max": [
+        1550
+      ],
+      "statsDefinition": "cycles",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Nitrogen content",
+            "termType": "property",
+            "@id": "nitrogenContent",
+            "units": "%"
+          },
+          "value": 0.03577165354,
+          "min": 0.01083870968,
+          "max": 0.08668115942,
+          "statsDefinition": "cycles",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Phosphorus content (as P)",
+            "termType": "property",
+            "@id": "phosphorusContentAsP",
+            "units": "%"
+          },
+          "value": 0.006724409449,
+          "min": 0.002109677419,
+          "max": 0.01630434783,
+          "statsDefinition": "cycles",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "methodClassification": "modelled",
+      "methodClassificationDescription": "A standard manure excretion rate was assumed, scaled relative to the feed conversion efficiencies for each housing system",
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, chicken (liveweight)",
+        "units": "kg liveweight",
+        "@id": "meatChickenLiveweight"
+      },
+      "value": [
+        49.954514
+      ],
+      "min": [
+        44.74642
+      ],
+      "max": [
+        58.45421799999999
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Poultry manure with litter",
+        "termType": "excretaManagement",
+        "@id": "poultryManureWithLitter"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, poultry (kg mass)",
+            "units": "kg",
+            "@id": "excretaPoultryKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "transformationDuration": 118.16,
+      "transformationId": "1",
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Solid storage",
+        "termType": "excretaManagement",
+        "@id": "solidStorage"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, poultry (kg mass)",
+            "units": "kg",
+            "@id": "excretaPoultryKgMass"
+          },
+          "fromCycle": true,
+          "transport": [
+            {
+              "term": {
+                "@type": "Term",
+                "termType": "transport",
+                "name": "Freight, lorry",
+                "units": "tkm",
+                "@id": "freightLorry"
+              },
+              "distance": 7.188976378,
+              "returnLegIncluded": false,
+              "@type": "Transport"
+            }
+          ],
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 12.36,
+      "transformationId": "6",
+      "previousTransformationId": "1",
+      "transformationDuration": 195.65,
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Solid storage, covered/compacted",
+        "termType": "excretaManagement",
+        "@id": "solidStorageCoveredCompacted"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, poultry (kg mass)",
+            "units": "kg",
+            "@id": "excretaPoultryKgMass"
+          },
+          "fromCycle": true,
+          "transport": [
+            {
+              "term": {
+                "@type": "Term",
+                "termType": "transport",
+                "name": "Freight, lorry",
+                "units": "tkm",
+                "@id": "freightLorry"
+              },
+              "distance": 7.188976378,
+              "returnLegIncluded": false,
+              "@type": "Transport"
+            }
+          ],
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 87.64,
+      "transformationId": "7",
+      "previousTransformationId": "1",
+      "transformationDuration": 195.65,
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Composted (waste management)",
+        "termType": "wasteManagement",
+        "@id": "compostedWasteManagement"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dead animal waste (kg mass)",
+            "termType": "waste",
+            "@id": "deadAnimalWasteKgMass",
+            "units": "kg"
+          },
+          "value": [
+            54.27
+          ],
+          "min": [
+            54.27
+          ],
+          "max": [
+            54.27
+          ],
+          "statsDefinition": "cycles",
+          "fromCycle": true,
+          "transport": [
+            {
+              "term": {
+                "@type": "Term",
+                "termType": "transport",
+                "name": "Freight, lorry",
+                "units": "tkm",
+                "@id": "freightLorry"
+              },
+              "returnLegIncluded": false,
+              "@type": "Transport"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "termType": "transport",
+                "name": "Freight, tractor and trailer",
+                "units": "tkm",
+                "@id": "freightTractorAndTrailer"
+              },
+              "distance": 0.004424778761,
+              "returnLegIncluded": false,
+              "@type": "Transport"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "name": "Transport, unspecified",
+                "termType": "transport",
+                "@id": "transportUnspecified",
+                "units": "tkm"
+              },
+              "value": 0.238,
+              "returnLegIncluded": false,
+              "@type": "Transport"
+            }
+          ],
+          "@type": "Input"
+        }
+      ],
+      "transformationId": "9",
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Waste incineration, machine unspecified",
+        "termType": "operation",
+        "@id": "wasteIncinerationMachineUnspecified",
+        "units": "hour"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dead animal waste (kg mass)",
+            "termType": "waste",
+            "@id": "deadAnimalWasteKgMass",
+            "units": "kg"
+          },
+          "fromCycle": true,
+          "value": [
+            0.403588
+          ],
+          "min": [
+            0.07807
+          ],
+          "max": [
+            0.899463
+          ],
+          "statsDefinition": "cycles",
+          "transport": [
+            {
+              "term": {
+                "@type": "Term",
+                "termType": "transport",
+                "name": "Freight, lorry",
+                "units": "tkm",
+                "@id": "freightLorry"
+              },
+              "returnLegIncluded": false,
+              "@type": "Transport"
+            },
+            {
+              "term": {
+                "@type": "Term",
+                "termType": "transport",
+                "name": "Freight, tractor and trailer",
+                "units": "tkm",
+                "@id": "freightTractorAndTrailer"
+              },
+              "value": 0.00004,
+              "returnLegIncluded": false,
+              "@type": "Transport"
+            }
+          ],
+          "@type": "Input"
+        }
+      ],
+      "transformationId": "10",
+      "@type": "Transformation"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": true,
+    "product": true,
+    "cropResidue": true,
+    "excreta": true,
+    "animalFeed": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "freshForage": true,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Eggs, hen, in shell - Canada - 2019 - A free-range system is defined...",
+  "schemaVersion": "30.4.0",
+  "originalId": "free range"
+}

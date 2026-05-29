@@ -1,0 +1,329 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-02-09",
+  "updatedAt": "2024-12-03",
+  "@id": "9pksol2ejh-k",
+  "@type": "Cycle",
+  "description": "Piglets",
+  "startDateDefinition": "stocking date",
+  "endDate": "2010",
+  "cycleDuration": 45.5,
+  "site": {
+    "@id": "s715hqo9xuga",
+    "@type": "Site"
+  },
+  "functionalUnit": "relative",
+  "defaultMethodClassification": "consistent external sources",
+  "defaultMethodClassificationDescription": "Data representing the typical Danish pork production in 2010 on the one hand, and on the other using data from the 25% of Danish pig herds with highest technical efficiency in terms of piglets per sow and feed use per kg pork produced. The higher efficiency groups are thought to be standard in a couple of years time. Data from Danish crown.",
+  "defaultSource": {
+    "@id": "hmohcfms011t",
+    "@type": "Source"
+  },
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig, piglet",
+        "units": "number",
+        "@id": "pigPiglet"
+      },
+      "isAnimalFeed": false,
+      "value": [
+        13.6
+      ],
+      "impactAssessment": {
+        "@id": "wav5nyvoa2si",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 7.4,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "value": 24.5,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed blend",
+        "termType": "processedFood",
+        "@id": "concentrateFeedBlend",
+        "units": "kg"
+      },
+      "isAnimalFeed": true,
+      "value": [
+        561.0042
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "I have assumed the ratio of the feed matches the ratio at the end of page 31.",
+      "impactAssessment": {
+        "@id": "dmtcsnh34ze-",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Heating oil",
+        "units": "kg",
+        "@id": "heatingOil"
+      },
+      "value": [
+        9.195180722891568
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, natural gas",
+        "termType": "electricity",
+        "@id": "electricityGridNaturalGas",
+        "units": "kWh"
+      },
+      "value": [
+        26.5
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Overall mortality rate",
+        "termType": "animalManagement",
+        "@id": "overallMortalityRate",
+        "units": "%"
+      },
+      "value": [
+        2.6
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Heating buildings, machine unspecified",
+        "termType": "operation",
+        "@id": "heatingBuildingsMachineUnspecified",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Indoor animal system",
+        "termType": "system",
+        "@id": "indoorAnimalSystem",
+        "units": "% area"
+      },
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig, piglet",
+        "units": "number",
+        "@id": "pigPiglet"
+      },
+      "animalId": "piglet-nguyen-Pig, piglet",
+      "referencePeriod": "average",
+      "value": 0.29505494505494506,
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig",
+        "units": "number",
+        "@id": "pig"
+      },
+      "animalId": "piglet-nguyen-Pig",
+      "referencePeriod": "average",
+      "value": 13.129945054945056,
+      "@type": "Animal"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Pig",
+        "units": "number",
+        "@id": "pig"
+      },
+      "description": "Piglet raised to go to finisher",
+      "value": [
+        13.25
+      ],
+      "primary": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 32,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "value": 70,
+          "methodClassification": "estimated with assumptions",
+          "methodClassificationDescription": "I have assumed that the pig is 10 weeks old at this weight.",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, pigs (kg mass)",
+        "units": "kg",
+        "@id": "excretaPigsKgMass"
+      },
+      "primary": false,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Dead animal waste (number of animals)",
+        "termType": "waste",
+        "@id": "deadAnimalWasteNumberOfAnimals",
+        "units": "number"
+      },
+      "value": [
+        0.34999999999999964
+      ],
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Liquid/Slurry, with cover",
+        "termType": "excretaManagement",
+        "@id": "liquidSlurryWithCover"
+      },
+      "transformationId": "nguyen-denmark-conventional-piglet-slurry",
+      "description": "Outside covered silo",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, pigs (kg mass)",
+            "units": "kg",
+            "@id": "excretaPigsKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 75,
+      "transformationDuration": 180,
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pit storage below animal confinements",
+        "termType": "excretaManagement",
+        "@id": "pitStorageBelowAnimalConfinements"
+      },
+      "transformationId": "nguyen-denmark-conventional-piglet-pit",
+      "description": "Pit below pig house",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, pigs (kg mass)",
+            "units": "kg",
+            "@id": "excretaPigsKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 25,
+      "transformationDuration": 180,
+      "previousTransformationId": "nguyen-denmark-conventional-piglet-slurry",
+      "@type": "Transformation"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "operation": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "waste": true,
+    "liveAnimalInput": true,
+    "transport": false,
+    "otherChemical": false,
+    "ingredient": true,
+    "freshForage": true,
+    "animalPopulation": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Pig - Denmark - 2010 - Piglets",
+  "schemaVersion": "30.3.2",
+  "originalId": "piglet-nguyen"
+}

@@ -1,0 +1,268 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-12-05",
+  "updatedAt": "2024-12-06",
+  "@id": "f5rjz14mx75k",
+  "@type": "Cycle",
+  "description": "Rabbit breeding/rearing in Scenario 2 (alternative, circular rabbit breeding system)",
+  "endDate": "2018",
+  "numberOfCycles": 3,
+  "startDateDefinition": "start of animal life",
+  "cycleDuration": 140,
+  "functionalUnit": "relative",
+  "functionalUnitDetails": "An average rex rabbit following 140 days of breeding",
+  "site": {
+    "@id": "_9malbtenrb5",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "aiati9y81sll",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Primary data provided by the rabbit breeding company",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed blend",
+        "termType": "processedFood",
+        "@id": "concentrateFeedBlend",
+        "units": "kg"
+      },
+      "value": [
+        39
+      ],
+      "impactAssessment": {
+        "@id": "pfkjxjr7ywr6",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": true,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, source unspecified",
+        "units": "m3",
+        "@id": "waterSourceUnspecified"
+      },
+      "value": [
+        0.036
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, produced on-site, biogas",
+        "termType": "electricity",
+        "@id": "electricityProducedOnSiteBiogas",
+        "units": "kWh"
+      },
+      "value": [
+        0.836
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Indoor animal system",
+        "termType": "system",
+        "@id": "indoorAnimalSystem",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Cogeneration",
+        "termType": "operation",
+        "@id": "cogeneration",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Rabbit",
+        "units": "number",
+        "@id": "rabbit"
+      },
+      "animalId": "Rabbit",
+      "value": 1,
+      "referencePeriod": "average",
+      "@type": "Animal"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Rabbit",
+        "units": "number",
+        "@id": "rabbit"
+      },
+      "value": [
+        1
+      ],
+      "primary": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 2.6,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta (kg mass)",
+        "units": "kg",
+        "@id": "excretaKgMass"
+      },
+      "value": [
+        36.2
+      ],
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "transformationId": "1-Biogas",
+      "term": {
+        "@type": "Term",
+        "name": "Anaerobic digester, unspecified",
+        "termType": "excretaManagement",
+        "@id": "anaerobicDigesterUnspecified"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta (kg mass)",
+            "units": "kg",
+            "@id": "excretaKgMass"
+          },
+          "value": [
+            36.2
+          ],
+          "fromCycle": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "water",
+            "name": "Water, source unspecified",
+            "units": "m3",
+            "@id": "waterSourceUnspecified"
+          },
+          "value": [
+            0.6
+          ],
+          "fromCycle": false,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Electricity, grid, market mix",
+            "termType": "electricity",
+            "@id": "electricityGridMarketMix",
+            "units": "kWh"
+          },
+          "value": [
+            0.0064
+          ],
+          "fromCycle": false,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "products": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Biogas from thermal processes",
+            "termType": "fuel",
+            "@id": "biogasFromThermalProcesses",
+            "units": "m3"
+          },
+          "value": [
+            2.17
+          ],
+          "@type": "Product"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "organicFertiliser",
+            "name": "Digestate (kg mass)",
+            "units": "kg",
+            "@id": "digestateKgMass"
+          },
+          "description": "Recycled back to the feed cultivation stages in Scenario 2 to be used as organic fertilisers.",
+          "value": [
+            6.01
+          ],
+          "methodClassification": "estimated with assumptions",
+          "methodClassificationDescription": "The biogas 'slurry' product was given as 0.01m3, with no density. Density of biogas slurry seems to vary widely. Have just assumed a density of 1kg/m3.",
+          "@type": "Product"
+        }
+      ],
+      "@type": "Transformation"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "otherChemical": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": true,
+    "product": true,
+    "cropResidue": true,
+    "excreta": true,
+    "freshForage": true,
+    "animalFeed": true,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Rabbit - Ordos, China - 2018 - Rabbit breeding/rearing in Sce...",
+  "schemaVersion": "30.4.0",
+  "originalId": "S2_RabbitBreeding"
+}

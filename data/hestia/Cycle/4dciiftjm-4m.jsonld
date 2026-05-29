@@ -1,0 +1,458 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-01-17",
+  "updatedAt": "2024-12-03",
+  "@id": "4dciiftjm-4m",
+  "@type": "Cycle",
+  "description": "Lamb production cycle averaged over three case study farms in South Australia. 85% of lambs finished are pasture-based, while 15% are finished with supplementary grain diets.",
+  "startDateDefinition": "one year prior",
+  "endDate": "2012",
+  "numberOfCycles": 2,
+  "cycleDuration": 365,
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "djaudnsgowj0",
+    "@type": "Site"
+  },
+  "siteArea": 16056,
+  "siteDuration": 365,
+  "defaultSource": {
+    "@id": "c3c-fbwxy2mp",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "CSF data were obtained from three farms surveyed as part of the study, producing export weight first- or second-cross lambs from meat breed or Merino ewe flocks. Production data were accessed from detailed farm records, and verified through discussions with farmers at each CSF.",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Wheat, straw",
+        "units": "kg",
+        "@id": "wheatStraw"
+      },
+      "value": [
+        4572.73
+      ],
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Feed mix",
+        "termType": "processedFood",
+        "@id": "feedMix",
+        "units": "kg"
+      },
+      "value": [
+        12033.5
+      ],
+      "isAnimalFeed": true,
+      "impactAssessment": {
+        "@id": "bxnrycflsltw",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        7942.109999999999
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Fuel oil",
+        "units": "kg",
+        "@id": "fuelOil"
+      },
+      "value": [
+        4967.4288
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Petrol",
+        "units": "kg",
+        "@id": "petrol"
+      },
+      "value": [
+        1260.1481199999998
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, harvested rainfall",
+        "units": "m3",
+        "@id": "waterHarvestedRainfall"
+      },
+      "value": [
+        3595.2453720000003
+      ],
+      "operation": {
+        "@type": "Term",
+        "name": "Providing animals with water",
+        "termType": "operation",
+        "@id": "providingAnimalsWithWater",
+        "units": "hour"
+      },
+      "methodClassification": "modelled",
+      "methodClassificationDescription": "Measured water data on-farm were not available and were modelled from an assessment of water supply and utilisation on the farms using water balances, using methods described in Wiedemann et al. (2015b). Sheep drinking water was estimated using the equation determined by Luke (cited in CSIRO 2007). Proportions of drinking water supplied from bores, creeks and rivers or farm dams (Table 1) were determined from the survey and CSF site visits, and were verified by an analysis of water supply points using satellite imagery. Losses associated with water supply were modelled after Wiedemann et al. (2015b).",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, pumped groundwater",
+        "units": "m3",
+        "@id": "waterPumpedGroundwater"
+      },
+      "value": [
+        9720.478228
+      ],
+      "operation": {
+        "@type": "Term",
+        "name": "Providing animals with water",
+        "termType": "operation",
+        "@id": "providingAnimalsWithWater",
+        "units": "hour"
+      },
+      "methodClassification": "modelled",
+      "methodClassificationDescription": "Measured water data on-farm were not available and were modelled from an assessment of water supply and utilisation on the farms using water balances, using methods described in Wiedemann et al. (2015b). Sheep drinking water was estimated using the equation determined by Luke (cited in CSIRO 2007). Proportions of drinking water supplied from bores, creeks and rivers or farm dams (Table 1) were determined from the survey and CSF site visits, and were verified by an analysis of water supply points using satellite imagery. Losses associated with water supply were modelled after Wiedemann et al. (2015b).",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, harvested rainfall",
+        "units": "m3",
+        "@id": "waterHarvestedRainfall"
+      },
+      "description": "Water used for 'other minor uses'",
+      "value": [
+        3.6611460000000005
+      ],
+      "methodClassification": "modelled",
+      "methodClassificationDescription": "Measured water data on-farm were not available and were modelled from an assessment of water supply and utilisation on the farms using water balances, using methods described in Wiedemann et al. (2015b). Sheep drinking water was estimated using the equation determined by Luke (cited in CSIRO 2007). Proportions of drinking water supplied from bores, creeks and rivers or farm dams (Table 1) were determined from the survey and CSF site visits, and were verified by an analysis of water supply points using satellite imagery. Losses associated with water supply were modelled after Wiedemann et al. (2015b).",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, pumped groundwater",
+        "units": "m3",
+        "@id": "waterPumpedGroundwater"
+      },
+      "description": "Water used for 'other minor uses'",
+      "value": [
+        9.898653999999999
+      ],
+      "methodClassification": "modelled",
+      "methodClassificationDescription": "Measured water data on-farm were not available and were modelled from an assessment of water supply and utilisation on the farms using water balances, using methods described in Wiedemann et al. (2015b). Sheep drinking water was estimated using the equation determined by Luke (cited in CSIRO 2007). Proportions of drinking water supplied from bores, creeks and rivers or farm dams (Table 1) were determined from the survey and CSF site visits, and were verified by an analysis of water supply points using satellite imagery. Losses associated with water supply were modelled after Wiedemann et al. (2015b).",
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Stocking density, permanent pasture (average)",
+        "termType": "animalManagement",
+        "@id": "stockingDensityPermanentPastureAverage",
+        "units": "animals / m2"
+      },
+      "value": [
+        0.00002406013639760837
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture grass",
+        "termType": "landUseManagement",
+        "@id": "pastureGrass",
+        "units": "% area"
+      },
+      "key": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Generic grass plant",
+        "units": "% area",
+        "@id": "genericGrassPlant"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Confined pasture system",
+        "termType": "system",
+        "@id": "confinedPastureSystem",
+        "units": "% area"
+      },
+      "value": [
+        85
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Feedlot system",
+        "termType": "system",
+        "@id": "feedlotSystem",
+        "units": "% area"
+      },
+      "value": [
+        15
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Sheep, ewe",
+        "units": "number",
+        "@id": "sheepEwe"
+      },
+      "animalId": "Ewes",
+      "value": 2733,
+      "referencePeriod": "average",
+      "description": "Flocks were modelled with static breeder numbers, with replacement breeder numbers being equal to cull breeder numbers and mortalities combined.",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Culling rate",
+            "termType": "property",
+            "@id": "cullingRate",
+            "units": "%"
+          },
+          "value": 29,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Mortality rate",
+            "termType": "property",
+            "@id": "mortalityRate",
+            "units": "%"
+          },
+          "value": 4,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 60,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Sheep, lamb",
+        "units": "number",
+        "@id": "sheepLamb"
+      },
+      "animalId": "Lambs",
+      "value": 1130.0955,
+      "referencePeriod": "average",
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Calculated using the number of breeding ewes and the lambing percentage. This assumes that all of the breeding ewes are exposed/served, which is unlikely to be the case. Therefore the number of lambs recorded here is likely an overestimate.",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight gain",
+            "termType": "property",
+            "@id": "liveweightGain",
+            "units": "kg liveweight / head / day"
+          },
+          "value": 0.12,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Slaughter age",
+            "termType": "property",
+            "@id": "slaughterAge",
+            "units": "days"
+          },
+          "value": 182.39999999999998,
+          "methodClassification": "estimated with assumptions",
+          "methodClassificationDescription": "Estimated slaughter age of 6 months",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Sheep, lamb",
+        "units": "number",
+        "@id": "sheepLamb"
+      },
+      "value": [
+        1293
+      ],
+      "primary": true,
+      "price": 95,
+      "currency": "AUD",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 52,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Sheep, ewe",
+        "units": "number",
+        "@id": "sheepEwe"
+      },
+      "value": [
+        1146
+      ],
+      "primary": false,
+      "price": 83,
+      "currency": "AUD",
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Wool, sheep (greasy)",
+        "units": "kg",
+        "@id": "woolSheepGreasy"
+      },
+      "value": [
+        29858
+      ],
+      "price": 6.8,
+      "currency": "AUD",
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, sheep (kg mass)",
+        "units": "kg",
+        "@id": "excretaSheepKgMass"
+      },
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "transformationId": "1",
+      "term": {
+        "@type": "Term",
+        "name": "Pasture/Range/Paddock (excreta management)",
+        "termType": "excretaManagement",
+        "@id": "pastureRangePaddockExcretaManagement"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, sheep (kg mass)",
+            "units": "kg",
+            "@id": "excretaSheepKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "@type": "Transformation"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "ingredient": true,
+    "otherChemical": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": true,
+    "soilAmendment": true,
+    "water": true,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "freshForage": false,
+    "liveAnimalInput": false,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Sheep, lamb - South Australia - 2012 - Lamb production cycle averaged...",
+  "schemaVersion": "30.3.2",
+  "originalId": "SA_CSF"
+}

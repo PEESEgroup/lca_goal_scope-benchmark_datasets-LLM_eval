@@ -1,0 +1,45 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Site.jsonld",
+  "createdAt": "2024-01-17",
+  "updatedAt": "2024-12-03",
+  "@id": "ab6ytc20qybj",
+  "@type": "Site",
+  "defaultSource": {
+    "@id": "c3c-fbwxy2mp",
+    "@type": "Source"
+  },
+  "siteType": "permanent pasture",
+  "country": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "Australia",
+    "@id": "GADM-AUS"
+  },
+  "region": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "New South Wales",
+    "@id": "GADM-AUS.5_1"
+  },
+  "area": 1980,
+  "defaultMethodClassification": "modelled",
+  "defaultMethodClassificationDescription": "Regional average farm was modelled using data from the Australian Bureau of Agricultural and Resource Economics and Sciences (ABARES 2013) survey of 203 specialist lamb producers, averaged over 5 years (2006-2010).",
+  "management": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Improved pasture",
+        "units": "% area",
+        "@id": "improvedPasture"
+      },
+      "value": 100,
+      "endDate": "2010",
+      "@type": "Management"
+    }
+  ],
+  "dataPrivate": false,
+  "name": "Permanent pasture - New South Wales, Australia",
+  "schemaVersion": "30.3.2",
+  "originalId": "NSW_RAF_Pastureland"
+}

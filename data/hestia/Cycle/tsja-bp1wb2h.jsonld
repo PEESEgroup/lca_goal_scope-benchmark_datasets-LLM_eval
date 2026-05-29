@@ -1,0 +1,103 @@
+{
+  "@context": "https://www.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2025-03-21",
+  "@id": "tsja-bp1wb2h",
+  "@type": "Cycle",
+  "description": "snail deshelling in bangladesh, manual labour",
+  "endDate": "2018-11-30",
+  "startDate": "2018-06-01",
+  "cycleDuration": 182,
+  "startDateDefinition": "start of wild harvest period",
+  "functionalUnit": "relative",
+  "defaultSource": {
+    "@type": "Source",
+    "@id": "ivkiyujgzf8r",
+    "name": "Henriksson et al (2015)"
+  },
+  "defaultMethodClassification": "verified survey data",
+  "defaultMethodClassificationDescription": "Field survey data that has been cleaned and triangulated for inconsistencies",
+  "dataPrivate": false,
+  "site": {
+    "@id": "dcdiznjycuwk",
+    "@type": "Site"
+  },
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Meat, freshwater snails (with shell)",
+        "termType": "animalProduct",
+        "@id": "meatFreshwaterSnailsWithShell",
+        "units": "kg"
+      },
+      "value": [
+        1
+      ],
+      "impactAssessment": {
+        "@id": "t964ndpwn-v9",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "@type": "Input"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "processedFood",
+        "name": "Snail meal, without shells",
+        "units": "kg",
+        "@id": "snailMealWithoutShells"
+      },
+      "value": [
+        0.51
+      ],
+      "price": 0.21568627450980393,
+      "currency": "USD",
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Shell, freshwater snails",
+        "termType": "animalProduct",
+        "@id": "shellFreshwaterSnails",
+        "units": "kg"
+      },
+      "value": [
+        0.33
+      ],
+      "price": 0.0909090909090909,
+      "currency": "USD",
+      "primary": false,
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "operation": true,
+    "electricityFuel": true,
+    "material": true,
+    "fertiliser": true,
+    "soilAmendment": true,
+    "pesticideVeterinaryDrug": true,
+    "water": true,
+    "animalFeed": true,
+    "seed": true,
+    "product": true,
+    "cropResidue": true,
+    "excreta": true,
+    "transport": true,
+    "liveAnimalInput": true,
+    "waste": true,
+    "otherChemical": true,
+    "ingredient": true,
+    "animalPopulation": true,
+    "freshForage": true,
+    "@type": "Completeness"
+  },
+  "name": "Snail meal, without shells - Bangladesh - 2018-11-30 - snail deshelling in bangladesh...",
+  "schemaVersion": "30.7.0",
+  "originalId": "snail_deslhelling"
+}

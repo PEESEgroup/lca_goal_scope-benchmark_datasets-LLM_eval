@@ -1,0 +1,103 @@
+{
+  "@context": "https://www.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2025-03-21",
+  "@id": "4-qzc9-767ls",
+  "@type": "Cycle",
+  "description": "derived from Dias2025",
+  "endDate": "2022-12-31",
+  "startDate": "2022-01-01",
+  "cycleDuration": 364,
+  "startDateDefinition": "stocking date",
+  "functionalUnit": "relative",
+  "defaultSource": {
+    "@type": "Source",
+    "@id": "pjtzt3qtzjqp",
+    "name": "Dias et al (2025)"
+  },
+  "defaultMethodClassification": "physical measurement",
+  "defaultMethodClassificationDescription": "experimental study",
+  "dataPrivate": false,
+  "site": {
+    "@id": "oxuhgksicm9z",
+    "@type": "Site"
+  },
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAquaticSpecies",
+        "name": "Pacific cupped oyster",
+        "units": "kg liveweight",
+        "@id": "pacificCuppedOyster"
+      },
+      "value": [
+        1
+      ],
+      "impactAssessment": {
+        "@id": "y1dsyv1slub0",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "@type": "Input"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Shell, oyster",
+        "termType": "animalProduct",
+        "@id": "shellOyster",
+        "units": "kg"
+      },
+      "value": [
+        0.9
+      ],
+      "price": 0.1,
+      "currency": "USD",
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Meat, oyster (without shell)",
+        "termType": "animalProduct",
+        "@id": "meatOysterWithoutShell",
+        "units": "kg"
+      },
+      "value": [
+        0.1
+      ],
+      "price": 17.3,
+      "currency": "USD",
+      "primary": false,
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "operation": true,
+    "electricityFuel": true,
+    "material": true,
+    "fertiliser": true,
+    "soilAmendment": true,
+    "pesticideVeterinaryDrug": true,
+    "water": true,
+    "animalFeed": true,
+    "seed": true,
+    "product": true,
+    "cropResidue": true,
+    "excreta": true,
+    "transport": true,
+    "liveAnimalInput": true,
+    "waste": true,
+    "otherChemical": true,
+    "ingredient": true,
+    "animalPopulation": true,
+    "freshForage": true,
+    "@type": "Completeness"
+  },
+  "name": "Shell, oyster - Portugal - 2022-12-31 - derived from Dias2025",
+  "schemaVersion": "30.7.0",
+  "originalId": "oyster_shell"
+}

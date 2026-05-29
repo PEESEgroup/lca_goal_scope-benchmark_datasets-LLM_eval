@@ -1,0 +1,540 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-01-17",
+  "updatedAt": "2025-01-23",
+  "@id": "enrpzfqflzlu",
+  "@type": "Cycle",
+  "description": "Average cycle of 115 lowland farms.",
+  "numberOfCycles": 115,
+  "endDate": "2013",
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "s0avjg9kh1h8",
+    "@type": "Site"
+  },
+  "otherSites": [
+    {
+      "@id": "5hsmkxj8nggl",
+      "@type": "Site"
+    }
+  ],
+  "otherSitesDuration": [
+    151
+  ],
+  "defaultSource": {
+    "@id": "othg_d-xdppv",
+    "@type": "Source"
+  },
+  "siteArea": 1,
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "National Farm Dataset (Hennessy et al. 2014). The NFS is collected as part of the farm accountancy data network (FADN) of the EU, providing a representative national sample of Irish farms.",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed blend",
+        "termType": "processedFood",
+        "@id": "concentrateFeedBlend",
+        "units": "kg"
+      },
+      "value": [
+        357.75208491281273
+      ],
+      "impactAssessment": {
+        "@id": "om-mgnusoxxx",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, fresh forage",
+        "termType": "forage",
+        "@id": "genericGrassFreshForage",
+        "units": "kg"
+      },
+      "value": [
+        5981.25
+      ],
+      "isAnimalFeed": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, silage",
+        "termType": "crop",
+        "@id": "genericGrassSilage",
+        "units": "kg"
+      },
+      "value": [
+        481.25000000000006
+      ],
+      "isAnimalFeed": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Conserved forages (grass silage, hay or both) are fed to ewes in the weeks coming up to lambing. Here, we assumed 100% grass silage.",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Inorganic Nitrogen fertiliser, unspecified (kg N)",
+        "termType": "inorganicFertiliser",
+        "@id": "inorganicNitrogenFertiliserUnspecifiedKgN",
+        "units": "kg N"
+      },
+      "value": [
+        73.5
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        12
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        39.698
+      ],
+      "methodClassification": "inconsistent external sources",
+      "methodClassificationDescription": "The quantity of resources used on-farm was calculated for operations that farmers decided to contract to various service providers (e.g. fossil fuel required by contractors for carrying out major field operations such as silage harvesting). These were estimated using the report of Teagasc (2011). For minor farm operations (e.g., hedge cutting) carried out by contractors, fuel use was estimated using data from Nemecek and Kägi (2007).",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed blend",
+        "termType": "processedFood",
+        "@id": "concentrateFeedBlend",
+        "units": "kg"
+      },
+      "value": [
+        8.623957543593633
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "No breakdown of how much each concentrate feed is of the total - have estimated by taking proportion of total number of days on concentrate for each animal category (Ewes and lambs) * no. animals in the category.",
+      "impactAssessment": {
+        "@id": "y166a0anx5ul",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed blend",
+        "termType": "processedFood",
+        "@id": "concentrateFeedBlend",
+        "units": "kg"
+      },
+      "value": [
+        8.623957543593633
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "No breakdown of how much each concentrate feed is of the total - have estimated by taking proportion of total number of days on concentrate for each animal category (Ewes and lambs) * no. animals in the category.",
+      "impactAssessment": {
+        "@id": "x5whqnqh5iaf",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Suffolk (sheep breed)",
+        "termType": "animalBreed",
+        "@id": "suffolkSheepBreed",
+        "units": "%"
+      },
+      "value": [
+        25
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "\"The predominant breeds used on low- land farms are the Suffolk, Texel, Belclare and Charollais.\" We assumed 25% each.",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Texel (sheep breed)",
+        "termType": "animalBreed",
+        "@id": "texelSheepBreed",
+        "units": "%"
+      },
+      "value": [
+        25
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "\"The predominant breeds used on low- land farms are the Suffolk, Texel, Belclare and Charollais.\" We assumed 25% each.",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Belclare",
+        "termType": "animalBreed",
+        "@id": "belclare",
+        "units": "%"
+      },
+      "value": [
+        25
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "\"The predominant breeds used on low- land farms are the Suffolk, Texel, Belclare and Charollais.\" We assumed 25% each.",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Charollais",
+        "termType": "animalBreed",
+        "@id": "charollais",
+        "units": "%"
+      },
+      "value": [
+        25
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "\"The predominant breeds used on low- land farms are the Suffolk, Texel, Belclare and Charollais.\" We assumed 25% each.",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Shearing, with machine shears",
+        "termType": "operation",
+        "@id": "shearingWithMachineShears",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Herd replacement rate",
+        "termType": "animalManagement",
+        "@id": "herdReplacementRate",
+        "units": "%"
+      },
+      "value": [
+        25
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Sheep, ewe",
+        "units": "number",
+        "@id": "sheepEwe"
+      },
+      "referencePeriod": "average",
+      "animalId": "1",
+      "value": 7.5,
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Sheep, ram",
+        "units": "number",
+        "@id": "sheepRam"
+      },
+      "referencePeriod": "average",
+      "animalId": "2",
+      "value": 0.16822429906542055,
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Sheep, lamb (weaned)",
+        "units": "number",
+        "@id": "sheepLambWeaned"
+      },
+      "referencePeriod": "average",
+      "animalId": "3",
+      "value": 3.9000000000000004,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Mortality rate",
+            "termType": "property",
+            "@id": "mortalityRate",
+            "units": "%"
+          },
+          "value": 9,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Weight at slaughter",
+            "termType": "property",
+            "@id": "weightAtSlaughter",
+            "units": "kg liveweight / head"
+          },
+          "value": 45,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Sheep, lamb (unweaned)",
+        "units": "number",
+        "@id": "sheepLambUnweaned"
+      },
+      "referencePeriod": "average",
+      "animalId": "4",
+      "value": 5.85,
+      "@type": "Animal"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture/Range/Paddock (excreta management)",
+        "termType": "excretaManagement",
+        "@id": "pastureRangePaddockExcretaManagement"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, sheep (kg mass)",
+            "units": "kg",
+            "@id": "excretaSheepKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 58.63013698630137,
+      "transformationId": "1",
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Solid storage",
+        "termType": "excretaManagement",
+        "@id": "solidStorage"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, sheep (kg mass)",
+            "units": "kg",
+            "@id": "excretaSheepKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 41.36986301369863,
+      "transformationId": "2",
+      "products": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, sheep (kg mass)",
+            "units": "kg",
+            "@id": "excretaSheepKgMass"
+          },
+          "@type": "Product"
+        }
+      ],
+      "@type": "Transformation"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Periodic spread",
+        "termType": "excretaManagement",
+        "@id": "periodicSpread"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, sheep (kg mass)",
+            "units": "kg",
+            "@id": "excretaSheepKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "transformationId": "3",
+      "previousTransformationId": "2",
+      "@type": "Transformation"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, sheep (liveweight)",
+        "units": "kg liveweight",
+        "@id": "meatSheepLiveweight"
+      },
+      "value": [
+        419
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Wool, sheep (greasy)",
+        "units": "kg",
+        "@id": "woolSheepGreasy"
+      },
+      "value": [
+        27
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, sheep (kg mass)",
+        "units": "kg",
+        "@id": "excretaSheepKgMass"
+      },
+      "@type": "Product"
+    }
+  ],
+  "emissions": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CH4, to air, enteric fermentation",
+        "termType": "emission",
+        "@id": "ch4ToAirEntericFermentation",
+        "units": "kg CH4"
+      },
+      "value": [
+        83.97208928571428
+      ],
+      "min": [
+        79.41546428571428
+      ],
+      "max": [
+        88.52871428571429
+      ],
+      "statsDefinition": "cycles",
+      "methodModel": {
+        "@type": "Term",
+        "name": "Other model",
+        "termType": "model",
+        "@id": "otherModel"
+      },
+      "methodTier": "tier 2",
+      "methodModelDescription": "The Irish national GHG inventory (Duffy et al., 2014) was followed to estimate CH4 emission from ruminants and manure. Enteric CH4 loss for ewes, hoggets and rams was estimated as 6.5% of gross energy intake (GEI) depending on the digestibility of the diet. For lambs, no enteric CH4 emission were estimated for the first month post lambing, because milk was largely sufficient to sustain lamb growth. From week 5, enteric CH4 emission was estimated as 6% of lambs GEI.",
+      "@type": "Emission"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": false,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "liveAnimalInput": true,
+    "waste": false,
+    "operation": false,
+    "freshForage": true,
+    "otherChemical": true,
+    "ingredient": true,
+    "animalPopulation": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Meat, sheep (liveweight) - Ireland - 2013 - Average cycle of 115 lowland f...",
+  "schemaVersion": "30.5.0",
+  "originalId": "lowland_farms"
+}

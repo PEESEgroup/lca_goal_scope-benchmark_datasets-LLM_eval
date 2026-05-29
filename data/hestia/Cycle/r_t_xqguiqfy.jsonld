@@ -1,0 +1,229 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2023-10-12",
+  "updatedAt": "2024-12-04",
+  "@id": "r_t_xqguiqfy",
+  "@type": "Cycle",
+  "description": "Hatchery farm",
+  "endDate": "2017",
+  "site": {
+    "@id": "xeaoheutivun",
+    "@type": "Site"
+  },
+  "functionalUnit": "relative",
+  "defaultMethodClassification": "verified survey data",
+  "defaultMethodClassificationDescription": "Conducted through visits to the production process and collected information through inquiries and interviews with responsible persons. Secondary data has been collected by reviewing studies to check the information.",
+  "defaultSource": {
+    "@id": "ukwx4hsnmu5v",
+    "@type": "Source"
+  },
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        0.1
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "water",
+        "name": "Water, source unspecified",
+        "units": "m3",
+        "@id": "waterSourceUnspecified"
+      },
+      "value": [
+        0.0003
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        0.00001726
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "pesticideAI",
+        "name": "Chlorine",
+        "units": "kg active ingredient",
+        "@id": "CAS-7782-50-5"
+      },
+      "value": [
+        0.0213
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Eggs, hen, in shell (number)",
+        "units": "number",
+        "@id": "eggsHenInShellNumber"
+      },
+      "value": [
+        1.2
+      ],
+      "impactAssessment": {
+        "@id": "vyhr_3vr6pyw",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": false,
+      "isAnimalFeed": false,
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Incubating",
+        "termType": "operation",
+        "@id": "incubating",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "operation",
+        "name": "Cooling buildings, with air conditioning",
+        "units": "hour",
+        "@id": "coolingBuildingsWithAirConditioning"
+      },
+      "description": "They seem to keep the egg incubators in an air conditioned room.",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Fumigating, machine unspecified",
+        "termType": "operation",
+        "@id": "fumigatingMachineUnspecified",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "system",
+        "name": "Barn system",
+        "units": "% area",
+        "@id": "barnSystem"
+      },
+      "@type": "Practice"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Broiler chicken, chick",
+        "units": "number",
+        "@id": "broilerChickenChick"
+      },
+      "description": "1 chicken",
+      "value": [
+        1
+      ],
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, poultry (kg mass)",
+        "units": "kg",
+        "@id": "excretaPoultryKgMass"
+      },
+      "primary": false,
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Poultry manure with litter",
+        "termType": "excretaManagement",
+        "@id": "poultryManureWithLitter"
+      },
+      "transformationId": "jawjit-transformation-2",
+      "description": "Excreta management",
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, poultry (kg mass)",
+            "units": "kg",
+            "@id": "excretaPoultryKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "products": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Processed excreta (kg mass)",
+            "termType": "excreta",
+            "@id": "processedExcretaKgMass",
+            "units": "kg"
+          },
+          "@type": "Product"
+        }
+      ],
+      "@type": "Transformation"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "operation": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": true,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "waste": false,
+    "liveAnimalInput": true,
+    "transport": false,
+    "ingredient": true,
+    "otherChemical": true,
+    "animalPopulation": true,
+    "freshForage": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Broiler chicken, chick - Thailand - 2017 - Hatchery farm",
+  "schemaVersion": "30.3.2",
+  "originalId": "3-hatchery"
+}

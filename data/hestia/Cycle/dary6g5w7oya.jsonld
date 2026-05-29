@@ -1,0 +1,436 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-02-09",
+  "updatedAt": "2024-12-06",
+  "@id": "dary6g5w7oya",
+  "@type": "Cycle",
+  "description": "Wheat plot grazed by 4 lambs. The wheat plot was grazed from March 07 until 10 days before spraying and sowing on 30 May 07. Crop residue were grazed by sheep from 15 January 08 for about 5e6 weeks post harvest.",
+  "numberOfCycles": 1,
+  "startDateDefinition": "stocking date",
+  "endDate": "2008-02-01",
+  "cycleDuration": 122.5,
+  "functionalUnit": "1 ha",
+  "site": {
+    "@id": "swasa9ws7jma",
+    "@type": "Site"
+  },
+  "defaultSource": {
+    "@id": "qjv9ii1cnmsr",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "physical measurement",
+  "defaultMethodClassificationDescription": "Onfarm activities were based on a 12-month field study conducted at the Department of Primary Industries site in Hamilton, Victoria (March 2007 - February 2008).",
+  "treatment": "Wheat field used to grow wheat, and lambs grazed for a short period of time (4 months)",
+  "commercialPracticeTreatment": false,
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Single Super Phosphate (kg P2O5)",
+        "termType": "inorganicFertiliser",
+        "@id": "singleSuperPhosphateKgP2O5",
+        "units": "kg P2O5"
+      },
+      "value": [
+        106.2
+      ],
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, lorry, light commercial vehicle",
+            "units": "tkm",
+            "@id": "freightLorryLightCommercialVehicle"
+          },
+          "distance": 234,
+          "returnLegIncluded": false,
+          "description": "30 tonne articulated truck",
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "pesticideAI",
+        "name": "Glyphosate",
+        "units": "kg active ingredient",
+        "@id": "CAS-1071-83-6"
+      },
+      "value": [
+        0.54
+      ],
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, lorry, light commercial vehicle",
+            "units": "tkm",
+            "@id": "freightLorryLightCommercialVehicle"
+          },
+          "distance": 284,
+          "returnLegIncluded": false,
+          "description": "30 tonne articulated truck",
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pesticide unspecified (AI)",
+        "termType": "pesticideAI",
+        "@id": "pesticideUnspecifiedAi",
+        "units": "kg active ingredient"
+      },
+      "value": [
+        0.13
+      ],
+      "transport": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "transport",
+            "name": "Freight, lorry, light commercial vehicle",
+            "units": "tkm",
+            "@id": "freightLorryLightCommercialVehicle"
+          },
+          "distance": 1169.5,
+          "returnLegIncluded": false,
+          "description": "30 tonne articulated truck",
+          "@type": "Transport"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        1.57066
+      ],
+      "operation": {
+        "@type": "Term",
+        "termType": "operation",
+        "name": "Sowing or planting, machine unspecified",
+        "units": "hour",
+        "@id": "sowingOrPlantingMachineUnspecified"
+      },
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        1.69148
+      ],
+      "operation": {
+        "@type": "Term",
+        "termType": "operation",
+        "name": "Fertilising, with sprayer",
+        "units": "hour",
+        "@id": "fertilisingWithSprayer"
+      },
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        0.69903
+      ],
+      "operation": {
+        "@type": "Term",
+        "name": "Top dressing, machine unspecified",
+        "termType": "operation",
+        "@id": "topDressingMachineUnspecified",
+        "units": "hour"
+      },
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        0.78533
+      ],
+      "operation": {
+        "@type": "Term",
+        "termType": "operation",
+        "name": "Harvesting crops, with combine harvester",
+        "units": "hour",
+        "@id": "harvestingCropsWithCombineHarvester"
+      },
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        0.13808
+      ],
+      "operation": {
+        "@type": "Term",
+        "name": "Shearing, with machine shears",
+        "termType": "operation",
+        "@id": "shearingWithMachineShears",
+        "units": "hour"
+      },
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Machinery infrastructure, depreciated amount per Cycle",
+        "termType": "material",
+        "@id": "machineryInfrastructureDepreciatedAmountPerCycle",
+        "units": "kg/functional unit/Cycle"
+      },
+      "cost": 0.19,
+      "currency": "AUD",
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Minimum tillage",
+        "termType": "tillage",
+        "@id": "minimumTillage",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Seed drilled",
+        "termType": "cropEstablishment",
+        "@id": "seedDrilled",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Residue left on field",
+        "termType": "cropResidueManagement",
+        "@id": "residueLeftOnField",
+        "units": "%"
+      },
+      "value": [
+        90
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Study states most residue is left on field, have assumed this is 90%",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Stocking density, permanent pasture (average)",
+        "termType": "animalManagement",
+        "@id": "stockingDensityPermanentPastureAverage",
+        "units": "animals / m2"
+      },
+      "value": [
+        0.01789954338
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Sheep, lamb (weaned)",
+        "units": "number",
+        "@id": "sheepLambWeaned"
+      },
+      "animalId": "1",
+      "referencePeriod": "average",
+      "value": 1.342465753,
+      "@type": "Animal"
+    }
+  ],
+  "transformations": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture/Range/Paddock (excreta management)",
+        "termType": "excretaManagement",
+        "@id": "pastureRangePaddockExcretaManagement"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, sheep (kg mass)",
+            "units": "kg",
+            "@id": "excretaSheepKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "transformationId": "1",
+      "@type": "Transformation"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Wheat, grain",
+        "units": "kg",
+        "@id": "wheatGrain"
+      },
+      "value": [
+        3100
+      ],
+      "primary": true,
+      "revenue": 1953,
+      "currency": "AUD",
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Wool, sheep (greasy)",
+        "units": "kg",
+        "@id": "woolSheepGreasy"
+      },
+      "value": [
+        20
+      ],
+      "methodClassification": "consistent external sources",
+      "methodClassificationDescription": "The information on the average amount of sheep meat and wool per lamb was obtained from MLA (Meat and Livestock Australia, 2007) and DPI Hamilton.",
+      "revenue": 104,
+      "currency": "AUD",
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, sheep (kg mass)",
+        "units": "kg",
+        "@id": "excretaSheepKgMass"
+      },
+      "@type": "Product"
+    }
+  ],
+  "emissions": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CH4, to air, enteric fermentation",
+        "termType": "emission",
+        "@id": "ch4ToAirEntericFermentation",
+        "units": "kg CH4"
+      },
+      "value": [
+        46.43
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "Other model",
+        "termType": "model",
+        "@id": "otherModel"
+      },
+      "methodTier": "tier 2",
+      "methodModelDescription": "CH4 emissions from manure have been calculated using the methodology for the estimation of greenhouse gas emissions and sinks, developed by the National Greenhouse Gas Inventory Committee (Department of Climate Change, 2006).",
+      "@type": "Emission"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CH4, to air, excreta",
+        "termType": "emission",
+        "@id": "ch4ToAirExcreta",
+        "units": "kg CH4"
+      },
+      "value": [
+        0.0077
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "Other model",
+        "termType": "model",
+        "@id": "otherModel"
+      },
+      "methodTier": "tier 2",
+      "methodModelDescription": "CH4 emissions from manure have been calculated using the methodology for the estimation of greenhouse gas emissions and sinks, developed by the National Greenhouse Gas Inventory Committee (Department of Climate Change, 2006).",
+      "@type": "Emission"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "transport": true,
+    "material": false,
+    "fertiliser": true,
+    "seed": false,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": true,
+    "product": true,
+    "cropResidue": false,
+    "excreta": false,
+    "animalFeed": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": true,
+    "freshForage": false,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Wheat, grain - Victoria (State), Australia - 2008-02-01 - Wheat field used to ... - Wheat plot grazed by 4 lambs. ...",
+  "siteArea": 1,
+  "schemaVersion": "30.4.0",
+  "originalId": "Wheat"
+}

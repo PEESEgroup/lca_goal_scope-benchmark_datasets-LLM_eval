@@ -1,0 +1,207 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-02-20",
+  "updatedAt": "2024-12-06",
+  "@id": "fdynpiof6o2n",
+  "@type": "Cycle",
+  "description": "Milk production",
+  "startDate": "2007",
+  "startDateDefinition": "start of year",
+  "endDate": "2008",
+  "cycleDuration": 365,
+  "site": {
+    "@id": "uxqf2tmy0pit",
+    "@type": "Site"
+  },
+  "functionalUnit": "1 ha",
+  "defaultMethodClassification": "consistent external sources",
+  "defaultMethodClassificationDescription": "Data on the stage of concentrate production were obtained from the main feed company supplying the dairy farmers of the studied production chain. Data on the stage of milk production were obtained from the Agricultural Economics Research Institute in the Netherlands, recorded in the Farm Accountancy Data Network (FADN). Data of 13 conventional, specialized dairy farms involved in the studied production chain were available in FADN.",
+  "defaultSource": {
+    "@id": "6yfrfaqhjdjb",
+    "@type": "Source"
+  },
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow",
+        "units": "number",
+        "@id": "dairyCattleCow"
+      },
+      "isAnimalFeed": false,
+      "value": [
+        2.189189189189189
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed, unspecified",
+        "termType": "processedFood",
+        "@id": "concentrateFeedUnspecified",
+        "units": "kg"
+      },
+      "value": [
+        4400.27027027027
+      ],
+      "isAnimalFeed": true,
+      "operation": {
+        "@type": "Term",
+        "name": "Feeding animals, machine unspecified",
+        "termType": "operation",
+        "@id": "feedingAnimalsMachineUnspecified",
+        "units": "hour"
+      },
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, silage",
+        "termType": "crop",
+        "@id": "genericGrassSilage",
+        "units": "kg"
+      },
+      "value": [
+        2257.0540540540537
+      ],
+      "isAnimalFeed": true,
+      "operation": {
+        "@type": "Term",
+        "name": "Feeding animals, machine unspecified",
+        "termType": "operation",
+        "@id": "feedingAnimalsMachineUnspecified",
+        "units": "hour"
+      },
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "I have assumed they mean silage. This term is \"purchased other feed\" in the study",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow",
+        "units": "number",
+        "@id": "dairyCattleCow"
+      },
+      "animalId": "1",
+      "referencePeriod": "average",
+      "value": 2.189189189189189,
+      "@type": "Animal"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Feeding animals, machine unspecified",
+        "termType": "operation",
+        "@id": "feedingAnimalsMachineUnspecified",
+        "units": "hour"
+      },
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalManagement",
+        "name": "Milk yield per cow (FPCM)",
+        "units": "kg / day",
+        "@id": "milkYieldPerCowFpcm"
+      },
+      "value": [
+        23.835616438356166
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Milk, cow, raw (FPCM)",
+        "units": "kg FPCM",
+        "@id": "milkCowRawFpcm"
+      },
+      "value": [
+        19045.945945945943
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "property",
+            "name": "Fat content",
+            "units": "%",
+            "@id": "fatContent"
+          },
+          "value": 4.4,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Crude protein content",
+            "termType": "property",
+            "@id": "crudeProteinContent",
+            "units": "%"
+          },
+          "value": 3.5,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "fate": "processing",
+      "primary": true,
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "operation": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "waste": false,
+    "liveAnimalInput": false,
+    "transport": false,
+    "ingredient": true,
+    "otherChemical": true,
+    "animalPopulation": false,
+    "freshForage": false,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Milk, cow, raw (FPCM) - Friesland (Provincie), Netherlands - 2008 - Milk production",
+  "siteArea": 1,
+  "schemaVersion": "30.4.0",
+  "originalId": "Middelaar-milk-production"
+}

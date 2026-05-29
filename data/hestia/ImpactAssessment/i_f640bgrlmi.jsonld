@@ -1,0 +1,189 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/ImpactAssessment.jsonld",
+  "createdAt": "2024-02-16",
+  "updatedAt": "2024-12-16",
+  "@id": "i_f640bgrlmi",
+  "@type": "ImpactAssessment",
+  "cycle": {
+    "@id": "yezo3xdquhkd",
+    "@type": "Cycle"
+  },
+  "site": {
+    "@id": "xpbf3bhu3ivp",
+    "@type": "Site"
+  },
+  "country": {
+    "@type": "Term",
+    "termType": "region",
+    "name": "France",
+    "@id": "GADM-FRA"
+  },
+  "product": {
+    "term": {
+      "@type": "Term",
+      "termType": "animalProduct",
+      "name": "Milk, cow, raw (FPCM)",
+      "units": "kg FPCM",
+      "@id": "milkCowRawFpcm"
+    },
+    "value": [
+      254900
+    ],
+    "methodClassification": "estimated with assumptions",
+    "methodClassificationDescription": "In the absence of published results documenting consistent changes in milk yield or fertility when omega-3 fatty acids were given, we assumed that milk yield per cow did not change.",
+    "primary": true,
+    "description": "Assumed that 8% of the milk produced was not commercialised because it was fed to calves or lost to diseases such as mastisis.",
+    "fate": "sold",
+    "properties": [
+      {
+        "term": {
+          "@type": "Term",
+          "termType": "property",
+          "name": "Fat content",
+          "units": "%",
+          "@id": "fatContent"
+        },
+        "value": 4,
+        "share": 100,
+        "@type": "Property"
+      }
+    ],
+    "@type": "Product"
+  },
+  "source": {
+    "@id": "pusvmnivm1zy",
+    "@type": "Source"
+  },
+  "functionalUnitQuantity": 1,
+  "allocationMethod": "economic",
+  "endDate": "2011",
+  "dataPrivate": false,
+  "impacts": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "characterisedIndicator",
+        "name": "GWP100",
+        "units": "kg CO2 eq",
+        "@id": "gwp100"
+      },
+      "value": 1.26,
+      "methodModel": {
+        "@type": "Term",
+        "name": "CML2001 Baseline",
+        "termType": "model",
+        "@id": "cml2001Baseline"
+      },
+      "@type": "Indicator"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Total cumulative energy demand",
+        "termType": "characterisedIndicator",
+        "@id": "totalCumulativeEnergyDemand",
+        "units": "MJ"
+      },
+      "value": 4.2,
+      "methodModel": {
+        "@type": "Term",
+        "name": "Cumulative Energy Demand (CED) method",
+        "termType": "model",
+        "@id": "cumulativeEnergyDemandCedMethod"
+      },
+      "@type": "Indicator"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "characterisedIndicator",
+        "name": "Eutrophication potential, excluding fate",
+        "units": "kg PO43- eq",
+        "@id": "eutrophicationPotentialExcludingFate"
+      },
+      "value": 0.0054800000000000005,
+      "methodModel": {
+        "@type": "Term",
+        "name": "CML2001 Baseline",
+        "termType": "model",
+        "@id": "cml2001Baseline"
+      },
+      "@type": "Indicator"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "characterisedIndicator",
+        "name": "Terrestrial acidification potential, including fate, average Europe",
+        "units": "kg SO2 eq",
+        "@id": "terrestrialAcidificationPotentialIncludingFateAverageEurope"
+      },
+      "value": 0.00875,
+      "methodModel": {
+        "@type": "Term",
+        "name": "CML2001 Baseline",
+        "termType": "model",
+        "@id": "cml2001Baseline"
+      },
+      "@type": "Indicator"
+    }
+  ],
+  "emissionsResourceUse": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "resourceUse",
+        "name": "Land occupation, during Cycle",
+        "units": "m2*year",
+        "@id": "landOccupationDuringCycle"
+      },
+      "value": 32.67,
+      "landCover": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Improved pasture",
+        "units": "% area",
+        "@id": "improvedPasture"
+      },
+      "methodModel": {
+        "@type": "Term",
+        "name": "Other model",
+        "termType": "model",
+        "@id": "otherModel"
+      },
+      "methodModelDescription": "Combination of land occupation used during grassland production and manure management. Numbers in formula obtained from Figure 2 in paper using Webplotdigitiser tool.",
+      "@type": "Indicator"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "resourceUse",
+        "name": "Land occupation, inputs production",
+        "units": "m2*year",
+        "@id": "landOccupationInputsProduction"
+      },
+      "landCover": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Improved pasture",
+        "units": "% area",
+        "@id": "improvedPasture"
+      },
+      "value": 33.669999999999995,
+      "methodModel": {
+        "@type": "Term",
+        "name": "Other model",
+        "termType": "model",
+        "@id": "otherModel"
+      },
+      "methodModelDescription": "Combination of maize silage and concentrate feed production. Numbers in formula obtained from Figure 2 in paper using Webplotdigitiser tool.",
+      "@type": "Indicator"
+    }
+  ],
+  "organic": false,
+  "irrigated": false,
+  "autoGenerated": false,
+  "name": "Milk, cow, raw (FPCM) - France - 2011",
+  "schemaVersion": "30.4.0",
+  "originalId": "Milk_G/HM/O3-Ho"
+}

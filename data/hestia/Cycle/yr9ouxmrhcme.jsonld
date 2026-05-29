@@ -1,0 +1,608 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-01-05",
+  "updatedAt": "2024-12-06",
+  "@id": "yr9ouxmrhcme",
+  "@type": "Cycle",
+  "description": "Alternative calf-to-beef system with a high grass utlilisation rate, where heifers are finished at 20 months and males are finished as steers at 24 months, with an intensive stocking density of 2.9 LU/ha.",
+  "endDate": "2009",
+  "cycleDuration": 365,
+  "startDateDefinition": "one year prior",
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "3q1tovuli_wu",
+    "@type": "Site"
+  },
+  "siteDuration": 243,
+  "siteUnusedDuration": 122,
+  "siteArea": 1,
+  "otherSites": [
+    {
+      "@id": "6-haeenpmsiy",
+      "@type": "Site"
+    }
+  ],
+  "otherSitesDuration": [
+    122
+  ],
+  "otherSitesUnusedDuration": [
+    243
+  ],
+  "defaultSource": {
+    "@id": "892cdffsz7dk",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "modelled",
+  "defaultMethodClassificationDescription": "Alternative scenarios were designed to reflect more inten- sive spring-calving pasture-based systems than the NFS scenario. These scenarios were based on data generated from research farm suckler beef production systems as developed by Teagasc, Livestock Systems Research Department, Grange (Drennan and McGee, 2008, 2009).",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Inorganic Nitrogen fertiliser, unspecified (kg N)",
+        "termType": "inorganicFertiliser",
+        "@id": "inorganicNitrogenFertiliserUnspecifiedKgN",
+        "units": "kg N"
+      },
+      "value": [
+        235
+      ],
+      "price": 0.23,
+      "currency": "EUR",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, fresh forage",
+        "termType": "forage",
+        "@id": "genericGrassFreshForage",
+        "units": "kg"
+      },
+      "value": [
+        7900
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Grass utilisation rate (kg DM consumed/kg DM grown) set at 80% in the research farm scenarios",
+      "isAnimalFeed": true,
+      "producedInCycle": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, silage",
+        "termType": "crop",
+        "@id": "genericGrassSilage",
+        "units": "kg"
+      },
+      "value": [
+        3300
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "isAnimalFeed": true,
+      "producedInCycle": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed, unspecified",
+        "termType": "processedFood",
+        "@id": "concentrateFeedUnspecified",
+        "units": "kg"
+      },
+      "isAnimalFeed": true,
+      "description": "Combined term to represent both growing and finishing concentrate feed. Assumed barley-soybean mix.",
+      "price": 0.19,
+      "currency": "EUR",
+      "value": [
+        700
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Crude protein content",
+            "termType": "property",
+            "@id": "crudeProteinContent",
+            "units": "%"
+          },
+          "value": 13,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        4.27185
+      ],
+      "operation": {
+        "@type": "Term",
+        "name": "Ensiling, machine unspecified",
+        "termType": "operation",
+        "@id": "ensilingMachineUnspecified",
+        "units": "hour"
+      },
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Diesel consumption for the process of silage production and slurry spreading was assumed to be 1.5 and 1.83 l/t, respectively (Dermot Forristal, Teagasc, Crops Research Centre, Carlow, Co. Carlow, Ireland. Pers. Com.).",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        29.349191666666663
+      ],
+      "operation": {
+        "@type": "Term",
+        "termType": "operation",
+        "name": "Fertilising, with spreader",
+        "units": "hour",
+        "@id": "fertilisingWithSpreader"
+      },
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Diesel consumption for the process of silage production and slurry spreading was assumed to be 1.5 and 1.83 l/t, respectively (Dermot Forristal, Teagasc, Crops Research Centre, Carlow, Co. Carlow, Ireland. Pers. Com.). Calculations shown in Sheet 2 of upload.",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "organicFertiliser",
+        "name": "Slurry and sludge (kg mass)",
+        "units": "kg",
+        "@id": "slurryAndSludgeKgMass"
+      },
+      "value": [
+        18583.78870673952
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Calculated based on the diesel consumption for the process of slurry spreading at 1.83 l/t. Dermot Forristal, Teagasc, Crops Research Centre, Carlow, Co. Carlow, Ireland. Pers. Com.). Calculations shown in Sheet 2 of upload.",
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture grass",
+        "termType": "landUseManagement",
+        "@id": "pastureGrass",
+        "units": "% area"
+      },
+      "key": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Generic grass plant",
+        "units": "% area",
+        "@id": "genericGrassPlant"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Confined pasture system",
+        "termType": "system",
+        "@id": "confinedPastureSystem",
+        "units": "% area"
+      },
+      "value": [
+        66.57534246575342
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Indoor animal system",
+        "termType": "system",
+        "@id": "indoorAnimalSystem",
+        "units": "% area"
+      },
+      "value": [
+        33.42465753424658
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Stocking density, permanent pasture (average)",
+        "termType": "animalManagement",
+        "@id": "stockingDensityPermanentPastureAverage",
+        "units": "animals / m2"
+      },
+      "value": [
+        0.0004938000000000001
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "animalId": "Cows",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, cow",
+        "units": "number",
+        "@id": "beefCattleCow"
+      },
+      "referencePeriod": "average",
+      "value": 1.41,
+      "@type": "Animal"
+    },
+    {
+      "animalId": "Heifer",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, heifer",
+        "units": "number",
+        "@id": "beefCattleHeifer"
+      },
+      "referencePeriod": "average",
+      "value": 0.7040000000000001,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "min": 365,
+          "value": 486.5,
+          "max": 608,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Slaughter age",
+            "termType": "property",
+            "@id": "slaughterAge",
+            "units": "days"
+          },
+          "value": 608,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Cold dressed carcass weight per head",
+            "termType": "property",
+            "@id": "coldDressedCarcassWeightPerHead",
+            "units": "kg cold dressed carcass weight / head"
+          },
+          "value": 295,
+          "methodClassification": "consistent external sources",
+          "methodClassificationDescription": "Liveweights for suckler beef cow and progeny animal groups and dressing percentages for cattle at slaughter were taken from Murphy et al. (2008a,b).",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "animalId": "Calves",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, calf",
+        "units": "number",
+        "@id": "beefCattleCalf"
+      },
+      "referencePeriod": "average",
+      "value": 1.768,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "min": 1,
+          "value": 182.5,
+          "max": 365,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "animalId": "Steer",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, steer",
+        "units": "number",
+        "@id": "beefCattleSteer"
+      },
+      "referencePeriod": "average",
+      "value": 1.056,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "min": 365,
+          "value": 547.5,
+          "max": 730,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Slaughter age",
+            "termType": "property",
+            "@id": "slaughterAge",
+            "units": "days"
+          },
+          "value": 730,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Cold dressed carcass weight per head",
+            "termType": "property",
+            "@id": "coldDressedCarcassWeightPerHead",
+            "units": "kg cold dressed carcass weight / head"
+          },
+          "value": 390,
+          "methodClassification": "consistent external sources",
+          "methodClassificationDescription": "Liveweights for suckler beef cow and progeny animal groups and dressing percentages for cattle at slaughter were taken from Murphy et al. (2008a,b).",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, beef cattle (cold dressed carcass weight)",
+        "units": "kg cold dressed carcass weight",
+        "@id": "meatBeefCattleColdDressedCarcassWeight"
+      },
+      "value": [
+        598
+      ],
+      "primary": true,
+      "price": 3.1,
+      "currency": "EUR",
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, beef cattle, except feedlot fed (kg mass)",
+        "units": "kg",
+        "@id": "excretaBeefCattleExceptFeedlotFedKgMass"
+      },
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Food processing waste",
+        "termType": "waste",
+        "@id": "foodProcessingWaste",
+        "units": "kg"
+      },
+      "description": "Effluent from grass silage production",
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, beef cattle, feedlot fed (kg mass)",
+        "units": "kg",
+        "@id": "excretaBeefCattleFeedlotFedKgMass"
+      },
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "transformationId": "1",
+      "term": {
+        "@type": "Term",
+        "name": "Pasture/Range/Paddock (excreta management)",
+        "termType": "excretaManagement",
+        "@id": "pastureRangePaddockExcretaManagement"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, beef cattle, except feedlot fed (kg mass)",
+            "units": "kg",
+            "@id": "excretaBeefCattleExceptFeedlotFedKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 66.57534246575342,
+      "@type": "Transformation"
+    },
+    {
+      "transformationId": "2",
+      "term": {
+        "@type": "Term",
+        "name": "Liquid/Slurry, with cover",
+        "termType": "excretaManagement",
+        "@id": "liquidSlurryWithCover"
+      },
+      "transformationDuration": 158,
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, beef cattle, feedlot fed (kg mass)",
+            "units": "kg",
+            "@id": "excretaBeefCattleFeedlotFedKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Food processing waste",
+            "termType": "waste",
+            "@id": "foodProcessingWaste",
+            "units": "kg"
+          },
+          "description": "Effluent from grass silage production",
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 33.42465753424658,
+      "products": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "organicFertiliser",
+            "name": "Slurry and sludge (kg mass)",
+            "units": "kg",
+            "@id": "slurryAndSludgeKgMass"
+          },
+          "description": "Assumed density of liquid manure at 8.5 lb/gal or 1018.52 kg/m3 https://lpelc.org/common-manure-test-results-conversions/",
+          "@type": "Product"
+        }
+      ],
+      "@type": "Transformation"
+    }
+  ],
+  "emissions": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CH4, to air, enteric fermentation",
+        "termType": "emission",
+        "@id": "ch4ToAirEntericFermentation",
+        "units": "kg CH4"
+      },
+      "value": [
+        241.824
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2006)",
+        "termType": "model",
+        "@id": "ipcc2006"
+      },
+      "methodTier": "tier 1",
+      "methodModelDescription": "A semi variable approach was taken for the calculation of enteric CH4 emission estimates. Fixed emission factors were used when pasture was the main dietary component for suckler beef cows and other animal classes (IPCC, 2006) (Emission factor (EF) 1). When grass silage comprised the forage component of the diet, the equation of Yan et al. (2000) denoted as EF 2, was used for suckler beef cows, whilst for other animal categories EF 1 was used.",
+      "@type": "Emission"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "otherChemical": true,
+    "seed": true,
+    "ingredient": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "freshForage": true,
+    "liveAnimalInput": false,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Meat, beef cattle (cold dressed carcass weight) - Ireland - 2009 - Alternative calf-to-beef syste...",
+  "schemaVersion": "30.4.0",
+  "originalId": "S-Int"
+}

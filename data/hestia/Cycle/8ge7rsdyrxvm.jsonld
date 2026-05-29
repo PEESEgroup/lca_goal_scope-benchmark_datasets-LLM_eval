@@ -1,0 +1,488 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-01-16",
+  "updatedAt": "2024-12-06",
+  "@id": "8ge7rsdyrxvm",
+  "@type": "Cycle",
+  "description": "Average annual production cycle of 21 hill sheep farms across England and Wales.",
+  "startDateDefinition": "one year prior",
+  "endDate": "2011",
+  "numberOfCycles": 21,
+  "cycleDuration": 365,
+  "functionalUnit": "relative",
+  "site": {
+    "@id": "wswqdtjlbesy",
+    "@type": "Site"
+  },
+  "siteDuration": 304.1666666666667,
+  "siteUnusedDuration": 60.833333333333314,
+  "siteArea": 1,
+  "otherSites": [
+    {
+      "@id": "oeh2rmjrhyds",
+      "@type": "Site"
+    }
+  ],
+  "otherSitesDuration": [
+    60.83333333333333
+  ],
+  "otherSitesUnusedDuration": [
+    304.1666666666667
+  ],
+  "defaultSource": {
+    "@id": "mroy2usjfur5",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "Data provided by farmers in face to face interviews for a single year between 2010 and 2011. Written farm records such as stock movement books were used to verify important data elements.",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Inorganic Nitrogen fertiliser, unspecified (kg N)",
+        "termType": "inorganicFertiliser",
+        "@id": "inorganicNitrogenFertiliserUnspecifiedKgN",
+        "units": "kg N"
+      },
+      "value": [
+        16.9
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        103.9
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "description": "Assumed 'fuel' to be diesel",
+      "value": [
+        22.6969
+      ],
+      "min": [
+        0.0863
+      ],
+      "max": [
+        57.216899999999995
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed, unspecified",
+        "termType": "processedFood",
+        "@id": "concentrateFeedUnspecified",
+        "units": "kg"
+      },
+      "isAnimalFeed": true,
+      "value": [
+        297.41999999999996
+      ],
+      "min": [
+        0
+      ],
+      "max": [
+        728.22
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, sheep (liveweight)",
+        "units": "kg liveweight",
+        "@id": "meatSheepLiveweight"
+      },
+      "value": [
+        9.543049813510153
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Calculated using the kg CO2e emissions related to purchased stock in the study per kg LW lamb; the emissions factor used for purchased stock and an estimation of the kg LW lamb produced using the kg lamb LW per kg ewe LW mated in the study",
+      "isAnimalFeed": false,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Lime",
+        "termType": "soilAmendment",
+        "@id": "lime",
+        "units": "kg CaCO3"
+      },
+      "value": [
+        94.87712918660287
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Calculated using the kg CO2e emissions related to lime breakdown in the study per kg LW lamb; the IPCC 2006 emissions factor used for limestone (0.12 kg C/kg lime) and an estimation of the kg LW lamb produced using the kg lamb LW per kg ewe LW mated in the study",
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Herd replacement rate",
+        "termType": "animalManagement",
+        "@id": "herdReplacementRate",
+        "units": "%"
+      },
+      "value": [
+        27
+      ],
+      "min": [
+        15.8
+      ],
+      "max": [
+        67.4
+      ],
+      "statsDefinition": "cycles",
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture grass",
+        "termType": "landUseManagement",
+        "@id": "pastureGrass",
+        "units": "% area"
+      },
+      "key": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Generic grass plant",
+        "units": "% area",
+        "@id": "genericGrassPlant"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Stocking density, permanent pasture (average)",
+        "termType": "animalManagement",
+        "@id": "stockingDensityPermanentPastureAverage",
+        "units": "animals / m2"
+      },
+      "value": [
+        0.0006090863157894736
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Hilly pasture system",
+        "termType": "system",
+        "@id": "hillyPastureSystem",
+        "units": "% area"
+      },
+      "value": [
+        83.33333333333334
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Indoor animal system",
+        "termType": "system",
+        "@id": "indoorAnimalSystem",
+        "units": "% area"
+      },
+      "value": [
+        16.666666666666664
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Sheep, ewe",
+        "units": "number",
+        "@id": "sheepEwe"
+      },
+      "animalId": "Ewes",
+      "value": 3.9736842105263155,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 56,
+          "methodClassification": "estimated with assumptions",
+          "methodClassificationDescription": "Estimation of ewe liveweight of average 56kg, sourced from the AHDB, which states ewes in the UK weigh between 42kg and 70kg.",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "referencePeriod": "average",
+      "@type": "Animal"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Sheep, lamb",
+        "units": "number",
+        "@id": "sheepLamb"
+      },
+      "animalId": "Lambs",
+      "value": 2.1171789473684206,
+      "min": 2.7815789473684207,
+      "max": 6.3578947368421055,
+      "statsDefinition": "cycles",
+      "referencePeriod": "average",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight gain",
+            "termType": "property",
+            "@id": "liveweightGain",
+            "units": "kg liveweight / head / day"
+          },
+          "value": 0.1765,
+          "min": 0.10729999999999999,
+          "max": 0.2577,
+          "statsDefinition": "cycles",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Weight at slaughter",
+            "termType": "property",
+            "@id": "weightAtSlaughter",
+            "units": "kg liveweight / head"
+          },
+          "value": 52.81850175967824,
+          "methodClassification": "estimated with assumptions",
+          "methodClassificationDescription": "Estimated total lamb liveweight sale divided by the estimated number of lambs sold",
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Slaughter age",
+            "termType": "property",
+            "@id": "slaughterAge",
+            "units": "days"
+          },
+          "value": 182.39999999999998,
+          "methodClassification": "estimated with assumptions",
+          "methodClassificationDescription": "Estimated 6 months old at finishing based on the weight at slaughter",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Sheep, lamb",
+        "units": "number",
+        "@id": "sheepLamb"
+      },
+      "value": [
+        3.161463157894736
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Calculated using the Average Lambs reared per ewe - Average ewe replacement rate",
+      "economicValueShare": 77.3,
+      "primary": true,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Sheep, ewe",
+        "units": "number",
+        "@id": "sheepEwe"
+      },
+      "description": "Cull ewes",
+      "value": [
+        1.0728947368421053
+      ],
+      "fate": "sold",
+      "economicValueShare": 10.6,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, sheep (kg N)",
+        "units": "kg N",
+        "@id": "excretaSheepKgN"
+      },
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Wool, sheep (greasy)",
+        "units": "kg",
+        "@id": "woolSheepGreasy"
+      },
+      "value": [
+        11.339999999999998
+      ],
+      "min": [
+        6.84
+      ],
+      "max": [
+        19.56
+      ],
+      "statsDefinition": "cycles",
+      "economicValueShare": 2.3,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Sheep",
+        "units": "number",
+        "@id": "sheep"
+      },
+      "description": "Breeding sheep",
+      "value": [
+        29.531947714196715
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "The system carbon footprint per hecatre was back calculated from the carbon footprint for hiill lamb per kg LW. This was then allocated to breeding sheep to give the breeding sheep impact per hectare. This was divided by the breeding sheep carbon footprint per kg LW, to give the kg LW of breeding sheep per hectare",
+      "fate": "breeding",
+      "economicValueShare": 9.8,
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "transformationId": "1",
+      "term": {
+        "@type": "Term",
+        "name": "Pasture/Range/Paddock (excreta management)",
+        "termType": "excretaManagement",
+        "@id": "pastureRangePaddockExcretaManagement"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, sheep (kg N)",
+            "units": "kg N",
+            "@id": "excretaSheepKgN"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 83.33333333333334,
+      "@type": "Transformation"
+    },
+    {
+      "transformationId": "2",
+      "term": {
+        "@type": "Term",
+        "name": "Solid storage",
+        "termType": "excretaManagement",
+        "@id": "solidStorage"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, sheep (kg N)",
+            "units": "kg N",
+            "@id": "excretaSheepKgN"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 16.666666666666664,
+      "@type": "Transformation"
+    }
+  ],
+  "emissions": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "CH4, to air, enteric fermentation",
+        "termType": "emission",
+        "@id": "ch4ToAirEntericFermentation",
+        "units": "kg CH4"
+      },
+      "value": [
+        57.5092025936842
+      ],
+      "methodModel": {
+        "@type": "Term",
+        "name": "IPCC (2006)",
+        "termType": "model",
+        "@id": "ipcc2006"
+      },
+      "methodTier": "tier 1",
+      "@type": "Emission"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "otherChemical": false,
+    "ingredient": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": false,
+    "water": false,
+    "product": true,
+    "cropResidue": false,
+    "excreta": false,
+    "animalFeed": true,
+    "freshForage": false,
+    "liveAnimalInput": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Sheep, lamb - United Kingdom - 2011 - Average annual production cycl...",
+  "schemaVersion": "30.4.0",
+  "originalId": "Hill"
+}

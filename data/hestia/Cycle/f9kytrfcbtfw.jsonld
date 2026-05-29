@@ -1,0 +1,654 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-01-10",
+  "updatedAt": "2024-12-06",
+  "@id": "f9kytrfcbtfw",
+  "@type": "Cycle",
+  "description": "Production cycle from sheep flock of low genetic merit (ewes in the bottom 20% of animals for the replacement index bred with rams in the bottom 20% of both replacement and terminal indices).",
+  "startDateDefinition": "one year prior",
+  "endDate": "2020",
+  "cycleDuration": 365,
+  "functionalUnit": "relative",
+  "functionalUnitDetails": "Annual production from the whole farm",
+  "site": {
+    "@id": "cn3chbbqleue",
+    "@type": "Site"
+  },
+  "siteDuration": 274,
+  "siteUnusedDuration": 91,
+  "siteArea": 20,
+  "otherSites": [
+    {
+      "@id": "w8xaxlq_rvyw",
+      "@type": "Site"
+    }
+  ],
+  "otherSitesDuration": [
+    91
+  ],
+  "otherSitesUnusedDuration": [
+    274
+  ],
+  "defaultSource": {
+    "@id": "zbwr_kpj1nsn",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "modelled",
+  "defaultMethodClassificationDescription": "An established bio-economic model of Irish lowland sheep flock, the Teagasc Lamb Production Model (TLPM; Bohan et al., 2016) was used. Key model inputs included animal production data, market prices for sheep and wool sales, market prices for variable and fixed costs, stocking rate, and fertiliser use. Production values assumed for animals divergent in genetic merit in this study were derived from the Irish national sheep production data- base, using 387,580 production records from animals born between 2018 and 2020 in commericial flocks in the Irish Central Progeny Test programme (McHugh et al., 2022). Key model outputs included stock inventories, production at a whole farm level, total income and expenses, farm gross margin, and net profit expressed on either a whole farm, per ha, per ewe, or per lamb born basis.",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Inorganic Nitrogen fertiliser, unspecified (kg N)",
+        "termType": "inorganicFertiliser",
+        "@id": "inorganicNitrogenFertiliserUnspecifiedKgN",
+        "units": "kg N"
+      },
+      "value": [
+        2000
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Inorganic Phosphorus fertiliser, unspecified (kg P2O5)",
+        "termType": "inorganicFertiliser",
+        "@id": "inorganicPhosphorusFertiliserUnspecifiedKgP2O5",
+        "units": "kg P2O5"
+      },
+      "value": [
+        200
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "\"Phosphorus applied\" assumed to be given in kg P2O5.",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Inorganic Potassium fertiliser, unspecified (kg K2O)",
+        "termType": "inorganicFertiliser",
+        "@id": "inorganicPotassiumFertiliserUnspecifiedKgK2O",
+        "units": "kg K2O"
+      },
+      "value": [
+        400
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "\"Potassium applied\" assumed to be given in kg K2O.",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, fresh forage",
+        "termType": "forage",
+        "@id": "genericGrassFreshForage",
+        "units": "kg"
+      },
+      "value": [
+        109825
+      ],
+      "producedInCycle": true,
+      "isAnimalFeed": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, silage",
+        "termType": "crop",
+        "@id": "genericGrassSilage",
+        "units": "kg"
+      },
+      "value": [
+        26012
+      ],
+      "isAnimalFeed": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed, unspecified",
+        "termType": "processedFood",
+        "@id": "concentrateFeedUnspecified",
+        "units": "kg"
+      },
+      "isAnimalFeed": true,
+      "value": [
+        5109
+      ],
+      "cost": 1672,
+      "currency": "EUR",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        58.067147766323025
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Back calculation using the reported CO2 emissions for diesel per kg carcass weight (Table 4), the total carcass weight sold (see products), and the EPA (2021) emissions factor for diesel (Table S1)",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Sheep, ram",
+        "units": "number",
+        "@id": "sheepRam"
+      },
+      "isAnimalFeed": false,
+      "value": [
+        3.7333333333333334
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Number of rams purchased for breeding not given in the study, so has been estimated using a breeding ratio of 45 ewes to every ram, sourced from Teagasc (the same institution which created the model used in the study -  the Teagasc Lamb Production Model).",
+      "cost": 373,
+      "currency": "EUR",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, sheep (kg N)",
+        "units": "kg N",
+        "@id": "excretaSheepKgN"
+      },
+      "value": [
+        988.5602156334232
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Back calculation using the reported N2O emissions for manure spreading per kg carcass weight (Table 4), the carcass weight sold per ewe joined (Table 2), no. of ewes joined (Table 1), and the IPCC (2019) emissions factor for manure (Table S1). GWP of N2O assumed 265 (following IPCC (2013) excluding feedbacks as stipulated in the study).",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Lime",
+        "termType": "soilAmendment",
+        "@id": "lime",
+        "units": "kg CaCO3"
+      },
+      "cost": 400,
+      "currency": "EUR",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Generic crop, straw",
+        "units": "kg",
+        "@id": "genericCropStraw"
+      },
+      "cost": 2166,
+      "currency": "EUR",
+      "isAnimalFeed": false,
+      "description": "Used for bedding.",
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Veterinary drugs unspecified (AI)",
+        "termType": "veterinaryDrug",
+        "@id": "veterinaryDrugsUnspecifiedAi",
+        "units": "kg"
+      },
+      "cost": 2489,
+      "currency": "EUR",
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Herd replacement rate",
+        "termType": "animalManagement",
+        "@id": "herdReplacementRate",
+        "units": "%"
+      },
+      "value": [
+        22
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Stocking density, permanent pasture (average)",
+        "termType": "animalManagement",
+        "@id": "stockingDensityPermanentPastureAverage",
+        "units": "animals / m2"
+      },
+      "value": [
+        0.0018252283105022833
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture grass",
+        "termType": "landUseManagement",
+        "@id": "pastureGrass",
+        "units": "% area"
+      },
+      "key": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Generic grass plant",
+        "units": "% area",
+        "@id": "genericGrassPlant"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Confined pasture system",
+        "termType": "system",
+        "@id": "confinedPastureSystem",
+        "units": "% area"
+      },
+      "value": [
+        75.06849315068493
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Indoor animal system",
+        "termType": "system",
+        "@id": "indoorAnimalSystem",
+        "units": "% area"
+      },
+      "value": [
+        24.93150684931507
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Sheep, ewe",
+        "units": "number",
+        "@id": "sheepEwe"
+      },
+      "animalId": "Ewes",
+      "referencePeriod": "average",
+      "value": 168,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Percentage of served animals delivering",
+            "termType": "property",
+            "@id": "percentageOfServedAnimalsDelivering",
+            "units": "%"
+          },
+          "value": 94.64285714285714,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 73.08,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "animalId": "Lambs",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Sheep, lamb",
+        "units": "number",
+        "@id": "sheepLamb"
+      },
+      "referencePeriod": "average",
+      "value": 193.3123287671233,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Mortality rate",
+            "termType": "property",
+            "@id": "mortalityRate",
+            "units": "%"
+          },
+          "value": 7.1299999999999955,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Weight at weaning",
+            "termType": "property",
+            "@id": "weightAtWeaning",
+            "units": "kg liveweight / head"
+          },
+          "value": 30.65,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Weight at slaughter",
+            "termType": "property",
+            "@id": "weightAtSlaughter",
+            "units": "kg liveweight / head"
+          },
+          "value": 43,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Slaughter age",
+            "termType": "property",
+            "@id": "slaughterAge",
+            "units": "days"
+          },
+          "value": 203,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Cold carcass weight per head",
+            "termType": "property",
+            "@id": "coldCarcassWeightPerHead",
+            "units": "kg cold carcass weight / head"
+          },
+          "value": 20.48,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "animalId": "Rams",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Sheep, ram",
+        "units": "number",
+        "@id": "sheepRam"
+      },
+      "referencePeriod": "average",
+      "value": 3.7333333333333334,
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Number of rams purchased for breeding not given in the study, so has been estimated using a breeding ratio of 45 ewes to every ram, sourced from Teagasc (the same institution which created the model used in the study -  the Teagasc Lamb Production Model).",
+      "@type": "Animal"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Sheep, lamb",
+        "units": "number",
+        "@id": "sheepLamb"
+      },
+      "value": [
+        220
+      ],
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Liveweight per head",
+            "termType": "property",
+            "@id": "liveweightPerHead",
+            "units": "kg liveweight / head"
+          },
+          "value": 43,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "primary": true,
+      "revenue": 24613,
+      "currency": "EUR",
+      "economicValueShare": 90.19054598754123,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Sheep, ewe",
+        "units": "number",
+        "@id": "sheepEwe"
+      },
+      "description": "Cull ewes calculcated as Total number of ewes * replacement rate",
+      "value": [
+        36.96
+      ],
+      "revenue": 2215,
+      "currency": "EUR",
+      "economicValueShare": 8.116526200073288,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, sheep (kg N)",
+        "units": "kg N",
+        "@id": "excretaSheepKgN"
+      },
+      "value": [
+        1952.8824383164006
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "Amount of manure (kg N) produced during animal housing phase estimated through a back calculation from N2O emissions from stored manure (Table 4) and the emissions factor used (Table S1) - see transformation inputs. The total manure produced then back calculated from this value, assuming that the transformedShare of manure in solid storage transformation depends on the days spent in housing versus pasture (91/365). This also assumes that the rate of manure production is constant across animal housing and pasture phases of the production cycle.",
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Dead animal waste (number of animals)",
+        "termType": "waste",
+        "@id": "deadAnimalWasteNumberOfAnimals",
+        "units": "number"
+      },
+      "value": [
+        21.65309699999999
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Wool, sheep (greasy)",
+        "units": "kg",
+        "@id": "woolSheepGreasy"
+      },
+      "revenue": 134,
+      "currency": "EUR",
+      "economicValueShare": 0.4910223525100769,
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, silage",
+        "termType": "crop",
+        "@id": "genericGrassSilage",
+        "units": "kg"
+      },
+      "fate": "sold",
+      "revenue": 328,
+      "currency": "EUR",
+      "economicValueShare": 1.2019054598754122,
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "transformationId": "1",
+      "term": {
+        "@type": "Term",
+        "name": "Pasture/Range/Paddock (excreta management)",
+        "termType": "excretaManagement",
+        "@id": "pastureRangePaddockExcretaManagement"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, sheep (kg N)",
+            "units": "kg N",
+            "@id": "excretaSheepKgN"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 75.06849315068493,
+      "@type": "Transformation"
+    },
+    {
+      "transformationId": "2",
+      "term": {
+        "@type": "Term",
+        "name": "Solid storage",
+        "termType": "excretaManagement",
+        "@id": "solidStorage"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, sheep (kg N)",
+            "units": "kg N",
+            "@id": "excretaSheepKgN"
+          },
+          "value": [
+            486.88301886792453
+          ],
+          "methodClassification": "estimated with assumptions",
+          "methodClassificationDescription": "Amount of manure (kg N) produced during animal housing phase estimated through a back calculation from N2O emissions from stored manure (Table 4) and the emissions factor used (Table S1).",
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "emissions": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "N2O, to air, excreta, direct",
+            "termType": "emission",
+            "@id": "n2OToAirExcretaDirect",
+            "units": "kg N2O"
+          },
+          "value": [
+            0.37358490566037733
+          ],
+          "methodModel": {
+            "@type": "Term",
+            "name": "IPCC (2019)",
+            "termType": "model",
+            "@id": "ipcc2019"
+          },
+          "methodTier": "tier 2",
+          "@type": "Emission"
+        }
+      ],
+      "@type": "Transformation"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": false,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "ingredient": true,
+    "otherChemical": true,
+    "seed": false,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": false,
+    "water": false,
+    "product": false,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "freshForage": true,
+    "liveAnimalInput": false,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Sheep, lamb - Ireland - 2020 - Production cycle from sheep fl...",
+  "schemaVersion": "30.4.0",
+  "originalId": "Low Merit"
+}

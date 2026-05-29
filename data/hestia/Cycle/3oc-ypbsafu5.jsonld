@@ -1,0 +1,692 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-05-08",
+  "updatedAt": "2024-12-06",
+  "@id": "3oc-ypbsafu5",
+  "@type": "Cycle",
+  "startDateDefinition": "one year prior",
+  "endDate": "2019",
+  "cycleDuration": 365,
+  "functionalUnit": "1 ha",
+  "numberOfCycles": 251,
+  "site": {
+    "@id": "fbfx9yj0tdz3",
+    "@type": "Site"
+  },
+  "siteDuration": 365,
+  "siteUnusedDuration": 0,
+  "defaultSource": {
+    "@id": "8hyob7obzdci",
+    "@type": "Source"
+  },
+  "defaultMethodClassification": "non-verified survey data",
+  "defaultMethodClassificationDescription": "The information used in this study was obtained from the Sustainable Colombian Cattle Ranching (GCS, Spanish initials) and the LivestockPlus (L+) projects conducted in Colombia. In these studies, over a period of 1 year, quantitative and qualitative data were collected by applying surveys on farms.",
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Inorganic Nitrogen fertiliser, unspecified (kg N)",
+        "termType": "inorganicFertiliser",
+        "@id": "inorganicNitrogenFertiliserUnspecifiedKgN",
+        "units": "kg N"
+      },
+      "value": [
+        9.145
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Inorganic Phosphorus fertiliser, unspecified (kg P2O5)",
+        "termType": "inorganicFertiliser",
+        "@id": "inorganicPhosphorusFertiliserUnspecifiedKgP2O5",
+        "units": "kg P2O5"
+      },
+      "value": [
+        5.405161290322581
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Inorganic Potassium fertiliser, unspecified (kg K2O)",
+        "termType": "inorganicFertiliser",
+        "@id": "inorganicPotassiumFertiliserUnspecifiedKgK2O",
+        "units": "kg K2O"
+      },
+      "value": [
+        2.8441025641025637
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Dolomitic lime",
+        "termType": "soilAmendment",
+        "@id": "dolomiticLime",
+        "units": "kg CaMg(CO3)2"
+      },
+      "value": [
+        22
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Concentrate feed, unspecified",
+        "termType": "processedFood",
+        "@id": "concentrateFeedUnspecified",
+        "units": "kg"
+      },
+      "value": [
+        70.76
+      ],
+      "isAnimalFeed": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Energy content (higher heating value)",
+            "termType": "property",
+            "@id": "energyContentHigherHeatingValue",
+            "units": "MJ / kg"
+          },
+          "value": 18.45,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Sugarcane, molasses",
+        "units": "kg",
+        "@id": "sugarcaneMolasses"
+      },
+      "value": [
+        34.769999999999996
+      ],
+      "isAnimalFeed": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Energy content (higher heating value)",
+            "termType": "property",
+            "@id": "energyContentHigherHeatingValue",
+            "units": "MJ / kg"
+          },
+          "value": 18.45,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "feedFoodAdditive",
+        "name": "Minerals, unspecified",
+        "units": "kg",
+        "@id": "mineralsUnspecified"
+      },
+      "value": [
+        39.284000000000006
+      ],
+      "isAnimalFeed": true,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Energy content (higher heating value)",
+            "termType": "property",
+            "@id": "energyContentHigherHeatingValue",
+            "units": "MJ / kg"
+          },
+          "value": 18.45,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "fuel",
+        "name": "Diesel",
+        "units": "kg",
+        "@id": "diesel"
+      },
+      "value": [
+        0.82848
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Lime",
+        "termType": "soilAmendment",
+        "@id": "lime",
+        "units": "kg CaCO3"
+      },
+      "value": [
+        17
+      ],
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, fresh forage",
+        "termType": "forage",
+        "@id": "genericGrassFreshForage",
+        "units": "kg"
+      },
+      "isAnimalFeed": true,
+      "producedInCycle": true,
+      "value": [
+        2910.0239043824704
+      ],
+      "methodClassification": "estimated with assumptions",
+      "methodClassificationDescription": "The total DMI for the farm is 117.9 tonnes. The average percentage of DMI coming from external feed is 3% (this was calculated as a weighted average across all farms from Table 8 in the study). This leaevs 97% DMI coming from forage. So the value here was calculated as Total DMI * 97%.",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Energy content (higher heating value)",
+            "termType": "property",
+            "@id": "energyContentHigherHeatingValue",
+            "units": "MJ / kg"
+          },
+          "value": 34.7250967072189,
+          "methodClassification": "estimated with assumptions",
+          "methodClassificationDescription": "Gross Energy was given in the study. From this we took away the total Energy from external feeds (assuming an energy density of 18.45 which was given in the study). This gave us a value for MJ coming from forage, which we divided by the total quantity of forage consumed in DM. Therefore this energy content property represents the energy density of the fresh forage in MJ per kg of DM.",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Open range system",
+        "termType": "system",
+        "@id": "openRangeSystem",
+        "units": "% area"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Agroforestry system",
+        "termType": "system",
+        "@id": "agroforestrySystem",
+        "units": "% area"
+      },
+      "value": [
+        0.83
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Pasture grass",
+        "termType": "landUseManagement",
+        "@id": "pastureGrass",
+        "units": "% area"
+      },
+      "key": {
+        "@type": "Term",
+        "termType": "landCover",
+        "name": "Generic grass plant",
+        "units": "% area",
+        "@id": "genericGrassPlant"
+      },
+      "value": [
+        100
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "animals": [
+    {
+      "animalId": "Cows",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, cow",
+        "units": "number",
+        "@id": "beefCattleCow"
+      },
+      "value": 0.5089058524173028,
+      "referencePeriod": "average",
+      "@type": "Animal"
+    },
+    {
+      "animalId": "FemaleCalves",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, calf (female)",
+        "units": "number",
+        "@id": "beefCattleCalfFemale"
+      },
+      "value": 0.15267175572519084,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "min": 1,
+          "max": 365,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "referencePeriod": "average",
+      "@type": "Animal"
+    },
+    {
+      "animalId": "Heifers",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, heifer",
+        "units": "number",
+        "@id": "beefCattleHeifer"
+      },
+      "value": 0.1272264631043257,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "min": 365,
+          "value": 547.5,
+          "max": 730,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "referencePeriod": "average",
+      "@type": "Animal"
+    },
+    {
+      "animalId": "Steers",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, steer",
+        "units": "number",
+        "@id": "beefCattleSteer"
+      },
+      "value": 0.07633587786259542,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "min": 365,
+          "value": 547.5,
+          "max": 730,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "referencePeriod": "average",
+      "@type": "Animal"
+    },
+    {
+      "animalId": "OlderHeifers",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, heifer",
+        "units": "number",
+        "@id": "beefCattleHeifer"
+      },
+      "value": 0.10178117048346057,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "min": 730,
+          "value": 912.5,
+          "max": 1095,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "referencePeriod": "average",
+      "@type": "Animal"
+    },
+    {
+      "animalId": "OlderSteers",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, steer",
+        "units": "number",
+        "@id": "beefCattleSteer"
+      },
+      "value": 0.050890585241730284,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "min": 730,
+          "value": 912.5,
+          "max": 1095,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "referencePeriod": "average",
+      "@type": "Animal"
+    },
+    {
+      "animalId": "Bulls",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, bull",
+        "units": "number",
+        "@id": "beefCattleBull"
+      },
+      "value": 0.025445292620865142,
+      "referencePeriod": "average",
+      "@type": "Animal"
+    },
+    {
+      "animalId": "MaleCalves",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Beef cattle, calf (male)",
+        "units": "number",
+        "@id": "beefCattleCalfMale"
+      },
+      "value": 0.1272264631043257,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Age",
+            "termType": "property",
+            "@id": "age",
+            "units": "days"
+          },
+          "min": 1,
+          "max": 365,
+          "statsDefinition": "time",
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "referencePeriod": "average",
+      "@type": "Animal"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, beef cattle (liveweight)",
+        "units": "kg liveweight",
+        "@id": "meatBeefCattleLiveweight"
+      },
+      "value": [
+        235.46
+      ],
+      "primary": true,
+      "price": 4364,
+      "currency": "COP",
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Milk, cow, raw",
+        "units": "kg",
+        "@id": "milkCowRaw"
+      },
+      "value": [
+        593.384223918575
+      ],
+      "price": 1000,
+      "currency": "COP",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "property",
+            "name": "Fat content",
+            "units": "%",
+            "@id": "fatContent"
+          },
+          "value": 3.5,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Crude protein content",
+            "termType": "property",
+            "@id": "crudeProteinContent",
+            "units": "%"
+          },
+          "value": 3.3,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, beef cattle, except feedlot fed (kg mass)",
+        "units": "kg",
+        "@id": "excretaBeefCattleExceptFeedlotFedKgMass"
+      },
+      "@type": "Product"
+    }
+  ],
+  "transformations": [
+    {
+      "transformationId": "1",
+      "term": {
+        "@type": "Term",
+        "name": "Pasture/Range/Paddock (excreta management)",
+        "termType": "excretaManagement",
+        "@id": "pastureRangePaddockExcretaManagement"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, beef cattle, except feedlot fed (kg mass)",
+            "units": "kg",
+            "@id": "excretaBeefCattleExceptFeedlotFedKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 100,
+      "emissions": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "CH4, to air, excreta",
+            "termType": "emission",
+            "@id": "ch4ToAirExcreta",
+            "units": "kg CH4"
+          },
+          "value": [
+            1.586
+          ],
+          "min": [
+            0.732
+          ],
+          "max": [
+            10.004
+          ],
+          "statsDefinition": "cycles",
+          "methodModel": {
+            "@type": "Term",
+            "name": "IPCC (2019)",
+            "termType": "model",
+            "@id": "ipcc2019"
+          },
+          "methodTier": "tier 1",
+          "@type": "Emission"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "N2O, to air, excreta, direct",
+            "termType": "emission",
+            "@id": "n2OToAirExcretaDirect",
+            "units": "kg N2O"
+          },
+          "value": [
+            2.475
+          ],
+          "min": [
+            0.0275
+          ],
+          "max": [
+            15.125
+          ],
+          "statsDefinition": "cycles",
+          "methodModel": {
+            "@type": "Term",
+            "name": "IPCC (2019)",
+            "termType": "model",
+            "@id": "ipcc2019"
+          },
+          "methodTier": "tier 1",
+          "@type": "Emission"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "N2O, to air, excreta, indirect",
+            "termType": "emission",
+            "@id": "n2OToAirExcretaIndirect",
+            "units": "kg N2O"
+          },
+          "value": [
+            0.32999999999999996
+          ],
+          "min": [
+            0.0165
+          ],
+          "max": [
+            1.65
+          ],
+          "statsDefinition": "cycles",
+          "methodModel": {
+            "@type": "Term",
+            "name": "IPCC (2019)",
+            "termType": "model",
+            "@id": "ipcc2019"
+          },
+          "methodTier": "tier 1",
+          "@type": "Emission"
+        }
+      ],
+      "@type": "Transformation"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "transport": false,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "otherChemical": true,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": true,
+    "excreta": false,
+    "animalFeed": true,
+    "freshForage": true,
+    "ingredient": true,
+    "liveAnimalInput": true,
+    "animalPopulation": true,
+    "waste": false,
+    "operation": false,
+    "@type": "Completeness"
+  },
+  "dataPrivate": false,
+  "name": "Meat, beef cattle (liveweight) - Colombia - 2019",
+  "siteArea": 1,
+  "schemaVersion": "30.4.0",
+  "originalId": "Cow_Calf"
+}

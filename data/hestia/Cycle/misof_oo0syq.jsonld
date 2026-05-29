@@ -1,0 +1,458 @@
+{
+  "@context": "https://www-staging.hestia.earth/schema/Cycle.jsonld",
+  "createdAt": "2024-11-12",
+  "updatedAt": "2024-11-26",
+  "@id": "misof_oo0syq",
+  "@type": "Cycle",
+  "site": {
+    "@id": "kubvco303e9z",
+    "@type": "Site"
+  },
+  "siteDuration": 212,
+  "siteUnusedDuration": 153,
+  "otherSites": [
+    {
+      "@id": "h8fyuoj71kk4",
+      "@type": "Site"
+    }
+  ],
+  "otherSitesDuration": [
+    153
+  ],
+  "otherSitesUnusedDuration": [
+    212
+  ],
+  "defaultSource": {
+    "@id": "dr_jmmuqpfzs",
+    "@type": "Source"
+  },
+  "functionalUnit": "relative",
+  "endDate": "2016",
+  "defaultMethodClassification": "inconsistent external sources",
+  "defaultMethodClassificationDescription": "\"Data on material and energy inputs needed for crop production, manure management, and milk production were based on the model developed by Aguirre-Villegas et al. (2015). These data came from the literature and from the US Life Cycle Inventory (NREL, 2010) and Ecoinvent 2.0 US (Ecoinvent Centre, 2007) databases accessed through GaBi 4 Professional (Frischknecht et al., 2005).\"",
+  "dataPrivate": false,
+  "inputs": [
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Generic grass, fresh forage",
+        "termType": "forage",
+        "@id": "genericGrassFreshForage",
+        "units": "kg"
+      },
+      "value": [
+        4.842465753424658
+      ],
+      "description": "Input per day per cow per day by grazing season (weighted average of daily inputs by grazing period) normalized to the reference unit. The paper assumes a dry period of 62 days per year that occurs randomly.",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "impactAssessment": {
+        "@id": "ksdozuk7lyvs",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": true,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Generic leguminous grass, silage",
+        "units": "kg",
+        "@id": "genericLeguminousGrassSilage"
+      },
+      "value": [
+        3.3997189009422755
+      ],
+      "description": "Input per day per cow per day by grazing season (weighted average of daily inputs by grazing period) normalized to the reference unit. The paper assumes a dry period of 62 days per year that occurs randomly.",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "impactAssessment": {
+        "@id": "hlvtyvem_efu",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": true,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Maize, silage",
+        "units": "kg",
+        "@id": "maizeSilage"
+      },
+      "value": [
+        4.11050439464724
+      ],
+      "description": "Input per day per cow per day by grazing season (weighted average of daily inputs by grazing period) normalized to the reference unit. The paper assumes a dry period of 62 days per year that occurs randomly.",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "impactAssessment": {
+        "@id": "xn26cwdu2n0v",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": true,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Maize, grain",
+        "units": "kg",
+        "@id": "maizeGrain"
+      },
+      "value": [
+        6.260616438356164
+      ],
+      "description": "Input per day per cow per day by grazing season (weighted average of daily inputs by grazing period) normalized to the reference unit. The paper assumes a dry period of 62 days per year that occurs randomly.",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "impactAssessment": {
+        "@id": "dkswmbcvn3ol",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": true,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "crop",
+        "name": "Soybean, meal",
+        "units": "kg",
+        "@id": "soybeanMeal"
+      },
+      "value": [
+        1.2106164383561644
+      ],
+      "description": "Input per day per cow per day by grazing season (weighted average of daily inputs by grazing period) normalized to the reference unit. The paper assumes a dry period of 62 days per year that occurs randomly.",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Dry matter",
+            "termType": "property",
+            "@id": "dryMatter",
+            "units": "%"
+          },
+          "value": 100,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "impactAssessment": {
+        "@id": "7zjgvamg3c4w",
+        "@type": "ImpactAssessment"
+      },
+      "impactAssessmentIsProxy": true,
+      "isAnimalFeed": true,
+      "@type": "Input"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Electricity, grid, market mix",
+        "termType": "electricity",
+        "@id": "electricityGridMarketMix",
+        "units": "kWh"
+      },
+      "value": [
+        0.60277777
+      ],
+      "description": "Input per day per cow per day by grazing season (weighted average of daily inputs by grazing period) normalized to the reference unit. The paper assumes a dry period of 62 days per year that occurs randomly.",
+      "@type": "Input"
+    }
+  ],
+  "practices": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalManagement",
+        "name": "Milk yield per cow (FPCM)",
+        "units": "kg / day",
+        "@id": "milkYieldPerCowFpcm"
+      },
+      "value": [
+        35
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Total animal population",
+        "termType": "animalManagement",
+        "@id": "totalAnimalPopulation",
+        "units": "number"
+      },
+      "value": [
+        513
+      ],
+      "@type": "Practice"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "name": "Herd replacement rate",
+        "termType": "animalManagement",
+        "@id": "herdReplacementRate",
+        "units": "%"
+      },
+      "value": [
+        40.3
+      ],
+      "@type": "Practice"
+    }
+  ],
+  "transformations": [
+    {
+      "transformationId": "milk_wisconsin_g4_excretaManagement_1",
+      "term": {
+        "@type": "Term",
+        "name": "Liquid/Slurry, with natural crust cover",
+        "termType": "excretaManagement",
+        "@id": "liquidSlurryWithNaturalCrustCover"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 50,
+      "@type": "Transformation"
+    },
+    {
+      "transformationId": "milk_wisconsin_g4_excretaManagement_2",
+      "term": {
+        "@type": "Term",
+        "name": "Periodic spread",
+        "termType": "excretaManagement",
+        "@id": "periodicSpread"
+      },
+      "inputs": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "excreta",
+            "name": "Excreta, dairy cattle (kg mass)",
+            "units": "kg",
+            "@id": "excretaDairyCattleKgMass"
+          },
+          "fromCycle": true,
+          "@type": "Input"
+        }
+      ],
+      "transformedShare": 50,
+      "@type": "Transformation"
+    }
+  ],
+  "animals": [
+    {
+      "animalId": "lactating_cow_g4",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow (lactating)",
+        "units": "number",
+        "@id": "dairyCattleCowLactating"
+      },
+      "referencePeriod": "average",
+      "value": 0.7835616438356164,
+      "@type": "Animal"
+    },
+    {
+      "animalId": "heifer_g4",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, heifer",
+        "units": "number",
+        "@id": "dairyCattleHeifer"
+      },
+      "referencePeriod": "average",
+      "value": 0.4410958904109589,
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Interbirth interval",
+            "termType": "property",
+            "@id": "interbirthInterval",
+            "units": "days"
+          },
+          "value": 420,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Animal"
+    },
+    {
+      "animalId": "dry_cow_g4",
+      "term": {
+        "@type": "Term",
+        "termType": "liveAnimal",
+        "name": "Dairy cattle, cow (dry)",
+        "units": "number",
+        "@id": "dairyCattleCowDry"
+      },
+      "referencePeriod": "average",
+      "value": 0.18082191780821918,
+      "@type": "Animal"
+    }
+  ],
+  "products": [
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Milk, cow, raw (FPCM)",
+        "units": "kg FPCM",
+        "@id": "milkCowRawFpcm"
+      },
+      "value": [
+        35
+      ],
+      "primary": true,
+      "methodClassification": "inconsistent external sources",
+      "methodClassificationDescription": "\"Data on material and energy inputs needed for crop production, manure management, and milk production were based on the model developed by Aguirre-Villegas et al. (2015). These data came from the literature and from the US Life Cycle Inventory (NREL, 2010) and Ecoinvent 2.0 US (Ecoinvent Centre, 2007) databases accessed through GaBi 4 Professional (Frischknecht et al., 2005).\"",
+      "properties": [
+        {
+          "term": {
+            "@type": "Term",
+            "termType": "property",
+            "name": "Fat content",
+            "units": "%",
+            "@id": "fatContent"
+          },
+          "value": 4,
+          "share": 100,
+          "@type": "Property"
+        },
+        {
+          "term": {
+            "@type": "Term",
+            "name": "Crude protein content",
+            "termType": "property",
+            "@id": "crudeProteinContent",
+            "units": "%"
+          },
+          "value": 3.3,
+          "share": 100,
+          "@type": "Property"
+        }
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "animalProduct",
+        "name": "Meat, dairy cattle (cold carcass weight)",
+        "units": "kg cold carcass weight",
+        "@id": "meatDairyCattleColdCarcassWeight"
+      },
+      "value": [
+        1.0824742268041236
+      ],
+      "@type": "Product"
+    },
+    {
+      "term": {
+        "@type": "Term",
+        "termType": "excreta",
+        "name": "Excreta, dairy cattle (kg mass)",
+        "units": "kg",
+        "@id": "excretaDairyCattleKgMass"
+      },
+      "@type": "Product"
+    }
+  ],
+  "completeness": {
+    "electricityFuel": true,
+    "material": false,
+    "fertiliser": true,
+    "seed": true,
+    "pesticideVeterinaryDrug": false,
+    "soilAmendment": true,
+    "water": false,
+    "product": true,
+    "cropResidue": false,
+    "excreta": false,
+    "animalFeed": true,
+    "operation": false,
+    "liveAnimalInput": true,
+    "waste": false,
+    "transport": false,
+    "freshForage": true,
+    "animalPopulation": true,
+    "ingredient": true,
+    "otherChemical": true,
+    "@type": "Completeness"
+  },
+  "name": "Milk, cow, raw (FPCM) - United States - 2016",
+  "schemaVersion": "30.3.2",
+  "originalId": "milk_wisconsin_g4"
+}
