@@ -39,11 +39,11 @@
     "studyReasons": "",
     "intendedAudience": "",
     "comparativeAssertions": "",
-    "name": "Eggs, hen, in shell - United Kingdom - 2010",
-    "allocationMethod": "economic",
-    "functionalUnitQuantity": 1,
-    "product_fate": "",
-    "product_properties": {
+    "IAname": "Eggs, hen, in shell - United Kingdom - 2010",
+    "IAallocationMethod": "economic",
+    "IAfunctionalUnitQuantity": 1,
+    "IAproduct_fate": "",
+    "IAproduct_properties": {
         "0": {
             "term": {
                 "@type": "Term",
@@ -57,11 +57,48 @@
             "@type": "Property"
         }
     },
-    "product_primary": true,
+    "IAproduct_primary": true,
     "IAmethodClassification": "",
-    "productName": "",
-    "productUnits": "",
-    "LCIAMethodModel": "",
-    "LCIAIndicator": "",
-    "LCIAIndicatorUnits": ""
+    "IAproductName": "",
+    "IAproductUnits": "",
+    "LCIA": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "GWP100",
+                "units": "kg CO2 eq",
+                "@id": "gwp100"
+            },
+            "value": 3.45,
+            "sd": 0.26,
+            "statsDefinition": "modelled",
+            "methodModel": {
+                "@type": "Term",
+                "name": "IPCC (2007)",
+                "termType": "model",
+                "@id": "ipcc2007"
+            },
+            "@type": "Indicator"
+        },
+        "1": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "Eutrophication potential, excluding fate",
+                "units": "kg PO43- eq",
+                "@id": "eutrophicationPotentialExcludingFate"
+            },
+            "value": 0.02032,
+            "sd": 0.0017800000000000001,
+            "statsDefinition": "modelled",
+            "methodModel": {
+                "@type": "Term",
+                "name": "CML2001 Baseline",
+                "termType": "model",
+                "@id": "cml2001Baseline"
+            },
+            "@type": "Indicator"
+        }
+    }
 }

@@ -1,0 +1,134 @@
+{
+    "siteID": "m5zi1g7qxnqn",
+    "siteDescription": "Field trial",
+    "siteName": "Permanent pasture - Itabela (Munic\u00edpio), Bahia, Brazil - Field trial",
+    "siteMethodClassification": "",
+    "siteType": "permanent pasture",
+    "siteLocation": "Brazil - Itabela (Munic\u00edpio), Bahia, Brazil",
+    "cycleID": "56uxpifxr_sh",
+    "cycleDescription": "T5",
+    "cycleMethodClassification": "non-verified survey data",
+    "functionalUnit": "relative",
+    "systemBoundaryCompleteness": {
+        "animalFeed": true,
+        "animalPopulation": true,
+        "cropResidue": true,
+        "electricityFuel": true,
+        "excreta": true,
+        "fertiliser": true,
+        "freshForage": true,
+        "ingredient": true,
+        "liveAnimalInput": false,
+        "material": false,
+        "operation": false,
+        "otherChemical": true,
+        "pesticideVeterinaryDrug": false,
+        "product": true,
+        "seed": true,
+        "soilAmendment": true,
+        "transport": false,
+        "waste": false,
+        "water": false,
+        "@type": "Completeness"
+    },
+    "sourceID": "_hx1rkzual0i",
+    "DOI": "10.21475/ajcs.23.17.04.p3824",
+    "title": "The influence of tropical pasture improvement on animal performance, nitrogen cycling, and greenhouse gas emissions in the Brazilian Atlantic Forest",
+    "notes": "What about the fertilising data re pasture do we want this or not?",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
+    "IAname": "Beef cattle, heifer - Brazil - 2017-11",
+    "IAallocationMethod": "economic",
+    "IAfunctionalUnitQuantity": 1,
+    "IAproduct_fate": "",
+    "product_properties": "",
+    "IAproduct_primary": true,
+    "IAmethodClassification": "",
+    "IAproductName": "",
+    "IAproductUnits": "",
+    "LCIA": {
+        "0": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "fossilResourceScarcity",
+                "name": "Fossil resource scarcity",
+                "termType": "characterisedIndicator",
+                "units": "kg oil eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "recipe2016Egalitarian",
+                "name": "ReCiPe 2016 Egalitarian",
+                "termType": "model"
+            },
+            "value": 0,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "1": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "fossilResourceScarcity",
+                "name": "Fossil resource scarcity",
+                "termType": "characterisedIndicator",
+                "units": "kg oil eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "recipe2016Hierarchist",
+                "name": "ReCiPe 2016 Hierarchist",
+                "termType": "model"
+            },
+            "value": 0,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "2": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "fossilResourceScarcity",
+                "name": "Fossil resource scarcity",
+                "termType": "characterisedIndicator",
+                "units": "kg oil eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "recipe2016Individualist",
+                "name": "ReCiPe 2016 Individualist",
+                "termType": "model"
+            },
+            "value": 0,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        }
+    }
+}

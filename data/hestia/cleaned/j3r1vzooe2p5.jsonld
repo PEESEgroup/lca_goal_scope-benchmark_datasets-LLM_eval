@@ -39,16 +39,72 @@
     "studyReasons": "",
     "intendedAudience": "",
     "comparativeAssertions": "",
-    "name": "Meat, sheep (liveweight) - Canada - 2022",
-    "allocationMethod": "mass",
-    "functionalUnitQuantity": 1,
-    "product_fate": "",
+    "IAname": "Meat, sheep (liveweight) - Canada - 2022",
+    "IAallocationMethod": "mass",
+    "IAfunctionalUnitQuantity": 1,
+    "IAproduct_fate": "",
     "product_properties": "",
-    "product_primary": true,
+    "IAproduct_primary": true,
     "IAmethodClassification": "",
-    "productName": "",
-    "productUnits": "",
-    "LCIAMethodModel": "",
-    "LCIAIndicator": "",
-    "LCIAIndicatorUnits": ""
+    "IAproductName": "",
+    "IAproductUnits": "",
+    "LCIA": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "GWP100",
+                "units": "kg CO2 eq",
+                "@id": "gwp100"
+            },
+            "value": 13.2,
+            "sd": 17.74457664,
+            "statsDefinition": "cycles",
+            "methodModel": {
+                "@type": "Term",
+                "name": "IPCC (2013) excluding feedbacks",
+                "termType": "model",
+                "@id": "ipcc2013ExcludingFeedbacks"
+            },
+            "@type": "Indicator"
+        },
+        "1": {
+            "term": {
+                "@type": "Term",
+                "name": "Total cumulative energy demand",
+                "termType": "characterisedIndicator",
+                "@id": "totalCumulativeEnergyDemand",
+                "units": "MJ"
+            },
+            "value": 66.9,
+            "sd": 164.0174381,
+            "statsDefinition": "cycles",
+            "methodModel": {
+                "@type": "Term",
+                "name": "Cumulative Energy Demand (CED) method",
+                "termType": "model",
+                "@id": "cumulativeEnergyDemandCedMethod"
+            },
+            "@type": "Indicator"
+        },
+        "2": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "Freshwater depletion",
+                "units": "m3",
+                "@id": "freshwaterDepletion"
+            },
+            "value": 0.15,
+            "sd": 0.3836665219,
+            "statsDefinition": "cycles",
+            "methodModel": {
+                "@type": "Term",
+                "name": "ReCiPe 2008 Hierarchist",
+                "termType": "model",
+                "@id": "recipe2008Hierarchist"
+            },
+            "@type": "Indicator"
+        }
+    }
 }

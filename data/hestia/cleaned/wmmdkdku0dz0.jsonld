@@ -33,11 +33,11 @@
     "studyReasons": "",
     "intendedAudience": "",
     "comparativeAssertions": "",
-    "name": "Milk, cow, raw (FPCM) - Southern Europe - 2019",
-    "allocationMethod": "biophysical",
-    "functionalUnitQuantity": 1,
-    "product_fate": "",
-    "product_properties": {
+    "IAname": "Milk, cow, raw (FPCM) - Southern Europe - 2019",
+    "IAallocationMethod": "biophysical",
+    "IAfunctionalUnitQuantity": 1,
+    "IAproduct_fate": "",
+    "IAproduct_properties": {
         "0": {
             "term": {
                 "@type": "Term",
@@ -63,11 +63,94 @@
             "@type": "Property"
         }
     },
-    "product_primary": true,
+    "IAproduct_primary": true,
     "IAmethodClassification": "",
-    "productName": "",
-    "productUnits": "",
-    "LCIAMethodModel": "",
-    "LCIAIndicator": "",
-    "LCIAIndicatorUnits": ""
+    "IAproductName": "",
+    "IAproductUnits": "",
+    "LCIA": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "GWP100",
+                "units": "kg CO2 eq",
+                "@id": "gwp100"
+            },
+            "value": 1.19,
+            "min": 0.69,
+            "max": 1.76,
+            "sd": 0.2,
+            "statsDefinition": "sites",
+            "methodModel": {
+                "@type": "Term",
+                "name": "CML2001 Baseline",
+                "termType": "model",
+                "@id": "cml2001Baseline"
+            },
+            "@type": "Indicator"
+        },
+        "1": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "Terrestrial acidification potential, including fate, average Europe",
+                "units": "kg SO2 eq",
+                "@id": "terrestrialAcidificationPotentialIncludingFateAverageEurope"
+            },
+            "value": 0.0173,
+            "min": 0.01105,
+            "max": 0.02526,
+            "sd": 0.00315,
+            "statsDefinition": "sites",
+            "methodModel": {
+                "@type": "Term",
+                "name": "CML2001 Baseline",
+                "termType": "model",
+                "@id": "cml2001Baseline"
+            },
+            "@type": "Indicator"
+        },
+        "2": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "Eutrophication potential, excluding fate",
+                "units": "kg PO43- eq",
+                "@id": "eutrophicationPotentialExcludingFate"
+            },
+            "value": 0.00604,
+            "min": 0.00383,
+            "max": 0.008960000000000001,
+            "sd": 0.00106,
+            "statsDefinition": "sites",
+            "methodModel": {
+                "@type": "Term",
+                "name": "CML2001 Baseline",
+                "termType": "model",
+                "@id": "cml2001Baseline"
+            },
+            "@type": "Indicator"
+        },
+        "3": {
+            "term": {
+                "@type": "Term",
+                "name": "Total cumulative energy demand",
+                "termType": "characterisedIndicator",
+                "@id": "totalCumulativeEnergyDemand",
+                "units": "MJ"
+            },
+            "value": 2.7,
+            "min": 0.85,
+            "max": 5.26,
+            "sd": 1.08,
+            "statsDefinition": "sites",
+            "methodModel": {
+                "@type": "Term",
+                "name": "Cumulative Energy Demand (CED) method",
+                "termType": "model",
+                "@id": "cumulativeEnergyDemandCedMethod"
+            },
+            "@type": "Indicator"
+        }
+    }
 }

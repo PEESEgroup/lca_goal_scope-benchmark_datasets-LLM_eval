@@ -39,11 +39,11 @@
     "studyReasons": "",
     "intendedAudience": "",
     "comparativeAssertions": "",
-    "name": "Beef cattle, steer - Brazil - 2014",
-    "allocationMethod": "none",
-    "functionalUnitQuantity": 1,
-    "product_fate": "",
-    "product_properties": {
+    "IAname": "Beef cattle, steer - Brazil - 2014",
+    "IAallocationMethod": "none",
+    "IAfunctionalUnitQuantity": 1,
+    "IAproduct_fate": "",
+    "IAproduct_properties": {
         "0": {
             "term": {
                 "@type": "Term",
@@ -57,11 +57,44 @@
             "@type": "Property"
         }
     },
-    "product_primary": true,
+    "IAproduct_primary": true,
     "IAmethodClassification": "",
-    "productName": "",
-    "productUnits": "",
-    "LCIAMethodModel": "",
-    "LCIAIndicator": "",
-    "LCIAIndicatorUnits": ""
+    "IAproductName": "",
+    "IAproductUnits": "",
+    "LCIA": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "GWP100",
+                "units": "kg CO2 eq",
+                "@id": "gwp100"
+            },
+            "value": 5.28,
+            "methodModel": {
+                "@type": "Term",
+                "name": "IPCC (2007)",
+                "termType": "model",
+                "@id": "ipcc2007"
+            },
+            "@type": "Indicator"
+        },
+        "1": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "GWP100",
+                "units": "kg CO2 eq",
+                "@id": "gwp100"
+            },
+            "value": 6.97,
+            "methodModel": {
+                "@type": "Term",
+                "name": "IPCC (2013) excluding feedbacks",
+                "termType": "model",
+                "@id": "ipcc2013ExcludingFeedbacks"
+            },
+            "@type": "Indicator"
+        }
+    }
 }

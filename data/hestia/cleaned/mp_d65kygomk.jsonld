@@ -39,16 +39,66 @@
     "studyReasons": "",
     "intendedAudience": "",
     "comparativeAssertions": "",
-    "name": "Milk, cow, raw (FPCM) - Brazil - 2019",
-    "allocationMethod": "none",
-    "functionalUnitQuantity": 1,
-    "product_fate": "",
+    "IAname": "Milk, cow, raw (FPCM) - Brazil - 2019",
+    "IAallocationMethod": "none",
+    "IAfunctionalUnitQuantity": 1,
+    "IAproduct_fate": "",
     "product_properties": "",
-    "product_primary": true,
+    "IAproduct_primary": true,
     "IAmethodClassification": "",
-    "productName": "",
-    "productUnits": "",
-    "LCIAMethodModel": "",
-    "LCIAIndicator": "",
-    "LCIAIndicatorUnits": ""
+    "IAproductName": "",
+    "IAproductUnits": "",
+    "LCIA": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "GWP100",
+                "units": "kg CO2 eq",
+                "@id": "gwp100"
+            },
+            "value": 1.64,
+            "methodModel": {
+                "@type": "Term",
+                "name": "IPCC (2013) including feedbacks",
+                "termType": "model",
+                "@id": "ipcc2013IncludingFeedbacks"
+            },
+            "@type": "Indicator"
+        },
+        "1": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "Terrestrial acidification potential, including fate, average Europe",
+                "units": "kg SO2 eq",
+                "@id": "terrestrialAcidificationPotentialIncludingFateAverageEurope"
+            },
+            "value": 0.00785,
+            "methodModel": {
+                "@type": "Term",
+                "name": "CML2001 Baseline",
+                "termType": "model",
+                "@id": "cml2001Baseline"
+            },
+            "@type": "Indicator"
+        },
+        "2": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "Eutrophication potential, excluding fate",
+                "units": "kg PO43- eq",
+                "@id": "eutrophicationPotentialExcludingFate"
+            },
+            "value": 0.00542,
+            "methodModel": {
+                "@type": "Term",
+                "name": "CML2001 Baseline",
+                "termType": "model",
+                "@id": "cml2001Baseline"
+            },
+            "@type": "Indicator"
+        }
+    }
 }

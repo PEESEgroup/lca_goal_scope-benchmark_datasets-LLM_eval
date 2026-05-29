@@ -39,16 +39,35 @@
     "studyReasons": "",
     "intendedAudience": "",
     "comparativeAssertions": "",
-    "name": "Meat, beef cattle (liveweight) - Colombia - 2019",
-    "allocationMethod": "economic",
-    "functionalUnitQuantity": 1,
-    "product_fate": "",
+    "IAname": "Meat, beef cattle (liveweight) - Colombia - 2019",
+    "IAallocationMethod": "economic",
+    "IAfunctionalUnitQuantity": 1,
+    "IAproduct_fate": "",
     "product_properties": "",
-    "product_primary": true,
+    "IAproduct_primary": true,
     "IAmethodClassification": "",
-    "productName": "",
-    "productUnits": "",
-    "LCIAMethodModel": "",
-    "LCIAIndicator": "",
-    "LCIAIndicatorUnits": ""
+    "IAproductName": "",
+    "IAproductUnits": "",
+    "LCIA": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "GWP100",
+                "units": "kg CO2 eq",
+                "@id": "gwp100"
+            },
+            "value": 15,
+            "min": 4.9,
+            "max": 48.1,
+            "statsDefinition": "cycles",
+            "methodModel": {
+                "@type": "Term",
+                "name": "IPCC (2013) excluding feedbacks",
+                "termType": "model",
+                "@id": "ipcc2013ExcludingFeedbacks"
+            },
+            "@type": "Indicator"
+        }
+    }
 }

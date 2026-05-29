@@ -1,0 +1,392 @@
+{
+    "siteID": "btryccvelghk",
+    "siteDescription": "",
+    "siteName": "Animal housing - Bergamo (Provincia), Lombardia, Italy",
+    "siteMethodClassification": "",
+    "siteType": "animal housing",
+    "siteLocation": "Italy - Bergamo (Provincia), Lombardia, Italy",
+    "cycleID": "grmtj6z4smf7",
+    "cycleDescription": "Cycle for farm producing milk and meat, with an AD on-site",
+    "cycleMethodClassification": "non-verified survey data",
+    "functionalUnit": "relative",
+    "systemBoundaryCompleteness": {
+        "electricityFuel": true,
+        "transport": true,
+        "material": false,
+        "fertiliser": true,
+        "seed": true,
+        "pesticideVeterinaryDrug": false,
+        "soilAmendment": true,
+        "water": false,
+        "product": true,
+        "cropResidue": true,
+        "excreta": true,
+        "animalFeed": true,
+        "animalPopulation": true,
+        "waste": false,
+        "operation": false,
+        "freshForage": false,
+        "ingredient": true,
+        "liveAnimalInput": true,
+        "otherChemical": true,
+        "@type": "Completeness"
+    },
+    "sourceID": "flspquqcccfk",
+    "DOI": "10.1016/j.scitotenv.2017.07.271",
+    "title": "The carbon footprint of integrated milk production and renewable energy systems \u2013 A case study",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
+    "IAname": "Milk, cow, raw - Italy - 2015",
+    "IAallocationMethod": "economic",
+    "IAfunctionalUnitQuantity": 1,
+    "IAproduct_fate": "",
+    "IAproduct_properties": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "termType": "property",
+                "name": "Fat content",
+                "units": "%",
+                "@id": "fatContent"
+            },
+            "value": 3.54,
+            "share": 100,
+            "@type": "Property"
+        },
+        "1": {
+            "term": {
+                "@type": "Term",
+                "name": "Crude protein content",
+                "termType": "property",
+                "@id": "crudeProteinContent",
+                "units": "%"
+            },
+            "value": 3.09,
+            "share": 100,
+            "@type": "Property"
+        }
+    },
+    "IAproduct_primary": true,
+    "IAmethodClassification": "",
+    "IAproductName": "",
+    "IAproductUnits": "",
+    "LCIA": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "GWP100",
+                "units": "kg CO2 eq",
+                "@id": "gwp100"
+            },
+            "value": 1.171097728,
+            "methodModel": {
+                "@type": "Term",
+                "name": "IPCC (2007)",
+                "termType": "model",
+                "@id": "ipcc2007"
+            },
+            "@type": "Indicator"
+        },
+        "1": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToTerrestrialEcosystemsLandOccupation",
+                "name": "Damage to terrestrial ecosystems, land occupation",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "chaudharyBrooks2018",
+                "name": "Chaudhary & Brooks (2018)",
+                "termType": "model"
+            },
+            "value": 0.0,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "2": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToTerrestrialEcosystemsTotalLandUseEffects",
+                "name": "Damage to terrestrial ecosystems, total land use effects",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "chaudharyBrooks2018",
+                "name": "Chaudhary & Brooks (2018)",
+                "termType": "model"
+            },
+            "value": 0.0,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "3": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "scarcityWeightedWaterUse",
+                "name": "Scarcity weighted water use",
+                "termType": "characterisedIndicator",
+                "units": "L eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "environmentalFootprintV3-1",
+                "name": "Environmental Footprint v3.1",
+                "termType": "model"
+            },
+            "value": 0.0,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "4": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToHumanHealthWaterStress",
+                "name": "Damage to human health, water stress",
+                "termType": "characterisedIndicator",
+                "units": "DALY"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactCertainEffects100Years",
+                "name": "LC-IMPACT (certain effects, 100 years)",
+                "termType": "model"
+            },
+            "value": 0.0,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "5": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToHumanHealthWaterStress",
+                "name": "Damage to human health, water stress",
+                "termType": "characterisedIndicator",
+                "units": "DALY"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffects100Years",
+                "name": "LC-IMPACT (all effects, 100 years)",
+                "termType": "model"
+            },
+            "value": 0.0,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "6": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToHumanHealthWaterStress",
+                "name": "Damage to human health, water stress",
+                "termType": "characterisedIndicator",
+                "units": "DALY"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactCertainEffectsInfinite",
+                "name": "LC-IMPACT (certain effects, infinite)",
+                "termType": "model"
+            },
+            "value": 0.0,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "7": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToHumanHealthWaterStress",
+                "name": "Damage to human health, water stress",
+                "termType": "characterisedIndicator",
+                "units": "DALY"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffectsInfinite",
+                "name": "LC-IMPACT (all effects, infinite)",
+                "termType": "model"
+            },
+            "value": 0.0,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "8": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToFreshwaterEcosystemsWaterStress",
+                "name": "Damage to freshwater ecosystems, water stress",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactCertainEffects100Years",
+                "name": "LC-IMPACT (certain effects, 100 years)",
+                "termType": "model"
+            },
+            "value": 0.0,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "9": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToFreshwaterEcosystemsWaterStress",
+                "name": "Damage to freshwater ecosystems, water stress",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffects100Years",
+                "name": "LC-IMPACT (all effects, 100 years)",
+                "termType": "model"
+            },
+            "value": 0.0,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "10": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToFreshwaterEcosystemsWaterStress",
+                "name": "Damage to freshwater ecosystems, water stress",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactCertainEffectsInfinite",
+                "name": "LC-IMPACT (certain effects, infinite)",
+                "termType": "model"
+            },
+            "value": 0.0,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "11": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToFreshwaterEcosystemsWaterStress",
+                "name": "Damage to freshwater ecosystems, water stress",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffectsInfinite",
+                "name": "LC-IMPACT (all effects, infinite)",
+                "termType": "model"
+            },
+            "value": 0.0,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        }
+    }
+}

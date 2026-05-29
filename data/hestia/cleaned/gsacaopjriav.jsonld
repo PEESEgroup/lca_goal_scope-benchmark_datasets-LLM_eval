@@ -39,16 +39,32 @@
     "studyReasons": "",
     "intendedAudience": "",
     "comparativeAssertions": "",
-    "name": "Milk, cow, raw (FPCM) - Poland - 2018",
-    "allocationMethod": "energy",
-    "functionalUnitQuantity": 1,
-    "product_fate": "",
+    "IAname": "Milk, cow, raw (FPCM) - Poland - 2018",
+    "IAallocationMethod": "energy",
+    "IAfunctionalUnitQuantity": 1,
+    "IAproduct_fate": "",
     "product_properties": "",
-    "product_primary": true,
+    "IAproduct_primary": true,
     "IAmethodClassification": "",
-    "productName": "",
-    "productUnits": "",
-    "LCIAMethodModel": "",
-    "LCIAIndicator": "",
-    "LCIAIndicatorUnits": ""
+    "IAproductName": "",
+    "IAproductUnits": "",
+    "LCIA": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "GWP100",
+                "units": "kg CO2 eq",
+                "@id": "gwp100"
+            },
+            "value": 1.18,
+            "methodModel": {
+                "@type": "Term",
+                "name": "CML2001 Baseline",
+                "termType": "model",
+                "@id": "cml2001Baseline"
+            },
+            "@type": "Indicator"
+        }
+    }
 }

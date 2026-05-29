@@ -1,0 +1,296 @@
+{
+    "siteID": "ck3csc1se2um",
+    "siteDescription": "DairyNZ/LIC (2018) New Zealand Dairy Statistics 2019",
+    "siteName": "Permanent pasture - Fonterra - New Zealand - DairyNZ/LIC (2018) New Zealand...",
+    "siteMethodClassification": "",
+    "siteType": "permanent pasture",
+    "siteLocation": "New Zealand",
+    "cycleID": "dlqufawzjhbd",
+    "cycleDescription": "",
+    "cycleMethodClassification": "consistent external sources",
+    "functionalUnit": "1 ha",
+    "systemBoundaryCompleteness": {
+        "electricityFuel": false,
+        "transport": false,
+        "material": false,
+        "fertiliser": true,
+        "ingredient": true,
+        "otherChemical": true,
+        "seed": false,
+        "pesticideVeterinaryDrug": false,
+        "soilAmendment": true,
+        "water": false,
+        "product": true,
+        "cropResidue": true,
+        "excreta": false,
+        "animalFeed": true,
+        "freshForage": true,
+        "liveAnimalInput": true,
+        "animalPopulation": false,
+        "waste": false,
+        "operation": false,
+        "@type": "Completeness"
+    },
+    "sourceID": "a-zra9lig9k4",
+    "DOI": "10.3168/jds.2019-17182",
+    "title": "Temporal, spatial, and management variability in the carbon footprint of New Zealand milk",
+    "notes": "",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
+    "IAname": "Dairy cattle, cow - New Zealand - 2016",
+    "IAallocationMethod": "economic",
+    "IAfunctionalUnitQuantity": 1,
+    "IAproduct_fate": "",
+    "product_properties": "",
+    "product_primary": "",
+    "IAmethodClassification": "estimated with assumptions",
+    "IAproductName": "",
+    "IAproductUnits": "",
+    "LCIA": {
+        "0": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "scarcityWeightedWaterUse",
+                "name": "Scarcity weighted water use",
+                "termType": "characterisedIndicator",
+                "units": "L eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "environmentalFootprintV3-1",
+                "name": "Environmental Footprint v3.1",
+                "termType": "model"
+            },
+            "value": 0.0,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "1": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToHumanHealthWaterStress",
+                "name": "Damage to human health, water stress",
+                "termType": "characterisedIndicator",
+                "units": "DALY"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactCertainEffects100Years",
+                "name": "LC-IMPACT (certain effects, 100 years)",
+                "termType": "model"
+            },
+            "value": 0.0,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "2": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToHumanHealthWaterStress",
+                "name": "Damage to human health, water stress",
+                "termType": "characterisedIndicator",
+                "units": "DALY"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffects100Years",
+                "name": "LC-IMPACT (all effects, 100 years)",
+                "termType": "model"
+            },
+            "value": 0.0,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "3": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToHumanHealthWaterStress",
+                "name": "Damage to human health, water stress",
+                "termType": "characterisedIndicator",
+                "units": "DALY"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactCertainEffectsInfinite",
+                "name": "LC-IMPACT (certain effects, infinite)",
+                "termType": "model"
+            },
+            "value": 0.0,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "4": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToHumanHealthWaterStress",
+                "name": "Damage to human health, water stress",
+                "termType": "characterisedIndicator",
+                "units": "DALY"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffectsInfinite",
+                "name": "LC-IMPACT (all effects, infinite)",
+                "termType": "model"
+            },
+            "value": 0.0,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "5": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToFreshwaterEcosystemsWaterStress",
+                "name": "Damage to freshwater ecosystems, water stress",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactCertainEffects100Years",
+                "name": "LC-IMPACT (certain effects, 100 years)",
+                "termType": "model"
+            },
+            "value": 0.0,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "6": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToFreshwaterEcosystemsWaterStress",
+                "name": "Damage to freshwater ecosystems, water stress",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffects100Years",
+                "name": "LC-IMPACT (all effects, 100 years)",
+                "termType": "model"
+            },
+            "value": 1.311631865701973e-16,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "7": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToFreshwaterEcosystemsWaterStress",
+                "name": "Damage to freshwater ecosystems, water stress",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactCertainEffectsInfinite",
+                "name": "LC-IMPACT (certain effects, infinite)",
+                "termType": "model"
+            },
+            "value": 0.0,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "8": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToFreshwaterEcosystemsWaterStress",
+                "name": "Damage to freshwater ecosystems, water stress",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffectsInfinite",
+                "name": "LC-IMPACT (all effects, infinite)",
+                "termType": "model"
+            },
+            "value": 1.311631865701973e-16,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        }
+    }
+}

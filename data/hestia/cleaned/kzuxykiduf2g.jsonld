@@ -39,11 +39,11 @@
     "studyReasons": "",
     "intendedAudience": "",
     "comparativeAssertions": "",
-    "name": "Milk, cow, raw - Colombia - 2019",
-    "allocationMethod": "economic",
-    "functionalUnitQuantity": 1,
-    "product_fate": "",
-    "product_properties": {
+    "IAname": "Milk, cow, raw - Colombia - 2019",
+    "IAallocationMethod": "economic",
+    "IAfunctionalUnitQuantity": 1,
+    "IAproduct_fate": "",
+    "IAproduct_properties": {
         "0": {
             "term": {
                 "@type": "Term",
@@ -71,9 +71,28 @@
     },
     "product_primary": "",
     "IAmethodClassification": "",
-    "productName": "",
-    "productUnits": "",
-    "LCIAMethodModel": "",
-    "LCIAIndicator": "",
-    "LCIAIndicatorUnits": ""
+    "IAproductName": "",
+    "IAproductUnits": "",
+    "LCIA": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "GWP100",
+                "units": "kg CO2 eq",
+                "@id": "gwp100"
+            },
+            "value": 2.2,
+            "min": 1.1,
+            "max": 7.9,
+            "statsDefinition": "cycles",
+            "methodModel": {
+                "@type": "Term",
+                "name": "IPCC (2013) excluding feedbacks",
+                "termType": "model",
+                "@id": "ipcc2013ExcludingFeedbacks"
+            },
+            "@type": "Indicator"
+        }
+    }
 }

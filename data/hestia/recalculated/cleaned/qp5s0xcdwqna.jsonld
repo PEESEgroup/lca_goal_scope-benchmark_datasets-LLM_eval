@@ -1,0 +1,2700 @@
+{
+    "siteID": "vdg5bgnd3hl2",
+    "siteDescription": "Red farming system",
+    "siteName": "Permanent pasture - Rothamsted Research - West Devon, United Kingdom - Red farming system",
+    "siteMethodClassification": "",
+    "siteType": "permanent pasture",
+    "siteLocation": "United Kingdom - West Devon",
+    "cycleID": "jpk1ouydzrlf",
+    "cycleDescription": "Red-2015",
+    "cycleMethodClassification": "non-verified survey data",
+    "functionalUnit": "relative",
+    "systemBoundaryCompleteness": {
+        "animalFeed": true,
+        "animalPopulation": true,
+        "cropResidue": false,
+        "electricityFuel": true,
+        "excreta": false,
+        "fertiliser": true,
+        "freshForage": true,
+        "ingredient": true,
+        "liveAnimalInput": true,
+        "material": false,
+        "operation": true,
+        "otherChemical": true,
+        "pesticideVeterinaryDrug": true,
+        "product": true,
+        "seed": true,
+        "soilAmendment": true,
+        "transport": false,
+        "waste": false,
+        "water": false,
+        "@type": "Completeness",
+        "updated": [
+            "freshForage"
+        ],
+        "updatedVersion": [
+            "0.70.0"
+        ]
+    },
+    "sourceID": "lfvrcxbnt18h",
+    "DOI": "10.1111/ejss.12350",
+    "title": "The North Wyke Farm Platform: effect of temperate grassland farming systems on soil moisture contents, runoff and associated water quality dynamics",
+    "notes": "The North Wyke Farm Platform is a UK National Bioscience Research Infrastructure (NBRI) supported by the Biotechnology and Biological Sciences Research Council (BBS/E/RH/23NB0008).",
+    "intendedApplication": "",
+    "studyReasons": "",
+    "intendedAudience": "",
+    "comparativeAssertions": "",
+    "IAname": "Beef cattle, calf (male, weaned) - United Kingdom - 2016-01-01",
+    "IAallocationMethod": "economic",
+    "IAfunctionalUnitQuantity": 1,
+    "IAproduct_fate": "",
+    "IAproduct_properties": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "name": "Liveweight per head",
+                "termType": "property",
+                "@id": "liveweightPerHead",
+                "units": "kg liveweight / head"
+            },
+            "value": 368.66242951127816,
+            "date": "2016-01-01",
+            "share": 100,
+            "@type": "Property"
+        }
+    },
+    "product_primary": "",
+    "IAmethodClassification": "",
+    "IAproductName": "",
+    "IAproductUnits": "",
+    "LCIA": {
+        "0": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "gwp100",
+                "name": "GWP100",
+                "termType": "characterisedIndicator",
+                "units": "kg CO2 eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "ipcc2021",
+                "name": "IPCC (2021)",
+                "termType": "model"
+            },
+            "value": 1502.740266341821,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "1": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "eutrophicationPotentialExcludingFate",
+                "name": "Eutrophication potential, excluding fate",
+                "termType": "characterisedIndicator",
+                "units": "kg PO43- eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "cml2001Baseline",
+                "name": "CML2001 Baseline",
+                "termType": "model"
+            },
+            "value": 0.21578649648899118,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "2": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "eutrophicationPotentialIncludingFateAverageEurope",
+                "name": "Eutrophication potential, including fate, average Europe",
+                "termType": "characterisedIndicator",
+                "units": "kg NOx eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "cml2001NonBaseline",
+                "name": "CML2001 Non-Baseline",
+                "termType": "model"
+            },
+            "value": 1.3797543384426665,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "3": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "terrestrialAcidificationPotentialExcludingFate",
+                "name": "Terrestrial acidification potential, excluding fate",
+                "termType": "characterisedIndicator",
+                "units": "kg SO2 eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "cml2001NonBaseline",
+                "name": "CML2001 Non-Baseline",
+                "termType": "model"
+            },
+            "value": 0.7606470597964887,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "4": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "terrestrialAcidificationPotentialIncludingFateAverageEurope",
+                "name": "Terrestrial acidification potential, including fate, average Europe",
+                "termType": "characterisedIndicator",
+                "units": "kg SO2 eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "cml2001Baseline",
+                "name": "CML2001 Baseline",
+                "termType": "model"
+            },
+            "value": 0.6369133657166124,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "5": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "terrestrialAcidificationPotentialAccumulatedExceedance",
+                "name": "Terrestrial acidification potential, accumulated exceedance",
+                "termType": "characterisedIndicator",
+                "units": "mol H+ eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "poschEtAl2008",
+                "name": "Posch et al (2008)",
+                "termType": "model"
+            },
+            "value": 0.14162601018445264,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "6": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "terrestrialEutrophicationPotentialAccumulatedExceedance",
+                "name": "Terrestrial eutrophication potential, accumulated exceedance",
+                "termType": "characterisedIndicator",
+                "units": "mol N eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "poschEtAl2008",
+                "name": "Posch et al (2008)",
+                "termType": "model"
+            },
+            "value": 0.27886711300863104,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "7": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToHumanHealthParticulateMatterFormation",
+                "name": "Damage to human health, particulate matter formation",
+                "termType": "characterisedIndicator",
+                "units": "DALY"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "fantkeEtAl2016",
+                "name": "Fantke et al (2016)",
+                "termType": "model"
+            },
+            "value": 7.025890503930792e-07,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "8": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "fossilResourceScarcity",
+                "name": "Fossil resource scarcity",
+                "termType": "characterisedIndicator",
+                "units": "kg oil eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "recipe2016Egalitarian",
+                "name": "ReCiPe 2016 Egalitarian",
+                "termType": "model"
+            },
+            "value": 7.582124374442414,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "9": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "freshwaterAquaticEcotoxicityPotential14Dcbeq",
+                "name": "Freshwater aquatic ecotoxicity potential (1,4-DCBeq)",
+                "termType": "characterisedIndicator",
+                "units": "kg 1,4-DCB eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "recipe2016Egalitarian",
+                "name": "ReCiPe 2016 Egalitarian",
+                "termType": "model"
+            },
+            "value": 0.014708561916176968,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "10": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "freshwaterEutrophicationPotential",
+                "name": "Freshwater eutrophication potential",
+                "termType": "characterisedIndicator",
+                "units": "kg P eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "recipe2016Egalitarian",
+                "name": "ReCiPe 2016 Egalitarian",
+                "termType": "model"
+            },
+            "value": 0.027141528937169444,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "11": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "humanNonCarcinogenicToxicity",
+                "name": "Human non-carcinogenic toxicity",
+                "termType": "characterisedIndicator",
+                "units": "kg 1,4-DCB eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "recipe2016Egalitarian",
+                "name": "ReCiPe 2016 Egalitarian",
+                "termType": "model"
+            },
+            "value": 0.3498343081224683,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "12": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "marineAquaticEcotoxicityPotential14Dcbeq",
+                "name": "Marine aquatic ecotoxicity potential (1,4-DCBeq)",
+                "termType": "characterisedIndicator",
+                "units": "kg 1,4-DCB eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "recipe2016Egalitarian",
+                "name": "ReCiPe 2016 Egalitarian",
+                "termType": "model"
+            },
+            "value": 0.002860751162045608,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "13": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "marineEutrophicationPotential",
+                "name": "Marine eutrophication potential",
+                "termType": "characterisedIndicator",
+                "units": "kg N eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "environmentalFootprintV3-1",
+                "name": "Environmental Footprint v3.1",
+                "termType": "model"
+            },
+            "value": 0.19623489343029246,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ],
+            "updated": [
+                "methodModel",
+                "value"
+            ],
+            "updatedVersion": [
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "14": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "terrestrialAcidificationPotential",
+                "name": "Terrestrial acidification potential",
+                "termType": "characterisedIndicator",
+                "units": "kg SO2 eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "recipe2016Egalitarian",
+                "name": "ReCiPe 2016 Egalitarian",
+                "termType": "model"
+            },
+            "value": 0.6353877332447098,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "15": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "terrestrialEcotoxicityPotential14Dcbeq",
+                "name": "Terrestrial ecotoxicity potential (1,4-DCBeq)",
+                "termType": "characterisedIndicator",
+                "units": "kg 1,4-DCB eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "recipe2016Egalitarian",
+                "name": "ReCiPe 2016 Egalitarian",
+                "termType": "model"
+            },
+            "value": 42.85709478661279,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "16": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "fossilResourceScarcity",
+                "name": "Fossil resource scarcity",
+                "termType": "characterisedIndicator",
+                "units": "kg oil eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "recipe2016Hierarchist",
+                "name": "ReCiPe 2016 Hierarchist",
+                "termType": "model"
+            },
+            "value": 7.548869442975556,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "17": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "freshwaterAquaticEcotoxicityPotential14Dcbeq",
+                "name": "Freshwater aquatic ecotoxicity potential (1,4-DCBeq)",
+                "termType": "characterisedIndicator",
+                "units": "kg 1,4-DCB eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "recipe2016Hierarchist",
+                "name": "ReCiPe 2016 Hierarchist",
+                "termType": "model"
+            },
+            "value": 0.014708561916179268,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "18": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "freshwaterEutrophicationPotential",
+                "name": "Freshwater eutrophication potential",
+                "termType": "characterisedIndicator",
+                "units": "kg P eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "recipe2016Hierarchist",
+                "name": "ReCiPe 2016 Hierarchist",
+                "termType": "model"
+            },
+            "value": 0.027141528937169444,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "19": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "humanNonCarcinogenicToxicity",
+                "name": "Human non-carcinogenic toxicity",
+                "termType": "characterisedIndicator",
+                "units": "kg 1,4-DCB eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "recipe2016Hierarchist",
+                "name": "ReCiPe 2016 Hierarchist",
+                "termType": "model"
+            },
+            "value": 0.349833615918661,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "20": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "marineAquaticEcotoxicityPotential14Dcbeq",
+                "name": "Marine aquatic ecotoxicity potential (1,4-DCBeq)",
+                "termType": "characterisedIndicator",
+                "units": "kg 1,4-DCB eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "recipe2016Hierarchist",
+                "name": "ReCiPe 2016 Hierarchist",
+                "termType": "model"
+            },
+            "value": 0.002860751161850203,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "21": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "marineEutrophicationPotential",
+                "name": "Marine eutrophication potential",
+                "termType": "characterisedIndicator",
+                "units": "kg N eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "recipe2016Hierarchist",
+                "name": "ReCiPe 2016 Hierarchist",
+                "termType": "model"
+            },
+            "value": 0.08660003760098517,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "22": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "terrestrialAcidificationPotential",
+                "name": "Terrestrial acidification potential",
+                "termType": "characterisedIndicator",
+                "units": "kg SO2 eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "recipe2016Hierarchist",
+                "name": "ReCiPe 2016 Hierarchist",
+                "termType": "model"
+            },
+            "value": 0.6353877332447098,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "23": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "terrestrialEcotoxicityPotential14Dcbeq",
+                "name": "Terrestrial ecotoxicity potential (1,4-DCBeq)",
+                "termType": "characterisedIndicator",
+                "units": "kg 1,4-DCB eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "recipe2016Hierarchist",
+                "name": "ReCiPe 2016 Hierarchist",
+                "termType": "model"
+            },
+            "value": 42.857094786612805,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "24": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "fossilResourceScarcity",
+                "name": "Fossil resource scarcity",
+                "termType": "characterisedIndicator",
+                "units": "kg oil eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "recipe2016Individualist",
+                "name": "ReCiPe 2016 Individualist",
+                "termType": "model"
+            },
+            "value": 7.582124374442414,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "25": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "freshwaterAquaticEcotoxicityPotential14Dcbeq",
+                "name": "Freshwater aquatic ecotoxicity potential (1,4-DCBeq)",
+                "termType": "characterisedIndicator",
+                "units": "kg 1,4-DCB eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "recipe2016Individualist",
+                "name": "ReCiPe 2016 Individualist",
+                "termType": "model"
+            },
+            "value": 0.01470976909321665,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "26": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "freshwaterEutrophicationPotential",
+                "name": "Freshwater eutrophication potential",
+                "termType": "characterisedIndicator",
+                "units": "kg P eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "recipe2016Individualist",
+                "name": "ReCiPe 2016 Individualist",
+                "termType": "model"
+            },
+            "value": 0.027141528937169444,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "27": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "humanNonCarcinogenicToxicity",
+                "name": "Human non-carcinogenic toxicity",
+                "termType": "characterisedIndicator",
+                "units": "kg 1,4-DCB eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "recipe2016Individualist",
+                "name": "ReCiPe 2016 Individualist",
+                "termType": "model"
+            },
+            "value": 0.34983361591862844,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "28": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "marineAquaticEcotoxicityPotential14Dcbeq",
+                "name": "Marine aquatic ecotoxicity potential (1,4-DCBeq)",
+                "termType": "characterisedIndicator",
+                "units": "kg 1,4-DCB eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "recipe2016Individualist",
+                "name": "ReCiPe 2016 Individualist",
+                "termType": "model"
+            },
+            "value": 0.0028675023369371445,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "29": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "marineEutrophicationPotential",
+                "name": "Marine eutrophication potential",
+                "termType": "characterisedIndicator",
+                "units": "kg N eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "recipe2016Individualist",
+                "name": "ReCiPe 2016 Individualist",
+                "termType": "model"
+            },
+            "value": 0.08660003760098517,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "30": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "terrestrialAcidificationPotential",
+                "name": "Terrestrial acidification potential",
+                "termType": "characterisedIndicator",
+                "units": "kg SO2 eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "recipe2016Individualist",
+                "name": "ReCiPe 2016 Individualist",
+                "termType": "model"
+            },
+            "value": 0.6353877332447098,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "31": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "terrestrialEcotoxicityPotential14Dcbeq",
+                "name": "Terrestrial ecotoxicity potential (1,4-DCBeq)",
+                "termType": "characterisedIndicator",
+                "units": "kg 1,4-DCB eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "recipe2016Individualist",
+                "name": "ReCiPe 2016 Individualist",
+                "termType": "model"
+            },
+            "value": 42.85709478661565,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "32": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "ozoneDepletionPotential",
+                "name": "Ozone depletion potential",
+                "termType": "characterisedIndicator",
+                "units": "kg CFC-11 eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "edip2003",
+                "name": "EDIP (2003)",
+                "termType": "model"
+            },
+            "value": 3.328692216067384e-07,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "33": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "scarcityWeightedWaterUse",
+                "name": "Scarcity weighted water use",
+                "termType": "characterisedIndicator",
+                "units": "L eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "aware",
+                "name": "AWARE",
+                "termType": "model"
+            },
+            "value": 65.9891114160316,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "34": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "scarcityWeightedWaterUse",
+                "name": "Scarcity weighted water use",
+                "termType": "characterisedIndicator",
+                "units": "L eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "environmentalFootprintV3-1",
+                "name": "Environmental Footprint v3.1",
+                "termType": "model"
+            },
+            "value": 92.25186259587691,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "35": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "freshwaterEcotoxicityPotentialCtue",
+                "name": "Freshwater ecotoxicity potential (CTUe)",
+                "termType": "characterisedIndicator",
+                "units": "potentially affected fraction of species * m3 * day"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "environmentalFootprintV3-1",
+                "name": "Environmental Footprint v3.1",
+                "termType": "model"
+            },
+            "value": 3.080789646271728,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "36": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "photochemicalOzoneCreationPotentialHumanHealthNmvocEq",
+                "name": "Photochemical ozone creation potential, human health (NMVOC eq)",
+                "termType": "characterisedIndicator",
+                "units": "kg NMVOC eq"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "environmentalFootprintV3-1",
+                "name": "Environmental Footprint v3.1",
+                "termType": "model"
+            },
+            "value": 0.9574694996830955,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "37": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToHumanHealthClimateChange",
+                "name": "Damage to human health, climate change",
+                "termType": "characterisedIndicator",
+                "units": "DALY"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactCertainEffects100Years",
+                "name": "LC-IMPACT (certain effects, 100 years)",
+                "termType": "model"
+            },
+            "value": 0.0006665254495494522,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "38": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToHumanHealthClimateChange",
+                "name": "Damage to human health, climate change",
+                "termType": "characterisedIndicator",
+                "units": "DALY"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffects100Years",
+                "name": "LC-IMPACT (all effects, 100 years)",
+                "termType": "model"
+            },
+            "value": 0.0021887827728492475,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "39": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToHumanHealthClimateChange",
+                "name": "Damage to human health, climate change",
+                "termType": "characterisedIndicator",
+                "units": "DALY"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactCertainEffectsInfinite",
+                "name": "LC-IMPACT (certain effects, infinite)",
+                "termType": "model"
+            },
+            "value": 0.0012284692842098417,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "40": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToHumanHealthClimateChange",
+                "name": "Damage to human health, climate change",
+                "termType": "characterisedIndicator",
+                "units": "DALY"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffectsInfinite",
+                "name": "LC-IMPACT (all effects, infinite)",
+                "termType": "model"
+            },
+            "value": 0.004024575370269622,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "41": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToTerrestrialEcosystemsClimateChange",
+                "name": "Damage to terrestrial ecosystems, climate change",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactCertainEffects100Years",
+                "name": "LC-IMPACT (certain effects, 100 years)",
+                "termType": "model"
+            },
+            "value": 2.7384786927012946e-12,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "42": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToTerrestrialEcosystemsClimateChange",
+                "name": "Damage to terrestrial ecosystems, climate change",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffects100Years",
+                "name": "LC-IMPACT (all effects, 100 years)",
+                "termType": "model"
+            },
+            "value": 2.7384786927012946e-12,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "43": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToTerrestrialEcosystemsClimateChange",
+                "name": "Damage to terrestrial ecosystems, climate change",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactCertainEffectsInfinite",
+                "name": "LC-IMPACT (certain effects, infinite)",
+                "termType": "model"
+            },
+            "value": 5.04656506090488e-12,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "44": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToTerrestrialEcosystemsClimateChange",
+                "name": "Damage to terrestrial ecosystems, climate change",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffectsInfinite",
+                "name": "LC-IMPACT (all effects, infinite)",
+                "termType": "model"
+            },
+            "value": 5.04656506090488e-12,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "45": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToFreshwaterEcosystemsClimateChange",
+                "name": "Damage to freshwater ecosystems, climate change",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffects100Years",
+                "name": "LC-IMPACT (all effects, 100 years)",
+                "termType": "model"
+            },
+            "value": 8.499371493720815e-13,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "46": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToFreshwaterEcosystemsClimateChange",
+                "name": "Damage to freshwater ecosystems, climate change",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffectsInfinite",
+                "name": "LC-IMPACT (all effects, infinite)",
+                "termType": "model"
+            },
+            "value": 1.5669072300648429e-12,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "47": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToHumanHealthStratosphericOzoneDepletion",
+                "name": "Damage to human health, stratospheric ozone depletion",
+                "termType": "characterisedIndicator",
+                "units": "DALY"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactCertainEffects100Years",
+                "name": "LC-IMPACT (certain effects, 100 years)",
+                "termType": "model"
+            },
+            "value": 1.4566567568461585e-07,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "48": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToHumanHealthStratosphericOzoneDepletion",
+                "name": "Damage to human health, stratospheric ozone depletion",
+                "termType": "characterisedIndicator",
+                "units": "DALY"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffects100Years",
+                "name": "LC-IMPACT (all effects, 100 years)",
+                "termType": "model"
+            },
+            "value": 6.405163413342589e-08,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "49": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToHumanHealthStratosphericOzoneDepletion",
+                "name": "Damage to human health, stratospheric ozone depletion",
+                "termType": "characterisedIndicator",
+                "units": "DALY"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactCertainEffectsInfinite",
+                "name": "LC-IMPACT (certain effects, infinite)",
+                "termType": "model"
+            },
+            "value": 2.5811971985548027e-07,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "50": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToHumanHealthStratosphericOzoneDepletion",
+                "name": "Damage to human health, stratospheric ozone depletion",
+                "termType": "characterisedIndicator",
+                "units": "DALY"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffectsInfinite",
+                "name": "LC-IMPACT (all effects, infinite)",
+                "termType": "model"
+            },
+            "value": 5.910893708914523e-07,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "51": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToHumanHealthPhotochemicalOzoneFormation",
+                "name": "Damage to human health, photochemical ozone formation",
+                "termType": "characterisedIndicator",
+                "units": "DALY"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactCertainEffects100Years",
+                "name": "LC-IMPACT (certain effects, 100 years)",
+                "termType": "model"
+            },
+            "value": -6.664908356847883e-08,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "52": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToHumanHealthPhotochemicalOzoneFormation",
+                "name": "Damage to human health, photochemical ozone formation",
+                "termType": "characterisedIndicator",
+                "units": "DALY"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffects100Years",
+                "name": "LC-IMPACT (all effects, 100 years)",
+                "termType": "model"
+            },
+            "value": -6.664908356847883e-08,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "53": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToHumanHealthPhotochemicalOzoneFormation",
+                "name": "Damage to human health, photochemical ozone formation",
+                "termType": "characterisedIndicator",
+                "units": "DALY"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactCertainEffectsInfinite",
+                "name": "LC-IMPACT (certain effects, infinite)",
+                "termType": "model"
+            },
+            "value": -6.664908356847883e-08,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "54": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToHumanHealthPhotochemicalOzoneFormation",
+                "name": "Damage to human health, photochemical ozone formation",
+                "termType": "characterisedIndicator",
+                "units": "DALY"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffectsInfinite",
+                "name": "LC-IMPACT (all effects, infinite)",
+                "termType": "model"
+            },
+            "value": -6.664908356847883e-08,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "55": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToTerrestrialEcosystemsPhotochemicalOzoneFormation",
+                "name": "Damage to terrestrial ecosystems, photochemical ozone formation",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactCertainEffects100Years",
+                "name": "LC-IMPACT (certain effects, 100 years)",
+                "termType": "model"
+            },
+            "value": 1.4996043802907737e-16,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "56": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToTerrestrialEcosystemsPhotochemicalOzoneFormation",
+                "name": "Damage to terrestrial ecosystems, photochemical ozone formation",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffects100Years",
+                "name": "LC-IMPACT (all effects, 100 years)",
+                "termType": "model"
+            },
+            "value": 1.4996043802907737e-16,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "57": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToTerrestrialEcosystemsPhotochemicalOzoneFormation",
+                "name": "Damage to terrestrial ecosystems, photochemical ozone formation",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactCertainEffectsInfinite",
+                "name": "LC-IMPACT (certain effects, infinite)",
+                "termType": "model"
+            },
+            "value": 1.4996043802907737e-16,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "58": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToTerrestrialEcosystemsPhotochemicalOzoneFormation",
+                "name": "Damage to terrestrial ecosystems, photochemical ozone formation",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffectsInfinite",
+                "name": "LC-IMPACT (all effects, infinite)",
+                "termType": "model"
+            },
+            "value": 1.4996043802907737e-16,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "59": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToHumanHealthParticulateMatterFormation",
+                "name": "Damage to human health, particulate matter formation",
+                "termType": "characterisedIndicator",
+                "units": "DALY"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactCertainEffects100Years",
+                "name": "LC-IMPACT (certain effects, 100 years)",
+                "termType": "model"
+            },
+            "value": 0.0001359756431600572,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "60": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToHumanHealthParticulateMatterFormation",
+                "name": "Damage to human health, particulate matter formation",
+                "termType": "characterisedIndicator",
+                "units": "DALY"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffects100Years",
+                "name": "LC-IMPACT (all effects, 100 years)",
+                "termType": "model"
+            },
+            "value": 0.0002529324593703593,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "61": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToHumanHealthParticulateMatterFormation",
+                "name": "Damage to human health, particulate matter formation",
+                "termType": "characterisedIndicator",
+                "units": "DALY"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactCertainEffectsInfinite",
+                "name": "LC-IMPACT (certain effects, infinite)",
+                "termType": "model"
+            },
+            "value": 0.0001359756431600572,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "62": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToHumanHealthParticulateMatterFormation",
+                "name": "Damage to human health, particulate matter formation",
+                "termType": "characterisedIndicator",
+                "units": "DALY"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffectsInfinite",
+                "name": "LC-IMPACT (all effects, infinite)",
+                "termType": "model"
+            },
+            "value": 0.0002529324593703593,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "63": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToTerrestrialEcosystemsTerrestrialAcidification",
+                "name": "Damage to terrestrial ecosystems, terrestrial acidification",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactCertainEffects100Years",
+                "name": "LC-IMPACT (certain effects, 100 years)",
+                "termType": "model"
+            },
+            "value": 6.975631059455713e-18,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "64": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToTerrestrialEcosystemsTerrestrialAcidification",
+                "name": "Damage to terrestrial ecosystems, terrestrial acidification",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffects100Years",
+                "name": "LC-IMPACT (all effects, 100 years)",
+                "termType": "model"
+            },
+            "value": 6.975631059455713e-18,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "65": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToTerrestrialEcosystemsTerrestrialAcidification",
+                "name": "Damage to terrestrial ecosystems, terrestrial acidification",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactCertainEffectsInfinite",
+                "name": "LC-IMPACT (certain effects, infinite)",
+                "termType": "model"
+            },
+            "value": 6.975631059455713e-18,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "66": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToTerrestrialEcosystemsTerrestrialAcidification",
+                "name": "Damage to terrestrial ecosystems, terrestrial acidification",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffectsInfinite",
+                "name": "LC-IMPACT (all effects, infinite)",
+                "termType": "model"
+            },
+            "value": 6.975631059455713e-18,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "67": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToFreshwaterEcosystemsFreshwaterEutrophication",
+                "name": "Damage to freshwater ecosystems, freshwater eutrophication",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactCertainEffects100Years",
+                "name": "LC-IMPACT (certain effects, 100 years)",
+                "termType": "model"
+            },
+            "value": 2.3721696291086094e-15,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "68": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToFreshwaterEcosystemsFreshwaterEutrophication",
+                "name": "Damage to freshwater ecosystems, freshwater eutrophication",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffects100Years",
+                "name": "LC-IMPACT (all effects, 100 years)",
+                "termType": "model"
+            },
+            "value": 2.3721696291086094e-15,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "69": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToFreshwaterEcosystemsFreshwaterEutrophication",
+                "name": "Damage to freshwater ecosystems, freshwater eutrophication",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactCertainEffectsInfinite",
+                "name": "LC-IMPACT (certain effects, infinite)",
+                "termType": "model"
+            },
+            "value": 2.3721696291086094e-15,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "70": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToFreshwaterEcosystemsFreshwaterEutrophication",
+                "name": "Damage to freshwater ecosystems, freshwater eutrophication",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffectsInfinite",
+                "name": "LC-IMPACT (all effects, infinite)",
+                "termType": "model"
+            },
+            "value": 2.3721696291086094e-15,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "71": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToMarineEcosystemsMarineEutrophication",
+                "name": "Damage to marine ecosystems, marine eutrophication",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactCertainEffects100Years",
+                "name": "LC-IMPACT (certain effects, 100 years)",
+                "termType": "model"
+            },
+            "value": 3.2679273432183824e-15,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "72": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToMarineEcosystemsMarineEutrophication",
+                "name": "Damage to marine ecosystems, marine eutrophication",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffects100Years",
+                "name": "LC-IMPACT (all effects, 100 years)",
+                "termType": "model"
+            },
+            "value": 3.2679273432183824e-15,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "73": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToMarineEcosystemsMarineEutrophication",
+                "name": "Damage to marine ecosystems, marine eutrophication",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactCertainEffectsInfinite",
+                "name": "LC-IMPACT (certain effects, infinite)",
+                "termType": "model"
+            },
+            "value": 3.2679273432183824e-15,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "74": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToMarineEcosystemsMarineEutrophication",
+                "name": "Damage to marine ecosystems, marine eutrophication",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffectsInfinite",
+                "name": "LC-IMPACT (all effects, infinite)",
+                "termType": "model"
+            },
+            "value": 3.2679273432183824e-15,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "75": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToTerrestrialEcosystemsTerrestrialEcotoxicity",
+                "name": "Damage to terrestrial ecosystems, terrestrial ecotoxicity",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactCertainEffects100Years",
+                "name": "LC-IMPACT (certain effects, 100 years)",
+                "termType": "model"
+            },
+            "value": 0.41056757864015664,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "76": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToTerrestrialEcosystemsTerrestrialEcotoxicity",
+                "name": "Damage to terrestrial ecosystems, terrestrial ecotoxicity",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffects100Years",
+                "name": "LC-IMPACT (all effects, 100 years)",
+                "termType": "model"
+            },
+            "value": 0.41056757864015664,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "77": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToTerrestrialEcosystemsTerrestrialEcotoxicity",
+                "name": "Damage to terrestrial ecosystems, terrestrial ecotoxicity",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactCertainEffectsInfinite",
+                "name": "LC-IMPACT (certain effects, infinite)",
+                "termType": "model"
+            },
+            "value": 0.41056757864015664,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "78": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToTerrestrialEcosystemsTerrestrialEcotoxicity",
+                "name": "Damage to terrestrial ecosystems, terrestrial ecotoxicity",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffectsInfinite",
+                "name": "LC-IMPACT (all effects, infinite)",
+                "termType": "model"
+            },
+            "value": 0.41056757864015664,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "79": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToFreshwaterEcosystemsFreshwaterEcotoxicity",
+                "name": "Damage to freshwater ecosystems, freshwater ecotoxicity",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactCertainEffects100Years",
+                "name": "LC-IMPACT (certain effects, 100 years)",
+                "termType": "model"
+            },
+            "value": 0.1455030765698083,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "80": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToFreshwaterEcosystemsFreshwaterEcotoxicity",
+                "name": "Damage to freshwater ecosystems, freshwater ecotoxicity",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffects100Years",
+                "name": "LC-IMPACT (all effects, 100 years)",
+                "termType": "model"
+            },
+            "value": 0.1455030765698083,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "81": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToFreshwaterEcosystemsFreshwaterEcotoxicity",
+                "name": "Damage to freshwater ecosystems, freshwater ecotoxicity",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactCertainEffectsInfinite",
+                "name": "LC-IMPACT (certain effects, infinite)",
+                "termType": "model"
+            },
+            "value": 0.41056757864015664,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "82": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToFreshwaterEcosystemsFreshwaterEcotoxicity",
+                "name": "Damage to freshwater ecosystems, freshwater ecotoxicity",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffectsInfinite",
+                "name": "LC-IMPACT (all effects, infinite)",
+                "termType": "model"
+            },
+            "value": 0.41056757864015664,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "83": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToMarineEcosystemsMarineEcotoxicity",
+                "name": "Damage to marine ecosystems, marine ecotoxicity",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactCertainEffects100Years",
+                "name": "LC-IMPACT (certain effects, 100 years)",
+                "termType": "model"
+            },
+            "value": 0.013658184956321331,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "84": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToMarineEcosystemsMarineEcotoxicity",
+                "name": "Damage to marine ecosystems, marine ecotoxicity",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffects100Years",
+                "name": "LC-IMPACT (all effects, 100 years)",
+                "termType": "model"
+            },
+            "value": 0.013658184956321331,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "85": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToMarineEcosystemsMarineEcotoxicity",
+                "name": "Damage to marine ecosystems, marine ecotoxicity",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactCertainEffectsInfinite",
+                "name": "LC-IMPACT (certain effects, infinite)",
+                "termType": "model"
+            },
+            "value": 0.013658184956321331,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "86": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToMarineEcosystemsMarineEcotoxicity",
+                "name": "Damage to marine ecosystems, marine ecotoxicity",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffectsInfinite",
+                "name": "LC-IMPACT (all effects, infinite)",
+                "termType": "model"
+            },
+            "value": 0.013658184956321331,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "87": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToHumanHealthHumanToxicityNonCancerogenic",
+                "name": "Damage to human health, human toxicity (non-cancerogenic)",
+                "termType": "characterisedIndicator",
+                "units": "DALY"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffects100Years",
+                "name": "LC-IMPACT (all effects, 100 years)",
+                "termType": "model"
+            },
+            "value": 1.0813177962471712e-08,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "88": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToHumanHealthHumanToxicityNonCancerogenic",
+                "name": "Damage to human health, human toxicity (non-cancerogenic)",
+                "termType": "characterisedIndicator",
+                "units": "DALY"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffectsInfinite",
+                "name": "LC-IMPACT (all effects, infinite)",
+                "termType": "model"
+            },
+            "value": 1.0813177962471712e-08,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "89": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToHumanHealthWaterStress",
+                "name": "Damage to human health, water stress",
+                "termType": "characterisedIndicator",
+                "units": "DALY"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactCertainEffects100Years",
+                "name": "LC-IMPACT (certain effects, 100 years)",
+                "termType": "model"
+            },
+            "value": 0.0,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "90": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToHumanHealthWaterStress",
+                "name": "Damage to human health, water stress",
+                "termType": "characterisedIndicator",
+                "units": "DALY"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffects100Years",
+                "name": "LC-IMPACT (all effects, 100 years)",
+                "termType": "model"
+            },
+            "value": 0.0,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "91": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToHumanHealthWaterStress",
+                "name": "Damage to human health, water stress",
+                "termType": "characterisedIndicator",
+                "units": "DALY"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactCertainEffectsInfinite",
+                "name": "LC-IMPACT (certain effects, infinite)",
+                "termType": "model"
+            },
+            "value": 0.0,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "92": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToHumanHealthWaterStress",
+                "name": "Damage to human health, water stress",
+                "termType": "characterisedIndicator",
+                "units": "DALY"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffectsInfinite",
+                "name": "LC-IMPACT (all effects, infinite)",
+                "termType": "model"
+            },
+            "value": 0.0,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "93": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToFreshwaterEcosystemsWaterStress",
+                "name": "Damage to freshwater ecosystems, water stress",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactCertainEffects100Years",
+                "name": "LC-IMPACT (certain effects, 100 years)",
+                "termType": "model"
+            },
+            "value": 1.664528738815222e-17,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "94": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToFreshwaterEcosystemsWaterStress",
+                "name": "Damage to freshwater ecosystems, water stress",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffects100Years",
+                "name": "LC-IMPACT (all effects, 100 years)",
+                "termType": "model"
+            },
+            "value": 1.777096195325944e-17,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "95": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToFreshwaterEcosystemsWaterStress",
+                "name": "Damage to freshwater ecosystems, water stress",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactCertainEffectsInfinite",
+                "name": "LC-IMPACT (certain effects, infinite)",
+                "termType": "model"
+            },
+            "value": 1.664528738815222e-17,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        },
+        "96": {
+            "@type": "Indicator",
+            "term": {
+                "@type": "Term",
+                "@id": "damageToFreshwaterEcosystemsWaterStress",
+                "name": "Damage to freshwater ecosystems, water stress",
+                "termType": "characterisedIndicator",
+                "units": "PDF*year"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "@id": "lcImpactAllEffectsInfinite",
+                "name": "LC-IMPACT (all effects, infinite)",
+                "termType": "model"
+            },
+            "value": 1.777096195325944e-17,
+            "added": [
+                "term",
+                "methodModel",
+                "value"
+            ],
+            "addedVersion": [
+                "0.70.0",
+                "0.70.0",
+                "0.70.0"
+            ]
+        }
+    }
+}

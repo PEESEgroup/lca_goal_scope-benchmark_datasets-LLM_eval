@@ -39,16 +39,35 @@
     "studyReasons": "",
     "intendedAudience": "",
     "comparativeAssertions": "",
-    "name": "Sheep, lamb - United Kingdom - 2011",
-    "allocationMethod": "economic",
-    "functionalUnitQuantity": 1,
-    "product_fate": "",
+    "IAname": "Sheep, lamb - United Kingdom - 2011",
+    "IAallocationMethod": "economic",
+    "IAfunctionalUnitQuantity": 1,
+    "IAproduct_fate": "",
     "product_properties": "",
-    "product_primary": true,
+    "IAproduct_primary": true,
     "IAmethodClassification": "estimated with assumptions",
-    "productName": "",
-    "productUnits": "",
-    "LCIAMethodModel": "",
-    "LCIAIndicator": "",
-    "LCIAIndicatorUnits": ""
+    "IAproductName": "",
+    "IAproductUnits": "",
+    "LCIA": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "GWP100",
+                "units": "kg CO2 eq",
+                "@id": "gwp100"
+            },
+            "value": 426.83302752293577,
+            "min": 212.4330275229358,
+            "max": 845.7981651376147,
+            "statsDefinition": "cycles",
+            "methodModel": {
+                "@type": "Term",
+                "name": "IPCC (2007)",
+                "termType": "model",
+                "@id": "ipcc2007"
+            },
+            "@type": "Indicator"
+        }
+    }
 }

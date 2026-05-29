@@ -79,7 +79,7 @@ def main(directory_path):
                 lca_data['siteName'] = ""
                 lca_data['siteType'] = ""
                 lca_data['siteLocation'] = ""
-                lca_data['siteMethodClassification'] = ""
+                lca_data['siteMethodClassification'] = "missing site"
                 # lca_data['organization'] = ""
 
         # •	Comparative studies to be disclosed to the public - some studies have comparative studies,
@@ -117,7 +117,11 @@ def main(directory_path):
         # •	Commissioner of the study and other influential actors - source
         source = data['source']["@id"]
         lca_data['sourceID'] = source
-        with open(directory_path + "Source/{}".format(source) + extension, 'r', encoding='utf-8') as f_source:
+        if "recalculated" in directory_path:
+            source_path = directory_path.replace("recalculated/", "") + "Source/{}".format(source) + extension
+        else:
+            source_path = directory_path + "Source/{}".format(source) + extension
+        with open(source_path, 'r', encoding='utf-8') as f_source:
             try:
                 data_source = json.load(f_source)
                 # while it would be nice to have a list of all the authors associated with the manuscript,

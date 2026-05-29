@@ -39,11 +39,11 @@
     "studyReasons": "",
     "intendedAudience": "",
     "comparativeAssertions": "",
-    "name": "Sheep, lamb - Spain - 2009",
-    "allocationMethod": "economic",
-    "functionalUnitQuantity": 1,
-    "product_fate": "",
-    "product_properties": {
+    "IAname": "Sheep, lamb - Spain - 2009",
+    "IAallocationMethod": "economic",
+    "IAfunctionalUnitQuantity": 1,
+    "IAproduct_fate": "",
+    "IAproduct_properties": {
         "0": {
             "term": {
                 "@type": "Term",
@@ -57,11 +57,27 @@
             "@type": "Property"
         }
     },
-    "product_primary": true,
+    "IAproduct_primary": true,
     "IAmethodClassification": "",
-    "productName": "",
-    "productUnits": "",
-    "LCIAMethodModel": "",
-    "LCIAIndicator": "",
-    "LCIAIndicatorUnits": ""
+    "IAproductName": "",
+    "IAproductUnits": "",
+    "LCIA": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "GWP100",
+                "units": "kg CO2 eq",
+                "@id": "gwp100"
+            },
+            "value": 626.6,
+            "methodModel": {
+                "@type": "Term",
+                "name": "IPCC (2021)",
+                "termType": "model",
+                "@id": "ipcc2021"
+            },
+            "@type": "Indicator"
+        }
+    }
 }

@@ -39,16 +39,83 @@
     "studyReasons": "",
     "intendedAudience": "",
     "comparativeAssertions": "",
-    "name": "Meat, sheep (liveweight) - Ireland - 2013",
-    "allocationMethod": "economic",
-    "functionalUnitQuantity": 1,
-    "product_fate": "",
+    "IAname": "Meat, sheep (liveweight) - Ireland - 2013",
+    "IAallocationMethod": "economic",
+    "IAfunctionalUnitQuantity": 1,
+    "IAproduct_fate": "",
     "product_properties": "",
-    "product_primary": true,
+    "IAproduct_primary": true,
     "IAmethodClassification": "",
-    "productName": "",
-    "productUnits": "",
-    "LCIAMethodModel": "",
-    "LCIAIndicator": "",
-    "LCIAIndicatorUnits": ""
+    "IAproductName": "",
+    "IAproductUnits": "",
+    "LCIA": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "GWP100",
+                "units": "kg CO2 eq",
+                "@id": "gwp100"
+            },
+            "value": 8.7,
+            "methodModel": {
+                "@type": "Term",
+                "name": "IPCC (2013) excluding feedbacks",
+                "termType": "model",
+                "@id": "ipcc2013ExcludingFeedbacks"
+            },
+            "@type": "Indicator"
+        },
+        "1": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "Eutrophication potential, excluding fate",
+                "units": "kg PO43- eq",
+                "@id": "eutrophicationPotentialExcludingFate"
+            },
+            "value": 0.041299999999999996,
+            "methodModel": {
+                "@type": "Term",
+                "name": "CML2001 Baseline",
+                "termType": "model",
+                "@id": "cml2001Baseline"
+            },
+            "@type": "Indicator"
+        },
+        "2": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "Terrestrial acidification potential, including fate, average Europe",
+                "units": "kg SO2 eq",
+                "@id": "terrestrialAcidificationPotentialIncludingFateAverageEurope"
+            },
+            "value": 0.0863,
+            "methodModel": {
+                "@type": "Term",
+                "name": "CML2001 Baseline",
+                "termType": "model",
+                "@id": "cml2001Baseline"
+            },
+            "@type": "Indicator"
+        },
+        "3": {
+            "term": {
+                "@type": "Term",
+                "name": "Cumulative fossil energy demand",
+                "termType": "characterisedIndicator",
+                "@id": "cumulativeFossilEnergyDemand",
+                "units": "MJ"
+            },
+            "value": 15.4,
+            "methodModel": {
+                "@type": "Term",
+                "name": "Cumulative Energy Demand (CED) method",
+                "termType": "model",
+                "@id": "cumulativeEnergyDemandCedMethod"
+            },
+            "@type": "Indicator"
+        }
+    }
 }

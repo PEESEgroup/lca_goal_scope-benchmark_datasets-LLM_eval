@@ -4,7 +4,7 @@
     "siteName": "",
     "siteType": "",
     "siteLocation": "",
-    "siteMethodClassification": "",
+    "siteMethodClassification": "missing site",
     "cycleID": "xsfyfixyij_g",
     "cycleDescription": "",
     "cycleMethodClassification": "inconsistent external sources",
@@ -39,11 +39,11 @@
     "studyReasons": "",
     "intendedAudience": "",
     "comparativeAssertions": "",
-    "name": "Pig - Germany - 2004",
-    "allocationMethod": "economic",
-    "functionalUnitQuantity": 1,
-    "product_fate": "",
-    "product_properties": {
+    "IAname": "Pig - Germany - 2004",
+    "IAallocationMethod": "economic",
+    "IAfunctionalUnitQuantity": 1,
+    "IAproduct_fate": "",
+    "IAproduct_properties": {
         "0": {
             "term": {
                 "@type": "Term",
@@ -69,11 +69,27 @@
             "@type": "Property"
         }
     },
-    "product_primary": true,
+    "IAproduct_primary": true,
     "IAmethodClassification": "",
-    "productName": "",
-    "productUnits": "",
-    "LCIAMethodModel": "",
-    "LCIAIndicator": "",
-    "LCIAIndicatorUnits": ""
+    "IAproductName": "",
+    "IAproductUnits": "",
+    "LCIA": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "GWP100",
+                "units": "kg CO2 eq",
+                "@id": "gwp100"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "name": "IPCC (2001)",
+                "termType": "model",
+                "@id": "ipcc2001"
+            },
+            "value": 353.04999999999995,
+            "@type": "Indicator"
+        }
+    }
 }

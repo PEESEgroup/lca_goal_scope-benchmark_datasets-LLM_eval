@@ -39,16 +39,111 @@
     "studyReasons": "",
     "intendedAudience": "",
     "comparativeAssertions": "",
-    "name": "Milk, cow, raw (FPCM) - Ireland - 2019",
-    "allocationMethod": "biophysical",
-    "functionalUnitQuantity": 1,
-    "product_fate": "",
+    "IAname": "Milk, cow, raw (FPCM) - Ireland - 2019",
+    "IAallocationMethod": "biophysical",
+    "IAfunctionalUnitQuantity": 1,
+    "IAproduct_fate": "",
     "product_properties": "",
-    "product_primary": true,
+    "IAproduct_primary": true,
     "IAmethodClassification": "",
-    "productName": "",
-    "productUnits": "",
-    "LCIAMethodModel": "",
-    "LCIAIndicator": "",
-    "LCIAIndicatorUnits": ""
+    "IAproductName": "",
+    "IAproductUnits": "",
+    "LCIA": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "GWP100",
+                "units": "kg CO2 eq",
+                "@id": "gwp100"
+            },
+            "value": 0.82,
+            "sd": 0.16,
+            "statsDefinition": "cycles",
+            "methodModel": {
+                "@type": "Term",
+                "name": "IPCC (2013) excluding feedbacks",
+                "termType": "model",
+                "@id": "ipcc2013ExcludingFeedbacks"
+            },
+            "@type": "Indicator"
+        },
+        "1": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "Freshwater eutrophication potential",
+                "units": "kg P eq",
+                "@id": "freshwaterEutrophicationPotential"
+            },
+            "value": 4.23e-05,
+            "sd": 8.599999999999999e-06,
+            "statsDefinition": "cycles",
+            "methodModel": {
+                "@type": "Term",
+                "name": "ReCiPe 2016 Hierarchist",
+                "termType": "model",
+                "@id": "recipe2016Hierarchist"
+            },
+            "@type": "Indicator"
+        },
+        "2": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "Marine eutrophication potential",
+                "units": "kg N eq",
+                "@id": "marineEutrophicationPotential"
+            },
+            "value": 0.0045,
+            "sd": 0.0008,
+            "statsDefinition": "cycles",
+            "methodModel": {
+                "@type": "Term",
+                "name": "ReCiPe 2016 Hierarchist",
+                "termType": "model",
+                "@id": "recipe2016Hierarchist"
+            },
+            "@type": "Indicator"
+        },
+        "3": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "Terrestrial acidification potential, accumulated exceedance",
+                "units": "mol H+ eq",
+                "@id": "terrestrialAcidificationPotentialAccumulatedExceedance"
+            },
+            "value": 0.0060999999999999995,
+            "sd": 0.0015,
+            "statsDefinition": "cycles",
+            "methodModel": {
+                "@type": "Term",
+                "name": "Posch et al (2008)",
+                "termType": "model",
+                "@id": "poschEtAl2008"
+            },
+            "@type": "Indicator"
+        },
+        "4": {
+            "term": {
+                "@type": "Term",
+                "name": "Cumulative renewable energy demand",
+                "termType": "characterisedIndicator",
+                "@id": "cumulativeRenewableEnergyDemand",
+                "units": "MJ"
+            },
+            "value": 2.7,
+            "sd": 0.7,
+            "statsDefinition": "cycles",
+            "methodModel": {
+                "@type": "Term",
+                "name": "Cumulative Energy Demand (CED) method",
+                "termType": "model",
+                "@id": "cumulativeEnergyDemandCedMethod"
+            },
+            "methodModelDescription": "Higher energy values taken from Frischknecht et al (2007)",
+            "@type": "Indicator"
+        }
+    }
 }

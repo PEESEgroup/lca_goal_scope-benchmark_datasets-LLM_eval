@@ -39,16 +39,66 @@
     "studyReasons": "",
     "intendedAudience": "",
     "comparativeAssertions": "",
-    "name": "Meat, chicken (cold carcass weight) - Australia - 2010",
-    "allocationMethod": "economic",
-    "functionalUnitQuantity": 1,
-    "product_fate": "",
+    "IAname": "Meat, chicken (cold carcass weight) - Australia - 2010",
+    "IAallocationMethod": "economic",
+    "IAfunctionalUnitQuantity": 1,
+    "IAproduct_fate": "",
     "product_properties": "",
-    "product_primary": true,
+    "IAproduct_primary": true,
     "IAmethodClassification": "",
-    "productName": "",
-    "productUnits": "",
-    "LCIAMethodModel": "",
-    "LCIAIndicator": "",
-    "LCIAIndicatorUnits": ""
+    "IAproductName": "",
+    "IAproductUnits": "",
+    "LCIA": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "GWP100",
+                "units": "kg CO2 eq",
+                "@id": "gwp100"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "name": "IPCC (2007)",
+                "termType": "model",
+                "@id": "ipcc2007"
+            },
+            "value": 2.8,
+            "@type": "Indicator"
+        },
+        "1": {
+            "term": {
+                "@type": "Term",
+                "name": "Total cumulative energy demand",
+                "termType": "characterisedIndicator",
+                "@id": "totalCumulativeEnergyDemand",
+                "units": "MJ"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "name": "Cumulative Energy Demand (CED) method",
+                "termType": "model",
+                "@id": "cumulativeEnergyDemandCedMethod"
+            },
+            "value": 18.1,
+            "@type": "Indicator"
+        },
+        "2": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "Stress weighted water footprint",
+                "units": "L eq",
+                "@id": "stressWeightedWaterFootprint"
+            },
+            "methodModel": {
+                "@type": "Term",
+                "name": "Ridoutt & Pfister (2010)",
+                "termType": "model",
+                "@id": "ridouttPfister2010"
+            },
+            "value": 36,
+            "@type": "Indicator"
+        }
+    }
 }

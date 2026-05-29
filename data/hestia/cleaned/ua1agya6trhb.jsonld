@@ -39,11 +39,11 @@
     "studyReasons": "",
     "intendedAudience": "",
     "comparativeAssertions": "",
-    "name": "Eggs, hen, in shell - Canada - 2019",
-    "allocationMethod": "biophysical",
-    "functionalUnitQuantity": 1,
-    "product_fate": "",
-    "product_properties": {
+    "IAname": "Eggs, hen, in shell - Canada - 2019",
+    "IAallocationMethod": "biophysical",
+    "IAfunctionalUnitQuantity": 1,
+    "IAproduct_fate": "",
+    "IAproduct_properties": {
         "0": {
             "term": {
                 "@type": "Term",
@@ -58,11 +58,162 @@
             "@type": "Property"
         }
     },
-    "product_primary": true,
+    "IAproduct_primary": true,
     "IAmethodClassification": "",
-    "productName": "",
-    "productUnits": "",
-    "LCIAMethodModel": "",
-    "LCIAIndicator": "",
-    "LCIAIndicatorUnits": ""
+    "IAproductName": "",
+    "IAproductUnits": "",
+    "LCIA": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "GWP100",
+                "units": "kg CO2 eq",
+                "@id": "gwp100"
+            },
+            "value": 1301.82,
+            "sd": 12.88,
+            "statsDefinition": "cycles",
+            "methodModel": {
+                "@type": "Term",
+                "name": "CML2001 Baseline",
+                "termType": "model",
+                "@id": "cml2001Baseline"
+            },
+            "@type": "Indicator"
+        },
+        "1": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "Ozone depletion potential",
+                "units": "kg CFC-11 eq",
+                "@id": "ozoneDepletionPotential"
+            },
+            "value": 0.0001,
+            "sd": 1.3e-06,
+            "statsDefinition": "cycles",
+            "methodModel": {
+                "@type": "Term",
+                "name": "CML2001 Baseline",
+                "termType": "model",
+                "@id": "cml2001Baseline"
+            },
+            "@type": "Indicator"
+        },
+        "2": {
+            "term": {
+                "@type": "Term",
+                "name": "Human toxicity potential (1,4-DCBeq)",
+                "termType": "characterisedIndicator",
+                "@id": "humanToxicityPotential14Dcbeq",
+                "units": "kg 1,4-DCB eq"
+            },
+            "value": 362.72,
+            "sd": 4303.91,
+            "statsDefinition": "cycles",
+            "methodModel": {
+                "@type": "Term",
+                "name": "CML2001 Baseline",
+                "termType": "model",
+                "@id": "cml2001Baseline"
+            },
+            "@type": "Indicator"
+        },
+        "3": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "Abiotic depletion potential",
+                "units": "kg Sb eq",
+                "@id": "abioticDepletionPotential"
+            },
+            "value": 5.35,
+            "sd": 0.03,
+            "statsDefinition": "cycles",
+            "methodModel": {
+                "@type": "Term",
+                "name": "CML2001 Baseline",
+                "termType": "model",
+                "@id": "cml2001Baseline"
+            },
+            "@type": "Indicator"
+        },
+        "4": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "Photochemical ozone creation potential (ethene eq)",
+                "units": "kg ethene eq",
+                "@id": "photochemicalOzoneCreationPotentialEtheneEq"
+            },
+            "value": 0.21,
+            "sd": 0.03,
+            "statsDefinition": "cycles",
+            "methodModel": {
+                "@type": "Term",
+                "name": "CML2001 Baseline",
+                "termType": "model",
+                "@id": "cml2001Baseline"
+            },
+            "@type": "Indicator"
+        },
+        "5": {
+            "term": {
+                "@type": "Term",
+                "name": "Terrestrial ecotoxicity potential (1,4-DCBeq)",
+                "termType": "characterisedIndicator",
+                "@id": "terrestrialEcotoxicityPotential14Dcbeq",
+                "units": "kg 1,4-DCB eq"
+            },
+            "value": 5.68,
+            "sd": 0.16,
+            "statsDefinition": "cycles",
+            "methodModel": {
+                "@type": "Term",
+                "name": "CML2001 Baseline",
+                "termType": "model",
+                "@id": "cml2001Baseline"
+            },
+            "@type": "Indicator"
+        },
+        "6": {
+            "term": {
+                "@type": "Term",
+                "name": "Freshwater aquatic ecotoxicity potential (1,4-DCBeq)",
+                "termType": "characterisedIndicator",
+                "@id": "freshwaterAquaticEcotoxicityPotential14Dcbeq",
+                "units": "kg 1,4-DCB eq"
+            },
+            "value": 153.72,
+            "sd": 3366.25,
+            "statsDefinition": "cycles",
+            "methodModel": {
+                "@type": "Term",
+                "name": "CML2001 Baseline",
+                "termType": "model",
+                "@id": "cml2001Baseline"
+            },
+            "@type": "Indicator"
+        },
+        "7": {
+            "term": {
+                "@type": "Term",
+                "name": "Marine aquatic ecotoxicity potential (1,4-DCBeq)",
+                "termType": "characterisedIndicator",
+                "@id": "marineAquaticEcotoxicityPotential14Dcbeq",
+                "units": "kg 1,4-DCB eq"
+            },
+            "value": 276369,
+            "sd": 388768,
+            "statsDefinition": "cycles",
+            "methodModel": {
+                "@type": "Term",
+                "name": "CML2001 Baseline",
+                "termType": "model",
+                "@id": "cml2001Baseline"
+            },
+            "@type": "Indicator"
+        }
+    }
 }

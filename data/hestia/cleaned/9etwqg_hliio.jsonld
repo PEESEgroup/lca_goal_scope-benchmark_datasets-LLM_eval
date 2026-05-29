@@ -39,16 +39,33 @@
     "studyReasons": "",
     "intendedAudience": "",
     "comparativeAssertions": "",
-    "name": "Eggs, hen, in shell (number) - Spain - 2016",
-    "allocationMethod": "none",
-    "functionalUnitQuantity": 1,
-    "product_fate": "",
+    "IAname": "Eggs, hen, in shell (number) - Spain - 2016",
+    "IAallocationMethod": "none",
+    "IAfunctionalUnitQuantity": 1,
+    "IAproduct_fate": "",
     "product_properties": "",
-    "product_primary": true,
+    "IAproduct_primary": true,
     "IAmethodClassification": "",
-    "productName": "",
-    "productUnits": "",
-    "LCIAMethodModel": "",
-    "LCIAIndicator": "",
-    "LCIAIndicatorUnits": ""
+    "IAproductName": "",
+    "IAproductUnits": "",
+    "LCIA": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "GWP100",
+                "units": "kg CO2 eq",
+                "@id": "gwp100"
+            },
+            "value": 0.17500000000000002,
+            "methodModel": {
+                "@type": "Term",
+                "name": "ReCiPe 2016 Hierarchist",
+                "termType": "model",
+                "@id": "recipe2016Hierarchist"
+            },
+            "methodModelDescription": "GWP is 3.5kg CO2e per kg of egg. This was multiplied by 0.05 to work out the GWP per egg, assuming that each egg weighs 50g. This is an assumption and egg weight was not given in the study itself.",
+            "@type": "Indicator"
+        }
+    }
 }

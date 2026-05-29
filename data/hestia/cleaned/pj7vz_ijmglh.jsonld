@@ -39,16 +39,83 @@
     "studyReasons": "",
     "intendedAudience": "",
     "comparativeAssertions": "",
-    "name": "Eggs, hen, in shell (number) - Czech Republic - 2020",
-    "allocationMethod": "none",
-    "functionalUnitQuantity": 1,
-    "product_fate": "",
+    "IAname": "Eggs, hen, in shell (number) - Czech Republic - 2020",
+    "IAallocationMethod": "none",
+    "IAfunctionalUnitQuantity": 1,
+    "IAproduct_fate": "",
     "product_properties": "",
-    "product_primary": true,
+    "IAproduct_primary": true,
     "IAmethodClassification": "",
-    "productName": "",
-    "productUnits": "",
-    "LCIAMethodModel": "",
-    "LCIAIndicator": "",
-    "LCIAIndicatorUnits": ""
+    "IAproductName": "",
+    "IAproductUnits": "",
+    "LCIA": {
+        "0": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "Freshwater ecotoxicity potential (CTUe)",
+                "units": "potentially affected fraction of species * m3 * day",
+                "@id": "freshwaterEcotoxicityPotentialCtue"
+            },
+            "value": 50.8,
+            "methodModel": {
+                "@type": "Term",
+                "name": "Environmental Footprint v3",
+                "termType": "model",
+                "@id": "environmentalFootprintV3"
+            },
+            "@type": "Indicator"
+        },
+        "1": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "Human toxicity potential, total (CTUh)",
+                "units": "disease cases",
+                "@id": "humanToxicityPotentialTotalCtuh"
+            },
+            "value": 1.9e-09,
+            "methodModel": {
+                "@type": "Term",
+                "name": "Environmental Footprint v3",
+                "termType": "model",
+                "@id": "environmentalFootprintV3"
+            },
+            "@type": "Indicator"
+        },
+        "2": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "Human toxicity potential, cancer (CTUh)",
+                "units": "disease cases",
+                "@id": "humanToxicityPotentialCancerCtuh"
+            },
+            "value": 1.26e-07,
+            "methodModel": {
+                "@type": "Term",
+                "name": "Environmental Footprint v3",
+                "termType": "model",
+                "@id": "environmentalFootprintV3"
+            },
+            "@type": "Indicator"
+        },
+        "3": {
+            "term": {
+                "@type": "Term",
+                "termType": "characterisedIndicator",
+                "name": "Ionising radiation (kBq U-235 eq)",
+                "units": "kBq U-235 eq",
+                "@id": "ionisingRadiationKbqU235Eq"
+            },
+            "value": 0.0782,
+            "methodModel": {
+                "@type": "Term",
+                "name": "Environmental Footprint v3",
+                "termType": "model",
+                "@id": "environmentalFootprintV3"
+            },
+            "@type": "Indicator"
+        }
+    }
 }
