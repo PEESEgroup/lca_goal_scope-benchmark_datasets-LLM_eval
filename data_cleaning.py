@@ -9,6 +9,7 @@ def main(directory_path):
     :return: N/A
     """
     # for each file in the directory, iterate through
+    print(os.getcwd())
     for entry_name in os.listdir(directory_path+"ImpactAssessment/"):
         # get file path
         file_path = os.path.join(directory_path+"ImpactAssessment/", entry_name)
@@ -29,6 +30,7 @@ def main(directory_path):
         # •	Target audience - site
         if "site" in data:
             site = data['site']["@id"]
+            lca_data['siteID'] = site
             try:
                 with open(directory_path + "Site/{}".format(site)+extension, 'r', encoding='utf-8') as f_site:
                     try:
@@ -41,6 +43,10 @@ def main(directory_path):
                             lca_data['siteName'] = data_site["name"]
                         else:
                             lca_data['siteName'] = ""
+                        if "methodClassification" in data_site:
+                            lca_data['siteMethodClassification'] = data_site["methodClassification"]
+                        else:
+                            lca_data['siteMethodClassification'] = ""
                         if "siteType" in data_site:
                             lca_data['siteType'] = data_site["siteType"]
                         else:
@@ -65,6 +71,7 @@ def main(directory_path):
                         lca_data['siteName'] = ""
                         lca_data['siteType'] = ""
                         lca_data['siteLocation'] = ""
+                        lca_data['siteMethodClassification'] = ""
                         # lca_data['organization'] = ""
             except FileNotFoundError as e:
                 print(e, entry_name, "missing site")
@@ -72,11 +79,13 @@ def main(directory_path):
                 lca_data['siteName'] = ""
                 lca_data['siteType'] = ""
                 lca_data['siteLocation'] = ""
+                lca_data['siteMethodClassification'] = ""
                 # lca_data['organization'] = ""
 
         # •	Comparative studies to be disclosed to the public - some studies have comparative studies,
         # which I think are called cycles
         cycle = data['cycle']["@id"]
+        lca_data['cycleID'] = cycle
         with open(directory_path + "Cycle/{}".format(cycle) + extension, 'r', encoding='utf-8') as f_cycle:
             try:
                 data_cycle = json.load(f_cycle)
@@ -84,6 +93,10 @@ def main(directory_path):
                     lca_data['cycleDescription'] = data_cycle["description"]
                 else:
                     lca_data['cycleDescription'] = ""
+                if "defaultMethodClassification" in data_cycle:
+                    lca_data['cycleMethodClassification'] = data_cycle["cycleMethodClassification"]
+                else:
+                    lca_data['cycleMethodClassification'] = ""
                 if "functionalUnit" in data_cycle:
                     lca_data['functionalUnit'] = data_cycle["functionalUnit"]  #
                 else:
@@ -99,10 +112,12 @@ def main(directory_path):
                 lca_data['cycleDescription'] = ""
                 lca_data['systemBoundaryCompleteness'] = ""
                 lca_data['functionalUnit'] = ""
+                lca_data['cycleMethodClassification'] = ""
 
         # •	Commissioner of the study and other influential actors - source
         source = data['source']["@id"]
-        with open("llm-goal-scope/data/hestia/Source/{}".format(source) + extension, 'r', encoding='utf-8') as f_source:
+        lca_data['sourceID'] = source
+        with open(directory_path + "Source/{}".format(cycle) + extension, 'r', encoding='utf-8') as f_source:
             try:
                 data_source = json.load(f_source)
                 # while it would be nice to have a list of all the authors associated with the manuscript,
@@ -180,12 +195,43 @@ def main(directory_path):
                 lca_data["product_primary"] = data["product"]["primary"]
             else:
                 lca_data['product_primary'] = ""
+            if "methodClassification" in data['product']:
+                lca_data['IAmethodClassification'] = data['product']['methodClassification']
+            else:
+                lca_data['IAmethodClassification'] = ""
+            if "name" in data['product']:
+                lca_data['productName'] = data['product']['name']
+            else:
+                lca_data['productName'] = ""
+            if "units" in data['product']:
+                lca_data['productUnits'] = data['product']['units']
+            else:
+                lca_data['productUnits'] = ""
         else:
             lca_data['product_fate'] = ""
             lca_data['product_properties'] = ""
             lca_data['product_primary'] = ""
+            lca_data['IAmethodClassification'] = ""
+            lca_data['productName'] = ""
+            lca_data['productUnits'] = ""
         # •	Representativeness of LCI data - not available
-        # •	Preparation of the basis for impact assessment - not available in data
+        # •	Preparation of the basis for impact assessment
+        if "impacts" in data:
+            if "methodModel" in data['impacts']:
+                lca_data["LCIAMethodModel"] = data['impacts']["methodModel"]['name']
+            else:
+                lca_data["LCIAMethodModel"] = ""
+            if "term" in data['impacts']:
+                lca_data["LCIAIndicator"] = data['impacts']["term"]['name']
+                lca_data["LCIAIndicatorUnits"] = data['impacts']["term"]['units']
+            else:
+                lca_data["LCIAIndicator"] = ""
+                lca_data["LCIAIndicatorUnits"] = ""
+        else:
+            lca_data["LCIAMethodModel"] = ""
+            lca_data["LCIAIndicator"] = ""
+            lca_data["LCIAIndicatorUnits"] = ""
+
         # •	Special requirements for system comparisons - not available in data
         # •	Needs for critical review - not available in data
         # •	Planning reporting of results - not available in data, clearly results were reported
@@ -196,5 +242,6 @@ def main(directory_path):
 
 
 if __name__ == "__main__":
-    main("llm-goal-scope/data/hestia/")
-    main("llm-goal-scope/data/hestia/recalculated/")
+    prefix = "./data/hestia/" #"llm-goal-scope/data/hestia/" on AWS
+    main(prefix)
+    main(prefix + "recalculated/")
