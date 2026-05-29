@@ -196,11 +196,11 @@ def functionalUnit(row):
     :return: entry for json-ld dataset
     """
     fUnit = []
-    if len(row["IA_productUnit"]) == 0:
+    if (len(row["IA_productUnit"]) == 0) or (len(row['functionalUnit']) == 0):
         return ""
     else:
         return [
-            {"labels": row["IA_productUnit"],
+            {"labels": [row["IA_productUnit"], row['functionalUnit']],
              "title": "Functional Unit",
              "context": row["systemDescription"],
                  "source": row['sourceID'],
