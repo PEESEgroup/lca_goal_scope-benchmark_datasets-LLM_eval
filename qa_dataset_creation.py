@@ -362,7 +362,7 @@ def main(output_directory, input_directory, RAG, ablation=False):
                     if j == 0:
                         ablation = "n-retrieved-10"
                     elif j == 1:
-                        ablation = "n-retrieved-30"
+                        ablation = "n-retrieved-20"
                     elif j == 2:
                         ablation = "n-top-1"
                     elif j == 3:
@@ -391,8 +391,8 @@ def main(output_directory, input_directory, RAG, ablation=False):
                                 ablation = "n-retrieved-10"
                                 answer, docs = rag_retrieval.answer_with_rag(sys_descript, question, hestia, reader, tokenizer, vdb, num_retrieved_docs=10)
                             elif j == 1:
-                                ablation = "n-retrieved-30"
-                                answer, docs = rag_retrieval.answer_with_rag(sys_descript, question, hestia, reader, tokenizer, vdb, num_retrieved_docs=30)
+                                ablation = "n-retrieved-20"
+                                answer, docs = rag_retrieval.answer_with_rag(sys_descript, question, hestia, reader, tokenizer, vdb, num_retrieved_docs=20)
                             elif j == 2:
                                 ablation = "n-top-1"
                                 answer, docs = rag_retrieval.answer_with_rag(sys_descript, question, hestia, reader, tokenizer, vdb, num_docs_final=1)

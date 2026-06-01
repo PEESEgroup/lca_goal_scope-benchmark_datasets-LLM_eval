@@ -5,7 +5,7 @@ import sys
 os.environ["LD_LIBRARY_PATH"] = f"/opt/conda/lib:{os.environ.get('LD_LIBRARY_PATH', '')}"
 
 # might need to use the following to run on command line in AWS: 
-# PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True LD_LIBRARY_PATH=/opt/conda/lib:$LD_LIBRARY_PATH /opt/conda/bin/python /home/sagemaker-user/llm-goal-scope/rag_retrieval.py
+# NCCL_DEBUG=INFO NCCL_SOCKET_IFNAME=lo PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True LD_LIBRARY_PATH=/opt/conda/lib:$LD_LIBRARY_PATH /opt/conda/bin/python /home/sagemaker-user/llm-goal-scope/rag_retrieval.py
 
 from vllm import LLM, SamplingParams
 from transformers import Pipeline, pipeline, AutoTokenizer, AutoModelForCausalLM
@@ -25,7 +25,7 @@ def answer_with_rag(
         llm: Pipeline,
         reading_tokenizer: AutoTokenizer,
         knowledge_index: FAISS,
-        num_retrieved_docs: int = 20, # vary between 10, 20, 30
+        num_retrieved_docs: int = 15, # vary between 10, 15, 20
         num_docs_final: int = 3, # vary between 1, 3, 5
         num_tokens: int = 256, # vary between 128/256/512
         temperature: float = 0.0 # 0.0, 0.33, 0.9
@@ -119,22 +119,25 @@ def model_config(model_name="nvidia/Llama-4-Scout-17B-16E-Instruct-NVFP4"):
         "{% endif %}"
     )
     
+    # trained on a ml.g5.12xlarge with 4x24GB VRAM GPUs
     llm = LLM(
         model=model_name, 
         trust_remote_code=True,
-        tensor_parallel_size=1, # Change to the number of GPUs available if you have a multi-GPU setup
-        max_model_len = 16384,
+        tensor_parallel_size=4,
+        max_model_len = 12288,
         enforce_eager=True,
-        compilation_config={"mode": "NONE"},
-        gpu_memory_utilization=0.95,
+        # compilation_config={"mode": "NONE"},
+        gpu_memory_utilization=0.90,
+        disable_log_stats=False,
         max_num_seqs=1,
-        disable_custom_all_reduce=True
+        # disable_custom_all_reduce=True
     )
 
     return llm, tokenizer
 
 
 if __name__ == "__main__":
+    # NCCL_DEBUG=INFO NCCL_SOCKET_IFNAME=lo PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True LD_LIBRARY_PATH=/opt/conda/lib:$LD_LIBRARY_PATH /opt/conda/bin/python /home/sagemaker-user/llm-goal-scope/rag_retrieval.py
     embeddings = constants.EMBED_MODEL
     os.chdir('llm-goal-scope')
     vdb = FAISS.load_local(
