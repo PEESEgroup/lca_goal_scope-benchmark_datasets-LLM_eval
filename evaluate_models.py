@@ -219,6 +219,8 @@ def eval_metrics(tokenized_dataset, trainer, classes, dataset_name, fpath):
     # predict step
     predictions_output = trainer.predict(tokenized_dataset["test"])
 
+    # TODO: only need to extract pred and validation logits here
+
     # confusion matrix converts probabilities based on a threshold value and then take the sigmoid of the outputs
     eval_metrics = predictions_output.metrics
     multilabel_indicators = (1 / (1 + np.exp(-predictions_output.predictions)))
@@ -276,6 +278,8 @@ def eval_metrics(tokenized_dataset, trainer, classes, dataset_name, fpath):
     # get the contexts
     test_dataset = tokenized_dataset["test"]
     error_texts = [test_dataset[int(i)]['context'] for i in error_indices]
+
+    # TODO: only need the predictions dataframe
 
     # build df
     error_df = pd.DataFrame({
@@ -365,6 +369,8 @@ def eval_models(dataset, dataset_name):
             # clear CUDA cache
             if torch.cuda.is_available():
                 torch.cuda.empty_cache()
+
+            # TODO: clear checkpoint folder
 
     # else there is no data in the datset
     else:

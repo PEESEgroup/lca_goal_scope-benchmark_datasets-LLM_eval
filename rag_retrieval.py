@@ -5,7 +5,7 @@ import sys
 os.environ["LD_LIBRARY_PATH"] = f"/opt/conda/lib:{os.environ.get('LD_LIBRARY_PATH', '')}"
 
 # might need to use the following to run on command line in AWS: 
-# LD_LIBRARY_PATH=/opt/conda/lib:$LD_LIBRARY_PATH /opt/conda/bin/python /home/sagemaker-user/llm-goal-scope/rag_retrieval.py
+# PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True LD_LIBRARY_PATH=/opt/conda/lib:$LD_LIBRARY_PATH /opt/conda/bin/python /home/sagemaker-user/llm-goal-scope/rag_retrieval.py
 
 from vllm import LLM, SamplingParams
 from transformers import Pipeline, pipeline, AutoTokenizer, AutoModelForCausalLM
@@ -125,10 +125,13 @@ def model_config(model_name="nvidia/Llama-4-Scout-17B-16E-Instruct-NVFP4"):
         tensor_parallel_size=1, # Change to the number of GPUs available if you have a multi-GPU setup
         max_model_len = 16384,
         enforce_eager=True,
-        gpu_memory_utilization=0.80
+        compilation_config={"mode": "NONE"},
+        gpu_memory_utilization=0.95,
+        max_num_seqs=1,
+        disable_custom_all_reduce=True
     )
 
-    return pipe, tokenizer
+    return llm, tokenizer
 
 
 if __name__ == "__main__":

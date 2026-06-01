@@ -531,5 +531,5 @@ if __name__ == "__main__":
 
     # because of how the methods were refactored, only need 1 call to make RAG datasets,
     # and another call to make ablation RAG datasets
-    main("", "", True)
     main("", "", True, ablation=True)
+    main("", "", True)
