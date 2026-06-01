@@ -99,7 +99,7 @@ def answer_with_rag(
     return generated_answer, relevant_docs
 
 
-def model_config(model_name="nvidia/Llama-4-Scout-17B-16E-Instruct-NVFP4"):
+def model_config(model_name="RedHatAI/Llama-4-Scout-17B-16E-Instruct-quantized.w4a16"):
     """
     set up LLM model config for summarizing RAG results
     :param model_name: name of the model - in our case Llama3.2-3B-Instruct
@@ -123,14 +123,15 @@ def model_config(model_name="nvidia/Llama-4-Scout-17B-16E-Instruct-NVFP4"):
     llm = LLM(
         model=model_name, 
         trust_remote_code=True,
+        load_format="safetensors",
         tensor_parallel_size=4,
-        max_model_len = 12288,
-        enforce_eager=True,
-        # compilation_config={"mode": "NONE"},
-        gpu_memory_utilization=0.90,
-        disable_log_stats=False,
+        max_model_len=16384,
+        gpu_memory_utilization=0.9,
         max_num_seqs=1,
-        # disable_custom_all_reduce=True
+        enforce_eager=True,
+        disable_custom_all_reduce=True,
+        kv_cache_dtype="fp8",
+        quantization="compressed-tensors"
     )
 
     return llm, tokenizer
