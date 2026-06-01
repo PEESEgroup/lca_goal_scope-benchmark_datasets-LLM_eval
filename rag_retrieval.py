@@ -9,7 +9,9 @@ import os
 
 
 def answer_with_rag(
+        system_description: str,
         question: str,
+        hestia: str,
         llm: Pipeline,
         reading_tokenizer: AutoTokenizer,
         knowledge_index: FAISS,
@@ -32,16 +34,22 @@ def answer_with_rag(
         {
             "role": "system",
             "content": """You are an expert on agricultural life cycle assessment (LCA). 
-            Please summarize the life cycle assessment information that is relevant to the context.
-            Please use as few words as necessary.
+            Please summarize the life cycle assessment information that is relevant to the description of the system, 
+            life cycle assessment sub-task question and context using the HESTIA schema information. 
+            Please use as few words as necessary. 
             You do not need to provide document numbers or restate parts of the prompt.""",
         },
         {
             "role": "user",
-            "content": """Context:
-            {context}
+            "content": """
+            Description of the System: {description}
             ---
-            Question: {question}""",
+            Question: {question}
+            ---
+            HESTIA schema information: {hestia}
+            ---
+            Context: {context}"""
+            ,
         },
     ]
 
@@ -81,7 +89,7 @@ def answer_with_rag(
     # build the final prompt
     context = "\nAdditional Context:\n"
     context += "".join([f"Source {str(i)}:::\n" + doc for i, doc in enumerate(reranked_docs)])
-    final_prompt = RAG_PROMPT_TEMPLATE.format(question=question, context=context)
+    final_prompt = RAG_PROMPT_TEMPLATE.format(question=question, context=context, hestia=hestia, description=system_description)
 
     # retrieve an answer
     print("=> Generating answer...")

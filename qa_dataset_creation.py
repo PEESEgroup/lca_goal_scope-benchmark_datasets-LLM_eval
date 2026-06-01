@@ -291,7 +291,8 @@ def HESTIA_information(dataset_type):
     elif dataset_type == "System Boundary":
         return ("For each of the following categories, please report the system boundary completeness requirement for the life cycle assessment Cycle given in the description in the form '<category>: True/False'."
                 "If the types and quantities of the category are specified in the life cycle assessment, set to True. If the category is not present in the life cycle assessment, set to True."
-                "If the category was used, but the types and quantities are not specified, set to False. \nThe categories include:"
+                "If the category was used, but the types and quantities are not specified, set to False. \n"
+                "The categories include:\n"
                 "animalFeed: The types and quantities of all animal feed used during the Cycle, including hay and silage. Note that fresh forage has its own completeness field.\n"
                 "animalPopulation: The types and quantities of all live animals or live aquatic species that were present during the Cycle.\n"
                 "cropResidue: The quantity of above and below ground crop residue created and its management are recorded.\n"
@@ -312,7 +313,7 @@ def HESTIA_information(dataset_type):
                 "water: The types and quantities of all water used during the Cycle.\n"
                 "product: The types and quantities of all crop, live animal, live aquatic species, animal product, and processed food produced during the Cycle are recorded. In the case where Products were intended to be produced but no production occurred (e.g., if crops fail due to disease) the types of products should still be recorded and the quantity set to zero.")
     elif dataset_type == "Product":
-        return "What product is the object of the assessment?"
+        return "The Product produced during the production Cycle, which is the target of this Impact Assessment."
     else:
         return "Wrong Dataset Type"
 
@@ -373,7 +374,11 @@ def main(output_directory, input_directory, RAG, ablation=False):
                         data_dict = json.loads(line)
                         sys_descript = data_dict[""]
 
-                        question = RAG_questions(sys_descript, dataset_type)
+                        question = RAG_questions(dataset_type)
+                        hestia = HESTIA_information(dataset_type)
+
+                        answer, docs = rag_retrieval.answer_with_rag(sys_descript, question, hestia, reader, tokenizer, vdb)
+                        context = " Additional Context: " + str(answer)
     else:
         tqdm.pandas()
         # read in data
