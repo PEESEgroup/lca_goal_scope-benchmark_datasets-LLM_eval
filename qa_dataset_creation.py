@@ -354,9 +354,68 @@ def main(output_directory, input_directory, RAG, ablation=False):
 
         # set up llm models
         reader, tokenizer = rag_retrieval.model_config()
-        # TODO: open dataset and pass to RAG pipeline
+        # open dataset and pass to RAG pipeline
         if ablation:
-            pass
+            input_data_files = ["./data/dataset/original/no_rag/Functional Unit.jsonl"]
+            for f in tqdm(input_data_files):
+                for j in range(8):
+                    if j == 0:
+                        ablation = "n-retrieved-10"
+                    elif j == 1:
+                        ablation = "n-retrieved-30"
+                    elif j == 2:
+                        ablation = "n-top-1"
+                    elif j == 3:
+                        ablation = "n-top-5"
+                    elif j == 4:
+                        ablation = "tokens-128"
+                    elif j == 5:
+                        ablation = "tokens-512"
+                    elif j == 6:
+                        ablation = "temp-033"
+                    elif j == 7:
+                        ablation = "temp-090"
+                    out_fpath = "/".join(f.split("/")[:3]) + "/rag/" + f.split("/")[-1] + ablation
+                    dataset_type = f.split("/")[-1]
+                    with open(f, "r", encoding="utf-8") as infile, open(out_fpath, "w", encoding="utf-8") as outfile:
+                        for line in tqdm(infile):
+                            data_dict = json.loads(line)
+
+                            # get relevant information
+                            sys_descript = data_dict["context"]
+                            question = RAG_questions(dataset_type)
+                            hestia = HESTIA_information(dataset_type)
+                            
+                            # get RAG information back
+                            if j == 0:
+                                ablation = "n-retrieved-10"
+                                answer, docs = rag_retrieval.answer_with_rag(sys_descript, question, hestia, reader, tokenizer, vdb, num_retrieved_docs=10)
+                            elif j == 1:
+                                ablation = "n-retrieved-30"
+                                answer, docs = rag_retrieval.answer_with_rag(sys_descript, question, hestia, reader, tokenizer, vdb, num_retrieved_docs=30)
+                            elif j == 2:
+                                ablation = "n-top-1"
+                                answer, docs = rag_retrieval.answer_with_rag(sys_descript, question, hestia, reader, tokenizer, vdb, num_docs_final=1)
+                            elif j == 3:
+                                ablation = "n-top-5"
+                                answer, docs = rag_retrieval.answer_with_rag(sys_descript, question, hestia, reader, tokenizer, vdb, num_docs_final=1)
+                            elif j == 4:
+                                ablation = "tokens-128"
+                                answer, docs = rag_retrieval.answer_with_rag(sys_descript, question, hestia, reader, tokenizer, vdb, num_tokens= 128)
+                            elif j == 5:
+                                ablation = "tokens-512"
+                                answer, docs = rag_retrieval.answer_with_rag(sys_descript, question, hestia, reader, tokenizer, vdb, num_tokens=512)
+                            elif j == 6:
+                                ablation = "temp-033"
+                                answer, docs = rag_retrieval.answer_with_rag(sys_descript, question, hestia, reader, tokenizer, vdb, temperature=0.3)
+                            elif j == 7:
+                                ablation = "temp-090"
+                                answer, docs = rag_retrieval.answer_with_rag(sys_descript, question, hestia, reader, tokenizer, vdb, temperature=0.90)
+                            context = " Additional Context: " + str(answer)
+                            data_dict['context'] = sys_descript + context
+
+                            # write back out to file
+                            outfile.write(json.dumps(data_dict, ensure_ascii=False) + "\n")
         else:
             # Open the line-delimited JSON file safely
             input_data_files = ["./data/dataset/original/no_rag/Allocation.jsonl",
