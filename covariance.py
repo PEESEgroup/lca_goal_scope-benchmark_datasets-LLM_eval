@@ -54,7 +54,7 @@ def covariance(dataset, dataset_name):
 
         # plot covariance
         correlation_plotting(classes, correlation, dataset_name)
-        covariance_plotting(classes, covariance_matrix, dataset_name)
+        # covariance_plotting(classes, covariance_matrix, dataset_name)
 
 
 def covariance_plotting(classes, covariance_matrix, dataset_name):
@@ -94,15 +94,15 @@ def correlation_plotting(classes, correlation_matrix, dataset_name):
                 yticklabels=classes)
     plt.title('Correlation Matrix Heatmap')
     # open output
-    fpath = "llm-goal-scope/data/qa_dataset/results/"
-    dataset_name = dataset_name.split(".")[0]
-    dataset_name = dataset_name.split("/")[2:]
+    fpath = "./data/dataset/results/"
+    dataset_name = dataset_name.split(".")[1]
+    dataset_name = dataset_name.split("/")[3:]
     dataset_name = "_".join(dataset_name)
     plt.xticks(rotation=45, ha='right')
     plt.yticks(rotation=45, va='top')
     plt.tick_params(axis='both', which='major', labelsize=2 if len(correlation_matrix) > 20 else 8)
     plt.tight_layout()
-    os.makedirs("llm-goal-scope/data/qa_dataset/results/" + dataset_name + "/", exist_ok=True)
+    os.makedirs(fpath + dataset_name + "/", exist_ok=True)
     plt.savefig(fpath + dataset_name + "/correlation.png", dpi=300)
     plt.show()
 
