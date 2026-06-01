@@ -249,17 +249,72 @@ def systemDescription(row):
     return string_to_return
 
 
-def RAG_questions(row):
-    fu = f"For the following production system, what is the functional unit? Production system: {str(row['systemDescription'])}"
-    sb = f"What is included in the system boundary of this production system? Production system: {str(row['systemDescription'])}"
-    alloc = f"For the following production system, what is the appropriate allocation method? If system expansion is used, the available choices are either mass, economic, energy, or biophysical. If system expansion is not necessary, answer \"none required\". If another allocation method is used, answer \"none\". Production system: {str(row['systemDescription'])}"
-    intended_app = f"For the following production system, what is the intended application of the LCA study? Production system: {str(row['systemDescription'])}"
-    comparative = f"For the following production system, are these results to be used in comparative assertions? Production system: {str(row['systemDescription'])}"
-    target_audience = f"For the following production system, what is the target audience of the LCA study? Production system: {str(row['systemDescription'])}"
-    study_reason = f"For the following production system, what are the reasons for carrying out the LCA study? Production system: {str(row['systemDescription'])}"
-    product_of_a = f"For the following production system, what product is the object of the assessment? Production system: {str(row['systemDescription'])}"
-    actors = f"For the following production system, who are the important actors? Production system: {str(row['systemDescription'])}"
+def RAG_questions(dataset_type):
+    """
+    return the RAG questions
+    :param dataset_type: the dataset type
+    :return: relevant question
+    """
+    if dataset_type == "Allocation":
+        return "What is the appropriate allocation method?"
+    elif dataset_type == "Functional Unit":
+        return "What is the functional unit?"
+    elif dataset_type == "System Boundary":
+        return "What is included in the system boundary of this production system?"
+    elif dataset_type == "Product":
+        return "What product is the object of the assessment?"
+    else:
+        return "Wrong Dataset Type"
 
+    # questions for non existent datasets
+    # intended_app = f"For the following production system, what is the intended application of the LCA study? Production system: {str(row['systemDescription'])}"
+    # comparative = f"For the following production system, are these results to be used in comparative assertions? Production system: {str(row['systemDescription'])}"
+    # target_audience = f"For the following production system, what is the target audience of the LCA study? Production system: {str(row['systemDescription'])}"
+    # study_reason = f"For the following production system, what are the reasons for carrying out the LCA study? Production system: {str(row['systemDescription'])}"
+    # actors = f"For the following production system, who are the important actors? Production system: {str(row['systemDescription'])}"
+
+def HESTIA_information(dataset_type):
+    """
+    return the RAG questions
+    :param dataset_type: the dataset type
+    :return: relevant question
+    """
+    if dataset_type == "Allocation":
+        return ("If system expansion is used, the available choices are either mass, economic, energy, or biophysical. "
+                "If system expansion is not necessary, answer \"none required\". If system expansion does not need "
+                "to be reported, answer \"none\".")
+    elif dataset_type == "Functional Unit":
+        return ("The functional unit can either be: \"1 ha\" (one hectare) or \"relative\" (meaning that the quantities "
+                "of Inputs and Emissions correspond to the quantities of Products). If the primary product is a crop or "
+                "forage, the functional unit must be 1 ha. If \"relative\" is reported above, please also provide the "
+                "functional unit most relevant to the production system.")
+    elif dataset_type == "System Boundary":
+        return ("For each of the following categories, please report the system boundary completeness requirement for the life cycle assessment Cycle given in the description in the form '<category>: True/False'."
+                "If the types and quantities of the category are specified in the life cycle assessment, set to True. If the category is not present in the life cycle assessment, set to True."
+                "If the category was used, but the types and quantities are not specified, set to False. \nThe categories include:"
+                "animalFeed: The types and quantities of all animal feed used during the Cycle, including hay and silage. Note that fresh forage has its own completeness field.\n"
+                "animalPopulation: The types and quantities of all live animals or live aquatic species that were present during the Cycle.\n"
+                "cropResidue: The quantity of above and below ground crop residue created and its management are recorded.\n"
+                "electricityFuel: The types and quantities of all electricity and fuel used during the Cycle, excluding during the transport phase.\n"
+                "excreta: The types and quantities of excreta created and its management.\n"
+                "fertiliser: The types and quantities of all organic fertiliser and inorganic fertiliser, or the quantity of each fertiliser brand name.\n"
+                "freshForage: The types and quantities of all fresh forage fed to, or grazed by, animals during the Cycle.\n"
+                "ingredient: For feed or food processing Cycles, the type and quantities of all feed or food ingredients used, such as crop products, animal products, processed foods, and/or feed or food additives.\n"
+                "liveAnimalInput: The types and quantities of all live animals or live aquatic species which were Inputs into the Cycle. For example, piglets might be an Input into a pig fattening Cycle.\n"
+                "material: The types and quantities of all material and substrate Inputs, which includes capital equipment depreciated over the Cycle.\n"
+                "operation: The types of all mechanical operation performed during the Cycle and either their duration or the percentage of area they covered.\n"
+                "otherChemical: The types and quantities of all other chemicals (including processing aids, other inorganic chemicals, and other organic chemicals) used during the Cycle.\n"
+                "pesticideVeterinaryDrug: The types and quantities of all pesticides (either as active ingredients or brand names) and veterinary drugs used during the Cycle.\n"
+                "seed: The types and quantities of all seed Inputs, such as seed,saplings, or semen.\n"
+                "soilAmendment: The types and quantities of all soil amendments and biochar used during the Cycle.\n"
+                "transport: The transport modes and distances for each Input to the Site are recorded. If Products were also Transported during this Cycle, the distances and modes are specified.\n"
+                "waste: The types and quantities all waste streams, their and management, and their transport to where they are managed are specified (note that crop residue and excreta waste streams and management have their own completeness fields). Examples of waste streams include dead animals or plastic films for greenhouses. Examples of management include disposal into a water body or bio-digestion. Examples of transport include taking waste to a disposal center.\n"
+                "water: The types and quantities of all water used during the Cycle.\n"
+                "product: The types and quantities of all crop, live animal, live aquatic species, animal product, and processed food produced during the Cycle are recorded. In the case where Products were intended to be produced but no production occurred (e.g., if crops fail due to disease) the types of products should still be recorded and the quantity set to zero.")
+    elif dataset_type == "Product":
+        return "What product is the object of the assessment?"
+    else:
+        return "Wrong Dataset Type"
 
 def process_all_tasks(row):
     """
@@ -312,15 +367,13 @@ def main(output_directory, input_directory, RAG, ablation=False):
                                 "./data/dataset/standardized/no_rag/System Boundary.jsonl", ]
             for f in tqdm(input_data_files):
                 out_fpath = "/".join(f.split("/")[:3]) + "/rag/" + f.split("/")[-1]
+                dataset_type = f.split("/")[-1]
                 with open(f, "r", encoding="utf-8") as file:
                     for line in tqdm(file):
-                        # Parse the individual line string into a Python dict
                         data_dict = json.loads(line)
-
                         sys_descript = data_dict[""]
 
-                        # Access your data fields
-                        print(data_dict)
+                        question = RAG_questions(sys_descript, dataset_type)
     else:
         tqdm.pandas()
         # read in data
