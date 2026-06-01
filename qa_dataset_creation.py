@@ -294,8 +294,7 @@ def main(output_directory, input_directory, RAG, ablation=False):
     # if it is RAG, the deduplicated tables already exist, so much of data processing is not necessary
     if RAG:
         embeddings = constants.EMBED_MODEL
-        vdb = FAISS.load_local("llm-goal-scope/" +
-                               constants.VDB_LOCATION, embeddings, allow_dangerous_deserialization=True)
+        vdb = FAISS.load_local("./" + constants.VDB_LOCATION, embeddings, allow_dangerous_deserialization=True)
 
         # set up llm models
         reader, tokenizer = rag_retrieval.model_config()
@@ -311,10 +310,10 @@ def main(output_directory, input_directory, RAG, ablation=False):
                                 "./data/dataset/standardized/no_rag/Functional Unit.jsonl",
                                 "./data/dataset/standardized/no_rag/Product.jsonl",
                                 "./data/dataset/standardized/no_rag/System Boundary.jsonl", ]
-            for f in input_data_files:
+            for f in tqdm(input_data_files):
                 out_fpath = "/".join(f.split("/")[:3]) + "/rag/" + f.split("/")[-1]
                 with open(f, "r", encoding="utf-8") as file:
-                    for line in file:
+                    for line in tqdm(file):
                         # Parse the individual line string into a Python dict
                         data_dict = json.loads(line)
 

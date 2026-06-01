@@ -97,7 +97,7 @@ def answer_with_rag(
     return generated_answer, relevant_docs
 
 
-def model_config(model_name="meta-llama/Llama-3.2-3B-Instruct"):
+def model_config(model_name="meta-llama/Llama-4-Scout-17B-16E-Instruct"):
     """
     set up LLM model config for summarizing RAG results
     :param model_name: name of the model - in our case Llama3.2-3B-Instruct
