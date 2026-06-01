@@ -369,16 +369,22 @@ def main(output_directory, input_directory, RAG, ablation=False):
             for f in tqdm(input_data_files):
                 out_fpath = "/".join(f.split("/")[:3]) + "/rag/" + f.split("/")[-1]
                 dataset_type = f.split("/")[-1]
-                with open(f, "r", encoding="utf-8") as file:
-                    for line in tqdm(file):
+                with open(f, "r", encoding="utf-8") as infile, open(out_fpath, "w", encoding="utf-8") as outfile:
+                    for line in tqdm(infile):
                         data_dict = json.loads(line)
-                        sys_descript = data_dict[""]
 
+                        # get relevant information
+                        sys_descript = data_dict["context"]
                         question = RAG_questions(dataset_type)
                         hestia = HESTIA_information(dataset_type)
-
+                        
+                        # get RAG information back
                         answer, docs = rag_retrieval.answer_with_rag(sys_descript, question, hestia, reader, tokenizer, vdb)
                         context = " Additional Context: " + str(answer)
+                        data_dict['context'] = sys_descript + context
+
+                        # write back out to file
+                        outfile.write(json.dumps(data_dict, ensure_ascii=False) + "\n")
     else:
         tqdm.pandas()
         # read in data
