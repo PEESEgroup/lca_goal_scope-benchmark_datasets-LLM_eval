@@ -283,7 +283,7 @@ def process_all_tasks(row):
     })
 
 
-def main(output_directory, input_directory, RAG):
+def main(output_directory, input_directory, RAG, ablation=False):
     """
     main method to convert input data into json-ld multi-label text classification dataset
     :param output_directory: output directory
@@ -291,12 +291,6 @@ def main(output_directory, input_directory, RAG):
     :param RAG: boolean to include RAG or not
     :return: N/A
     """
-    tqdm.pandas()
-    # read in data
-    df = pd.read_csv(input_directory + "input_data.csv")
-    # replace nan with empty strings
-    df = df.fillna('')
-
     # if it is RAG, the deduplicated tables already exist, so much of data processing is not necessary
     if RAG:
         embeddings = constants.EMBED_MODEL
@@ -306,7 +300,34 @@ def main(output_directory, input_directory, RAG):
         # set up llm models
         reader, tokenizer = rag_retrieval.model_config()
         # TODO: open dataset and pass to RAG pipeline
+        if ablation:
+            pass
+        else:
+            # Open the line-delimited JSON file safely
+            input_data_files = ["./data/dataset/original/no_rag/Allocation.jsonl",
+                                "./data/dataset/original/no_rag/Functional Unit.jsonl",
+                                "./data/dataset/original/no_rag/Product.jsonl",
+                                "./data/dataset/original/no_rag/System Boundary.jsonl",
+                                "./data/dataset/standardized/no_rag/Functional Unit.jsonl",
+                                "./data/dataset/standardized/no_rag/Product.jsonl",
+                                "./data/dataset/standardized/no_rag/System Boundary.jsonl", ]
+            for f in input_data_files:
+                out_fpath = "/".join(f.split("/")[:3]) + "/rag/" + f.split("/")[-1]
+                with open(f, "r", encoding="utf-8") as file:
+                    for line in file:
+                        # Parse the individual line string into a Python dict
+                        data_dict = json.loads(line)
+
+                        sys_descript = data_dict[""]
+
+                        # Access your data fields
+                        print(data_dict)
     else:
+        tqdm.pandas()
+        # read in data
+        df = pd.read_csv(input_directory + "input_data.csv")
+        # replace nan with empty strings
+        df = df.fillna('')
         # List of goal and scope tasks
         # •	Intended application of results
         # •	Limitations due to methodological choices - not available, skipping
@@ -383,8 +404,10 @@ def main(output_directory, input_directory, RAG):
 if __name__ == "__main__":
     prefix = "./data/hestia/"
     print(os.getcwd())
-    main("./data/dataset/standardized/no_rag/", prefix + "recalculated/", False)
-    main("./data/dataset/original/no_rag/", prefix, False)
+    #main("./data/dataset/standardized/no_rag/", prefix + "recalculated/", False)
+    #main("./data/dataset/original/no_rag/", prefix, False)
 
-    # main("dataset/standardized/rag/", prefix + "recalculated/", True)
-    # main("dataset/original/rag/", prefix, True)
+    # because of how the methods were refactored, only need 1 call to make RAG datasets,
+    # and another call to make ablation RAG datasets
+    main("", "", True)
+    main("", "", True, ablation=True)
