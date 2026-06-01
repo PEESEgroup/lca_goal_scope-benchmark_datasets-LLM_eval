@@ -57,8 +57,8 @@ def get_rag_json():
     convert RAG text files to json for future manipulation
     :return: rag input data for db
     """
-    # file_path = "./data/RAG-textract/"
-    file_path = "./data/small_rag/"  # for testing
+    file_path = "./data/RAG-textract/"
+    # file_path = "./data/small_rag/"  # for testing
     rag_data = []
 
     counter = 0
