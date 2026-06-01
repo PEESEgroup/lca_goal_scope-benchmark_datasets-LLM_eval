@@ -1,4 +1,13 @@
-from transformers import Pipeline, pipeline
+import os
+import sys
+
+# Force the OS to prioritize Conda's modern C++ libraries
+os.environ["LD_LIBRARY_PATH"] = f"/opt/conda/lib:{os.environ.get('LD_LIBRARY_PATH', '')}"
+
+# might need to use the following to run on command line in AWS: LD_LIBRARY_PATH=/opt/conda/lib:$LD_LIBRARY_PATH /opt/conda/bin/python /home/sagemaker-user/llm-goal-scope/rag_retrieval.py
+
+from vllm import LLM, SamplingParams
+from transformers import Pipeline, pipeline, AutoTokenizer, AutoModelForCausalLM
 from typing import Any
 import torch
 from transformers import AutoTokenizer
@@ -17,6 +26,8 @@ def answer_with_rag(
         knowledge_index: FAISS,
         num_retrieved_docs: int = 20, # vary between 10, 20, 30
         num_docs_final: int = 3, # vary between 1, 3, 5
+        num_tokens: int = 256, # vary between 128/256/512
+        temperature: float = 0.0 # 0.0, 0.33, 0.9
 ) -> tuple[Any, list[str]]:
     """
     method to answer a given query using RAG data
@@ -77,12 +88,12 @@ def answer_with_rag(
 
     # retrieve an answer
     print("=> Generating answer...")
-    answer = llm(final_prompt)[0]["generated_text"]
-
-    # String processing to isolate the assistant response from the prompt wrapper
-    generated_answer = answer.split("<|start_header_id|>assistant<|end_header_id|>")[1]
-    generated_answer = generated_answer.strip()
-    print(f"=> model answers \"{generated_answer}\"\n\n")
+    sampling_params = SamplingParams(max_tokens=num_tokens, temperature=temperature)
+    outputs = llm.generate([final_prompt], sampling_params)
+    answer = outputs[0].outputs[0].text
+    
+    # vLLM outputs the newly generated text directly, 
+    generated_answer = answer.strip()
     
     return generated_answer, relevant_docs
 
@@ -107,13 +118,10 @@ def model_config(model_name="nvidia/Llama-4-Scout-17B-16E-Instruct-NVFP4"):
         "{% endif %}"
     )
     
-    # initialize the pipeline
-    pipe = pipeline(
-        "text-generation",
-        model=model_name,
-        device_map="auto",
-        max_new_tokens=256, # do not need a lot of information here
-        do_sample=False
+    llm = LLM(
+        model=model_name, 
+        trust_remote_code=True,
+        tensor_parallel_size=1 # Change to the number of GPUs available if you have a multi-GPU setup
     )
 
     return pipe, tokenizer
@@ -129,5 +137,10 @@ if __name__ == "__main__":
     print("model configured")
     # test question to make sure things are working
     question = "what is a functional unit for sheep production in the UK?"
-    answer, docs = answer_with_rag("", question, "", reader, tokenizer, vdb)
+    answer, docs = answer_with_rag("Permanent pasture producing sheep, lamb (weaned) in united kingdom. cycle description: blue-2019. site description: blue farming system", 
+                "What is the functional unit?",
+                "The functional unit can either be: \"1 ha\" (one hectare) or \"relative\" (meaning that the quantities "
+                "of Inputs and Emissions correspond to the quantities of Products). If the primary product is a crop or "
+                "forage, the functional unit must be 1 ha. If \"relative\" is reported above, please also provide the "
+                "functional unit most relevant to the production system.", reader, tokenizer, vdb)
     print(answer)
