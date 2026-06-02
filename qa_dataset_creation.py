@@ -380,10 +380,9 @@ def main(output_directory, input_directory, RAG, ablation=False):
                                 "llm-goal-scope/data/dataset/standardized/no_rag/Product.jsonl",
                                 "llm-goal-scope/data/dataset/standardized/no_rag/System Boundary.jsonl", ]
             for f in datasets:
-                kwargs = {"test": {"test": 0}}
                 out_fpath = f"/".join(f.split("/")[:4]) + "/rag/" + f.split("/")[-1]
                 dataset_type = f.split("/")[-1].replace(".jsonl", "")
-                run_rag_batch_inference(f, out_fpath, dataset_type, reader, tokenizer, vdb, rerank_model, kwargs)
+                run_rag_batch_inference(f, out_fpath, dataset_type, reader, tokenizer, vdb, rerank_model)
                 
     else:
         tqdm.pandas()
@@ -497,11 +496,11 @@ def run_rag_batch_inference(input_file, out_fpath, dataset_type, reader, tokeniz
 
     # Re-assemble records with updated context fields
     for r, ans in zip(records, answers):
-        print("Old answer: " ans, "\n")
+        print(f"Old answer: {ans}\n")
         ans = ans.replace("<|end_header_id|>","").replace("<|eot_id|>","")# replace RAG artifacts
         ans = ans.replace("Additional Relevant Context: ", "") # in case the LLM followed instructions literally in only some of the cases.
         r['context'] = f"{r['context']} Additional Relevant Context: {ans}"
-        print("New answer: " ans, "\n")
+        print(f"New answer: {ans}\n")
         
     with open(out_fpath, "w", encoding="utf-8") as outfile:
         for r in records:
@@ -509,6 +508,7 @@ def run_rag_batch_inference(input_file, out_fpath, dataset_type, reader, tokeniz
 
 
 if __name__ == "__main__":
+    # NCCL_SOCKET_IFNAME=lo PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True LD_LIBRARY_PATH=/opt/conda/lib:$LD_LIBRARY_PATH /opt/conda/bin/python /home/sagemaker-user/llm-goal-scope/qa_dataset_creation.py
     prefix = "llm-goal-scope/data/hestia/"
     # main("llm-goal-scope/data/dataset/standardized/no_rag/", prefix + "recalculated/", False)
     # main("llm-goal-scope/data/dataset/original/no_rag/", prefix, False)

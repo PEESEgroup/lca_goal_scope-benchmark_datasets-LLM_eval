@@ -153,10 +153,8 @@ def answer_with_rag(
                 "role": "system",
                 "content": """
                 "You are an expert on agricultural life cycle assessment (LCA). "
-                "Your task is to isolate and provide the final answer to the user's question, "
+                "Your task is to provide the final answer to the user's question, "
                 "evaluated strictly against the provided context and HESTIA schema guidelines.\n\n"
-                "CRITICAL OUTPUT RULES:\n"
-                "1. Output ONLY the final answer. Do not include introductory text, conversational filler, or document references.\n"
                 """,
             },
             {
