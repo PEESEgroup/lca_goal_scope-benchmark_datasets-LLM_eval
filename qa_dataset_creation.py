@@ -380,6 +380,7 @@ def main(output_directory, input_directory, RAG, ablation=False):
                                 "llm-goal-scope/data/dataset/standardized/no_rag/Product.jsonl",
                                 "llm-goal-scope/data/dataset/standardized/no_rag/System Boundary.jsonl", ]
             for f in datasets:
+                kwargs = {"test": {"test": 0}}
                 out_fpath = f"/".join(f.split("/")[:4]) + "/rag/" + f.split("/")[-1]
                 dataset_type = f.split("/")[-1].replace(".jsonl", "")
                 run_rag_batch_inference(f, out_fpath, dataset_type, reader, tokenizer, vdb, rerank_model, kwargs)
@@ -509,7 +510,6 @@ def run_rag_batch_inference(input_file, out_fpath, dataset_type, reader, tokeniz
 
 if __name__ == "__main__":
     prefix = "llm-goal-scope/data/hestia/"
-    print(os.getcwd())
     # main("llm-goal-scope/data/dataset/standardized/no_rag/", prefix + "recalculated/", False)
     # main("llm-goal-scope/data/dataset/original/no_rag/", prefix, False)
 
