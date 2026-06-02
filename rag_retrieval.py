@@ -29,7 +29,7 @@ def answer_with_rag(
         llm: Any,  # Your vLLM LLM engine instance
         reading_tokenizer: Any,
         knowledge_index: Any,
-        rerank_model: CrossEncoder, # 🚀 Pass this in to avoid reloading every time
+        rerank_model: CrossEncoder,
         num_retrieved_docs: int = 15,
         num_docs_final: int = 3,
         num_tokens: int = 256,
@@ -43,6 +43,7 @@ def answer_with_rag(
         knowledge_index.similarity_search(desc, k=num_retrieved_docs) 
         for desc in system_description
     ]
+    print("Gathered All Documents")
 
     final_prompts = []
     all_reranked_docs_text = []
@@ -51,7 +52,7 @@ def answer_with_rag(
     sampling_params = SamplingParams(max_tokens=num_tokens, temperature=temperature)
 
     # Process retrieval & reranking per description item
-    for desc, docs in zip(system_description, all_retrieved_docs):
+    for desc, docs in tqdm(zip(system_description, all_retrieved_docs)):
         doc_texts = [doc.page_content for doc in docs]
         
         # Build text-matching pairs for this specific description query
@@ -87,7 +88,7 @@ def answer_with_rag(
             ---
             HESTIA schema information: {hestia}
             ---
-            Context: {context}"""
+            Context: {context_str}"""
         },
     ]
 
@@ -96,9 +97,19 @@ def answer_with_rag(
             chat_structure, tokenize=False, add_generation_prompt=True
         )
         final_prompts.append(raw_prompt)
+        
+    print("Reranked All Documents")
 
-    # Fire the entire batch to vLLM at once (unlocks multi-GPU tensor parallelism)
-    outputs = llm.generate(final_prompts, sampling_params)
+    MINI_BATCH_SIZE = 128  # Large enough to max out the GPUs, small enough for regular updates
+    outputs = []
+
+    # Loop through the prompts in steps of MINI_BATCH_SIZE
+    for i in tqdm(range(0, len(final_prompts), MINI_BATCH_SIZE), desc="vLLM Generating Answers"):
+        mini_batch = final_prompts[i : i + MINI_BATCH_SIZE]
+        
+        # Generate for the current chunk
+        batch_outputs = llm.generate(mini_batch, sampling_params)
+        outputs.extend(batch_outputs)
     
     # Collect answers corresponding cleanly to the batch items
     generated_answers = [out.outputs[0].text.strip() for out in outputs]
@@ -152,6 +163,7 @@ if __name__ == "__main__":
         constants.VDB_LOCATION, embeddings, allow_dangerous_deserialization=True)
     print("vdb loaded")
     reader, tokenizer = model_config()
+    rerank_model = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')
     print("model configured")
     # test question to make sure things are working
     question = "what is a functional unit for sheep production in the UK?"
@@ -160,5 +172,5 @@ if __name__ == "__main__":
                 "The functional unit can either be: \"1 ha\" (one hectare) or \"relative\" (meaning that the quantities "
                 "of Inputs and Emissions correspond to the quantities of Products). If the primary product is a crop or "
                 "forage, the functional unit must be 1 ha. If \"relative\" is reported above, please also provide the "
-                "functional unit most relevant to the production system.", reader, tokenizer, vdb)
+                "functional unit most relevant to the production system.", reader, tokenizer, vdb, rerank_model)
     print(answer)
