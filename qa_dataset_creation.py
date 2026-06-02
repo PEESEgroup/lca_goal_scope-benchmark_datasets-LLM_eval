@@ -496,11 +496,9 @@ def run_rag_batch_inference(input_file, out_fpath, dataset_type, reader, tokeniz
 
     # Re-assemble records with updated context fields
     for r, ans in zip(records, answers):
-        print(f"Old answer: {ans}\n")
         ans = ans.replace("<|end_header_id|>","").replace("<|eot_id|>","")# replace RAG artifacts
         ans = ans.replace("Additional Relevant Context: ", "") # in case the LLM followed instructions literally in only some of the cases.
         r['context'] = f"{r['context']} Additional Relevant Context: {ans}"
-        print(f"New answer: {ans}\n")
         
     with open(out_fpath, "w", encoding="utf-8") as outfile:
         for r in records:

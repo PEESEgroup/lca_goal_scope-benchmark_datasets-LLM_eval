@@ -41,7 +41,6 @@ def answer_with_rag(
     """
     Batched method to answer a list of queries simultaneously using vLLM continuous batching.
     """
-    system_description = system_description[:10]
     print(f"Sending {len(system_description)} queries to FAISS index...")
 
     # Check if the LangChain FAISS index object natively supports batching
@@ -81,8 +80,6 @@ def answer_with_rag(
             f"Description: {desc.strip()} Question: {question.strip()}" 
             for desc in system_description
         ]
-
-        print(combined_queries[0])
 
         # Extract the underlying embedding engine from LangChain
         embedding_engine = knowledge_index.embedding_function
