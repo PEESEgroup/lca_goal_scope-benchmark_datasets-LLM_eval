@@ -287,7 +287,7 @@ def HESTIA_information(dataset_type):
         return ("There are up to two functional units that need to be chosen. The first functional unit can either be: \"1 ha\" (one hectare) or \"relative\" (meaning that the quantities "
                 "of Inputs and Emissions correspond to the quantities of Products). If the primary product is a crop or "
                 "forage, the functional unit must be 1 ha. If \"relative\" is reported as the first functional unit, please also provide an additional "
-                "functional unit most relevant to the Target Evaluation Description.")
+                "functional unit most relevant to the Target Evaluation Description from the following list: kg FPCM, 1 ha, number, kg liveweight, kg ready-to-cook weight, kg cold dressed carcass weight, kg, kg cold carcass weight.")
     elif dataset_type == "System Boundary":
         return ("For each of the following categories, please report the system boundary completeness requirement for the life cycle assessment Cycle given in the Target Evaluation Description in the form '<category>: True/False'."
                 "If the types and quantities of the category are specified in the life cycle assessment, set to True. If the category is not present in the life cycle assessment, set to True."
