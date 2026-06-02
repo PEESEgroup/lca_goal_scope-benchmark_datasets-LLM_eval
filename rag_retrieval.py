@@ -72,28 +72,51 @@ def answer_with_rag(
         # A sweet spot for parallel processes is 2 to 4 threads per worker process.
         os.environ["OMP_NUM_THREADS"] = "8"
         os.environ["MKL_NUM_THREADS"] = "8"
+        # Suppress status updates and download bar streams
+        os.environ["HF_HUB_DISABLE_PROGRESS_BARS"] = "1"
+        os.environ["HF_HUB_DISABLE_SYMLINKS_WARNING"] = "1"
 
-        num_workers = max(1, cpu_count() // 4) 
+        print(f"Executing true matrix-parallel search for {len(system_description)} queries...")
 
-        # Use a partial function to freeze the FAISS index and 'k' parameters
-        search_func = partial(worker_search, index_instance=knowledge_index, k=num_retrieved_docs)
-
-        num_threads = 32  # High core count setting for your instance
-        with ThreadPoolExecutor(max_workers=num_threads) as executor:
-            # executor.map processes tasks concurrently and preserves input order
-            all_retrieved_docs = list(
-                tqdm(
-                    executor.map(search_func, system_description),
-                    total=len(system_description),
-                    desc="Thread-Parallel FAISS Processing"
-                )
-            )
-        
-        all_retrieved_docs = [
-            knowledge_index.similarity_search(desc, k=num_retrieved_docs) 
+        # combine your descriptions and questions into a flat text list
+        combined_queries = [
+            f"Description: {desc.strip()} Question: {question.strip()}" 
             for desc in system_description
         ]
+
+        # Extract the underlying embedding engine from LangChain
+        embedding_engine = knowledge_index.embedding_function
+
+        # Matrix Vectorization (Runs across all cores simultaneously) passing the entire list to embed_documents lets the C++/PyTorch backend 
+        # process the data as a single parallel tensor batch.
+        print("Vectorizing entire query batch...")
+        query_embeddings = embedding_engine.embed_documents(combined_queries)
+
+        # Convert to a contiguous float32 numpy array for the native FAISS C++ layer
+        query_embeddings_matrix = np.array(query_embeddings, dtype=np.float32)
+
+        # ative FAISS Index Batch Search This uses the underlying C++ index to search all 851 vectors at the same time,
+        print("Querying FAISS C++ Index...")
+        scores, indices = knowledge_index.index.search(query_embeddings_matrix, num_retrieved_docs)
+
+        # Reconstruct the LangChain Document objects to keep downstream code intact
+        all_retrieved_docs = []
+        for row_indices in tqdm(indices):
+            doc_batch = []
+            for idx in row_indices:
+                if idx == -1:
+                    continue  # FAISS returns -1 if fewer documents exist than requested k
+                
+                # Pull the original Document object out of the LangChain store maps
+                doc_id = knowledge_index.index_to_docstore_id[idx]
+                doc = knowledge_index.docstore.search(doc_id)
+                doc_batch.append(doc)
+            all_retrieved_docs.append(doc_batch)
+
     os.environ["HF_HUB_OFFLINE"] = "0"
+    # Suppress status updates and download bar streams
+    os.environ["HF_HUB_DISABLE_PROGRESS_BARS"] = "0"
+    os.environ["HF_HUB_DISABLE_SYMLINKS_WARNING"] = "0"
     print("Gathered All Documents")
 
     final_prompts = []
