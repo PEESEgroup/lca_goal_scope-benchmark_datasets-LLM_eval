@@ -44,6 +44,10 @@ def answer_with_rag(
         # Loop through your descriptions in chunks with a visual progress bar
         for i in tqdm(range(0, len(system_description), FAISS_BATCH_SIZE), desc="FAISS Batch Searching"):
             mini_batch = system_description[i : i + FAISS_BATCH_SIZE]
+            combined_mini_batch = [
+                f"Description: {desc.strip()} Question: {question.strip()}" 
+                for desc in mini_batch_desc
+            ]
             
             # Query the vector index with the current chunk
             batch_results = knowledge_index.batch_search(mini_batch, k=num_retrieved_docs)
@@ -51,6 +55,7 @@ def answer_with_rag(
             # Extend our master collection list
             all_retrieved_docs.extend(batch_results)
     else:
+        print("No batch")
         # Fallback: Loop manually but isolate thread safety issues
         import os
         # Prevent FAISS from aggressively over-allocating internal CPU threads per query
@@ -74,7 +79,7 @@ def answer_with_rag(
         doc_texts = [doc.page_content for doc in docs]
         
         # Build text-matching pairs for this specific description query
-        pairs = [[f"{desc} {question}", text] for text in doc_texts]
+        pairs = [[f"Description: {desc} Question: {question}", text] for text in doc_texts]
         scores = rerank_model.predict(pairs)
 
         # Sort documents based on CrossEncoder scores
@@ -89,26 +94,26 @@ def answer_with_rag(
 
         # format using the chat template sequence
         chat_structure = [
-        {
-            "role": "system",
-            "content": """You are an expert on agricultural life cycle assessment (LCA). 
-            Please summarize the life cycle assessment information that is relevant to the description of the system, 
-            life cycle assessment sub-task question and context using the HESTIA schema information. 
-            Please use as few words as necessary. 
-            You do not need to provide document numbers or restate parts of the prompt.""",
-        },
-        {
-            "role": "user",
-            "content": f"""
-            Description of the System: {system_description}
-            ---
-            Question: {question}
-            ---
-            HESTIA schema information: {hestia}
-            ---
-            Context: {context_str}"""
-        },
-    ]
+            {
+                "role": "system",
+                "content": """You are an expert on agricultural life cycle assessment (LCA). 
+                Please summarize the life cycle assessment information that is relevant to the description of the system, 
+                life cycle assessment sub-task question and context using the HESTIA schema information. 
+                Please use as few words as necessary. 
+                You do not need to provide document numbers or restate parts of the prompt.""",
+            },
+            {
+                "role": "user",
+                "content": f"""
+                Description of the System: {system_description}
+                ---
+                Question: {question}
+                ---
+                HESTIA schema information: {hestia}
+                ---
+                Context: {context_str}"""
+            },
+        ]
 
         # Convert to raw structural prompt token strings
         raw_prompt = reading_tokenizer.apply_chat_template(
