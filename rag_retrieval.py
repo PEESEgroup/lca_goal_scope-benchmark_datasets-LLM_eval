@@ -3,6 +3,7 @@ import sys
 
 # Force the OS to prioritize Conda's modern C++ libraries
 os.environ["LD_LIBRARY_PATH"] = f"/opt/conda/lib:{os.environ.get('LD_LIBRARY_PATH', '')}"
+os.environ["HF_HUB_OFFLINE"] = "1"
 
 # might need to use the following to run on command line in AWS: 
 # NCCL_DEBUG=INFO NCCL_SOCKET_IFNAME=lo PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True LD_LIBRARY_PATH=/opt/conda/lib:$LD_LIBRARY_PATH /opt/conda/bin/python /home/sagemaker-user/llm-goal-scope/rag_retrieval.py
@@ -124,9 +125,9 @@ def model_config(model_name="RedHatAI/Llama-4-Scout-17B-16E-Instruct-quantized.w
         model=model_name, 
         trust_remote_code=True,
         load_format="safetensors",
-        tensor_parallel_size=4,
+        tensor_parallel_size=8,
         max_model_len=16384,
-        gpu_memory_utilization=0.9,
+        gpu_memory_utilization=0.6,
         max_num_seqs=1,
         enforce_eager=True,
         disable_custom_all_reduce=True,
