@@ -41,6 +41,7 @@ def answer_with_rag(
     """
     Batched method to answer a list of queries simultaneously using vLLM continuous batching.
     """
+    system_description = system_description[:10]
     print(f"Sending {len(system_description)} queries to FAISS index...")
 
     # Check if the LangChain FAISS index object natively supports batching
@@ -166,7 +167,7 @@ def answer_with_rag(
                 Retrieved Context Blocks: {context_str}
                 ---
                 Respond strictly in the following format:
-                FINAL RESIDUAL ANSWER: [Insert answer here]"""
+                Additional Relevant Context: [Insert answer here]"""
             },
         ]
 
@@ -174,8 +175,6 @@ def answer_with_rag(
         raw_prompt = reading_tokenizer.apply_chat_template(
             chat_structure, tokenize=False, add_generation_prompt=True
         )
-        # Force the model to skip introductory text by writing the header for it:
-        raw_prompt += "FINAL RESIDUAL ANSWER:"
         final_prompts.append(raw_prompt)
 
     print("Reranked All Documents")

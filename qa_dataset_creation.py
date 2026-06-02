@@ -280,16 +280,16 @@ def HESTIA_information(dataset_type):
     :return: relevant question
     """
     if dataset_type == "Allocation":
-        return ("If system expansion is used, the available choices are either mass, economic, energy, or biophysical. "
+        return ("If system expansion is used in the Target Evaluation Description, the available choices are either mass, economic, energy, or biophysical. "
                 "If system expansion is not necessary, answer \"none required\". If system expansion does not need "
                 "to be reported, answer \"none\".")
     elif dataset_type == "Functional Unit":
         return ("There are up to two functional units that need to be chosen. The first functional unit can either be: \"1 ha\" (one hectare) or \"relative\" (meaning that the quantities "
                 "of Inputs and Emissions correspond to the quantities of Products). If the primary product is a crop or "
-                "forage, the functional unit must be 1 ha. If \"relative\" is reported as the first functional unit, please also provide the "
-                "functional unit most relevant to the production system.")
+                "forage, the functional unit must be 1 ha. If \"relative\" is reported as the first functional unit, please also provide an additional "
+                "functional unit most relevant to the Target Evaluation Description.")
     elif dataset_type == "System Boundary":
-        return ("For each of the following categories, please report the system boundary completeness requirement for the life cycle assessment Cycle given in the description in the form '<category>: True/False'."
+        return ("For each of the following categories, please report the system boundary completeness requirement for the life cycle assessment Cycle given in the Target Evaluation Description in the form '<category>: True/False'."
                 "If the types and quantities of the category are specified in the life cycle assessment, set to True. If the category is not present in the life cycle assessment, set to True."
                 "If the category was used, but the types and quantities are not specified, set to False. \n"
                 "The categories include:\n"
@@ -313,7 +313,7 @@ def HESTIA_information(dataset_type):
                 "water: The types and quantities of all water used during the Cycle.\n"
                 "product: The types and quantities of all crop, live animal, live aquatic species, animal product, and processed food produced during the Cycle are recorded. In the case where Products were intended to be produced but no production occurred (e.g., if crops fail due to disease) the types of products should still be recorded and the quantity set to zero.")
     elif dataset_type == "Product":
-        return "The Product produced during the production Cycle, which is the target of this Impact Assessment."
+        return "The Product produced during the production Cycle, which is the target of this Impact Assessment described in the Target Evaluation Description."
     else:
         return "Wrong Dataset Type"
 
@@ -496,7 +496,8 @@ def run_rag_batch_inference(input_file, out_fpath, dataset_type, reader, tokeniz
 
     # Re-assemble records with updated context fields
     for r, ans in zip(records, answers):
-        r['context'] = f"{r['context']} Additional Context: {ans}"
+        ans = ans.replace("Additional Relevant Context: ", "") # in case the LLM followed instructions literally in only some of the cases.
+        r['context'] = f"{r['context']} Additional Relevant Context: {ans}"
         
     with open(out_fpath, "w", encoding="utf-8") as outfile:
         for r in records:
