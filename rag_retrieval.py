@@ -18,48 +18,58 @@ import constants
 import os
 
 
+from typing import Any, List, Tuple
+from sentence_transformers import CrossEncoder
+from vllm import SamplingParams
+
 def answer_with_rag(
-        system_description: str,
+        system_description: list[str],
         question: str,
         hestia: str,
-        llm: Pipeline,
-        reading_tokenizer: AutoTokenizer,
-        knowledge_index: FAISS,
-        num_retrieved_docs: int = 15, # vary between 10, 15, 20
-        num_docs_final: int = 3, # vary between 1, 3, 5
-        num_tokens: int = 256, # vary between 128/256/512
-        temperature: float = 0.0 # 0.0, 0.33, 0.9
-) -> tuple[Any, list[str]]:
+        llm: Any,  # Your vLLM LLM engine instance
+        reading_tokenizer: Any,
+        knowledge_index: Any,
+        rerank_model: CrossEncoder, # 🚀 Pass this in to avoid reloading every time
+        num_retrieved_docs: int = 15,
+        num_docs_final: int = 3,
+        num_tokens: int = 256,
+        temperature: float = 0.0
+) -> tuple[list[str], list[list[str]]]:
     """
-    method to answer a given query using RAG data
+    Batched method to answer a list of queries simultaneously using vLLM continuous batching.
     """
-    # gather documents with retriever first so we can build the context payload
-    relevant_docs = knowledge_index.similarity_search(query=system_description+ " " + question, k=num_retrieved_docs)
-    relevant_docs = [doc.page_content for doc in relevant_docs]  # Keep only the text
+    # Gather raw document sets from FAISS for every description in the batch
+    all_retrieved_docs = [
+        knowledge_index.similarity_search(desc, k=num_retrieved_docs) 
+        for desc in system_description
+    ]
 
-    # reranking documents
-    rerank_model = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')
+    final_prompts = []
+    all_reranked_docs_text = []
+    
+    # Configure generation parameters up front
+    sampling_params = SamplingParams(max_tokens=num_tokens, temperature=temperature)
 
-    # pair the query with each document and calculate scores
-    pairs = [[system_description + " " + question, doc] for doc in relevant_docs]
-    scores = rerank_model.predict(pairs)
+    # Process retrieval & reranking per description item
+    for desc, docs in zip(system_description, all_retrieved_docs):
+        doc_texts = [doc.page_content for doc in docs]
+        
+        # Build text-matching pairs for this specific description query
+        pairs = [[f"{desc} {question}", text] for text in doc_texts]
+        scores = rerank_model.predict(pairs)
 
-    # rank scores
-    scored_docs = sorted(zip(scores, relevant_docs), key=lambda x: x[0], reverse=True)
+        # Sort documents based on CrossEncoder scores
+        scored_docs = sorted(zip(scores, doc_texts), key=lambda x: x[0], reverse=True)
+        top_docs = [doc for _, doc in scored_docs[:num_docs_final]]
+        all_reranked_docs_text.append(top_docs)
 
-    counter = 0
-    reranked_docs = []
-    for score, doc in scored_docs:
-        counter = counter + 1
-        if counter <= num_docs_final:
-            reranked_docs.append(doc)
+        # Build the context block for this single query profile
+        context_str = "\nAdditional Context:\n" + "".join(
+            [f"Source {i}:::\n{doc}\n" for i, doc in enumerate(top_docs)]
+        )
 
-    # build the context block
-    context = "\nAdditional Context:\n"
-    context += "".join([f"Source {str(i)}:::\n" + doc for i, doc in enumerate(reranked_docs)])
-
-    # configure the prompt and insert string variables
-    prompt_in_chat_format = [
+        # format using the chat template sequence
+        chat_structure = [
         {
             "role": "system",
             "content": """You are an expert on agricultural life cycle assessment (LCA). 
@@ -81,20 +91,19 @@ def answer_with_rag(
         },
     ]
 
-    # convert chat structure into the raw model-specific tokens string
-    final_prompt = reading_tokenizer.apply_chat_template(
-        prompt_in_chat_format, tokenize=False, add_generation_prompt=True
-    )
+        # Convert to raw structural prompt token strings
+        raw_prompt = reading_tokenizer.apply_chat_template(
+            chat_structure, tokenize=False, add_generation_prompt=True
+        )
+        final_prompts.append(raw_prompt)
 
-    # retrieve an answer
-    sampling_params = SamplingParams(max_tokens=num_tokens, temperature=temperature)
-    outputs = llm.generate([final_prompt], sampling_params)
-    answer = outputs[0].outputs[0].text
+    # Fire the entire batch to vLLM at once (unlocks multi-GPU tensor parallelism)
+    outputs = llm.generate(final_prompts, sampling_params)
     
-    # vLLM outputs the newly generated text directly, 
-    generated_answer = answer.strip()
+    # Collect answers corresponding cleanly to the batch items
+    generated_answers = [out.outputs[0].text.strip() for out in outputs]
     
-    return generated_answer, relevant_docs
+    return generated_answers, all_reranked_docs_text
 
 
 def model_config(model_name="RedHatAI/Llama-4-Scout-17B-16E-Instruct-quantized.w4a16"):
@@ -146,7 +155,7 @@ if __name__ == "__main__":
     print("model configured")
     # test question to make sure things are working
     question = "what is a functional unit for sheep production in the UK?"
-    answer, docs = answer_with_rag("Permanent pasture producing sheep, lamb (weaned) in united kingdom. cycle description: blue-2019. site description: blue farming system", 
+    answer, docs = answer_with_rag(["Permanent pasture producing sheep, lamb (weaned) in united kingdom. cycle description: blue-2019. site description: blue farming system"], 
                 "What is the functional unit?",
                 "The functional unit can either be: \"1 ha\" (one hectare) or \"relative\" (meaning that the quantities "
                 "of Inputs and Emissions correspond to the quantities of Products). If the primary product is a crop or "

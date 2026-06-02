@@ -349,103 +349,41 @@ def main(output_directory, input_directory, RAG, ablation=False):
     """
     # if it is RAG, the deduplicated tables already exist, so much of data processing is not necessary
     if RAG:
-        print(os.getcwd())
+        rerank_model = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')
         embeddings = constants.EMBED_MODEL
         vdb = FAISS.load_local("llm-goal-scope/" + constants.VDB_LOCATION, embeddings, allow_dangerous_deserialization=True)
-
-        # set up llm models
         reader, tokenizer = rag_retrieval.model_config()
-        # open dataset and pass to RAG pipeline
+        
         if ablation:
-            input_data_files = ["llm-goal-scope/data/dataset/original/no_rag/Functional Unit.jsonl"]
-            for f in tqdm(input_data_files):
-                for j in range(8):
-                    if j == 0:
-                        ablation = "n-retrieved-10"
-                    elif j == 1:
-                        ablation = "n-retrieved-20"
-                    elif j == 2:
-                        ablation = "n-top-1"
-                    elif j == 3:
-                        ablation = "n-top-5"
-                    elif j == 4:
-                        ablation = "tokens-128"
-                    elif j == 5:
-                        ablation = "tokens-512"
-                    elif j == 6:
-                        ablation = "temp-033"
-                    elif j == 7:
-                        ablation = "temp-090"
-                    out_fpath = "/".join(f.split("/")[:4]) + "/rag/" + f.split("/")[-1].split(".")[0] + ablation + ".jsonl"
-                    print(out_fpath)
-                    dataset_type = f.split("/")[-1]
-                    with open(f, "r", encoding="utf-8") as infile, open(out_fpath, "w", encoding="utf-8") as outfile:
-                        for line in tqdm(infile):
-                            data_dict = json.loads(line)
-
-                            # get relevant information
-                            sys_descript = data_dict["context"]
-                            question = RAG_questions(dataset_type)
-                            hestia = HESTIA_information(dataset_type)
-                            
-                            # get RAG information back
-                            if j == 0:
-                                ablation = "-n-retrieved-10"
-                                answer, docs = rag_retrieval.answer_with_rag(sys_descript, question, hestia, reader, tokenizer, vdb, num_retrieved_docs=10)
-                            elif j == 1:
-                                ablation = "-n-retrieved-20"
-                                answer, docs = rag_retrieval.answer_with_rag(sys_descript, question, hestia, reader, tokenizer, vdb, num_retrieved_docs=20)
-                            elif j == 2:
-                                ablation = "-n-top-1"
-                                answer, docs = rag_retrieval.answer_with_rag(sys_descript, question, hestia, reader, tokenizer, vdb, num_docs_final=1)
-                            elif j == 3:
-                                ablation = "-n-top-5"
-                                answer, docs = rag_retrieval.answer_with_rag(sys_descript, question, hestia, reader, tokenizer, vdb, num_docs_final=5)
-                            elif j == 4:
-                                ablation = "-tokens-128"
-                                answer, docs = rag_retrieval.answer_with_rag(sys_descript, question, hestia, reader, tokenizer, vdb, num_tokens= 128)
-                            elif j == 5:
-                                ablation = "-tokens-512"
-                                answer, docs = rag_retrieval.answer_with_rag(sys_descript, question, hestia, reader, tokenizer, vdb, num_tokens=512)
-                            elif j == 6:
-                                ablation = "-temp-033"
-                                answer, docs = rag_retrieval.answer_with_rag(sys_descript, question, hestia, reader, tokenizer, vdb, temperature=0.3)
-                            elif j == 7:
-                                ablation = "-temp-090"
-                                answer, docs = rag_retrieval.answer_with_rag(sys_descript, question, hestia, reader, tokenizer, vdb, temperature=0.90)
-                            context = " Additional Context: " + str(answer)
-                            data_dict['context'] = sys_descript + context
-
-                            # write back out to file
-                            outfile.write(json.dumps(data_dict, ensure_ascii=False) + "\n")
+            f = "llm-goal-scope/data/dataset/original/no_rag/Functional Unit.jsonl"
+            ablation_configs = {
+                "n-retrieved-10": {"num_retrieved_docs": 10},
+                "n-retrieved-20": {"num_retrieved_docs": 20},
+                "n-top-1": {"num_docs_final": 1},
+                "n-top-5": {"num_docs_final": 5},
+                "tokens-128": {"num_tokens": 128},
+                "tokens-512": {"num_tokens": 512},
+                "temp-033": {"temperature": 0.3},
+                "temp-090": {"temperature": 0.90}
+            }
+            
+            for suffix, kwargs in ablation_configs.items():
+                out_fpath = f"/".join(f.split("/")[:4]) + "/rag/" + f.split("/")[-1].replace(".jsonl", f"{suffix}.jsonl")
+                dataset_type = f.split("/")[-1].replace(".jsonl", "")
+                run_rag_batch_inference(f, out_fpath, dataset_type, reader, tokenizer, vdb, rerank_model, kwargs)
         else:
-            # Open the line-delimited JSON file safely
-            input_data_files = ["llm-goal-scope/data/dataset/original/no_rag/Allocation.jsonl",
+            datasets = ["llm-goal-scope/data/dataset/original/no_rag/Allocation.jsonl",
                                 "llm-goal-scope/data/dataset/original/no_rag/Functional Unit.jsonl",
                                 "llm-goal-scope/data/dataset/original/no_rag/Product.jsonl",
                                 "llm-goal-scope/data/dataset/original/no_rag/System Boundary.jsonl",
                                 "llm-goal-scope/data/dataset/standardized/no_rag/Functional Unit.jsonl",
                                 "llm-goal-scope/data/dataset/standardized/no_rag/Product.jsonl",
                                 "llm-goal-scope/data/dataset/standardized/no_rag/System Boundary.jsonl", ]
-            for f in tqdm(input_data_files):
-                out_fpath = "/".join(f.split("/")[:3]) + "/rag/" + f.split("/")[-1]  + ".jsonl"
-                dataset_type = f.split("/")[-1]
-                with open(f, "r", encoding="utf-8") as infile, open(out_fpath, "w", encoding="utf-8") as outfile:
-                    for line in tqdm(infile):
-                        data_dict = json.loads(line)
-
-                        # get relevant information
-                        sys_descript = data_dict["context"]
-                        question = RAG_questions(dataset_type)
-                        hestia = HESTIA_information(dataset_type)
-                        
-                        # get RAG information back
-                        answer, docs = rag_retrieval.answer_with_rag(sys_descript, question, hestia, reader, tokenizer, vdb)
-                        context = " Additional Context: " + str(answer)
-                        data_dict['context'] = sys_descript + context
-
-                        # write back out to file
-                        outfile.write(json.dumps(data_dict, ensure_ascii=False) + "\n")
+            for f in datasets:
+                out_fpath = f"/".join(f.split("/")[:4]) + "/rag/" + f.split("/")[-1]
+                dataset_type = f.split("/")[-1].replace(".jsonl", "")
+                run_rag_batch_inference(f, out_fpath, dataset_type, reader, tokenizer, vdb, rerank_model, kwargs)
+                
     else:
         tqdm.pandas()
         # read in data
@@ -523,6 +461,46 @@ def main(output_directory, input_directory, RAG, ablation=False):
                     else:
                         json_line = json.dumps(item[0])
                     f.write(json_line + '\n')
+
+def run_rag_batch_inference(input_file, out_fpath, dataset_type, reader, tokenizer, vdb, rerank, rag_kwargs=None):
+    rag_kwargs = rag_kwargs or {}
+    question = RAG_questions(dataset_type)
+    hestia = HESTIA_information(dataset_type)
+    
+    # Ensure directory output footprint exists
+    os.makedirs(os.path.dirname(out_fpath), exist_ok=True)
+    
+    # Load all records cleanly up front
+    with open(input_file, "r", encoding="utf-8") as infile:
+        records = [json.loads(line) for line in infile]
+        
+    if not records:
+        return
+
+    print(f"Executing true batch generation for {len(records)} entries -> {out_fpath}")
+    
+    # Extract ALL descriptions into a clean list
+    descriptions = [r["context"] for r in records]
+    
+    # pass the entire list at once to unlock multi-GPU performance
+    answers, _ = rag_retrieval.answer_with_rag(
+        system_description=descriptions,
+        question=question,
+        hestia=hestia,
+        llm=reader,
+        reading_tokenizer=tokenizer,
+        knowledge_index=vdb,
+        rerank_model=rerank_model,
+        **rag_kwargs
+    )
+
+    # Re-assemble records with updated context fields
+    for r, ans in zip(records, answers):
+        r['context'] = f"{r['context']} Additional Context: {ans}"
+        
+    with open(out_fpath, "w", encoding="utf-8") as outfile:
+        for r in records:
+            outfile.write(json.dumps(r, ensure_ascii=False) + "\n")
 
 
 if __name__ == "__main__":
