@@ -33,11 +33,34 @@ def answer_with_rag(
     """
     Batched method to answer a list of queries simultaneously using vLLM continuous batching.
     """
-    # Gather raw document sets from FAISS for every description in the batch
-    all_retrieved_docs = [
-        knowledge_index.similarity_search(desc, k=num_retrieved_docs) 
-        for desc in system_description
-    ]
+    print(f"Sending {len(system_description)} queries to FAISS index...")
+    
+    # Check if the LangChain FAISS index object natively supports batching
+    if hasattr(knowledge_index, "batch_search"):
+        # Define a reasonable batch chunk size (e.g., 32 or 64 queries at a time)
+        FAISS_BATCH_SIZE = 64  
+        all_retrieved_docs = []
+
+        # Loop through your descriptions in chunks with a visual progress bar
+        for i in tqdm(range(0, len(system_description), FAISS_BATCH_SIZE), desc="FAISS Batch Searching"):
+            mini_batch = system_description[i : i + FAISS_BATCH_SIZE]
+            
+            # Query the vector index with the current chunk
+            batch_results = knowledge_index.batch_search(mini_batch, k=num_retrieved_docs)
+            
+            # Extend our master collection list
+            all_retrieved_docs.extend(batch_results)
+    else:
+        # Fallback: Loop manually but isolate thread safety issues
+        import os
+        # Prevent FAISS from aggressively over-allocating internal CPU threads per query
+        os.environ["OMP_NUM_THREADS"] = "1" 
+        os.environ["MKL_NUM_THREADS"] = "1"
+        
+        all_retrieved_docs = [
+            knowledge_index.similarity_search(desc, k=num_retrieved_docs) 
+            for desc in system_description
+        ]
     print("Gathered All Documents")
 
     final_prompts = []
