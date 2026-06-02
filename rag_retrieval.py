@@ -122,7 +122,13 @@ def answer_with_rag(
     final_prompts = []
     
     # Configure generation parameters up front
-    sampling_params = SamplingParams(max_tokens=num_tokens, temperature=temperature)
+    sampling_params = SamplingParams(
+        max_tokens=num_tokens, 
+        temperature=temperature, 
+        stop=[
+            "<|end_header_id|>", 
+            "<|eot_id|>"
+        ])
 
     # Process retrieval & reranking per description item
     for desc, docs in tqdm(zip(system_description, all_retrieved_docs)):
@@ -150,8 +156,7 @@ def answer_with_rag(
                 "Your task is to isolate and provide the final answer to the user's question, "
                 "evaluated strictly against the provided context and HESTIA schema guidelines.\n\n"
                 "CRITICAL OUTPUT RULES:\n"
-                "1. Output ONLY the raw final factual answer. Do not include introductory text, conversational filler, or document references.\n"
-                "2. If any internal summarization or synthesis is required to reach the conclusion, you must perform it entirely in your internal processing space before generating your response. Do not output it to the stream.\n"
+                "1. Output ONLY the final answer. Do not include introductory text, conversational filler, or document references.\n"
                 """,
             },
             {
