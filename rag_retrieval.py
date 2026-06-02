@@ -18,6 +18,7 @@ from typing import Any, List, Tuple
 from multiprocessing import Pool, cpu_count
 from concurrent.futures import ThreadPoolExecutor
 from functools import partial
+import numpy as np
 
 # Create a worker function that encapsulates the call
 def worker_search(desc, index_instance, k):
@@ -41,7 +42,7 @@ def answer_with_rag(
     Batched method to answer a list of queries simultaneously using vLLM continuous batching.
     """
     print(f"Sending {len(system_description)} queries to FAISS index...")
-    
+
     # Check if the LangChain FAISS index object natively supports batching
     if hasattr(knowledge_index, "batch_search"):
         # Define a reasonable batch chunk size (e.g., 32 or 64 queries at a time)
@@ -63,8 +64,6 @@ def answer_with_rag(
             # Extend our master collection list
             all_retrieved_docs.extend(batch_results)
     else:
-        print("No batch")
-        print("Executing high-throughput parallel FAISS search across process pool...")
         os.environ["HF_HUB_OFFLINE"] = "1"
         os.environ["HF_HUB_DISABLE_TELEMETRY"] = "1"
 
@@ -75,8 +74,6 @@ def answer_with_rag(
         # Suppress status updates and download bar streams
         os.environ["HF_HUB_DISABLE_PROGRESS_BARS"] = "1"
         os.environ["HF_HUB_DISABLE_SYMLINKS_WARNING"] = "1"
-
-        print(f"Executing true matrix-parallel search for {len(system_description)} queries...")
 
         # combine your descriptions and questions into a flat text list
         combined_queries = [
@@ -147,22 +144,29 @@ def answer_with_rag(
         chat_structure = [
             {
                 "role": "system",
-                "content": """You are an expert on agricultural life cycle assessment (LCA). 
-                Please summarize the life cycle assessment information that is relevant to the description of the system, 
-                life cycle assessment sub-task question and context using the HESTIA schema information. 
-                Please use as few words as necessary. 
-                You do not need to provide document numbers or restate parts of the prompt.""",
+                "content": """
+                "You are an expert on agricultural life cycle assessment (LCA). "
+                "Your task is to isolate and provide the final answer to the user's question, "
+                "evaluated strictly against the provided context and HESTIA schema guidelines.\n\n"
+                "CRITICAL OUTPUT RULES:\n"
+                "1. Output ONLY the raw final factual answer. Do not include introductory text, conversational filler, or document references.\n"
+                "2. ABSOLUTELY NO INTERMEDIATE SUMMARIZATION OR STEP-BY-STEP REASONING. Do not restate parts of the prompt or text context.\n"
+                "3. If any internal summarization or synthesis is required to reach the conclusion, you must perform it entirely in your internal processing space before generating your response. Do not output it to the stream.\n"
+                "4. Your output must begin immediately with the target metric, value, or localized classification answer."
+                """,
             },
             {
                 "role": "user",
-                "content": f"""
-                Description of the System: {system_description}
+                "content": f"""HESTIA schema information: {hestia}
                 ---
-                Question: {question}
+                Global Task Question: {question}
                 ---
-                HESTIA schema information: {hestia}
+                Target Evaluation Description: {desc}
                 ---
-                Context: {context_str}"""
+                Retrieved Context Blocks: {context_str}
+                ---
+                Respond strictly in the following format:
+                FINAL RESIDUAL ANSWER: [Insert answer here]"""
             },
         ]
 
@@ -170,6 +174,8 @@ def answer_with_rag(
         raw_prompt = reading_tokenizer.apply_chat_template(
             chat_structure, tokenize=False, add_generation_prompt=True
         )
+        # Force the model to skip introductory text by writing the header for it:
+        raw_prompt += "FINAL RESIDUAL ANSWER:"
         final_prompts.append(raw_prompt)
 
     print("Reranked All Documents")
@@ -217,11 +223,13 @@ def model_config(model_name="RedHatAI/Llama-4-Scout-17B-16E-Instruct-quantized.w
         trust_remote_code=True,
         load_format="safetensors",
         tensor_parallel_size=8,
-        max_model_len=16384,
-        gpu_memory_utilization=0.6,
-        max_num_seqs=1,
-        enforce_eager=True,
-        disable_custom_all_reduce=True,
+        max_model_len=32768,             
+        gpu_memory_utilization=0.70, 
+        enable_prefix_caching=True,      
+        enable_chunked_prefill=True,     
+        max_num_seqs=16,
+        enforce_eager=False,             
+        disable_custom_all_reduce=False, 
         kv_cache_dtype="fp8",
         quantization="compressed-tensors"
     )
