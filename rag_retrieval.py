@@ -34,7 +34,6 @@ def answer_with_rag(
     method to answer a given query using RAG data
     """
     # gather documents with retriever first so we can build the context payload
-    print(f"=> Retrieving documents for query {question}...")
     relevant_docs = knowledge_index.similarity_search(query=system_description+ " " + question, k=num_retrieved_docs)
     relevant_docs = [doc.page_content for doc in relevant_docs]  # Keep only the text
 
@@ -88,7 +87,6 @@ def answer_with_rag(
     )
 
     # retrieve an answer
-    print("=> Generating answer...")
     sampling_params = SamplingParams(max_tokens=num_tokens, temperature=temperature)
     outputs = llm.generate([final_prompt], sampling_params)
     answer = outputs[0].outputs[0].text

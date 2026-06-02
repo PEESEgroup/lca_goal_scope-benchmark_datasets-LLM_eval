@@ -349,14 +349,15 @@ def main(output_directory, input_directory, RAG, ablation=False):
     """
     # if it is RAG, the deduplicated tables already exist, so much of data processing is not necessary
     if RAG:
+        print(os.getcwd())
         embeddings = constants.EMBED_MODEL
-        vdb = FAISS.load_local("./" + constants.VDB_LOCATION, embeddings, allow_dangerous_deserialization=True)
+        vdb = FAISS.load_local("llm-goal-scope/" + constants.VDB_LOCATION, embeddings, allow_dangerous_deserialization=True)
 
         # set up llm models
         reader, tokenizer = rag_retrieval.model_config()
         # open dataset and pass to RAG pipeline
         if ablation:
-            input_data_files = ["./data/dataset/original/no_rag/Functional Unit.jsonl"]
+            input_data_files = ["llm-goal-scope/data/dataset/original/no_rag/Functional Unit.jsonl"]
             for f in tqdm(input_data_files):
                 for j in range(8):
                     if j == 0:
@@ -375,7 +376,8 @@ def main(output_directory, input_directory, RAG, ablation=False):
                         ablation = "temp-033"
                     elif j == 7:
                         ablation = "temp-090"
-                    out_fpath = "/".join(f.split("/")[:3]) + "/rag/" + f.split("/")[-1] + ablation
+                    out_fpath = "/".join(f.split("/")[:4]) + "/rag/" + f.split("/")[-1].split(".")[0] + ablation + ".jsonl"
+                    print(out_fpath)
                     dataset_type = f.split("/")[-1]
                     with open(f, "r", encoding="utf-8") as infile, open(out_fpath, "w", encoding="utf-8") as outfile:
                         for line in tqdm(infile):
@@ -388,28 +390,28 @@ def main(output_directory, input_directory, RAG, ablation=False):
                             
                             # get RAG information back
                             if j == 0:
-                                ablation = "n-retrieved-10"
+                                ablation = "-n-retrieved-10"
                                 answer, docs = rag_retrieval.answer_with_rag(sys_descript, question, hestia, reader, tokenizer, vdb, num_retrieved_docs=10)
                             elif j == 1:
-                                ablation = "n-retrieved-20"
+                                ablation = "-n-retrieved-20"
                                 answer, docs = rag_retrieval.answer_with_rag(sys_descript, question, hestia, reader, tokenizer, vdb, num_retrieved_docs=20)
                             elif j == 2:
-                                ablation = "n-top-1"
+                                ablation = "-n-top-1"
                                 answer, docs = rag_retrieval.answer_with_rag(sys_descript, question, hestia, reader, tokenizer, vdb, num_docs_final=1)
                             elif j == 3:
-                                ablation = "n-top-5"
-                                answer, docs = rag_retrieval.answer_with_rag(sys_descript, question, hestia, reader, tokenizer, vdb, num_docs_final=1)
+                                ablation = "-n-top-5"
+                                answer, docs = rag_retrieval.answer_with_rag(sys_descript, question, hestia, reader, tokenizer, vdb, num_docs_final=5)
                             elif j == 4:
-                                ablation = "tokens-128"
+                                ablation = "-tokens-128"
                                 answer, docs = rag_retrieval.answer_with_rag(sys_descript, question, hestia, reader, tokenizer, vdb, num_tokens= 128)
                             elif j == 5:
-                                ablation = "tokens-512"
+                                ablation = "-tokens-512"
                                 answer, docs = rag_retrieval.answer_with_rag(sys_descript, question, hestia, reader, tokenizer, vdb, num_tokens=512)
                             elif j == 6:
-                                ablation = "temp-033"
+                                ablation = "-temp-033"
                                 answer, docs = rag_retrieval.answer_with_rag(sys_descript, question, hestia, reader, tokenizer, vdb, temperature=0.3)
                             elif j == 7:
-                                ablation = "temp-090"
+                                ablation = "-temp-090"
                                 answer, docs = rag_retrieval.answer_with_rag(sys_descript, question, hestia, reader, tokenizer, vdb, temperature=0.90)
                             context = " Additional Context: " + str(answer)
                             data_dict['context'] = sys_descript + context
@@ -418,15 +420,15 @@ def main(output_directory, input_directory, RAG, ablation=False):
                             outfile.write(json.dumps(data_dict, ensure_ascii=False) + "\n")
         else:
             # Open the line-delimited JSON file safely
-            input_data_files = ["./data/dataset/original/no_rag/Allocation.jsonl",
-                                "./data/dataset/original/no_rag/Functional Unit.jsonl",
-                                "./data/dataset/original/no_rag/Product.jsonl",
-                                "./data/dataset/original/no_rag/System Boundary.jsonl",
-                                "./data/dataset/standardized/no_rag/Functional Unit.jsonl",
-                                "./data/dataset/standardized/no_rag/Product.jsonl",
-                                "./data/dataset/standardized/no_rag/System Boundary.jsonl", ]
+            input_data_files = ["llm-goal-scope/data/dataset/original/no_rag/Allocation.jsonl",
+                                "llm-goal-scope/data/dataset/original/no_rag/Functional Unit.jsonl",
+                                "llm-goal-scope/data/dataset/original/no_rag/Product.jsonl",
+                                "llm-goal-scope/data/dataset/original/no_rag/System Boundary.jsonl",
+                                "llm-goal-scope/data/dataset/standardized/no_rag/Functional Unit.jsonl",
+                                "llm-goal-scope/data/dataset/standardized/no_rag/Product.jsonl",
+                                "llm-goal-scope/data/dataset/standardized/no_rag/System Boundary.jsonl", ]
             for f in tqdm(input_data_files):
-                out_fpath = "/".join(f.split("/")[:3]) + "/rag/" + f.split("/")[-1]
+                out_fpath = "/".join(f.split("/")[:3]) + "/rag/" + f.split("/")[-1]  + ".jsonl"
                 dataset_type = f.split("/")[-1]
                 with open(f, "r", encoding="utf-8") as infile, open(out_fpath, "w", encoding="utf-8") as outfile:
                     for line in tqdm(infile):
