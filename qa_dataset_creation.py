@@ -1,12 +1,12 @@
 import json
 import os
-
 import pandas as pd
 import itertools
 import constants
 from langchain_community.vectorstores import FAISS
 import rag_retrieval
 from tqdm import tqdm
+from sentence_transformers import CrossEncoder
 
 
 def intendedApplication(row):
@@ -284,9 +284,9 @@ def HESTIA_information(dataset_type):
                 "If system expansion is not necessary, answer \"none required\". If system expansion does not need "
                 "to be reported, answer \"none\".")
     elif dataset_type == "Functional Unit":
-        return ("The functional unit can either be: \"1 ha\" (one hectare) or \"relative\" (meaning that the quantities "
+        return ("There are up to two functional units that need to be chosen. The first functional unit can either be: \"1 ha\" (one hectare) or \"relative\" (meaning that the quantities "
                 "of Inputs and Emissions correspond to the quantities of Products). If the primary product is a crop or "
-                "forage, the functional unit must be 1 ha. If \"relative\" is reported above, please also provide the "
+                "forage, the functional unit must be 1 ha. If \"relative\" is reported as the first functional unit, please also provide the "
                 "functional unit most relevant to the production system.")
     elif dataset_type == "System Boundary":
         return ("For each of the following categories, please report the system boundary completeness requirement for the life cycle assessment Cycle given in the description in the form '<category>: True/False'."
@@ -490,7 +490,7 @@ def run_rag_batch_inference(input_file, out_fpath, dataset_type, reader, tokeniz
         llm=reader,
         reading_tokenizer=tokenizer,
         knowledge_index=vdb,
-        rerank_model=rerank_model,
+        rerank_model=rerank,
         **rag_kwargs
     )
 

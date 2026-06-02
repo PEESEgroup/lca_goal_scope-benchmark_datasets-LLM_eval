@@ -9,18 +9,13 @@ os.environ["LD_LIBRARY_PATH"] = f"/opt/conda/lib:{os.environ.get('LD_LIBRARY_PAT
 
 from vllm import LLM, SamplingParams
 from transformers import Pipeline, pipeline, AutoTokenizer, AutoModelForCausalLM
-from typing import Any
 import torch
-from transformers import AutoTokenizer
 from langchain_community.vectorstores import FAISS
 from sentence_transformers import CrossEncoder
 import constants
-import os
-
-
+from tqdm import tqdm
 from typing import Any, List, Tuple
-from sentence_transformers import CrossEncoder
-from vllm import SamplingParams
+
 
 def answer_with_rag(
         system_description: list[str],
@@ -97,7 +92,7 @@ def answer_with_rag(
             chat_structure, tokenize=False, add_generation_prompt=True
         )
         final_prompts.append(raw_prompt)
-        
+
     print("Reranked All Documents")
 
     MINI_BATCH_SIZE = 128  # Large enough to max out the GPUs, small enough for regular updates
