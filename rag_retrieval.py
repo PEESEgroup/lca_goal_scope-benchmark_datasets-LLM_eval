@@ -15,6 +15,13 @@ from sentence_transformers import CrossEncoder
 import constants
 from tqdm import tqdm
 from typing import Any, List, Tuple
+from multiprocessing import Pool, cpu_count
+from concurrent.futures import ThreadPoolExecutor
+from functools import partial
+
+# Create a worker function that encapsulates the call
+def worker_search(desc, index_instance, k):
+    return index_instance.similarity_search(desc, k=k)
 
 
 def answer_with_rag(
@@ -44,6 +51,7 @@ def answer_with_rag(
         # Loop through your descriptions in chunks with a visual progress bar
         for i in tqdm(range(0, len(system_description), FAISS_BATCH_SIZE), desc="FAISS Batch Searching"):
             mini_batch = system_description[i : i + FAISS_BATCH_SIZE]
+            print(mini_batch)
             combined_mini_batch = [
                 f"Description: {desc.strip()} Question: {question.strip()}" 
                 for desc in mini_batch_desc
@@ -56,16 +64,36 @@ def answer_with_rag(
             all_retrieved_docs.extend(batch_results)
     else:
         print("No batch")
-        # Fallback: Loop manually but isolate thread safety issues
-        import os
-        # Prevent FAISS from aggressively over-allocating internal CPU threads per query
-        os.environ["OMP_NUM_THREADS"] = "1" 
-        os.environ["MKL_NUM_THREADS"] = "1"
+        print("Executing high-throughput parallel FAISS search across process pool...")
+        os.environ["HF_HUB_OFFLINE"] = "1"
+        os.environ["HF_HUB_DISABLE_TELEMETRY"] = "1"
+
+        # Uncap the OpenMP threads so individual workers can compute distances fast
+        # A sweet spot for parallel processes is 2 to 4 threads per worker process.
+        os.environ["OMP_NUM_THREADS"] = "8"
+        os.environ["MKL_NUM_THREADS"] = "8"
+
+        num_workers = max(1, cpu_count() // 4) 
+
+        # Use a partial function to freeze the FAISS index and 'k' parameters
+        search_func = partial(worker_search, index_instance=knowledge_index, k=num_retrieved_docs)
+
+        num_threads = 32  # High core count setting for your instance
+        with ThreadPoolExecutor(max_workers=num_threads) as executor:
+            # executor.map processes tasks concurrently and preserves input order
+            all_retrieved_docs = list(
+                tqdm(
+                    executor.map(search_func, system_description),
+                    total=len(system_description),
+                    desc="Thread-Parallel FAISS Processing"
+                )
+            )
         
         all_retrieved_docs = [
             knowledge_index.similarity_search(desc, k=num_retrieved_docs) 
             for desc in system_description
         ]
+    os.environ["HF_HUB_OFFLINE"] = "0"
     print("Gathered All Documents")
 
     final_prompts = []
