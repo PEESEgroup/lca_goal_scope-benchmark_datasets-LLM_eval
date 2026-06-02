@@ -118,7 +118,6 @@ def answer_with_rag(
     print("Gathered All Documents")
 
     final_prompts = []
-    all_reranked_docs_text = []
     
     # Configure generation parameters up front
     sampling_params = SamplingParams(max_tokens=num_tokens, temperature=temperature)
@@ -134,10 +133,11 @@ def answer_with_rag(
         # Sort documents based on CrossEncoder scores
         scored_docs = sorted(zip(scores, doc_texts), key=lambda x: x[0], reverse=True)
         top_docs = [doc for _, doc in scored_docs[:num_docs_final]]
-        all_reranked_docs_text.append(top_docs)
+
+        print(top_docs[0])
 
         # Build the context block for this single query profile
-        context_str = "\nAdditional Context:\n" + "".join(
+        context_str = "".join(
             [f"Source {i}:::\n{doc}\n" for i, doc in enumerate(top_docs)]
         )
 
@@ -193,7 +193,7 @@ def answer_with_rag(
     # Collect answers corresponding cleanly to the batch items
     generated_answers = [out.outputs[0].text.strip() for out in outputs]
     
-    return generated_answers, all_reranked_docs_text
+    return generated_answers
 
 
 def model_config(model_name="RedHatAI/Llama-4-Scout-17B-16E-Instruct-quantized.w4a16"):
@@ -248,7 +248,7 @@ if __name__ == "__main__":
     print("model configured")
     # test question to make sure things are working
     question = "what is a functional unit for sheep production in the UK?"
-    answer, docs = answer_with_rag(["Permanent pasture producing sheep, lamb (weaned) in united kingdom. cycle description: blue-2019. site description: blue farming system"], 
+    answer = answer_with_rag(["Permanent pasture producing sheep, lamb (weaned) in united kingdom. cycle description: blue-2019. site description: blue farming system"], 
                 "What is the functional unit?",
                 "The functional unit can either be: \"1 ha\" (one hectare) or \"relative\" (meaning that the quantities "
                 "of Inputs and Emissions correspond to the quantities of Products). If the primary product is a crop or "

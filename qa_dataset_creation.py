@@ -483,7 +483,7 @@ def run_rag_batch_inference(input_file, out_fpath, dataset_type, reader, tokeniz
     descriptions = [r["context"] for r in records]
     
     # pass the entire list at once to unlock multi-GPU performance
-    answers, _ = rag_retrieval.answer_with_rag(
+    answers = rag_retrieval.answer_with_rag(
         system_description=descriptions,
         question=question,
         hestia=hestia,
