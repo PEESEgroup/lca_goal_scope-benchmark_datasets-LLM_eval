@@ -222,26 +222,26 @@ def systemDescription(row):
         if len(row['siteType']) > 0:
             if len(row['siteDescription']) > 0:
                 string_to_return = row["siteType"] + " producing " + names[0].strip() + " in " + names[
-                    1].strip() + ". Cycle description: " + row["cycleDescription"] + ". Site description: " + row["siteDescription"]
+                    1].strip() + ". Cycle description: " + row["cycleDescription"] + ". Site description: " + row["siteDescription"] + "."
             else:
                 string_to_return = row["siteType"] + " producing " + names[0].strip() + " in " + names[
                     1].strip() + ". Cycle description: " + row["cycleDescription"] + "."
         else:
             if len(row['siteDescription']) > 0:
                 string_to_return = names[0].strip() + " produced in " + names[
-                    1].strip() + ". Cycle description: " + row["cycleDescription"] + ". Site description: " + row["siteDescription"]
+                    1].strip() + ". Cycle description: " + row["cycleDescription"] + ". Site description: " + row["siteDescription"] + "."
             else:
                 string_to_return = names[0].strip() + " produced in " + names[
                     1].strip() + ". Cycle description: " + row["cycleDescription"] + "."
     else:
         if len(row['siteType']) > 0:
             if len(row['siteDescription']) > 0:
-                string_to_return = row["siteType"] + " producing " + names[0].strip() + " in " + names[1].strip() + ". Site description: " + row["siteDescription"]
+                string_to_return = row["siteType"] + " producing " + names[0].strip() + " in " + names[1].strip() + ". Site description: " + row["siteDescription"] + "."
             else:
                 string_to_return = row["siteType"] + " producing " + names[0].strip() + " in " + names[1].strip() + "."
         else:
             if len(row['siteDescription']) > 0:
-                string_to_return = names[0].strip() + " produced in " + names[1].strip() + ". Site description: " + row["siteDescription"]
+                string_to_return = names[0].strip() + " produced in " + names[1].strip() + ". Site description: " + row["siteDescription"] + "."
             else:
                 string_to_return = names[0].strip() + " produced in " + names[1].strip() + "."
 
@@ -496,6 +496,7 @@ def run_rag_batch_inference(input_file, out_fpath, dataset_type, reader, tokeniz
 
     # Re-assemble records with updated context fields
     for r, ans in zip(records, answers):
+        print(ans, "\n")
         ans = ans.replace("Additional Relevant Context: ", "") # in case the LLM followed instructions literally in only some of the cases.
         r['context'] = f"{r['context']} Additional Relevant Context: {ans}"
         
@@ -505,10 +506,10 @@ def run_rag_batch_inference(input_file, out_fpath, dataset_type, reader, tokeniz
 
 
 if __name__ == "__main__":
-    prefix = "./data/hestia/"
+    prefix = "llm-goal-scope/data/hestia/"
     print(os.getcwd())
-    #main("./data/dataset/standardized/no_rag/", prefix + "recalculated/", False)
-    #main("./data/dataset/original/no_rag/", prefix, False)
+    # main("llm-goal-scope/data/dataset/standardized/no_rag/", prefix + "recalculated/", False)
+    # main("llm-goal-scope/data/dataset/original/no_rag/", prefix, False)
 
     # because of how the methods were refactored, only need 1 call to make RAG datasets,
     # and another call to make ablation RAG datasets

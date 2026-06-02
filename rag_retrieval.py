@@ -82,6 +82,8 @@ def answer_with_rag(
             for desc in system_description
         ]
 
+        print(combined_queries[0])
+
         # Extract the underlying embedding engine from LangChain
         embedding_engine = knowledge_index.embedding_function
 
@@ -134,8 +136,6 @@ def answer_with_rag(
         scored_docs = sorted(zip(scores, doc_texts), key=lambda x: x[0], reverse=True)
         top_docs = [doc for _, doc in scored_docs[:num_docs_final]]
 
-        print(top_docs[0])
-
         # Build the context block for this single query profile
         context_str = "".join(
             [f"Source {i}:::\n{doc}\n" for i, doc in enumerate(top_docs)]
@@ -151,9 +151,7 @@ def answer_with_rag(
                 "evaluated strictly against the provided context and HESTIA schema guidelines.\n\n"
                 "CRITICAL OUTPUT RULES:\n"
                 "1. Output ONLY the raw final factual answer. Do not include introductory text, conversational filler, or document references.\n"
-                "2. ABSOLUTELY NO INTERMEDIATE SUMMARIZATION OR STEP-BY-STEP REASONING. Do not restate parts of the prompt or text context.\n"
-                "3. If any internal summarization or synthesis is required to reach the conclusion, you must perform it entirely in your internal processing space before generating your response. Do not output it to the stream.\n"
-                "4. Your output must begin immediately with the target metric, value, or localized classification answer."
+                "2. If any internal summarization or synthesis is required to reach the conclusion, you must perform it entirely in your internal processing space before generating your response. Do not output it to the stream.\n"
                 """,
             },
             {
