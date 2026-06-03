@@ -421,9 +421,9 @@ if __name__ == "__main__":
         "llm-goal-scope/data/dataset/standardized/no_rag/Functional Unit.jsonl",
         "llm-goal-scope/data/dataset/standardized/no_rag/Product.jsonl", # 1:41pm
         "llm-goal-scope/data/dataset/standardized/no_rag/System Boundary.jsonl",
-        "llm-goal-scope/data/dataset/original/rag/Allocation.jsonl",
+        "llm-goal-scope/data/dataset/original/rag/Allocation.jsonl", # 3:00 pm
         "llm-goal-scope/data/dataset/original/rag/Functional Unit.jsonl",
-        "llm-goal-scope/data/dataset/original/rag/Product.jsonl",
+        "llm-goal-scope/data/dataset/original/rag/Product.jsonl", # 3:50 pm
         "llm-goal-scope/data/dataset/original/rag/System Boundary.jsonl",
         "llm-goal-scope/data/dataset/standardized/rag/Functional Unit.jsonl",
         "llm-goal-scope/data/dataset/standardized/rag/Product.jsonl",
