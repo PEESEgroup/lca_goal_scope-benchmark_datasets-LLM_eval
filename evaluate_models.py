@@ -293,7 +293,7 @@ def eval_metrics(tokenized_dataset, trainer, classes, dataset_name, fpath):
     
     # Save validation predictions to disk right here so you don't lose them
     validation_df.to_csv(fpath + "/validation_predictions.csv", index=False)
-    prediction_df.to_csv(fpath + "/validation_predictions.csv", index=False)
+    prediction_df.to_csv(fpath + "/test_predictions.csv", index=False)
 
 
 def eval_models(dataset, dataset_name, ablation_loss_fn=None, suffix=""):
@@ -390,7 +390,7 @@ def plotting(log_history_df, dataset_name, model_name):
     train_logs = log_history_df[log_history_df['loss'].notna()]
     eval_logs = log_history_df[log_history_df['eval_loss'].notna()]
     # list filepath and create directory to store the image
-    fpath = f"/home/sagemaker-user/llm-goal-scope/data/qa_dataset/results/{dataset_name}/{model_name}"
+    fpath = f"/home/sagemaker-user/llm-goal-scope/data/dataset/results/{dataset_name}/{model_name}"
     os.makedirs(fpath, exist_ok=True)
 
     # Plotting Loss
