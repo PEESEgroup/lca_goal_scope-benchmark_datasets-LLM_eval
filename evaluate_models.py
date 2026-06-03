@@ -365,7 +365,7 @@ def eval_models(dataset, dataset_name, ablation_loss_fn=None, suffix=""):
                 torch.cuda.empty_cache()
 
             # remove these folders to save space
-            for dir_path in ["llm-goal-scope/data/checkpoints/" + model_path + "/" + dataset_path, "llm-goal-scope/data/trained_model/" + model_path + "/" + dataset_path]:
+            for dir_path in ["llm-goal-scope/data/checkpoints/", "llm-goal-scope/data/trained_model/"]:
                 try:
                     shutil.rmtree(dir_path)
                     print(f"{dir_path} and contents successfully deleted.")
