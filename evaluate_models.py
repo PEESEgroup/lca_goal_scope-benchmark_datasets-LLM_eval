@@ -2,6 +2,10 @@ import evaluate
 import numpy as np
 import csv
 import pandas as pd
+import shutil
+import matplotlib
+import collections
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import torch.nn as nn
 import torch
@@ -115,7 +119,7 @@ class AsymmetricLossOptimized(nn.Module):
         return -loss.sum()
 
 
-def preprocess_function(example, classes, class2id, tokenizer):
+def preprocess_function(examples, classes, class2id, tokenizer):
     """
     preprocess data
     :param example: a row of data
@@ -124,16 +128,19 @@ def preprocess_function(example, classes, class2id, tokenizer):
     :param tokenizer: tokenizer model
     :return: return example with updated labels
     """
-    text = f"{example['title']}.\n{example['context']}"
-    all_labels = example['labels']
-    labels = [0. for i in range(len(classes))]
-    for label in all_labels:
-        label_id = class2id[label]
-        labels[label_id] = 1.
+    texts = [f"{t}.\n{c}" for t, c in zip(examples['title'], examples['context'])]
+    batch_size = len(examples['labels'])
+    num_classes = len(classes)
+    labels_matrix = np.zeros((batch_size, num_classes), dtype=np.float32)
 
-    example = tokenizer(text, truncation=True)
-    example['labels'] = labels
-    return example
+    for idx, label_list in enumerate(examples['labels']):
+        for label in label_list:
+            if label in class2id:
+                labels_matrix[idx, class2id[label]] = 1.0
+    
+    tokenized = tokenizer(texts, truncation=True)
+    tokenized['labels'] = labels_matrix.tolist()
+    return tokenized
 
 
 def sigmoid(x):
@@ -154,7 +161,7 @@ def compute_metrics(eval_pred):
     predictions, labels = eval_pred
     predictions = sigmoid(predictions)
     predictions = (predictions > 0.5).astype(int).reshape(-1)
-    clf_metrics = evaluate.combine(["accuracy", "f1", "precision", "recall"])
+    clf_metrics = evaluate.combine(["accuracy"])
     return clf_metrics.compute(predictions=predictions, references=labels.astype(int).reshape(-1))
 
 
@@ -182,8 +189,8 @@ def train_model(model, tokenized_dataset, tokenizer, data_collator, dataset_name
     training_args = TrainingArguments(
         output_dir=checkpoint_path,
         learning_rate=2e-5,
-        per_device_train_batch_size=3,
-        per_device_eval_batch_size=3,
+        per_device_train_batch_size=4,
+        per_device_eval_batch_size=4,
         num_train_epochs=15,  # try 15
         weight_decay=0.01,
         eval_strategy="epoch",
@@ -231,10 +238,12 @@ def eval_metrics(tokenized_dataset, trainer, classes, dataset_name, fpath):
     multilabel_indicators = (1 / (1 + np.exp(-predictions_output.predictions)))
     threshold = 0.7
     multilabel_preds = multilabel_indicators > threshold
-    plt.clf()
-    plt.hist((1 / (1 + np.exp(-predictions_output.predictions))))
-    plt.savefig(fpath + f'/Raw Logit Predictions for {dataset_name}.png', dpi=300)
-    plt.show()
+    
+    plt.figure()
+    plt.hist(multilabel_indicators.flatten(), bins=20)
+    plt.title(f'Raw Logit Predictions for {dataset_name}')
+    plt.savefig(f'{fpath}/Raw Logit Predictions for {dataset_name}.png', dpi=300)
+    plt.close('all')
 
     cm = multilabel_confusion_matrix(predictions_output.label_ids, multilabel_preds)
     ap_scores = []
@@ -263,13 +272,12 @@ def eval_metrics(tokenized_dataset, trainer, classes, dataset_name, fpath):
 
     # save predictions
     prediction_df = pd.DataFrame({
-        'context': [test_dataset[int(i)]['context'] for i in range(len(test_dataset))],
-        'test_logits': [list(p) for p in predictions_output.predictions],
-        'val_logits': [list(p) for p in validation_output.predictions],
-        'true_labels': [p.astype(int).tolist() for p in predictions_output.label_ids],
-        'classes': [classes for l in predictions_output.label_ids]
+        'context': test_dataset['context'],
+        'test_logits': predictions_output.predictions.tolist(),
+        'val_logits': validation_output.predictions.tolist(),
+        'true_labels': predictions_output.label_ids.astype(int).tolist(),
+        'classes': [classes] * len(test_dataset)
     })
-
     return prediction_df
 
 
@@ -297,7 +305,8 @@ def eval_models(dataset, dataset_name, ablation_loss_fn=None, suffix=""):
         for model_path in model_paths:
             tokenizer = AutoTokenizer.from_pretrained(model_path)
             tokenized_dataset = dataset.map(
-                lambda example: preprocess_function(example, classes, class2id, tokenizer),
+                lambda examples: preprocess_function(examples, classes, class2id, tokenizer),
+                batched=True,
                 load_from_cache_file=False
             )
             data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
@@ -326,7 +335,7 @@ def eval_models(dataset, dataset_name, ablation_loss_fn=None, suffix=""):
 
             # eval model
             print("test dataset evaluation")
-            predictions = eval_metrics(tokenized_dataset, trainer, classes, dataset_path, fpath, stratify)
+            predictions = eval_metrics(tokenized_dataset, trainer, classes, dataset_path, fpath)
 
             # write out the errors and predictions to a .csv file for future use
             predictions.to_csv(fpath + "/predictions.csv", index=False)
@@ -344,7 +353,7 @@ def eval_models(dataset, dataset_name, ablation_loss_fn=None, suffix=""):
                 torch.cuda.empty_cache()
 
             # remove these folders to save space
-            for dir_path in ["llm-goal-scope/data/checkpoints/" + model_path + "/" + dataset_path, "llm-goal-scope/data/trained_model/" + model_path + "/" + dataset_path]
+            for dir_path in ["llm-goal-scope/data/checkpoints/" + model_path + "/" + dataset_path, "llm-goal-scope/data/trained_model/" + model_path + "/" + dataset_path]:
                 try:
                     shutil.rmtree(dir_path)
                     print(f"{dir_path} and contents successfully deleted.")
@@ -419,7 +428,7 @@ if __name__ == "__main__":
 
     # for each dataset
     for k in filenames:
-        if k == "llm-goal-scope/data/qa_dataset/original/no_rag/Functional Unit.jsonl":
+        if k == "llm-goal-scope/data/dataset/original/no_rag/Functional Unit.jsonl":
             ablation = True
         else:
             ablation = False
@@ -432,8 +441,33 @@ if __name__ == "__main__":
 
             for s in ['cycle', 'site', 'source', 'loss_fn']:
                 if s in ['cycle', 'site', 'source']:
-                    # 80% train, 20% test + validation
-                    train_testvalid = dataset['train'].train_test_split(test_size=0.2, seed=42, stratify_by_column=s)
+                    # calculate dynamic train/test/validation splits
+                    # find the frequency of the rarest item
+                    column_data = dataset['train'][s]
+                    unique_counts = collections.Counter(column_data)
+                    min_frequency = min(unique_counts.values())
+                    
+                    # Guardrail: If an item only appears 1 or 2 times, it cannot be split 3 ways.
+                    if min_frequency < 3:
+                        print(f"Column '{s}' has a rare item appearing only {min_frequency} time(s).")
+                        print("Stratification into 3 splits is mathematically impossible. Skipping stratification...")
+                        continue  # if it is impossible, then nothing can be done. This is ablation test anyways...
+                    else:
+                        # max items we can take from the rarest class for validation (and test)
+                        max_items_per_slice = math.floor(min_frequency / 3)
+                        
+                        # calculate the maximum percentage this represents for the rarest class
+                        max_fraction_per_slice = max_items_per_slice / min_frequency
+                        
+                        # Cap it at a reasonable global limit (e.g., max 20% test, 20% valid) so training set doesn't get small on well-populated datasets.
+                        if max_fraction_per_slice > 0.20:
+                            print("Stratification into 3 splits would require training data size <60%. Skipping stratification...")
+                            continue
+                        test_fraction = min(max_fraction_per_slice, 0.20)
+                        train_fraction = 1.0 - test_fraction*2
+                        print(f"Train fraction for s is {train_fraction}, test/validation fraction is {test_fraction}")
+
+                    train_testvalid = dataset['train'].train_test_split(test_size=test_fraction*2, seed=42, stratify_by_column=s)
                     # Split the 10% test + valid in half test, half valid
                     test_valid = train_testvalid['test'].train_test_split(test_size=0.5, seed=42, stratify_by_column=s)
                     # gather everyone if you want to have a single DatasetDict
@@ -445,7 +479,7 @@ if __name__ == "__main__":
                     print(str(k), "dataset loaded stratified on " + s)
                     eval_models(train_test_valid_dataset, k, suffix=s)
                 if s == 'loss_fn':
-                    bce_loss = nn.BCELoss()
+                    bce_loss = nn.BCEWithLogitsLoss(reduction='sum')
                     # 80% train, 20% test + validation
                     train_testvalid = dataset['train'].train_test_split(test_size=0.2, seed=42)
                     # Split the 10% test + valid in half test, half valid
