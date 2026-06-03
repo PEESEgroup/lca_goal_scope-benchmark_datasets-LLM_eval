@@ -414,12 +414,12 @@ if __name__ == "__main__":
     # ignoring comparative assertion, intended application, study reasons, and target audience as Hestia does not have that data
     # ignoring recalculated allocation because it only uses the economic label
     filenames = [
-        "llm-goal-scope/data/dataset/original/no_rag/Functional Unit.jsonl",
+        "llm-goal-scope/data/dataset/original/no_rag/Functional Unit.jsonl", # 10:20am
         "llm-goal-scope/data/dataset/original/no_rag/System Boundary.jsonl",
         "llm-goal-scope/data/dataset/original/no_rag/Allocation.jsonl",
         "llm-goal-scope/data/dataset/original/no_rag/Product.jsonl",
         "llm-goal-scope/data/dataset/standardized/no_rag/Functional Unit.jsonl",
-        "llm-goal-scope/data/dataset/standardized/no_rag/Product.jsonl",
+        "llm-goal-scope/data/dataset/standardized/no_rag/Product.jsonl", # 1:41pm
         "llm-goal-scope/data/dataset/standardized/no_rag/System Boundary.jsonl",
         "llm-goal-scope/data/dataset/original/rag/Allocation.jsonl",
         "llm-goal-scope/data/dataset/original/rag/Functional Unit.jsonl",
