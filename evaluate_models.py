@@ -235,6 +235,7 @@ def eval_metrics(tokenized_dataset, trainer, classes, dataset_name, fpath):
 
     # confusion matrix converts probabilities based on a threshold value and then take the sigmoid of the outputs
     eval_metrics = predictions_output.metrics
+    val_metrics = validation_output.metrics
     multilabel_indicators = (1 / (1 + np.exp(-predictions_output.predictions)))
     threshold = 0.7
     multilabel_preds = multilabel_indicators > threshold
@@ -252,7 +253,7 @@ def eval_metrics(tokenized_dataset, trainer, classes, dataset_name, fpath):
         disp.plot(cmap='Blues', values_format='d')
         plt.title(f'Confusion Matrix for {classes[i]} class for ' + str(dataset_name) + ' with threshold ' + str(threshold))
         plt.savefig(fpath + f'/Confusion Matrix for {classes[i].replace("/", "")} class.png', dpi=300)
-        plt.show()
+        plt.close('all')
 
     # calculate hamming accuracy
     h_loss = hamming_loss(predictions_output.label_ids, multilabel_preds)
@@ -263,22 +264,36 @@ def eval_metrics(tokenized_dataset, trainer, classes, dataset_name, fpath):
     if predictions_output.metrics:
         with open(fpath + '/test_metrics.csv', 'w', newline='', encoding='utf-8') as f:
             w = csv.writer(f)
+            w.writerow(["Test Metrics:"])
             w.writerows(eval_metrics.items())
-            print("Saved Metrics for {dataset_name}:", eval_metrics)
+            w.writerow(["Validation Metrics:"])
+            w.writerows(val_metrics.items())
+            print(f"Saved Metrics for {dataset_name}")
 
 
-    # get the contexts
+    # get the validation dataset to match val_logits length
+    valid_dataset = tokenized_dataset["valid"]
     test_dataset = tokenized_dataset["test"]
 
-    # save predictions
+    # Create the Test Predictions DataFrame
     prediction_df = pd.DataFrame({
         'context': test_dataset['context'],
         'test_logits': predictions_output.predictions.tolist(),
-        'val_logits': validation_output.predictions.tolist(),
         'true_labels': predictions_output.label_ids.astype(int).tolist(),
         'classes': [classes] * len(test_dataset)
     })
-    return prediction_df
+
+    # Create the Validation Predictions DataFrame (Optional, but keeps your data safe)
+    validation_df = pd.DataFrame({
+        'context': valid_dataset['context'],
+        'val_logits': validation_output.predictions.tolist(),
+        'true_labels': validation_output.label_ids.astype(int).tolist(),
+        'classes': [classes] * len(valid_dataset)
+    })
+    
+    # Save validation predictions to disk right here so you don't lose them
+    validation_df.to_csv(fpath + "/validation_predictions.csv", index=False)
+    prediction_df.to_csv(fpath + "/validation_predictions.csv", index=False)
 
 
 def eval_models(dataset, dataset_name, ablation_loss_fn=None, suffix=""):
@@ -335,10 +350,7 @@ def eval_models(dataset, dataset_name, ablation_loss_fn=None, suffix=""):
 
             # eval model
             print("test dataset evaluation")
-            predictions = eval_metrics(tokenized_dataset, trainer, classes, dataset_path, fpath)
-
-            # write out the errors and predictions to a .csv file for future use
-            predictions.to_csv(fpath + "/predictions.csv", index=False)
+            eval_metrics(tokenized_dataset, trainer, classes, dataset_path, fpath)
 
             # cleaning up after model
             print(f"Cleaning up after {model_path}...")
