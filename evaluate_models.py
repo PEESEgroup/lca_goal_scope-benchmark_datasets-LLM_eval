@@ -158,7 +158,7 @@ def compute_metrics(eval_pred):
     return clf_metrics.compute(predictions=predictions, references=labels.astype(int).reshape(-1))
 
 
-def train_model(model, tokenized_dataset, tokenizer, data_collator, dataset_name, model_path):
+def train_model(model, tokenized_dataset, tokenizer, data_collator, dataset_name, model_path, loss_fn=None):
     """
     train the LLM models
     :param model: LLM model
@@ -170,8 +170,13 @@ def train_model(model, tokenized_dataset, tokenizer, data_collator, dataset_name
     :return: custom loss trainer
     """
     # create necessary filepaths
-    checkpoint_path = "llm-goal-scope/data/checkpoints/" + model_path + "/" + dataset_name
-    final_model_path = "llm-goal-scope/data/trained_model/" + model_path + "/" + dataset_name
+    if loss_fn is not None:
+        suffix = "-bce"
+    else:
+        suffix = ''
+
+    checkpoint_path = "llm-goal-scope/data/checkpoints/" + model_path + "/" + dataset_name + suffix
+    final_model_path = "llm-goal-scope/data/trained_model/" + model_path + "/" + dataset_name + suffix
 
     # training parameters
     training_args = TrainingArguments(
@@ -195,6 +200,7 @@ def train_model(model, tokenized_dataset, tokenizer, data_collator, dataset_name
         tokenizer=tokenizer,
         data_collator=data_collator,
         compute_metrics=compute_metrics,
+        loss_fn=loss_fn
     )
     # training
     trainer.train()
@@ -218,13 +224,13 @@ def eval_metrics(tokenized_dataset, trainer, classes, dataset_name, fpath):
     """
     # predict step
     predictions_output = trainer.predict(tokenized_dataset["test"])
-
-    # TODO: only need to extract pred and validation logits here
+    validation_output = trainer.predict(tokenized_dataset["valid"])
 
     # confusion matrix converts probabilities based on a threshold value and then take the sigmoid of the outputs
     eval_metrics = predictions_output.metrics
     multilabel_indicators = (1 / (1 + np.exp(-predictions_output.predictions)))
-    multilabel_preds = multilabel_indicators > 0.5
+    threshold = 0.7
+    multilabel_preds = multilabel_indicators > threshold
     plt.clf()
     plt.hist((1 / (1 + np.exp(-predictions_output.predictions))))
     plt.savefig(fpath + f'/Raw Logit Predictions for {dataset_name}.png', dpi=300)
@@ -235,28 +241,9 @@ def eval_metrics(tokenized_dataset, trainer, classes, dataset_name, fpath):
     for i, cm in enumerate(cm):
         disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=['Negative', 'Positive'])
         disp.plot(cmap='Blues', values_format='d')
-        plt.title(f'Confusion Matrix for {classes[i]} class for ' + str(dataset_name))
+        plt.title(f'Confusion Matrix for {classes[i]} class for ' + str(dataset_name) + ' with threshold ' + str(threshold))
         plt.savefig(fpath + f'/Confusion Matrix for {classes[i].replace("/", "")} class.png', dpi=300)
         plt.show()
-
-        # if there are no positive class in y_true, then precision is undefined and not included in the mean calculation
-        if max(predictions_output.label_ids[:, i]) > 0:
-            ap = average_precision_score(predictions_output.label_ids[:, i], multilabel_preds[:, i])
-        else:
-            ap = np.nan
-        ap_scores.append(ap)
-        eval_metrics[f"Average Precision for Label {classes[i]}"] = f"{ap:.4f}"
-    print("saved confusion matrices")
-
-    # Calculate Mean Average Precision (mAP)
-    mAP = np.nanmean(ap_scores)
-    eval_metrics["Mean Average Precision (mAP)"] = f"{mAP:.4f}"
-    eval_metrics["dataset_name"] = f"{dataset_name}"
-    eval_metrics["fpath"] = f"{fpath}"
-
-    # calculate micro-f1
-    f1_micro = f1_score(predictions_output.label_ids, multilabel_preds, average='micro')
-    eval_metrics["micro-f1"] = f"{f1_micro:.4f}"
 
     # calculate hamming accuracy
     h_loss = hamming_loss(predictions_output.label_ids, multilabel_preds)
@@ -270,40 +257,23 @@ def eval_metrics(tokenized_dataset, trainer, classes, dataset_name, fpath):
             w.writerows(eval_metrics.items())
             print("Saved Metrics for {dataset_name}:", eval_metrics)
 
-    # identify errors
-    # create an error mask
-    is_correct = (multilabel_preds == predictions_output.label_ids).all(axis=1)
-    error_indices = np.where(~is_correct)[0]
 
     # get the contexts
     test_dataset = tokenized_dataset["test"]
-    error_texts = [test_dataset[int(i)]['context'] for i in error_indices]
-
-    # TODO: only need the predictions dataframe
-
-    # build df
-    error_df = pd.DataFrame({
-        'sample_index': error_indices,
-        'context_for_errors': error_texts,
-        'logits': [list(p) for p in predictions_output.predictions[~is_correct]],
-        'predicted_labels': [list(l) for l in multilabel_preds[~is_correct]],
-        'true_labels': [l.astype(int).tolist() for l in predictions_output.label_ids[~is_correct]],
-        'classes': [classes for l in predictions_output.label_ids[~is_correct]]
-    })
 
     # save predictions
     prediction_df = pd.DataFrame({
         'context': [test_dataset[int(i)]['context'] for i in range(len(test_dataset))],
-        'logits': [list(p) for p in predictions_output.predictions],
-        'predicted_labels': [list(m) for m in multilabel_preds],
+        'test_logits': [list(p) for p in predictions_output.predictions],
+        'val_logits': [list(p) for p in validation_output.predictions],
         'true_labels': [p.astype(int).tolist() for p in predictions_output.label_ids],
         'classes': [classes for l in predictions_output.label_ids]
     })
 
-    return error_df, prediction_df
+    return prediction_df
 
 
-def eval_models(dataset, dataset_name):
+def eval_models(dataset, dataset_name, ablation_loss_fn=None, suffix=""):
     """
     evaluate model loop
     :param dataset: dataset of interest
@@ -317,11 +287,11 @@ def eval_models(dataset, dataset_name):
         class2id = {class_: id for id, class_ in enumerate(classes)}
         id2class = {id: class_ for class_, id in class2id.items()}
 
-        model_paths = [#'microsoft/deberta-v3-small', 'microsoft/deberta-v3-base', 
-                        'microsoft/deberta-v3-large'] # ,
+        model_paths = ['microsoft/deberta-v3-small', 'microsoft/deberta-v3-base', 
+                        'microsoft/deberta-v3-large',
                        # these models are confirmed to work
-                       #"google-bert/bert-base-uncased", "FacebookAI/roberta-large",
-                       #"climatebert/distilroberta-base-climate-f", "ESGBERT/EnvironmentalBERT-base"]
+                       "google-bert/bert-base-uncased", "FacebookAI/roberta-large",
+                       "climatebert/distilroberta-base-climate-f", "ESGBERT/EnvironmentalBERT-base"]
 
         # train and eval loop
         for model_path in model_paths:
@@ -344,18 +314,21 @@ def eval_models(dataset, dataset_name):
             dataset_path = dataset_name.split(".")[0]
             dataset_path = dataset_path.split("/")[2:]
             dataset_path = "_".join(dataset_path)
-            fpath = "/home/sagemaker-user/llm-goal-scope/data/qa_dataset/results/" + dataset_path + "/" + model_path
+            dataset_path = dataset_path + suffix
+            fpath = "/home/sagemaker-user/llm-goal-scope/data/dataset/results/" + dataset_path + "/" + model_path
             os.makedirs(fpath, exist_ok=True)
 
             # train model
-            trainer = train_model(model, tokenized_dataset, tokenizer, data_collator, dataset_path, model_path)
+            if ablation_loss_fn is not None:
+                trainer = train_model(model, tokenized_dataset, tokenizer, data_collator, dataset_path, model_path, ablation_loss_fn)
+            else:
+                trainer = train_model(model, tokenized_dataset, tokenizer, data_collator, dataset_path, model_path)
 
             # eval model
             print("test dataset evaluation")
-            errors, predictions = eval_metrics(tokenized_dataset, trainer, classes, dataset_path, fpath)
+            predictions = eval_metrics(tokenized_dataset, trainer, classes, dataset_path, fpath, stratify)
 
             # write out the errors and predictions to a .csv file for future use
-            errors.to_csv(fpath + "/errors.csv", index=False)
             predictions.to_csv(fpath + "/predictions.csv", index=False)
 
             # cleaning up after model
@@ -370,7 +343,15 @@ def eval_models(dataset, dataset_name):
             if torch.cuda.is_available():
                 torch.cuda.empty_cache()
 
-            # TODO: clear checkpoint folder
+            # remove these folders to save space
+            for dir_path in ["llm-goal-scope/data/checkpoints/" + model_path + "/" + dataset_path, "llm-goal-scope/data/trained_model/" + model_path + "/" + dataset_path]
+                try:
+                    shutil.rmtree(dir_path)
+                    print(f"{dir_path} and contents successfully deleted.")
+                except FileNotFoundError:
+                    print(f"The system cannot find {dir_path}")
+                except PermissionError:
+                    print("Permission denied. Ensure files are not open in another program.")
 
     # else there is no data in the datset
     else:
@@ -411,24 +392,74 @@ if __name__ == "__main__":
 
     # ignoring comparative assertion, intended application, study reasons, and target audience as Hestia does not have that data
     # ignoring recalculated allocation because it only uses the economic label
-    filenames = [  # "llm-goal-scope/data/qa_dataset/original/no_rag/systemBoundaryQA.jsonl",
-        #  "llm-goal-scope/data/qa_dataset/original/no_rag/allocationQA.jsonl",
-        #  "llm-goal-scope/data/qa_dataset/original/no_rag/functionalUnitQA.jsonl",
-        #  "llm-goal-scope/data/qa_dataset/original/no_rag/productQA.jsonl",
-        #  "llm-goal-scope/data/qa_dataset/recalculated/no_rag/functionalUnitQA.jsonl",
-        #  "llm-goal-scope/data/qa_dataset/recalculated/no_rag/productQA.jsonl",
-        # "llm-goal-scope/data/qa_dataset/recalculated/no_rag/systemBoundaryQA.jsonl",
-        "llm-goal-scope/data/qa_dataset/original/rag/rag_allocationQA.jsonl",
-        #"llm-goal-scope/data/qa_dataset/original/rag/rag_functionalUnitQA.jsonl",
-        #"llm-goal-scope/data/qa_dataset/original/rag/rag_productQA.jsonl",
-        #"llm-goal-scope/data/qa_dataset/original/rag/rag_systemBoundaryQA.jsonl",
-        #"llm-goal-scope/data/qa_dataset/recalculated/rag/rag_functionalUnitQA.jsonl",
-        #"llm-goal-scope/data/qa_dataset/recalculated/rag/rag_productQA.jsonl",
-        #"llm-goal-scope/data/qa_dataset/recalculated/rag/rag_systemBoundaryQA.jsonl",
+    filenames = [
+        "llm-goal-scope/data/dataset/original/no_rag/Functional Unit.jsonl",
+        "llm-goal-scope/data/dataset/original/no_rag/System Boundary.jsonl",
+        "llm-goal-scope/data/dataset/original/no_rag/Allocation.jsonl",
+        "llm-goal-scope/data/dataset/original/no_rag/Product.jsonl",
+        "llm-goal-scope/data/dataset/standardized/no_rag/Functional Unit.jsonl",
+        "llm-goal-scope/data/dataset/standardized/no_rag/Product.jsonl",
+        "llm-goal-scope/data/dataset/standardized/no_rag/System Boundary.jsonl",
+        "llm-goal-scope/data/dataset/original/rag/Allocation.jsonl",
+        "llm-goal-scope/data/dataset/original/rag/Functional Unit.jsonl",
+        "llm-goal-scope/data/dataset/original/rag/Product.jsonl",
+        "llm-goal-scope/data/dataset/original/rag/System Boundary.jsonl",
+        "llm-goal-scope/data/dataset/standardized/rag/Functional Unit.jsonl",
+        "llm-goal-scope/data/dataset/standardized/rag/Product.jsonl",
+        "llm-goal-scope/data/dataset/standardized/rag/System Boundary.jsonl",
+        "llm-goal-scope/data/dataset/original/rag/Functional Unitn-retrieved-10.jsonl",
+        "llm-goal-scope/data/dataset/original/rag/Functional Unitn-retrieved-20.jsonl",
+        "llm-goal-scope/data/dataset/original/rag/Functional Unitn-top-1.jsonl",
+        "llm-goal-scope/data/dataset/original/rag/Functional Unitn-top-5.jsonl",
+        "llm-goal-scope/data/dataset/original/rag/Functional Unittemp-033.jsonl",
+        "llm-goal-scope/data/dataset/original/rag/Functional Unittemp-090.jsonl",
+        "llm-goal-scope/data/dataset/original/rag/Functional Unittokens-128.jsonl",
+        "llm-goal-scope/data/dataset/original/rag/Functional Unittokens-512.jsonl"
     ]
 
     # for each dataset
     for k in filenames:
+        if k == "llm-goal-scope/data/qa_dataset/original/no_rag/Functional Unit.jsonl":
+            ablation = True
+        else:
+            ablation = False
+        
+        # Do all ablation studies
+        if ablation:
+            # load the dataset
+            dataset = load_dataset('json', data_files=k)  # shuffle dataset before splitting
+            dataset = dataset.shuffle(seed=42)
+
+            for s in ['cycle', 'site', 'source', 'loss_fn']:
+                if s in ['cycle', 'site', 'source']:
+                    # 80% train, 20% test + validation
+                    train_testvalid = dataset['train'].train_test_split(test_size=0.2, seed=42, stratify_by_column=s)
+                    # Split the 10% test + valid in half test, half valid
+                    test_valid = train_testvalid['test'].train_test_split(test_size=0.5, seed=42, stratify_by_column=s)
+                    # gather everyone if you want to have a single DatasetDict
+                    train_test_valid_dataset = DatasetDict({
+                        'train': train_testvalid['train'],
+                        'test': test_valid['test'],
+                        'valid': test_valid['train']})
+
+                    print(str(k), "dataset loaded stratified on " + s)
+                    eval_models(train_test_valid_dataset, k, suffix=s)
+                if s == 'loss_fn':
+                    bce_loss = nn.BCELoss()
+                    # 80% train, 20% test + validation
+                    train_testvalid = dataset['train'].train_test_split(test_size=0.2, seed=42)
+                    # Split the 10% test + valid in half test, half valid
+                    test_valid = train_testvalid['test'].train_test_split(test_size=0.5, seed=42)
+                    # gather everyone if you want to have a single DatasetDict
+                    train_test_valid_dataset = DatasetDict({
+                        'train': train_testvalid['train'],
+                        'test': test_valid['test'],
+                        'valid': test_valid['train']})
+
+                    print(str(k), "dataset loaded with BCE loss")
+                    eval_models(train_test_valid_dataset, k, ablation_loss_fn=bce_loss, suffix=s)
+
+        # Do things once without ablation
         # load the dataset
         dataset = load_dataset('json', data_files=k)  # shuffle dataset before splitting
         dataset = dataset.shuffle(seed=42)
@@ -445,3 +476,5 @@ if __name__ == "__main__":
 
         print(str(k), "dataset loaded")
         eval_models(train_test_valid_dataset, k)
+
+        
