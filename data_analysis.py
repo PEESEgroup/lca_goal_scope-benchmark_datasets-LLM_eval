@@ -482,7 +482,7 @@ def collect_rag_error_rates():
     standardized = pd.DataFrame()
 
     # Use rglob to recursively find all files matching the pattern
-    for file_path in root_directory.rglob('predictions.csv'):
+    for file_path in root_directory.rglob('test_predictions.csv'):
         df = pd.read_csv(file_path)
         # get incorrect labels
         df['all_correct'] = df['true_labels'] == df['preds_70']
@@ -495,6 +495,9 @@ def collect_rag_error_rates():
         dataset_type = "original" if "original" in str(file_path).split("_") else "standardized"
         language_model = "/".join(str(file_path).split("\\")[4:6])
         dataset_name = str(file_path).split("\\")[3].split("_")[-1]
+        if dataset_name not in ["Allocation", "Functional Unit", "System Boundary", "Product"]:
+            continue  # don't put ablation tests in here
+
         # update df with parameters
         df["model"] = language_model
         df["dataset"] = dataset_name
@@ -520,12 +523,12 @@ def collect_rag_error_rates():
 
     # Identify incidence of all/persistent errors in RAG
     error_analysis = {}
+    mcnemar_results = []  # To store the p-values and stats
     for df in [original, standardized]:
         for dataset in df["dataset"].unique():
             data = df[df["dataset"] == dataset]
             # find the percentage of rows that are in only rag, only no rag, or both
             # a row is defined as a row number and a dataset
-            # TODO: McNemar Test
             dataset_type = data["dataset_type"].unique()[0]
             presence = pd.crosstab([data['sample index'], data['dataset'], data["model"]], data['RAG']).gt(0)
             only_rag_count = ((presence['rag']) & (~presence['no rag'])).sum()
@@ -535,10 +538,48 @@ def collect_rag_error_rates():
 
             # write data out to series
             data = [f"{only_rag_count / total:.1%}", f"{only_no_rag_count / total:.1%}",
-                    f"{both_count / total:.1%}"]
-            index_labels = ['RAG only', 'No RAG only', 'Both']
+                    f"{both_count / total:.1%}", f"{only_rag_count}", f"{only_no_rag_count}", f"{both_count}"]
+            index_labels = ['RAG only %', 'No RAG only %', 'Both %', 'RAG only', 'No RAG only', 'Both']
             s = pd.Series(data, index=index_labels)
             error_analysis[dataset_type + " "+ str(dataset)] = s
+
+            # McNemar's Test Logic
+            # - 'RAG only' error means: RAG is Incorrect, No RAG is Correct (Cell c)
+            # - 'No RAG only' error means: No RAG is Incorrect, RAG is Correct (Cell b)
+            b = only_no_rag_count
+            c = only_rag_count
+
+            # dummy 0s for concordant pairs (a and d) because McNemar's test
+            # mathematically ignores them anyway.
+            contingency_table = [
+                [0, b],
+                [c, 0]
+            ]
+
+            # Run McNemar's Test
+            # exact=True uses Binomial distribution (good for small sample sizes)
+            # exact=False uses Chi-squared (use if b+c > 25)
+            exact_test = (b + c) < 25
+            result = mcnemar(contingency_table, exact=exact_test)
+
+            mcnemar_results.append({
+                "dataset_type": dataset_type,
+                "dataset": dataset,
+                "No_RAG_Error_Only (b)": b,
+                "RAG_Error_Only (c)": c,
+                "p-value": f"{result.pvalue:.4f}",
+                "stat": result.statistic
+            })
+
+        # save error statistics (Your existing save code)
+        df_err = pd.DataFrame(error_analysis)
+        df_err = df_err.reset_index()
+        df_err.to_csv(f"./data/dataset/results/error_location.csv", index=False)
+
+        # Save McNemar results
+        df_mcnemar = pd.DataFrame(mcnemar_results)
+        df_mcnemar.to_csv("./data/dataset/results/mcnemar_results.csv", index=False)
+        print("McNemar test results saved successfully!")
 
     # save error statistics
     df = pd.DataFrame(error_analysis)
