@@ -12,6 +12,7 @@ import matplotlib.patches as mpatches
 from collections import defaultdict
 from sklearn.metrics import precision_score
 import ast
+from statsmodels.stats.contingency_tables import mcnemar
 
 
 def main():
@@ -20,11 +21,11 @@ def main():
     :return: N/A
     """
     # build SI figure on prediction threshold
-    prediction_threshold()
+    # prediction_threshold()
 
     # plot number of labels versus precision for each of the four categories
-    label_precision()
-    parameter_precision()
+    # label_precision()
+    # parameter_precision()
 
     # collate errors for each dataset based on RAG
     collect_rag_error_rates()
@@ -51,7 +52,7 @@ def get_label_precision(file_path):
 
     # update df with parameters
     results_df["model"] = language_model
-    results_df["dataset"] = dataset_name.replace("QA", "")
+    results_df["dataset"] = dataset_name
     results_df["dataset_type"] = dataset_type
     results_df["RAG"] = rag
     P_results = []
@@ -100,7 +101,7 @@ def prediction_threshold():
 
         # update df with parameters
         results_df["model"] = language_model
-        results_df["dataset"] = dataset_name.replace("QA", "")
+        results_df["dataset"] = dataset_name
         results_df["dataset_type"] = dataset_type
         results_df["RAG"] = rag
         # mAP_results_df = results_df.copy(deep=True)
@@ -386,13 +387,13 @@ def train_label_frequency():
     :return: .png graphs
     """
     # read in datasets and extract number of labels in the test set
-    filenames = ["data/dataset/original/no_rag/systemBoundaryQA.jsonl",
-                 "data/dataset/original/no_rag/allocationQA.jsonl",
-                 "data/dataset/original/no_rag/functionalUnitQA.jsonl",
-                 "data/dataset/original/no_rag/productQA.jsonl",
-                 "data/dataset/standardized/no_rag/functionalUnitQA.jsonl",
-                 "data/dataset/standardized/no_rag/productQA.jsonl",
-                 "data/dataset/standardized/no_rag/systemBoundaryQA.jsonl",
+    filenames = ["data/dataset/original/no_rag/System Boundary.jsonl",
+                 "data/dataset/original/no_rag/Allocation.jsonl",
+                 "data/dataset/original/no_rag/Functional Unit.jsonl",
+                 "data/dataset/original/no_rag/Product.jsonl",
+                 "data/dataset/standardized/no_rag/Functional Unit.jsonl",
+                 "data/dataset/standardized/no_rag/Product.jsonl",
+                 "data/dataset/standardized/no_rag/System Boundary.jsonl",
                  ]  # rag and no_rag datasets will be the same
     df_list = []
     for k in filenames:
@@ -496,7 +497,7 @@ def collect_rag_error_rates():
         dataset_name = str(file_path).split("\\")[3].split("_")[-1]
         # update df with parameters
         df["model"] = language_model
-        df["dataset"] = dataset_name.replace("QA", "")
+        df["dataset"] = dataset_name
         df["dataset_type"] = dataset_type
         df["RAG"] = rag
 
@@ -524,6 +525,7 @@ def collect_rag_error_rates():
             data = df[df["dataset"] == dataset]
             # find the percentage of rows that are in only rag, only no rag, or both
             # a row is defined as a row number and a dataset
+            # TODO: McNemar Test
             dataset_type = data["dataset_type"].unique()[0]
             presence = pd.crosstab([data['sample index'], data['dataset'], data["model"]], data['RAG']).gt(0)
             only_rag_count = ((presence['rag']) & (~presence['no rag'])).sum()
@@ -573,7 +575,7 @@ def parameter_precision():
         x = plotting_df['parameters']
         y = plotting_df['mWP']
         # plot scatter plot
-        ax.scatter(x, y, c=plotting_df["color"], label=dataset.strip("QA"), alpha=0.7)
+        ax.scatter(x, y, c=plotting_df["color"], label=dataset, alpha=0.7)
 
         # add best fit line
         sort_idx = np.argsort(x)
@@ -607,7 +609,7 @@ def label_precision():
     standardized = pd.DataFrame()
 
     # Use rglob to recursively find all files matching the pattern
-    for file_path in root_directory.rglob('predictions.csv'):
+    for file_path in root_directory.rglob('test_predictions.csv'):
         df = get_label_precision(file_path)
 
         # make the df long
@@ -631,9 +633,6 @@ def label_precision():
     original = pd.merge(original, original_test, "left", ["dataset", "label", "RAG"])
     standardized = pd.merge(standardized, standardized_test, "left", ["dataset", "label", "RAG"])
     df = pd.concat([original, standardized])
-    df["dataset"] = df["dataset"].apply(
-        lambda x: "Functional Unit" if x == "functionalUnit" else "System Boundary" if x == "systemBoundary"
-        else "Product" if x == "product" else "Allocation")
 
     # plot scatterplot
     fig, ax = plt.subplots()
@@ -666,20 +665,20 @@ def label_precision():
 
 def get_test_samples():
     # read in datasets and extract number of labels in the test set
-    filenames = ["data/dataset/original/no_rag/systemBoundaryQA.jsonl",
-                 "data/dataset/original/no_rag/allocationQA.jsonl",
-                 "data/dataset/original/no_rag/functionalUnitQA.jsonl",
-                 "data/dataset/original/no_rag/productQA.jsonl",
-                 "data/dataset/standardized/no_rag/functionalUnitQA.jsonl",
-                 "data/dataset/standardized/no_rag/productQA.jsonl",
-                 "data/dataset/standardized/no_rag/systemBoundaryQA.jsonl",
-                 "data/dataset/original/rag/rag_allocationQA.jsonl",
-                 "data/dataset/original/rag/rag_functionalUnitQA.jsonl",
-                 "data/dataset/original/rag/rag_productQA.jsonl",
-                 "data/dataset/original/rag/rag_systemBoundaryQA.jsonl",
-                 "data/dataset/standardized/rag/rag_functionalUnitQA.jsonl",
-                 "data/dataset/standardized/rag/rag_productQA.jsonl",
-                 "data/dataset/standardized/rag/rag_systemBoundaryQA.jsonl",
+    filenames = ["data/dataset/original/no_rag/System Boundary.jsonl",
+                 "data/dataset/original/no_rag/Allocation.jsonl",
+                 "data/dataset/original/no_rag/Functional Unit.jsonl",
+                 "data/dataset/original/no_rag/Product.jsonl",
+                 "data/dataset/standardized/no_rag/Functional Unit.jsonl",
+                 "data/dataset/standardized/no_rag/Product.jsonl",
+                 "data/dataset/standardized/no_rag/System Boundary.jsonl",
+                 "data/dataset/original/rag/Allocation.jsonl",
+                 "data/dataset/original/rag/Functional Unit.jsonl",
+                 "data/dataset/original/rag/Product.jsonl",
+                 "data/dataset/original/rag/System Boundary.jsonl",
+                 "data/dataset/standardized/rag/Functional Unit.jsonl",
+                 "data/dataset/standardized/rag/Product.jsonl",
+                 "data/dataset/standardized/rag/System Boundary.jsonl",
                  ]
     # for each dataset
     rag_original_test = pd.DataFrame()
@@ -692,7 +691,7 @@ def get_test_samples():
         dataset_rag = "" if "no_rag" in str(k).split("/") else "_rag"
         dataset_dataset_type = "original" if "original" in str(k).split("/") else "standardized"
         dataset_dataset_category = dataset_dataset_type + dataset_rag
-        dataset_name = k.split("/")[-1].split(".")[0].replace("QA", "")
+        dataset_name = k.split("/")[-1].split(".")[0]
         dataset = load_dataset('json', data_files=k)  # shuffle dataset before splitting
         dataset = dataset.shuffle(seed=42)
 
