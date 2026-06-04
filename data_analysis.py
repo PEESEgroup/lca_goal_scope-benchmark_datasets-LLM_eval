@@ -317,7 +317,7 @@ def explain_discrepancies():
     # get context for each error
     context = context.reset_index(names="sample index")
     # update the dataset name for the context to support the merge
-    context["dataset"] = context['title'].apply(lambda x: "System Boundary" if x == "System Boundary Completeness" else "Product" if x == "Object of Assessment"
+    context["dataset"] = context['title'].apply(lambda x: "System Boundary" if x == "System Boundary Completeness" else "Product" if x == "Product of Assessment"
                                                 else "Functional Unit" if x=="Functional Unit" else "Allocation")
 
     df["dataset_category"] = df["dataset_type"] + "_" + df["RAG"]
