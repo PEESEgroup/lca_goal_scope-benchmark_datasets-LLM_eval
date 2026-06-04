@@ -20,18 +20,18 @@ def main():
     :return: N/A
     """
     # build SI figure on prediction threshold
-    # prediction_threshold()
+    prediction_threshold()
 
     # plot number of labels versus precision for each of the four categories
     label_precision()
-    # parameter_precision()
+    parameter_precision()
 
     # collate errors for each dataset based on RAG
-    # collect_rag_error_rates()
-    # explain_discrepancies()
+    collect_rag_error_rates()
+    explain_discrepancies()
 
     # identify occurence of errors and the extent to which models and ground truths agree
-    # inter_reviewer_alignment()
+    inter_reviewer_alignment()
 
     # plot the frequency of error rates across 12 datasets
     plot_error_codes()
@@ -73,21 +73,24 @@ def prediction_threshold():
         Calculates the extent to which the prediction threshold affects mAP
         :return: N/A
         """
-    root_directory = Path("./data/qa_dataset/results")
+    root_directory = Path("./data/dataset/results")
     mWP_df = pd.DataFrame()
     mWP_csv_df = pd.DataFrame()
 
     # Use rglob to recursively find all files matching the pattern
-    for file_path in root_directory.rglob('predictions.csv'):
+    for file_path in root_directory.rglob('validation_predictions.csv'):
         rag = "no rag" if "no" in str(file_path).split("_") else "rag"
         dataset_type = "original" if "original" in str(file_path).split("_") else "recalculated"
         language_model = "/".join(str(file_path).split("\\")[4:6])
         dataset_name = str(file_path).split("\\")[3].split("_")[-1]
+        if dataset_name not in ["Allocation", "Functional Unit", "Product", "System Boundary"]:
+            # don't need to threshold sensitivity ablation studies
+            continue
         results_df = pd.DataFrame(index=[0])
 
         # read in data and extract label precision, dataset name, and model name
         data = pd.read_csv(file_path)
-        data["logits"] = data["logits"].apply(ast.literal_eval)  # convert to literal lists
+        data["logits"] = data["val_logits"].apply(ast.literal_eval)  # convert to literal lists
         ground_truth = np.array(data["true_labels"].apply(ast.literal_eval).tolist())
 
         # update df with parameters
@@ -138,17 +141,17 @@ def prediction_threshold():
         for col in dft.columns:
             # get color
             col_colors = col.split("_")
-            if col_colors[0] == "allocation":
+            if col_colors[0] == "Allocation":
                 cat_color = 0
-            elif col_colors[0] == "functionalUnit":
+            elif col_colors[0] == "Functional Unit":
                 cat_color = 1
-            elif col_colors[0] == "product":
+            elif col_colors[0] == "Product":
                 cat_color = 2
-            elif col_colors[0] == "systemBoundary":
+            elif col_colors[0] == "System Boundary":
                 cat_color = 3
             if col_colors[1] == "original":
                 dat_color = 0
-            elif col_colors[1] == "recalculated":
+            elif col_colors[1] == "standardized":
                 dat_color = 1
             if col_colors[2] == "no rag":
                 rag_color = 0
@@ -164,14 +167,17 @@ def prediction_threshold():
         plt.title(f'{j}')
         plt.legend(fontsize=8)
         plt.grid(True)
-        plt.savefig(f"./data/qa_dataset/results/threshold_sensitivity_{j.split('/')[1]}.png", dpi=300)
+        plt.savefig(f"./data/dataset/results/threshold_sensitivity_{j.split('/')[1]}.png", dpi=300)
         plt.show()
 
     # write out datasets to .csv
     # mAP_df = mAP_df.pivot(index=["dataset", "dataset_type"], columns="model", values="mWP").reset_index()
     mWP_csv_df = mWP_csv_df.pivot(index=["dataset", "dataset_type", "RAG"], columns="model", values="mWP").reset_index()
-    # mAP_df.to_csv(f"./data/qa_dataset/results/mAP-no-thresholds.csv",index=False)
-    mWP_csv_df.to_csv(f"./data/qa_dataset/results/mWP.csv", index=False)
+    # mAP_df.to_csv(f"./data/dataset/results/mAP-no-thresholds.csv",index=False)
+    mWP_csv_df.to_csv(f"./data/dataset/results/mWP.csv", index=False)
+
+    mWP_df = mWP_df[["model", "dataset", "dataset_type", "RAG", 30, 50, 70, 90]]
+    mWP_df.to_csv(f"./data/dataset/results/mWP_thresholds.csv", index=False)
 
 
 def plot_error_codes():
@@ -179,7 +185,7 @@ def plot_error_codes():
     Plots manually coded discrepancies between AI labeling and human labels as pie charts
     :return: saved .png image
     """
-    df = pd.read_excel("./data/qa_dataset/results/all_models_discrepancies_coded.xlsx")
+    df = pd.read_excel("./data/dataset/results/all_models_discrepancies_coded.xlsx")
     df["Discrepancy Code"] = df['Discrepancy Code'].astype('category')
     df["Dataset"] = df["Dataset"].apply(lambda x: "Functional Unit" if x == "functionalUnit" else "System Boundary" if x == "systemBoundary"
                                         else "Product" if x== "product" else "Allocation")
@@ -281,7 +287,7 @@ def plot_error_codes():
     ax.set_title('Discrepancy Rationales by Dataset Group')
     plt.xticks(rotation=45, ha='right')
     plt.tight_layout()
-    plt.savefig("./data/qa_dataset/results/errors-code-plot.png", dpi=300)
+    plt.savefig("./data/dataset/results/errors-code-plot.png", dpi=300)
     plt.show()
 
 
@@ -291,7 +297,7 @@ def explain_discrepancies():
     :param df: df of discrepancies made by the ML model
     :return: .csv sheet containing explanations of error codes
     """
-    df = pd.read_csv("./data/qa_dataset/results/master_list_discrepancies.csv")
+    df = pd.read_csv("./data/dataset/results/master_list_discrepancies.csv")
     counts = train_label_frequency()
     original_test, rag_original_test, rag_recalculated_test, recalculated_test, context = get_test_samples()
 
@@ -358,7 +364,7 @@ def explain_discrepancies():
     # output results to .csv
     discrepancies = pd.concat(discrepancy_lines)
     discrepancies = discrepancies.sort_values(by=['Sample Index'], ascending=[True])
-    discrepancies.to_csv("./data/qa_dataset/results/all_discrepancies_to_code.csv")
+    discrepancies.to_csv("./data/dataset/results/all_discrepancies_to_code.csv")
 
 
 def train_label_frequency():
@@ -367,13 +373,13 @@ def train_label_frequency():
     :return: .png graphs
     """
     # read in datasets and extract number of labels in the test set
-    filenames = ["data/qa_dataset/original/no_rag/systemBoundaryQA.jsonl",
-                 "data/qa_dataset/original/no_rag/allocationQA.jsonl",
-                 "data/qa_dataset/original/no_rag/functionalUnitQA.jsonl",
-                 "data/qa_dataset/original/no_rag/productQA.jsonl",
-                 "data/qa_dataset/recalculated/no_rag/functionalUnitQA.jsonl",
-                 "data/qa_dataset/recalculated/no_rag/productQA.jsonl",
-                 "data/qa_dataset/recalculated/no_rag/systemBoundaryQA.jsonl",
+    filenames = ["data/dataset/original/no_rag/systemBoundaryQA.jsonl",
+                 "data/dataset/original/no_rag/allocationQA.jsonl",
+                 "data/dataset/original/no_rag/functionalUnitQA.jsonl",
+                 "data/dataset/original/no_rag/productQA.jsonl",
+                 "data/dataset/recalculated/no_rag/functionalUnitQA.jsonl",
+                 "data/dataset/recalculated/no_rag/productQA.jsonl",
+                 "data/dataset/recalculated/no_rag/systemBoundaryQA.jsonl",
                  ]  # rag and no_rag datasets will be the same
     df_list = []
     for k in filenames:
@@ -412,8 +418,8 @@ def inter_reviewer_alignment():
     :return: .csv with the number of LCAs in which AI and humans agree, as well as the number of discrepancies
     """
     # get all errors
-    original = pd.read_csv("./data/qa_dataset/results/all_errors_original.csv")
-    recalculated= pd.read_csv("./data/qa_dataset/results/all_errors_recalculated.csv")
+    original = pd.read_csv("./data/dataset/results/all_errors_original.csv")
+    recalculated= pd.read_csv("./data/dataset/results/all_errors_recalculated.csv")
 
     # Identify the percentage of samples of LCA that have 0, 1, 2+ errors
     error_analysis = pd.DataFrame()
@@ -447,7 +453,7 @@ def inter_reviewer_alignment():
                 error_analysis = pd.concat([error_analysis, s.T])
 
     # save error statistics
-    error_analysis.to_csv(f"./data/qa_dataset/results/num_correct_LCA.csv", index=False)
+    error_analysis.to_csv(f"./data/dataset/results/num_correct_LCA.csv", index=False)
 
 
 def collect_rag_error_rates():
@@ -455,7 +461,7 @@ def collect_rag_error_rates():
     Identify the extent to which error rates appear in RAG and non-RAG models
     :return: N/A
     """
-    root_directory = Path("./data/qa_dataset/results")
+    root_directory = Path("./data/dataset/results")
 
     # two dataframes for two different dataset types
     original = pd.DataFrame()
@@ -489,14 +495,14 @@ def collect_rag_error_rates():
                 recalculated = pd.concat([recalculated, df])
 
     # save data
-    original.to_csv("./data/qa_dataset/results/all_errors_original.csv")
-    recalculated.to_csv("./data/qa_dataset/results/all_errors_recalculated.csv")
+    original.to_csv("./data/dataset/results/all_errors_original.csv")
+    recalculated.to_csv("./data/dataset/results/all_errors_recalculated.csv")
 
     master_discrepancies = pd.concat([original, recalculated])
 
     # get master table of unique errors as well as count of how many times they occured
     master_discrepancies = master_discrepancies.groupby(['true_labels', 'preds_70', "classes", "sample index", "dataset", "dataset_type", "RAG"]).size().reset_index(name='Number of Models with Error')
-    master_discrepancies.to_csv("./data/qa_dataset/results/master_list_discrepancies.csv", index=False)
+    master_discrepancies.to_csv("./data/dataset/results/master_list_discrepancies.csv", index=False)
 
     # Identify incidence of all/persistent errors in RAG
     error_analysis = {}
@@ -522,7 +528,7 @@ def collect_rag_error_rates():
     # save error statistics
     df = pd.DataFrame(error_analysis)
     df = df.reset_index()
-    df.to_csv(f"./data/qa_dataset/results/error_location.csv", index=False)
+    df.to_csv(f"./data/dataset/results/error_location.csv", index=False)
 
 
 def parameter_precision():
@@ -539,7 +545,7 @@ def parameter_precision():
                                   "microsoft/deberta-v3-small"],
                         "parameters": [82.4, 82.8, 304, 110, 86, 304, 44]}
 
-    df = pd.read_csv(f"./data/qa_dataset/results/mWP.csv")
+    df = pd.read_csv(f"./data/dataset/results/mWP.csv")
     df = pd.melt(df, id_vars=['dataset', 'dataset_type', 'RAG'], var_name='model', value_name='mWP')
     mp = pd.DataFrame(model_parameters)
     df = pd.merge(df, mp, "left", on="model")
@@ -569,7 +575,7 @@ def parameter_precision():
     plt.title('Effect of Number of Parameters')
     plt.legend()
     plt.grid(True)
-    plt.savefig("./data/qa_dataset/results/num_params.png", dpi=300)
+    plt.savefig("./data/dataset/results/num_params.png", dpi=300)
     plt.show()
     print("dataset num parameters plot saved")
 
@@ -579,7 +585,7 @@ def label_precision():
     Identify how mAP varies with the frequency of labels in the training dataset
     :return: .png with results
     """
-    root_directory = Path("./data/qa_dataset/results")
+    root_directory = Path("./data/dataset/results")
 
     # four dataframes for four different dataset types
     rag_original = pd.DataFrame()
@@ -634,33 +640,33 @@ def label_precision():
     plt.title('Sample size effect for all datasets')
     plt.legend()
     plt.grid(True)
-    plt.savefig("./data/qa_dataset/results/sample-size_mAP.png", dpi=300)
+    plt.savefig("./data/dataset/results/sample-size_mAP.png", dpi=300)
     plt.show()
     print("dataset precision plot saved")
 
     # save data
-    original.to_csv("./data/qa_dataset/results/labels_original.csv")
-    recalculated.to_csv("./data/qa_dataset/results/labels_recalculated.csv")
-    rag_original.to_csv("./data/qa_dataset/results/labels_rag_original.csv")
-    rag_recalculated.to_csv("./data/qa_dataset/results/labels_rag_recalculated.csv")
+    original.to_csv("./data/dataset/results/labels_original.csv")
+    recalculated.to_csv("./data/dataset/results/labels_recalculated.csv")
+    rag_original.to_csv("./data/dataset/results/labels_rag_original.csv")
+    rag_recalculated.to_csv("./data/dataset/results/labels_rag_recalculated.csv")
 
 
 def get_test_samples():
     # read in datasets and extract number of labels in the test set
-    filenames = ["data/qa_dataset/original/no_rag/systemBoundaryQA.jsonl",
-                 "data/qa_dataset/original/no_rag/allocationQA.jsonl",
-                 "data/qa_dataset/original/no_rag/functionalUnitQA.jsonl",
-                 "data/qa_dataset/original/no_rag/productQA.jsonl",
-                 "data/qa_dataset/recalculated/no_rag/functionalUnitQA.jsonl",
-                 "data/qa_dataset/recalculated/no_rag/productQA.jsonl",
-                 "data/qa_dataset/recalculated/no_rag/systemBoundaryQA.jsonl",
-                 "data/qa_dataset/original/rag/rag_allocationQA.jsonl",
-                 "data/qa_dataset/original/rag/rag_functionalUnitQA.jsonl",
-                 "data/qa_dataset/original/rag/rag_productQA.jsonl",
-                 "data/qa_dataset/original/rag/rag_systemBoundaryQA.jsonl",
-                 "data/qa_dataset/recalculated/rag/rag_functionalUnitQA.jsonl",
-                 "data/qa_dataset/recalculated/rag/rag_productQA.jsonl",
-                 "data/qa_dataset/recalculated/rag/rag_systemBoundaryQA.jsonl",
+    filenames = ["data/dataset/original/no_rag/systemBoundaryQA.jsonl",
+                 "data/dataset/original/no_rag/allocationQA.jsonl",
+                 "data/dataset/original/no_rag/functionalUnitQA.jsonl",
+                 "data/dataset/original/no_rag/productQA.jsonl",
+                 "data/dataset/recalculated/no_rag/functionalUnitQA.jsonl",
+                 "data/dataset/recalculated/no_rag/productQA.jsonl",
+                 "data/dataset/recalculated/no_rag/systemBoundaryQA.jsonl",
+                 "data/dataset/original/rag/rag_allocationQA.jsonl",
+                 "data/dataset/original/rag/rag_functionalUnitQA.jsonl",
+                 "data/dataset/original/rag/rag_productQA.jsonl",
+                 "data/dataset/original/rag/rag_systemBoundaryQA.jsonl",
+                 "data/dataset/recalculated/rag/rag_functionalUnitQA.jsonl",
+                 "data/dataset/recalculated/rag/rag_productQA.jsonl",
+                 "data/dataset/recalculated/rag/rag_systemBoundaryQA.jsonl",
                  ]
     # for each dataset
     rag_original_test = pd.DataFrame()
@@ -725,7 +731,7 @@ def map_tables():
     :return: 4 .csv files
     """
     # get all the results files
-    root_directory = Path("./data/qa_dataset/results")
+    root_directory = Path("./data/dataset/results")
 
     # four dataframes for four different dataset types
     rag_original = pd.DataFrame()
@@ -775,10 +781,10 @@ def map_tables():
     rag_recalculated = rag_recalculated.pivot(index='dataset', columns='model', values='mAP')
 
     # print out dataframes
-    original.to_csv("./data/qa_dataset/results/mAP_original.csv")
-    recalculated.to_csv("./data/qa_dataset/results/mAP_recalculated.csv")
-    rag_original.to_csv("./data/qa_dataset/results/mAP_rag_original.csv")
-    rag_recalculated.to_csv("./data/qa_dataset/results/mAP_rag_recalculated.csv")
+    original.to_csv("./data/dataset/results/mAP_original.csv")
+    recalculated.to_csv("./data/dataset/results/mAP_recalculated.csv")
+    rag_original.to_csv("./data/dataset/results/mAP_rag_original.csv")
+    rag_recalculated.to_csv("./data/dataset/results/mAP_rag_recalculated.csv")
 
 
 if __name__ == "__main__":
