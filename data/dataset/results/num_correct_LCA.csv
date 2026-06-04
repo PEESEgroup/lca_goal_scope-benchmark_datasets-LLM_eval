@@ -1,29 +1,29 @@
-Dataset Type,RAG,Model,0 Errors,1 Error,2 Errors,3+ Errors,Ranking
-standardized,rag,microsoft/deberta-v3-large,90.9%,9.1%,0.0%,0.0%,390.900%
-standardized,no rag,microsoft/deberta-v3-large,88.9%,11.1%,0.0%,0.0%,388.900%
-standardized,no rag,FacebookAI/roberta-large,85.9%,14.1%,0.0%,0.0%,385.900%
-original,rag,microsoft/deberta-v3-large,87.5%,8.7%,3.8%,0.0%,383.700%
-original,no rag,google-bert/bert-base-uncased,87.5%,9.6%,1.9%,1.0%,383.600%
-original,rag,FacebookAI/roberta-large,87.5%,9.6%,1.9%,1.0%,383.600%
-standardized,no rag,google-bert/bert-base-uncased,84.8%,14.1%,1.0%,0.0%,383.500%
-standardized,rag,climatebert/distilroberta-base-climate-f,84.8%,14.1%,1.0%,0.0%,383.500%
-standardized,rag,ESGBERT/EnvironmentalBERT-base,84.8%,14.1%,1.0%,0.0%,383.500%
-standardized,no rag,climatebert/distilroberta-base-climate-f,83.8%,15.2%,1.0%,0.0%,382.800%
-standardized,rag,FacebookAI/roberta-large,83.8%,15.2%,1.0%,0.0%,382.800%
-original,no rag,microsoft/deberta-v3-base,84.6%,13.5%,1.0%,1.0%,381.900%
-original,rag,google-bert/bert-base-uncased,85.6%,11.5%,1.9%,1.0%,381.700%
-standardized,no rag,ESGBERT/EnvironmentalBERT-base,83.8%,14.1%,2.0%,0.0%,381.500%
-standardized,rag,google-bert/bert-base-uncased,80.8%,17.2%,2.0%,0.0%,378.800%
-original,rag,ESGBERT/EnvironmentalBERT-base,82.7%,14.4%,1.9%,1.0%,378.800%
-original,no rag,microsoft/deberta-v3-large,83.7%,11.5%,3.8%,1.0%,377.900%
-standardized,no rag,microsoft/deberta-v3-base,79.8%,18.2%,2.0%,0.0%,377.800%
-original,no rag,FacebookAI/roberta-large,80.8%,16.3%,1.9%,1.0%,376.900%
-standardized,rag,microsoft/deberta-v3-base,78.8%,19.2%,2.0%,0.0%,376.800%
-standardized,no rag,microsoft/deberta-v3-small,77.8%,19.2%,3.0%,0.0%,374.800%
-original,no rag,climatebert/distilroberta-base-climate-f,76.0%,21.2%,1.9%,1.0%,372.400%
-standardized,rag,microsoft/deberta-v3-small,73.7%,23.2%,3.0%,0.0%,370.400%
-original,rag,microsoft/deberta-v3-base,78.8%,13.5%,6.7%,1.0%,370.100%
-original,rag,climatebert/distilroberta-base-climate-f,74.0%,23.1%,1.9%,1.0%,370.100%
-original,rag,microsoft/deberta-v3-small,76.9%,17.3%,3.8%,1.9%,369.000%
-original,no rag,ESGBERT/EnvironmentalBERT-base,74.0%,21.2%,3.8%,1.0%,368.200%
-original,no rag,microsoft/deberta-v3-small,67.3%,24.0%,7.7%,1.0%,357.600%
+Dataset Type,RAG,Model,0 Errors,1 Error,2 Errors,3+ Errors
+original,no rag,climatebert/distilroberta-base-climate-f,76.0%,21.2%,1.9%,1.0%
+original,no rag,ESGBERT/EnvironmentalBERT-base,74.0%,21.2%,3.8%,1.0%
+original,no rag,FacebookAI/roberta-large,80.8%,16.3%,1.9%,1.0%
+original,no rag,google-bert/bert-base-uncased,87.5%,9.6%,1.9%,1.0%
+original,no rag,microsoft/deberta-v3-base,84.6%,13.5%,1.0%,1.0%
+original,no rag,microsoft/deberta-v3-large,83.7%,11.5%,3.8%,1.0%
+original,no rag,microsoft/deberta-v3-small,67.3%,24.0%,7.7%,1.0%
+original,rag,climatebert/distilroberta-base-climate-f,74.0%,23.1%,1.9%,1.0%
+original,rag,ESGBERT/EnvironmentalBERT-base,82.7%,14.4%,1.9%,1.0%
+original,rag,FacebookAI/roberta-large,87.5%,9.6%,1.9%,1.0%
+original,rag,google-bert/bert-base-uncased,85.6%,11.5%,1.9%,1.0%
+original,rag,microsoft/deberta-v3-base,78.8%,13.5%,6.7%,1.0%
+original,rag,microsoft/deberta-v3-large,87.5%,8.7%,3.8%,0.0%
+original,rag,microsoft/deberta-v3-small,76.9%,17.3%,3.8%,1.9%
+standardized,no rag,ESGBERT/EnvironmentalBERT-base,83.8%,14.1%,2.0%,0.0%
+standardized,no rag,microsoft/deberta-v3-small,77.8%,19.2%,3.0%,0.0%
+standardized,no rag,climatebert/distilroberta-base-climate-f,83.8%,15.2%,1.0%,0.0%
+standardized,no rag,google-bert/bert-base-uncased,84.8%,14.1%,1.0%,0.0%
+standardized,no rag,microsoft/deberta-v3-base,79.8%,18.2%,2.0%,0.0%
+standardized,no rag,FacebookAI/roberta-large,85.9%,14.1%,0.0%,0.0%
+standardized,no rag,microsoft/deberta-v3-large,88.9%,11.1%,0.0%,0.0%
+standardized,rag,climatebert/distilroberta-base-climate-f,84.8%,14.1%,1.0%,0.0%
+standardized,rag,FacebookAI/roberta-large,83.8%,15.2%,1.0%,0.0%
+standardized,rag,google-bert/bert-base-uncased,80.8%,17.2%,2.0%,0.0%
+standardized,rag,ESGBERT/EnvironmentalBERT-base,84.8%,14.1%,1.0%,0.0%
+standardized,rag,microsoft/deberta-v3-base,78.8%,19.2%,2.0%,0.0%
+standardized,rag,microsoft/deberta-v3-small,73.7%,23.2%,3.0%,0.0%
+standardized,rag,microsoft/deberta-v3-large,90.9%,9.1%,0.0%,0.0%

@@ -1,4 +1,3 @@
-import math
 from pathlib import Path
 import pandas as pd
 from collections import Counter
@@ -28,7 +27,7 @@ def main():
     # parameter_precision()
 
     # collate errors for each dataset based on RAG
-    collect_rag_error_rates()
+    # collect_rag_error_rates()
     explain_discrepancies()
 
     # identify occurence of errors and the extent to which models and ground truths agree
@@ -318,8 +317,8 @@ def explain_discrepancies():
     # get context for each error
     context = context.reset_index(names="sample index")
     # update the dataset name for the context to support the merge
-    context["dataset"] = context['title'].apply(lambda x: "systemBoundary" if x == "System Boundary Completeness" else "product" if x == "Object of Assessment"
-                                                else "functionalUnit" if x=="Functional Unit" else "allocation")
+    context["dataset"] = context['title'].apply(lambda x: "System Boundary" if x == "System Boundary Completeness" else "Product" if x == "Object of Assessment"
+                                                else "Functional Unit" if x=="Functional Unit" else "Allocation")
 
     df["dataset_category"] = df["dataset_type"] + "_" + df["RAG"]
 
