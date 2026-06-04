@@ -39,7 +39,7 @@ def main():
 
 def get_label_precision(file_path):
     rag = "no rag" if "no" in str(file_path).split("_") else "rag"
-    dataset_type = "original" if "original" in str(file_path).split("_") else "recalculated"
+    dataset_type = "original" if "original" in str(file_path).split("_") else "standardized"
     language_model = "/".join(str(file_path).split("\\")[4:6])
     dataset_name = str(file_path).split("\\")[3].split("_")[-1]
     results_df = pd.DataFrame(index=[0])
@@ -80,7 +80,7 @@ def prediction_threshold():
     # Use rglob to recursively find all files matching the pattern
     for file_path in root_directory.rglob('validation_predictions.csv'):
         rag = "no rag" if "no" in str(file_path).split("_") else "rag"
-        dataset_type = "original" if "original" in str(file_path).split("_") else "recalculated"
+        dataset_type = "original" if "original" in str(file_path).split("_") else "standardized"
         language_model = "/".join(str(file_path).split("\\")[4:6])
         dataset_name = str(file_path).split("\\")[3].split("_")[-1]
         if dataset_name not in ["Allocation", "Functional Unit", "Product", "System Boundary"]:
@@ -165,7 +165,14 @@ def prediction_threshold():
         plt.xlabel('Threshold')
         plt.ylabel('Macro-weighted Precision')
         plt.title(f'{j}')
-        plt.legend(fontsize=8)
+        plt.legend()
+
+        # sort legends and handles
+        handles, labels = plt.gca().get_legend_handles_labels()
+        sorted_by_label = sorted(zip(handles, labels), key=lambda x: x[1])
+        sorted_handles, sorted_labels = zip(*sorted_by_label)
+        plt.legend(sorted_handles, sorted_labels,fontsize=8)
+
         plt.grid(True)
         plt.savefig(f"./data/dataset/results/threshold_sensitivity_{j.split('/')[1]}.png", dpi=300)
         plt.show()
@@ -188,8 +195,8 @@ def plot_error_codes():
     df = pd.read_excel("./data/dataset/results/all_models_discrepancies_coded.xlsx")
     df["Discrepancy Code"] = df['Discrepancy Code'].astype('category')
     df["Dataset"] = df["Dataset"].apply(lambda x: "Functional Unit" if x == "functionalUnit" else "System Boundary" if x == "systemBoundary"
-                                        else "Product" if x== "product" else "Allocation")
-    df["Dataset Type"] = df["Dataset Type"].apply(lambda x: "Standardized" if x == "recalculated" else "Original")
+                                        else "Product" if x == "product" else "Allocation")
+    df["Dataset Type"] = df["Dataset Type"].apply(lambda x: "Standardized" if x == "standardized" else "Original")
     df["RAG"] = df["RAG"].apply(lambda x: "RAG" if x == "rag" else "No RAG")
     group_cols = ["Dataset", "Dataset Type", "RAG"]
     df_counts = df.groupby(group_cols + ["Discrepancy Code"])['Number of Models with Error'].sum().reset_index()
@@ -299,7 +306,7 @@ def explain_discrepancies():
     """
     df = pd.read_csv("./data/dataset/results/master_list_discrepancies.csv")
     counts = train_label_frequency()
-    original_test, rag_original_test, rag_recalculated_test, recalculated_test, context = get_test_samples()
+    original_test, rag_original_test, rag_standardized_test, standardized_test, context = get_test_samples()
 
     # get context for each error
     context = context.reset_index(names="sample index")
@@ -377,15 +384,15 @@ def train_label_frequency():
                  "data/dataset/original/no_rag/allocationQA.jsonl",
                  "data/dataset/original/no_rag/functionalUnitQA.jsonl",
                  "data/dataset/original/no_rag/productQA.jsonl",
-                 "data/dataset/recalculated/no_rag/functionalUnitQA.jsonl",
-                 "data/dataset/recalculated/no_rag/productQA.jsonl",
-                 "data/dataset/recalculated/no_rag/systemBoundaryQA.jsonl",
+                 "data/dataset/standardized/no_rag/functionalUnitQA.jsonl",
+                 "data/dataset/standardized/no_rag/productQA.jsonl",
+                 "data/dataset/standardized/no_rag/systemBoundaryQA.jsonl",
                  ]  # rag and no_rag datasets will be the same
     df_list = []
     for k in filenames:
         # load the dataset
         dataset_rag = "" if "no_rag" in str(k).split("/") else "_rag"
-        dataset_dataset_type = "original" if "original" in str(k).split("/") else "recalculated"
+        dataset_dataset_type = "original" if "original" in str(k).split("/") else "standardized"
         dataset_dataset_category = dataset_dataset_type + dataset_rag
         dataset_name = k.split("/")[-1].split(".")[0]
         dataset = load_dataset('json', data_files=k)  # shuffle dataset before splitting
@@ -419,11 +426,11 @@ def inter_reviewer_alignment():
     """
     # get all errors
     original = pd.read_csv("./data/dataset/results/all_errors_original.csv")
-    recalculated= pd.read_csv("./data/dataset/results/all_errors_recalculated.csv")
+    standardized= pd.read_csv("./data/dataset/results/all_errors_standardized.csv")
 
     # Identify the percentage of samples of LCA that have 0, 1, 2+ errors
     error_analysis = pd.DataFrame()
-    for df in [original, recalculated]:
+    for df in [original, standardized]:
         for rag in df["RAG"].unique():
             rag_df = df[df["RAG"] == rag]
             for model in rag_df["model"].unique():
@@ -465,7 +472,7 @@ def collect_rag_error_rates():
 
     # two dataframes for two different dataset types
     original = pd.DataFrame()
-    recalculated = pd.DataFrame()
+    standardized = pd.DataFrame()
 
     # Use rglob to recursively find all files matching the pattern
     for file_path in root_directory.rglob('predictions.csv'):
@@ -478,7 +485,7 @@ def collect_rag_error_rates():
         # add appropriate info to the dataframe
         df = df[["context", "true_labels", "preds_70", "classes", "sample index"]]
         rag = "no rag" if "no" in str(file_path).split("_") else "rag"
-        dataset_type = "original" if "original" in str(file_path).split("_") else "recalculated"
+        dataset_type = "original" if "original" in str(file_path).split("_") else "standardized"
         language_model = "/".join(str(file_path).split("\\")[4:6])
         dataset_name = str(file_path).split("\\")[3].split("_")[-1]
         # update df with parameters
@@ -491,14 +498,14 @@ def collect_rag_error_rates():
         if len(df) > 0:
             if df["dataset_type"].unique()[0] == "original":
                 original = pd.concat([original, df])
-            elif df["dataset_type"].unique()[0] == "recalculated":
-                recalculated = pd.concat([recalculated, df])
+            elif df["dataset_type"].unique()[0] == "standardized":
+                standardized = pd.concat([standardized, df])
 
     # save data
     original.to_csv("./data/dataset/results/all_errors_original.csv")
-    recalculated.to_csv("./data/dataset/results/all_errors_recalculated.csv")
+    standardized.to_csv("./data/dataset/results/all_errors_standardized.csv")
 
-    master_discrepancies = pd.concat([original, recalculated])
+    master_discrepancies = pd.concat([original, standardized])
 
     # get master table of unique errors as well as count of how many times they occured
     master_discrepancies = master_discrepancies.groupby(['true_labels', 'preds_70', "classes", "sample index", "dataset", "dataset_type", "RAG"]).size().reset_index(name='Number of Models with Error')
@@ -506,7 +513,7 @@ def collect_rag_error_rates():
 
     # Identify incidence of all/persistent errors in RAG
     error_analysis = {}
-    for df in [original, recalculated]:
+    for df in [original, standardized]:
         for dataset in df["dataset"].unique():
             data = df[df["dataset"] == dataset]
             # find the percentage of rows that are in only rag, only no rag, or both
@@ -589,9 +596,9 @@ def label_precision():
 
     # four dataframes for four different dataset types
     rag_original = pd.DataFrame()
-    rag_recalculated = pd.DataFrame()
+    rag_standardized = pd.DataFrame()
     original = pd.DataFrame()
-    recalculated = pd.DataFrame()
+    standardized = pd.DataFrame()
 
     # Use rglob to recursively find all files matching the pattern
     for file_path in root_directory.rglob('predictions.csv'):
@@ -603,21 +610,21 @@ def label_precision():
         # assign data to appropriate dataframe
         if df["dataset_type"].unique()[0] == "original":
             original = pd.concat([original, df])
-        elif df["dataset_type"].unique()[0] == "recalculated":
-            recalculated = pd.concat([recalculated, df])
+        elif df["dataset_type"].unique()[0] == "standardized":
+            standardized = pd.concat([standardized, df])
 
-    original_test, rag_original_test, rag_recalculated_test, recalculated_test, test = get_test_samples()
+    original_test, rag_original_test, rag_standardized_test, standardized_test, test = get_test_samples()
     original_test["RAG"] = "no rag"
-    recalculated_test["RAG"] = "no rag"
+    standardized_test["RAG"] = "no rag"
     rag_original_test["RAG"] = "rag"
-    rag_recalculated_test["RAG"] = "rag"
+    rag_standardized_test["RAG"] = "rag"
     original_test = pd.concat([original_test, rag_original_test])
-    recalculated_test = pd.concat([rag_recalculated_test, rag_original_test])
+    standardized_test = pd.concat([rag_standardized_test, rag_original_test])
 
     # merge datatables
     original = pd.merge(original, original_test, "left", ["dataset", "label", "RAG"])
-    recalculated = pd.merge(recalculated, recalculated_test, "left", ["dataset", "label", "RAG"])
-    df = pd.concat([original, recalculated])
+    standardized = pd.merge(standardized, standardized_test, "left", ["dataset", "label", "RAG"])
+    df = pd.concat([original, standardized])
     df["dataset"] = df["dataset"].apply(
         lambda x: "Functional Unit" if x == "functionalUnit" else "System Boundary" if x == "systemBoundary"
         else "Product" if x == "product" else "Allocation")
@@ -646,9 +653,9 @@ def label_precision():
 
     # save data
     original.to_csv("./data/dataset/results/labels_original.csv")
-    recalculated.to_csv("./data/dataset/results/labels_recalculated.csv")
+    standardized.to_csv("./data/dataset/results/labels_standardized.csv")
     rag_original.to_csv("./data/dataset/results/labels_rag_original.csv")
-    rag_recalculated.to_csv("./data/dataset/results/labels_rag_recalculated.csv")
+    rag_standardized.to_csv("./data/dataset/results/labels_rag_standardized.csv")
 
 
 def get_test_samples():
@@ -657,27 +664,27 @@ def get_test_samples():
                  "data/dataset/original/no_rag/allocationQA.jsonl",
                  "data/dataset/original/no_rag/functionalUnitQA.jsonl",
                  "data/dataset/original/no_rag/productQA.jsonl",
-                 "data/dataset/recalculated/no_rag/functionalUnitQA.jsonl",
-                 "data/dataset/recalculated/no_rag/productQA.jsonl",
-                 "data/dataset/recalculated/no_rag/systemBoundaryQA.jsonl",
+                 "data/dataset/standardized/no_rag/functionalUnitQA.jsonl",
+                 "data/dataset/standardized/no_rag/productQA.jsonl",
+                 "data/dataset/standardized/no_rag/systemBoundaryQA.jsonl",
                  "data/dataset/original/rag/rag_allocationQA.jsonl",
                  "data/dataset/original/rag/rag_functionalUnitQA.jsonl",
                  "data/dataset/original/rag/rag_productQA.jsonl",
                  "data/dataset/original/rag/rag_systemBoundaryQA.jsonl",
-                 "data/dataset/recalculated/rag/rag_functionalUnitQA.jsonl",
-                 "data/dataset/recalculated/rag/rag_productQA.jsonl",
-                 "data/dataset/recalculated/rag/rag_systemBoundaryQA.jsonl",
+                 "data/dataset/standardized/rag/rag_functionalUnitQA.jsonl",
+                 "data/dataset/standardized/rag/rag_productQA.jsonl",
+                 "data/dataset/standardized/rag/rag_systemBoundaryQA.jsonl",
                  ]
     # for each dataset
     rag_original_test = pd.DataFrame()
-    rag_recalculated_test = pd.DataFrame()
+    rag_standardized_test = pd.DataFrame()
     original_test = pd.DataFrame()
-    recalculated_test = pd.DataFrame()
+    standardized_test = pd.DataFrame()
     test_samples = pd.DataFrame()
     for k in filenames:
         # load the dataset
         dataset_rag = "" if "no_rag" in str(k).split("/") else "_rag"
-        dataset_dataset_type = "original" if "original" in str(k).split("/") else "recalculated"
+        dataset_dataset_type = "original" if "original" in str(k).split("/") else "standardized"
         dataset_dataset_category = dataset_dataset_type + dataset_rag
         dataset_name = k.split("/")[-1].split(".")[0].replace("QA", "")
         dataset = load_dataset('json', data_files=k)  # shuffle dataset before splitting
@@ -703,14 +710,14 @@ def get_test_samples():
         # save the label information to the appropriate place
         if dataset_dataset_category == "original":
             original_test = pd.concat([original_test, counts])
-        elif dataset_dataset_category == "recalculated":
-            recalculated_test = pd.concat([recalculated_test, counts])
+        elif dataset_dataset_category == "standardized":
+            standardized_test = pd.concat([standardized_test, counts])
         elif dataset_dataset_category == "original_rag":
             rag_original_test = pd.concat([rag_original_test, counts])
-        elif dataset_dataset_category == "recalculated_rag":
-            rag_recalculated_test = pd.concat([rag_recalculated_test, counts])
+        elif dataset_dataset_category == "standardized_rag":
+            rag_standardized_test = pd.concat([rag_standardized_test, counts])
         test_samples = pd.concat([test_samples, test])
-    return original_test, rag_original_test, rag_recalculated_test, recalculated_test, test_samples
+    return original_test, rag_original_test, rag_standardized_test, standardized_test, test_samples
 
 
 def map_color(df, col):
@@ -735,14 +742,14 @@ def map_tables():
 
     # four dataframes for four different dataset types
     rag_original = pd.DataFrame()
-    rag_recalculated = pd.DataFrame()
+    rag_standardized = pd.DataFrame()
     original = pd.DataFrame()
-    recalculated = pd.DataFrame()
+    standardized = pd.DataFrame()
 
     # Use rglob to recursively find all files matching the pattern
     for file_path in root_directory.rglob('test_metrics.csv'):
         rag = "" if "no" in str(file_path).split("_") else "_rag"
-        dataset_type = "original" if "original" in str(file_path).split("_") else "recalculated"
+        dataset_type = "original" if "original" in str(file_path).split("_") else "standardized"
         dataset_category = dataset_type + rag
 
         # read in data and extract mean average precision, dataset name, and model name
@@ -758,33 +765,33 @@ def map_tables():
         # assign data to appropriate dataframe
         if dataset_category == "original":
             original = pd.concat([original, data])
-        elif dataset_category == "recalculated":
-            recalculated = pd.concat([recalculated, data])
+        elif dataset_category == "standardized":
+            standardized = pd.concat([standardized, data])
         elif dataset_category == "original_rag":
             rag_original = pd.concat([rag_original, data])
-        elif dataset_category == "recalculated_rag":
-            rag_recalculated = pd.concat([rag_recalculated, data])
+        elif dataset_category == "standardized_rag":
+            rag_standardized = pd.concat([rag_standardized, data])
 
     # pivot dataframes to be wide
     original = original.reset_index(drop=True)
     original.columns = ['model', 'mAP', 'dataset']
-    recalculated = recalculated.reset_index(drop=True)
-    recalculated.columns = ['model', 'mAP', 'dataset']
+    standardized = standardized.reset_index(drop=True)
+    standardized.columns = ['model', 'mAP', 'dataset']
     rag_original = rag_original.reset_index(drop=True)
     rag_original.columns = ['model', 'mAP', 'dataset']
-    rag_recalculated = rag_recalculated.reset_index(drop=True)
-    rag_recalculated.columns = ['model', 'mAP', 'dataset']
+    rag_standardized = rag_standardized.reset_index(drop=True)
+    rag_standardized.columns = ['model', 'mAP', 'dataset']
 
     original = original.pivot(index='dataset', columns='model', values='mAP')
-    recalculated = recalculated.pivot(index='dataset', columns='model', values='mAP')
+    standardized = standardized.pivot(index='dataset', columns='model', values='mAP')
     rag_original = rag_original.pivot(index='dataset', columns='model', values='mAP')
-    rag_recalculated = rag_recalculated.pivot(index='dataset', columns='model', values='mAP')
+    rag_standardized = rag_standardized.pivot(index='dataset', columns='model', values='mAP')
 
     # print out dataframes
     original.to_csv("./data/dataset/results/mAP_original.csv")
-    recalculated.to_csv("./data/dataset/results/mAP_recalculated.csv")
+    standardized.to_csv("./data/dataset/results/mAP_standardized.csv")
     rag_original.to_csv("./data/dataset/results/mAP_rag_original.csv")
-    rag_recalculated.to_csv("./data/dataset/results/mAP_rag_recalculated.csv")
+    rag_standardized.to_csv("./data/dataset/results/mAP_rag_standardized.csv")
 
 
 if __name__ == "__main__":
