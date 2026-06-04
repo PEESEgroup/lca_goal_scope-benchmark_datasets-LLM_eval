@@ -200,8 +200,6 @@ def plot_error_codes():
     """
     df = pd.read_excel("./data/dataset/results/all_models_discrepancies_coded.xlsx")
     df["Discrepancy Code"] = df['Discrepancy Code'].astype('category')
-    df["Dataset"] = df["Dataset"].apply(lambda x: "Functional Unit" if x == "functionalUnit" else "System Boundary" if x == "systemBoundary"
-                                        else "Product" if x == "product" else "Allocation")
     df["Dataset Type"] = df["Dataset Type"].apply(lambda x: "Standardized" if x == "standardized" else "Original")
     df["RAG"] = df["RAG"].apply(lambda x: "RAG" if x == "rag" else "No RAG")
     group_cols = ["Dataset", "Dataset Type", "RAG"]
@@ -445,9 +443,9 @@ def inter_reviewer_alignment():
 
                 # calculate the total number of available samples based on the number of models
                 if dataset_type == "original":
-                    total_samples = 104
+                    total_samples = 86
                 else:
-                    total_samples = 99
+                    total_samples = 83
 
                 # group by unique sample identifiers of the sample, the model, and whether or not it is rag
                 error_counts = model_df.groupby(['sample index', 'model'])['dataset'].nunique()
