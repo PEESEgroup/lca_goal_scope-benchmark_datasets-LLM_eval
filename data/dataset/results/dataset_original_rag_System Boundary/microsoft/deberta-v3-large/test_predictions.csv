@@ -1,0 +1,1643 @@
+context,test_logits,true_labels,classes
+"Agri-food processor producing meat, pig (cold dressed carcass weight) in netherlands. cycle description: production of pork meat from pigs. What is in the system boundary? Additional Relevant Context: animalFeed: True
+animalPopulation: True
+cropResidue: False
+electricityFuel: True
+excreta: True
+fertiliser: False
+freshForage: False
+ingredient: False
+liveAnimalInput: True
+material: True
+operation: False
+otherChemical: True
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: False
+waste: True
+water: True
+product: True","[4.13334321975708, 1.9998589754104614, 3.533843994140625, 0.03626919537782669, 0.46378055214881897, 3.3315658569335938, 4.321894645690918, 1.8852624893188477, 2.5995543003082275, 4.421056270599365, 2.4373819828033447, 2.0672738552093506, -1.84990394115448, 4.388207912445068, -1.260391116142273, 3.909008502960205, -0.7769913077354431, 3.3672173023223877, 4.9226226806640625]","[1, 0, 1, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Animal housing producing pig, piglet in germany. cycle description: sow and piglet. What is in the system boundary? Additional Relevant Context: 
+animalFeed: False
+animalPopulation: True
+cropResidue: False
+electricityFuel: True
+excreta: True
+fertiliser: False
+freshForage: False
+ingredient: False
+liveAnimalInput: True
+material: False
+operation: True
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: False
+waste: True
+water: True
+product: True","[3.504979372024536, -1.9386006593704224, 4.521180152893066, -1.8867436647415161, -2.218921661376953, -1.952283501625061, 4.94856071472168, 4.731395244598389, 4.990946292877197, 4.720982551574707, -1.6735697984695435, 5.145636558532715, -0.9651961326599121, 5.36259651184082, -2.7369961738586426, 4.8079705238342285, -2.8615126609802246, 6.056128978729248, 4.672351837158203]","[1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Animal housing producing beef cattle, heifer and steer in spain. cycle description: average production data across 4 farms with fattening facilities and 2 specialist fattening farms. What is in the system boundary? Additional Relevant Context: 
+animalFeed: True
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: False
+soilAmendment: True
+transport: True
+waste: True
+water: True
+product: True","[2.2023940086364746, 2.7784311771392822, 1.0456855297088623, 1.220189094543457, -0.8604554533958435, 0.08690143376588821, 2.719710350036621, 2.9507436752319336, 2.3396058082580566, 2.0565285682678223, 1.1987844705581665, 3.202746629714966, 0.7898516058921814, 1.5347552299499512, -1.9685293436050415, 1.782143235206604, -1.4681063890457153, 4.1984992027282715, 3.8368163108825684]","[1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing sheep, lamb (weaned) in united kingdom. cycle description: green-2017. site description: green farming system. What is in the system boundary? Additional Relevant Context: 
+animalFeed: False
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: False
+soilAmendment: True
+transport: True
+waste: True
+water: True
+product: True","[5.275030612945557, -1.7406424283981323, 5.182965278625488, 5.049710750579834, -1.7876524925231934, 4.673820495605469, 5.1505255699157715, 5.374101638793945, 5.238826274871826, -2.0587878227233887, -1.9720935821533203, 5.658533573150635, -2.07039737701416, 5.134790420532227, 4.989774227142334, 5.29101037979126, -2.379041910171509, 5.519455909729004, -1.9965598583221436]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing beef cattle, steer in united kingdom. cycle description: red-2014. site description: red farming system. What is in the system boundary? Additional Relevant Context: animalFeed: False
+animalPopulation: True
+cropResidue: False
+electricityFuel: False
+excreta: False
+fertiliser: False
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: False
+operation: False
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: False
+waste: False
+water: False
+product: True","[5.31544828414917, -1.8392335176467896, 5.195766448974609, 4.988853931427002, -1.8065669536590576, 4.717058181762695, 5.133256912231445, 5.30174446105957, 5.2856316566467285, -2.068835973739624, -1.969733476638794, 5.676497936248779, -2.09065580368042, 5.104289531707764, 4.9838457107543945, 5.265556812286377, -2.393981695175171, 5.501609802246094, -2.0071067810058594]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Animal housing producing pig, piglet in denmark. cycle description: sow denmark conventional. What is in the system boundary? Additional Relevant Context: 
+animalFeed: False
+animalPopulation: True
+cropResidue: False
+electricityFuel: True
+excreta: True
+fertiliser: False
+freshForage: False
+ingredient: False
+liveAnimalInput: True
+material: False
+operation: False
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: True
+waste: True
+water: True
+product: True","[3.65248441696167, -1.6598261594772339, 3.7171669006347656, -1.3944323062896729, -2.166059732437134, -1.4268009662628174, 4.331562042236328, -1.8112794160842896, 4.328254699707031, 4.584907054901123, -1.7065825462341309, 4.646597385406494, -0.8821126222610474, 4.241004943847656, -2.1099069118499756, 4.4382829666137695, -1.7604546546936035, 4.239776134490967, 4.783301830291748]","[1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing beef cattle, heifer in brazil. cycle description: t3. site description: field trial. What is in the system boundary? Additional Relevant Context: animalFeed: False
+animalPopulation: True
+cropResidue: False
+electricityFuel: False
+excreta: False
+fertiliser: False
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: False
+operation: False
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: False
+waste: False
+water: False
+product: True","[4.0156683921813965, -1.0766412019729614, -1.7045642137527466, 3.5591416358947754, -2.2813398838043213, -2.1163747310638428, 3.8817121982574463, 3.8942456245422363, 3.475790023803711, 3.5116841793060303, 3.843515634536743, 4.047135829925537, -1.2384486198425293, 3.956625461578369, -1.9993834495544434, 4.203520774841309, -1.578705072402954, 5.025078773498535, 3.6833527088165283]","[1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing beef cattle, calf (male, weaned) in united kingdom. cycle description: red-2015. site description: red farming system. What is in the system boundary? Additional Relevant Context: animalFeed: False
+animalPopulation: True
+cropResidue: False
+electricityFuel: False
+excreta: False
+fertiliser: False
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: False
+operation: False
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: False
+waste: False
+water: False
+product: True","[5.285443305969238, -1.764053225517273, 5.154744625091553, 5.060301303863525, -1.8015110492706299, 4.672564506530762, 5.145298480987549, 5.330145835876465, 5.268866062164307, -2.092987537384033, -1.9382193088531494, 5.648634433746338, -2.0646228790283203, 5.083390235900879, 4.989813327789307, 5.273036956787109, -2.3847458362579346, 5.501398086547852, -2.0209617614746094]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Animal housing producing dairy cattle, calf (weaned) in france. cycle description: grass and high proportion maize silage in forage area, with cattle fed an omega-3 supplement, holstein breed. annual milk production cycle, including all grazing and animal housing components. What is in the system boundary? Additional Relevant Context: animalFeed: True
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: True
+soilAmendment: True
+transport: True
+waste: True
+water: True
+product: True","[4.183243751525879, -1.2863333225250244, 4.393341064453125, 3.848796844482422, -1.4758057594299316, 3.6545004844665527, 5.004500389099121, 4.88033390045166, 5.143152713775635, 4.085776329040527, -1.40536367893219, 5.0013227462768555, 3.7797787189483643, 5.774359703063965, -1.6003071069717407, 4.668285846710205, -2.278719186782837, 5.410491943359375, 4.193376064300537]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing beef cattle, heifer in united kingdom. cycle description: red-2018. site description: red farming system. What is in the system boundary? Additional Relevant Context: animalFeed: False
+animalPopulation: True
+cropResidue: False
+electricityFuel: False
+excreta: False
+fertiliser: False
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: False
+operation: False
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: False
+waste: False
+water: False
+product: True","[5.324423313140869, -1.8362923860549927, 5.184843063354492, 4.9994893074035645, -1.8107503652572632, 4.729240417480469, 5.141666889190674, 5.307373046875, 5.263227939605713, -2.0517563819885254, -1.9793639183044434, 5.6782546043396, -2.0988736152648926, 5.119336128234863, 4.987170219421387, 5.261340618133545, -2.4041953086853027, 5.496938228607178, -2.0015718936920166]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing sheep, lamb in united kingdom. cycle description: blue-2021. site description: blue farming system. What is in the system boundary? Additional Relevant Context: animalFeed: False
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: False
+soilAmendment: True
+transport: True
+waste: True
+water: True
+product: True","[5.300216197967529, -1.8722865581512451, 5.168666839599609, 4.982114791870117, -1.801379680633545, 4.714494228363037, 5.110921859741211, 5.283070087432861, 5.24144172668457, -2.093846321105957, -2.0211403369903564, 5.659871578216553, -2.1337897777557373, 5.095346450805664, 4.990814685821533, 5.247739315032959, -2.372434377670288, 5.47617244720459, -1.991411805152893]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Agri-food processor producing meat, chicken, leg in netherlands. cycle description: slaughter - conventional. What is in the system boundary? Additional Relevant Context: 
+animalFeed: False
+animalPopulation: False
+cropResidue: False
+electricityFuel: False
+excreta: False
+fertiliser: False
+freshForage: False
+ingredient: False
+liveAnimalInput: False
+material: False
+operation: False
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: False
+waste: False
+water: False
+product: True","[5.169479846954346, -0.8409634232521057, 4.889698505401611, -0.792264997959137, -0.829561173915863, 3.5942044258117676, 5.40876579284668, 3.805668830871582, 4.754906177520752, 4.218844890594482, 4.0401225090026855, 4.706700801849365, -1.3059653043746948, 5.626449108123779, -1.35201895236969, 5.391491889953613, -1.5944169759750366, 5.562230110168457, 3.9186620712280273]","[1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing beef cattle, calf (male, weaned) in united kingdom. cycle description: green-2019. site description: green farming system. What is in the system boundary? Additional Relevant Context: animalFeed: False
+animalPopulation: True
+cropResidue: False
+electricityFuel: False
+excreta: False
+fertiliser: False
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: False
+operation: False
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: False
+waste: False
+water: False
+product: True","[5.272017002105713, -1.7147313356399536, 5.139464855194092, 5.074341297149658, -1.7825720310211182, 4.686173439025879, 5.152507781982422, 5.358646869659424, 5.254055023193359, -2.0873851776123047, -1.9541015625, 5.642107009887695, -2.0439186096191406, 5.0871381759643555, 5.009612560272217, 5.261958599090576, -2.383836269378662, 5.511821746826172, -2.0311946868896484]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Animal housing producing eggs, hen, in shell (number) in thailand. cycle description: cb8-parent farm 5. site description: 12 big corporations that account for more than 90% of the country’s total capacity. What is in the system boundary? Additional Relevant Context: 
+animalFeed: False
+animalPopulation: True
+cropResidue: False
+electricityFuel: True
+excreta: False
+fertiliser: False
+freshForage: False
+ingredient: False
+liveAnimalInput: True
+material: False
+operation: False
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: False
+waste: False
+water: True
+product: True","[4.0346856117248535, 3.5726451873779297, 3.00134539604187, 4.187283515930176, -1.889262318611145, -2.101257562637329, 4.479555130004883, 3.8950719833374023, 4.510639667510986, 4.607814788818359, 3.96415376663208, 3.645004987716675, 2.985832452774048, 5.286293029785156, -2.371816635131836, 4.629610538482666, -1.4447028636932373, 5.433115005493164, 4.3100972175598145]","[1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Animal housing producing pig in netherlands. cycle description: fattening netherlands organic. What is in the system boundary? Additional Relevant Context: 
+animalFeed: True
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: True
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: True
+soilAmendment: True
+transport: True
+waste: True
+water: True
+product: True","[4.674798011779785, -1.6067110300064087, 4.094699859619141, -1.2596042156219482, -2.295886754989624, -1.182516098022461, 4.731847763061523, -1.718970537185669, 4.388851642608643, 4.769974231719971, -1.2555795907974243, 4.7209882736206055, -1.3648909330368042, 4.162500381469727, -2.319300413131714, 4.718463897705078, -1.5994092226028442, 4.574338436126709, 4.536935806274414]","[1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing beef cattle, heifer in brazil. cycle description: t1. site description: field trial. What is in the system boundary? Additional Relevant Context: animalFeed: False
+animalPopulation: True
+cropResidue: False
+electricityFuel: False
+excreta: False
+fertiliser: False
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: False
+operation: False
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: False
+waste: False
+water: False
+product: True","[4.1230549812316895, -1.1017367839813232, -1.5179836750030518, 3.5026040077209473, -2.2724814414978027, -2.040325880050659, 3.8650624752044678, 3.9766428470611572, 3.648923635482788, 3.4597115516662598, 4.016720294952393, 4.065767765045166, -1.2284431457519531, 3.997728109359741, -1.870452642440796, 4.182725429534912, -1.631888747215271, 5.099109172821045, 3.5217297077178955]","[1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing sheep, lamb in united kingdom. cycle description: red-2014. site description: red farming system. What is in the system boundary? Additional Relevant Context: animalFeed: False
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: False
+soilAmendment: True
+transport: True
+waste: True
+water: True
+product: True","[5.3090362548828125, -1.8872525691986084, 5.206667900085449, 4.96028470993042, -1.8094922304153442, 4.710350513458252, 5.126140594482422, 5.284497261047363, 5.26692533493042, -2.0743753910064697, -1.9826483726501465, 5.665688991546631, -2.1257617473602295, 5.112720489501953, 4.969631671905518, 5.275931358337402, -2.3867993354797363, 5.493031024932861, -1.9783560037612915]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Milk, cow, raw (fpcm) produced in france. cycle description: grass and low proportion maize silage in forage area, holstein breed. annual milk production cycle, including all grazing and animal housing components. What is in the system boundary? Additional Relevant Context: animalFeed: True
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: True
+soilAmendment: True
+transport: True
+waste: True
+water: True
+product: True","[4.284045696258545, -1.598597526550293, 4.373804569244385, 3.7148280143737793, -1.4885700941085815, 3.51004958152771, 4.9263482093811035, 4.865922451019287, 5.095203876495361, 3.8368442058563232, -1.7723653316497803, 4.789212226867676, 3.7029008865356445, 5.473590850830078, -1.5874927043914795, 4.512619495391846, -2.456655263900757, 5.450085639953613, 3.8391270637512207]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Animal housing producing pig in denmark. cycle description: fattening herds-2011. site description: they do not provide much information on site. What is in the system boundary? Additional Relevant Context: animalFeed: True
+animalPopulation: True
+cropResidue: False
+electricityFuel: True
+excreta: True
+fertiliser: False
+freshForage: False
+ingredient: True
+liveAnimalInput: True
+material: False
+operation: True
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: False
+waste: True
+water: True
+product: True","[4.453890323638916, -1.8399850130081177, 4.894013404846191, -1.3394089937210083, -2.5690343379974365, -1.7349114418029785, 5.164338111877441, 4.357911586761475, 4.932027339935303, 5.119115829467773, -1.1806155443191528, 5.199769496917725, -1.8026190996170044, 5.590924263000488, -2.7319319248199463, 5.445279121398926, -2.490846872329712, 5.9615983963012695, 4.898359298706055]","[1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Agri-food processor producing meat, pig (cold dressed carcass weight) in denmark. cycle description: slaughter-2014. site description: slaughterhouse. What is in the system boundary? Additional Relevant Context: animalFeed: True
+animalPopulation: True
+cropResidue: False
+electricityFuel: True
+excreta: True
+fertiliser: False
+freshForage: False
+ingredient: False
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: False
+soilAmendment: False
+transport: False
+waste: True
+water: True
+product: True","[4.188609600067139, -1.8894540071487427, 5.13936710357666, -1.2446154356002808, -1.6287704706192017, 3.9289560317993164, 5.563650608062744, 5.301905155181885, 4.6820807456970215, 4.07098913192749, -2.0846140384674072, 5.551301002502441, -1.2431048154830933, 5.633007049560547, -1.1644783020019531, 5.3772873878479, -2.6243646144866943, 5.427536487579346, 4.421732425689697]","[1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing beef cattle, heifer in brazil. cycle description: beef, fertilized guinea grass (panicum maximum cv. tanzânia) pasture (scenario 4). site description: cerrado (goiás, mato grosso do sul, mato grosso, tocantins and minas gerais states). What is in the system boundary? Additional Relevant Context: animalFeed: False
+animalPopulation: True
+cropResidue: False
+electricityFuel: False
+excreta: False
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: False
+operation: False
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: False
+waste: False
+water: False
+product: True","[3.315563440322876, 2.102437734603882, -0.29545679688453674, 3.5243639945983887, -1.7297258377075195, -3.0243890285491943, 2.894306182861328, 3.180082082748413, 3.371981143951416, -1.4476464986801147, 4.071115016937256, 2.991880416870117, -0.8648720383644104, 3.195706367492676, -0.3332224190235138, 3.859292984008789, -0.9589357376098633, 4.323066234588623, -1.191749930381775]","[1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing sheep, lamb in united kingdom. cycle description: blue-2018. site description: blue farming system. What is in the system boundary? Additional Relevant Context: animalFeed: False
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: False
+soilAmendment: True
+transport: True
+waste: True
+water: True
+product: True","[5.299234867095947, -1.8476793766021729, 5.178433418273926, 4.986924648284912, -1.7981833219528198, 4.717494010925293, 5.109549045562744, 5.307811260223389, 5.23341178894043, -2.0883939266204834, -2.0077879428863525, 5.668631553649902, -2.1324565410614014, 5.111473560333252, 4.995994567871094, 5.252464771270752, -2.371724843978882, 5.48015832901001, -1.977091908454895]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Animal housing producing layer chicken, pullet in czech republic. cycle description: chicks are reared until young hens (pullets). What is in the system boundary? Additional Relevant Context: animalFeed: False
+animalPopulation: True
+cropResidue: False
+electricityFuel: False
+excreta: False
+fertiliser: False
+freshForage: False
+ingredient: False
+liveAnimalInput: True
+material: False
+operation: False
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: False
+waste: False
+water: False
+product: True","[3.722665309906006, 2.921905517578125, 4.43901252746582, 4.347022533416748, -1.471248745918274, -2.949629068374634, 4.813229084014893, 4.058647632598877, 4.242351531982422, 4.353654384613037, -0.5289723873138428, 0.005178831517696381, -1.5264098644256592, 4.659050464630127, -2.0176515579223633, 4.562751770019531, -1.825181484222412, 4.927255153656006, 4.97778844833374]","[1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Animal housing producing meat, dairy cattle (liveweight) in denmark. cycle description: conventional dairy. What is in the system boundary? Additional Relevant Context: animalFeed: True
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: True
+soilAmendment: True
+transport: True
+waste: True
+water: True
+product: True","[4.480613708496094, -0.8518751859664917, 3.652678966522217, 0.354787141084671, -1.5002166032791138, 1.7077845335006714, 4.961172103881836, 2.302860975265503, 4.49064826965332, 4.439676284790039, -1.502441644668579, 5.051852703094482, 0.2673663794994354, 5.1792707443237305, -2.251070976257324, 4.878955841064453, -1.8292404413223267, 4.731494903564453, 4.846007823944092]","[1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Agri-food processor producing meat, chicken, leg in netherlands. cycle description: slaughter - bls. What is in the system boundary? Additional Relevant Context: 
+animalFeed: False
+animalPopulation: False
+cropResidue: False
+electricityFuel: False
+excreta: False
+fertiliser: False
+freshForage: False
+ingredient: False
+liveAnimalInput: False
+material: False
+operation: False
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: False
+waste: False
+water: False
+product: True","[4.766719818115234, -1.33745276927948, 4.602273941040039, -1.2289252281188965, -1.0422580242156982, 3.1627728939056396, 5.158064842224121, 4.274868011474609, 4.677189826965332, 4.200964450836182, 3.8142881393432617, 4.720107555389404, -1.413908839225769, 5.480511665344238, -1.4093683958053589, 5.226811408996582, -1.630928635597229, 5.557846546173096, 3.759322166442871]","[1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing beef cattle, calf (male, weaned) in united kingdom. cycle description: green-2017. site description: green farming system. What is in the system boundary? Additional Relevant Context: 
+animalFeed: False
+animalPopulation: True
+cropResidue: False
+electricityFuel: False
+excreta: False
+fertiliser: False
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: False
+operation: False
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: False
+waste: False
+water: False
+product: True","[5.257074356079102, -1.7134990692138672, 5.1559858322143555, 5.067979335784912, -1.777400255203247, 4.677201271057129, 5.146591663360596, 5.358007431030273, 5.254549026489258, -2.0956807136535645, -1.9530259370803833, 5.62623405456543, -2.0394551753997803, 5.076837539672852, 5.01794958114624, 5.25771951675415, -2.3828537464141846, 5.505520820617676, -2.0343096256256104]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing beef cattle, steer in united kingdom. cycle description: red-2016. site description: red farming system. What is in the system boundary? Additional Relevant Context: animalFeed: False
+animalPopulation: True
+cropResidue: False
+electricityFuel: False
+excreta: False
+fertiliser: False
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: False
+operation: False
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: False
+waste: False
+water: False
+product: True","[5.3154096603393555, -1.8363945484161377, 5.189935684204102, 4.992424488067627, -1.8101831674575806, 4.723983287811279, 5.1324591636657715, 5.297434329986572, 5.27562141418457, -2.063035726547241, -1.9758155345916748, 5.674417972564697, -2.0902013778686523, 5.105207920074463, 4.991676330566406, 5.260492324829102, -2.39544939994812, 5.5000996589660645, -2.0101068019866943]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing meat, beef cattle (cold dressed carcass weight) in ireland. cycle description: alternative calf-to-beef system with a high grass utlilisation rate, where heifers are finished at 20 months and males are finished as steers at 24 months, with a moderate stocking density of 2.2 lu/ha. What is in the system boundary? Additional Relevant Context: 
+animalFeed: True
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: False
+soilAmendment: True
+transport: True
+waste: True
+water: True
+product: True","[2.482367753982544, -1.2495386600494385, -0.3119334280490875, -1.3751875162124634, -2.049572706222534, -1.7778552770614624, 3.4576973915100098, 4.216103553771973, 3.3538291454315186, 3.755913019180298, -0.5037415623664856, 3.5585103034973145, -0.837887704372406, 3.3551342487335205, -2.3244097232818604, 4.0243964195251465, -1.9964220523834229, 4.6811418533325195, 3.5153136253356934]","[1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing sheep, lamb in ireland. cycle description: production cycle from sheep flock of high genetic merit (ewes in the top 20% of animals for the replacement index bred with rams in the top 20% of both replacement and terminal indices). What is in the system boundary? Additional Relevant Context: 
+animalFeed: False
+animalPopulation: True
+cropResidue: False
+electricityFuel: False
+excreta: False
+fertiliser: False
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: False
+operation: False
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: False
+waste: False
+water: False
+product: True","[2.017080068588257, -0.8148596286773682, -1.1411380767822266, -0.9738547205924988, -1.3181357383728027, -1.6359410285949707, -0.39579132199287415, 2.981027841567993, 2.176964044570923, 2.9796762466430664, -0.6934075355529785, -0.24027425050735474, -0.9846160411834717, -0.4855361878871918, -1.6280717849731445, 2.037766933441162, -1.7004259824752808, 3.2837369441986084, 3.111868143081665]","[1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing sheep, lamb (weaned) in united kingdom. cycle description: red-2012. site description: red farming system. What is in the system boundary? Additional Relevant Context: 
+animalFeed: False
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: False
+soilAmendment: True
+transport: True
+waste: True
+water: True
+product: True","[5.297889709472656, -1.7777247428894043, 5.185136318206787, 5.045597076416016, -1.804305911064148, 4.655346393585205, 5.157882213592529, 5.356746673583984, 5.293679714202881, -2.0666046142578125, -1.9473319053649902, 5.684445858001709, -2.0881145000457764, 5.138277530670166, 4.947411060333252, 5.31371545791626, -2.3923819065093994, 5.522916793823242, -1.9816843271255493]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing sheep, ram in united kingdom. cycle description: blue-2014. site description: blue farming system. What is in the system boundary? Additional Relevant Context: 
+animalFeed: False
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: False
+soilAmendment: True
+transport: True
+waste: True
+water: True
+product: True","[5.2905073165893555, -1.8583248853683472, 5.209310054779053, 4.972705841064453, -1.7980626821517944, 4.704465389251709, 5.109566688537598, 5.3129448890686035, 5.247836589813232, -2.092186212539673, -2.0033397674560547, 5.666964530944824, -2.1280012130737305, 5.110719203948975, 4.992764472961426, 5.263718605041504, -2.373126268386841, 5.4751362800598145, -1.9723403453826904]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing beef cattle, steer in united kingdom. cycle description: green-2015. site description: green farming system. What is in the system boundary? Additional Relevant Context: animalFeed: False, animalPopulation: False, cropResidue: False, electricityFuel: False, excreta: False, fertiliser: False, freshForage: False, ingredient: False, liveAnimalInput: False, material: False, operation: False, otherChemical: False, pesticideVeterinaryDrug: False, seed: False, soilAmendment: False, transport: False, waste: False, water: False, product: True","[5.301843166351318, -1.82900869846344, 5.2198591232299805, 4.977627277374268, -1.835772156715393, 4.688921928405762, 5.133961200714111, 5.302431583404541, 5.270074844360352, -2.0604822635650635, -1.9945791959762573, 5.647427558898926, -2.0994410514831543, 5.1077961921691895, 4.985661506652832, 5.272392272949219, -2.397368907928467, 5.493569850921631, -1.987138271331787]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing meat, beef cattle (liveweight) in ireland. cycle description: average production data from 19 suckler calf-to-beef finishing farms participating in the teagasc/irish farmers journal better farm imrovement programme. What is in the system boundary? Additional Relevant Context: animalFeed: False
+animalPopulation: True
+cropResidue: False
+electricityFuel: False
+excreta: True
+fertiliser: False
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: False
+operation: False
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: False
+waste: True
+water: False
+product: True","[2.6284067630767822, -0.4089876711368561, 0.22837358713150024, -0.3474625051021576, -1.9936013221740723, -2.0141332149505615, 1.5679394006729126, 3.9243004322052, 2.460819959640503, 2.442502498626709, -0.9936581254005432, 3.416900157928467, -1.6774460077285767, 1.2561233043670654, -2.3633220195770264, 1.76954984664917, -1.5369174480438232, 5.131984710693359, 3.019707202911377]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing sheep, lamb in united kingdom. cycle description: green-2013. site description: green farming system. What is in the system boundary? Additional Relevant Context: 
+animalFeed: False
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: False
+soilAmendment: True
+transport: True
+waste: True
+water: True
+product: True","[5.286794185638428, -1.888953447341919, 5.228157997131348, 4.9422430992126465, -1.80380380153656, 4.699718952178955, 5.120827674865723, 5.2953596115112305, 5.249370574951172, -2.076097249984741, -2.0086755752563477, 5.644330978393555, -2.131638288497925, 5.098704814910889, 4.990816116333008, 5.269357204437256, -2.3818066120147705, 5.488336086273193, -1.98934805393219]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Agri-food processor producing meat, chicken, wings in netherlands. cycle description: slaughter - conventional. What is in the system boundary? Additional Relevant Context: 
+animalFeed: False
+animalPopulation: False
+cropResidue: False
+electricityFuel: False
+excreta: False
+fertiliser: False
+freshForage: False
+ingredient: False
+liveAnimalInput: False
+material: False
+operation: False
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: False
+waste: False
+water: False
+product: True","[5.150442600250244, -0.8589960336685181, 4.8941521644592285, -0.6773973107337952, -0.9364469051361084, 3.5381596088409424, 5.464037895202637, 3.9916281700134277, 4.86037540435791, 4.154749393463135, 3.926710844039917, 4.7890305519104, -1.2355927228927612, 5.713130474090576, -1.3542466163635254, 5.445037841796875, -1.671032428741455, 5.62037467956543, 3.949514627456665]","[1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing sheep, ewe in united kingdom. cycle description: red-2014. site description: red farming system. What is in the system boundary? Additional Relevant Context: 
+animalFeed: False
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: False
+soilAmendment: True
+transport: True
+waste: True
+water: True
+product: True","[5.312252521514893, -1.8889100551605225, 5.197721004486084, 4.9710822105407715, -1.8126517534255981, 4.713571548461914, 5.132174015045166, 5.279114723205566, 5.2691850662231445, -2.0773825645446777, -1.9884876012802124, 5.657254695892334, -2.1268889904022217, 5.114877223968506, 4.969686508178711, 5.272518157958984, -2.3924689292907715, 5.481377124786377, -1.969449520111084]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing sheep, ram in united kingdom. cycle description: green-2015. site description: green farming system. What is in the system boundary? Additional Relevant Context: 
+animalFeed: False
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: False
+soilAmendment: True
+transport: True
+waste: True
+water: True
+product: True","[5.2854766845703125, -1.8788995742797852, 5.209702968597412, 4.953949928283691, -1.79898202419281, 4.70283842086792, 5.1222968101501465, 5.3002142906188965, 5.239169597625732, -2.0748448371887207, -2.009908437728882, 5.643310070037842, -2.1325676441192627, 5.109352111816406, 5.007421493530273, 5.263490200042725, -2.377117872238159, 5.483148574829102, -1.9871143102645874]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing beef cattle, cow in spain. cycle description: average annual production data across 9 different conventional dehesa cattle farms. cow-calf operation. What is in the system boundary? Additional Relevant Context: animalFeed: False
+animalPopulation: True
+cropResidue: False
+electricityFuel: False
+excreta: False
+fertiliser: False
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: False
+operation: False
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: True
+waste: False
+water: False
+product: True","[1.193705439567566, 0.9733877778053284, 0.5772829651832581, -0.7752992510795593, -0.29703205823898315, 0.7135011553764343, 0.971152126789093, 1.5533242225646973, 1.2347075939178467, -0.5538116097450256, -0.29090648889541626, 1.9542090892791748, 0.239357590675354, -1.241218090057373, -0.38265833258628845, -0.02346830815076828, -1.3755781650543213, 2.512694835662842, 0.9314130544662476]","[1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Animal housing producing eggs, hen, in shell in canada. cycle description: an enriched cage system provides a larger space allowance per bird than conventional cages, as well as access to different furnishings and enrichments within the cage, including perches, nest boxes, scratch areas, etc. What is in the system boundary? Additional Relevant Context: animalFeed: False, animalPopulation: True, cropResidue: False, electricityFuel: False, excreta: False, fertiliser: False, freshForage: False, ingredient: False, liveAnimalInput: True, material: False, operation: False, otherChemical: False, pesticideVeterinaryDrug: False, seed: False, soilAmendment: False, transport: False, waste: False, water: False, product: True","[4.030935287475586, 4.4405388832092285, 4.855352401733398, 4.671413421630859, -1.5977299213409424, -2.7173373699188232, 4.7856245040893555, 4.550183296203613, 4.249155044555664, 3.674684524536133, 3.517122507095337, 3.7043676376342773, -1.3880689144134521, 5.654304504394531, -1.695710301399231, 4.716441631317139, -1.2562154531478882, 5.6616621017456055, 4.146708011627197]","[1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing sheep, ewe in united kingdom. cycle description: red-2012. site description: red farming system. What is in the system boundary? Additional Relevant Context: 
+animalFeed: False
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: False
+soilAmendment: True
+transport: True
+waste: True
+water: True
+product: True","[5.316006660461426, -1.894476056098938, 5.20131778717041, 4.966418743133545, -1.8155901432037354, 4.6998724937438965, 5.135363578796387, 5.280249118804932, 5.293456554412842, -2.0766100883483887, -1.9847288131713867, 5.665036678314209, -2.1354920864105225, 5.112529277801514, 4.961631774902344, 5.278166770935059, -2.399718761444092, 5.48671293258667, -1.972038745880127]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing beef cattle, steer in united kingdom. cycle description: red-2013. site description: red farming system. What is in the system boundary? Additional Relevant Context: 
+animalFeed: False
+animalPopulation: False
+cropResidue: False
+electricityFuel: False
+excreta: False
+fertiliser: False
+freshForage: False
+ingredient: False
+liveAnimalInput: False
+material: False
+operation: False
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: False
+waste: False
+water: False
+product: True","[5.298560619354248, -1.8788126707077026, 5.19130277633667, 4.963689804077148, -1.8459022045135498, 4.69816255569458, 5.1214919090271, 5.27707052230835, 5.290411472320557, -2.082834482192993, -1.9634844064712524, 5.662614822387695, -2.1215851306915283, 5.093954086303711, 4.96616792678833, 5.281173229217529, -2.391876220703125, 5.485494136810303, -1.9876642227172852]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing beef cattle, heifer in united kingdom. cycle description: green-2013. site description: green farming system. What is in the system boundary? Additional Relevant Context: animalFeed: True
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: False
+soilAmendment: True
+transport: True
+waste: True
+water: True
+product: True","[5.2853827476501465, -1.9017223119735718, 5.215383052825928, 4.95638370513916, -1.8265831470489502, 4.6822428703308105, 5.12910795211792, 5.297396183013916, 5.266454219818115, -2.0677707195281982, -2.0095160007476807, 5.623542785644531, -2.1411116123199463, 5.092704772949219, 4.981431484222412, 5.270393371582031, -2.3985109329223633, 5.479564666748047, -1.9903268814086914]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Animal housing producing eggs, hen, in shell in canada. cycle description: in multi-tier free run systems, hens live either directly on the floor or within an aviary structure, with access to perches, nest and scratch areas, and other enrichments. What is in the system boundary? Additional Relevant Context: 
+animalFeed: False
+animalPopulation: True
+cropResidue: False
+electricityFuel: False
+excreta: True
+fertiliser: False
+freshForage: False
+ingredient: False
+liveAnimalInput: True
+material: False
+operation: False
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: False
+waste: True
+water: False
+product: True","[4.316161632537842, 4.1914567947387695, 4.790253162384033, 4.716597557067871, -1.4286905527114868, -2.855661630630493, 4.628846645355225, 4.18619966506958, 3.936596155166626, 4.084146022796631, 4.092075347900391, 3.566431760787964, -1.4745270013809204, 5.679287910461426, -1.849156379699707, 4.695008754730225, -1.125058889389038, 5.65220308303833, 4.342893123626709]","[1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Animal housing producing meat, dairy cattle (liveweight) in brazil. cycle description: aggregate cycle representing data from 4 farms in the central-east mesoregion on parana in 2019, all producing milk under a full confinement system. What is in the system boundary? Additional Relevant Context: 
+animalFeed: True
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: True
+soilAmendment: True
+transport: True
+waste: True
+water: True
+product: True","[2.9321446418762207, 2.5210580825805664, 3.5260610580444336, 3.2150514125823975, -0.009037134237587452, -2.333876132965088, -0.6140901446342468, 3.3735547065734863, -0.7747300863265991, 1.6746238470077515, 1.8629761934280396, 3.3146302700042725, -1.7510064840316772, 3.4250741004943848, -0.6261158585548401, 1.52742338180542, -0.14434640109539032, 4.157798767089844, 3.214113712310791]","[1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing sheep, ewe in united kingdom. cycle description: green-2014. site description: green farming system. What is in the system boundary? Additional Relevant Context: 
+animalFeed: False
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: False
+soilAmendment: True
+transport: True
+waste: True
+water: True
+product: True","[5.287601947784424, -1.8730746507644653, 5.213720798492432, 4.957723617553711, -1.8028677701950073, 4.709880352020264, 5.12995719909668, 5.296564102172852, 5.248502254486084, -2.0783517360687256, -2.011125326156616, 5.637557506561279, -2.1257708072662354, 5.105817794799805, 4.996654033660889, 5.26448917388916, -2.3847641944885254, 5.476639270782471, -1.9806491136550903]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing beef cattle, steer in brazil. cycle description: scenario 4: improved natural grass/sorghum aberdeen angus. site description: farm in the western frontier region of the state of reio grande do sul in the southern part of brazil. for each cycle, we use the stocking density and the number of animals to calculate how ma ny hectares are used for each cycle. What is in the system boundary? Additional Relevant Context: animalFeed: False
+animalPopulation: True
+cropResidue: False
+electricityFuel: False
+excreta: False
+fertiliser: False
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: False
+operation: False
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: False
+waste: False
+water: False
+product: True","[-1.2900633811950684, -1.459891676902771, -0.5275331139564514, -1.3076667785644531, -0.855543851852417, -1.0579521656036377, -0.6806051731109619, 2.9018003940582275, 3.1433193683624268, -1.3005729913711548, -0.8851168751716614, 2.827486991882324, 2.5040671825408936, -0.9167681336402893, -0.5482497811317444, 2.387155055999756, -1.9068235158920288, 3.461956739425659, 2.356252908706665]","[0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing beef cattle, steer in united kingdom. cycle description: early maturing suckler bred bull weanlings breeds of aberdeen angus and hereford sired, kept in housing to begin with and then moved to pasture before being slaughtered at 20 months of age. What is in the system boundary? Additional Relevant Context: 
+animalFeed: True
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: False
+soilAmendment: True
+transport: True
+waste: True
+water: True
+product: True","[2.631671667098999, -1.0214364528656006, 3.454437494277954, -1.28762948513031, -0.5835009217262268, -1.177140712738037, 3.054171085357666, 3.773618459701538, 4.757296085357666, -1.075382947921753, 3.0920441150665283, 3.568692684173584, 2.5705935955047607, 3.0136642456054688, -0.6517238020896912, 3.436899423599243, -2.0363452434539795, 4.863339900970459, -1.3034747838974]","[1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Animal housing producing pig in denmark. cycle description: finishers. What is in the system boundary? Additional Relevant Context: animalFeed: True
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: False
+ingredient: True
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: False
+soilAmendment: True
+transport: True
+waste: True
+water: True
+product: True","[3.9835028648376465, -1.146270513534546, 3.0838050842285156, 2.0713140964508057, -1.6037116050720215, -0.8539987802505493, 3.692368745803833, -1.110857605934143, 4.723820209503174, 3.547626495361328, -0.8070152401924133, 2.7035105228424072, 2.019259452819824, 3.047790050506592, -2.1444790363311768, 3.7976739406585693, -1.4043028354644775, 3.7848048210144043, 3.7906768321990967]","[1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing beef cattle, calf (male, weaned) in united kingdom. cycle description: blue-2019. site description: blue farming system. What is in the system boundary? Additional Relevant Context: 
+animalFeed: False
+animalPopulation: False
+cropResidue: False
+electricityFuel: False
+excreta: False
+fertiliser: False
+freshForage: False
+ingredient: False
+liveAnimalInput: False
+material: False
+operation: False
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: False
+waste: False
+water: False
+product: False","[5.278810977935791, -1.702828049659729, 5.120811462402344, 5.0989227294921875, -1.7876051664352417, 4.678771495819092, 5.1320881843566895, 5.358337879180908, 5.24811315536499, -2.1081371307373047, -1.9486477375030518, 5.658740520477295, -2.0529065132141113, 5.08833122253418, 5.00438928604126, 5.252466201782227, -2.3745837211608887, 5.503320693969727, -2.0189883708953857]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Animal housing producing beef cattle, heifer and steer in spain. cycle description: average production data across 4 farms with fattening facilities and 2 specialist fattening farms. What is in the system boundary? Additional Relevant Context: 
+animalFeed: True
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: False
+soilAmendment: True
+transport: True
+waste: True
+water: True
+product: True","[2.2023940086364746, 2.7784311771392822, 1.0456855297088623, 1.220189094543457, -0.8604554533958435, 0.08690143376588821, 2.719710350036621, 2.9507436752319336, 2.3396058082580566, 2.0565285682678223, 1.1987844705581665, 3.202746629714966, 0.7898516058921814, 1.5347552299499512, -1.9685293436050415, 1.782143235206604, -1.4681063890457153, 4.1984992027282715, 3.8368163108825684]","[1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Animal housing producing meat, dairy cattle (liveweight) in italy. cycle description: cycle for farm producing milk and meat, with an ad on-site. What is in the system boundary? Additional Relevant Context: 
+animalFeed: True
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: True
+soilAmendment: True
+transport: False
+waste: True
+water: True
+product: True","[0.8599452972412109, 0.8389816880226135, 3.419271945953369, 1.9121466875076294, 1.7181658744812012, -1.1418676376342773, 1.5756089687347412, 4.804459571838379, 2.3137893676757812, -0.49243274331092834, 1.0222100019454956, 3.6911587715148926, -0.552301824092865, 2.7761306762695312, 0.32106882333755493, 3.008557081222534, -1.1429082155227661, 4.815523624420166, 2.551286458969116]","[1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing beef cattle, cow in spain. cycle description: average annual production data across 6 different organic dehesa cattle farms. cow-calf operation. What is in the system boundary? Additional Relevant Context: 
+animalFeed: False
+animalPopulation: True
+cropResidue: False
+electricityFuel: True
+excreta: True
+fertiliser: False
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: False
+operation: True
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: True
+waste: True
+water: True
+product: True","[1.198154091835022, 0.884945809841156, 0.6722508668899536, -0.8052590489387512, -0.2555576264858246, 0.7763194441795349, 0.9510563611984253, 1.5567309856414795, 1.4393284320831299, -0.6939826011657715, -0.36930596828460693, 2.0555779933929443, 0.18660834431648254, -1.2298219203948975, -0.2892860174179077, -0.024080969393253326, -1.3760360479354858, 2.5191051959991455, 0.8257386088371277]","[1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing beef cattle, cow in brazil. cycle description: beef, fertilized guinea grass (panicum maximum cv. tanzânia) pasture (scenario 4). site description: cerrado (goiás, mato grosso do sul, mato grosso, tocantins and minas gerais states). What is in the system boundary? Additional Relevant Context: animalFeed: False
+animalPopulation: True
+cropResidue: False
+electricityFuel: False
+excreta: False
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: False
+operation: False
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: False
+waste: False
+water: True
+product: True","[3.325850009918213, 2.107530117034912, -0.30329838395118713, 3.5222747325897217, -1.7381794452667236, -3.0130398273468018, 2.90625262260437, 3.1705355644226074, 3.3826863765716553, -1.4572935104370117, 4.054110527038574, 2.9651780128479004, -0.8612861633300781, 3.175220012664795, -0.31371161341667175, 3.829005241394043, -0.9635587930679321, 4.311197280883789, -1.2345088720321655]","[1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing beef cattle, steer in united kingdom. cycle description: green-2019. site description: green farming system. What is in the system boundary? Additional Relevant Context: 
+animalFeed: False
+animalPopulation: False
+cropResidue: False
+electricityFuel: False
+excreta: False
+fertiliser: False
+freshForage: False
+ingredient: False
+liveAnimalInput: False
+material: False
+operation: False
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: False
+waste: False
+water: False
+product: True","[5.302964687347412, -1.7980331182479858, 5.18621301651001, 4.992823123931885, -1.812825322151184, 4.7206196784973145, 5.13267707824707, 5.315543174743652, 5.269247055053711, -2.0617785453796387, -1.992377758026123, 5.673437595367432, -2.0812246799468994, 5.111057758331299, 4.996636390686035, 5.264429092407227, -2.3954360485076904, 5.505271911621094, -2.012345790863037]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Animal housing producing pig, piglet in australia. cycle description: this cycle represents the inventory for 3 weeks of breeder unit production in the southern supply chain. What is in the system boundary? Additional Relevant Context: animalFeed: True
+animalPopulation: True
+cropResidue: False
+electricityFuel: True
+excreta: True
+fertiliser: False
+freshForage: False
+ingredient: False
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: True
+waste: True
+water: True
+product: True","[3.6681435108184814, 3.3010292053222656, 2.8804187774658203, 3.0908620357513428, -0.9439798593521118, -1.4543781280517578, 2.5576846599578857, -1.0980899333953857, -1.1635138988494873, 3.801912546157837, 3.2459964752197266, 3.215681552886963, -1.96670663356781, 3.5247488021850586, -1.542271614074707, 2.902012586593628, 2.9062392711639404, 3.003382921218872, 3.6477484703063965]","[1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Animal housing producing meat, dairy cattle (liveweight) in indonesia. cycle description: milk production cycle - average production cycle over 288 farms. What is in the system boundary? Additional Relevant Context: 
+animalFeed: True
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: False
+soilAmendment: True
+transport: True
+waste: True
+water: True
+product: True","[3.9008169174194336, -0.7875469326972961, 3.853943109512329, -1.042973279953003, -1.8485997915267944, 2.5054399967193604, 5.473380088806152, 3.913944721221924, 5.107436656951904, 3.799860715866089, -1.411252498626709, 5.541823863983154, -0.6076844334602356, 4.982931613922119, -2.0714573860168457, 4.4736504554748535, -2.3295719623565674, 5.281466484069824, 4.65008544921875]","[1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing beef cattle, calf (male, weaned) in united kingdom. cycle description: green-2022. site description: green farming system. What is in the system boundary? Additional Relevant Context: 
+animalFeed: False
+animalPopulation: False
+cropResidue: False
+electricityFuel: False
+excreta: False
+fertiliser: False
+freshForage: False
+ingredient: False
+liveAnimalInput: False
+material: False
+operation: False
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: False
+waste: False
+water: False
+product: False","[5.267712116241455, -1.725939393043518, 5.130995273590088, 5.079561233520508, -1.779717206954956, 4.675745964050293, 5.164696216583252, 5.336761951446533, 5.267722129821777, -2.0963284969329834, -1.956077218055725, 5.634896278381348, -2.043032169342041, 5.074320316314697, 5.010387897491455, 5.263803958892822, -2.3783185482025146, 5.500103950500488, -2.0321614742279053]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Animal housing producing pig in germany. cycle description: fattening. What is in the system boundary? Additional Relevant Context: animalFeed: True
+animalPopulation: True
+cropResidue: False
+electricityFuel: True
+excreta: True
+fertiliser: False
+freshForage: False
+ingredient: True
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: False
+soilAmendment: False
+transport: True
+waste: True
+water: True
+product: True","[4.070070266723633, -1.7896617650985718, 4.785658359527588, -1.6131902933120728, -2.2809784412384033, -1.8419857025146484, 5.25233793258667, 4.851723670959473, 5.148709297180176, 4.835491180419922, -1.6449389457702637, 5.095633506774902, -1.029815673828125, 5.338514804840088, -2.7695889472961426, 4.885468482971191, -2.9213693141937256, 6.069654941558838, 4.573981285095215]","[1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Animal housing producing layer chicken, hen in united kingdom. cycle description: cycle represents all inputs associated with the rearing of all chicks, pullets and layer hens in order to produce 1000kg of eggs in barn housing systems. What is in the system boundary? Additional Relevant Context: 
+animalFeed: True
+animalPopulation: True
+cropResidue: False
+electricityFuel: True
+excreta: True
+fertiliser: False
+freshForage: False
+ingredient: True
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: True
+waste: True
+water: True
+product: True","[4.707167625427246, 4.200446128845215, 4.6150102615356445, 4.901331901550293, -1.5189226865768433, -2.288029670715332, 5.326479911804199, 4.04013729095459, 4.8844146728515625, 4.2359299659729, -0.538347065448761, 3.7249321937561035, -1.4696927070617676, 5.750424861907959, -1.8413219451904297, 4.789010524749756, -1.8141202926635742, 5.548215866088867, 4.712977409362793]","[1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Animal housing producing pig, piglet in denmark. cycle description: sow herds-2013. site description: they do not provide much information on site. What is in the system boundary? Additional Relevant Context: 
+animalFeed: False
+animalPopulation: True
+cropResidue: False
+electricityFuel: False
+excreta: True
+fertiliser: False
+freshForage: False
+ingredient: False
+liveAnimalInput: True
+material: False
+operation: False
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: False
+waste: True
+water: False
+product: True","[-1.3071813583374023, -1.15910804271698, 3.4042038917541504, -2.0839970111846924, -1.6233001947402954, -1.823577880859375, 3.7432973384857178, 3.597144365310669, 3.4307682514190674, 3.301326036453247, -1.8490309715270996, 3.2641427516937256, -1.3371723890304565, 3.816051721572876, -1.652984619140625, 3.749037027359009, -1.9640449285507202, 4.226266860961914, 4.566875457763672]","[0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Animal housing producing broiler chicken in poland. cycle description: farm b - medium. site description: deep straw litter in houses with windows. What is in the system boundary? Additional Relevant Context: 
+animalFeed: True
+animalPopulation: True
+cropResidue: False
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: False
+ingredient: True
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: True
+waste: True
+water: True
+product: True","[3.364105701446533, -0.8333006501197815, 4.126657962799072, -0.34133267402648926, -2.3586134910583496, -1.452130675315857, 5.292794227600098, 4.785836219787598, 5.269961357116699, 5.186706066131592, -1.4308688640594482, 5.0537109375, -0.9718153476715088, 5.592243194580078, -2.7094357013702393, 5.114913463592529, -2.5328168869018555, 6.154778003692627, 5.693375110626221]","[1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Animal housing producing dairy cattle, heifer in france. cycle description: grass only in forage area, holstein breed. annual milk production cycle, including all grazing and animal housing components. What is in the system boundary? Additional Relevant Context: animalFeed: False
+animalPopulation: True
+cropResidue: False
+electricityFuel: False
+excreta: False
+fertiliser: False
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: False
+operation: False
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: False
+waste: False
+water: False
+product: True","[4.156953811645508, -1.4208662509918213, 4.439905643463135, 3.7624399662017822, -1.372955322265625, 3.574923515319824, 4.754763126373291, 4.732353687286377, 5.005066871643066, 4.085460662841797, -1.6798698902130127, 4.7675089836120605, 3.841843605041504, 5.55853796005249, -1.503555417060852, 4.453281879425049, -2.311009168624878, 5.3549346923828125, 4.162989616394043]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing sheep, lamb (weaned) in united kingdom. cycle description: green-2018. site description: green farming system. What is in the system boundary? Additional Relevant Context: 
+animalFeed: False
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: False
+soilAmendment: True
+transport: True
+waste: True
+water: True
+product: True","[5.281694412231445, -1.7353562116622925, 5.169107437133789, 5.058061599731445, -1.789035439491272, 4.67246675491333, 5.155989646911621, 5.377218723297119, 5.239017963409424, -2.0608582496643066, -1.9678981304168701, 5.663379192352295, -2.0747368335723877, 5.143208026885986, 4.985404014587402, 5.29226541519165, -2.3788576126098633, 5.5214996337890625, -1.9921859502792358]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing dairy cattle, cow in new zealand. site description: dairynz/lic (2018) new zealand dairy statistics 2019. What is in the system boundary? Additional Relevant Context: 
+animalFeed: False
+animalPopulation: True
+cropResidue: False
+electricityFuel: False
+excreta: False
+fertiliser: False
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: False
+operation: False
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: False
+waste: False
+water: False
+product: True","[3.517134428024292, -1.9200526475906372, 4.376832008361816, -1.1523045301437378, -1.1097227334976196, -1.9346920251846313, -1.2200521230697632, 3.808070421218872, -1.4192302227020264, 3.9517829418182373, -1.7010791301727295, 3.974705696105957, -2.7359519004821777, 4.126406192779541, -1.5857434272766113, 3.2509982585906982, -1.4416258335113525, 4.48317289352417, 3.9863739013671875]","[1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Animal housing producing pig, sow in denmark. cycle description: sows. What is in the system boundary? Additional Relevant Context: 
+animalFeed: False
+animalPopulation: True
+cropResidue: False
+electricityFuel: True
+excreta: True
+fertiliser: False
+freshForage: False
+ingredient: False
+liveAnimalInput: True
+material: False
+operation: True
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: False
+waste: True
+water: True
+product: True","[3.0839858055114746, -1.3184725046157837, 2.552598237991333, 1.7584165334701538, -1.5124850273132324, -0.6859419941902161, 3.1219303607940674, -1.1314311027526855, 3.784196376800537, 2.819169521331787, -0.5953593254089355, 1.8113545179367065, 2.1150317192077637, 2.520923376083374, -1.9209833145141602, 3.2990360260009766, -1.0224907398223877, 3.0143256187438965, 2.849602222442627]","[1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing sheep, lamb (weaned) in united kingdom. cycle description: green-2014. site description: green farming system. What is in the system boundary? Additional Relevant Context: 
+animalFeed: False
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: False
+soilAmendment: True
+transport: True
+waste: True
+water: True
+product: True","[5.274723052978516, -1.749659538269043, 5.196005344390869, 5.038750171661377, -1.795188546180725, 4.659816265106201, 5.15498685836792, 5.375405788421631, 5.2522430419921875, -2.064208745956421, -1.9699761867523193, 5.660730361938477, -2.0729665756225586, 5.134673118591309, 4.977514743804932, 5.302752494812012, -2.381657361984253, 5.5148444175720215, -1.9932578802108765]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing beef cattle, heifer in united kingdom. cycle description: blue-2011. site description: blue farming system. What is in the system boundary? Additional Relevant Context: 
+animalFeed: False
+animalPopulation: False
+cropResidue: False
+electricityFuel: False
+excreta: False
+fertiliser: False
+freshForage: False
+ingredient: False
+liveAnimalInput: False
+material: False
+operation: False
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: False
+waste: False
+water: False
+product: False","[5.293107032775879, -1.831321120262146, 5.205794811248779, 4.994421005249023, -1.819124698638916, 4.669556617736816, 5.1144890785217285, 5.324337482452393, 5.27051305770874, -2.0890088081359863, -2.0037620067596436, 5.666311264038086, -2.1222383975982666, 5.09871244430542, 4.9877424240112305, 5.266369819641113, -2.393326759338379, 5.474756240844727, -1.9952561855316162]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Animal housing producing milk, cow, raw (fpcm) in denmark. cycle description: conventional dairy. What is in the system boundary? Additional Relevant Context: animalFeed: True
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: True
+soilAmendment: True
+transport: True
+waste: True
+water: True
+product: True","[3.716496706008911, -1.1011252403259277, 3.054682493209839, -0.7277773022651672, -1.1214311122894287, 1.970578670501709, 4.20493745803833, 2.989743232727051, 3.2705984115600586, 3.9338347911834717, -1.7395986318588257, 5.243251323699951, -0.731020450592041, 4.67991828918457, -1.8638253211975098, 4.470072269439697, -1.7721222639083862, 4.520291328430176, 4.802874565124512]","[1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Animal housing producing dairy cattle, cow in france. cycle description: grass and high proportion maize silage in forage area, holstein breed. annual milk production cycle, including all grazing and animal housing components. What is in the system boundary? Additional Relevant Context: animalFeed: True
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: True
+soilAmendment: True
+transport: True
+waste: True
+water: True
+product: True","[4.241054058074951, -1.3554637432098389, 4.428311824798584, 3.8854446411132812, -1.3596163988113403, 3.4702069759368896, 4.845134258270264, 4.628917694091797, 5.073145389556885, 4.060916900634766, -1.5354164838790894, 4.777480602264404, 3.864863872528076, 5.542566776275635, -1.5344258546829224, 4.545313835144043, -2.2296342849731445, 5.349560260772705, 4.218479633331299]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing sheep, lamb in united kingdom. cycle description: red-2012. site description: red farming system. What is in the system boundary? Additional Relevant Context: animalFeed: False
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: False
+soilAmendment: True
+transport: True
+waste: True
+water: True
+product: True","[5.3128814697265625, -1.8917347192764282, 5.209733009338379, 4.956095218658447, -1.8105065822601318, 4.696537494659424, 5.129239082336426, 5.286437511444092, 5.2916131019592285, -2.074976682662964, -1.979748249053955, 5.674881935119629, -2.135340452194214, 5.110591888427734, 4.961975574493408, 5.281957626342773, -2.394826889038086, 5.498959064483643, -1.9803029298782349]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing beef cattle, steer in brazil. cycle description: scenario 3: natural grass/ryegrass aberdeen angus. site description: farm in the western frontier region of the state of reio grande do sul in the southern part of brazil. for each cycle, we use the stocking density and the number of animals to calculate how ma ny hectares are used for each cycle. What is in the system boundary? Additional Relevant Context: animalFeed: False
+animalPopulation: True
+cropResidue: False
+electricityFuel: False
+excreta: False
+fertiliser: False
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: False
+operation: False
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: False
+waste: False
+water: False
+product: True","[-1.3355293273925781, -1.4104946851730347, -0.538737416267395, -1.2769662141799927, -0.8174688816070557, -1.0304763317108154, -0.6782346963882446, 2.9317469596862793, 3.0967116355895996, -1.2884085178375244, -0.89366215467453, 2.853400468826294, 2.5507652759552, -0.8997290134429932, -0.5069109201431274, 2.340862989425659, -1.8844560384750366, 3.4543297290802, 2.3421945571899414]","[0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing meat, dairy cattle (liveweight) in brazil. cycle description: aggregate cycle representing data from 4 farms in zona da mata, minas gerais in 2019, all producing milk under a semi-confinement system, where animals spend part of each day on pasture, and the remainder confined. What is in the system boundary? Additional Relevant Context: 
+animalFeed: True
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: True
+soilAmendment: True
+transport: True
+waste: True
+water: True
+product: True","[2.0229709148406982, 2.2007455825805664, 2.661836862564087, 2.4617326259613037, -0.7264385223388672, -2.612387180328369, 0.12008041888475418, 3.304610252380371, -0.7996657490730286, -1.1527658700942993, 2.759633779525757, 2.8385138511657715, -1.6665537357330322, 3.291576862335205, -0.799310564994812, 2.7172350883483887, -0.030457597225904465, 4.343886852264404, 2.1543593406677246]","[1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing beef cattle, steer in united kingdom. cycle description: blue-2021. site description: blue farming system. What is in the system boundary? Additional Relevant Context: animalFeed: False
+animalPopulation: True
+cropResidue: False
+electricityFuel: False
+excreta: False
+fertiliser: False
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: False
+operation: False
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: False
+waste: False
+water: False
+product: True","[5.3017354011535645, -1.8246212005615234, 5.158486843109131, 5.009546756744385, -1.8085681200027466, 4.706231117248535, 5.117668628692627, 5.298410415649414, 5.2663750648498535, -2.094709873199463, -2.0086262226104736, 5.671116828918457, -2.0985798835754395, 5.094058513641357, 4.996463298797607, 5.247579097747803, -2.384455442428589, 5.487502574920654, -2.0222971439361572]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing wool, sheep (greasy) in spain. cycle description: annual cycle of transhumant lamb farm in albarracin (transhumance of herd to summer farm carried out on foot). site description: site is a combination of both the summer (mountain) and winter (dehesa) grazing sites. area is cumulative of these sites and the altitude and temperature are assumed to be averaged across them. What is in the system boundary? Additional Relevant Context: 
+animalFeed: False
+animalPopulation: True
+cropResidue: False
+electricityFuel: True
+excreta: False
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: False
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: False
+soilAmendment: False
+transport: True
+waste: False
+water: True
+product: True","[3.6463451385498047, -0.46757397055625916, -1.0184378623962402, 3.524568557739258, -1.4260653257369995, 3.3665032386779785, 3.718385934829712, 3.8823115825653076, -1.1597833633422852, 3.3955423831939697, -1.7743958234786987, 4.294984817504883, -1.1936651468276978, 4.3828349113464355, -1.2141752243041992, 3.744183301925659, -1.282505989074707, 3.966815948486328, 4.0022406578063965]","[1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing dairy cattle, cow in united kingdom. cycle description: annual production cycle of an average baseline, grass-based uk dairy farm on conventional ryegrass. site description: 60 ha of grazing area for the herd and 40ha of grass to be cut for making silage. What is in the system boundary? Additional Relevant Context: animalFeed: True
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: False
+operation: False
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: True
+soilAmendment: False
+transport: False
+waste: True
+water: True
+product: True","[3.864851951599121, -1.1301019191741943, 3.7718944549560547, 3.2354514598846436, -0.7425861358642578, -1.1839103698730469, -1.2514302730560303, 3.758906602859497, 4.15117883682251, 2.750980854034424, -1.9976623058319092, 3.3049509525299072, -1.0512897968292236, 3.061924934387207, -1.515939712524414, -1.5936784744262695, -1.7692139148712158, 4.804434299468994, 3.5427210330963135]","[1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing sheep, lamb (weaned) in united kingdom. cycle description: blue-2016. site description: blue farming system. What is in the system boundary? Additional Relevant Context: 
+animalFeed: False
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: False
+soilAmendment: True
+transport: True
+waste: True
+water: True
+product: True","[5.276876926422119, -1.7396824359893799, 5.172340393066406, 5.061177730560303, -1.7992764711380005, 4.660238742828369, 5.1381964683532715, 5.370910167694092, 5.242702484130859, -2.0804221630096436, -1.973719835281372, 5.672966003417969, -2.083702802658081, 5.131807327270508, 4.976670742034912, 5.291829586029053, -2.3773367404937744, 5.504512310028076, -1.9800235033035278]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Agri-food processor producing poultry by in product meal. cycle description: slaughterhouse. What is in the system boundary? Additional Relevant Context: animalFeed: True
+animalPopulation: True
+cropResidue: False
+electricityFuel: False
+excreta: False
+fertiliser: False
+freshForage: False
+ingredient: True
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: True
+waste: True
+water: True
+product: True","[5.449618816375732, 1.4166251420974731, 5.163804531097412, 0.9420519471168518, 0.5752195119857788, 3.517610549926758, 5.2330002784729, 3.3087239265441895, 3.964142322540283, 4.504622459411621, 3.227623224258423, 3.525852918624878, -1.3579260110855103, 5.344078540802002, -0.8203527331352234, 4.748569488525391, -1.2803829908370972, 5.025373458862305, 4.372230529785156]","[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing wool, sheep (greasy) in australia. cycle description: lamb production cycle averaged over four case study farms in victoria. 85% of lambs finished are pasture-based, while 15% are finished with supplementary grain diets. What is in the system boundary? Additional Relevant Context: animalFeed: True
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: False
+soilAmendment: True
+transport: True
+waste: True
+water: True
+product: True","[3.5975728034973145, 3.722353219985962, -1.2923648357391357, 4.364018440246582, -1.4946433305740356, 3.3398585319519043, 4.723025321960449, 4.125441074371338, 4.052577018737793, -2.0538806915283203, -1.5954421758651733, 4.212496757507324, -1.4753645658493042, 4.653912544250488, -0.7499896883964539, 4.176568984985352, -2.0756871700286865, 4.182109355926514, 3.578244209289551]","[1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing sheep, ewe in united kingdom. cycle description: green-2022. site description: green farming system. What is in the system boundary? Additional Relevant Context: 
+animalFeed: False
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: False
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: False
+soilAmendment: True
+transport: True
+waste: True
+water: True
+product: True","[5.3009114265441895, -1.8715373277664185, 5.1700592041015625, 4.978951930999756, -1.8001915216445923, 4.717333793640137, 5.143013954162598, 5.273218631744385, 5.251494884490967, -2.0750741958618164, -2.012385845184326, 5.6469197273254395, -2.119931697845459, 5.100787162780762, 5.001121520996094, 5.254627704620361, -2.3778295516967773, 5.4831037521362305, -1.9984146356582642]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing cattle, urine (kg mass) in brazil. cycle description: t3. site description: field trial. What is in the system boundary? Additional Relevant Context: animalFeed: False
+animalPopulation: False
+cropResidue: False
+electricityFuel: False
+excreta: True
+fertiliser: False
+freshForage: False
+ingredient: False
+liveAnimalInput: False
+material: False
+operation: False
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: False
+waste: False
+water: False
+product: True","[3.7903261184692383, -0.7625508904457092, -1.9689744710922241, 3.7182555198669434, -2.1800355911254883, -2.089737892150879, 3.8288209438323975, 3.8676538467407227, 3.268240451812744, 3.5858449935913086, 4.019171237945557, 3.9860661029815674, -1.0084054470062256, 3.9834280014038086, -2.059574842453003, 4.118655204772949, -1.488582968711853, 4.861776828765869, 3.681990146636963]","[1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing beef cattle, steer in united kingdom. cycle description: red-2012. site description: red farming system. What is in the system boundary? Additional Relevant Context: animalFeed: False
+animalPopulation: False
+cropResidue: False
+electricityFuel: False
+excreta: False
+fertiliser: False
+freshForage: False
+ingredient: False
+liveAnimalInput: False
+material: False
+operation: False
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: False
+waste: False
+water: False
+product: True","[5.314637184143066, -1.8360986709594727, 5.1998796463012695, 4.9833664894104, -1.8278192281723022, 4.692688941955566, 5.134016513824463, 5.299182415008545, 5.320206165313721, -2.075871706008911, -1.9615659713745117, 5.68532133102417, -2.1003305912017822, 5.103227138519287, 4.965582370758057, 5.28259801864624, -2.404524087905884, 5.505768775939941, -1.9906682968139648]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing beef cattle, calf (female, weaned) in united kingdom. cycle description: red-2017. site description: red farming system. What is in the system boundary? Additional Relevant Context: 
+animalFeed: False
+animalPopulation: True
+cropResidue: False
+electricityFuel: False
+excreta: False
+fertiliser: False
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: False
+operation: False
+otherChemical: False
+pesticideVeterinaryDrug: False
+seed: False
+soilAmendment: False
+transport: False
+waste: False
+water: False
+product: True","[5.287575721740723, -1.7405210733413696, 5.137545108795166, 5.067920207977295, -1.7889577150344849, 4.682043552398682, 5.147765159606934, 5.339968681335449, 5.262297630310059, -2.091567277908325, -1.9291342496871948, 5.663089275360107, -2.050212860107422, 5.094536304473877, 4.992260456085205, 5.270841598510742, -2.3865866661071777, 5.515780448913574, -2.0238752365112305]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Animal housing producing pig, sow in united kingdom. cycle description: sow england organic. What is in the system boundary? Additional Relevant Context: animalFeed: True
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: True
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: True
+soilAmendment: True
+transport: True
+waste: True
+water: True
+product: True","[4.526111125946045, -1.964640736579895, 4.385024547576904, -1.439051866531372, -2.3250653743743896, -1.433777928352356, 4.5229620933532715, -1.5263179540634155, 4.271578311920166, 4.654082298278809, -1.9516369104385376, 4.573398590087891, -1.3477144241333008, 4.288220405578613, -2.2966034412384033, 4.713311195373535, -1.8886369466781616, 4.486222743988037, 4.455453872680664]","[1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing beef cattle, steer in united kingdom. cycle description: late maturing suckler bred bull weanlings of breeds of limousin and charolais sired, kept in housing to begin with and then moved to pasture before being rehoused and then slaughtered at 24 months of age. What is in the system boundary? Additional Relevant Context: animalFeed: True
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: False
+soilAmendment: True
+transport: True
+waste: True
+water: True
+product: True","[2.4792587757110596, -1.0867480039596558, 3.3054420948028564, -1.5241022109985352, -0.6920960545539856, -1.0727163553237915, 3.0069174766540527, 3.7596182823181152, 4.6423444747924805, -0.9005835056304932, 3.0648765563964844, 3.528736114501953, 2.8561336994171143, 3.015232801437378, -0.8536495566368103, 3.4809517860412598, -2.0597317218780518, 4.780256748199463, -1.22657310962677]","[1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Animal housing producing broiler chicken in netherlands. cycle description: organic broiler. site description: access to outdoor area. 4m2 per bird. access to daylight. What is in the system boundary? Additional Relevant Context: animalFeed: True
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: True
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: False
+soilAmendment: True
+transport: True
+waste: True
+water: True
+product: True","[4.135791778564453, -0.45970776677131653, 4.597607612609863, 2.6524744033813477, -1.9013075828552246, -1.2240164279937744, 5.154059886932373, 5.183351039886475, 5.3697590827941895, 4.868281841278076, -0.8176642060279846, 5.713274002075195, -0.233323872089386, 6.297090530395508, -2.3886022567749023, 5.327286243438721, -2.151435136795044, 6.7180562019348145, 5.788187503814697]","[1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
+"Permanent pasture producing sheep, ewe in united kingdom. cycle description: green-2021. site description: green farming system. What is in the system boundary? Additional Relevant Context: 
+animalFeed: False
+animalPopulation: True
+cropResidue: True
+electricityFuel: True
+excreta: True
+fertiliser: True
+freshForage: True
+ingredient: False
+liveAnimalInput: True
+material: True
+operation: True
+otherChemical: True
+pesticideVeterinaryDrug: True
+seed: False
+soilAmendment: True
+transport: True
+waste: True
+water: True
+product: True","[5.298771381378174, -1.8821457624435425, 5.1703314781188965, 4.974795341491699, -1.8078415393829346, 4.717369079589844, 5.136499404907227, 5.272907257080078, 5.243518352508545, -2.077617645263672, -2.020167350769043, 5.63610315322876, -2.1252498626708984, 5.098268508911133, 4.998944282531738, 5.2517619132995605, -2.381122350692749, 5.478569030761719, -1.9956631660461426]","[1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0]","['True_animalFeed', 'True_water', 'True_liveAnimalInput', 'True_electricityFuel', 'True_transport', 'True_pesticideVeterinaryDrug', 'True_seed', 'True_otherChemical', 'True_animalPopulation', 'True_freshForage', 'True_excreta', 'True_product', 'True_waste', 'True_soilAmendment', 'True_operation', 'True_fertiliser', 'True_material', 'True_ingredient', 'True_cropResidue']"
