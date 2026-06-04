@@ -78,19 +78,24 @@ def prediction_threshold():
     mWP_csv_df = pd.DataFrame()
 
     # Use rglob to recursively find all files matching the pattern
-    for file_path in root_directory.rglob('validation_predictions.csv'):
+    for file_path in root_directory.rglob('validation_predictions.csv'): # test_predictions.csv
         rag = "no rag" if "no" in str(file_path).split("_") else "rag"
         dataset_type = "original" if "original" in str(file_path).split("_") else "standardized"
         language_model = "/".join(str(file_path).split("\\")[4:6])
         dataset_name = str(file_path).split("\\")[3].split("_")[-1]
         if dataset_name not in ["Allocation", "Functional Unit", "Product", "System Boundary"]:
             # don't need to threshold sensitivity ablation studies
-            continue
+            plotting = False
+        else:
+            plotting = True
         results_df = pd.DataFrame(index=[0])
 
         # read in data and extract label precision, dataset name, and model name
         data = pd.read_csv(file_path)
-        data["logits"] = data["val_logits"].apply(ast.literal_eval)  # convert to literal lists
+        if "val_logits" in data.columns:
+            data["logits"] = data["val_logits"].apply(ast.literal_eval)  # convert to literal lists
+        elif "test_logits" in data.columns:
+            data["logits"] = data["test_logits"].apply(ast.literal_eval)  # convert to literal lists
         ground_truth = np.array(data["true_labels"].apply(ast.literal_eval).tolist())
 
         # update df with parameters
@@ -120,10 +125,11 @@ def prediction_threshold():
             P_results.append(p)
 
         # aggregate data together at the end of the loop iteration
-        P_series = pd.DataFrame(pd.Series(P_results, index=range(0, 101))).transpose()
-        results_df = pd.concat([results_df, P_series], axis=1)
-        mWP_csv_df = pd.concat([mWP_csv_df, mWP_results_df])
-        mWP_df = pd.concat([mWP_df, results_df])
+        if plotting:
+            P_series = pd.DataFrame(pd.Series(P_results, index=range(0, 101))).transpose()
+            results_df = pd.concat([results_df, P_series], axis=1)
+            mWP_csv_df = pd.concat([mWP_csv_df, mWP_results_df])
+            mWP_df = pd.concat([mWP_df, results_df])
 
     # make a plot, one for each language model
     for j in mWP_df["model"].unique():
