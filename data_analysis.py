@@ -20,7 +20,7 @@ def main():
     :return: N/A
     """
     # build SI figure on prediction threshold
-    # prediction_threshold()
+    prediction_threshold()
 
     # plot number of labels versus precision for each of the four categories
     # label_precision()
@@ -28,13 +28,13 @@ def main():
 
     # collate errors for each dataset based on RAG
     # collect_rag_error_rates()
-    explain_discrepancies()
+    # explain_discrepancies()
 
     # identify occurence of errors and the extent to which models and ground truths agree
-    inter_reviewer_alignment()
+    # inter_reviewer_alignment()
 
     # plot the frequency of error rates across 12 datasets
-    plot_error_codes()
+    # plot_error_codes()
 
 
 def get_label_precision(file_path):
@@ -78,7 +78,7 @@ def prediction_threshold():
     mWP_csv_df = pd.DataFrame()
 
     # Use rglob to recursively find all files matching the pattern
-    for file_path in root_directory.rglob('validation_predictions.csv'): # test_predictions.csv
+    for file_path in root_directory.rglob('test_predictions.csv'): # test_predictions.csv
         rag = "no rag" if "no" in str(file_path).split("_") else "rag"
         dataset_type = "original" if "original" in str(file_path).split("_") else "standardized"
         language_model = "/".join(str(file_path).split("\\")[4:6])
@@ -131,66 +131,66 @@ def prediction_threshold():
             mWP_csv_df = pd.concat([mWP_csv_df, mWP_results_df])
             mWP_df = pd.concat([mWP_df, results_df])
 
-    # make a plot, one for each language model
-    for j in mWP_df["model"].unique():
-        fig, ax = plt.subplots(figsize=(14, 8))
-        df = mWP_df[mWP_df["model"] == j]
-        dft = df.T
-
-        # make the model name, dataset type, and RAG info part of the column names
-        header_rows = dft.iloc[1:4]  # exclude model name
-        new_column_names = header_rows.apply(lambda x: '_'.join(x.astype(str)))
-        dft.columns = new_column_names  # make column headers important identifying info
-        dft = dft[4:]  # keep only the numbers to plot
-
-        # plot the data
-        for col in dft.columns:
-            # get color
-            col_colors = col.split("_")
-            if col_colors[0] == "Allocation":
-                cat_color = 0
-            elif col_colors[0] == "Functional Unit":
-                cat_color = 1
-            elif col_colors[0] == "Product":
-                cat_color = 2
-            elif col_colors[0] == "System Boundary":
-                cat_color = 3
-            if col_colors[1] == "original":
-                dat_color = 0
-            elif col_colors[1] == "standardized":
-                dat_color = 1
-            if col_colors[2] == "no rag":
-                rag_color = 0
-            elif col_colors[2] == "rag":
-                rag_color = 1
-            color_num = 4 * cat_color + 2 * dat_color + rag_color
-            cmap = plt.get_cmap('tab20c')
-
-            ax.scatter(x=[i / 100 for i in dft.index], y=dft[col], c=cmap(color_num), label=f"{col}")
-
-        plt.xlabel('Threshold')
-        plt.ylabel('Macro-weighted Precision')
-        plt.title(f'{j}')
-        plt.legend()
-
-        # sort legends and handles
-        handles, labels = plt.gca().get_legend_handles_labels()
-        sorted_by_label = sorted(zip(handles, labels), key=lambda x: x[1])
-        sorted_handles, sorted_labels = zip(*sorted_by_label)
-        plt.legend(sorted_handles, sorted_labels,fontsize=8)
-
-        plt.grid(True)
-        plt.savefig(f"./data/dataset/results/threshold_sensitivity_{j.split('/')[1]}.png", dpi=300)
-        plt.show()
+    # # make a plot, one for each language model
+    # for j in mWP_df["model"].unique():
+    #     fig, ax = plt.subplots(figsize=(14, 8))
+    #     df = mWP_df[mWP_df["model"] == j]
+    #     dft = df.T
+    #
+    #     # make the model name, dataset type, and RAG info part of the column names
+    #     header_rows = dft.iloc[1:4]  # exclude model name
+    #     new_column_names = header_rows.apply(lambda x: '_'.join(x.astype(str)))
+    #     dft.columns = new_column_names  # make column headers important identifying info
+    #     dft = dft[4:]  # keep only the numbers to plot
+    #
+    #     # plot the data
+    #     for col in dft.columns:
+    #         # get color
+    #         col_colors = col.split("_")
+    #         if col_colors[0] == "Allocation":
+    #             cat_color = 0
+    #         elif col_colors[0] == "Functional Unit":
+    #             cat_color = 1
+    #         elif col_colors[0] == "Product":
+    #             cat_color = 2
+    #         elif col_colors[0] == "System Boundary":
+    #             cat_color = 3
+    #         if col_colors[1] == "original":
+    #             dat_color = 0
+    #         elif col_colors[1] == "standardized":
+    #             dat_color = 1
+    #         if col_colors[2] == "no rag":
+    #             rag_color = 0
+    #         elif col_colors[2] == "rag":
+    #             rag_color = 1
+    #         color_num = 4 * cat_color + 2 * dat_color + rag_color
+    #         cmap = plt.get_cmap('tab20c')
+    #
+    #         ax.scatter(x=[i / 100 for i in dft.index], y=dft[col], c=cmap(color_num), label=f"{col}")
+    #
+    #     plt.xlabel('Threshold')
+    #     plt.ylabel('Macro-weighted Precision')
+    #     plt.title(f'{j}')
+    #     plt.legend()
+    #
+    #     # sort legends and handles
+    #     handles, labels = plt.gca().get_legend_handles_labels()
+    #     sorted_by_label = sorted(zip(handles, labels), key=lambda x: x[1])
+    #     sorted_handles, sorted_labels = zip(*sorted_by_label)
+    #     plt.legend(sorted_handles, sorted_labels,fontsize=8)
+    #
+    #     plt.grid(True)
+    #     plt.savefig(f"./data/dataset/results/threshold_sensitivity_{j.split('/')[1]}.png", dpi=300)
+    #     plt.show()
 
     # write out datasets to .csv
     # mAP_df = mAP_df.pivot(index=["dataset", "dataset_type"], columns="model", values="mWP").reset_index()
     mWP_csv_df = mWP_csv_df.pivot(index=["dataset", "dataset_type", "RAG"], columns="model", values="mWP").reset_index()
     # mAP_df.to_csv(f"./data/dataset/results/mAP-no-thresholds.csv",index=False)
-    mWP_csv_df.to_csv(f"./data/dataset/results/mWP.csv", index=False)
+    mWP_csv_df.to_csv(f"./data/dataset/results/mWP_test.csv", index=False)
 
     mWP_df = mWP_df[["model", "dataset", "dataset_type", "RAG", 30, 50, 70, 90]]
-    mWP_df.to_csv(f"./data/dataset/results/mWP_thresholds.csv", index=False)
+    mWP_df.to_csv(f"./data/dataset/results/mWP_thresholds_test.csv", index=False)
 
 
 def plot_error_codes():
