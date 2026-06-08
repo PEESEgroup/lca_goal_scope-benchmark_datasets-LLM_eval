@@ -414,33 +414,33 @@ if __name__ == "__main__":
     # ignoring comparative assertion, intended application, study reasons, and target audience as Hestia does not have that data
     # ignoring recalculated allocation because it only uses the economic label
     filenames = [
-        "llm-goal-scope/data/dataset/original/no_rag/Functional Unit.jsonl", # 10:20am
-        "llm-goal-scope/data/dataset/original/no_rag/System Boundary.jsonl",
-        "llm-goal-scope/data/dataset/original/no_rag/Allocation.jsonl",
-        "llm-goal-scope/data/dataset/original/no_rag/Product.jsonl",
-        "llm-goal-scope/data/dataset/standardized/no_rag/Functional Unit.jsonl",
-        "llm-goal-scope/data/dataset/standardized/no_rag/Product.jsonl", # 1:41pm
-        "llm-goal-scope/data/dataset/standardized/no_rag/System Boundary.jsonl",
-        "llm-goal-scope/data/dataset/original/rag/Allocation.jsonl", # 3:00 pm
+        # "llm-goal-scope/data/dataset/original/no_rag/Functional Unit.jsonl", # 10:20am
+        # "llm-goal-scope/data/dataset/original/no_rag/System Boundary.jsonl",
+        # "llm-goal-scope/data/dataset/original/no_rag/Allocation.jsonl",
+        # "llm-goal-scope/data/dataset/original/no_rag/Product.jsonl",
+        # "llm-goal-scope/data/dataset/standardized/no_rag/Functional Unit.jsonl",
+        # "llm-goal-scope/data/dataset/standardized/no_rag/Product.jsonl", # 1:41pm
+        # "llm-goal-scope/data/dataset/standardized/no_rag/System Boundary.jsonl",
+        # "llm-goal-scope/data/dataset/original/rag/Allocation.jsonl", # 3:00 pm
         "llm-goal-scope/data/dataset/original/rag/Functional Unit.jsonl",
-        "llm-goal-scope/data/dataset/original/rag/Product.jsonl", # 3:50 pm
-        "llm-goal-scope/data/dataset/original/rag/System Boundary.jsonl",
-        "llm-goal-scope/data/dataset/standardized/rag/Functional Unit.jsonl",
-        "llm-goal-scope/data/dataset/standardized/rag/Product.jsonl",
-        "llm-goal-scope/data/dataset/standardized/rag/System Boundary.jsonl",
-        "llm-goal-scope/data/dataset/original/rag/Functional Unitn-retrieved-10.jsonl",
-        "llm-goal-scope/data/dataset/original/rag/Functional Unitn-retrieved-20.jsonl",
-        "llm-goal-scope/data/dataset/original/rag/Functional Unitn-top-1.jsonl",
-        "llm-goal-scope/data/dataset/original/rag/Functional Unitn-top-5.jsonl", # 8:26
-        "llm-goal-scope/data/dataset/original/rag/Functional Unittemp-033.jsonl",
-        "llm-goal-scope/data/dataset/original/rag/Functional Unittemp-090.jsonl",
-        "llm-goal-scope/data/dataset/original/rag/Functional Unittokens-128.jsonl",
-        "llm-goal-scope/data/dataset/original/rag/Functional Unittokens-512.jsonl"
+        # "llm-goal-scope/data/dataset/original/rag/Product.jsonl", # 3:50 pm
+        # "llm-goal-scope/data/dataset/original/rag/System Boundary.jsonl",
+        # "llm-goal-scope/data/dataset/standardized/rag/Functional Unit.jsonl",
+        # "llm-goal-scope/data/dataset/standardized/rag/Product.jsonl",
+        # "llm-goal-scope/data/dataset/standardized/rag/System Boundary.jsonl",
+        # "llm-goal-scope/data/dataset/original/rag/Functional Unitn-retrieved-10.jsonl",
+        # "llm-goal-scope/data/dataset/original/rag/Functional Unitn-retrieved-20.jsonl",
+        # "llm-goal-scope/data/dataset/original/rag/Functional Unitn-top-1.jsonl",
+        # "llm-goal-scope/data/dataset/original/rag/Functional Unitn-top-5.jsonl", # 8:26
+        # "llm-goal-scope/data/dataset/original/rag/Functional Unittemp-033.jsonl",
+        # "llm-goal-scope/data/dataset/original/rag/Functional Unittemp-090.jsonl",
+        # "llm-goal-scope/data/dataset/original/rag/Functional Unittokens-128.jsonl",
+        # "llm-goal-scope/data/dataset/original/rag/Functional Unittokens-512.jsonl"
     ]
 
     # for each dataset
     for k in filenames:
-        if k == "llm-goal-scope/data/dataset/original/no_rag/Functional Unit.jsonl":
+        if k == "llm-goal-scope/data/dataset/original/rag/Functional Unit.jsonl":
             ablation = True
         else:
             ablation = False
