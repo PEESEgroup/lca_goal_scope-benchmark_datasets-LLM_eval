@@ -78,7 +78,7 @@ def prediction_threshold():
     mWP_csv_df = pd.DataFrame()
 
     # Use rglob to recursively find all files matching the pattern
-    for file_path in root_directory.rglob('test_predictions.csv'): # test_predictions.csv
+    for file_path in root_directory.rglob('validation_predictions.csv'): # test_predictions.csv
         rag = "no rag" if "no" in str(file_path).split("_") else "rag"
         dataset_type = "original" if "original" in str(file_path).split("_") else "standardized"
         language_model = "/".join(str(file_path).split("\\")[4:6])
@@ -187,10 +187,10 @@ def prediction_threshold():
     # mAP_df = mAP_df.pivot(index=["dataset", "dataset_type"], columns="model", values="mWP").reset_index()
     mWP_csv_df = mWP_csv_df.pivot(index=["dataset", "dataset_type", "RAG"], columns="model", values="mWP").reset_index()
     # mAP_df.to_csv(f"./data/dataset/results/mAP-no-thresholds.csv",index=False)
-    mWP_csv_df.to_csv(f"./data/dataset/results/mWP_test.csv", index=False)
+    mWP_csv_df.to_csv(f"./data/dataset/results/mWP_validation.csv", index=False)
 
     mWP_df = mWP_df[["model", "dataset", "dataset_type", "RAG", 30, 50, 70, 90]]
-    mWP_df.to_csv(f"./data/dataset/results/mWP_thresholds_test.csv", index=False)
+    mWP_df.to_csv(f"./data/dataset/results/mWP_thresholds_validation.csv", index=False)
 
 
 def plot_error_codes():
