@@ -12,6 +12,7 @@ from collections import defaultdict
 from sklearn.metrics import precision_score
 import ast
 from statsmodels.stats.contingency_tables import mcnemar
+from sklearn.preprocessing import MultiLabelBinarizer
 
 
 def main():
@@ -20,7 +21,8 @@ def main():
     :return: N/A
     """
     # build SI figure on prediction threshold
-    prediction_threshold()
+    simple_metric()
+    #prediction_threshold()
 
     # plot number of labels versus precision for each of the four categories
     # label_precision()
@@ -191,6 +193,60 @@ def prediction_threshold():
 
     mWP_df = mWP_df[["model", "dataset", "dataset_type", "RAG", 30, 50, 70, 90]]
     mWP_df.to_csv(f"./data/dataset/results/mWP_thresholds_test_ablation.csv", index=False)
+
+
+def simple_metric():
+    # calculate MWP based on frequency of test set.
+    # read in datasets and extract number of labels in the test set
+    filenames = ["data/dataset/original/no_rag/System Boundary.jsonl",
+                 "data/dataset/original/no_rag/Allocation.jsonl",
+                 "data/dataset/original/no_rag/Functional Unit.jsonl",
+                 "data/dataset/original/no_rag/Product.jsonl",
+                 "data/dataset/standardized/no_rag/Functional Unit.jsonl",
+                 "data/dataset/standardized/no_rag/Product.jsonl",
+                 "data/dataset/standardized/no_rag/System Boundary.jsonl",
+                 ]  # rag and no_rag datasets will be the same
+    MWP = {}
+    for k in filenames:
+        # load the dataset
+        dataset_rag = "" if "no_rag" in str(k).split("/") else "_rag"
+        dataset_dataset_type = "original" if "original" in str(k).split("/") else "standardized"
+        dataset_dataset_category = dataset_dataset_type + dataset_rag
+        dataset_name = k.split("/")[-1].split(".")[0]
+        dataset = load_dataset('json', data_files=k)  # shuffle dataset before splitting
+        dataset = dataset.shuffle(seed=42)
+
+        # 80% train, 20% test + validation
+        train_testvalid = dataset['train'].train_test_split(test_size=0.2, seed=42)
+        # Split the 10% test + valid in half test, half valid
+        test_valid = train_testvalid['test'].train_test_split(test_size=0.5, seed=42)
+        train = train_testvalid['train']
+        test = test_valid['test']
+        # turn test samples in pd.Dataframe
+        test = pd.DataFrame(test)
+        train = pd.DataFrame(train)
+
+        mlb = MultiLabelBinarizer()
+        y_train = mlb.fit_transform(train['labels'])
+        y_test = mlb.transform(test['labels'])
+        print("Labels:", mlb.classes_)
+
+        # Frequency in train set
+        frequencies = y_train.mean(axis=0)
+
+        # Prediction: 1 if > 0.5 else 0
+        # Same prediction for every row in the test set, so we tile it
+        pred_single_row = (frequencies > 0.5).astype(int)
+        print("Pred single row:", pred_single_row)
+
+        y_pred = np.tile(pred_single_row, (len(test), 1))
+
+        # Calculate precision
+        macro_precision = precision_score(y_test, y_pred, average='macro', zero_division=0)
+        MWP[dataset_name + "_" + dataset_dataset_category] = macro_precision
+
+    df = pd.DataFrame(list(MWP.items()), columns=['Dataset', 'MWP'])
+    df.to_csv(f"./data/dataset/results/mWP_simple.csv", index=False)
 
 
 def plot_error_codes():
