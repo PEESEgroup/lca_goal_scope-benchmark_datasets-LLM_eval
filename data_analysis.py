@@ -83,7 +83,7 @@ def prediction_threshold():
         dataset_type = "original" if "original" in str(file_path).split("_") else "standardized"
         language_model = "/".join(str(file_path).split("\\")[4:6])
         dataset_name = str(file_path).split("\\")[3].split("_")[-1]
-        if dataset_name not in ["Allocation", "Functional Unit", "Product", "System Boundary"]:
+        if dataset_name in ["Allocation", "Functional Unit", "Product", "System Boundary"]:
             # don't need to threshold sensitivity ablation studies
             plotting = False
         else:
@@ -187,10 +187,10 @@ def prediction_threshold():
     # mAP_df = mAP_df.pivot(index=["dataset", "dataset_type"], columns="model", values="mWP").reset_index()
     mWP_csv_df = mWP_csv_df.pivot(index=["dataset", "dataset_type", "RAG"], columns="model", values="mWP").reset_index()
     # mAP_df.to_csv(f"./data/dataset/results/mAP-no-thresholds.csv",index=False)
-    mWP_csv_df.to_csv(f"./data/dataset/results/mWP_test.csv", index=False)
+    mWP_csv_df.to_csv(f"./data/dataset/results/mWP_test_ablation.csv", index=False)
 
     mWP_df = mWP_df[["model", "dataset", "dataset_type", "RAG", 30, 50, 70, 90]]
-    mWP_df.to_csv(f"./data/dataset/results/mWP_thresholds_test.csv", index=False)
+    mWP_df.to_csv(f"./data/dataset/results/mWP_thresholds_test_ablation.csv", index=False)
 
 
 def plot_error_codes():
