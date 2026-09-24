@@ -12,7 +12,7 @@ from collections import Counter
 
 
 def main():
-    grouping("./data/dataset/original/no_rag/Functional Unit.jsonl")
+    grouping("./data/dataset/original/no_rag/System Boundary.jsonl")
 
     filenames = ["./data/dataset/original/no_rag/System Boundary.jsonl",
                  "./data/dataset/original/no_rag/Allocation.jsonl",
@@ -50,21 +50,21 @@ def grouping(k):
     full_dataset = full_dataset.shuffle(seed=42)
 
     # Include 'labels' in your columns audit list
-    columns = ['cycle', 'site', 'source', 'labels_cycle', "labels_site", "labels_source"]
+    columns = ['cycle', 'site', 'source', 'grouped_cycle', "grouped_site", "grouped_source", 'random_cycle', "random_site", "random_source"]
 
     # Create a figure with subplots for each item (adjusted width for 4 subplots)
-    fig, axes = plt.subplots(2, 3, figsize=(15, 10))
+    fig, axes = plt.subplots(3, 3, figsize=(15, 15))
     axes = axes.flatten()
 
     for idx, s in enumerate(columns):
         ax = axes[idx]
 
-        if 'labels' in s:
+        if 'grouped' in s:
             col = s.split("_")[1]
             # split the dataset with custom splitter enabling singletons
-            split_dataset = custom_stratified_split(
+            split_dataset = custom_grouped_split(
                 dataset=full_dataset,
-                stratify_col=col,  # Choose which metadata column to balance around
+                group_col=col,  # Choose which metadata column to balance around
                 train_size=0.8,
                 test_size=0.1,
                 val_size=0.1,
@@ -82,6 +82,25 @@ def grouping(k):
 
             # Flatten and count occurrences across all rows
             for label_list in split_dataset['train']['labels']:
+                for label in label_list:
+                    if label in unique_counts:
+                        unique_counts[label] += 1
+
+            counts = list(unique_counts.values())
+        elif "random" in s:
+            train_testvalid = dataset['train'].train_test_split(test_size=0.2, seed=42)
+
+            # Multi-label / List handling:
+            # Extract the universe of valid labels from the 'all_labels' column
+            raw_all_labels = train_testvalid['train']['all_labels'][0]
+            valid_labels = raw_all_labels.split(";")
+            valid_labels = [i.strip() for i in valid_labels]
+
+            # Initialize counts for all valid labels to 0 (crucial for zero-coverage detection)
+            unique_counts = {label: 0 for label in valid_labels}
+
+            # Flatten and count occurrences across all rows
+            for label_list in train_testvalid['train']['labels']:
                 for label in label_list:
                     if label in unique_counts:
                         unique_counts[label] += 1
@@ -119,9 +138,14 @@ def grouping(k):
 
         status_label = f"Coverage: {'OK' if coverage_passed else 'FAIL'} | Balance: {'OK' if balance_passed else 'FAIL'}"
         ax.set_title(f"{s}\n({status_label})", fontsize=10)
-        ax.set_xlabel("Number of Samples per Group" if 'labels' in s else "Number of Samples per Label")
+        ax.set_xlabel("Number of Samples per Group" if 'group' in s or "random" in s else "Number of Samples per Metadata Category")
         ax.set_ylabel("Frequency")
         ax.tick_params(axis='x', rotation=45)
+
+    # share x axis for histogram plots
+    master_ax = axes[5]
+    for i in range(3, 9):
+        axes[i].sharex(master_ax)
 
     plt.tight_layout()
     plt.savefig("./data/dataset/results/grouped_splits.png", dpi=300)
@@ -129,10 +153,11 @@ def grouping(k):
     print("Plot successfully saved to './data/dataset/results/grouped_splits.png'")
 
 
-def custom_stratified_split(dataset, stratify_col='cycle', train_size = 0.8, test_size=0.1, val_size=0.1, seed=42):
+def custom_grouped_split(dataset, group_col='source', train_size=0.8, test_size=0.1, val_size=0.1, seed=42):
     """
-    Custom splitter that handles singletons by routing them to the training set
-    and stratifying the remaining well-represented data.
+    Group-aware splitter that ensures all records sharing the same group_col
+    (e.g., study ID, source, or paper) stay together in the same split
+    to prevent sibling record leakage.
     """
     np.random.seed(seed)
 
@@ -143,42 +168,39 @@ def custom_stratified_split(dataset, stratify_col='cycle', train_size = 0.8, tes
     p_test = test_size / total_ratio
     probs = [p_train, p_val, p_test]
 
-    # Extract column data
-    column_data = dataset[stratify_col]
-    counts = Counter(column_data)
+    # Extract group data
+    group_data = dataset[group_col]
 
-    # Track indices for each split
+    # Map each unique group (e.g., study/source) to its corresponding row indices
+    group_to_indices = {}
+    for idx, val in enumerate(group_data):
+        if val not in group_to_indices:
+            group_to_indices[val] = []
+        group_to_indices[val].append(idx)
+
+    # Get the list of unique groups and shuffle them randomly
+    unique_groups = list(group_to_indices.keys())
+    np.random.shuffle(unique_groups)
+
     train_indices = []
     val_indices = []
     test_indices = []
 
-    # Group indices by their category value
-    value_to_indices = {}
-    for idx, val in enumerate(column_data):
-        if val not in value_to_indices:
-            value_to_indices[val] = []
-        value_to_indices[val].append(idx)
+    # Assign entire groups stochastically to train, validation, or test based on target ratios
+    for group in unique_groups:
+        indices = group_to_indices[group]
 
-    for val, indices in value_to_indices.items():
-        np.random.shuffle(indices)
-        freq = len(indices)
+        # Randomly choose which split this entire group goes to based on probabilities
+        chosen_split = np.random.choice(['train', 'val', 'test'], p=probs)
 
-        # Stochastically distribute this group's samples across [train, validation, test]
-        # np.random.multinomial handles any frequency, including singletons (freq=1)
-        split_counts = np.random.multinomial(freq, probs)
-        n_train, n_val, n_test = split_counts
+        if chosen_split == 'train':
+            train_indices.extend(indices)
+        elif chosen_split == 'val':
+            val_indices.extend(indices)
+        else:
+            test_indices.extend(indices)
 
-        # Slice indices according to the stochastic draw
-        cursor = 0
-        train_indices.extend(indices[cursor: cursor + n_train])
-        cursor += n_train
-
-        val_indices.extend(indices[cursor: cursor + n_val])
-        cursor += n_val
-
-        test_indices.extend(indices[cursor: cursor + n_test])
-
-        # Shuffle final splits internally
+    # Shuffle internal indices within each split
     np.random.shuffle(train_indices)
     np.random.shuffle(val_indices)
     np.random.shuffle(test_indices)
@@ -190,7 +212,8 @@ def custom_stratified_split(dataset, stratify_col='cycle', train_size = 0.8, tes
     })
 
     total_len = len(dataset)
-    print(f"Stochastic split completed on '{stratify_col}':")
+    print(f"Grouped shuffle completed on group column '{group_col}':")
+    print(f"  - Unique groups: {len(unique_groups)}")
     print(f"  - Train samples: {len(train_indices)} ({len(train_indices) / total_len * 100:.1f}%)")
     print(f"  - Validation samples: {len(val_indices)} ({len(val_indices) / total_len * 100:.1f}%)")
     print(f"  - Test samples: {len(test_indices)} ({len(test_indices) / total_len * 100:.1f}%)")
