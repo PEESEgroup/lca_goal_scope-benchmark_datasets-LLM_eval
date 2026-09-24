@@ -7,9 +7,12 @@ import matplotlib.pyplot as plt
 import os
 from transformers import AutoTokenizer
 import evaluate_models
+import collections
 
 
 def main():
+    grouping("./data/dataset/original/rag/Functional Unit.jsonl")
+
     filenames = ["./data/dataset/original/no_rag/System Boundary.jsonl",
                  "./data/dataset/original/no_rag/Allocation.jsonl",
                  "./data/dataset/original/no_rag/Functional Unit.jsonl",
@@ -31,6 +34,33 @@ def main():
             dataset = load_dataset('json', data_files=k) # shuffle dataset before splitting
             dataset = dataset.shuffle(seed=42)
             covariance(dataset, k)
+
+
+def grouping(k):
+    dataset = load_dataset('json', data_files=k)
+    dataset = dataset.shuffle(seed=42)
+
+    columns = ['cycle', 'site', 'source']
+
+    # Create a figure with subplots for each item in the iteration
+    fig, axes = plt.subplots(1, len(columns), figsize=(15, 5))
+
+    for idx, s in enumerate(columns):
+        ax = axes[idx]
+
+        # calculate dynamic train/test/validation splits
+        column_data = dataset['train'][s]
+        unique_counts = collections.Counter(column_data)
+
+        # Plotting the histogram / frequency distribution for the current item
+        ax.hist(unique_counts.values(), color='skyblue', edgecolor='black')
+        ax.set_title(f"Distribution for: {s}")
+        ax.set_xlabel("Number of Samples per Group")
+        ax.set_ylabel("Frequency")
+        ax.tick_params(axis='x', rotation=45)
+
+    plt.tight_layout()
+    plt.savefig("./data/dataset/results/grouped_splits.png", dpi=300)
 
 
 def covariance(dataset, dataset_name):
