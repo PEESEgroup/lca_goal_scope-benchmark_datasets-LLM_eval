@@ -2,16 +2,17 @@ import json
 import numpy as np
 import pandas as pd
 import seaborn as sns
-from datasets import Dataset, DatasetDict, load_dataset
+from datasets import Dataset, DatasetDict, load_dataset, concatenate_datasets
 import matplotlib.pyplot as plt
 import os
 from transformers import AutoTokenizer
 import evaluate_models
 import collections
+from collections import Counter
 
 
 def main():
-    grouping("./data/dataset/original/rag/Functional Unit.jsonl")
+    grouping("./data/dataset/original/no_rag/Functional Unit.jsonl")
 
     filenames = ["./data/dataset/original/no_rag/System Boundary.jsonl",
                  "./data/dataset/original/no_rag/Allocation.jsonl",
@@ -37,30 +38,164 @@ def main():
 
 
 def grouping(k):
-    dataset = load_dataset('json', data_files=k)
-    dataset = dataset.shuffle(seed=42)
+    # Load the dataset
+    dataset = load_dataset('json', data_files=k) # each dataset shares same metadata, so that is invariant by dataset. Labels obviously differ
 
-    columns = ['cycle', 'site', 'source']
+    # 1) Re-combine train, test, and validation splits into a single dataset
+    if hasattr(dataset, 'keys') and len(dataset.keys()) > 1:
+        full_dataset = concatenate_datasets([dataset[split] for split in dataset.keys()])
+    else:
+        full_dataset = dataset["train"] if hasattr(dataset, 'keys') else dataset
 
-    # Create a figure with subplots for each item in the iteration
-    fig, axes = plt.subplots(1, len(columns), figsize=(15, 5))
+    full_dataset = full_dataset.shuffle(seed=42)
+
+    # Include 'labels' in your columns audit list
+    columns = ['cycle', 'site', 'source', 'labels_cycle', "labels_site", "labels_source"]
+
+    # Create a figure with subplots for each item (adjusted width for 4 subplots)
+    fig, axes = plt.subplots(2, 3, figsize=(15, 10))
+    axes = axes.flatten()
 
     for idx, s in enumerate(columns):
         ax = axes[idx]
 
-        # calculate dynamic train/test/validation splits
-        column_data = dataset['train'][s]
-        unique_counts = collections.Counter(column_data)
+        if 'labels' in s:
+            col = s.split("_")[1]
+            # split the dataset with custom splitter enabling singletons
+            split_dataset = custom_stratified_split(
+                dataset=full_dataset,
+                stratify_col=col,  # Choose which metadata column to balance around
+                train_size=0.8,
+                test_size=0.1,
+                val_size=0.1,
+                seed=42
+            )
 
-        # Plotting the histogram / frequency distribution for the current item
-        ax.hist(unique_counts.values(), color='skyblue', edgecolor='black')
-        ax.set_title(f"Distribution for: {s}")
-        ax.set_xlabel("Number of Samples per Group")
+            # Multi-label / List handling:
+            # Extract the universe of valid labels from the 'all_labels' column
+            raw_all_labels = split_dataset['train']['all_labels'][0]
+            valid_labels = raw_all_labels.split(";")
+            valid_labels = [i.strip() for i in valid_labels]
+
+            # Initialize counts for all valid labels to 0 (crucial for zero-coverage detection)
+            unique_counts = {label: 0 for label in valid_labels}
+
+            # Flatten and count occurrences across all rows
+            for label_list in split_dataset['train']['labels']:
+                for label in label_list:
+                    if label in unique_counts:
+                        unique_counts[label] += 1
+
+            counts = list(unique_counts.values())
+        else:
+            # Standard single-value categorical handling
+            column_data = full_dataset[s]
+            unique_counts = collections.Counter(column_data)
+            counts = list(unique_counts.values())
+
+        # 2) Calculate coverage and balance constraints
+        min_freq = min(counts) if counts else 0
+        mean_freq = np.mean(counts) if counts else 0
+        std_freq = np.std(counts) if counts else 0
+
+        # Coefficient of Variation (CV) measures balance
+        cv = std_freq / mean_freq if mean_freq > 0 else float('inf')
+
+        # Define thresholds
+        COVERAGE_THRESHOLD = 3
+        BALANCE_THRESHOLD = 1.5
+
+        coverage_passed = min_freq >= COVERAGE_THRESHOLD
+        balance_passed = cv <= BALANCE_THRESHOLD
+
+        # Log status
+        print(f"--- Column: {s} ---")
+        print(
+            f"  Min Frequency: {min_freq} (Required >= {COVERAGE_THRESHOLD}) -> {'PASS' if coverage_passed else 'FAIL'}")
+        print(f"  Balance (CV):  {cv:.2f} (Required <= {BALANCE_THRESHOLD}) -> {'PASS' if balance_passed else 'FAIL'}")
+
+        # Plotting the histogram
+        ax.hist(counts, color='skyblue', edgecolor='black')
+
+        status_label = f"Coverage: {'OK' if coverage_passed else 'FAIL'} | Balance: {'OK' if balance_passed else 'FAIL'}"
+        ax.set_title(f"{s}\n({status_label})", fontsize=10)
+        ax.set_xlabel("Number of Samples per Group" if 'labels' in s else "Number of Samples per Label")
         ax.set_ylabel("Frequency")
         ax.tick_params(axis='x', rotation=45)
 
     plt.tight_layout()
     plt.savefig("./data/dataset/results/grouped_splits.png", dpi=300)
+    plt.close()
+    print("Plot successfully saved to './data/dataset/results/grouped_splits.png'")
+
+
+def custom_stratified_split(dataset, stratify_col='cycle', train_size = 0.8, test_size=0.1, val_size=0.1, seed=42):
+    """
+    Custom splitter that handles singletons by routing them to the training set
+    and stratifying the remaining well-represented data.
+    """
+    np.random.seed(seed)
+
+    # Normalize probabilities to ensure they sum to 1.0
+    total_ratio = train_size + val_size + test_size
+    p_train = train_size / total_ratio
+    p_val = val_size / total_ratio
+    p_test = test_size / total_ratio
+    probs = [p_train, p_val, p_test]
+
+    # Extract column data
+    column_data = dataset[stratify_col]
+    counts = Counter(column_data)
+
+    # Track indices for each split
+    train_indices = []
+    val_indices = []
+    test_indices = []
+
+    # Group indices by their category value
+    value_to_indices = {}
+    for idx, val in enumerate(column_data):
+        if val not in value_to_indices:
+            value_to_indices[val] = []
+        value_to_indices[val].append(idx)
+
+    for val, indices in value_to_indices.items():
+        np.random.shuffle(indices)
+        freq = len(indices)
+
+        # Stochastically distribute this group's samples across [train, validation, test]
+        # np.random.multinomial handles any frequency, including singletons (freq=1)
+        split_counts = np.random.multinomial(freq, probs)
+        n_train, n_val, n_test = split_counts
+
+        # Slice indices according to the stochastic draw
+        cursor = 0
+        train_indices.extend(indices[cursor: cursor + n_train])
+        cursor += n_train
+
+        val_indices.extend(indices[cursor: cursor + n_val])
+        cursor += n_val
+
+        test_indices.extend(indices[cursor: cursor + n_test])
+
+        # Shuffle final splits internally
+    np.random.shuffle(train_indices)
+    np.random.shuffle(val_indices)
+    np.random.shuffle(test_indices)
+
+    split_dataset = DatasetDict({
+        'train': dataset.select(train_indices),
+        'validation': dataset.select(val_indices),
+        'test': dataset.select(test_indices)
+    })
+
+    total_len = len(dataset)
+    print(f"Stochastic split completed on '{stratify_col}':")
+    print(f"  - Train samples: {len(train_indices)} ({len(train_indices) / total_len * 100:.1f}%)")
+    print(f"  - Validation samples: {len(val_indices)} ({len(val_indices) / total_len * 100:.1f}%)")
+    print(f"  - Test samples: {len(test_indices)} ({len(test_indices) / total_len * 100:.1f}%)")
+
+    return split_dataset
 
 
 def covariance(dataset, dataset_name):
