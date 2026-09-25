@@ -144,7 +144,11 @@ def vs_creation(filename, embedding_model, EMBEDDING_MODEL_NAME):
     print("vector store saved locally")
 
 
-if __name__ == "__main__":
+def main():
     embed_model = constants.EMBED_MODEL
     embed_model_name = constants.EMBEDDING_MODEL_NAME
     vs_creation(constants.VDB_LOCATION, embed_model, embed_model_name)
+
+
+if __name__ == "__main__":
+    main()

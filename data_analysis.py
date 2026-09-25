@@ -22,24 +22,29 @@ def main():
     """
     # build SI figure on prediction threshold
     simple_metric()
-    #prediction_threshold()
+    prediction_threshold()
 
     # plot number of labels versus precision for each of the four categories
-    # label_precision()
-    # parameter_precision()
+    label_precision()
+    parameter_precision()
 
     # collate errors for each dataset based on RAG
-    # collect_rag_error_rates()
-    # explain_discrepancies()
+    collect_rag_error_rates()
+    explain_discrepancies()
 
     # identify occurence of errors and the extent to which models and ground truths agree
-    # inter_reviewer_alignment()
+    inter_reviewer_alignment()
 
     # plot the frequency of error rates across 12 datasets
-    # plot_error_codes()
+    plot_error_codes()
 
 
 def get_label_precision(file_path):
+    """
+    Given a filepath, calculate the precision for each of the labels
+    :param file_path: filepath to dataset results
+    :return: pandas df of label precisions
+    """
     rag = "no rag" if "no" in str(file_path).split("_") else "rag"
     dataset_type = "original" if "original" in str(file_path).split("_") else "standardized"
     language_model = "/".join(str(file_path).split("\\")[4:6])
@@ -80,7 +85,7 @@ def prediction_threshold():
     mWP_csv_df = pd.DataFrame()
 
     # Use rglob to recursively find all files matching the pattern
-    for file_path in root_directory.rglob('test_predictions.csv'): # test_predictions.csv
+    for file_path in root_directory.rglob('test_predictions.csv'):  # test_predictions.csv
         rag = "no rag" if "no" in str(file_path).split("_") else "rag"
         dataset_type = "original" if "original" in str(file_path).split("_") else "standardized"
         language_model = "/".join(str(file_path).split("\\")[4:6])
@@ -292,7 +297,8 @@ def plot_error_codes():
     # Create a single label for the x-axis by joining the group columns
     df_counts['Group'] = df_counts[group_cols].astype(str).agg(' | '.join, axis=1)
     df_counts = df_counts[df_counts['Number of Models with Error'] > 0]  # keep rationales that occur more than 0 times
-    pivot_df = df_counts.pivot(index='Group', columns='Discrepancy Code', values='Number of Models with Error').fillna(0)
+    pivot_df = df_counts.pivot(index='Group', columns='Discrepancy Code', values='Number of Models with Error').fillna(
+        0)
 
     fig, ax = plt.subplots(figsize=(14, 8))
     bottom = None
@@ -361,7 +367,6 @@ def plot_error_codes():
 def explain_discrepancies():
     """
     Preprocess data to give a simple textual description of the discrepancy so that I don't have to manually hunt for which position in the list the discrepancy occurs
-    :param df: df of discrepancies made by the ML model
     :return: .csv sheet containing explanations of error codes
     """
     df = pd.read_csv("./data/dataset/results/master_list_discrepancies.csv")
@@ -371,8 +376,9 @@ def explain_discrepancies():
     # get context for each error
     context = context.reset_index(names="sample index")
     # update the dataset name for the context to support the merge
-    context["dataset"] = context['title'].apply(lambda x: "System Boundary" if x == "System Boundary Completeness" else "Product" if x == "Product of Assessment"
-                                                else "Functional Unit" if x=="Functional Unit" else "Allocation")
+    context["dataset"] = context['title'].apply(lambda
+                                                    x: "System Boundary" if x == "System Boundary Completeness" else "Product" if x == "Product of Assessment"
+    else "Functional Unit" if x == "Functional Unit" else "Allocation")
 
     df["dataset_category"] = df["dataset_type"] + "_" + df["RAG"]
 
@@ -409,8 +415,9 @@ def explain_discrepancies():
                 if len(counts[counts['label'] == label_name]) == 0:
                     freq = "Not in Training Dataset"  # there's an off chance the label is not found in the training dataset
                 else:
-                    right_label = counts[counts['label'] == label_name] # get the label name
-                    right_dataset = right_label[right_label["category"] == row["dataset_type"]]  # from the correct dataset
+                    right_label = counts[counts['label'] == label_name]  # get the label name
+                    right_dataset = right_label[
+                        right_label["category"] == row["dataset_type"]]  # from the correct dataset
                     if len(right_dataset) > 0:
                         freq = right_dataset["percentage"].values[0]
                     else:
@@ -422,9 +429,12 @@ def explain_discrepancies():
                 pos_location = "Human" if t == str(1) else "AI"
 
                 # save data to a pd Series
-                data = [row["context"], row["true_labels"], row["preds_70"], row["classes"], line, matching_pos, freq, row["sample index"], row["dataset"], row["dataset_type"],
+                data = [row["context"], row["true_labels"], row["preds_70"], row["classes"], line, matching_pos, freq,
+                        row["sample index"], row["dataset"], row["dataset_type"],
                         row["RAG"], pos_location, row["Number of Models with Error"]]
-                labels = ["Context", "True Labels", "Predicted Labels", "List of Classes", "Sentence", "Number of Correct Preds", "Frequency", "Sample Index", "Dataset", "Dataset Type", "RAG", "Location of Positive", "Number of Models with Error"]
+                labels = ["Context", "True Labels", "Predicted Labels", "List of Classes", "Sentence",
+                          "Number of Correct Preds", "Frequency", "Sample Index", "Dataset", "Dataset Type", "RAG",
+                          "Location of Positive", "Number of Models with Error"]
                 s = pd.Series(data, index=labels)
                 discrepancy_lines.append(s.to_frame().T)
 
@@ -486,7 +496,7 @@ def inter_reviewer_alignment():
     """
     # get all errors
     original = pd.read_csv("./data/dataset/results/all_errors_original.csv")
-    standardized= pd.read_csv("./data/dataset/results/all_errors_standardized.csv")
+    standardized = pd.read_csv("./data/dataset/results/all_errors_standardized.csv")
 
     # Identify the percentage of samples of LCA that have 0, 1, 2+ errors
     error_analysis = pd.DataFrame()
@@ -513,7 +523,8 @@ def inter_reviewer_alignment():
                 s_0_errors = total_samples - len(error_counts)
 
                 # write data out to series
-                data = [dataset_type, rag, model, f"{s_0_errors / total_samples:.1%}", f"{s_1_error / total_samples:.1%}",
+                data = [dataset_type, rag, model, f"{s_0_errors / total_samples:.1%}",
+                        f"{s_1_error / total_samples:.1%}",
                         f"{s_2_errors / total_samples:.1%}", f"{s_3plus_errors / total_samples:.1%}"]
                 index_labels = ["Dataset Type", "RAG", "Model", '0 Errors', '1 Error', '2 Errors', '3+ Errors']
                 s = pd.DataFrame(data, index=index_labels)
@@ -571,7 +582,9 @@ def collect_rag_error_rates():
     master_discrepancies = pd.concat([original, standardized])
 
     # get master table of unique errors as well as count of how many times they occured
-    master_discrepancies = master_discrepancies.groupby(['true_labels', 'preds_70', "classes", "sample index", "dataset", "dataset_type", "RAG"]).size().reset_index(name='Number of Models with Error')
+    master_discrepancies = master_discrepancies.groupby(
+        ['true_labels', 'preds_70', "classes", "sample index", "dataset", "dataset_type", "RAG"]).size().reset_index(
+        name='Number of Models with Error')
     master_discrepancies.to_csv("./data/dataset/results/master_list_discrepancies.csv", index=False)
 
     # Identify incidence of all/persistent errors in RAG
@@ -594,7 +607,7 @@ def collect_rag_error_rates():
                     f"{both_count / total:.1%}", f"{only_rag_count}", f"{only_no_rag_count}", f"{both_count}"]
             index_labels = ['RAG only %', 'No RAG only %', 'Both %', 'RAG only', 'No RAG only', 'Both']
             s = pd.Series(data, index=index_labels)
-            error_analysis[dataset_type + " "+ str(dataset)] = s
+            error_analysis[dataset_type + " " + str(dataset)] = s
 
             # McNemar's Test Logic
             # - 'RAG only' error means: RAG is Incorrect, No RAG is Correct (Cell c)
@@ -797,7 +810,8 @@ def get_test_samples():
         test = test_valid['test']
         # turn test samples in pd.Dataframe
         test = pd.DataFrame(test)
-        test["dataset_category"] = dataset_dataset_type + "_no rag" if "no_rag" in str(k).split("/") else dataset_dataset_type + "_rag"
+        test["dataset_category"] = dataset_dataset_type + "_no rag" if "no_rag" in str(k).split(
+            "/") else dataset_dataset_type + "_rag"
 
         # flatten and count the occurence of labels in the training dataset
         flattened_test_labels = list(itertools.chain.from_iterable(train_valid))

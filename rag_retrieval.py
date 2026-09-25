@@ -20,6 +20,7 @@ from concurrent.futures import ThreadPoolExecutor
 from functools import partial
 import numpy as np
 
+
 # Create a worker function that encapsulates the call
 def worker_search(desc, index_instance, k):
     return index_instance.similarity_search(desc, k=k)
@@ -46,21 +47,21 @@ def answer_with_rag(
     # Check if the LangChain FAISS index object natively supports batching
     if hasattr(knowledge_index, "batch_search"):
         # Define a reasonable batch chunk size (e.g., 32 or 64 queries at a time)
-        FAISS_BATCH_SIZE = 64  
+        FAISS_BATCH_SIZE = 64
         all_retrieved_docs = []
 
         # Loop through your descriptions in chunks with a visual progress bar
         for i in tqdm(range(0, len(system_description), FAISS_BATCH_SIZE), desc="FAISS Batch Searching"):
-            mini_batch = system_description[i : i + FAISS_BATCH_SIZE]
+            mini_batch = system_description[i: i + FAISS_BATCH_SIZE]
             print(mini_batch)
             combined_mini_batch = [
-                f"Description: {desc.strip()} Question: {question.strip()}" 
+                f"Description: {desc.strip()} Question: {question.strip()}"
                 for desc in mini_batch_desc
             ]
-            
+
             # Query the vector index with the current chunk
             batch_results = knowledge_index.batch_search(mini_batch, k=num_retrieved_docs)
-            
+
             # Extend our master collection list
             all_retrieved_docs.extend(batch_results)
     else:
@@ -77,7 +78,7 @@ def answer_with_rag(
 
         # combine your descriptions and questions into a flat text list
         combined_queries = [
-            f"Description: {desc.strip()} Question: {question.strip()}" 
+            f"Description: {desc.strip()} Question: {question.strip()}"
             for desc in system_description
         ]
 
@@ -103,7 +104,7 @@ def answer_with_rag(
             for idx in row_indices:
                 if idx == -1:
                     continue  # FAISS returns -1 if fewer documents exist than requested k
-                
+
                 # Pull the original Document object out of the LangChain store maps
                 doc_id = knowledge_index.index_to_docstore_id[idx]
                 doc = knowledge_index.docstore.search(doc_id)
@@ -117,20 +118,20 @@ def answer_with_rag(
     print("Gathered All Documents")
 
     final_prompts = []
-    
+
     # Configure generation parameters up front
     sampling_params = SamplingParams(
-        max_tokens=num_tokens, 
-        temperature=temperature, 
+        max_tokens=num_tokens,
+        temperature=temperature,
         stop=[
-            "<|end_header_id|>", 
+            "<|end_header_id|>",
             "<|eot_id|>"
         ])
 
     # Process retrieval & reranking per description item
     for desc, docs in tqdm(zip(system_description, all_retrieved_docs)):
         doc_texts = [doc.page_content for doc in docs]
-        
+
         # Build text-matching pairs for this specific description query
         pairs = [[f"Description: {desc} Question: {question}", text] for text in doc_texts]
         scores = rerank_model.predict(pairs)
@@ -182,15 +183,15 @@ def answer_with_rag(
 
     # Loop through the prompts in steps of MINI_BATCH_SIZE
     for i in tqdm(range(0, len(final_prompts), MINI_BATCH_SIZE), desc="vLLM Generating Answers"):
-        mini_batch = final_prompts[i : i + MINI_BATCH_SIZE]
-        
+        mini_batch = final_prompts[i: i + MINI_BATCH_SIZE]
+
         # Generate for the current chunk
         batch_outputs = llm.generate(mini_batch, sampling_params)
         outputs.extend(batch_outputs)
-    
+
     # Collect answers corresponding cleanly to the batch items
     generated_answers = [out.outputs[0].text.strip() for out in outputs]
-    
+
     return generated_answers
 
 
@@ -213,20 +214,20 @@ def model_config(model_name="RedHatAI/Llama-4-Scout-17B-16E-Instruct-quantized.w
         "{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' }}"
         "{% endif %}"
     )
-    
+
     # trained on a ml.g6.48xlarge with 8x24GB VRAM GPUs
     llm = LLM(
-        model=model_name, 
+        model=model_name,
         trust_remote_code=True,
         load_format="safetensors",
         tensor_parallel_size=8,
-        max_model_len=32768,             
-        gpu_memory_utilization=0.70, 
-        enable_prefix_caching=True,      
-        enable_chunked_prefill=True,     
+        max_model_len=32768,
+        gpu_memory_utilization=0.70,
+        enable_prefix_caching=True,
+        enable_chunked_prefill=True,
         max_num_seqs=16,
-        enforce_eager=False,             
-        disable_custom_all_reduce=False, 
+        enforce_eager=False,
+        disable_custom_all_reduce=False,
         kv_cache_dtype="fp8",
         quantization="compressed-tensors"
     )
@@ -246,10 +247,12 @@ if __name__ == "__main__":
     print("model configured")
     # test question to make sure things are working
     question = "what is a functional unit for sheep production in the UK?"
-    answer = answer_with_rag(["Permanent pasture producing sheep, lamb (weaned) in united kingdom. cycle description: blue-2019. site description: blue farming system"], 
-                "What is the functional unit?",
-                "The functional unit can either be: \"1 ha\" (one hectare) or \"relative\" (meaning that the quantities "
-                "of Inputs and Emissions correspond to the quantities of Products). If the primary product is a crop or "
-                "forage, the functional unit must be 1 ha. If \"relative\" is reported above, please also provide the "
-                "functional unit most relevant to the production system.", reader, tokenizer, vdb, rerank_model)
+    answer = answer_with_rag([
+                                 "Permanent pasture producing sheep, lamb (weaned) in united kingdom. cycle description: blue-2019. site description: blue farming system"],
+                             "What is the functional unit?",
+                             "The functional unit can either be: \"1 ha\" (one hectare) or \"relative\" (meaning that the quantities "
+                             "of Inputs and Emissions correspond to the quantities of Products). If the primary product is a crop or "
+                             "forage, the functional unit must be 1 ha. If \"relative\" is reported above, please also provide the "
+                             "functional unit most relevant to the production system.", reader, tokenizer, vdb,
+                             rerank_model)
     print(answer)

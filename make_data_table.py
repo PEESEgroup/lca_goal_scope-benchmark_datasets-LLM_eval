@@ -26,8 +26,10 @@ def main(directory):
     # drop unnecessary columns
     if "recalculated" in directory:
         df = df.drop(columns=['systemBoundaryCompleteness.@type',  # no real data
-                              'systemBoundaryCompleteness.updated',   # unnecessary, what was recalcualted compared to original
-                              'systemBoundaryCompleteness.updatedVersion',  # unnecessary, what was recalcualted compared to original
+                              'systemBoundaryCompleteness.updated',
+                              # unnecessary, what was recalcualted compared to original
+                              'systemBoundaryCompleteness.updatedVersion',
+                              # unnecessary, what was recalcualted compared to original
                               'IAmethodClassification',  # mostly empty
                               'IAproductFate',  # mostly empty
                               'IAfunctionalUnitQuantity',  # all 1
@@ -35,7 +37,7 @@ def main(directory):
                               ])
     else:
         df = df.drop(columns=['systemBoundaryCompleteness.@type',  # no data
-                              'IAmethodClassification', # mostly empty
+                              'IAmethodClassification',  # mostly empty
                               'IAproductFate',  # mostly empty
                               'IAfunctionalUnitQuantity',  # all 1
                               'siteMethodClassification'  # mostly empty

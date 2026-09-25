@@ -10,9 +10,9 @@ def main(directory_path):
     """
     # for each file in the directory, iterate through
     print(os.getcwd())
-    for entry_name in os.listdir(directory_path+"ImpactAssessment/"):
+    for entry_name in os.listdir(directory_path + "ImpactAssessment/"):
         # get file path
-        file_path = os.path.join(directory_path+"ImpactAssessment/", entry_name)
+        file_path = os.path.join(directory_path + "ImpactAssessment/", entry_name)
         extension = ".jsonld"
         # open file
         lca_data = {}
@@ -32,7 +32,7 @@ def main(directory_path):
             site = data['site']["@id"]
             lca_data['siteID'] = site
             try:
-                with open(directory_path + "Site/{}".format(site)+extension, 'r', encoding='utf-8') as f_site:
+                with open(directory_path + "Site/{}".format(site) + extension, 'r', encoding='utf-8') as f_site:
                     try:
                         data_site = json.load(f_site)
                         if "description" in data_site:
@@ -60,7 +60,8 @@ def main(directory_path):
                         """
                         if "country" in data_site:
                             if "region" in data_site:
-                                lca_data['siteLocation'] = data_site["country"]["name"] + " - " + data_site["region"]["name"]
+                                lca_data['siteLocation'] = data_site["country"]["name"] + " - " + data_site["region"][
+                                    "name"]
                             else:
                                 lca_data['siteLocation'] = data_site["country"]["name"]
                         else:
@@ -238,11 +239,11 @@ def main(directory_path):
         # •	Planning reporting of results - not available in data, clearly results were reported
 
         # write out data
-        with open(directory_path+"cleaned/{}".format(entry_name), "w+") as w:
+        with open(directory_path + "cleaned/{}".format(entry_name), "w+") as w:
             json.dump(lca_data, w, indent=4)
 
 
 if __name__ == "__main__":
-    prefix = "./data/hestia/" #"llm-goal-scope/data/hestia/" on AWS
+    prefix = "./data/hestia/"  #"llm-goal-scope/data/hestia/" on AWS
     main(prefix)
     main(prefix + "recalculated/")

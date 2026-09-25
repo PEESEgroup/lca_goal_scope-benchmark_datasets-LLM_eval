@@ -12,8 +12,10 @@ from collections import Counter
 
 
 def main():
+    # plot figures for dataset balance
     grouping("./data/dataset/original/no_rag/System Boundary.jsonl")
 
+    # plot figures for the correlation and covariance of the labels in the datasets
     filenames = ["./data/dataset/original/no_rag/System Boundary.jsonl",
                  "./data/dataset/original/no_rag/Allocation.jsonl",
                  "./data/dataset/original/no_rag/Functional Unit.jsonl",
@@ -32,14 +34,20 @@ def main():
 
         if len(data) > 0:
             # convert to dataset
-            dataset = load_dataset('json', data_files=k) # shuffle dataset before splitting
+            dataset = load_dataset('json', data_files=k)  # shuffle dataset before splitting
             dataset = dataset.shuffle(seed=42)
             covariance(dataset, k)
 
 
 def grouping(k):
+    """
+    Given an input filename, produce a plot which gives measures of the balance and coverage of the dataset
+    :param k: filename
+    :return: N/A
+    """
     # Load the dataset
-    dataset = load_dataset('json', data_files=k) # each dataset shares same metadata, so that is invariant by dataset. Labels obviously differ
+    dataset = load_dataset('json',
+                           data_files=k)  # each dataset shares same metadata, so that is invariant by dataset. Labels obviously differ
 
     # 1) Re-combine train, test, and validation splits into a single dataset
     if hasattr(dataset, 'keys') and len(dataset.keys()) > 1:
@@ -50,7 +58,8 @@ def grouping(k):
     full_dataset = full_dataset.shuffle(seed=42)
 
     # Include 'labels' in your columns audit list
-    columns = ['cycle', 'site', 'source', 'grouped_cycle', "grouped_site", "grouped_source", 'random_cycle', "random_site", "random_source"]
+    columns = ['cycle', 'site', 'source', 'grouped_cycle', "grouped_site", "grouped_source", 'random_cycle',
+               "random_site", "random_source"]
 
     # Create a figure with subplots for each item (adjusted width for 4 subplots)
     fig, axes = plt.subplots(3, 3, figsize=(15, 15))
@@ -138,7 +147,8 @@ def grouping(k):
 
         status_label = f"Coverage: {'OK' if coverage_passed else 'FAIL'} | Balance: {'OK' if balance_passed else 'FAIL'}"
         ax.set_title(f"{s}\n({status_label})", fontsize=10)
-        ax.set_xlabel("Number of Samples per Group" if 'group' in s or "random" in s else "Number of Samples per Metadata Category")
+        ax.set_xlabel(
+            "Number of Samples per Group" if 'group' in s or "random" in s else "Number of Samples per Metadata Category")
         ax.set_ylabel("Frequency")
         ax.tick_params(axis='x', rotation=45)
 
@@ -231,7 +241,8 @@ def covariance(dataset, dataset_name):
         # model setup
         model_path = 'microsoft/deberta-v3-small'
         tokenizer = AutoTokenizer.from_pretrained(model_path)
-        tokenized_dataset = dataset.map(lambda example: evaluate_models.preprocess_function(example, classes, class2id, tokenizer))
+        tokenized_dataset = dataset.map(
+            lambda example: evaluate_models.preprocess_function(example, classes, class2id, tokenizer))
 
         # covariance calculations
         df = pd.DataFrame(tokenized_dataset["train"])
@@ -250,9 +261,9 @@ def covariance_plotting(classes, covariance_matrix, dataset_name):
     sns.heatmap(covariance_matrix,
                 annot=True,  # Show the covariance values on the heatmap
                 fmt='.2f',  # Format the annotation values to one decimal place
-                annot_kws= {"size": 2 if len(covariance_matrix) > 20 else 8},
+                annot_kws={"size": 2 if len(covariance_matrix) > 20 else 8},
                 cmap='RdBu',
-                center = 0,
+                center=0,
                 xticklabels=classes,
                 yticklabels=classes)
     plt.title('Covariance Matrix Heatmap')
@@ -274,10 +285,10 @@ def correlation_plotting(classes, correlation_matrix, dataset_name):
     plt.figure(figsize=(8, 6))  # Adjust figure size as needed
     sns.heatmap(correlation_matrix,
                 annot=True,  # Show the covariance values on the heatmap
-                annot_kws= {"size": 2 if len(correlation_matrix) > 20 else 8},
+                annot_kws={"size": 2 if len(correlation_matrix) > 20 else 8},
                 fmt='.1f',  # Format the annotation values to one decimal place
-                cmap='RdBu', 
-                center = 0,
+                cmap='RdBu',
+                center=0,
                 xticklabels=classes,
                 yticklabels=classes)
     plt.title('Correlation Matrix Heatmap')

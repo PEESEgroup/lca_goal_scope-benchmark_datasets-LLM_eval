@@ -105,12 +105,12 @@ def actors(row):
             {"labels": [row["organization"], "authors of the study", "authors and their collaborators"],
              "title": "Actors",
              "context": row["systemDescription"],
-                 "source": row['sourceID'],
-                 "DOI": row['DOI'],
-                 "cycle": row['cycleID'],
-                 "site": row['siteID'],
-                 "default method classification": row['cycleMethodClassification'],
-                 "original study title": row['title']}]
+             "source": row['sourceID'],
+             "DOI": row['DOI'],
+             "cycle": row['cycleID'],
+             "site": row['siteID'],
+             "default method classification": row['cycleMethodClassification'],
+             "original study title": row['title']}]
 
 
 def product(row):
@@ -149,12 +149,12 @@ def allocation(row):
             "labels": [row["IAallocationMethod"]],
             "title": "Allocation Method",
             "context": row["systemDescription"],
-                 "source": row['sourceID'],
-                 "DOI": row['DOI'],
-                 "cycle": row['cycleID'],
-                 "site": row['siteID'],
-                 "default method classification": row['cycleMethodClassification'],
-                 "original study title": row['title']}]
+            "source": row['sourceID'],
+            "DOI": row['DOI'],
+            "cycle": row['cycleID'],
+            "site": row['siteID'],
+            "default method classification": row['cycleMethodClassification'],
+            "original study title": row['title']}]
 
 
 def systemBoundary(row):
@@ -203,12 +203,12 @@ def functionalUnit(row):
             {"labels": [row["IA_productUnit"], row['functionalUnit']],
              "title": "Functional Unit",
              "context": row["systemDescription"],
-                 "source": row['sourceID'],
-                 "DOI": row['DOI'],
-                 "cycle": row['cycleID'],
-                 "site": row['siteID'],
-                 "default method classification": row['cycleMethodClassification'],
-                 "original study title": row['title']}]
+             "source": row['sourceID'],
+             "DOI": row['DOI'],
+             "cycle": row['cycleID'],
+             "site": row['siteID'],
+             "default method classification": row['cycleMethodClassification'],
+             "original study title": row['title']}]
 
 
 def systemDescription(row):
@@ -222,26 +222,30 @@ def systemDescription(row):
         if len(row['siteType']) > 0:
             if len(row['siteDescription']) > 0:
                 string_to_return = row["siteType"] + " producing " + names[0].strip() + " in " + names[
-                    1].strip() + ". Cycle description: " + row["cycleDescription"] + ". Site description: " + row["siteDescription"] + "."
+                    1].strip() + ". Cycle description: " + row["cycleDescription"] + ". Site description: " + row[
+                                       "siteDescription"] + "."
             else:
                 string_to_return = row["siteType"] + " producing " + names[0].strip() + " in " + names[
                     1].strip() + ". Cycle description: " + row["cycleDescription"] + "."
         else:
             if len(row['siteDescription']) > 0:
                 string_to_return = names[0].strip() + " produced in " + names[
-                    1].strip() + ". Cycle description: " + row["cycleDescription"] + ". Site description: " + row["siteDescription"] + "."
+                    1].strip() + ". Cycle description: " + row["cycleDescription"] + ". Site description: " + row[
+                                       "siteDescription"] + "."
             else:
                 string_to_return = names[0].strip() + " produced in " + names[
                     1].strip() + ". Cycle description: " + row["cycleDescription"] + "."
     else:
         if len(row['siteType']) > 0:
             if len(row['siteDescription']) > 0:
-                string_to_return = row["siteType"] + " producing " + names[0].strip() + " in " + names[1].strip() + ". Site description: " + row["siteDescription"] + "."
+                string_to_return = row["siteType"] + " producing " + names[0].strip() + " in " + names[
+                    1].strip() + ". Site description: " + row["siteDescription"] + "."
             else:
                 string_to_return = row["siteType"] + " producing " + names[0].strip() + " in " + names[1].strip() + "."
         else:
             if len(row['siteDescription']) > 0:
-                string_to_return = names[0].strip() + " produced in " + names[1].strip() + ". Site description: " + row["siteDescription"] + "."
+                string_to_return = names[0].strip() + " produced in " + names[1].strip() + ". Site description: " + row[
+                    "siteDescription"] + "."
             else:
                 string_to_return = names[0].strip() + " produced in " + names[1].strip() + "."
 
@@ -273,6 +277,7 @@ def RAG_questions(dataset_type):
     # study_reason = f"For the following production system, what are the reasons for carrying out the LCA study? Production system: {str(row['systemDescription'])}"
     # actors = f"For the following production system, who are the important actors? Production system: {str(row['systemDescription'])}"
 
+
 def HESTIA_information(dataset_type):
     """
     return the RAG questions
@@ -280,51 +285,51 @@ def HESTIA_information(dataset_type):
     :return: relevant question
     """
     if dataset_type == "Allocation":
-        return ("If system expansion is used in the Target Evaluation Description, the available choices are either mass, economic, energy, or biophysical. "
-                "If system expansion is not necessary, answer \"none required\". If system expansion does not need "
-                "to be reported, answer \"none\".")
+        return (
+            "If system expansion is used in the Target Evaluation Description, the available choices are either mass, economic, energy, or biophysical. "
+            "If system expansion is not necessary, answer \"none required\". If system expansion does not need "
+            "to be reported, answer \"none\".")
     elif dataset_type == "Functional Unit":
-        return ("There are up to two functional units that need to be chosen. The first functional unit can either be: \"1 ha\" (one hectare) or \"relative\" (meaning that the quantities "
-                "of Inputs and Emissions correspond to the quantities of Products). If the primary product is a crop or "
-                "forage, the functional unit must be 1 ha. If \"relative\" is reported as the first functional unit, please also provide an additional "
-                "functional unit most relevant to the Target Evaluation Description from the following list: kg FPCM, 1 ha, number, kg liveweight, kg ready-to-cook weight, kg cold dressed carcass weight, kg, kg cold carcass weight.")
+        return (
+            "There are up to two functional units that need to be chosen. The first functional unit can either be: \"1 ha\" (one hectare) or \"relative\" (meaning that the quantities "
+            "of Inputs and Emissions correspond to the quantities of Products). If the primary product is a crop or "
+            "forage, the functional unit must be 1 ha. If \"relative\" is reported as the first functional unit, please also provide an additional "
+            "functional unit most relevant to the Target Evaluation Description from the following list: kg FPCM, 1 ha, number, kg liveweight, kg ready-to-cook weight, kg cold dressed carcass weight, kg, kg cold carcass weight.")
     elif dataset_type == "System Boundary":
-        return ("For each of the following categories, please report the system boundary completeness requirement for the life cycle assessment Cycle given in the Target Evaluation Description in the form '<category>: True/False'."
-                "If the types and quantities of the category are specified in the life cycle assessment, set to True. If the category is not present in the life cycle assessment, set to True."
-                "If the category was used, but the types and quantities are not specified, set to False. \n"
-                "The categories include:\n"
-                "animalFeed: The types and quantities of all animal feed used during the Cycle, including hay and silage. Note that fresh forage has its own completeness field.\n"
-                "animalPopulation: The types and quantities of all live animals or live aquatic species that were present during the Cycle.\n"
-                "cropResidue: The quantity of above and below ground crop residue created and its management are recorded.\n"
-                "electricityFuel: The types and quantities of all electricity and fuel used during the Cycle, excluding during the transport phase.\n"
-                "excreta: The types and quantities of excreta created and its management.\n"
-                "fertiliser: The types and quantities of all organic fertiliser and inorganic fertiliser, or the quantity of each fertiliser brand name.\n"
-                "freshForage: The types and quantities of all fresh forage fed to, or grazed by, animals during the Cycle.\n"
-                "ingredient: For feed or food processing Cycles, the type and quantities of all feed or food ingredients used, such as crop products, animal products, processed foods, and/or feed or food additives.\n"
-                "liveAnimalInput: The types and quantities of all live animals or live aquatic species which were Inputs into the Cycle. For example, piglets might be an Input into a pig fattening Cycle.\n"
-                "material: The types and quantities of all material and substrate Inputs, which includes capital equipment depreciated over the Cycle.\n"
-                "operation: The types of all mechanical operation performed during the Cycle and either their duration or the percentage of area they covered.\n"
-                "otherChemical: The types and quantities of all other chemicals (including processing aids, other inorganic chemicals, and other organic chemicals) used during the Cycle.\n"
-                "pesticideVeterinaryDrug: The types and quantities of all pesticides (either as active ingredients or brand names) and veterinary drugs used during the Cycle.\n"
-                "seed: The types and quantities of all seed Inputs, such as seed,saplings, or semen.\n"
-                "soilAmendment: The types and quantities of all soil amendments and biochar used during the Cycle.\n"
-                "transport: The transport modes and distances for each Input to the Site are recorded. If Products were also Transported during this Cycle, the distances and modes are specified.\n"
-                "waste: The types and quantities all waste streams, their and management, and their transport to where they are managed are specified (note that crop residue and excreta waste streams and management have their own completeness fields). Examples of waste streams include dead animals or plastic films for greenhouses. Examples of management include disposal into a water body or bio-digestion. Examples of transport include taking waste to a disposal center.\n"
-                "water: The types and quantities of all water used during the Cycle.\n"
-                "product: The types and quantities of all crop, live animal, live aquatic species, animal product, and processed food produced during the Cycle are recorded. In the case where Products were intended to be produced but no production occurred (e.g., if crops fail due to disease) the types of products should still be recorded and the quantity set to zero.")
+        return (
+            "For each of the following categories, please report the system boundary completeness requirement for the life cycle assessment Cycle given in the Target Evaluation Description in the form '<category>: True/False'."
+            "If the types and quantities of the category are specified in the life cycle assessment, set to True. If the category is not present in the life cycle assessment, set to True."
+            "If the category was used, but the types and quantities are not specified, set to False. \n"
+            "The categories include:\n"
+            "animalFeed: The types and quantities of all animal feed used during the Cycle, including hay and silage. Note that fresh forage has its own completeness field.\n"
+            "animalPopulation: The types and quantities of all live animals or live aquatic species that were present during the Cycle.\n"
+            "cropResidue: The quantity of above and below ground crop residue created and its management are recorded.\n"
+            "electricityFuel: The types and quantities of all electricity and fuel used during the Cycle, excluding during the transport phase.\n"
+            "excreta: The types and quantities of excreta created and its management.\n"
+            "fertiliser: The types and quantities of all organic fertiliser and inorganic fertiliser, or the quantity of each fertiliser brand name.\n"
+            "freshForage: The types and quantities of all fresh forage fed to, or grazed by, animals during the Cycle.\n"
+            "ingredient: For feed or food processing Cycles, the type and quantities of all feed or food ingredients used, such as crop products, animal products, processed foods, and/or feed or food additives.\n"
+            "liveAnimalInput: The types and quantities of all live animals or live aquatic species which were Inputs into the Cycle. For example, piglets might be an Input into a pig fattening Cycle.\n"
+            "material: The types and quantities of all material and substrate Inputs, which includes capital equipment depreciated over the Cycle.\n"
+            "operation: The types of all mechanical operation performed during the Cycle and either their duration or the percentage of area they covered.\n"
+            "otherChemical: The types and quantities of all other chemicals (including processing aids, other inorganic chemicals, and other organic chemicals) used during the Cycle.\n"
+            "pesticideVeterinaryDrug: The types and quantities of all pesticides (either as active ingredients or brand names) and veterinary drugs used during the Cycle.\n"
+            "seed: The types and quantities of all seed Inputs, such as seed,saplings, or semen.\n"
+            "soilAmendment: The types and quantities of all soil amendments and biochar used during the Cycle.\n"
+            "transport: The transport modes and distances for each Input to the Site are recorded. If Products were also Transported during this Cycle, the distances and modes are specified.\n"
+            "waste: The types and quantities all waste streams, their and management, and their transport to where they are managed are specified (note that crop residue and excreta waste streams and management have their own completeness fields). Examples of waste streams include dead animals or plastic films for greenhouses. Examples of management include disposal into a water body or bio-digestion. Examples of transport include taking waste to a disposal center.\n"
+            "water: The types and quantities of all water used during the Cycle.\n"
+            "product: The types and quantities of all crop, live animal, live aquatic species, animal product, and processed food produced during the Cycle are recorded. In the case where Products were intended to be produced but no production occurred (e.g., if crops fail due to disease) the types of products should still be recorded and the quantity set to zero.")
     elif dataset_type == "Product":
         return "The Product produced during the production Cycle, which is the target of this Impact Assessment described in the Target Evaluation Description."
     else:
         return "Wrong Dataset Type"
 
+
 def process_all_tasks(row):
     """
     driver function to create all datasets
     :param row: row of data
-    :param RAG: boolean for whether or not RAG is implemented
-    :param vdb: vector database
-    :param reader: LLM pipeline
-    :param tokenizer: LLM tokenizer
     :return: entry for json-ld dataset
     """
     return pd.Series({
@@ -345,15 +350,17 @@ def main(output_directory, input_directory, RAG, ablation=False):
     :param output_directory: output directory
     :param input_directory: input directory
     :param RAG: boolean to include RAG or not
+    :param ablation: boolean to determine whether not an ablation analysis is being conducted
     :return: N/A
     """
     # if it is RAG, the deduplicated tables already exist, so much of data processing is not necessary
     if RAG:
         rerank_model = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')
         embeddings = constants.EMBED_MODEL
-        vdb = FAISS.load_local("llm-goal-scope/" + constants.VDB_LOCATION, embeddings, allow_dangerous_deserialization=True)
+        vdb = FAISS.load_local("llm-goal-scope/" + constants.VDB_LOCATION, embeddings,
+                               allow_dangerous_deserialization=True)
         reader, tokenizer = rag_retrieval.model_config()
-        
+
         if ablation:
             f = "llm-goal-scope/data/dataset/original/no_rag/Functional Unit.jsonl"
             ablation_configs = {
@@ -366,24 +373,25 @@ def main(output_directory, input_directory, RAG, ablation=False):
                 "temp-033": {"temperature": 0.3},
                 "temp-090": {"temperature": 0.90}
             }
-            
+
             for suffix, kwargs in ablation_configs.items():
-                out_fpath = f"/".join(f.split("/")[:4]) + "/rag/" + f.split("/")[-1].replace(".jsonl", f"{suffix}.jsonl")
+                out_fpath = f"/".join(f.split("/")[:4]) + "/rag/" + f.split("/")[-1].replace(".jsonl",
+                                                                                             f"{suffix}.jsonl")
                 dataset_type = f.split("/")[-1].replace(".jsonl", "")
                 run_rag_batch_inference(f, out_fpath, dataset_type, reader, tokenizer, vdb, rerank_model, kwargs)
         else:
             datasets = ["llm-goal-scope/data/dataset/original/no_rag/Allocation.jsonl",
-                                "llm-goal-scope/data/dataset/original/no_rag/Functional Unit.jsonl",
-                                "llm-goal-scope/data/dataset/original/no_rag/Product.jsonl",
-                                "llm-goal-scope/data/dataset/original/no_rag/System Boundary.jsonl",
-                                "llm-goal-scope/data/dataset/standardized/no_rag/Functional Unit.jsonl",
-                                "llm-goal-scope/data/dataset/standardized/no_rag/Product.jsonl",
-                                "llm-goal-scope/data/dataset/standardized/no_rag/System Boundary.jsonl", ]
+                        "llm-goal-scope/data/dataset/original/no_rag/Functional Unit.jsonl",
+                        "llm-goal-scope/data/dataset/original/no_rag/Product.jsonl",
+                        "llm-goal-scope/data/dataset/original/no_rag/System Boundary.jsonl",
+                        "llm-goal-scope/data/dataset/standardized/no_rag/Functional Unit.jsonl",
+                        "llm-goal-scope/data/dataset/standardized/no_rag/Product.jsonl",
+                        "llm-goal-scope/data/dataset/standardized/no_rag/System Boundary.jsonl", ]
             for f in datasets:
                 out_fpath = f"/".join(f.split("/")[:4]) + "/rag/" + f.split("/")[-1]
                 dataset_type = f.split("/")[-1].replace(".jsonl", "")
                 run_rag_batch_inference(f, out_fpath, dataset_type, reader, tokenizer, vdb, rerank_model)
-                
+
     else:
         tqdm.pandas()
         # read in data
@@ -462,26 +470,27 @@ def main(output_directory, input_directory, RAG, ablation=False):
                         json_line = json.dumps(item[0])
                     f.write(json_line + '\n')
 
+
 def run_rag_batch_inference(input_file, out_fpath, dataset_type, reader, tokenizer, vdb, rerank, rag_kwargs=None):
     rag_kwargs = rag_kwargs or {}
     question = RAG_questions(dataset_type)
     hestia = HESTIA_information(dataset_type)
-    
+
     # Ensure directory output footprint exists
     os.makedirs(os.path.dirname(out_fpath), exist_ok=True)
-    
+
     # Load all records cleanly up front
     with open(input_file, "r", encoding="utf-8") as infile:
         records = [json.loads(line) for line in infile]
-        
+
     if not records:
         return
 
     print(f"Executing true batch generation for {len(records)} entries -> {out_fpath}")
-    
+
     # Extract ALL descriptions into a clean list
     descriptions = [r["context"] for r in records]
-    
+
     # pass the entire list at once to unlock multi-GPU performance
     answers = rag_retrieval.answer_with_rag(
         system_description=descriptions,
@@ -496,10 +505,11 @@ def run_rag_batch_inference(input_file, out_fpath, dataset_type, reader, tokeniz
 
     # Re-assemble records with updated context fields
     for r, ans in zip(records, answers):
-        ans = ans.replace("<|end_header_id|>","").replace("<|eot_id|>","")# replace RAG artifacts
-        ans = ans.replace("Additional Relevant Context: ", "") # in case the LLM followed instructions literally in only some of the cases.
+        ans = ans.replace("<|end_header_id|>", "").replace("<|eot_id|>", "")  # replace RAG artifacts
+        ans = ans.replace("Additional Relevant Context: ",
+                          "")  # in case the LLM followed instructions literally in only some of the cases.
         r['context'] = f"{r['context']} Additional Relevant Context: {ans}"
-        
+
     with open(out_fpath, "w", encoding="utf-8") as outfile:
         for r in records:
             outfile.write(json.dumps(r, ensure_ascii=False) + "\n")

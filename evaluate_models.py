@@ -5,6 +5,7 @@ import pandas as pd
 import shutil
 import matplotlib
 import collections
+
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import torch.nn as nn
@@ -122,7 +123,7 @@ class AsymmetricLossOptimized(nn.Module):
 def preprocess_function(examples, classes, class2id, tokenizer):
     """
     preprocess data
-    :param example: a row of data
+    :param examples: a row of data
     :param classes: list of classes
     :param class2id: dict of classes and labels
     :param tokenizer: tokenizer model
@@ -137,7 +138,7 @@ def preprocess_function(examples, classes, class2id, tokenizer):
         for label in label_list:
             if label in class2id:
                 labels_matrix[idx, class2id[label]] = 1.0
-    
+
     tokenized = tokenizer(texts, truncation=True)
     tokenized['labels'] = labels_matrix.tolist()
     return tokenized
@@ -174,6 +175,7 @@ def train_model(model, tokenized_dataset, tokenizer, data_collator, dataset_name
     :param data_collator: data collator
     :param dataset_name: name of the dataset
     :param model_path: path to storage location of the LLM for checkpoints and trained models
+    :param loss_fn: loss function to be used when training or for ablation analysis
     :return: custom loss trainer
     """
     # create necessary filepaths
@@ -239,7 +241,7 @@ def eval_metrics(tokenized_dataset, trainer, classes, dataset_name, fpath):
     multilabel_indicators = (1 / (1 + np.exp(-predictions_output.predictions)))
     threshold = 0.7
     multilabel_preds = multilabel_indicators > threshold
-    
+
     plt.figure()
     plt.hist(multilabel_indicators.flatten(), bins=20)
     plt.title(f'Raw Logit Predictions for {dataset_name}')
@@ -251,7 +253,8 @@ def eval_metrics(tokenized_dataset, trainer, classes, dataset_name, fpath):
     for i, cm in enumerate(cm):
         disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=['Negative', 'Positive'])
         disp.plot(cmap='Blues', values_format='d')
-        plt.title(f'Confusion Matrix for {classes[i]} class for ' + str(dataset_name) + ' with threshold ' + str(threshold))
+        plt.title(
+            f'Confusion Matrix for {classes[i]} class for ' + str(dataset_name) + ' with threshold ' + str(threshold))
         plt.savefig(fpath + f'/Confusion Matrix for {classes[i].replace("/", "")} class.png', dpi=300)
         plt.close('all')
 
@@ -269,7 +272,6 @@ def eval_metrics(tokenized_dataset, trainer, classes, dataset_name, fpath):
             w.writerow(["Validation Metrics:"])
             w.writerows(val_metrics.items())
             print(f"Saved Metrics for {dataset_name}")
-
 
     # get the validation dataset to match val_logits length
     valid_dataset = tokenized_dataset["valid"]
@@ -290,7 +292,7 @@ def eval_metrics(tokenized_dataset, trainer, classes, dataset_name, fpath):
         'true_labels': validation_output.label_ids.astype(int).tolist(),
         'classes': [classes] * len(valid_dataset)
     })
-    
+
     # Save validation predictions to disk right here so you don't lose them
     validation_df.to_csv(fpath + "/validation_predictions.csv", index=False)
     prediction_df.to_csv(fpath + "/test_predictions.csv", index=False)
@@ -301,6 +303,8 @@ def eval_models(dataset, dataset_name, ablation_loss_fn=None, suffix=""):
     evaluate model loop
     :param dataset: dataset of interest
     :param dataset_name: name of dataset
+    :param ablation_loss_fn: the loss function used for ablation analysis.
+    :param suffix: suffix of file path for use in ablation analysis
     :return: N/A
     """
     # from: https://huggingface.co/blog/Valerii-Knowledgator/multi-label-classification
@@ -310,8 +314,8 @@ def eval_models(dataset, dataset_name, ablation_loss_fn=None, suffix=""):
         class2id = {class_: id for id, class_ in enumerate(classes)}
         id2class = {id: class_ for class_, id in class2id.items()}
 
-        model_paths = ['microsoft/deberta-v3-small', 'microsoft/deberta-v3-base', 
-                        'microsoft/deberta-v3-large',
+        model_paths = ['microsoft/deberta-v3-small', 'microsoft/deberta-v3-base',
+                       'microsoft/deberta-v3-large',
                        # these models are confirmed to work
                        "google-bert/bert-base-uncased", "FacebookAI/roberta-large",
                        "climatebert/distilroberta-base-climate-f", "ESGBERT/EnvironmentalBERT-base"]
@@ -344,7 +348,8 @@ def eval_models(dataset, dataset_name, ablation_loss_fn=None, suffix=""):
 
             # train model
             if ablation_loss_fn is not None:
-                trainer = train_model(model, tokenized_dataset, tokenizer, data_collator, dataset_path, model_path, ablation_loss_fn)
+                trainer = train_model(model, tokenized_dataset, tokenizer, data_collator, dataset_path, model_path,
+                                      ablation_loss_fn)
             else:
                 trainer = train_model(model, tokenized_dataset, tokenizer, data_collator, dataset_path, model_path)
 
@@ -407,35 +412,35 @@ def plotting(log_history_df, dataset_name, model_name):
     print("loss plot saved")
 
 
-if __name__ == "__main__":
+def main():
     # load all datasets
     # apparently the debug and run configuration require different filepaths, so may need to remove the first directory
 
     # ignoring comparative assertion, intended application, study reasons, and target audience as Hestia does not have that data
     # ignoring recalculated allocation because it only uses the economic label
     filenames = [
-        # "llm-goal-scope/data/dataset/original/no_rag/Functional Unit.jsonl", # 10:20am
-        # "llm-goal-scope/data/dataset/original/no_rag/System Boundary.jsonl",
-        # "llm-goal-scope/data/dataset/original/no_rag/Allocation.jsonl",
-        # "llm-goal-scope/data/dataset/original/no_rag/Product.jsonl",
-        # "llm-goal-scope/data/dataset/standardized/no_rag/Functional Unit.jsonl",
-        # "llm-goal-scope/data/dataset/standardized/no_rag/Product.jsonl", # 1:41pm
-        # "llm-goal-scope/data/dataset/standardized/no_rag/System Boundary.jsonl",
-        # "llm-goal-scope/data/dataset/original/rag/Allocation.jsonl", # 3:00 pm
+        "llm-goal-scope/data/dataset/original/no_rag/Functional Unit.jsonl",  # 10:20am
+        "llm-goal-scope/data/dataset/original/no_rag/System Boundary.jsonl",
+        "llm-goal-scope/data/dataset/original/no_rag/Allocation.jsonl",
+        "llm-goal-scope/data/dataset/original/no_rag/Product.jsonl",
+        "llm-goal-scope/data/dataset/standardized/no_rag/Functional Unit.jsonl",
+        "llm-goal-scope/data/dataset/standardized/no_rag/Product.jsonl",  # 1:41pm
+        "llm-goal-scope/data/dataset/standardized/no_rag/System Boundary.jsonl",
+        "llm-goal-scope/data/dataset/original/rag/Allocation.jsonl",  # 3:00 pm
         "llm-goal-scope/data/dataset/original/rag/Functional Unit.jsonl",
-        # "llm-goal-scope/data/dataset/original/rag/Product.jsonl", # 3:50 pm
-        # "llm-goal-scope/data/dataset/original/rag/System Boundary.jsonl",
-        # "llm-goal-scope/data/dataset/standardized/rag/Functional Unit.jsonl",
-        # "llm-goal-scope/data/dataset/standardized/rag/Product.jsonl",
-        # "llm-goal-scope/data/dataset/standardized/rag/System Boundary.jsonl",
-        # "llm-goal-scope/data/dataset/original/rag/Functional Unitn-retrieved-10.jsonl",
-        # "llm-goal-scope/data/dataset/original/rag/Functional Unitn-retrieved-20.jsonl",
-        # "llm-goal-scope/data/dataset/original/rag/Functional Unitn-top-1.jsonl",
-        # "llm-goal-scope/data/dataset/original/rag/Functional Unitn-top-5.jsonl", # 8:26
-        # "llm-goal-scope/data/dataset/original/rag/Functional Unittemp-033.jsonl",
-        # "llm-goal-scope/data/dataset/original/rag/Functional Unittemp-090.jsonl",
-        # "llm-goal-scope/data/dataset/original/rag/Functional Unittokens-128.jsonl",
-        # "llm-goal-scope/data/dataset/original/rag/Functional Unittokens-512.jsonl"
+        "llm-goal-scope/data/dataset/original/rag/Product.jsonl",  # 3:50 pm
+        "llm-goal-scope/data/dataset/original/rag/System Boundary.jsonl",
+        "llm-goal-scope/data/dataset/standardized/rag/Functional Unit.jsonl",
+        "llm-goal-scope/data/dataset/standardized/rag/Product.jsonl",
+        "llm-goal-scope/data/dataset/standardized/rag/System Boundary.jsonl",
+        "llm-goal-scope/data/dataset/original/rag/Functional Unitn-retrieved-10.jsonl",
+        "llm-goal-scope/data/dataset/original/rag/Functional Unitn-retrieved-20.jsonl",
+        "llm-goal-scope/data/dataset/original/rag/Functional Unitn-top-1.jsonl",
+        "llm-goal-scope/data/dataset/original/rag/Functional Unitn-top-5.jsonl",  # 8:26
+        "llm-goal-scope/data/dataset/original/rag/Functional Unittemp-033.jsonl",
+        "llm-goal-scope/data/dataset/original/rag/Functional Unittemp-090.jsonl",
+        "llm-goal-scope/data/dataset/original/rag/Functional Unittokens-128.jsonl",
+        "llm-goal-scope/data/dataset/original/rag/Functional Unittokens-512.jsonl"
     ]
 
     # for each dataset
@@ -444,7 +449,7 @@ if __name__ == "__main__":
             ablation = True
         else:
             ablation = False
-        
+
         # Do all ablation studies
         if ablation:
             # load the dataset
@@ -458,7 +463,7 @@ if __name__ == "__main__":
                     column_data = dataset['train'][s]
                     unique_counts = collections.Counter(column_data)
                     min_frequency = min(unique_counts.values())
-                    
+
                     # Guardrail: If an item only appears 1 or 2 times, it cannot be split 3 ways.
                     if min_frequency < 3:
                         print(f"Column '{s}' has a rare item appearing only {min_frequency} time(s).")
@@ -467,19 +472,21 @@ if __name__ == "__main__":
                     else:
                         # max items we can take from the rarest class for validation (and test)
                         max_items_per_slice = math.floor(min_frequency / 3)
-                        
+
                         # calculate the maximum percentage this represents for the rarest class
                         max_fraction_per_slice = max_items_per_slice / min_frequency
-                        
+
                         # Cap it at a reasonable global limit (e.g., max 20% test, 20% valid) so training set doesn't get small on well-populated datasets.
                         if max_fraction_per_slice > 0.20:
-                            print("Stratification into 3 splits would require training data size <60%. Skipping stratification...")
+                            print(
+                                "Stratification into 3 splits would require training data size <60%. Skipping stratification...")
                             continue
                         test_fraction = min(max_fraction_per_slice, 0.20)
-                        train_fraction = 1.0 - test_fraction*2
+                        train_fraction = 1.0 - test_fraction * 2
                         print(f"Train fraction for s is {train_fraction}, test/validation fraction is {test_fraction}")
 
-                    train_testvalid = dataset['train'].train_test_split(test_size=test_fraction*2, seed=42, stratify_by_column=s)
+                    train_testvalid = dataset['train'].train_test_split(test_size=test_fraction * 2, seed=42,
+                                                                        stratify_by_column=s)
                     # Split the 10% test + valid in half test, half valid
                     test_valid = train_testvalid['test'].train_test_split(test_size=0.5, seed=42, stratify_by_column=s)
                     # gather everyone if you want to have a single DatasetDict
@@ -523,4 +530,6 @@ if __name__ == "__main__":
         print(str(k), "dataset loaded")
         eval_models(train_test_valid_dataset, k)
 
-        
+
+if __name__ == "__main__":
+    main()
